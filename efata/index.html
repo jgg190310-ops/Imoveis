@@ -572,8 +572,7 @@ const $=id=>document.getElementById(id);
 const WA='5511991605396', WM='PRÉVIA · JOÃO · (31) 99913-1903';
 const waUrl='https://wa.me/'+WA+'?text='+encodeURIComponent('Olá! Vi o site do apartamento no Alphaview (13º andar) e tenho interesse.');
 document.querySelectorAll('[data-wa]').forEach(a=>{a.href=waUrl;a.target='_blank';a.rel='noopener'});
-const wmHTML='<div class="wm"><span>'+WM+'</span></div>';
-document.querySelectorAll('.ph').forEach(p=>p.insertAdjacentHTML('beforeend',wmHTML));
+const wmHTML='';
 
 
 /* agendar visita */
