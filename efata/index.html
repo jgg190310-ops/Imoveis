@@ -3,8 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Alphaview · Último andar · Barueri — Prévia</title>
-<meta name="robots" content="noindex">
+<title>Alphaview · Último andar · Barueri</title>
 <meta name="theme-color" content="#f6f2ea">
 <meta name="description" content="Apartamento de 61,8 m² no último andar do Alphaview, Barueri: 2 quartos (1 suíte), vista pra Alphaville, +40 itens de lazer. R$ 452.000.">
 <meta property="og:type" content="website">
@@ -294,11 +293,10 @@ footer a{color:var(--brass2)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
-<body oncontextmenu="return false">
+<body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></symbol>
 </svg>
-<div class="wm-page" aria-hidden="true"></div>
 
 <nav class="nav" id="nav">
   <div class="brand">Alphaview <b>·</b> 13º</div>
@@ -544,7 +542,7 @@ footer a{color:var(--brass2)}
   </div>
 </section>
 
-<footer>Prévia criada por <a href="https://wa.me/5531999131903" target="_blank" rel="noopener">João · (31) 99913-1903</a> · uso não autorizado proibido</footer>
+<footer>Site criado por <a href="https://wa.me/5531999131903?text=Ol%C3%A1!%20Vi%20o%20site%20do%20Alphaview%20e%20quero%20um%20site%20pro%20meu%20im%C3%B3vel." target="_blank" rel="noopener">João · (31) 99913-1903</a></footer>
 <a class="wafloat" data-wa href="#" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
 <div class="mbar" id="mbar"><div><small>Venda</small><b>R$ 452.000</b></div><a class="btn wa" data-wa href="#"><svg><use href="#i-wa"/></svg>WhatsApp</a></div>
 <div class="toast" id="toast"></div>
@@ -562,7 +560,7 @@ footer a{color:var(--brass2)}
   <div id="zoomBox" hidden><button id="zIn" aria-label="Aproximar">+</button><button id="zOut" aria-label="Afastar">−</button></div>
   <button id="reset" hidden>Ver tudo</button>
   <div id="card"><button id="cX" aria-label="Fechar">×</button><img id="cImg" alt="" hidden><div class="ct"><div id="cNo"></div><div id="cName"></div><div id="cTxt"></div></div></div>
-  <div class="ilus">Maquete ilustrativa · PRÉVIA · João (31) 99913-1903</div>
+  <div class="ilus">Maquete ilustrativa · medidas e disposição podem variar</div>
   <div id="loading">Montando a maquete…</div>
 </div>
 
@@ -572,8 +570,8 @@ const $=id=>document.getElementById(id);
 const WA='5511991605396', WM='PRÉVIA · JOÃO · (31) 99913-1903';
 const waUrl='https://wa.me/'+WA+'?text='+encodeURIComponent('Olá! Vi o site do apartamento no Alphaview (13º andar) e tenho interesse.');
 document.querySelectorAll('[data-wa]').forEach(a=>{a.href=waUrl;a.target='_blank';a.rel='noopener'});
-const wmHTML='<div class="wm"><span>'+WM+'</span></div>';
-document.querySelectorAll('.ph').forEach(p=>p.insertAdjacentHTML('beforeend',wmHTML));
+const wmHTML='';
+
 
 /* agendar visita */
 const agD=$('agD'); const t0=new Date(); t0.setDate(t0.getDate()+1); agD.min=new Date().toISOString().slice(0,10); agD.value=t0.toISOString().slice(0,10);
