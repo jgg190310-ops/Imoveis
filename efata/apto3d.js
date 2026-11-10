@@ -25,7 +25,7 @@ function noise(g,s,a,n){ for (let i=0;i<(n||s*12);i++){ g.fillStyle = rnd()<.5 ?
 function grain(g,x,y,w,h,alpha,n){ for (let k=0;k<n;k++){ const yy=y+rnd()*h; g.strokeStyle='rgba(40,14,4,'+(rnd()*alpha)+')'; g.lineWidth=.6+rnd()*1.2; g.beginPath(); g.moveTo(x,yy); for (let xx=x; xx<=x+w; xx+=w/6) g.lineTo(xx, yy+(rnd()-.5)*2.4); g.stroke(); } }
 // assoalho de ipê: tábuas largas, avermelhadas, com o veio aparente (como nas fotos)
 const tIpe = tex((g,s)=>{ g.fillStyle='#3a160a'; g.fillRect(0,0,s,s); const n=6, w=s/n;
-  for (let i=0;i<n;i++){ let y=-rnd()*s; while (y<s){ const L=s*(.5+rnd()*.7), tone=rnd(); const r=128+tone*42, gg=86+tone*30, b=52+tone*20;
+  for (let i=0;i<n;i++){ let y=-rnd()*s; while (y<s){ const L=s*(.5+rnd()*.7), tone=rnd(); const r=118+tone*38, gg=88+tone*30, b=62+tone*22;
       g.save(); g.translate(i*w+w/2, y+L/2); g.rotate(Math.PI/2); const gr=g.createLinearGradient(-L/2,0,L/2,0); gr.addColorStop(0,'rgb('+C8(r-12)+','+C8(gg-8)+','+C8(b-4)+')'); gr.addColorStop(.5,'rgb('+C8(r+8)+','+C8(gg+6)+','+C8(b+3)+')'); gr.addColorStop(1,'rgb('+C8(r-16)+','+C8(gg-10)+','+C8(b-6)+')'); g.fillStyle=gr; g.fillRect(-L/2,-w/2+1.5,L,w-3);
       grain(g,-L/2,-w/2,L,w,.32,26); g.restore(); g.fillStyle='rgba(30,10,2,.7)'; g.fillRect(i*w+1.5, y, w-3, 2); y+=L; } }
   noise(g,s,.03); }, 1024);
@@ -233,7 +233,7 @@ envBall.geometry.setAttribute('color',new T.Float32BufferAttribute(new Float32Ar
 function updateEnv(top,bot){ if (!night && roomEnv){ scene.environment=roomEnv; return; } const P=envBall.geometry.attributes.position, Cc=envBall.geometry.attributes.color, tl=top.clone().convertSRGBToLinear(), bl=bot.clone().convertSRGBToLinear(), c=new T.Color();
   for (let i=0;i<P.count;i++){ const h=Math.max(0,P.getY(i)/10); c.copy(bl).lerp(tl,Math.pow(h,.55)); if (P.getY(i)<0) c.copy(bl).multiplyScalar(.45); Cc.setXYZ(i,c.r,c.g,c.b); } Cc.needsUpdate=true; const old=envRT; envRT=pmrem.fromScene(envScene,.04); scene.environment=envRT.texture; if (old) old.dispose(); }
 for (const k in mat){ const m=mat[k]; if (m && m.isMeshStandardMaterial) m.envMapIntensity=Math.min(m.envMapIntensity,.35); }
-mat.wall.envMapIntensity=.3; mat.ipe.envMapIntensity=.35; mat.taco.envMapIntensity=.3; mat.porc.envMapIntensity=.4; mat.glass.envMapIntensity=.9; mat.mirror.envMapIntensity=1; mat.steel.envMapIntensity=.8; mat.ipe.roughness=.45; mat.ipe.color.copy(lin('#f2e9de')); mat.taco.roughness=.5;
+mat.wall.envMapIntensity=.3; mat.ipe.envMapIntensity=.35; mat.taco.envMapIntensity=.3; mat.porc.envMapIntensity=.4; mat.glass.envMapIntensity=.9; mat.mirror.envMapIntensity=1; mat.steel.envMapIntensity=.8; mat.ipe.roughness=.45; mat.ipe.color.copy(lin('#efe7dc')); mat.taco.roughness=.5;
 const sunDir=new T.Vector3(); let hour=9, night=0, lampF=0;
 function sunAt(){ return sunDir.set(-.42,.84,-.6).normalize(); }
 function setHour(h){ hour=h; night = (h>=18||h<6) ? 1 : 0;

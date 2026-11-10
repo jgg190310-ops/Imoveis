@@ -148,7 +148,9 @@ section{position:relative;padding:130px 0}
 .pillbox{display:flex;gap:4px;padding:5px;border-radius:999px;background:rgba(20,35,29,.82);backdrop-filter:blur(12px)}
 .pillbox button{all:unset;cursor:pointer;padding:8px 14px;border-radius:999px;font-size:.8rem;color:#dfe6e1}
 .pillbox button.on{background:#e5cf9d;color:#14231d;font-weight:600}
-.x3{all:unset;cursor:pointer;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(20,35,29,.82);color:#fff;font-size:1.4rem}
+.x3{all:unset;pointer-events:auto;cursor:pointer;display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px 0 14px;border-radius:999px;background:rgba(20,35,29,.88);color:#fff;font-size:.86rem;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.x3 span{font-size:1.25rem;line-height:1}
+.x3:hover{background:#16241e}
 #zoomBox{position:absolute;right:14px;bottom:20px;display:flex;flex-direction:column;gap:6px;z-index:3;transition:opacity .3s}
 #zoomBox button{all:unset;cursor:pointer;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(20,35,29,.82);color:#fff;font-size:1.3rem}
 #reset{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:3;all:unset;cursor:pointer;padding:10px 18px;border-radius:999px;background:rgba(20,35,29,.82);color:#fff;font-size:.82rem}
@@ -220,6 +222,10 @@ footer a{color:var(--brass2)}
 .lb .box img{max-width:100%;max-height:86vh;object-fit:contain;border-radius:12px}
 .lb .cap{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);font-size:.85rem;color:#cfd8d2}
 .lb .lx{all:unset;cursor:pointer;position:fixed;top:16px;right:20px;color:#fff;font-size:2rem;z-index:2}
+.lb .nv{all:unset;cursor:pointer;position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14);color:#fff;font-size:1.6rem;z-index:2}
+.lb .nv:hover{background:rgba(255,255,255,.25)}
+.lb .pv{left:16px}.lb .nx{right:16px}
+@media(max-width:600px){.lb .nv{top:auto;bottom:56px;transform:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -422,19 +428,19 @@ footer a{color:var(--brass2)}
 <footer>Prévia criada por <a href="https://wa.me/5531999131903" target="_blank" rel="noopener">João · (31) 99913-1903</a> · uso não autorizado proibido</footer>
 <a class="wafloat" data-wa href="#" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
 
-<div class="lb" id="lb"><button class="lx" aria-label="Fechar" id="lbX">×</button><div class="box" id="lbBox"></div><div class="cap" id="lbCap"></div></div>
+<div class="lb" id="lb"><button class="lx" aria-label="Fechar" id="lbX">×</button><button class="nv pv" id="lbP" aria-label="Anterior">‹</button><button class="nv nx" id="lbN" aria-label="Próxima">›</button><div class="box" id="lbBox"></div><div class="cap" id="lbCap"></div></div>
 
 <div class="m3d" id="m3d" aria-hidden="true">
   <canvas id="c3d"></canvas>
   <div id="labels3d"></div>
   <div class="m3bar">
     <div class="pillbox"><button id="dia" class="on">Dia</button><button id="noite">Noite</button></div>
-    <button class="x3" id="m3x" aria-label="Fechar">×</button>
+    <button class="x3" id="m3x" aria-label="Sair da maquete"><span>×</span>Sair</button>
   </div>
   <div id="hint3d">Arraste pra girar · toque num ambiente</div>
   <div id="zoomBox" hidden><button id="zIn" aria-label="Aproximar">+</button><button id="zOut" aria-label="Afastar">−</button></div>
   <button id="reset" hidden>Ver tudo</button>
-  <div id="card"><button id="cX" aria-label="Fechar">×</button><img id="cImg" alt=""><div class="ct"><div id="cNo"></div><div id="cName"></div><div id="cTxt"></div></div></div>
+  <div id="card"><button id="cX" aria-label="Fechar">×</button><img id="cImg" alt="" hidden><div class="ct"><div id="cNo"></div><div id="cName"></div><div id="cTxt"></div></div></div>
   <div class="ilus">Maquete ilustrativa · PRÉVIA · João (31) 99913-1903</div>
   <div id="loading">Montando a maquete…</div>
 </div>
@@ -468,8 +474,14 @@ show('Tudo');
 
 /* lightbox */
 const lb=$('lb');
-function lbOpen(src,cap){ $('lbBox').innerHTML='<img src="'+src+'" alt="">'+wmHTML; $('lbCap').textContent=cap||''; lb.classList.add('on'); }
-document.addEventListener('click',e=>{ const p=e.target.closest('[data-zoom]'); if(p) lbOpen(p.dataset.zoom,p.dataset.cap); });
+let lbList=[], lbI=0;
+function lbShow(){ const [src,cap]=lbList[lbI]; $('lbBox').innerHTML='<img src="'+src+'" alt="">'+wmHTML; $('lbCap').textContent=(cap||'')+(lbList.length>1?'  ·  '+(lbI+1)+'/'+lbList.length:''); $('lbP').hidden=$('lbN').hidden=lbList.length<2; }
+function lbOpen(src,cap){ const seen=new Set(); lbList=[...document.querySelectorAll('[data-zoom]')].map(e=>[e.dataset.zoom,e.dataset.cap]).filter(x=>!seen.has(x[0])&&seen.add(x[0])); lbI=Math.max(0,lbList.findIndex(x=>x[0]===src)); if(lbI<0||!lbList.length){ lbList=[[src,cap]]; lbI=0; } lbShow(); lb.classList.add('on'); }
+const lbGo=d=>{ lbI=(lbI+d+lbList.length)%lbList.length; lbShow(); };
+$('lbP').onclick=e=>{e.stopPropagation();lbGo(-1)}; $('lbN').onclick=e=>{e.stopPropagation();lbGo(1)};
+let tx=null; lb.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true}); lb.addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) lbGo(dx<0?1:-1); tx=null; });
+addEventListener('keydown',e=>{ if(!lb.classList.contains('on')) return; if(e.key==='ArrowRight') lbGo(1); if(e.key==='ArrowLeft') lbGo(-1); });
+document.addEventListener('click',e=>{ const p=e.target.closest('[data-zoom]'); if(p && !m3d.classList.contains('on')) lbOpen(p.dataset.zoom,p.dataset.cap); });
 $('lbX').onclick=()=>lb.classList.remove('on'); lb.onclick=e=>{ if(e.target===lb) lb.classList.remove('on'); };
 
 /* simulador */
@@ -491,12 +503,13 @@ document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 /* maquete 3D (carrega só quando abre) */
 const m3d=$('m3d'); let libs=null;
 const load=src=>new Promise((ok,no)=>{ const s=document.createElement('script'); s.src=src; s.onload=ok; s.onerror=no; document.head.appendChild(s); });
-async function open3d(){ m3d.classList.add('on'); m3d.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+async function open3d(){ if(!(history.state&&history.state.m3d)) history.pushState({m3d:1},''); m3d.classList.add('on'); m3d.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
   try{ if(!libs) libs=(async()=>{ await load('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'); await Promise.all([load('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/RoundedBoxGeometry.js'),load('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/environments/RoomEnvironment.js')]); await load('apto3d.js'); })();
     await libs; requestAnimationFrame(()=>window.Lux3DBoot&&window.Lux3DBoot()); }
   catch(e){ $('loading').textContent='A maquete 3D não abriu neste aparelho. As fotos estão na página.'; } }
-function close3d(){ m3d.classList.remove('on'); m3d.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
-document.querySelectorAll('[data-open3d]').forEach(b=>b.onclick=open3d); $('m3x').onclick=close3d;
+function close3d(fromPop){ if(!m3d.classList.contains('on')) return; m3d.classList.remove('on'); m3d.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if(!fromPop && history.state&&history.state.m3d) history.back(); }
+addEventListener('popstate',()=>close3d(true));
+document.querySelectorAll('[data-open3d]').forEach(b=>b.onclick=open3d); $('m3x').onclick=()=>close3d();
 addEventListener('keydown',e=>{ if(e.key!=='Escape') return; if(lb.classList.contains('on')) lb.classList.remove('on'); else if(m3d.classList.contains('on')) close3d(); });
 function wire3d(){ const L=window.Lux3D; if(!L||wire3d.done) return; wire3d.done=true;
   $('loading').style.opacity=0; setTimeout(()=>{ const l=$('loading'); if(l) l.remove(); },500); $('zoomBox').hidden=false; setTimeout(()=>{ $('hint3d').style.opacity=0; },4500);
