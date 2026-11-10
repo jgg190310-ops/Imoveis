@@ -6,6 +6,15 @@
 <title>Alphaview · Último andar · Barueri — Prévia</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#f6f2ea">
+<meta name="description" content="Apartamento de 61,8 m² no último andar do Alphaview, Barueri: 2 quartos (1 suíte), vista pra Alphaville, +40 itens de lazer. R$ 452.000.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Último andar no Alphaview · Barueri · R$ 452.000">
+<meta property="og:description" content="61,8 m², 2 quartos (1 suíte), vista pra Alphaville e +40 itens de lazer. Veja fotos e a maquete 3D.">
+<meta property="og:image" content="https://jgg190310-ops.github.io/Imoveis/efata/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://jgg190310-ops.github.io/Imoveis/efata/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/icon.png"><link rel="apple-touch-icon" href="img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -130,7 +139,10 @@ section{position:relative;padding:130px 0}
 /* ---------- 3D ---------- */
 .tri{position:relative;border-radius:30px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(120% 120% at 70% 0%,rgba(195,160,92,.2),transparent 55%),#fff;box-shadow:0 20px 60px rgba(20,35,29,.07);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;min-height:440px}
 .tri .txt{padding:54px}
-.tri .vis{position:relative;height:100%;min-height:360px;display:grid;place-items:center}
+.tri .vis{position:relative;height:100%;min-height:360px;display:grid;place-items:center;background:#d8d1c7}
+.tri .vis::after{content:"Toque pra abrir";position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-size:.75rem;padding:7px 14px;border-radius:999px;background:rgba(22,36,30,.85);color:#fff;pointer-events:none}
+.maq{width:92%;max-width:560px;cursor:pointer;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.maq:hover{transform:scale(1.03) rotate(-.5deg)}
 .iso{width:88%;max-width:440px;filter:drop-shadow(0 30px 40px rgba(20,35,29,.25));animation:bob 6s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-12px)}}
 .note{font-size:.78rem;color:var(--muted);margin-top:16px}
@@ -215,6 +227,18 @@ footer a{color:var(--brass2)}
 .wafloat{position:fixed;right:18px;bottom:18px;z-index:45;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#04230f;box-shadow:0 12px 30px rgba(37,211,102,.45)}
 .wafloat svg{width:28px;height:28px}
 
+/* agendar, barra mobile, toast */
+.ag{display:grid;grid-template-columns:1.2fr 1fr .8fr auto;gap:10px;align-items:end;max-width:900px;margin:34px auto 0;padding:14px;border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:0 20px 50px rgba(20,35,29,.08);text-align:left}
+.ag label{display:flex;flex-direction:column;gap:6px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:6px 8px}
+.ag input,.ag select{font:inherit;font-size:.95rem;letter-spacing:0;text-transform:none;color:var(--paper);border:0;border-bottom:1px solid var(--line);background:transparent;padding:6px 0;outline:none}
+.ag input:focus,.ag select:focus{border-color:var(--brass)}
+@media(max-width:760px){.ag{grid-template-columns:1fr 1fr}.ag label:first-child,.ag .btn{grid-column:span 2}.ag .btn{justify-content:center}}
+.share{all:unset;cursor:pointer;text-decoration:underline;color:var(--paper)}
+.mbar{display:none}
+@media(max-width:700px){.wafloat{display:none}.mbar{display:flex;position:fixed;left:10px;right:10px;bottom:10px;z-index:46;align-items:center;justify-content:space-between;gap:10px;padding:10px 10px 10px 18px;border-radius:999px;background:rgba(255,255,255,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.9);box-shadow:0 14px 40px rgba(20,35,29,.18);transform:translateY(130%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}.mbar.on{transform:none}.mbar small{display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}.mbar b{font-family:Fraunces,serif;font-weight:400;font-size:1.25rem;color:var(--brass2)}.mbar .btn{padding:12px 18px}footer{padding-bottom:100px}}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);opacity:0;z-index:95;padding:10px 18px;border-radius:999px;background:#16241e;color:#fff;font-size:.85rem;transition:.35s;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%)}
+
 /* lightbox */
 .lb{position:fixed;inset:0;z-index:90;background:rgba(6,10,8,.95);display:none;place-items:center;padding:4vw}
 .lb.on{display:grid}
@@ -257,6 +281,7 @@ footer a{color:var(--brass2)}
       <div class="btns rv d3">
         <a class="btn wa" data-wa href="#"><svg><use href="#i-wa"/></svg>Falar no WhatsApp</a>
         <button class="btn ghost" data-open3d>Ver planta em 3D</button>
+        <button class="btn ghost" data-share type="button" aria-label="Compartilhar" style="padding:15px 17px">↗</button>
       </div>
     </div>
     <div class="rv d2" style="position:relative">
@@ -335,7 +360,8 @@ footer a{color:var(--brass2)}
         <p class="note">Maquete ilustrativa, feita a partir das fotos. Medidas e disposição podem variar.</p>
       </div>
       <div class="vis">
-        <svg class="iso" viewBox="0 0 400 300" fill="none" aria-hidden="true">
+        <img class="maq" src="img/maquete.jpg" alt="Maquete 3D ilustrativa do apartamento" data-open3d loading="lazy">
+        <svg class="iso" style="display:none" viewBox="0 0 400 300" fill="none" aria-hidden="true">
           <defs><linearGradient id="fl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b98b5e"/><stop offset="1" stop-color="#8a6240"/></linearGradient></defs>
           <path d="M200 40 L370 130 L200 220 L30 130 Z" fill="url(#fl)"/>
           <path d="M30 130 L200 220 L200 250 L30 160 Z" fill="#cfc6b4"/><path d="M370 130 L200 220 L200 250 L370 160 Z" fill="#e6dfd1"/>
@@ -421,12 +447,20 @@ footer a{color:var(--brass2)}
     <div class="eyebrow" style="justify-content:center">Visite</div>
     <h2 class="h2">Venha conhecer <em>pessoalmente</em>.</h2>
     <p class="lead" style="margin:0 auto">Fale direto com o proprietário e agende sua visita.</p>
-    <div class="btns" style="justify-content:center"><a class="btn wa" data-wa href="#"><svg><use href="#i-wa"/></svg>(11) 99160-5396</a></div>
+    <form class="ag" id="ag" onsubmit="return false">
+      <label>Seu nome<input id="agN" placeholder="Como podemos te chamar?" autocomplete="name"></label>
+      <label>Dia<input id="agD" type="date"></label>
+      <label>Período<select id="agP"><option>Manhã</option><option selected>Tarde</option><option>Noite</option></select></label>
+      <button class="btn wa" id="agB" type="submit"><svg><use href="#i-wa"/></svg>Agendar pelo WhatsApp</button>
+    </form>
+    <p class="note" style="text-align:center;margin-top:14px">Ou fale direto: <a data-wa href="#" style="text-decoration:underline">(11) 99160-5396</a> · <button class="share" data-share type="button">Compartilhar este imóvel</button></p>
   </div>
 </section>
 
 <footer>Prévia criada por <a href="https://wa.me/5531999131903" target="_blank" rel="noopener">João · (31) 99913-1903</a> · uso não autorizado proibido</footer>
 <a class="wafloat" data-wa href="#" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+<div class="mbar" id="mbar"><div><small>Venda</small><b>R$ 452.000</b></div><a class="btn wa" data-wa href="#"><svg><use href="#i-wa"/></svg>WhatsApp</a></div>
+<div class="toast" id="toast"></div>
 
 <div class="lb" id="lb"><button class="lx" aria-label="Fechar" id="lbX">×</button><button class="nv pv" id="lbP" aria-label="Anterior">‹</button><button class="nv nx" id="lbN" aria-label="Próxima">›</button><div class="box" id="lbBox"></div><div class="cap" id="lbCap"></div></div>
 
@@ -453,6 +487,20 @@ const waUrl='https://wa.me/'+WA+'?text='+encodeURIComponent('Olá! Vi o site do 
 document.querySelectorAll('[data-wa]').forEach(a=>{a.href=waUrl;a.target='_blank';a.rel='noopener'});
 const wmHTML='<div class="wm"><span>'+WM+'</span></div>';
 document.querySelectorAll('.ph').forEach(p=>p.insertAdjacentHTML('beforeend',wmHTML));
+
+/* agendar visita */
+const agD=$('agD'); const t0=new Date(); t0.setDate(t0.getDate()+1); agD.min=new Date().toISOString().slice(0,10); agD.value=t0.toISOString().slice(0,10);
+$('ag').addEventListener('submit',()=>{ const n=$('agN').value.trim(), d=agD.value?agD.value.split('-').reverse().join('/'):'', per=$('agP').value.toLowerCase();
+  const msg='Olá! '+(n?'Sou '+n+'. ':'')+'Vi o site do apartamento no Alphaview (13º andar) e gostaria de agendar uma visita'+(d?' no dia '+d:'')+', de '+per+'. Pode ser?';
+  window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank'); });
+/* compartilhar */
+function toast(t){ const el=$('toast'); el.textContent=t; el.classList.add('on'); clearTimeout(toast.t); toast.t=setTimeout(()=>el.classList.remove('on'),2200); }
+document.addEventListener('click',async e=>{ if(!e.target.closest('[data-share]')) return; const url=location.href.split('?')[0], data={title:'Último andar no Alphaview · Barueri',text:'Olha esse apartamento: 61,8 m², último andar, vista pra Alphaville. R$ 452.000',url};
+  if(navigator.share){ try{ await navigator.share(data); }catch(_){} return; } try{ await navigator.clipboard.writeText(url); toast('Link copiado!'); }catch(_){ prompt('Copie o link:',url); } });
+/* números contando */
+const cio=new IntersectionObserver(es=>es.forEach(x=>{ if(!x.isIntersecting) return; cio.unobserve(x.target); x.target.querySelectorAll('.stat b').forEach(b=>{ const raw=b.textContent, m=raw.match(/[\d,]+/); if(!m) return; const end=parseFloat(m[0].replace(',','.')), dec=m[0].includes(',')?1:0, t1=performance.now();
+  (function step(t){ const k=Math.min(1,(t-t1)/1100), v=end*(1-Math.pow(1-k,3)); b.textContent=raw.replace(m[0],v.toFixed(dec).replace('.',',')); if(k<1) requestAnimationFrame(step); })(t1); }); }),{threshold:.4});
+document.querySelectorAll('.stats').forEach(e=>cio.observe(e));
 
 /* galeria */
 const G={
@@ -493,7 +541,7 @@ function sim(){ const e=+ent.value,n=+prazo.value*12,r=Math.pow(1+taxa.value/100
 
 /* parallax, barra e revelar */
 const nav=$('nav'), layers=[...document.querySelectorAll('[data-speed]')], reduce=matchMedia('(prefers-reduced-motion: reduce)').matches; let tk=false;
-function frame(){ const h=innerHeight; nav.classList.toggle('small',scrollY>60);
+function frame(){ const h=innerHeight; nav.classList.toggle('small',scrollY>60); $('mbar').classList.toggle('on',scrollY>h*.8 && scrollY<document.body.scrollHeight-h*1.6);
   if(!reduce) layers.forEach(l=>{ const r=l.parentElement.getBoundingClientRect(); if(r.bottom<-300||r.top>h+300) return; const off=(r.top+r.height/2-h/2)*(+l.dataset.speed); l.style.transform='translate3d(0,'+(-off).toFixed(1)+'px,0)'+(l.classList.contains('bg')?' scale(1.08)':''); });
   tk=false; }
 addEventListener('scroll',()=>{ if(!tk){ tk=true; requestAnimationFrame(frame); } },{passive:true}); addEventListener('resize',frame); frame();
