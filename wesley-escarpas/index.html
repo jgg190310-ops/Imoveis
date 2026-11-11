@@ -681,6 +681,24 @@ nav.top.light{top:12px}
 @media(max-width:1700px){.hcap{display:none}}
 @media(max-width:860px){.hm{width:150px}.hero h1.wm{font-size:19px;letter-spacing:.24em;padding-left:.24em;margin:14px 0 10px}.script{font-size:17px;margin-top:12px}.brandx{margin-bottom:20px}}
 @media(prefers-reduced-motion:reduce){.hm text,.hm .win,.hero h1.wm,.creci,.script{opacity:1;animation:none}.hm .sw{stroke-dashoffset:0;animation:none}}
+
+/* datas sem valor (iPhone mostra o campo vazio) */
+label.dl{position:relative}
+label.dl .dph{position:absolute;left:16px;bottom:10px;font-style:normal;font-weight:600;font-size:15px;opacity:.6;pointer-events:none;white-space:nowrap}
+.fld.dl .dph{left:12px;bottom:8px;font-size:14.5px;color:var(--mut);opacity:1}
+label.dl:not(.hasv) input[type=date]{color:transparent}
+label.dl:not(.hasv) input[type=date]::-webkit-datetime-edit{color:transparent}
+label.dl:focus-within .dph,label.dl.hasv .dph{display:none}
+label.dl:focus-within input[type=date]{color:inherit}
+label.dl:focus-within input[type=date]::-webkit-datetime-edit{color:inherit}
+input[type=date]{display:block;min-height:24px}
+@media(max-width:860px){.search .btn{grid-column:auto;min-height:52px}.search .sf{padding:9px 14px}.hstat{gap:14px;font-size:12px}.hstat b{font-size:17px}}
+.res .vt{background:#fff}
+.mapv .viewer{height:min(72vh,680px)}
+
+.lay>*,.res{min-width:0}
+.rhead .rr{flex-wrap:wrap}
+@media(max-width:620px){.rhead{gap:10px}.rhead .rr{width:100%;justify-content:space-between;gap:6px}.res .vt button{padding:8px 10px;font-size:12px}.fbtn{height:40px;padding:0 12px}.rhead .tsel{padding:5px 10px}.rhead .tsel select{font-size:12.5px}}
 </style>
 </head>
 <body>
@@ -694,6 +712,7 @@ nav.top.light{top:12px}
   <a href="#topo" class="brand" aria-label="Wesley Escarpas, início"><svg><use href="#we"/></svg><span>WESLEY ESCARPAS</span></a>
   <ul>
     <li><a href="#imoveis">Imóveis</a></li>
+    <li><a href="#imoveis" data-view="map">Mapa 3D</a></li>
     <li><a href="#regioes">Regiões</a></li>
     <li><a href="#reveillon">Réveillon</a></li>
     <li><a href="#experiencias">Lancha &amp; 4x4</a></li>
@@ -756,10 +775,20 @@ nav.top.light{top:12px}
         <button class="btn ink apply" id="fApply" type="button">Ver imóveis</button>
       </aside>
       <div class="res">
-        <div class="rhead"><span class="cnt"><b id="fCount">101</b>imóveis <span id="fDates"></span></span><div class="rr"><button class="fbtn" id="fOpen" type="button"><i data-ic="grid"></i>Filtros <i id="fN" style="display:none"></i></button><label class="tsel"><span>Ordenar</span><select id="fSort"><option value="dest">Destaques</option><option value="su">Mais suítes</option><option value="h">Mais hóspedes</option><option value="ref">Referência</option></select></label></div></div>
+        <div class="rhead"><span class="cnt"><b id="fCount">101</b>imóveis <span id="fDates"></span></span><div class="rr"><div class="vt" role="group" aria-label="Visualização"><button class="on" data-v="grid" type="button"><i data-ic="grid"></i>Lista</button><button data-v="map" type="button"><i data-ic="map"></i>Mapa 3D</button></div><button class="fbtn" id="fOpen" type="button"><i data-ic="grid"></i>Filtros <i id="fN" style="display:none"></i></button><label class="tsel"><span>Ordenar</span><select id="fSort"><option value="dest">Destaques</option><option value="su">Mais suítes</option><option value="h">Mais hóspedes</option><option value="ref">Referência</option></select></label></div></div>
         <div class="achips" id="achips"></div>
         <div class="grid" id="grid"></div>
         <div class="empty" id="empty"><b>Nenhum imóvel com esses filtros.</b>Tente tirar algum filtro ou peça uma indicação ao Wesley.<div class="row2" style="justify-content:center;margin-top:18px"><button class="btn line sm" id="eClr" type="button">Limpar filtros</button><a class="btn wa sm" data-wa="Olá, Wesley! Não achei no site um imóvel com o que eu preciso. Pode me indicar opções?"><i data-ic="wa"></i>Pedir indicação</a></div></div>
+        <div class="mapv">
+          <div class="viewer" id="viewer">
+            <div class="loading3d" id="load3d">Montando Escarpas em 3D…</div>
+            <div id="three"></div><div id="labels"></div>
+            <div class="vbar"><div class="seg glass" id="mood"><button class="on" data-m="dia" type="button">Dia</button><button data-m="sunset" type="button">Pôr do sol</button></div><div style="display:flex;gap:8px"><button class="iconbtn glass" id="vreset" type="button" aria-label="Centralizar">⟲</button><button class="iconbtn glass exitbtn" id="vexit" type="button" aria-label="Sair do 3D">✕</button></div></div>
+            <div class="gate" id="gate"><button id="gatebtn" type="button">✋ Toque para explorar em 3D</button></div>
+            <div class="rinfo glass" id="rinfo"><div class="nv"><button id="rprev" type="button" aria-label="Anterior">‹</button><button id="rnext" type="button" aria-label="Próximo">›</button></div><button class="x" id="rclose" type="button" aria-label="Fechar">✕</button><div class="pf"><img id="rimg" alt=""></div><div class="t"><small id="rbadge"></small><h4 id="rname"></h4><p id="rdesc"></p><div class="row"><button class="btn" id="ropen" type="button">Ver imóvel</button><a class="btn wa" id="rwa" target="_blank" rel="noopener">WhatsApp</a></div></div></div>
+          </div>
+          <p class="note">Mapa ilustrativo de Escarpas do Lago com os imóveis desta página. As posições são representativas; a localização exata é enviada na reserva.</p>
+        </div>
         <div class="pager" id="pager"></div>
       </div>
     </div>
