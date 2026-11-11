@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Wesley Escarpas · Aluguel de temporada em Escarpas do Lago e Capitólio</title>
-<meta name="description" content="Casas e ranchos de temporada em Escarpas do Lago, Pontal, Dique e Ponta do Sol, em Capitólio-MG. Busque, compare e fale direto pelo WhatsApp. Anuncie seu imóvel.">
+<meta name="description" content="Mais de 100 casas e ranchos de temporada em Escarpas do Lago e Capitólio-MG. Busque, compare e fale direto pelo WhatsApp. Anuncie seu imóvel.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Wesley Escarpas · Aluguel de temporada em Escarpas do Lago">
 <meta property="og:description" content="Casas com piscina, marina e vista para o Lago de Furnas. Busque, compare e reserve pelo WhatsApp.">
@@ -14,7 +14,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F3ECE2'/%3E%3Ctext x='6' y='46' font-family='Georgia' font-size='38' fill='%23151311'%3EWE%3C/text%3E%3Cpath d='M6 50C22 46 30 30 40 24 46 27 52 31 58 36' fill='none' stroke='%23A9855A' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="cps-0.webp">
+
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{--paper:#FBF8F3;--cream:#F3ECE2;--cream2:#EAE0D2;--ink:#151311;--text:#4A433C;--mut:#7A7067;--gold:#A9855A;--gold2:#C9A877;--goldd:#86663F;--line:rgba(21,19,17,.11);--lineL:rgba(243,236,226,.16);--wa:#1F8F55;
@@ -186,6 +186,10 @@ nav.top .btn{height:42px;padding:0 18px;font-size:13px}
 .cmpck{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--text);cursor:pointer;user-select:none}
 .cmpck input{accent-color:var(--ink);width:16px;height:16px}
 .pc-go{font-size:12.5px;font-weight:700;color:var(--goldd);display:flex;align-items:center;gap:6px}
+.pc-r{display:flex;align-items:center;gap:12px}
+.pc-wa{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 13px;border-radius:99px;background:var(--wa);color:#fff;font-size:12px;font-weight:700;transition:background .25s}
+.pc-wa:hover{background:#17764a}
+.pc-wa svg{width:15px;height:15px}
 .pc.big{grid-column:span 2}
 .pc.big .pc-ph{aspect-ratio:16/8.6}
 @media(max-width:1080px){.pc.big{grid-column:span 2}}
@@ -540,6 +544,122 @@ body.dopen .dock,body.dopen .fab,body.dopen .ctray{display:none}
 .toast{position:fixed;z-index:300;left:50%;bottom:120px;transform:translate(-50%,30px);opacity:0;padding:12px 20px;border-radius:99px;background:var(--ink);color:#fff;font-weight:600;font-size:13.5px;transition:.4s var(--ez);pointer-events:none}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important;scroll-behavior:auto!important}}
+
+/* ===== v5 ===== */
+.topbar{position:relative;z-index:101;background:var(--ink);color:rgba(243,236,226,.78);font-size:12px;letter-spacing:.03em}
+.topbar .wrap{display:flex;justify-content:space-between;gap:18px;padding:9px 0;flex-wrap:wrap}
+.topbar span,.topbar a{display:inline-flex;gap:7px;align-items:center}
+.topbar a:hover{color:var(--gold2)}
+.topbar svg{width:14px;height:14px;color:var(--gold2)}
+.topbar .l,.topbar .r{display:flex;gap:20px;flex-wrap:wrap}
+@media(max-width:760px){.topbar .hm,.topbar .l{display:none}.topbar .wrap{justify-content:center;padding:8px 0}nav.top{top:44px}}
+nav.top{top:48px;transition:top .45s var(--ez),color .4s,background .4s,border-color .4s}
+nav.top.light{top:12px}
+.hero{height:88vh;height:88svh;min-height:640px}
+.hero h1{font-size:clamp(40px,5.6vw,92px);max-width:16ch}
+.hstat{display:flex;gap:22px;margin-top:18px;font-size:13px;color:rgba(255,255,255,.88);flex-wrap:wrap}
+.hstat b{font:400 20px/1 var(--disp);color:#fff;margin-right:6px}
+@media(max-width:860px){.hero{min-height:780px}.hin .eyebrow{display:none}.hero .sub{margin:14px 0 20px}}
+
+/* regiões */
+.regs{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;grid-template-rows:230px 230px;gap:14px}
+.rg{position:relative;border-radius:var(--r);overflow:hidden;border:0;padding:0;background:#1b1916;color:#fff;text-align:left}
+.rg:first-child{grid-row:span 2}
+.rg img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ez)}
+.rg:hover img{transform:scale(1.07)}
+.rg::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(10,8,6,.8))}
+.rg span{position:absolute;z-index:2;left:18px;right:18px;bottom:16px}
+.rg b{display:block;font:400 25px/1.1 var(--disp)}
+.rg:first-child b{font-size:clamp(30px,3vw,44px)}
+.rg small{font-size:12px;opacity:.88;font-weight:500}
+@media(max-width:1000px){.regs{grid-template-columns:repeat(7,62vw);grid-template-rows:300px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.rg:first-child{grid-row:auto}.rg{scroll-snap-align:start}}
+
+/* destaques */
+.navs{display:flex;gap:8px}
+.navs button{width:48px;height:48px;border-radius:50%;border:1px solid rgba(21,19,17,.25);background:transparent;font-size:20px;transition:.25s}
+.navs button:hover{background:var(--ink);color:#fff}
+.dark .navs button{border-color:rgba(243,236,226,.3);color:#fff}
+.dark .navs button:hover{background:#fff;color:var(--ink)}
+.rail{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:4vw;padding:6px 4vw 26px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail>.pc{flex:0 0 min(400px,84vw);scroll-snap-align:start}
+@media(min-width:1500px){.rail{padding-left:calc((100vw - 1320px)/2);scroll-padding-left:calc((100vw - 1320px)/2)}}
+
+/* listagem com filtros */
+.lay{display:grid;grid-template-columns:292px 1fr;gap:34px;align-items:start}
+.side{position:sticky;top:84px;max-height:calc(100vh - 100px);overflow:auto;padding:22px 22px 18px;border-radius:22px;background:var(--paper);border:1px solid var(--line);scrollbar-width:thin}
+.side .sh{display:flex;justify-content:space-between;align-items:center}
+.side .sh b{font:400 26px var(--disp)}
+.side .sh a{font-size:12.5px;font-weight:600;color:var(--goldd);cursor:pointer}
+.side h4{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);font-weight:600;margin:22px 0 10px}
+.qbox{display:flex;align-items:center;gap:8px;margin-top:16px;padding:0 14px;height:46px;border-radius:14px;border:1px solid var(--line);background:#fff}
+.qbox:focus-within{border-color:var(--gold)}
+.qbox svg{width:17px;height:17px;color:var(--mut)}
+.qbox input{flex:1;border:0;outline:0;background:none;font-size:14px;min-width:0}
+.cks label{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:14px;cursor:pointer}
+.cks input{accent-color:var(--ink);width:17px;height:17px;flex:none}
+.cks small{margin-left:auto;color:var(--mut);font-size:12px}
+.cks svg{width:16px;height:16px;color:var(--gold)}
+.stp{display:flex;align-items:center;justify-content:space-between;padding:4px 0}
+.stp span{font-size:14px}
+.stp div{display:flex;align-items:center;gap:12px}
+.stp button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:17px;line-height:1}
+.stp b{min-width:42px;text-align:center;font-weight:600;font-size:14px}
+.pls{display:flex;gap:6px;flex-wrap:wrap}
+.pls button{height:36px;min-width:46px;padding:0 12px;border-radius:99px;border:1px solid var(--line);background:#fff;font-size:13px;font-weight:600}
+.pls button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.side .apply{display:none}
+.rhead{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.rhead .cnt{font-size:14px;color:var(--text)}
+.rhead .cnt b{font:400 28px var(--disp);color:var(--ink);margin-right:4px}
+.rhead .rr{display:flex;gap:8px;align-items:center}
+.fbtn{display:none;height:44px;padding:0 16px;border-radius:99px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:13px;align-items:center;gap:8px}
+.fbtn svg{width:16px;height:16px}
+.fbtn i{font-style:normal;background:var(--gold);color:#fff;border-radius:9px;min-width:18px;height:18px;font-size:10.5px;display:inline-grid;place-items:center;padding:0 5px}
+.achips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.achips:empty{display:none}
+.achips button{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:99px;border:0;background:var(--ink);color:#fff;font-size:12px;font-weight:600}
+.res .grid{grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:1260px){.res .grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.res .grid{grid-template-columns:1fr}}
+.pager{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:38px;flex-wrap:wrap}
+.pager button{min-width:42px;height:42px;padding:0 12px;border-radius:99px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:13.5px}
+.pager button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pager button:disabled{opacity:.35}
+.pager span{color:var(--mut);padding:0 4px}
+.sscrim{display:none}
+@media(max-width:1000px){
+ .lay{grid-template-columns:1fr}
+ .side{position:fixed;left:0;right:0;bottom:0;top:auto;z-index:170;max-height:86vh;border-radius:24px 24px 0 0;transform:translateY(105%);transition:transform .45s var(--ez);padding-bottom:calc(90px + env(safe-area-inset-bottom))}
+ .side.on{transform:none}
+ .side .apply{display:flex;position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom));width:auto}
+ .sscrim{position:fixed;inset:0;z-index:165;background:rgba(21,19,17,.5);opacity:0;visibility:hidden;transition:.35s;display:block}
+ .sscrim.on{opacity:1;visibility:visible}
+ .fbtn{display:inline-flex}
+}
+.pc-pr.rv div b{color:var(--goldd)}
+.pc-pr.rv{grid-template-columns:1fr}
+.pc-k span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* réveillon */
+.rev{display:block;text-align:left;min-height:0;padding:clamp(90px,10vw,140px) 0 clamp(70px,8vw,110px)}
+.rev .in{padding:0}
+.rev .rtop{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:34px}
+.rev h2{font-size:clamp(46px,7vw,120px)}
+.rev .lead{margin:16px 0 0}
+.rev .cd{justify-content:flex-start;margin:0}
+.rev .lakeg{height:40%}
+.rev .ridge{bottom:40%}
+.rev .rail{position:relative;z-index:2}
+.rev .pc{color:var(--ink)}
+.revcta{position:relative;z-index:2;display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.revcta small{color:rgba(243,236,226,.6);font-size:12.5px}
+.exp .bgx img{filter:brightness(.42) saturate(1.1)}
+.mos button img{background:#1b1916}
+.amen.kw li{font-size:13.5px}
+.dsec .tg{display:flex;flex-wrap:wrap;gap:8px}
+.dsec .tg span{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:99px;background:var(--paper);border:1px solid var(--line);font-size:13.5px;font-weight:600}
+.dsec .tg svg{width:17px;height:17px;color:var(--gold)}
 </style>
 </head>
 <body>
@@ -547,13 +667,15 @@ body.dopen .dock,body.dopen .fab,body.dopen .ctray{display:none}
 <symbol id="we" viewBox="0 0 150 100"><text x="0" y="80" font-family="Playfair Display,Didot,Georgia,serif" font-size="94" font-weight="500" fill="currentColor">W</text><text x="85" y="80" font-family="Playfair Display,Didot,Georgia,serif" font-size="94" font-weight="500" fill="currentColor">E</text><path d="M6 88C38 82 66 56 95 36c14 7 28 16 46 28" fill="none" stroke="#A9855A" stroke-width="3.6" stroke-linecap="round"/><g fill="#A9855A"><rect x="76" y="62" width="5.2" height="5.2"/><rect x="82.6" y="62" width="5.2" height="5.2"/><rect x="76" y="68.6" width="5.2" height="5.2"/><rect x="82.6" y="68.6" width="5.2" height="5.2"/></g></symbol>
 </defs></svg>
 
+<div class="topbar"><div class="wrap"><div class="l"><span><i data-ic="clock"></i>Atendimento seg a sex, 9h às 20h</span><span class="hm"><i data-ic="badge"></i>Corretor CRECI-MG 61.552</span></div><div class="r"><a data-wa="Olá, Wesley! Vi o site e quero alugar um imóvel."><i data-ic="wa"></i>(37) 99987-2057</a><a class="hm" href="https://www.instagram.com/wesleyescarpas/" target="_blank" rel="noopener"><i data-ic="ig"></i>@wesleyescarpas</a></div></div></div>
+
 <nav class="top glass" id="nav" aria-label="Principal">
   <a href="#topo" class="brand" aria-label="Wesley Escarpas, início"><svg><use href="#we"/></svg><span>WESLEY ESCARPAS</span></a>
   <ul>
     <li><a href="#imoveis">Imóveis</a></li>
-    <li><a href="#imoveis" data-view="map">Mapa 3D</a></li>
-    <li><a href="#experiencias">Lancha &amp; 4x4</a></li>
+    <li><a href="#regioes">Regiões</a></li>
     <li><a href="#reveillon">Réveillon</a></li>
+    <li><a href="#experiencias">Lancha &amp; 4x4</a></li>
     <li><a href="#como">Como funciona</a></li>
     <li><a href="#anuncie" class="hl">Anuncie seu imóvel</a></li>
   </ul>
@@ -577,75 +699,67 @@ body.dopen .dock,body.dopen .fab,body.dopen .ctray{display:none}
         <label class="sf"><span>Hóspedes</span><select id="hH"></select></label>
         <button class="btn" id="hGo" type="button"><i data-ic="search"></i>Buscar</button>
       </form>
-      <div class="qchips" id="qchips"></div>
+      <div class="hstat"><span><b id="hsN">101</b>imóveis</span><span><b id="hsR">7</b>regiões</span><span><b>5,0</b>no Google · 59 avaliações</span></div>
     </div>
   </div>
   <div class="hcap"><a class="glass" id="hcapA" href="#"><span><small id="hcapR"></small><span id="hcapN"></span></span><i>→</i></a><div class="hdots" id="hdots"></div></div>
 </header>
 
-<div class="trust">
-  <div class="wrap">
-    <div><i data-ic="star"></i><span><b>5,0 no Google</b>59 avaliações</span></div>
-    <div><i data-ic="badge"></i><span><b>CRECI-MG 61.552</b>Corretor de imóveis</span></div>
-    <div><i data-ic="cam"></i><span><b id="tN">11 imóveis</b>com fotos reais</span></div>
-    <div><i data-ic="boat"></i><span><b>Lancha e 4x4</b>e cozinheiro na casa</span></div>
-  </div>
-</div>
+<section class="sec" id="destaques" style="padding-bottom:30px">
+  <div class="wrap shead up"><div><p class="eyebrow">Em destaque</p><h2>As mais <em>procuradas.</em></h2></div><div class="navs"><button type="button" data-rail="fRail" data-d="-1" aria-label="Anterior">‹</button><button type="button" data-rail="fRail" data-d="1" aria-label="Próximo">›</button></div></div>
+  <div class="rail up" id="fRail"></div>
+</section>
 
-<section class="sec" style="padding:clamp(60px,7vw,100px) 0 40px" aria-label="Explore por estilo">
+<section class="sec" id="regioes" style="padding-top:50px;padding-bottom:40px">
   <div class="wrap">
-    <div class="shead up"><div><p class="eyebrow">Explore por estilo</p><h2>O que não pode<br><em>faltar</em> na sua casa?</h2></div><p class="lead">Toque num estilo e a busca já filtra os imóveis com aquilo.</p></div>
-    <div class="cats up" id="cats"></div>
+    <div class="shead up"><div><p class="eyebrow">Regiões</p><h2>Escolha <em>onde</em> ficar.</h2></div><p class="lead">Escarpas do Lago concentra a maioria das casas. Também tem opções em marinas e condomínios à beira do Lago de Furnas.</p></div>
+    <div class="regs up" id="regs"></div>
   </div>
 </section>
 
 <section class="sec" id="imoveis" style="padding-top:60px">
   <div class="wrap">
-    <div class="shead up" style="margin-bottom:26px"><div><p class="eyebrow">Imóveis</p><h2>Casas e ranchos<br><em>para temporada.</em></h2></div><p class="lead">Fotos reais, comodidades de cada anúncio e contato direto. Salve no coração e compare até 3 lado a lado.</p></div>
-    <div class="tb glass lt" id="tb">
-      <label class="tsel"><span>Região</span><select id="fReg"></select></label>
-      <label class="tsel"><span>Hóspedes</span><select id="fH"></select></label>
-      <label class="tsel"><span>Suítes</span><select id="fSu"><option value="0">Qualquer</option><option value="5">5 ou mais</option><option value="6">6 ou mais</option><option value="7">7 ou mais</option><option value="8">8 ou mais</option></select></label>
-      <div class="tchips" id="fTags"></div>
-      <div class="tr">
-        <label class="tsel"><span>Ordenar</span><select id="fSort"><option value="dest">Destaques</option><option value="su">Mais suítes</option><option value="h">Mais hóspedes</option></select></label>
-        <div class="vt" role="group" aria-label="Visualização"><button class="on" data-v="grid" type="button"><i data-ic="grid"></i>Lista</button><button data-v="map" type="button"><i data-ic="map"></i>Mapa 3D</button></div>
-      </div>
-    </div>
-    <div class="rbar"><span><b id="fCount">11</b> imóveis encontrados <span id="fDates"></span></span><a id="fClr" style="display:none">Limpar filtros</a></div>
-    <div id="lst">
-      <div class="grid" id="grid"></div>
-      <div class="empty" id="empty"><b>Nenhum imóvel com esses filtros.</b>Tente tirar algum filtro ou peça uma indicação ao Wesley.<div class="row2" style="justify-content:center;margin-top:18px"><button class="btn line sm" id="eClr" type="button">Limpar filtros</button><a class="btn wa sm" data-wa="Olá, Wesley! Não achei no site um imóvel com o que eu preciso. Pode me indicar opções?"><i data-ic="wa"></i>Pedir indicação</a></div></div>
-      <div class="mapv">
-        <div class="viewer" id="viewer">
-          <div class="loading3d" id="load3d">Montando Escarpas em 3D…</div>
-          <div id="three"></div><div id="labels"></div>
-          <div class="vbar"><div class="seg glass" id="mood"><button class="on" data-m="dia" type="button">Dia</button><button data-m="sunset" type="button">Pôr do sol</button></div><div style="display:flex;gap:8px"><button class="iconbtn glass" id="vreset" type="button" aria-label="Centralizar">⟲</button><button class="iconbtn glass exitbtn" id="vexit" type="button" aria-label="Sair do 3D">✕</button></div></div>
-          <div class="gate" id="gate"><button id="gatebtn" type="button">✋ Toque para explorar em 3D</button></div>
-          <div class="rinfo glass" id="rinfo"><div class="nv"><button id="rprev" type="button" aria-label="Anterior">‹</button><button id="rnext" type="button" aria-label="Próximo">›</button></div><button class="x" id="rclose" type="button" aria-label="Fechar">✕</button><div class="pf"><img id="rimg" alt=""></div><div class="t"><small id="rbadge"></small><h4 id="rname"></h4><p id="rdesc"></p><div class="row"><button class="btn" id="ropen" type="button">Ver imóvel</button><a class="btn wa" id="rwa" target="_blank" rel="noopener">WhatsApp</a></div></div></div>
-        </div>
-        <p class="note">Mapa ilustrativo da região. As posições dos imóveis são representativas; a localização exata é enviada na reserva.</p>
+    <div class="shead up" style="margin-bottom:30px"><div><p class="eyebrow">Todos os imóveis</p><h2>Encontre a casa<br><em>do seu grupo.</em></h2></div><p class="lead">Filtre por região, tamanho do grupo e comodidades. Salve no coração e compare até 3 lado a lado.</p></div>
+    <div class="lay">
+      <aside class="side" id="side" aria-label="Filtros">
+        <div class="sh"><b>Filtros</b><a id="fClr">Limpar</a></div>
+        <label class="qbox"><i data-ic="search"></i><input id="fQ" type="search" placeholder="Nome ou Ref. (ex.: 22, WE045)" autocomplete="off"></label>
+        <h4>Região</h4><div class="cks" id="fRegs"></div>
+        <h4>Hóspedes</h4><div class="stp"><span>Pelo menos</span><div><button type="button" id="hM" aria-label="Menos">−</button><b id="hV">Todos</b><button type="button" id="hP" aria-label="Mais">+</button></div></div>
+        <h4>Suítes</h4><div class="pls" id="fSu"></div>
+        <h4>Comodidades</h4><div class="cks" id="fTags"></div>
+        <h4>Tipo</h4><div class="cks" id="fTipo"></div>
+        <button class="btn ink apply" id="fApply" type="button">Ver imóveis</button>
+      </aside>
+      <div class="res">
+        <div class="rhead"><span class="cnt"><b id="fCount">101</b>imóveis <span id="fDates"></span></span><div class="rr"><button class="fbtn" id="fOpen" type="button"><i data-ic="grid"></i>Filtros <i id="fN" style="display:none"></i></button><label class="tsel"><span>Ordenar</span><select id="fSort"><option value="dest">Destaques</option><option value="su">Mais suítes</option><option value="h">Mais hóspedes</option><option value="ref">Referência</option></select></label></div></div>
+        <div class="achips" id="achips"></div>
+        <div class="grid" id="grid"></div>
+        <div class="empty" id="empty"><b>Nenhum imóvel com esses filtros.</b>Tente tirar algum filtro ou peça uma indicação ao Wesley.<div class="row2" style="justify-content:center;margin-top:18px"><button class="btn line sm" id="eClr" type="button">Limpar filtros</button><a class="btn wa sm" data-wa="Olá, Wesley! Não achei no site um imóvel com o que eu preciso. Pode me indicar opções?"><i data-ic="wa"></i>Pedir indicação</a></div></div>
+        <div class="pager" id="pager"></div>
       </div>
     </div>
   </div>
+  <div class="sscrim" id="sscrim"></div>
 </section>
 
-<section class="rev" id="reveillon">
+<section class="rev dark" id="reveillon">
   <canvas id="fw" aria-hidden="true"></canvas>
   <svg class="ridge" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120V78l70-14 60 10 80-30 70 18 60-8 90-34 80 26 60-6 70 22 90-40 80 30 60-10 80 24 70-18 90 20 60-12 80 18 70-8 90 16V120z" fill="#15141a"/></svg>
   <div class="lakeg"></div>
-  <div class="in wrap">
-    <p class="eyebrow">Virada de ano</p>
-    <h2>Réveillon<br><em>em Escarpas.</em></h2>
-    <p class="lead">Fogos refletindo no lago, piscina e a turma toda reunida. As casas para a virada são as primeiras a fechar.</p>
-    <div class="price glass">Pacotes de <b>R$ 19 mil</b> a <b>R$ 45 mil</b></div>
-    <div class="cd" aria-label="Contagem regressiva para o Ano-Novo"><div class="glass"><b id="cdD">0</b><small>dias</small></div><div class="glass"><b id="cdH">00</b><small>horas</small></div><div class="glass"><b id="cdM">00</b><small>min</small></div><div class="glass"><b id="cdS">00</b><small>seg</small></div></div>
-    <a class="btn" data-wa="Olá, Wesley! Vi o site e quero uma casa para o Réveillon em Escarpas do Lago. Quais ainda estão disponíveis?"><i data-ic="wa"></i>Ver casas para o Réveillon</a>
+  <div class="in">
+    <div class="wrap rtop">
+      <div><p class="eyebrow">Virada de ano</p><h2>Réveillon<br><em>em Escarpas.</em></h2><p class="lead">Pacotes fechados para a virada, com fogos refletindo no lago. As casas de Réveillon são as primeiras a fechar.</p></div>
+      <div><div class="cd" aria-label="Contagem regressiva para o Ano-Novo"><div class="glass"><b id="cdD">0</b><small>dias</small></div><div class="glass"><b id="cdH">00</b><small>horas</small></div><div class="glass"><b id="cdM">00</b><small>min</small></div><div class="glass"><b id="cdS">00</b><small>seg</small></div></div>
+      <div class="navs" style="margin-top:16px;justify-content:flex-end"><button type="button" data-rail="rRail" data-d="-1" aria-label="Anterior">‹</button><button type="button" data-rail="rRail" data-d="1" aria-label="Próximo">›</button></div></div>
+    </div>
+    <div class="rail" id="rRail"></div>
+    <div class="wrap revcta"><a class="btn" data-wa="Olá, Wesley! Vi o site e quero uma casa para o Réveillon em Escarpas do Lago. Quais ainda estão disponíveis?"><i data-ic="wa"></i>Consultar Réveillon</a><small>Valores dos pacotes conforme o catálogo. Disponibilidade pelo WhatsApp.</small></div>
   </div>
 </section>
 
 <section class="sec exp" id="experiencias">
-  <div class="bgx" data-sp=".16"><img src="c50-3.webp" alt="" loading="lazy"></div>
+  <div class="bgx" data-sp=".16"><img src="aerea.webp" alt="" loading="lazy"></div>
   <div class="wrap">
     <div class="shead up" style="margin-bottom:0"><div><p class="eyebrow">Experiências</p><h2>Complete a viagem com<br><em>lancha, 4x4 e cozinheiro.</em></h2></div><p class="lead">Peça junto com a casa, na mesma conversa. O Wesley organiza.</p></div>
     <div class="ex3">
@@ -662,18 +776,18 @@ body.dopen .dock,body.dopen .fab,body.dopen .ctray{display:none}
     <div class="tabs2 up" role="tablist"><button class="on" data-s="h" type="button">Para hóspedes</button><button data-s="p" type="button">Para proprietários</button></div>
     <div class="steps on up" id="st-h">
       <div><b>01</b><h3>Busque e compare</h3><p>Filtre por região, tamanho do grupo e comodidades. Salve os favoritos e compare até 3 imóveis lado a lado.</p></div>
-      <div><b>02</b><h3>Chame no WhatsApp</h3><p>A mensagem já sai pronta com o imóvel, as datas, o número de pessoas e os extras que você escolheu.</p></div>
+      <div><b>02</b><h3>Chame no WhatsApp</h3><p>A mensagem já sai pronta com o imóvel, a referência, as datas, o número de pessoas e os extras.</p></div>
       <div><b>03</b><h3>Combine direto</h3><p>Disponibilidade, valores e forma de pagamento são acertados na conversa, sem cadastro e sem complicação.</p></div>
     </div>
     <div class="steps" id="st-p">
       <div><b>01</b><h3>Cadastre o imóvel</h3><p>Preencha os dados, escolha as fotos e veja a prévia do anúncio na hora, aqui mesmo no site.</p></div>
       <div><b>02</b><h3>Escolha o plano</h3><p>Anúncio normal ou em destaque, com pagamento mensal. Seu imóvel ganha página própria e aparece na busca.</p></div>
-      <div><b>03</b><h3>Receba os contatos</h3><p>O interessado fala direto com você pelo WhatsApp. Você define o valor, as regras e quem se hospeda.</p></div>
+      <div><b>03</b><h3>Receba os contatos</h3><p>O interessado fala direto pelo WhatsApp. Você define o valor, as regras e quem se hospeda.</p></div>
     </div>
   </div>
 </section>
 
-<section class="sec anc" id="anuncie">
+<section class="sec anc dark" id="anuncie">
   <div class="wrap">
     <div class="anhead up">
       <div><p class="eyebrow">Para proprietários</p><h2>Tem imóvel na região?<br><em>Anuncie aqui.</em></h2></div>
@@ -681,7 +795,7 @@ body.dopen .dock,body.dopen .fab,body.dopen .ctray{display:none}
         <li><i data-ic="wa"></i>O hóspede fala direto com você no WhatsApp</li>
         <li><i data-ic="badge"></i>Você define o valor, as regras e quem se hospeda</li>
         <li><i data-ic="cam"></i>Página própria com galeria de fotos e link para compartilhar</li>
-        <li><i data-ic="search"></i>Aparece na busca, nos filtros e no mapa do site</li>
+        <li><i data-ic="search"></i>Aparece na busca e nos filtros, junto com mais de 100 imóveis</li>
       </ul>
     </div>
     <div class="plans up" id="plans"></div>
@@ -714,7 +828,7 @@ body.dopen .dock,body.dopen .fab,body.dopen .ctray{display:none}
 
 <section class="sec" id="sobre">
   <div class="wrap about">
-    <div class="aph up"><img src="c13-0.webp" alt="Fachada e piscina de casa de alto padrão em Escarpas do Lago" loading="lazy" data-sp=".07">
+    <div class="aph up"><img id="sobreImg" alt="Casa de temporada em Escarpas do Lago" loading="lazy" data-sp=".07">
       <div class="rating glass"><b>5,0</b><div><span class="st">★★★★★</span><small>59 avaliações no Google</small></div><a href="https://www.google.com/maps/search/?api=1&amp;query=Wesley%20Escarpas%20Capit%C3%B3lio" target="_blank" rel="noopener">Ver no Google</a></div>
     </div>
     <div class="up">
@@ -736,10 +850,10 @@ body.dopen .dock,body.dopen .fab,body.dopen .ctray{display:none}
   <div class="wrap faqg">
     <div class="up"><p class="eyebrow">Dúvidas</p><h2>Perguntas<br><em>frequentes.</em></h2></div>
     <div class="up">
-      <details open><summary>Como faço a reserva?</summary><p>Escolha o imóvel, informe as datas e o número de pessoas e toque em “Consultar no WhatsApp”. A disponibilidade, os valores e as condições são combinados na conversa.</p></details>
-      <details><summary>Por que a diária aparece como “Consulte”?</summary><p>O valor muda conforme a data, o feriado e o tamanho do grupo. Por isso ele é passado na hora, pelo WhatsApp, já com as suas datas.</p></details>
+      <details open><summary>Como faço a reserva?</summary><p>Escolha o imóvel, informe as datas e o número de pessoas e toque em “Consultar no WhatsApp”. A mensagem já vai com a referência do imóvel. A disponibilidade, os valores e as condições são combinados na conversa.</p></details>
+      <details><summary>Por que a diária aparece como “Consulte”?</summary><p>O valor muda conforme a data, o feriado e o tamanho do grupo. Por isso ele é passado na hora, pelo WhatsApp, já com as suas datas. Os pacotes de Réveillon têm o valor no site.</p></details>
       <details><summary>Dá para alugar lancha e 4x4 junto?</summary><p>Sim. Tem aluguel de lanchas, de veículos 4x4 e serviço de cozinheiro. É só marcar o extra na página do imóvel ou pedir na mesma conversa.</p></details>
-      <details><summary>Quais regiões o site atende?</summary><p>Escarpas do Lago, Pontal Escarpas, Dique e Ponta do Sol, em Capitólio-MG, às margens do Lago de Furnas.</p></details>
+      <details><summary>Quais regiões o site atende?</summary><p>Escarpas do Lago, Pontal Escarpas, Brisas do Lago, Dique, Ponta do Sol, Morcegão e Capitólio, às margens do Lago de Furnas.</p></details>
       <details><summary>Como anuncio meu imóvel?</summary><p>Preencha o cadastro na seção “Anuncie seu imóvel”, escolha o plano e envie pelo WhatsApp. Depois mande as fotos na conversa e o anúncio entra no site.</p></details>
     </div>
   </div>
@@ -749,8 +863,8 @@ body.dopen .dock,body.dopen .fab,body.dopen .ctray{display:none}
   <div class="wrap">
     <div class="fcols">
       <div class="fbrand"><svg><use href="#we"/></svg><p style="margin-top:14px;max-width:34ch">Aluguel de temporada em Escarpas do Lago e Capitólio-MG. Casas, ranchos, lanchas, 4x4 e cozinheiro.</p></div>
-      <div><h4>Regiões</h4><div id="fRegs"></div></div>
-      <div><h4>Site</h4><a href="#imoveis">Imóveis</a><a href="#experiencias">Experiências</a><a href="#reveillon">Réveillon</a><a href="#como">Como funciona</a></div>
+      <div><h4>Regiões</h4><div id="ftRegs"></div></div>
+      <div><h4>Site</h4><a href="#imoveis">Imóveis</a><a href="#reveillon">Réveillon</a><a href="#experiencias">Experiências</a><a href="#como">Como funciona</a></div>
       <div><h4>Proprietários</h4><a href="#anuncie">Anuncie seu imóvel</a><a href="#anuncie">Planos</a><a data-wa="Olá, Wesley! Tenho dúvidas sobre anunciar meu imóvel no site.">Falar sobre anúncio</a></div>
       <div><h4>Contato</h4><a data-wa="Olá, Wesley! Vi o site e quero alugar um imóvel.">(37) 99987-2057</a><a href="https://www.instagram.com/wesleyescarpas/" target="_blank" rel="noopener">@wesleyescarpas</a><span>Seg a sex, 9h às 20h</span></div>
     </div>
@@ -765,7 +879,7 @@ body.dopen .dock,body.dopen .fab,body.dopen .ctray{display:none}
 <div class="dv" id="dv" role="dialog" aria-modal="true" aria-labelledby="dName" aria-hidden="true">
   <div class="dtop"><button class="bk" id="dBack" type="button"><i>←</i>Imóveis</button><span class="tt" id="dTt"></span><div class="dact"><button id="dShare" type="button"><i data-ic="share"></i><span>Compartilhar</span></button><button id="dFav" type="button"><i data-ic="heart"></i><span>Salvar</span></button></div></div>
   <div class="wrap" id="dBody"></div>
-  <div class="dbar"><div><b>Diária: Consulte</b><small>Valores pelo WhatsApp</small></div><a class="btn wa" id="dBarGo" target="_blank" rel="noopener"><i data-ic="wa"></i>Consultar</a></div>
+  <div class="dbar"><div><b id="dBarP">Diária: Consulte</b><small>Valores pelo WhatsApp</small></div><a class="btn wa" id="dBarGo" target="_blank" rel="noopener"><i data-ic="wa"></i>Consultar</a></div>
 </div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotos"><div class="lbh"><b id="lbT"></b><span id="lbC"></span><button class="lbx" id="lbX" type="button" aria-label="Fechar">✕</button></div><div class="lbs" id="lbS"><div class="lbt" id="lbTr"></div><button class="lba l" id="lbP" type="button" aria-label="Anterior">‹</button><button class="lba r" id="lbN" type="button" aria-label="Próxima">›</button></div><div class="lbth" id="lbTh"></div></div>
@@ -773,8 +887,7 @@ body.dopen .dock,body.dopen .fab,body.dopen .ctray{display:none}
 <div class="mdl" id="mdl" role="dialog" aria-modal="true"><div class="scrim" data-cl></div><div class="mbox"><button class="x" data-cl type="button" aria-label="Fechar">✕</button><div id="mdlB"></div></div></div>
 <div class="toast" id="toast" role="status"></div>
 
-<script src="three.min.js" defer></script>
-<script src="orbit.js" defer></script>
-<script src="app.js" defer></script>
+<script src="data.js?v=5"></script>
+<script src="app.js?v=5" defer></script>
 </body>
 </html>
