@@ -248,6 +248,13 @@ footer .cred{margin-top:18px;font-size:12.5px;letter-spacing:.06em}
 #wm{position:fixed;inset:-50%;z-index:2147483645;pointer-events:none;transform:rotate(-28deg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='190'%3E%3Ctext x='10' y='70' font-family='Arial,sans-serif' font-weight='900' font-size='34' letter-spacing='3' fill='rgba(255,255,255,0.33)' stroke='rgba(0,0,0,0.20)' stroke-width='1'%3EPR%C3%89VIA %E2%80%A2 N%C3%83O AUTORIZADO%3C/text%3E%3Ctext x='60' y='108' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='rgba(255,255,255,0.38)' stroke='rgba(0,0,0,0.18)' stroke-width='.6'%3ESite por Jo%C3%A3o Gabriel Geo%3C/text%3E%3Ctext x='20' y='132' font-family='Arial,sans-serif' font-size='12' fill='rgba(255,255,255,0.32)' stroke='rgba(0,0,0,0.14)' stroke-width='.5'%3EProtegido pela Lei 9.610/98 %E2%80%94 Direitos Autorais%3C/text%3E%3C/svg%3E");background-repeat:repeat}
 #wm2{position:fixed;inset:0;z-index:2147483646;pointer-events:none;display:flex;align-items:center;justify-content:center;font:900 clamp(90px,22vw,320px)/1 Arial,sans-serif;color:rgba(255,255,255,.17);-webkit-text-stroke:2px rgba(0,0,0,.22);letter-spacing:.05em;transform:rotate(-28deg)}
 
+/* aviso de prévia */
+.aviso{position:fixed;top:78px;left:50%;transform:translate(-50%,-20px);z-index:2147483647;opacity:0;pointer-events:none;display:flex;align-items:center;gap:12px;max-width:min(560px,92vw);padding:12px 18px;border-radius:14px;background:rgba(20,31,26,.94);color:#f4ece1;border:1px solid rgba(232,180,143,.45);box-shadow:0 18px 50px -18px rgba(0,0,0,.7);font:500 13px/1.45 var(--sans);transition:opacity .35s,transform .35s}
+.aviso.on{opacity:1;transform:translate(-50%,0)}
+.aviso svg{flex:0 0 22px;width:22px;height:22px;color:#e8b48f}
+.aviso b{display:block;font-weight:700;letter-spacing:.14em;font-size:11px;text-transform:uppercase;color:#e8b48f}
+img{-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
+
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:1080px){
   .nav ul{display:none}
@@ -314,6 +321,7 @@ footer .cred{margin-top:18px;font-size:12.5px;letter-spacing:.06em}
   .plano .btn{align-self:stretch}
   .mapa{height:340px}
   .barra a{padding:11px 15px;font-size:12.5px}
+  .aviso{top:66px}
   .lb .nv{width:44px;height:44px;margin-top:-22px}
   .lb .ant{left:8px}.lb .prox{right:8px}
 }
@@ -329,6 +337,11 @@ footer .cred{margin-top:18px;font-size:12.5px;letter-spacing:.06em}
 <!-- Marca d'água de prévia: remover os 2 blocos abaixo na versão final -->
 <div id="wm" aria-hidden="true"></div>
 <div id="wm2" aria-hidden="true">PRÉVIA</div>
+
+<div class="aviso" id="aviso" role="status" aria-live="polite">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.3 8 8 9 4.7-1 8-4.5 8-9V6z"/><path d="M12 8v5M12 16.5v.01"/></svg>
+  <div><b>Prévia · não autorizado</b>Site em aprovação, protegido pela Lei 9.610/98. Proibida a cópia ou divulgação sem autorização do autor.</div>
+</div>
 
 <nav class="nav" id="nav" aria-label="Navegação principal">
   <a class="marca" href="#topo" aria-label="Sítio São Joaquim, voltar ao topo">
@@ -541,7 +554,7 @@ footer .cred{margin-top:18px;font-size:12.5px;letter-spacing:.06em}
 <footer>
   <div class="marca">SÍTIO SÃO JOAQUIM</div>
   <div>São Joaquim de Bicas · Minas Gerais</div>
-  <div class="cred">Site criado por João Gabriel Geo</div>
+  <div class="cred">Site criado por João Gabriel Geo · Prévia protegida pela Lei nº 9.610/98 (Lei de Direitos Autorais). Proibida a cópia, reprodução ou uso sem autorização do autor.</div>
 </footer>
 
 <nav class="barra" id="barra" aria-label="Atalhos">
@@ -678,6 +691,15 @@ function aoRolar(){
   nav.classList.toggle('claro', !sobreEscuro);
 }
 window.addEventListener('scroll', aoRolar, {passive:true}); aoRolar();
+
+// prévia: aviso e proteção
+const aviso = document.getElementById('aviso'); let tAviso;
+function mostraAviso(ms){ aviso.classList.add('on'); clearTimeout(tAviso); tAviso = setTimeout(() => aviso.classList.remove('on'), ms || 4000); }
+setTimeout(() => mostraAviso(5000), 900);
+document.addEventListener('contextmenu', e => { e.preventDefault(); mostraAviso(); });
+document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+document.addEventListener('copy', e => { e.preventDefault(); mostraAviso(); });
+document.addEventListener('keydown', e => { const k = (e.key || '').toLowerCase(); if ((e.ctrlKey || e.metaKey) && ['s','u','p'].includes(k)) { e.preventDefault(); mostraAviso(); } });
 
 // revelar ao rolar
 const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } }), {threshold:.12, rootMargin:'0px 0px -40px 0px'}) : null;
