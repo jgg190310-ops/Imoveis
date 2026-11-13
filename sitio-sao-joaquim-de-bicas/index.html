@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sítio São Joaquim de Bicas — Piscina, área gourmet e 5 quartos</title>
+<meta name="description" content="Sítio para fim de semana e day use em São Joaquim de Bicas, Grande BH. Piscina com hidromassagem 4x8m, prainha, piscina infantil, área gourmet com churrasqueira, 5 quartos e 3 banheiros.">
+<meta property="og:title" content="Sítio São Joaquim de Bicas">
+<meta property="og:description" content="Piscina com hidromassagem, área gourmet com churrasqueira e 5 quartos. Fim de semana e day use.">
+<meta property="og:image" content="https://scontent.fplu3-1.fna.fbcdn.net/v/t39.84726-6/709803046_855384757620538_1194409563208421449_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=92e707&_nc_ohc=5Ovn8Ef5DwYQ7kNvwHGMWPL&_nc_oc=AdqGGYwX4cZCfABxrTR7Uw2U3mnzWHMIvJiJeZENAMQASfbBlkwCEFzZjgOAUrch1PbUuGST-_jUiYj08-T6F1eO&_nc_zt=14&_nc_ht=scontent.fplu3-1.fna&_nc_gid=l6Gx3_y8c8ee6rvb0GtOGA&_nc_ss=79289&oh=00_AQTrFFFBVkSDZDUmd1nhaqELLnjvXoX6-eBeIn3yS4pNXw&oe=6AFD17DA">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#1d3b2a; --verde-claro:#2f5c42; --creme:#faf6ef; --areia:#ece2d2;
+  --terra:#b4653a; --tinta:#20201d; --suave:#6b675f; --borda:#e2d9c9;
+  --sombra:0 18px 50px -24px rgba(29,59,42,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--creme);color:var(--tinta);font:400 17px/1.65 Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:Fraunces,Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.12}
+img{max-width:100%;display:block}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+section{padding:68px 0}
+.eyebrow{font:600 12px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);margin-bottom:14px}
+h2{font-size:clamp(28px,5vw,40px);margin-bottom:10px}
+.lead{color:#5f5b53;max-width:62ch}
+
+/* HERO */
+.hero{position:relative;min-height:88svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,30,21,.55) 0%,rgba(15,30,21,.15) 35%,rgba(15,30,21,.88) 100%);z-index:1}
+.hero .wrap{position:relative;z-index:2;padding:0 0 60px}
+.tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(6px);padding:7px 15px;border-radius:999px;font:500 13px Inter,sans-serif;margin-bottom:20px}
+.hero h1{font-size:clamp(34px,7.4vw,66px);margin-bottom:16px;text-shadow:0 2px 28px rgba(0,0,0,.35)}
+.hero p{font-size:clamp(16px,2.4vw,20px);max-width:34ch;color:#f1ece3;text-shadow:0 1px 14px rgba(0,0,0,.4)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 26px;border-radius:999px;font:600 16px Inter,sans-serif;text-decoration:none;border:0;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s}
+.btn-z{background:#25D366;color:#07301a;box-shadow:0 10px 30px -10px rgba(37,211,102,.7)}
+.btn-z:hover{transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.45);backdrop-filter:blur(6px)}
+.btn-ghost:hover{background:rgba(255,255,255,.22)}
+
+/* STATS */
+.stats{background:var(--verde);color:#eef3ee}
+.stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:34px 0}
+.stat{text-align:center;padding:10px 6px}
+.stat b{display:block;font-family:Fraunces,serif;font-size:clamp(22px,3.6vw,34px);font-weight:600;color:#fff;margin-bottom:4px}
+.stat span{font-size:13px;color:#b9cdc0;letter-spacing:.04em}
+
+/* SOBRE */
+.sobre{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.sobre p+p{margin-top:16px}
+.sobre .foto{border-radius:20px;overflow:hidden;box-shadow:var(--sombra);aspect-ratio:4/5}
+.sobre .foto img{width:100%;height:100%;object-fit:cover}
+
+/* GALERIA */
+.galeria{background:var(--areia)}
+.gal{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:30px}
+.gal button{border:0;padding:0;background:#ddd;border-radius:14px;overflow:hidden;cursor:pointer;aspect-ratio:1;position:relative}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal button:hover img{transform:scale(1.06)}
+
+/* COMODIDADES */
+.coms{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.com{display:flex;gap:13px;align-items:flex-start;background:#fff;border:1px solid var(--borda);border-radius:16px;padding:18px}
+.com svg{flex:0 0 22px;margin-top:2px;color:var(--verde-claro)}
+.com b{display:block;font:600 15px Inter,sans-serif;margin-bottom:2px}
+.com span{font-size:14px;color:#6c675e;line-height:1.45}
+
+/* VALORES */
+.valores{background:var(--verde);color:#eef3ee}
+.valores h2,.valores .lead{color:#fff}
+.valores .lead{color:#b9cdc0}
+.planos{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px}
+.plano{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:30px}
+.plano.destaque{background:var(--creme);color:var(--tinta);border-color:transparent}
+.plano h3{font-size:22px;margin-bottom:6px}
+.plano .preco{font-family:Fraunces,serif;font-size:42px;font-weight:600;margin:14px 0 4px;color:#fff}
+.plano.destaque .preco{color:var(--verde)}
+.plano .obs{font-size:14px;color:#b9cdc0}
+.plano.destaque .obs{color:#726c62}
+.plano ul{list-style:none;margin:18px 0 0;font-size:15px}
+.plano li{padding-left:24px;position:relative;margin-bottom:8px}
+.plano li:before{content:"";position:absolute;left:0;top:7px;width:13px;height:8px;border-left:2px solid #25D366;border-bottom:2px solid #25D366;transform:rotate(-45deg)}
+.plano .btn{margin-top:22px;width:100%}
+
+/* LOCAL */
+.mapa{margin-top:26px;border-radius:20px;overflow:hidden;border:1px solid var(--borda);box-shadow:var(--sombra);height:380px}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+
+/* CTA FINAL */
+.final{background:var(--terra);color:#fff;text-align:center}
+.final h2{color:#fff}
+.final p{color:#ffe6d8;max-width:46ch;margin:10px auto 0}
+.final .btn{margin-top:26px}
+
+footer{background:#15231b;color:#8ea297;text-align:center;padding:40px 0;font-size:14px}
+footer b{color:#e8efe9;font-weight:500}
+footer a{color:#8ea297}
+
+/* BARRA FIXA MOBILE */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(250,246,239,.94);backdrop-filter:blur(10px);border-top:1px solid var(--borda)}
+.barra .btn{flex:1;padding:14px}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:60;background:rgba(12,18,14,.94);display:none;align-items:center;justify-content:center}
+.lb.on{display:flex}
+.lb img{max-width:92vw;max-height:80svh;object-fit:contain;border-radius:10px}
+.lb .x,.lb .nav{position:absolute;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:999px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb .x{top:18px;right:18px;width:46px;height:46px;font-size:24px;line-height:1}
+.lb .nav{top:50%;transform:translateY(-50%);width:50px;height:50px;font-size:26px}
+.lb .prev{left:14px}.lb .next{right:14px}
+.lb .cont{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);color:#dfe7e0;font-size:14px;letter-spacing:.06em}
+
+@media(max-width:900px){
+  .sobre{grid-template-columns:1fr;gap:28px}
+  .coms{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:repeat(3,1fr)}
+  .planos{grid-template-columns:1fr}
+  .stats .grid{grid-template-columns:repeat(2,1fr);padding:26px 0}
+}
+@media(max-width:640px){
+  body{font-size:16px}
+  section{padding:52px 0}
+  .gal{grid-template-columns:repeat(2,1fr);gap:8px}
+  .coms{grid-template-columns:1fr}
+  .hero{min-height:92svh}
+  .hero .wrap{padding-bottom:96px}
+  .hero-cta{display:none}
+  .barra{display:flex}
+  footer{padding-bottom:96px}
+  .mapa{height:300px}
+  .lb .nav{width:42px;height:42px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="bg" src="https://scontent.fplu3-1.fna.fbcdn.net/v/t39.84726-6/709803046_855384757620538_1194409563208421449_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=92e707&_nc_ohc=5Ovn8Ef5DwYQ7kNvwHGMWPL&_nc_oc=AdqGGYwX4cZCfABxrTR7Uw2U3mnzWHMIvJiJeZENAMQASfbBlkwCEFzZjgOAUrch1PbUuGST-_jUiYj08-T6F1eO&_nc_zt=14&_nc_ht=scontent.fplu3-1.fna&_nc_gid=l6Gx3_y8c8ee6rvb0GtOGA&_nc_ss=79289&oh=00_AQTrFFFBVkSDZDUmd1nhaqELLnjvXoX6-eBeIn3yS4pNXw&oe=6AFD17DA" alt="Piscina do sítio cercada de área verde">
+  <div class="wrap">
+    <div class="tag">📍 São Joaquim de Bicas · Grande BH</div>
+    <h1>Um sítio inteiro só<br>pra sua turma</h1>
+    <p>Piscina com hidromassagem, área gourmet com churrasqueira e 5 quartos. Fim de semana completo ou day use.</p>
+    <div class="hero-cta">
+      <a class="btn btn-z" href="https://www.facebook.com/marketplace/item/2463311624180355/" target="_blank" rel="noopener">Consultar disponibilidade</a>
+      <a class="btn btn-ghost" href="#galeria">Ver fotos</a>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap grid">
+    <div class="stat"><b>5</b><span>quartos</span></div>
+    <div class="stat"><b>3</b><span>banheiros</span></div>
+    <div class="stat"><b>2</b><span>cozinhas</span></div>
+    <div class="stat"><b>4x8m</b><span>piscina</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap sobre">
+    <div>
+      <div class="eyebrow">O sítio</div>
+      <h2>Espaço de sobra pra família toda</h2>
+      <p class="lead">A piscina principal tem 4 por 8 metros, hidromassagem e 2 metros de profundidade, com prainha de 1,40 m pra quem prefere ficar na parte rasa. Do lado, uma piscina infantil separada, pronta pro uso.</p>
+      <p class="lead">A área gourmet tem cozinha completa e churrasqueira, com o gás já incluso no aluguel — talheres, pratos, panelas e vasilhas ficam à disposição. Na casa de cima tem uma segunda cozinha, e são 3 banheiros prontos pra uso.</p>
+      <p class="lead">Pra dormir são 5 quartos, todos com cama de casal, mais um espaço amplo pra colchão no chão. A casa ainda disponibiliza 6 colchões de solteiro, 1 de casal e dois sofás-cama na sala.</p>
+    </div>
+    <div class="foto"><img src="https://scontent.fplu41-1.fna.fbcdn.net/v/t45.5328-4/708890248_1278214650722340_7446899129753735196_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=247b10&_nc_ohc=QLAi3CBSdHQQ7kNvwFxYqvU&_nc_oc=Adohd986besMYS8C9FkHZOCvZiEsjlqP6_6TyfaIL2iNIkzp7JV4Sawxv93f5vFlZEz18xlLTUqxKqJuCuAmEAVs&_nc_zt=23&_nc_ht=scontent.fplu41-1.fna&_nc_gid=l6Gx3_y8c8ee6rvb0GtOGA&_nc_ss=79289&oh=00_AQRygedAq8H89eR7SKTaI0ixuLte1FcNosyV_yrN4T_bCw&oe=6AFD17CA" alt="Área da piscina"></div>
+  </div>
+</section>
+
+<section class="galeria" id="galeria">
+  <div class="wrap">
+    <div class="eyebrow">Galeria</div>
+    <h2>Conheça por dentro</h2>
+    <p class="lead">Toque nas fotos pra ampliar.</p>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Comodidades</div>
+    <h2>O que está incluso</h2>
+    <div class="coms">
+      <div class="com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 16c2 0 2-1.5 4-1.5S8 16 10 16s2-1.5 4-1.5S16 16 18 16s2-1.5 4-1.5"/><path d="M2 21c2 0 2-1.5 4-1.5S8 21 10 21s2-1.5 4-1.5S16 21 18 21s2-1.5 4-1.5"/><path d="M6 14V5a2 2 0 0 1 4 0M14 14V5a2 2 0 0 1 4 0"/></svg><div><b>Piscina com hidromassagem</b><span>4x8 m, 2 m de profundidade e prainha de 1,40 m</span></div></div>
+      <div class="com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M8 13h8M9 9h.01M15 9h.01"/></svg><div><b>Piscina infantil</b><span>Rasa, ao lado da principal, pronta pro uso</span></div></div>
+      <div class="com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20V9a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v11"/><path d="M8 5c0-2 1-3 1-3M12 5c0-2 1-3 1-3M16 5c0-2 1-3 1-3M4 14h16"/></svg><div><b>Churrasqueira</b><span>Na área gourmet, com gás incluso no aluguel</span></div></div>
+      <div class="com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18M7 7v6M11 7v10M15 11v6M19 9v8"/></svg><div><b>Duas cozinhas</b><span>Uma na área gourmet e outra na casa de cima</span></div></div>
+      <div class="com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 18V8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10M3 14h18M7 10h4"/></svg><div><b>5 quartos com cama de casal</b><span>Mais 6 colchões de solteiro, 1 de casal e 2 sofás-cama</span></div></div>
+      <div class="com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12V6a2 2 0 0 1 4 0M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z"/></svg><div><b>3 banheiros</b><span>Todos prontos pro uso</span></div></div>
+      <div class="com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3h12l-1 7H7z"/><path d="M12 10v8M8 21h8"/></svg><div><b>Louça e utensílios</b><span>Talheres, pratos, panelas e vasilhas à disposição</span></div></div>
+      <div class="com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2 3 7v6c0 5 3.8 8.4 9 9 5.2-.6 9-4 9-9V7z"/></svg><div><b>Sítio exclusivo</b><span>No day use é só você e o seu pessoal</span></div></div>
+      <div class="com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18M6 21V8l6-5 6 5v13M10 21v-6h4v6"/></svg><div><b>Área verde</b><span>Espaço aberto em volta da casa e da piscina</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="valores">
+  <div class="wrap">
+    <div class="eyebrow">Valores</div>
+    <h2>Escolha o seu formato</h2>
+    <p class="lead">Datas de feriado e pacotes especiais sob consulta.</p>
+    <div class="planos">
+      <div class="plano destaque">
+        <h3>Fim de semana</h3>
+        <div class="preco">R$ 1.000</div>
+        <div class="obs">fim de semana normal</div>
+        <ul><li>Sítio inteiro só pra sua turma</li><li>5 quartos e 3 banheiros</li><li>Piscina, prainha e piscina infantil</li><li>Duas cozinhas, com gás incluso</li></ul>
+        <a class="btn btn-z" href="https://www.facebook.com/marketplace/item/2463311624180355/" target="_blank" rel="noopener">Consultar data</a>
+      </div>
+      <div class="plano">
+        <h3>Day use</h3>
+        <div class="preco">R$ 500</div>
+        <div class="obs">das 8h às 18h</div>
+        <ul><li>Só você e o seu pessoal</li><li>Piscina com hidromassagem e prainha</li><li>Piscina infantil pronta pro uso</li><li>Área gourmet com churrasqueira e gás incluso</li></ul>
+        <a class="btn btn-ghost" href="https://www.facebook.com/marketplace/item/2463311624180355/" target="_blank" rel="noopener">Consultar data</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Localização</div>
+    <h2>São Joaquim de Bicas, MG</h2>
+    <p class="lead">Região metropolitana de Belo Horizonte, saindo pela BR-381 sentido oeste. O endereço completo e as referências são enviados na confirmação da reserva — visitas podem ser agendadas antes.</p>
+    <div class="mapa"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de São Joaquim de Bicas" src="https://www.google.com/maps?q=S%C3%A3o+Joaquim+de+Bicas,+MG&z=12&output=embed"></iframe></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Vai juntar a turma?</h2>
+    <p>Me chama que eu confirmo a data na hora e tiro qualquer dúvida sobre o sítio.</p>
+    <a class="btn btn-z" href="https://www.facebook.com/marketplace/item/2463311624180355/" target="_blank" rel="noopener">Falar com o Bruno</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>Sítio São Joaquim de Bicas</b><br>
+    Site criado por João Gabriel Geo
+  </div>
+</footer>
+
+<div class="barra">
+  <a class="btn btn-ghost" style="background:#fff;color:var(--verde);border-color:var(--borda)" href="#galeria">Ver fotos</a>
+  <a class="btn btn-z" href="https://www.facebook.com/marketplace/item/2463311624180355/" target="_blank" rel="noopener">Consultar data</a>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button class="x" id="lbx" aria-label="Fechar">&times;</button>
+  <button class="nav prev" id="lbp" aria-label="Foto anterior">&#8249;</button>
+  <img id="lbi" src="" alt="">
+  <button class="nav next" id="lbn" aria-label="Próxima foto">&#8250;</button>
+  <div class="cont" id="lbc"></div>
+</div>
+
+<script>
+const FOTOS = ["https://scontent.fplu3-1.fna.fbcdn.net/v/t39.84726-6/709803046_855384757620538_1194409563208421449_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=92e707&_nc_ohc=5Ovn8Ef5DwYQ7kNvwHGMWPL&_nc_oc=AdqGGYwX4cZCfABxrTR7Uw2U3mnzWHMIvJiJeZENAMQASfbBlkwCEFzZjgOAUrch1PbUuGST-_jUiYj08-T6F1eO&_nc_zt=14&_nc_ht=scontent.fplu3-1.fna&_nc_gid=l6Gx3_y8c8ee6rvb0GtOGA&_nc_ss=79289&oh=00_AQTrFFFBVkSDZDUmd1nhaqELLnjvXoX6-eBeIn3yS4pNXw&oe=6AFD17DA", "https://scontent.fplu3-1.fna.fbcdn.net/v/t45.5328-4/708413942_966976296123379_2758659930567635630_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=247b10&_nc_ohc=ZUyXgN6YdFAQ7kNvwEweQWg&_nc_oc=AdojvRBoVNkp9TMcBjygfjPBTJaGZ8t018H5ddczwejbpjlkEXp1ZEQoOw6gg-gR-IK_lmaLnDlWgOECp8jeDti5&_nc_zt=23&_nc_ht=scontent.fplu3-1.fna&_nc_gid=l6Gx3_y8c8ee6rvb0GtOGA&_nc_ss=79289&oh=00_AQSu6wyZ6WF-8VD9SCq8fMMeYEljWjjs_a0VkWefaZUjbg&oe=6AFD1C92", "https://scontent.fplu4-1.fna.fbcdn.net/v/t45.5328-4/708167506_1468203691239445_3885042197542176644_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=247b10&_nc_ohc=8jwwUyX5EpoQ7kNvwETaJQq&_nc_oc=AdpOl8OqQc8MX9KDSf-_Uvev0LQFrasoOghy_geJkacJCRWUI6v6guCbResUQSmpggtMGM7dRdIo621_EeXsOl7M&_nc_zt=23&_nc_ht=scontent.fplu4-1.fna&_nc_gid=l6Gx3_y8c8ee6rvb0GtOGA&_nc_ss=79289&oh=00_AQQPMb0qJmQt4wunBE4ACiU5TNyE49xLbKZsiOFAWaYJlA&oe=6AFCF41A", "https://scontent.fplu4-1.fna.fbcdn.net/v/t45.5328-4/708692698_2364911764002280_8947105399914310534_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=247b10&_nc_ohc=q2Aew4KSd34Q7kNvwEhLq1b&_nc_oc=Adq5FR6LjK7L6oQYIEb0LXGHscbqiOhguf920CTWn6VxiKuvVPca0SIFyl2BXLCr1XuOuGvEm2rk7I6x9s9ncarQ&_nc_zt=23&_nc_ht=scontent.fplu4-1.fna&_nc_gid=l6Gx3_y8c8ee6rvb0GtOGA&_nc_ss=79289&oh=00_AQQpJwSTQzu54rA4D8czZPZTMfvdAJ6B5rDqgBPiymoUkQ&oe=6AFCEEA4", "https://scontent.fplu4-1.fna.fbcdn.net/v/t45.5328-4/708877260_1510456040458802_1963236463580713029_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=247b10&_nc_ohc=5bQX_mwT5mQQ7kNvwE3KhkG&_nc_oc=AdqEFgj9kAbKcPh8Oqs8lrnj8OiVehtJW5qwVhvK6ItEgMwr4plpiVQZ0ybkUH3ywAF0EacY0v2LOFTxsZ1A4mlp&_nc_zt=23&_nc_ht=scontent.fplu4-1.fna&_nc_gid=l6Gx3_y8c8ee6rvb0GtOGA&_nc_ss=79289&oh=00_AQSdc1vdHt2rAHv03GHNIqo0WoeV-NaCsAMHtS5ZV8-qFA&oe=6AFCFF5C", "https://scontent.fplu41-1.fna.fbcdn.net/v/t45.5328-4/708890248_1278214650722340_7446899129753735196_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=247b10&_nc_ohc=QLAi3CBSdHQQ7kNvwFxYqvU&_nc_oc=Adohd986besMYS8C9FkHZOCvZiEsjlqP6_6TyfaIL2iNIkzp7JV4Sawxv93f5vFlZEz18xlLTUqxKqJuCuAmEAVs&_nc_zt=23&_nc_ht=scontent.fplu41-1.fna&_nc_gid=l6Gx3_y8c8ee6rvb0GtOGA&_nc_ss=79289&oh=00_AQRygedAq8H89eR7SKTaI0ixuLte1FcNosyV_yrN4T_bCw&oe=6AFD17CA", "https://scontent.fplu4-1.fna.fbcdn.net/v/t45.5328-4/708593923_1703766894091356_1799976017977033608_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=247b10&_nc_ohc=QWDXgIJv9qIQ7kNvwEYKcGq&_nc_oc=AdrOaV7Dwp5tC26SqzndLoW8_8mvJO1C4ALFz4cinp9mBMhwNrovf3suv9Cy49gCw3SElV6jLYfCnM9Y-25r-sO3&_nc_zt=23&_nc_ht=scontent.fplu4-1.fna&_nc_gid=l6Gx3_y8c8ee6rvb0GtOGA&_nc_ss=79289&oh=00_AQQAsevWDVLTTZ50VzMMdbnjUBeJi40gUoJesKkeE8dQAg&oe=6AFD1A5C", "https://scontent.fplu41-1.fna.fbcdn.net/v/t45.5328-4/708890206_2018392412099653_71194361805969926_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=247b10&_nc_ohc=Ipwq4DZiQQAQ7kNvwECWfGl&_nc_oc=AdpuZDYQNYmjomsZZYb8GH97YJ6v0MNhvuXUaMUYrYerAtB673sfotAbrZnLQpbChDdt4kB-Zwg2OWs0dfGMnH8d&_nc_zt=23&_nc_ht=scontent.fplu41-1.fna&_nc_gid=l6Gx3_y8c8ee6rvb0GtOGA&_nc_ss=79289&oh=00_AQSBu226isGimkVOW9c4jR0SsOwRFMP34GEWL1ayVxmm3Q&oe=6AFCF447", "https://scontent.fplu3-1.fna.fbcdn.net/v/t45.5328-4/708362888_980830601320132_5035697327293914012_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=247b10&_nc_ohc=dnJlVZ2HjXAQ7kNvwHRDiFQ&_nc_oc=AdpPENR80WA4c4AK1VZnflsGXsL6xGiVQsGJTg4jjuunPxGg4Nq2j1hZna-1_2sru3Uz8268Q5EiqGtatzhlzJvQ&_nc_zt=23&_nc_ht=scontent.fplu3-1.fna&_nc_gid=l6Gx3_y8c8ee6rvb0GtOGA&_nc_ss=79289&oh=00_AQTIg1ZWgyBnyzw3zc6jYStFxAfeNZYPH_P3OOCO91UP3Q&oe=6AFD1AE3", "https://scontent.fplu3-1.fna.fbcdn.net/v/t45.5328-4/707489891_959270976982389_667094142694828766_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=247b10&_nc_ohc=GqO0j_88yh8Q7kNvwEpn5YW&_nc_oc=AdoRZfO2m9SQoWUjWDqNB52K5_jkd3OYY84bsnSOJVxd1C0H9elu2hU6gZtF3IYwlXsr3xhxHQqikXkDEGa2vCON&_nc_zt=23&_nc_ht=scontent.fplu3-1.fna&_nc_gid=l6Gx3_y8c8ee6rvb0GtOGA&_nc_ss=79289&oh=00_AQQxvMLO_JnlrmHKjgUyu5EthNWqEbNNc6URZ81T600hBw&oe=6AFD0696"];
+const gal = document.getElementById('gal');
+FOTOS.forEach((u,i)=>{
+  const b=document.createElement('button');
+  b.type='button'; b.setAttribute('aria-label','Ampliar foto '+(i+1));
+  const im=document.createElement('img');
+  im.src=u; im.alt='Foto '+(i+1)+' do sítio'; im.loading = i<3?'eager':'lazy'; im.decoding='async';
+  b.appendChild(im); b.addEventListener('click',()=>abrir(i)); gal.appendChild(b);
+});
+const lb=document.getElementById('lb'), lbi=document.getElementById('lbi'), lbc=document.getElementById('lbc');
+let idx=0;
+function abrir(i){idx=i;render();lb.classList.add('on');document.body.style.overflow='hidden';}
+function fechar(){lb.classList.remove('on');document.body.style.overflow='';}
+function mover(d){idx=(idx+d+FOTOS.length)%FOTOS.length;render();}
+function render(){lbi.src=FOTOS[idx];lbi.alt='Foto '+(idx+1)+' do sítio';lbc.textContent=(idx+1)+' / '+FOTOS.length;}
+document.getElementById('lbx').addEventListener('click',fechar);
+document.getElementById('lbp').addEventListener('click',e=>{e.stopPropagation();mover(-1)});
+document.getElementById('lbn').addEventListener('click',e=>{e.stopPropagation();mover(1)});
+lb.addEventListener('click',e=>{if(e.target===lb)fechar()});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;
+  if(e.key==='Escape')fechar(); if(e.key==='ArrowRight')mover(1); if(e.key==='ArrowLeft')mover(-1);});
+let tx=0;
+lb.addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX},{passive:true});
+lb.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx; if(Math.abs(d)>45) mover(d<0?1:-1);},{passive:true});
+</script>
+</body>
+</html>
