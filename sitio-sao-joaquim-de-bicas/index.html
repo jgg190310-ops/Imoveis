@@ -245,7 +245,7 @@ footer .cred{margin-top:18px;font-size:12.5px;letter-spacing:.06em}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
 
 /* ---------- PRÉVIA (marca d'água) ---------- */
-#wm{position:fixed;inset:-50%;z-index:2147483645;pointer-events:none;transform:rotate(-28deg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='190'%3E%3Ctext x='10' y='70' font-family='Arial,sans-serif' font-weight='900' font-size='34' letter-spacing='3' fill='rgba(255,255,255,0.33)' stroke='rgba(0,0,0,0.20)' stroke-width='1'%3EPR%C3%89VIA %E2%80%A2 N%C3%83O AUTORIZADO%3C/text%3E%3Ctext x='60' y='108' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='rgba(255,255,255,0.38)' stroke='rgba(0,0,0,0.18)' stroke-width='.6'%3ESite por Jo%C3%A3o Gabriel Geo%3C/text%3E%3Ctext x='20' y='132' font-family='Arial,sans-serif' font-size='12' fill='rgba(255,255,255,0.32)' stroke='rgba(0,0,0,0.14)' stroke-width='.5'%3EProtegido pela Lei 9.610/98 %E2%80%94 Direitos Autorais%3C/text%3E%3C/svg%3E");background-repeat:repeat}
+#wm{position:fixed;inset:-50%;z-index:2147483645;pointer-events:none;transform:rotate(-28deg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='680' height='200'%3E%3Ctext x='10' y='70' font-family='Arial,sans-serif' font-weight='900' font-size='31' letter-spacing='2' fill='rgba(255,255,255,0.33)' stroke='rgba(0,0,0,0.20)' stroke-width='1'%3EPR%C3%89VIA %E2%80%A2 N%C3%83O AUTORIZADO%3C/text%3E%3Ctext x='60' y='108' font-family='Arial,sans-serif' font-weight='700' font-size='15' fill='rgba(255,255,255,0.38)' stroke='rgba(0,0,0,0.18)' stroke-width='.6'%3ESite por Jo%C3%A3o Gabriel Geo%3C/text%3E%3Ctext x='20' y='132' font-family='Arial,sans-serif' font-size='12' fill='rgba(255,255,255,0.32)' stroke='rgba(0,0,0,0.14)' stroke-width='.5'%3EProtegido pela Lei 9.610/98 %E2%80%94 Direitos Autorais%3C/text%3E%3C/svg%3E");background-repeat:repeat}
 #wm2{position:fixed;inset:0;z-index:2147483646;pointer-events:none;display:flex;align-items:center;justify-content:center;font:900 clamp(90px,22vw,320px)/1 Arial,sans-serif;color:rgba(255,255,255,.17);-webkit-text-stroke:2px rgba(0,0,0,.22);letter-spacing:.05em;transform:rotate(-28deg)}
 
 /* aviso de prévia */
@@ -652,17 +652,24 @@ NOITE.forEach(([f, tag, tit], k) => {
 // contador e setas da galeria
 const cont = document.getElementById('contador');
 const pad = n => String(n).padStart(2, '0');
-function atualizaCont(){
-  const cards = [...trilho.children]; const x = trilho.scrollLeft + 10;
-  let idx = 0; cards.forEach((c, k) => { if (c.offsetLeft - trilho.offsetLeft <= x + 40) idx = k; });
-  if (trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 4) idx = cards.length - 1;
-  cont.textContent = pad(idx + 1) + ' / ' + pad(cards.length);
+function baseTrilho(){ return trilho.getBoundingClientRect().left + parseFloat(getComputedStyle(trilho).paddingLeft); }
+function idxAtual(){
+  const cards = [...trilho.children], tl = baseTrilho();
+  if (trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 4) return cards.length - 1;
+  let best = 0, bd = 1e9; cards.forEach((c, k) => { const d = Math.abs(c.getBoundingClientRect().left - tl); if (d < bd) { bd = d; best = k; } });
+  return best;
 }
+function atualizaCont(){ cont.textContent = pad(idxAtual() + 1) + ' / ' + pad(trilho.children.length); }
 trilho.addEventListener('scroll', () => requestAnimationFrame(atualizaCont), {passive:true});
+window.addEventListener('resize', atualizaCont);
 atualizaCont();
-const passo = () => (trilho.children[1]?.offsetWidth || 400) + 18;
-document.getElementById('galProx').addEventListener('click', () => trilho.scrollBy({left: passo(), behavior:'smooth'}));
-document.getElementById('galAnt').addEventListener('click', () => trilho.scrollBy({left: -passo(), behavior:'smooth'}));
+function vaiPara(d){
+  const cards = [...trilho.children], n = cards.length;
+  const alvo = cards[Math.max(0, Math.min(n - 1, idxAtual() + d))];
+  trilho.scrollBy({left: alvo.getBoundingClientRect().left - baseTrilho(), behavior:'smooth'});
+}
+document.getElementById('galProx').addEventListener('click', () => vaiPara(1));
+document.getElementById('galAnt').addEventListener('click', () => vaiPara(-1));
 
 // lightbox
 const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbTag = document.getElementById('lbTag'), lbTit = document.getElementById('lbTit'), lbCont = document.getElementById('lbCont');
