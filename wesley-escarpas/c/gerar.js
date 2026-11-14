@@ -20,7 +20,7 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;',
 const html = fs.readFileSync(path.join(SITE, 'index.html'), 'utf8');
 const logo = html.slice(html.indexOf('<symbol id="logo"'), html.indexOf('</symbol>', html.indexOf('<symbol id="logo"')) + 9);
 const img64 = f => 'data:image/webp;base64,' + fs.readFileSync(path.join(SITE, f)).toString('base64');
-const FONT = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&display=block">';
+const FONT = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Jost:wght@400..700&display=block">';
 
 function desc(d) {
   const p = [];
@@ -66,12 +66,12 @@ function page(d) {
   const b = await chromium.launch();
   const p = await b.newPage({ viewport: { width: 800, height: 420 }, deviceScaleFactor: 1 });
   await p.setContent(`<html><head>${FONT}<style>
-    body{margin:0}#c{position:relative;width:800px;height:420px;overflow:hidden;background:#0A201D;font-family:Archivo,sans-serif}
+    body{margin:0}#c{position:relative;width:800px;height:420px;overflow:hidden;background:#0A201D;font-family:Jost,sans-serif}
     #im{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     #g{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,18,16,0) 50%,rgba(6,18,16,.78))}
     #b{position:absolute;left:26px;bottom:20px;display:flex;align-items:center;gap:12px;color:#fff}
     #b svg{width:57px;height:38px}
-    #t{font-size:13px;font-stretch:125%;letter-spacing:.2em;text-transform:uppercase;line-height:1.35}
+    #t{font-size:13px;letter-spacing:.24em;text-transform:uppercase;line-height:1.35}
     #r{display:block;letter-spacing:.14em;color:#E7CC9C;font-size:11.5px;font-weight:600}
   </style></head><body><svg width="0" height="0" style="position:absolute"><defs>${logo.replace('#B8925A', '#D6B57E').replace('#B8925A', '#D6B57E')}</defs></svg>
   <div id="c"><img id="im"><div id="g"></div><div id="b"><svg viewBox="0 0 150 100"><use href="#logo" style="color:#fff"/></svg><div id="t">Wesley <b>Escarpas</b><span id="r"></span></div></div></div></body></html>`);
@@ -89,13 +89,13 @@ function page(d) {
   // imagem de capa do site (1200x630)
   await p.setViewportSize({ width: 1200, height: 630 });
   await p.setContent(`<html><head>${FONT}<style>
-    body{margin:0}#c{position:relative;width:1200px;height:630px;overflow:hidden;background:#0A201D;font-family:Archivo,sans-serif;color:#fff}
+    body{margin:0}#c{position:relative;width:1200px;height:630px;overflow:hidden;background:#0A201D;font-family:Jost,sans-serif;color:#fff}
     #im{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 60%}
     #g{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,18,16,.86) 0%,rgba(6,18,16,.55) 48%,rgba(6,18,16,.05) 80%),linear-gradient(180deg,rgba(6,18,16,0) 60%,rgba(6,18,16,.5))}
     #in{position:absolute;left:64px;top:58px;bottom:56px;display:flex;flex-direction:column;justify-content:space-between;width:640px}
     .br{display:flex;align-items:center;gap:14px}.br svg{width:78px;height:52px}
-    .wm{font-size:15px;font-stretch:125%;letter-spacing:.22em;text-transform:uppercase}
-    h1{margin:0;font-size:66px;line-height:.98;font-weight:600;font-stretch:112%;letter-spacing:-.03em}
+    .wm{font-size:15px;letter-spacing:.26em;text-transform:uppercase}
+    h1{margin:0;font-size:68px;line-height:1;font-weight:400;font-family:Gloock,serif;letter-spacing:-.015em}
     p{margin:18px 0 0;font-size:21px;color:rgba(255,255,255,.86)}
     .k{font-size:13px;font-weight:600;font-stretch:120%;letter-spacing:.17em;text-transform:uppercase;color:#E7CC9C;margin-bottom:18px}
   </style></head><body><svg width="0" height="0" style="position:absolute"><defs>${logo.replace('#B8925A', '#D6B57E').replace('#B8925A', '#D6B57E')}</defs></svg>
