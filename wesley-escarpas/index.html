@@ -418,6 +418,7 @@ h2{font-size:clamp(32px,4.6vw,62px)}
 
 /* CASA (overlay) */
 .dv{position:fixed;inset:0;z-index:60;background:var(--paper);overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transform:translateY(28px);transition:opacity .35s var(--ez),transform .5s var(--ez),visibility 0s linear .5s}
+.dv:focus,.lb:focus,.pnl:focus{outline:none}
 .dv.on{opacity:1;visibility:visible;transform:none;transition:opacity .35s var(--ez),transform .5s var(--ez),visibility 0s}
 .dv-top{position:sticky;top:0;z-index:6;display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px;padding:0 max(12px,calc((100% - 1320px)/2 - 8px));background:rgba(246,242,234,.92);-webkit-backdrop-filter:saturate(1.4) blur(16px);backdrop-filter:saturate(1.4) blur(16px);border-bottom:1px solid var(--line)}
 .dv-top button{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 14px;border-radius:99px;font-size:14px;font-weight:600;transition:background-color .2s}
@@ -876,7 +877,7 @@ h2{font-size:clamp(32px,4.6vw,62px)}
   <a class="wa" data-wa="geral"><svg class="ic f" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
 </nav>
 
-<div class="dv" id="dv" role="dialog" aria-modal="true" aria-labelledby="dvName">
+<div class="dv" id="dv" role="dialog" aria-modal="true" aria-labelledby="dvName" tabindex="-1">
   <div class="dv-top">
     <button type="button" id="dvBack"><svg class="ic" aria-hidden="true"><use href="#i-al"/></svg>Voltar</button>
     <span class="dv-ref" id="dvRef"></span>
@@ -889,7 +890,7 @@ h2{font-size:clamp(32px,4.6vw,62px)}
   <div class="dv-bar"><div><b id="dvBarT">Diária sob consulta</b><small id="dvBarS">valor conforme data e grupo</small></div><a class="btn wa" id="dvBarGo" target="_blank" rel="noopener"><svg class="ic f" aria-hidden="true"><use href="#i-wa"/></svg>Consultar</a></div>
 </div>
 
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotos da casa">
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotos da casa" tabindex="-1">
   <div class="lb-h"><b id="lbT"></b><span id="lbC"></span><button class="lb-x" type="button" id="lbX" aria-label="Fechar fotos"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button></div>
   <div class="lb-s" id="lbS"></div>
   <button class="lb-a p" type="button" id="lbP" aria-label="Foto anterior"><svg class="ic" aria-hidden="true"><use href="#i-chl"/></svg></button>
@@ -1166,7 +1167,7 @@ function renderList(shared){
 }
 function openList(shared){
   renderList(shared);
-  var d=$('#list');if(!d.classList.contains('on')){d._f=document.activeElement;d.classList.add('on');syncLock();setTimeout(function(){var x=$('.xbtn',d);x&&x.focus({preventScroll:true})},60)}
+  var d=$('#list');if(!d.classList.contains('on')){d._f=document.activeElement;d.classList.add('on');syncLock();setTimeout(function(){var x=$('.pnl',d);x.setAttribute('tabindex','-1');x.focus({preventScroll:true})},60)}
 }
 function closeList(){var d=$('#list');if(!d.classList.contains('on'))return;d.classList.remove('on');LISTSHARED=null;syncLock();restore(d)}
 async function shareList(){
@@ -1262,7 +1263,7 @@ function openHouse(h){
   renderHouse(h);dv.scrollTop=0;
   dv.classList.add('on');syncLock();
   document.title=h.nome+' ('+h.ref+') · Wesley Escarpas';
-  setTimeout(function(){$('#dvBack').focus({preventScroll:true})},80);
+  setTimeout(function(){dv.focus({preventScroll:true})},80);
 }
 function closeHouse(){if(!CUR)return;CUR=null;dv.classList.remove('on');document.title=TITLE;syncLock();restore(dv)}
 async function shareHouse(h){
@@ -1283,7 +1284,7 @@ function openLB(h,i){
   if(!was){lb._f=document.activeElement;lb.classList.add('on');syncLock()}
   i=Math.max(0,Math.min(h.n-1,i||0));
   requestAnimationFrame(function(){lbS.scrollTo({left:i*lbS.clientWidth,behavior:was&&!RM?'smooth':'auto'});updLB()});
-  if(!was)setTimeout(function(){$('#lbX').focus({preventScroll:true})},60);
+  if(!was)setTimeout(function(){lb.focus({preventScroll:true})},60);
 }
 function closeLB(){if(!lb.classList.contains('on'))return;lb.classList.remove('on');syncLock();restore(lb)}
 function lbIdx(){return Math.round(lbS.scrollLeft/Math.max(1,lbS.clientWidth))}
@@ -1311,9 +1312,9 @@ addEventListener('popstate',route);
 addEventListener('hashchange',route);
 
 /* ---------- gavetas simples ---------- */
-function openFS(){var d=$('#fs');d._f=document.activeElement;d.classList.add('on');syncLock();syncControls();setTimeout(function(){$('.xbtn',d).focus({preventScroll:true})},60)}
+function openFS(){var d=$('#fs');d._f=document.activeElement;d.classList.add('on');syncLock();syncControls();setTimeout(function(){var x=$('.pnl',d);x.setAttribute('tabindex','-1');x.focus({preventScroll:true})},60)}
 function closeFS(){var d=$('#fs');if(!d.classList.contains('on'))return;d.classList.remove('on');syncLock();restore(d)}
-function openMenu(){var d=$('#menu');d._f=document.activeElement;d.classList.add('on');syncLock();setTimeout(function(){$('.xbtn',d).focus({preventScroll:true})},60)}
+function openMenu(){var d=$('#menu');d._f=document.activeElement;d.classList.add('on');syncLock();setTimeout(function(){var x=$('.pnl',d);x.setAttribute('tabindex','-1');x.focus({preventScroll:true})},60)}
 function closeMenu(){var d=$('#menu');if(!d.classList.contains('on'))return;d.classList.remove('on');syncLock();restore(d)}
 
 /* ---------- montagem ---------- */
