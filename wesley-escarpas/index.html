@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#0B2522">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E3430'/%3E%3Ctext x='7' y='45' font-family='Georgia,serif' font-weight='700' font-size='34' fill='%23F6F2EA'%3EWE%3C/text%3E%3Cpath d='M7 51C20 48 28 36 37 27c6 4 12 8 20 13' fill='none' stroke='%23D2B07A' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Jost:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&display=swap">
 <link rel="preload" as="image" href="img/p049-2.webp" fetchpriority="high">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Wesley Escarpas","description":"Aluguel de temporada em Escarpas do Lago e Capitólio-MG","url":"https://jgg190310-ops.github.io/Imoveis/wesley-escarpas/","image":"https://jgg190310-ops.github.io/Imoveis/wesley-escarpas/og-capa.jpg","telephone":"+55 37 99987-2057","address":{"@type":"PostalAddress","streetAddress":"Rua José da Mata Leonel, 65 - Nossa Senhora de Fátima","addressLocality":"Capitólio","addressRegion":"MG","addressCountry":"BR"},"openingHours":"Mo-Fr 09:00-20:00","sameAs":["https://www.instagram.com/wesleyescarpas/"]}</script>
@@ -31,7 +31,7 @@
   --brass:#B8925A;--brass2:#D6B57E;--brassd:#7A5A2B;
   --line:rgba(18,34,31,.12);--lineL:rgba(246,242,234,.14);
   --wa:#12813D;--wa2:#0E6B32;--love:#C8452E;
-  --f:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
   --ez:cubic-bezier(.2,.7,.2,1);--r:16px;--rl:24px;--hd:64px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -591,24 +591,9 @@ h2{font-size:clamp(32px,4.6vw,62px)}
 @media (max-width:899px){.tuck .hd{transform:translateY(-100%)}.tuck .fbar{top:0}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.js .rv{opacity:1;transform:none}.hs img{transform:none!important}}
 
-/* tipografia: Gloock (títulos) + Jost (texto) */
-:root{--f:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;--d:'Gloock',Georgia,'Times New Roman',serif}
-body{font-family:var(--f);font-size:16.5px}
-h1,h2,h3,.h3,.tile-t b,.frow b,.cd b,.rl-p b,.revbox b,.book-t,.pnl-h h2,.mnu nav a,.ft-big,.empty b,.li-empty b,.rl-n,.dv-bar b,.hc-a b,.x-list h3,.own-f h3,.li-it b,.ab-card .wm,.map-c b{font-family:var(--d);font-weight:400;font-synthesis:none;letter-spacing:-.008em}
-.hero h1{letter-spacing:-.018em;line-height:1;font-size:clamp(42px,6.4vw,88px)}
-h2{line-height:1.04}
-.card h3{font-size:clamp(20px,1.55vw,23px);line-height:1.16}
-.frow b{letter-spacing:-.01em}
-.cd b{letter-spacing:-.03em}
-.kicker{letter-spacing:.2em;font-weight:600}
-.wm{letter-spacing:.24em;font-weight:400}
-.ab-card .wm{font-family:var(--f)}
-.btn{font-weight:500;letter-spacing:.01em}
-.chip,.ctags li,.htags li,.achip,.xpill{font-weight:400}
-.faq summary{font-weight:500;letter-spacing:0}
-.ft-big{-webkit-text-stroke:1px rgba(214,181,126,.3);letter-spacing:-.02em}
-.rl-n{font-size:17px}
-.mnu nav a{font-size:32px}
+:root{--d:'Archivo',system-ui,sans-serif}
+.rinfo h4{font-weight:600;font-stretch:110%;letter-spacing:-.015em}
+.ld3{font-weight:600;font-stretch:112%}
 
 /* MAPA 3D */
 .vt{margin-left:auto;display:flex;gap:2px;padding:3px;border-radius:99px;background:var(--paper2)}
