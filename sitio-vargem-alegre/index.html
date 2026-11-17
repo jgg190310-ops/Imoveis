@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<title>Sítio Vargem Alegre · 2,5 alqueires de café · Espera Feliz-MG</title>
+<meta name="description" content="Sítio de 2,5 alqueires em Espera Feliz-MG, com 22 mil pés de café em produção, casa sede de 16 cômodos mobiliada, terreiro de pedra e açude com tilápias. Ao lado do Parque Nacional do Caparaó.">
+<meta name="theme-color" content="#f8f5ef">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f8f5ef; --paper2:#eeeae0; --card:#fffefb;
+  --ink:#1c1a15; --ink2:#67625a; --line:#ded8ca;
+  --cafe:#8a3a2e; --mata:#3c5a3a;
+  --serif:Spectral,Georgia,serif; --sans:Inter,system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:300 16.5px/1.68 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1160px,92vw);margin:0 auto}
+.h2{font:400 clamp(27px,4.2vw,44px)/1.13 var(--serif);letter-spacing:-.012em;margin-bottom:14px}
+.h2 em{font-style:italic;color:var(--cafe)}
+.eyebrow{font:500 11px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--cafe);margin-bottom:13px}
+.lead{color:var(--ink2);font-size:17px;max-width:64ch}
+section{padding:clamp(54px,7.4vw,96px) 0;border-top:1px solid var(--line)}
+
+#ribbon{position:fixed;top:0;left:0;right:0;z-index:90;background:var(--ink);color:#f8f5ef;
+  font:500 11.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:9px 14px}
+header{position:fixed;top:calc(var(--rib,30px) + 12px);left:0;right:0;z-index:60;background:none;border:0}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:9px 9px 9px 24px;border-radius:999px;
+  background:rgba(255,255,255,.72);
+  -webkit-backdrop-filter:blur(22px) saturate(1.8);backdrop-filter:blur(22px) saturate(1.8);
+  border:1px solid rgba(255,255,255,.62);
+  box-shadow:0 1px 0 rgba(255,255,255,.5) inset, 0 14px 40px -16px rgba(28,26,21,.45);
+  transition:background .35s ease, box-shadow .35s ease, padding .35s ease}
+header.fixa .wrap{background:rgba(252,250,246,.9);padding-top:7px;padding-bottom:7px;
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 10px 30px -18px rgba(28,26,21,.5)}
+.logo{font:500 15px var(--serif);letter-spacing:.13em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.logo span{color:var(--cafe)}
+nav{display:flex;gap:22px}
+nav a{font:400 13px var(--sans);color:#43403a;text-decoration:none;transition:color .25s}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fff;font:500 13.5px var(--sans);
+  padding:12px 22px;border-radius:999px;text-decoration:none;transition:transform .2s,background .2s;white-space:nowrap}
+.btn:hover{background:#332f27;transform:translateY(-1px)}
+.btn svg{width:16px;height:16px}
+.btn.claro{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.4);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.btn.claro:hover{background:rgba(255,255,255,.26)}
+@media(max-width:980px){nav{display:none}}
+#ribbon .short,header .btn .short{display:none}
+@media(max-width:620px){
+  #ribbon{font-size:10px;letter-spacing:.03em;padding:8px 10px}
+  #ribbon .full,header .btn .full{display:none}
+  #ribbon .short,header .btn .short{display:inline}
+  .logo{font-size:12.5px;letter-spacing:.07em}
+  header .wrap{padding:7px 7px 7px 16px}
+  header .btn{padding:10px 15px;font-size:12.5px;gap:7px}
+}
+
+.hero{position:relative;min-height:96svh;display:grid;align-items:end;border-top:0;overflow:hidden;
+  padding:calc(var(--rib,30px) + 124px) 0 clamp(46px,6vw,76px)}
+.hero .bg{position:absolute;inset:-14% 0;z-index:0;will-change:transform}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.hero .bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(14,12,9,.9) 0%,rgba(14,12,9,.56) 44%,rgba(14,12,9,.18) 74%,rgba(14,12,9,.34) 100%)}
+.hero .wrap{position:relative;z-index:1;color:#fff;will-change:transform,opacity}
+.hero .local{font:400 12px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:#decfbf;margin-bottom:16px}
+.h1{font:400 clamp(35px,5.6vw,66px)/1.07 var(--serif);letter-spacing:-.014em;color:#fff;max-width:17ch}
+.h1 em{font-style:italic;color:#f0d6c4}
+.hero p.sub{color:#e8e4dc;font-size:18px;max-width:54ch;margin:18px 0 28px}
+.heroCta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.price{display:inline-flex;flex-direction:column;background:rgba(255,255,255,.13);
+  -webkit-backdrop-filter:blur(16px) saturate(1.5);backdrop-filter:blur(16px) saturate(1.5);
+  border:1px solid rgba(255,255,255,.34);border-radius:14px;padding:12px 20px;
+  box-shadow:0 1px 0 rgba(255,255,255,.28) inset}
+.price small{font:400 10.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#d8d1c5}
+.price b{font:500 26px var(--serif);color:#fff}
+.price s{font:400 13px var(--sans);color:#bdb4a6;text-decoration:line-through}
+
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+@media(max-width:820px){.nums{grid-template-columns:repeat(2,1fr)}}
+.num{background:var(--card);padding:clamp(20px,2.5vw,28px) clamp(16px,2vw,22px)}
+.num b{display:block;font:500 clamp(23px,2.9vw,31px) var(--serif);color:var(--ink);line-height:1.1}
+.num span{display:block;margin-top:6px;font:400 12.5px/1.45 var(--sans);color:var(--ink2)}
+
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px;margin-top:36px}
+.gal figure{margin:0;position:relative;border-radius:14px;overflow:hidden;background:var(--paper2);border:1px solid var(--line)}
+.gal img{width:100%;height:112%;object-fit:cover;display:block;will-change:transform}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 13px;color:#fff;
+  font:400 13.5px/1.4 var(--sans);background:linear-gradient(to top,rgba(14,12,9,.88),rgba(14,12,9,.45) 55%,transparent)}
+.gal .w2{grid-column:span 2}
+.gal .h2x{grid-row:span 2}
+@media(max-width:900px){.gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}}
+@media(max-width:560px){.gal{grid-template-columns:1fr;grid-auto-rows:240px}.gal .w2{grid-column:auto}.gal .h2x{grid-row:auto}}
+
+.fatos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:34px}
+@media(max-width:900px){.fatos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.fatos{grid-template-columns:1fr}}
+.fato{background:var(--card);padding:24px 26px}
+.fato h3{font:400 20px var(--serif);margin-bottom:6px}
+.fato p{color:var(--ink2);font-size:14.8px}
+
+.renda{margin-top:34px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(26px,3.6vw,44px)}
+.renda .faixa{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:22px}
+@media(max-width:700px){.renda .faixa{grid-template-columns:1fr}}
+.renda .faixa div{background:var(--card);padding:20px 22px}
+.renda .faixa b{display:block;font:500 25px var(--serif);color:var(--cafe)}
+.renda .faixa span{display:block;margin-top:5px;font:400 12.5px var(--sans);color:var(--ink2)}
+
+.ficha{display:grid;grid-template-columns:repeat(2,1fr);margin-top:32px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card)}
+.ficha div{padding:16px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font-size:14.6px}
+.ficha div:nth-child(odd){border-right:1px solid var(--line)}
+.ficha b{font-weight:500;flex:0 0 auto}
+.ficha span{color:var(--ink2);text-align:right}
+.ficha .hi span{color:var(--ink);font-weight:600}
+@media(max-width:820px){.ficha{grid-template-columns:1fr}.ficha div:nth-child(odd){border-right:0}}
+
+.mapBox{margin-top:30px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--paper2)}
+.mapBox iframe{width:100%;height:clamp(280px,40vw,390px);border:0;display:block;filter:saturate(.9)}
+.mapFoot{padding:14px 20px;font:400 12.5px var(--sans);color:var(--ink2);border-top:1px solid var(--line);background:var(--card)}
+
+footer{padding:clamp(54px,7.4vw,92px) 0 42px;text-align:center;border-top:1px solid var(--line);background:var(--paper2)}
+.credito{margin-top:40px;font:400 12.5px/1.75 var(--sans);color:var(--ink2)}
+.credito a{color:var(--ink);font-weight:500}
+
+.zap{position:fixed;right:18px;bottom:18px;z-index:70;width:58px;height:58px;border-radius:50%;background:#25d366;
+  display:grid;place-items:center;box-shadow:0 14px 34px -12px rgba(28,26,21,.55);transition:transform .2s}
+.zap:hover{transform:scale(1.06)}
+.zap svg{width:30px;height:30px;fill:#fff}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<div id="ribbon"><b>Demonstração</b> <span class="full">&middot; site feito por João Gabriel Geo &middot; não autorizado para publicação</span><span class="short">&middot; por João Gabriel Geo</span></div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Sítio <span>Vargem Alegre</span></a>
+    <nav>
+      <a href="#cafe">O café</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#tem">O que tem</a>
+      <a href="#ficha">Ficha</a>
+      <a href="#local">Onde fica</a>
+    </nav>
+    <a class="btn" href="https://mg.olx.com.br/regiao-de-juiz-de-fora/terrenos/vendo-sitio-vargem-alegre-espera-feliz-mg-proximo-ao-parque-nacional-do-1544140770" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg>
+      <span class="full">Falar com o dono</span><span class="short">Contato</span>
+    </a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="bg"><img referrerpolicy="no-referrer" src="https://img.olx.com.br/images/79/798618332332635.jpg" alt="A casa sede do sítio, com escadaria e alpendre"></div>
+  <div class="wrap">
+    <div class="local">Espera Feliz &middot; Minas Gerais</div>
+    <h1 class="h1">Um sítio de café <em>que já dá lucro</em>, ao pé do Caparaó.</h1>
+    <p class="sub">22 mil pés em produção, casa sede de 16 cômodos recém-reformada e mobiliada, terreiro de pedra novo e água de três nascentes. A poucos quilômetros do Pico da Bandeira.</p>
+    <div class="heroCta">
+      <div class="price"><small>Valor de venda</small><b>R$ 2.000.000</b><s>de R$ 2.500.000</s></div>
+      <a class="btn claro" href="https://mg.olx.com.br/regiao-de-juiz-de-fora/terrenos/vendo-sitio-vargem-alegre-espera-feliz-mg-proximo-ao-parque-nacional-do-1544140770" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg>
+        Agendar uma visita
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="numeros">
+  <div class="wrap">
+    <div class="nums">
+      <div class="num rv"><b>2,5 alqueires</b><span>cerca de 121.000 m²</span></div>
+      <div class="num rv"><b>22 mil</b><span>pés de café em produção</span></div>
+      <div class="num rv"><b>16</b><span>cômodos na casa sede</span></div>
+      <div class="num rv"><b>R$ 17</b><span>por metro quadrado</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="cafe">
+  <div class="wrap">
+    <div class="eyebrow rv">A lavoura</div>
+    <h2 class="h2 rv">Não é sítio de fim de semana. É <em>lavoura em produção</em>.</h2>
+    <p class="lead rv">22 mil pés de café já formados, com safra registrada entre 220 e 530 sacas por ano. Quem compra não começa do zero: compra a colheita do ano que vem junto.</p>
+    <div class="renda rv">
+      <div class="faixa">
+        <div><b>220 sacas</b><span>produção mínima registrada no ano</span></div>
+        <div><b>530 sacas</b><span>produção máxima registrada no ano</span></div>
+        <div><b>1 hectare</b><span>de eucalipto, além do café</span></div>
+      </div>
+      <p class="lead" style="margin-top:22px">Além da lavoura, há árvores nativas em sistema agroflorestal e frutíferas diversas em produção — entre elas nove pés de jabuticaba com cinquenta anos.</p>
+    </div>
+    <div class="gal">
+      <figure class="w2 h2x rv">
+        <img referrerpolicy="no-referrer" loading="lazy" src="https://img.olx.com.br/images/79/791604815120819.jpg" alt="Cafezal em flor, coberto de flores brancas">
+        <figcaption>O cafezal em flor</figcaption>
+      </figure>
+      <figure class="rv">
+        <img referrerpolicy="no-referrer" loading="lazy" src="https://img.olx.com.br/images/79/793654335752354.jpg" alt="Grãos de café maduros secando">
+        <figcaption>O café maduro, na secagem</figcaption>
+      </figure>
+      <figure class="rv">
+        <img referrerpolicy="no-referrer" loading="lazy" src="https://img.olx.com.br/images/79/791643210955881.jpg" alt="Terreiro de pedra com café espalhado para secar">
+        <figcaption>O terreiro de pedra, 1.000 m² recém-construídos</figcaption>
+      </figure>
+      <figure class="rv">
+        <img referrerpolicy="no-referrer" loading="lazy" src="https://img.olx.com.br/images/79/794697697986574.jpg" alt="Açude com tilápias no sítio">
+        <figcaption>O açude com tilápias</figcaption>
+      </figure>
+      <figure class="rv">
+        <img referrerpolicy="no-referrer" loading="lazy" src="https://img.olx.com.br/images/79/793604453124428.jpg" alt="Galpão coberto com carroça">
+        <figcaption>O galpão de 50 m²</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="fotos">
+  <div class="wrap">
+    <div class="eyebrow rv">A casa sede</div>
+    <h2 class="h2 rv">Dezesseis cômodos, <em>com a mobília dentro</em>.</h2>
+    <p class="lead rv">Recém-reformada, com salão amplo, copa, cozinha, quatro quartos, dois banheiros, alpendre e área gourmet com churrasqueira e estacionamento coberto.</p>
+    <div class="gal">
+      <figure class="w2 h2x rv">
+        <img referrerpolicy="no-referrer" loading="lazy" src="https://img.olx.com.br/images/79/798618332332635.jpg" alt="Fachada da casa sede, com escadaria e alpendre">
+        <figcaption>A frente da casa, com a escadaria</figcaption>
+      </figure>
+      <figure class="rv">
+        <img referrerpolicy="no-referrer" loading="lazy" src="https://img.olx.com.br/images/79/797677573876213.jpg" alt="Sala de jantar com mesa de madeira e cristaleira">
+        <figcaption>A sala de jantar, mobiliada</figcaption>
+      </figure>
+      <figure class="rv">
+        <img referrerpolicy="no-referrer" loading="lazy" src="https://img.olx.com.br/images/79/796651932760175.jpg" alt="Quarto com cama de madeira">
+        <figcaption>Um dos quatro quartos</figcaption>
+      </figure>
+      <figure class="rv">
+        <img referrerpolicy="no-referrer" loading="lazy" src="https://img.olx.com.br/images/48/488691694767821.jpg" alt="Área gourmet com bancada e azulejo">
+        <figcaption>A área gourmet</figcaption>
+      </figure>
+      <figure class="rv">
+        <img referrerpolicy="no-referrer" loading="lazy" src="https://img.olx.com.br/images/49/494632574397648.jpg" alt="Jardim gramado ao lado da casa, com árvore grande">
+        <figcaption>O gramado em volta da casa</figcaption>
+      </figure>
+      <figure class="w2 rv">
+        <img referrerpolicy="no-referrer" loading="lazy" src="https://img.olx.com.br/images/79/793622333494627.jpg" alt="Alpendre da casa olhando para o terreiro">
+        <figcaption>O alpendre, olhando pro terreiro</figcaption>
+      </figure>
+      <figure class="rv">
+        <img referrerpolicy="no-referrer" loading="lazy" src="https://img.olx.com.br/images/79/799645930498483.jpg" alt="Lateral da casa com a escada e o porão">
+        <figcaption>A lateral e o porão</figcaption>
+      </figure>
+      <figure class="rv">
+        <img referrerpolicy="no-referrer" loading="lazy" src="https://img.olx.com.br/images/49/490696330298369.jpg" alt="Caminho de terra entre os eucaliptos">
+        <figcaption>O caminho entre os eucaliptos</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="tem">
+  <div class="wrap">
+    <div class="eyebrow rv">O que tem</div>
+    <h2 class="h2 rv">Água de <em>três lugares</em>, e energia própria.</h2>
+    <p class="lead rv">A infraestrutura que faz diferença na hora de produzir — ou de receber hóspedes.</p>
+    <div class="fatos">
+      <div class="fato rv"><h3>Duas minas por gravidade</h3><p>Duas águas de mina constantes, chegando por gravidade, sem bomba e sem conta de luz pra puxar água.</p></div>
+      <div class="fato rv"><h3>Açude com tilápias</h3><p>Poço de 32.000 litros já povoado com tilápias.</p></div>
+      <div class="fato rv"><h3>Vargeiro com muita água</h3><p>Vargeiro com abundância de água, apontado pelo proprietário como excelente para abrir um açude maior.</p></div>
+      <div class="fato rv"><h3>Terreiro de pedra novo</h3><p>Mil metros quadrados de terreiro recém-construído, pronto pra secagem da safra.</p></div>
+      <div class="fato rv"><h3>Transformador próprio</h3><p>Transformador Cemig de 15 kVA no sítio — energia que aguenta equipamento, não só lâmpada.</p></div>
+      <div class="fato rv"><h3>Jabuticabeiras de 50 anos</h3><p>Nove pés de jabuticaba com meio século, em franca produção, entre outras frutíferas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ficha">
+  <div class="wrap">
+    <div class="eyebrow rv">Ficha</div>
+    <h2 class="h2 rv">Os dados, <em>sem adjetivo</em>.</h2>
+    <div class="ficha rv">
+      <div><b>Área total</b><span>2,5 alqueires (~121.000 m²)</span></div>
+      <div><b>Valor por m²</b><span>cerca de R$ 17</span></div>
+      <div><b>Pés de café</b><span>22.000, em produção</span></div>
+      <div><b>Safra</b><span>220 a 530 sacas por ano</span></div>
+      <div><b>Eucalipto</b><span>1 hectare</span></div>
+      <div><b>Casa sede</b><span>16 cômodos, recém-reformada</span></div>
+      <div><b>Mobília</b><span>inclusa</span></div>
+      <div><b>Quartos</b><span>4, com espaço para ampliar</span></div>
+      <div><b>Banheiros</b><span>2</span></div>
+      <div><b>Área gourmet</b><span>com churrasqueira</span></div>
+      <div><b>Estacionamento</b><span>coberto</span></div>
+      <div><b>Terreiro</b><span>pedra, 1.000 m²</span></div>
+      <div><b>Galpão</b><span>50 m², recém-construído</span></div>
+      <div><b>Açude</b><span>32.000 litros, com tilápias</span></div>
+      <div><b>Nascentes</b><span>duas minas por gravidade</span></div>
+      <div><b>Energia</b><span>transformador Cemig 15 kVA</span></div>
+      <div><b>Pagamento</b><span>pode ser parcelado, a combinar</span></div>
+      <div class="hi"><b>Valor</b><span>R$ 2.000.000</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="local">
+  <div class="wrap">
+    <div class="eyebrow rv">Onde fica</div>
+    <h2 class="h2 rv">Ao pé do <em>Pico da Bandeira</em>.</h2>
+    <p class="lead rv">Espera Feliz, no sul de Minas, a poucos quilômetros de cachoeiras e do Parque Nacional do Caparaó — com acesso pelos dois lados, Minas e Espírito Santo. É por isso que o próprio proprietário aponta o sítio como local para pousada, pesque-pague ou espaço de eventos.</p>
+    <div class="mapBox rv">
+      <iframe title="Mapa de Espera Feliz, Minas Gerais" loading="lazy"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-41.98%2C-20.72%2C-41.78%2C-20.58&amp;layer=mapnik&amp;marker=-20.6503%2C-41.9067"></iframe>
+      <div class="mapFoot">Localização aproximada &mdash; o endereço exato é confirmado pelo proprietário no contato. Mapa &copy; colaboradores do OpenStreetMap.</div>
+    </div>
+  </div>
+</section>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="eyebrow rv">Direto com o dono</div>
+    <h2 class="h2 rv">Fale com <em>Saul ou Eduardo</em>.</h2>
+    <p class="lead rv" style="margin:0 auto 28px">Tire dúvidas sobre a safra, a documentação ou o parcelamento, e agende um dia para conhecer o sítio.</p>
+    <a class="btn rv" href="https://mg.olx.com.br/regiao-de-juiz-de-fora/terrenos/vendo-sitio-vargem-alegre-espera-feliz-mg-proximo-ao-parque-nacional-do-1544140770" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg>
+      Chamar no WhatsApp
+    </a>
+    <p class="credito">
+      As fotos são as do próprio anúncio, carregadas direto da OLX. No site final elas entram em alta resolução, enviadas pelo proprietário.<br>
+      Nesta demonstração o botão abre o anúncio da OLX. No site final ele abre direto o <b>seu</b> WhatsApp.<br><br>
+      Demonstração não autorizada, feita para apresentação. Protegida pela Lei 9.610/98.<br>
+      Site criado por <a href="https://wa.me/5531999131903" target="_blank" rel="noopener">João Gabriel Geo</a> &middot; (31) 99913-1903
+    </p>
+  </div>
+</footer>
+
+<a class="zap" href="https://mg.olx.com.br/regiao-de-juiz-de-fora/terrenos/vendo-sitio-vargem-alegre-espera-feliz-mg-proximo-ao-parque-nacional-do-1544140770" target="_blank" rel="noopener" aria-label="Falar com o dono">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg>
+</a>
+
+<script>
+(function(){
+  var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hero=document.querySelector('.hero'), bg=hero&&hero.querySelector('.bg'), capa=hero&&hero.querySelector('.wrap');
+  var cab=document.querySelector('header');
+  var fotos=Array.from(document.querySelectorAll('.gal img'));
+  var pedido=false;
+  function pinta(){
+    var y=window.scrollY||window.pageYOffset;
+    if(cab) cab.classList.toggle('fixa', y>40);
+    if(!reduz){
+      if(bg&&capa){
+        var h=hero.offsetHeight;
+        if(y < h+300){
+          bg.style.transform='translate3d(0,'+(y*0.34).toFixed(1)+'px,0)';
+          capa.style.transform='translate3d(0,'+(y*0.1).toFixed(1)+'px,0)';
+          capa.style.opacity=Math.max(0, 1 - y/(h*0.78)).toFixed(3);
+        }
+      }
+      var vh=window.innerHeight;
+      for(var i=0;i<fotos.length;i++){
+        var f=fotos[i], r=f.parentNode.getBoundingClientRect();
+        if(r.bottom>-120 && r.top<vh+120){
+          var p=(r.top + r.height/2 - vh/2)/vh;
+          f.style.transform='translate3d(0,'+(p*-26).toFixed(1)+'px,0)';
+        }
+      }
+    }
+    pedido=false;
+  }
+  function aoRolar(){ if(!pedido){ pedido=true; requestAnimationFrame(pinta); } }
+  window.addEventListener('scroll', aoRolar, {passive:true});
+  window.addEventListener('resize', aoRolar);
+  aoRolar();
+  var r=document.getElementById('ribbon');
+  function fit(){ document.documentElement.style.setProperty('--rib', r.offsetHeight+'px'); }
+  fit(); window.addEventListener('resize',fit); window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}
+})();
+const io = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+}, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
