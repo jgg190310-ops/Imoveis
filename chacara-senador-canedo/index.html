@@ -56,7 +56,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
              radial-gradient(700px 440px at 0% 100%,rgba(31,90,76,.10),transparent 60%)}
 .top .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
   gap:clamp(26px,3.6vw,54px);align-items:center}
-@media(max-width:940px){.top .wrap{grid-template-columns:1fr;gap:28px}}
+@media(max-width:940px){.top .wrap{grid-template-columns:minmax(0,1fr);gap:28px}}
 .top .local{font:400 11.5px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--green2);margin-bottom:16px}
 .h1{font:400 clamp(33px,4.6vw,55px)/1.08 var(--serif);letter-spacing:-.018em}
 .h1 em{font-style:italic;color:var(--green2)}
@@ -66,14 +66,14 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .price small{font:400 10.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--ink2)}
 .price b{font:400 26px var(--serif);color:var(--green)}
 
-.plantaBox{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(12px,1.8vw,20px)}
+.plantaBox{min-width:0;max-width:100%;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(12px,1.8vw,20px)}
 .plantaCap{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:0 6px 12px;flex-wrap:wrap}
 .plantaCap b{font:400 15px var(--serif)}
 .plantaCap span{font:400 12px var(--sans);color:var(--ink2)}
 .legend{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:16px;padding-top:15px;border-top:1px solid var(--line)}
 .legend div{display:flex;align-items:center;gap:8px;font:400 12.5px var(--sans);color:var(--ink2)}
 .legend i{width:12px;height:12px;border-radius:3px;flex:0 0 auto}
-.plantaScroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.plantaScroll{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .plantaHint{display:none;font:400 11.5px var(--sans);color:var(--ink2);margin-top:9px;text-align:center}
 @media(max-width:620px){.plantaScroll svg{min-width:580px}.plantaHint{display:block}}
 .nota{margin-top:12px;font:400 12px/1.6 var(--sans);color:var(--ink2)}
@@ -220,7 +220,7 @@ footer{padding:clamp(52px,7vw,88px) 0 42px;text-align:center;border-top:1px soli
         </g>
       </svg>
       </div>
-      <p class="plantaHint">Arraste o desenho para o lado para ver o terreno inteiro</p>
+      <p class="plantaHint">Arraste para o lado para ver o terreno inteiro</p>
       <div class="legend">
         <div><i style="background:#4a93a8"></i> Represa e córrego</div>
         <div><i style="background:#2e7d6b"></i> APP cercada</div>
