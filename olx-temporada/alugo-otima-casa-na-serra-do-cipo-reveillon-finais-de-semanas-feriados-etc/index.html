@@ -40,7 +40,7 @@ nav{display:flex;gap:22px} nav a{font:400 13px var(--sans);color:#44463f;text-de
 @media(max-width:620px){#ribbon{font-size:10px;letter-spacing:.03em;padding:8px 10px}#ribbon .full,header .btn .full{display:none}#ribbon .short,header .btn .short{display:inline}header .wrap{padding-left:18px}.logo{font-size:12px;max-width:46vw;overflow:hidden;text-overflow:ellipsis}header .wrap{gap:10px}header .btn{flex:0 0 auto}}
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;border-top:0}
 .hero .bg{position:absolute;inset:-14% 0;z-index:0;will-change:transform}
-.hero .bg img{image-orientation:from-image;object-position:50% 46%;width:100%;height:100%;object-fit:cover;object-position:center 58%}
+.hero .bg img{image-orientation:from-image;object-position:50% 50%;width:100%;height:100%;object-fit:cover;object-position:center 58%}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,24,20,.52) 0%,rgba(20,24,20,.18) 34%,rgba(20,24,20,.76) 100%)}
 .hero .wrap{position:relative;z-index:2;color:#fff;padding:0 0 clamp(54px,8vw,96px);will-change:transform}
 .hero .local{font:400 12px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:#e8c3ad;margin-bottom:16px}
@@ -86,7 +86,7 @@ footer a{color:#c8cac1;text-decoration:none}
 .rv.on{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 </style>
-<style>@media(max-width:760px){.hero .bg img{transform:scale(1.3);transform-origin:50% 26%}}</style><style>
+<style>.hero .bg img{transform:scale(1.18)}@media(max-width:760px){.hero .bg img{transform:scale(1.5);transform-origin:50% 44%}}</style><style>
 .estru{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));gap:14px;margin-top:30px}
 .estru div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
 .estru b{display:block;font:500 13px var(--sans);letter-spacing:.02em;color:var(--ink);margin-bottom:3px}
@@ -102,6 +102,22 @@ footer a{color:#c8cac1;text-decoration:none}
 .contatos{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .contatos a{display:inline-flex;align-items:center;min-height:46px;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:0 20px;font:500 13.5px var(--sans);color:var(--ink);text-decoration:none}
 .contatos a:hover{border-color:var(--ink)}
+.barra{background:var(--card);border-bottom:1px solid var(--line);padding:0;position:relative;z-index:5}
+.barra .trilho{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:16px max(4vw,16px);width:min(1160px,100%);margin:0 auto}
+.barra .trilho::-webkit-scrollbar{display:none}
+.barra a{flex:0 0 auto;display:inline-flex;align-items:center;gap:9px;min-height:46px;padding:0 18px;border-radius:999px;
+ border:1px solid var(--line);background:var(--paper);text-decoration:none;font:500 13.5px var(--sans);color:var(--ink);
+ transition:border-color .2s,background .2s}
+.barra a:hover{border-color:var(--ink)}
+.barra svg{width:17px;height:17px;fill:var(--mata);flex:0 0 auto}
+.barra a.destaque{background:#1f7a45;border-color:#1f7a45;color:#fff}
+.barra a.destaque svg{fill:#fff}
+.regiao{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:32px}
+.regiao div{border-left:2px solid var(--telha);padding:4px 0 4px 18px}
+.regiao b{display:block;font:500 15px var(--sans);color:var(--ink);margin-bottom:5px}
+.regiao span{font:300 15px/1.6 var(--sans);color:var(--ink2)}
+@media(max-width:760px){.barra .trilho{padding:12px 16px}}
+
 .atalhos{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin-top:32px}
 .atalhos a{display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-height:124px;justify-content:center;
  background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 18px;text-decoration:none;
@@ -119,12 +135,12 @@ footer a{color:#c8cac1;text-decoration:none}
 <div id="ribbon"><span class="full">&middot; site de demonstração feito por João Gabriel Geo &middot; não autorizado para publicação &middot;</span><span class="short">demonstração &middot; por João Gabriel Geo</span></div>
 <header id="hd"><div class="wrap">
  <a class="logo" href="#top">Casa na Serra do Cipó</a>
- <nav><a href="#sobre">A casa</a><a href="#estrutura">Estrutura</a><a href="#fotos">Fotos</a><a href="#local">Onde fica</a><a href="#contato">Contato</a></nav>
+ <nav><a href="#sobre">A casa</a><a href="#estrutura">Estrutura</a><a href="#fotos">Fotos</a><a href="#regiao">A regi&atilde;o</a><a href="#local">Onde fica</a><a href="#contato">Contato</a></nav>
  <a class="btn" href="https://wa.me/5531988146569?text=Oi%20Elaine!%20Vi%20o%20site%20da%20casa%20na%20Serra%20do%20Cip%C3%B3%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener"><span class="full">Falar no WhatsApp</span><span class="short">WhatsApp</span></a>
 </div></header>
 
 <section class="hero" id="top">
- <div class="bg" data-sp="0.18"><img src="https://img.olx.com.br/images/17/174654167186123.jpg" alt="Casa na Serra do Cipó, em Serra do Cipó" fetchpriority="high"></div>
+ <div class="bg" data-sp="0.18"><img src="https://static.wixstatic.com/media/218833_3cd7627915a64cc385a6ab16a7357e9c~mv2.png" alt="Casa na Serra do Cipó, em Serra do Cipó" fetchpriority="high"></div>
  <div class="wrap" data-sp="-0.05">
   <p class="local">Serra do Cipó &middot; MG</p>
   <h1 class="h1">Casa na Serra do Cipó<em>.</em></h1>
@@ -136,6 +152,16 @@ footer a{color:#c8cac1;text-decoration:none}
  </div>
 </section>
 
+
+<div class="barra"><div class="trilho">
+ <a class="destaque" href="https://wa.me/5531988146569?text=Oi%20Elaine!%20Vi%20o%20site%20da%20casa%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M.06 24l1.68-6.16A11.87 11.87 0 010 11.93C0 5.35 5.35 0 11.93 0a11.86 11.86 0 018.44 3.5 11.82 11.82 0 013.49 8.44c0 6.58-5.35 11.93-11.93 11.93a11.9 11.9 0 01-5.7-1.45L.06 24zM6.6 20.2c1.64.97 3.2 1.56 5.32 1.56 5.46 0 9.92-4.44 9.92-9.9A9.93 9.93 0 0011.93 1.9 9.9 9.9 0 002 11.9c0 2.2.64 3.86 1.72 5.58l-1 3.63 3.88-1.02zm11.3-5.56c-.08-.12-.28-.2-.57-.35-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.76.95-.94 1.15-.17.2-.34.22-.63.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.45.13-.6.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.57-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41z"/></svg>WhatsApp</a>
+ <a href="tel:+5531988146569"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.3 21 3 12.7 3 3c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>Ligar</a>
+ <a href="https://wa.me/5531988146569?text=Oi%20Elaine!%20Quero%20fechar%20a%20reserva.%20Pode%20me%20mandar%20a%20chave%20PIX%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 1.6l4.2 4.2L12 10 7.8 5.8 12 1.6zM5.8 7.8L1.6 12l4.2 4.2L10 12 5.8 7.8zm12.4 0L14 12l4.2 4.2L22.4 12l-4.2-4.2zM12 14l4.2 4.2L12 22.4 7.8 18.2 12 14z"/></svg>PIX</a>
+ <a href="mailto:elainetolentino9@gmail.com"><svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm0 2v.5l8 5 8-5V6H4zm16 12V8.9l-7.5 4.7a1 1 0 01-1 0L4 8.9V18h16z"/></svg>E-mail</a>
+ <a href="https://maps.app.goo.gl/4oXVTj7B4ptKDPY36" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 00-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 00-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>Como chegar</a>
+ <a href="https://www.instagram.com/elaine_araujo_tolentino/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0122 7.5v9A5.5 5.5 0 0116.5 22h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2zm0 2A3.5 3.5 0 004 7.5v9A3.5 3.5 0 007.5 20h9a3.5 3.5 0 003.5-3.5v-9A3.5 3.5 0 0016.5 4h-9zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm5.6-2.9a1.1 1.1 0 110 2.2 1.1 1.1 0 010-2.2z"/></svg>Instagram</a>
+ <a href="#fotos"><svg viewBox="0 0 24 24"><path d="M9 3l-1.5 2H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V7a2 2 0 00-2-2h-3.5L15 3H9zm3 5a6 6 0 110 12 6 6 0 010-12zm0 2a4 4 0 100 8 4 4 0 000-8z"/></svg>Fotos</a>
+</div></div>
 <section id="sobre"><div class="wrap">
  <p class="eyebrow rv">A casa</p>
  <div class="unhead rv">
@@ -173,11 +199,23 @@ footer a{color:#c8cac1;text-decoration:none}
 <section id="fotos"><div class="wrap">
  <p class="eyebrow rv">As fotos</p>
  <h2 class="h2 rv">Dá uma olhada <em>por dentro</em>.</h2>
- <p class="lead rv">16 fotos do lugar. Arraste pro lado pra ver todas.</p>
+ <p class="lead rv">17 fotos do lugar. Arraste pro lado pra ver todas.</p>
 </div>
-<div class="galwrap rv"><div class="gal"><figure class="gf"><img src="https://img.olx.com.br/images/77/773660526423798.jpg" alt="Casa na Serra do Cipó — foto 1" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/96/967693280634573.jpg" alt="Casa na Serra do Cipó — foto 2" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/71/714652048135611.jpg" alt="Casa na Serra do Cipó — foto 3" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/78/780661160979408.jpg" alt="Casa na Serra do Cipó — foto 4" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/88/883627769437325.jpg" alt="Casa na Serra do Cipó — foto 5" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/10/107647285032993.jpg" alt="Casa na Serra do Cipó — foto 6" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/97/976631280063486.jpg" alt="Casa na Serra do Cipó — foto 7" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/12/126617761193309.jpg" alt="Casa na Serra do Cipó — foto 8" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/92/927607888907455.jpg" alt="Casa na Serra do Cipó — foto 9" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/73/734664522142949.jpg" alt="Casa na Serra do Cipó — foto 10" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/93/934689289833759.jpg" alt="Casa na Serra do Cipó — foto 11" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/99/993681523627713.jpg" alt="Casa na Serra do Cipó — foto 12" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/94/943671766583601.jpg" alt="Casa na Serra do Cipó — foto 13" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/95/955631163555053.jpg" alt="Casa na Serra do Cipó — foto 14" loading="lazy" decoding="async"></figure></div></div>
+<div class="galwrap rv"><div class="gal"><figure class="gf"><img src="https://img.olx.com.br/images/17/174654167186123.jpg" alt="Casa na Serra do Cipó — foto 1" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/77/773660526423798.jpg" alt="Casa na Serra do Cipó — foto 2" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/96/967693280634573.jpg" alt="Casa na Serra do Cipó — foto 3" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/71/714652048135611.jpg" alt="Casa na Serra do Cipó — foto 4" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/78/780661160979408.jpg" alt="Casa na Serra do Cipó — foto 5" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/88/883627769437325.jpg" alt="Casa na Serra do Cipó — foto 6" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/10/107647285032993.jpg" alt="Casa na Serra do Cipó — foto 7" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/97/976631280063486.jpg" alt="Casa na Serra do Cipó — foto 8" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/12/126617761193309.jpg" alt="Casa na Serra do Cipó — foto 9" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/92/927607888907455.jpg" alt="Casa na Serra do Cipó — foto 10" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/73/734664522142949.jpg" alt="Casa na Serra do Cipó — foto 11" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/93/934689289833759.jpg" alt="Casa na Serra do Cipó — foto 12" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/99/993681523627713.jpg" alt="Casa na Serra do Cipó — foto 13" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/94/943671766583601.jpg" alt="Casa na Serra do Cipó — foto 14" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/95/955631163555053.jpg" alt="Casa na Serra do Cipó — foto 15" loading="lazy" decoding="async"></figure></div></div>
 </section>
 
+
+<section id="regiao"><div class="wrap">
+ <p class="eyebrow rv">A regi&atilde;o</p>
+ <h2 class="h2 rv">Serra do Cip&oacute; <em>na porta</em>.</h2>
+ <p class="lead rv">A casa fica perto de tudo que leva gente pra Serra: d&aacute; pra sair de manh&atilde;, passar o dia fora e voltar sem pegar estrada.</p>
+ <div class="regiao rv">
+  <div><b>Cachoeiras</b><span>Os principais po&ccedil;os e cachoeiras da Serra ficam a poucos minutos.</span></div>
+  <div><b>Centrinho e com&eacute;rcio</b><span>Mercado, farm&aacute;cia e restaurante perto, sem precisar levar tudo de casa.</span></div>
+  <div><b>M&uacute;sica ao vivo</b><span>Os barzinhos da regi&atilde;o t&ecirc;m m&uacute;sica ao vivo &agrave; noite.</span></div>
+  <div><b>Parque Nacional</b><span>Trilhas e mirantes do Parque Nacional da Serra do Cip&oacute;.</span></div>
+ </div>
+</div></section>
 <section id="local"><div class="wrap">
  <p class="eyebrow rv">Onde fica</p>
  <h2 class="h2 rv">Serra do Cipó<em>, Minas Gerais</em>.</h2>
