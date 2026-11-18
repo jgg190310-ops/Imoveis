@@ -40,7 +40,7 @@ nav{display:flex;gap:22px} nav a{font:400 13px var(--sans);color:#44463f;text-de
 @media(max-width:620px){#ribbon{font-size:10px;letter-spacing:.03em;padding:8px 10px}#ribbon .full,header .btn .full{display:none}#ribbon .short,header .btn .short{display:inline}header .wrap{padding-left:18px}}
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;border-top:0}
 .hero .bg{position:absolute;inset:-14% 0;z-index:0;will-change:transform}
-.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 58%}
+.hero .bg img{image-orientation:from-image;width:100%;height:100%;object-fit:cover;object-position:center 58%}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,24,20,.52) 0%,rgba(20,24,20,.18) 34%,rgba(20,24,20,.76) 100%)}
 .hero .wrap{position:relative;z-index:2;color:#fff;padding:0 0 clamp(54px,8vw,96px);will-change:transform}
 .hero .local{font:400 12px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:#e8c3ad;margin-bottom:16px}
@@ -66,10 +66,10 @@ nav{display:flex;gap:22px} nav a{font:400 13px var(--sans);color:#44463f;text-de
 .gal{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(16px,calc((100vw - 1160px)/2)) 10px;-webkit-overflow-scrolling:touch}
 .gal::-webkit-scrollbar{height:6px} .gal::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
 .gf{flex:0 0 clamp(248px,42vw,430px);scroll-snap-align:start;border-radius:14px;overflow:hidden;background:var(--paper2)}
-.gf img{width:100%;height:clamp(186px,29vw,300px);object-fit:cover}
+.gf img{image-orientation:from-image;width:100%;height:clamp(186px,29vw,300px);object-fit:cover}
 .faixa{position:relative;min-height:62svh;display:grid;place-items:center;overflow:hidden;border-top:1px solid var(--line)}
 .faixa .bg{position:absolute;inset:-18% 0;z-index:0;will-change:transform}
-.faixa .bg img{width:100%;height:100%;object-fit:cover}
+.faixa .bg img{image-orientation:from-image;width:100%;height:100%;object-fit:cover}
 .faixa::after{content:"";position:absolute;inset:0;z-index:1;background:rgba(20,24,20,.5)}
 .faixa .txt{position:relative;z-index:2;text-align:center;color:#fff;padding:60px 24px;max-width:720px}
 .faixa .txt p{font:300 clamp(21px,3.2vw,33px)/1.42 var(--serif);font-style:italic}
@@ -96,7 +96,7 @@ footer a{color:#c8cac1;text-decoration:none}
 </div></header>
 
 <section class="hero" id="top">
- <div class="bg" data-sp="0.18"><img src="https://img.olx.com.br/images/67/674630584223588.jpg" alt="Chalé Encanto do Vagalume, em Bocaina de Minas" fetchpriority="high"></div>
+ <div class="bg" data-sp="0.18"><img src="https://img.olx.com.br/images/69/694690104895242.jpg" alt="Chalé Encanto do Vagalume, em Bocaina de Minas" fetchpriority="high"></div>
  <div class="wrap" data-sp="-0.05">
   <p class="local">Bocaina de Minas &middot; MG</p>
   <h1 class="h1">Chalé Encanto do Vagalume<em>.</em></h1>
@@ -118,16 +118,16 @@ footer a{color:#c8cac1;text-decoration:none}
 </div></section>
 
 <section class="faixa">
- <div class="bg" data-sp="0.14"><img src="https://img.olx.com.br/images/71/717604462130270.jpg" alt="Chalé Encanto do Vagalume" loading="lazy"></div>
+ <div class="bg" data-sp="0.14"><img src="https://img.olx.com.br/images/75/753678340478922.jpg" alt="Chalé Encanto do Vagalume" loading="lazy"></div>
  <div class="txt"><p>Um lugar pra chegar, respirar fundo e não ter pressa de voltar.</p></div>
 </section>
 
 <section id="fotos"><div class="wrap">
  <p class="eyebrow rv">As fotos</p>
  <h2 class="h2 rv">Dá uma olhada <em>por dentro</em>.</h2>
- <p class="lead rv">10 fotos do lugar. Arraste pro lado pra ver todas.</p>
+ <p class="lead rv">9 fotos do lugar. Arraste pro lado pra ver todas.</p>
 </div>
-<div class="galwrap rv"><div class="gal"><figure class="gf"><img src="https://img.olx.com.br/images/69/694690104895242.jpg" alt="Chalé Encanto do Vagalume — foto 1" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/69/691683109230514.jpg" alt="Chalé Encanto do Vagalume — foto 2" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/70/707646223948262.jpg" alt="Chalé Encanto do Vagalume — foto 3" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/71/717604462130270.jpg" alt="Chalé Encanto do Vagalume — foto 4" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/72/720623220660518.jpg" alt="Chalé Encanto do Vagalume — foto 5" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/73/737624828980948.jpg" alt="Chalé Encanto do Vagalume — foto 6" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/74/743658584269298.jpg" alt="Chalé Encanto do Vagalume — foto 7" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/75/753678340478922.jpg" alt="Chalé Encanto do Vagalume — foto 8" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/76/768658702311288.jpg" alt="Chalé Encanto do Vagalume — foto 9" loading="lazy" decoding="async"></figure></div></div>
+<div class="galwrap rv"><div class="gal"><figure class="gf"><img src="https://img.olx.com.br/images/75/753678340478922.jpg" alt="Chalé Encanto do Vagalume — foto 1" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/71/717604462130270.jpg" alt="Chalé Encanto do Vagalume — foto 2" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/74/743658584269298.jpg" alt="Chalé Encanto do Vagalume — foto 3" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/69/691683109230514.jpg" alt="Chalé Encanto do Vagalume — foto 4" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/70/707646223948262.jpg" alt="Chalé Encanto do Vagalume — foto 5" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/72/720623220660518.jpg" alt="Chalé Encanto do Vagalume — foto 6" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/73/737624828980948.jpg" alt="Chalé Encanto do Vagalume — foto 7" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://img.olx.com.br/images/76/768658702311288.jpg" alt="Chalé Encanto do Vagalume — foto 8" loading="lazy" decoding="async"></figure></div></div>
 </section>
 
 <section id="local"><div class="wrap">
