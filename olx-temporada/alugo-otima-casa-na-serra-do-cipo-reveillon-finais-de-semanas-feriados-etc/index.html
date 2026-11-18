@@ -86,13 +86,28 @@ footer a{color:#c8cac1;text-decoration:none}
 .rv.on{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 </style>
-<style>@media(max-width:760px){.hero .bg img{transform:scale(1.3);transform-origin:50% 26%}}</style></head>
+<style>@media(max-width:760px){.hero .bg img{transform:scale(1.3);transform-origin:50% 26%}}</style><style>
+.estru{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));gap:14px;margin-top:30px}
+.estru div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.estru b{display:block;font:500 13px var(--sans);letter-spacing:.02em;color:var(--ink);margin-bottom:3px}
+.estru span{font:300 14px var(--sans);color:var(--ink2)}
+.numeros{display:flex;flex-wrap:wrap;gap:34px;margin-top:26px}
+.numeros p{margin:0}
+.numeros strong{display:block;font:300 40px/1 var(--serif);color:var(--telha)}
+.numeros span{font:400 11.5px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ink2)}
+.mapa{margin-top:28px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--paper2)}
+.mapa iframe{display:block;width:100%;height:clamp(260px,38vw,420px);border:0}
+.ende{font:400 14px var(--sans);color:var(--ink2);margin-top:14px}
+.contatos{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.contatos a{display:inline-flex;align-items:center;min-height:46px;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:0 20px;font:500 13.5px var(--sans);color:var(--ink);text-decoration:none}
+.contatos a:hover{border-color:var(--ink)}
+</style></head>
 <body>
 <div id="ribbon"><span class="full">&middot; site de demonstração feito por João Gabriel Geo &middot; não autorizado para publicação &middot;</span><span class="short">demonstração &middot; por João Gabriel Geo</span></div>
 <header id="hd"><div class="wrap">
  <a class="logo" href="#top">Casa na Serra do Cipó</a>
- <nav><a href="#sobre">A casa</a><a href="#fotos">Fotos</a><a href="#local">Onde fica</a></nav>
- <a class="btn" href="https://wa.me/5531999131903?text=Oi%20Jo%C3%A3o%2C%20vi%20a%20pr%C3%A9via%20do%20site%20do%20meu%20im%C3%B3vel%20e%20quero%20saber%20mais." target="_blank" rel="noopener"><span class="full">Quero esse site</span><span class="short">Quero o site</span></a>
+ <nav><a href="#sobre">A casa</a><a href="#estrutura">Estrutura</a><a href="#fotos">Fotos</a><a href="#local">Onde fica</a></nav>
+ <a class="btn" href="https://wa.me/5531988146569?text=Oi%20Elaine!%20Vi%20o%20site%20da%20casa%20na%20Serra%20do%20Cip%C3%B3%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener"><span class="full">Falar no WhatsApp</span><span class="short">WhatsApp</span></a>
 </div></header>
 
 <section class="hero" id="top">
@@ -102,7 +117,7 @@ footer a{color:#c8cac1;text-decoration:none}
   <h1 class="h1">Casa na Serra do Cipó<em>.</em></h1>
   <p class="sub">Aluguel por temporada na Serra do Cipó. 3 quartos · acomoda até 15 · 3 vagas · R$ 600</p>
   <div class="heroacoes">
-   <a class="btn" href="https://wa.me/5531999131903?text=Oi%20Jo%C3%A3o%2C%20vi%20a%20pr%C3%A9via%20do%20site%20do%20meu%20im%C3%B3vel%20e%20quero%20saber%20mais." target="_blank" rel="noopener">Quero esse site</a>
+   <a class="btn" href="https://wa.me/5531988146569?text=Oi%20Elaine!%20Vi%20o%20site%20da%20casa%20na%20Serra%20do%20Cip%C3%B3%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener">Falar no WhatsApp</a>
    <a class="btn claro" href="#fotos">Ver as fotos</a>
   </div>
  </div>
@@ -117,6 +132,26 @@ footer a{color:#c8cac1;text-decoration:none}
  <p class="lead rv">Casa de temporada na Serra do Cipó, bem localizada: perto dos pontos turísticos, das cachoeiras, do comércio e dos barzinhos com música ao vivo. São 3 quartos, acomoda até 15 pessoas e tem estacionamento para 3 carros.</p><p>A área de lazer é o forte da casa: piscina, churrasqueira, varanda e um espaço coberto com mesas, que dá conta de grupo grande. Fica boa pra Réveillon, feriado, fim de semana ou temporada.</p>
 </div></section>
 
+
+<section id="estrutura"><div class="wrap">
+ <p class="eyebrow rv">A estrutura</p>
+ <h2 class="h2 rv">Tudo que tem <em>na casa</em>.</h2>
+ <div class="numeros rv">
+  <p><strong>3</strong><span>quartos</span></p>
+  <p><strong>15</strong><span>pessoas</span></p>
+  <p><strong>3</strong><span>vagas</span></p>
+ </div>
+ <div class="estru rv">
+  <div><b>Piscina</b><span>&Aacute;rea externa com piscina</span></div>
+  <div><b>Churrasqueira</b><span>Pra fazer o almo&ccedil;o com calma</span></div>
+  <div><b>Espa&ccedil;o coberto</b><span>Mesas e cadeiras pra grupo grande</span></div>
+  <div><b>Varanda</b><span>Com rede e vista pro verde</span></div>
+  <div><b>Cozinha equipada</b><span>Fog&atilde;o e geladeira</span></div>
+  <div><b>Wi-Fi e TV a cabo</b><span>Internet na casa toda</span></div>
+  <div><b>Estacionamento</b><span>3 vagas dentro do terreno</span></div>
+  <div><b>Aceita pet</b><span>Pode levar o seu</span></div>
+ </div>
+</div></section>
 <section class="faixa">
  <div class="bg" data-sp="0.14"><img src="https://img.olx.com.br/images/91/918648881990092.jpg" alt="Casa na Serra do Cipó" loading="lazy"></div>
  <div class="txt"><p>Um lugar pra chegar, respirar fundo e não ter pressa de voltar.</p></div>
@@ -132,6 +167,9 @@ footer a{color:#c8cac1;text-decoration:none}
 
 <section id="local"><div class="wrap">
  <p class="eyebrow rv">Onde fica</p>
+ <div class="mapa rv"><iframe loading="lazy" title="Mapa da casa na Serra do Cip&oacute;" src="https://www.google.com/maps?q=-19.3374866,-43.6235356&amp;z=15&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+ <p class="ende rv">R. das Margaridas, 191 &middot; Serra do Cip&oacute; &middot; Santana do Riacho-MG</p>
+
  <h2 class="h2 rv">Serra do Cipó<em>, Minas Gerais</em>.</h2>
  <p class="lead rv">Fica na Serra do Cipó, MG. A casa tem internet, TV a cabo, cozinha equipada com fogão e geladeira, ventilador, varanda, churrasqueira, piscina e estacionamento — e aceita animais.</p>
 </div></section>
@@ -139,12 +177,18 @@ footer a{color:#c8cac1;text-decoration:none}
 <section class="fim"><div class="wrap">
  <h2 class="h2 rv">Quer reservar?</h2>
  <p class="lead rv">Essa é uma prévia de como o site da casa pode ficar. As fotos e as informações vieram do anúncio na OLX — com fotos novas, feitas na hora certa do dia, fica ainda melhor.</p>
- <p class="rv"><a class="btn" href="https://wa.me/5531999131903?text=Oi%20Jo%C3%A3o%2C%20vi%20a%20pr%C3%A9via%20do%20site%20do%20meu%20im%C3%B3vel%20e%20quero%20saber%20mais." target="_blank" rel="noopener">Quero esse site</a></p>
+ <div class="contatos rv">
+  <a href="https://wa.me/5531988146569" target="_blank" rel="noopener">WhatsApp (31) 98814-6569</a>
+  <a href="https://www.instagram.com/elaine_araujo_tolentino/" target="_blank" rel="noopener">Instagram</a>
+  <a href="mailto:elainetolentino9@gmail.com">elainetolentino9@gmail.com</a>
+ </div>
+
+ <p class="rv"><a class="btn" href="https://wa.me/5531988146569?text=Oi%20Elaine!%20Vi%20o%20site%20da%20casa%20na%20Serra%20do%20Cip%C3%B3%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener">Falar no WhatsApp</a></p>
 </div></section>
 
 <footer>Site criado por <a href="https://wa.me/5531999131903" target="_blank" rel="noopener">João Gabriel Geo</a> &middot; demonstração não autorizada, feita para apresentação. Protegida pela Lei 9.610/98.</footer>
 
-<a class="zap" href="https://wa.me/5531999131903?text=Oi%20Jo%C3%A3o%2C%20vi%20a%20pr%C3%A9via%20do%20site%20do%20meu%20im%C3%B3vel%20e%20quero%20saber%20mais." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+<a class="zap" href="https://wa.me/5531988146569?text=Oi%20Elaine!%20Vi%20o%20site%20da%20casa%20na%20Serra%20do%20Cip%C3%B3%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
 <svg viewBox="0 0 24 24"><path d="M.06 24l1.68-6.16A11.87 11.87 0 010 11.93C0 5.35 5.35 0 11.93 0a11.86 11.86 0 018.44 3.5 11.82 11.82 0 013.49 8.44c0 6.58-5.35 11.93-11.93 11.93a11.9 11.9 0 01-5.7-1.45L.06 24zM6.6 20.2c1.64.97 3.2 1.56 5.32 1.56 5.46 0 9.92-4.44 9.92-9.9A9.93 9.93 0 0011.93 1.9 9.9 9.9 0 002 11.9c0 2.2.64 3.86 1.72 5.58l-1 3.63 3.88-1.02zm11.3-5.56c-.08-.12-.28-.2-.57-.35-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.76.95-.94 1.15-.17.2-.34.22-.63.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.45.13-.6.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.57-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41z"/></svg></a>
 <script>
 (function(){
