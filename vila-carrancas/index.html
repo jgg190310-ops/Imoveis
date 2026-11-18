@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<title>Vila Carrancas · Chalés na Serra de Carrancas-MG</title>
+<meta name="description" content="Três chalés de temporada na Serra de Carrancas, em Minas: Vila Real, Pão Sobre as Águas e Unidade Serra. Piscina, vista da serra e cachoeiras a poucos minutos.">
+<meta name="theme-color" content="#f7f6f2">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f7f6f2;--paper2:#eae8df;--card:#fffefc;--ink:#191a16;--ink2:#64665e;--line:#dddbd0;
+--telha:#a85a38;--mata:#365238;--serif:Literata,Georgia,serif;--sans:Inter,system-ui,-apple-system,sans-serif;--rib:34px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:300 16.5px/1.68 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block} a{color:inherit}
+.wrap{width:min(1160px,92vw);margin:0 auto}
+.h2{font:400 clamp(27px,4.3vw,46px)/1.14 var(--serif);letter-spacing:-.018em}
+.h2 em{font-style:italic;color:var(--telha)}
+.eyebrow{font:500 11px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--mata);margin-bottom:12px}
+.lead{color:var(--ink2);font-size:17px;max-width:62ch;margin-top:18px}
+section{padding:clamp(54px,7.4vw,96px) 0;border-top:1px solid var(--line)}
+#ribbon{position:fixed;top:0;left:0;right:0;z-index:90;background:var(--ink);color:#f7f6f2;font:500 11.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:9px 14px}
+header{position:fixed;top:calc(var(--rib) + 12px);left:0;right:0;z-index:60}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:9px 9px 9px 24px;border-radius:999px;
+background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(22px) saturate(1.8);backdrop-filter:blur(22px) saturate(1.8);
+border:1px solid rgba(255,255,255,.62);box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 14px 40px -16px rgba(25,26,22,.45);transition:background .35s,padding .35s}
+header.fixa .wrap{background:rgba(252,251,249,.92);padding-top:7px;padding-bottom:7px}
+.logo{font:500 15px var(--serif);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.logo span{color:var(--telha)}
+nav{display:flex;gap:22px} nav a{font:400 13px var(--sans);color:#44463f;text-decoration:none} nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fff;font:500 13.5px var(--sans);padding:12px 22px;border-radius:999px;text-decoration:none;transition:transform .2s,background .2s;white-space:nowrap}
+.btn:hover{background:#2d2f29;transform:translateY(-1px)}
+.btn.claro{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.4);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+@media(max-width:1020px){nav{display:none}}
+#ribbon .short,header .btn .short{display:none}
+@media(max-width:620px){#ribbon{font-size:10px;letter-spacing:.03em;padding:8px 10px}#ribbon .full,header .btn .full{display:none}#ribbon .short,header .btn .short{display:inline}header .wrap{padding-left:18px}}
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;border-top:0}
+.hero .bg{position:absolute;inset:-14% 0;z-index:0;will-change:transform}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 58%}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,24,20,.52) 0%,rgba(20,24,20,.18) 34%,rgba(20,24,20,.76) 100%)}
+.hero .wrap{position:relative;z-index:2;color:#fff;padding:0 0 clamp(54px,8vw,96px);will-change:transform}
+.hero .local{font:400 12px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:#e8c3ad;margin-bottom:16px}
+.h1{font:300 clamp(37px,7.2vw,76px)/1.05 var(--serif);letter-spacing:-.025em;color:#fff}
+.h1 em{font-style:italic;color:#f0d3b8}
+.hero p.sub{color:#eceee9;font-size:18px;max-width:54ch;margin:20px 0 30px}
+.heroacoes{display:flex;gap:12px;flex-wrap:wrap}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;background:var(--paper2)}
+.nums div{text-align:center;padding:6px 4px}
+.num{font:300 clamp(30px,4.4vw,46px)/1 var(--serif);color:var(--mata)}
+.numl{font:400 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-top:9px}
+@media(max-width:700px){.nums{grid-template-columns:repeat(2,1fr);gap:26px}}
+.unhead{display:flex;align-items:flex-end;justify-content:space-between;gap:26px;flex-wrap:wrap}
+.unsub{color:var(--ink2);font-size:15px;margin-top:9px}
+.nota{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px 19px}
+.nn{font:400 27px var(--serif);color:var(--mata)}
+.nl{font:400 10.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.itens{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:11px 22px;margin-top:26px;max-width:720px}
+.itens li{font-size:14.5px;color:#3d3f38;padding-left:19px;position:relative}
+.itens li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--telha)}
+@media(max-width:640px){.itens{grid-template-columns:repeat(2,1fr)}}
+.galwrap{margin-top:38px;overflow:hidden}
+.gal{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(16px,calc((100vw - 1160px)/2)) 10px;-webkit-overflow-scrolling:touch}
+.gal::-webkit-scrollbar{height:6px} .gal::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+.gf{flex:0 0 clamp(248px,42vw,430px);scroll-snap-align:start;border-radius:14px;overflow:hidden;background:var(--paper2)}
+.gf img{width:100%;height:clamp(186px,29vw,300px);object-fit:cover}
+.faixa{position:relative;min-height:62svh;display:grid;place-items:center;overflow:hidden;border-top:1px solid var(--line)}
+.faixa .bg{position:absolute;inset:-18% 0;z-index:0;will-change:transform}
+.faixa .bg img{width:100%;height:100%;object-fit:cover}
+.faixa::after{content:"";position:absolute;inset:0;z-index:1;background:rgba(20,24,20,.5)}
+.faixa .txt{position:relative;z-index:2;text-align:center;color:#fff;padding:60px 24px;max-width:720px}
+.faixa .txt p{font:300 clamp(21px,3.2vw,33px)/1.42 var(--serif);font-style:italic}
+.mapa{border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:30px;background:var(--paper2)}
+.mapa iframe{width:100%;height:clamp(290px,42vw,440px);border:0;display:block}
+.fim{background:var(--mata);color:#f2f0e9;text-align:center}
+.fim .h2{color:#fff} .fim .lead{color:#cfd8cd;margin:18px auto 30px}
+.fim .btn{background:#fff;color:var(--ink)}
+footer{background:var(--ink);color:#8d8f86;text-align:center;padding:30px 20px;font-size:12.5px}
+footer a{color:#c8cac1;text-decoration:none}
+.zap{position:fixed;right:17px;bottom:17px;z-index:70;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 28px -8px rgba(0,0,0,.45)}
+.zap svg{width:29px;height:29px;fill:#fff}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<div id="ribbon"><span class="full">&middot; site de demonstração feito por João Gabriel Geo &middot; não autorizado para publicação &middot;</span><span class="short">demonstração &middot; por João Gabriel Geo</span></div>
+<header id="hd"><div class="wrap">
+ <a class="logo" href="#top">Vila <span>Carrancas</span></a>
+ <nav><a href="#vilareal">Vila Real</a><a href="#paosobreasaguas">Pão Sobre as Águas</a><a href="#serra">Unidade Serra</a><a href="#local">Onde fica</a></nav>
+ <a class="btn" href="https://wa.me/5511997041313" target="_blank" rel="noopener"><span class="full">Reservar pelo WhatsApp</span><span class="short">Reservar</span></a>
+</div></header>
+
+<section class="hero" id="top">
+ <div class="bg" data-sp="0.18"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/724548044.jpg?k=9f2a5c76bc764f76bf1c66b089c8b0029d192a82753eed645df15ae6bd084bcd&o=" alt="Piscina dos chalés ao pôr do sol, na Serra de Carrancas" fetchpriority="high"></div>
+ <div class="wrap" data-sp="-0.05">
+  <p class="local">Serra de Carrancas &middot; Minas Gerais</p>
+  <h1 class="h1">Três chalés na serra,<br>e a cachoeira <em>logo ali</em>.</h1>
+  <p class="sub">Vila Real, Pão Sobre as Águas e Unidade Serra: casas inteiras para a sua família, com vista da montanha, cozinha equipada e as cachoeiras de Carrancas a poucos minutos.</p>
+  <div class="heroacoes">
+   <a class="btn" href="https://wa.me/5511997041313" target="_blank" rel="noopener">Consultar disponibilidade</a>
+   <a class="btn claro" href="#vilareal">Ver os chalés</a>
+  </div>
+ </div>
+</section>
+
+<section class="nums"><div class="wrap" style="display:contents">
+ <div><p class="num">3</p><p class="numl">chalés</p></div>
+ <div><p class="num">9,1</p><p class="numl">melhor nota</p></div>
+ <div><p class="num">5 min</p><p class="numl">das cachoeiras</p></div>
+ <div><p class="num">500+</p><p class="numl">avaliações</p></div>
+</div></section>
+
+<section id="vilareal" class="un">
+ <div class="wrap">
+  <div class="unhead rv">
+   <div><p class="eyebrow">Chalé 1 de 3</p><h2 class="h2">Vila Real<em>.</em></h2><p class="unsub">Piscina com vista do pôr do sol</p></div>
+   <div class="nota"><span class="nn">8,9</span><span class="nl">nota dos<br>hóspedes</span></div>
+  </div>
+  <p class="lead rv">O chalé da piscina. Varanda com vista para a montanha, cozinha compacta equipada, TV de tela plana e banheiro privativo. Do lado de fora, piscina, jardim e churrasqueira — a vista do fim de tarde daqui é o cartão de visita da casa.</p>
+  <ul class="itens rv"><li>Piscina ao ar livre</li><li>Churrasqueira</li><li>Jardim</li><li>Varanda com vista</li><li>Cozinha equipada</li><li>Aceita pet</li></ul>
+ </div>
+ <div class="galwrap rv"><div class="gal"><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/724548044.jpg?k=9f2a5c76bc764f76bf1c66b089c8b0029d192a82753eed645df15ae6bd084bcd&o=" alt="Vila Real — foto 1" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/724548074.jpg?k=10effa840ecd35c7b3d8b673e359499a59f5bb8d61e48d6ac0e1788e8a5bb75b&o=" alt="Vila Real — foto 2" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/760723970.jpg?k=b8a43062714a8f92410e9fd1898a66e84f7b0ff0f27bcb4000afdafdf62d249d&o=" alt="Vila Real — foto 3" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/760724035.jpg?k=7d4eb909b03d21b4ac17abffe50d91ca302aab6f4c2c205e17afc3c4bb33965b&o=" alt="Vila Real — foto 4" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/760737929.jpg?k=d2419be29518576978b8e0a1bef5f74c1d258f8a5e4c3a3a353dba61a72d9508&o=" alt="Vila Real — foto 5" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/760737901.jpg?k=3083e048a4de78be36a592c1b8cc66f03eadf0eba0ae2aaeda8b78abb5ce1de5&o=" alt="Vila Real — foto 6" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/760729549.jpg?k=d52d18ce7e9ded31d13582d58570a4d94c113c39fc4a03b87ec293287e5661b5&o=" alt="Vila Real — foto 7" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/760729547.jpg?k=f449c18f63c8b297485c11787fba95c0e921b9d8df1b3ddbc47b812eae502925&o=" alt="Vila Real — foto 8" loading="lazy" decoding="async"></figure></div></div>
+</section>
+<section class="faixa">
+ <div class="bg" data-sp="0.14"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/761225339.jpg?k=b3f880b8f9b3b390efb5555feb794b417549167c09fce8110f49bd4b1f640b0b&o=" alt="Pôr do sol sobre a serra de Carrancas" loading="lazy"></div>
+ <div class="txt"><p>“Tudo muito bom, gostamos demais do lugar.”</p></div>
+</section>
+
+<section id="paosobreasaguas" class="un">
+ <div class="wrap">
+  <div class="unhead rv">
+   <div><p class="eyebrow">Chalé 2 de 3</p><h2 class="h2">Pão Sobre as Águas<em>.</em></h2><p class="unsub">A cinco minutos das cachoeiras</p></div>
+   <div class="nota"><span class="nn">9,1</span><span class="nl">nota dos<br>hóspedes</span></div>
+  </div>
+  <p class="lead rv">O mais bem avaliado dos três. Terraço com vista para a cidade e para a serra, sala e área de refeição, cozinha com geladeira e forno, banheiro privativo. Fica a cinco minutos das cachoeiras e pega o pôr do sol inteiro de frente.</p>
+  <ul class="itens rv"><li>Terraço com vista</li><li>5 min das cachoeiras</li><li>Cozinha completa</li><li>Sala e copa</li><li>Vista da serra</li><li>Pôr do sol</li></ul>
+ </div>
+ <div class="galwrap rv"><div class="gal"><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/761212054.jpg?k=9dc55b85195064838b0dd40f1317de48415bb48b2c7d082ecba21925f5512a2c&o=" alt="Pão Sobre as Águas — foto 1" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/565722036.jpg?k=6e5d5bb41446ec615ebe7fc64d247ab6b9881831a6075b650401363004ed57c0&o=" alt="Pão Sobre as Águas — foto 2" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/761225339.jpg?k=b3f880b8f9b3b390efb5555feb794b417549167c09fce8110f49bd4b1f640b0b&o=" alt="Pão Sobre as Águas — foto 3" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/570885291.jpg?k=0892b222e66645d0038d5e043c50f5553eb38ed22fcfe334b39e3d49962f727e&o=" alt="Pão Sobre as Águas — foto 4" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/761225328.jpg?k=2c8cf9ccc11301e3c581f7eaf9d2c999727141a71127b63f7c9c3912ce3f0d53&o=" alt="Pão Sobre as Águas — foto 5" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/761221609.jpg?k=daae93c7c8af020690c8b1a8cfd7cb174a3ae8ad6297089fb5152174cfeb0ff4&o=" alt="Pão Sobre as Águas — foto 6" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/761225312.jpg?k=3ddec98dabce483ccf73f57b1f83595eba51a8d2b9bdf5e9e5bec7de57249a85&o=" alt="Pão Sobre as Águas — foto 7" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/761222976.jpg?k=a207a505a94f0e875e879a016e4094da2be74dbd8ed6d5f76e16f81e8cda5d97&o=" alt="Pão Sobre as Águas — foto 8" loading="lazy" decoding="async"></figure></div></div>
+</section>
+
+<section id="serra" class="un">
+ <div class="wrap">
+  <div class="unhead rv">
+   <div><p class="eyebrow">Chalé 3 de 3</p><h2 class="h2">Unidade Serra<em>.</em></h2><p class="unsub">Na Estrada Real, no alto da serra</p></div>
+   <div class="nota"><span class="nn">8,7</span><span class="nl">nota dos<br>hóspedes</span></div>
+  </div>
+  <p class="lead rv">O refúgio da família. Varanda com vista para a montanha e varanda térrea para o jardim, cozinha com geladeira e forno, banheiro privativo com chuveiro. Trilhas saindo da porta e o silêncio que só o alto da serra tem.</p>
+  <ul class="itens rv"><li>Trilhas na porta</li><li>Varanda com vista</li><li>Jardim</li><li>Cozinha equipada</li><li>Lareira a lenha</li><li>Bem privativo</li></ul>
+ </div>
+ <div class="galwrap rv"><div class="gal"><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/759061024.jpg?k=9cf1ffacfbeadddaaf25b84a122c2e7221a31a0d0dd5b6e9e4b34424c356d391&o=" alt="Unidade Serra — foto 1" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/825454784.jpg?k=beb8bf0d7176b78b04fbcb075d578cd3e11389ccfb1f90c59f5b4fcebe6c5657&o=" alt="Unidade Serra — foto 2" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/825454831.jpg?k=20fa3006f726f5db1f97adc9487552d13c8610c411c067e9b9dfdd989ce02a91&o=" alt="Unidade Serra — foto 3" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/759062717.jpg?k=5a52ae003395d722376c7b9dddbcaee1d23c904da8da62bf86928621d1de89b8&o=" alt="Unidade Serra — foto 4" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/858844106.jpg?k=b8d1badf5c7eba5fb8d2530f1fb36b5006271a4f22964e0ef86515a1520602fd&o=" alt="Unidade Serra — foto 5" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/825454796.jpg?k=ab3f1a5c391bcfbc103d6567ffdad43d03e7fdbbbf594f7d3287c3c98013a929&o=" alt="Unidade Serra — foto 6" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/871915420.jpg?k=dca3bf3cfbc0dccc5bb2d1af8f18220b5cef3c65887a42e1e69b2f36fee0ad9e&o=" alt="Unidade Serra — foto 7" loading="lazy" decoding="async"></figure><figure class="gf"><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/759066809.jpg?k=04cbb82dbb3172773ae7b1096270dea0b01d21af95f6de022e48c42c2bfb74b4&o=" alt="Unidade Serra — foto 8" loading="lazy" decoding="async"></figure></div></div>
+</section>
+
+<section id="local"><div class="wrap">
+ <p class="eyebrow rv">Onde fica</p>
+ <h2 class="h2 rv">Carrancas, no sul <em>de Minas</em>.</h2>
+ <p class="lead rv">A 278 km de Belo Horizonte e 90 km de Tiradentes, Carrancas é a cidade das cachoeiras do sul de Minas. Os três chalés ficam entre o centro e a Serra Cruz das Almas, todos a poucos minutos das quedas d'água mais conhecidas da região.</p>
+ <div class="mapa rv"><iframe title="Mapa de Carrancas, Minas Gerais" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox=-44.72%2C-21.54%2C-44.56%2C-21.42&amp;layer=mapnik&amp;marker=-21.4906%2C-44.6415"></iframe></div>
+</div></section>
+
+<section class="fim"><div class="wrap">
+ <h2 class="h2 rv">Qual deles combina<br>com a sua viagem?</h2>
+ <p class="lead rv">Chama no WhatsApp que a gente vê as datas e o chalé certo para o seu grupo.</p>
+ <p class="rv"><a class="btn" href="https://wa.me/5511997041313" target="_blank" rel="noopener">Falar agora no WhatsApp</a></p>
+</div></section>
+
+<footer>Site criado por <a href="https://wa.me/5531999131903" target="_blank" rel="noopener">João Gabriel Geo</a> &middot; demonstração não autorizada, feita para apresentação. Protegida pela Lei 9.610/98.</footer>
+
+<a class="zap" href="https://wa.me/5511997041313" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+<svg viewBox="0 0 24 24"><path d="M.06 24l1.68-6.16A11.87 11.87 0 010 11.93C0 5.35 5.35 0 11.93 0a11.86 11.86 0 018.44 3.5 11.82 11.82 0 013.49 8.44c0 6.58-5.35 11.93-11.93 11.93a11.9 11.9 0 01-5.7-1.45L.06 24zM6.6 20.2c1.64.97 3.2 1.56 5.32 1.56 5.46 0 9.92-4.44 9.92-9.9A9.93 9.93 0 0011.93 1.9 9.9 9.9 0 002 11.9c0 2.2.64 3.86 1.72 5.58l-1 3.63 3.88-1.02zm11.3-5.56c-.08-.12-.28-.2-.57-.35-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.76.95-.94 1.15-.17.2-.34.22-.63.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.45.13-.6.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.57-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41z"/></svg></a>
+
+<script>
+(function(){
+ var rib=document.getElementById('ribbon'), hd=document.getElementById('hd');
+ function fit(){document.documentElement.style.setProperty('--rib', rib.offsetHeight+'px');}
+ fit(); addEventListener('resize',fit); addEventListener('load',fit);
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+ var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var camadas=[].slice.call(document.querySelectorAll('[data-sp]'));
+ var fotos=[].slice.call(document.querySelectorAll('.gf img'));
+ var pedido=false;
+ function pinta(){
+   hd.classList.toggle('fixa', scrollY>40);
+   if(!RM){
+     var vh=innerHeight;
+     camadas.forEach(function(el){
+       var r=el.parentNode.getBoundingClientRect();
+       if(r.bottom<-240||r.top>vh+240)return;
+       var p=(r.top + r.height/2 - vh/2)/vh;
+       el.style.transform='translate3d(0,'+(p*(-120*parseFloat(el.dataset.sp))).toFixed(1)+'px,0)';
+     });
+     fotos.forEach(function(f){
+       var r=f.getBoundingClientRect();
+       if(r.bottom<-120||r.top>vh+120)return;
+       var p=(r.top + r.height/2 - vh/2)/vh;
+       f.style.transform='scale(1.06) translate3d(0,'+(p*-14).toFixed(1)+'px,0)';
+     });
+   }
+   pedido=false;
+ }
+ function aoRolar(){ if(!pedido){pedido=true;requestAnimationFrame(pinta);} }
+ addEventListener('scroll',aoRolar,{passive:true}); addEventListener('resize',aoRolar); aoRolar();
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+ document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+</script>
+</body></html>
