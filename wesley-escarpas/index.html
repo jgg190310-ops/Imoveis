@@ -610,9 +610,10 @@ h2{line-height:1.04}
 .rl-n{font-size:17px}
 .mnu nav a{font-size:32px}
 
-.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
-.vbox{border-radius:14px;overflow:hidden;background:#0b2522;aspect-ratio:16/9}
-.vbox.vert{aspect-ratio:9/16;max-height:520px}
+.vgrid{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;padding-bottom:6px}
+.vbox{flex:0 0 auto;height:360px;aspect-ratio:16/9;max-width:86vw;scroll-snap-align:start;border-radius:14px;overflow:hidden;background:#0b2522}
+.vbox.vert{aspect-ratio:9/16}
+@media (max-width:620px){.vbox{height:300px}}
 .vbox video{width:100%;height:100%;object-fit:cover;display:block;background:#0b2522}
 .addr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}.addr .ic{width:18px;height:18px;color:var(--brass2,#b08a4e)}.addr b{font-weight:600}.addr span{width:100%;font-size:14px;opacity:.7;padding-left:28px}
 .mapbox{margin:14px 0;border-radius:14px;overflow:hidden;aspect-ratio:16/10;background:#e8e2d6}.mapbox iframe{width:100%;height:100%;border:0;display:block}
@@ -1356,7 +1357,7 @@ function renderHouse(h){
      '<section><h2 class="h3">Sobre a casa</h2><div class="desc">'+descHTML(h)+'</div></section>'+
      (am.length?'<section><h2 class="h3">O que tem na casa</h2><ul class="amen">'+am.map(function(a){return '<li>'+ic('check')+a+'</li>'}).join('')+'</ul><p class="fine">Itens tirados da descrição do anúncio. Confirme os detalhes com o Wesley.</p></section>':'')+
      (h.vid&&h.vid.length?'<section class="vids"><h2 class="h3">'+(h.vid.length>1?h.vid.length+' vídeos da casa':'Vídeo da casa')+'</h2><div class="vgrid">'+h.vid.map(function(v,j){var b='vid/v'+pad(h.k)+'-'+j;return '<div class="vbox'+(v[1]>v[0]?' vert':'')+'"><video controls playsinline muted preload="none" poster="'+b+'.webp" src="'+b+'.mp4"></video></div>'}).join('')+'</div></section>':'')+
-     (h.end?'<section class="loc"><h2 class="h3">Onde fica</h2><p class="addr">'+ic('pin')+'<b>'+esc(h.end)+'</b><span>'+where+'</span></p><div class="mapbox"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de '+esc(h.nome)+'" src="https://www.google.com/maps?q='+encodeURIComponent(h.end+', '+h.reg+', Capitólio - MG')+'&z=16&output=embed"></iframe></div><a class="btn line sm" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(h.end+', '+h.reg+', Capitólio - MG')+'" target="_blank" rel="noopener">'+ic('pin')+'Abrir no Google Maps</a></section>':
+     (h.end?'<section class="loc"><h2 class="h3">Onde fica</h2><p class="addr">'+ic('pin')+'<b>'+esc(h.end)+'</b><span>'+where+'</span></p><div class="mapbox"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de '+esc(h.nome)+'" src="https://www.google.com/maps?q='+encodeURIComponent(h.end.replace(/,\s*\d+.*$/,'')+', '+h.reg+', Capitólio - MG')+'&z=17&output=embed"></iframe></div><a class="btn line sm" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(h.end.replace(/,\s*\d+.*$/,'')+', '+h.reg+', Capitólio - MG')+'" target="_blank" rel="noopener">'+ic('pin')+'Abrir no Google Maps</a></section>':
      '<section class="loc"><h2 class="h3">Onde fica</h2><p>'+where+', às margens do Lago de Furnas. O endereço exato é enviado na confirmação da reserva.</p><a class="btn line sm" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent((h.reg==='Capitólio'?'':h.reg+', ')+'Capitólio - MG')+'" target="_blank" rel="noopener">'+ic('pin')+'Ver a região no mapa</a></section>')+
     '</div>'+
    '</div>'+
