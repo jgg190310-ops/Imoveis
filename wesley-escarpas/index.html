@@ -1653,7 +1653,7 @@ function fallback3D(){$('#three').innerHTML='<img src="aerea.webp" alt="Vista aÃ
 function load3D(){
   if(V3.p)return V3.p;
   var ld=function(u){return new Promise(function(ok,er){var s=document.createElement('script');s.src=u;s.onload=ok;s.onerror=er;document.head.appendChild(s)})};
-  V3.p=ld('three.min.js?v=128').then(function(){return ld('orbit.js?v=2')}).then(function(){return ld('mapa.js?v=2')}).then(function(){try{init3D()}catch(e){console.error(e);fallback3D()}}).catch(function(){fallback3D()});
+  V3.p=ld('three.min.js?v=128').then(function(){return ld('orbit.js?v=2')}).then(function(){return ld('mapa.js?v=3')}).then(function(){try{init3D()}catch(e){console.error(e);fallback3D()}}).catch(function(){fallback3D()});
   return V3.p;
 }
 function init3D(){
