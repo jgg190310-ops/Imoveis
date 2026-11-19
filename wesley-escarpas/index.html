@@ -1765,7 +1765,7 @@ function init3D(){
  /* câmera e controles */
  var ctl=new THREE.OrbitControls(cam,R.domElement);ctl.enableDamping=true;ctl.dampingFactor=.07;ctl.minDistance=7;ctl.maxDistance=260;ctl.maxPolarAngle=1.22;ctl.enablePan=false;ctl.autoRotate=!RM;ctl.autoRotateSpeed=.4;ctl.enabled=false;
  var HOME=new THREE.Vector3(1,0,-15);
- function homeCam(){var asp=host.clientWidth/Math.max(1,host.clientHeight),k=asp<1?1.25:asp<1.4?1.05:.88;return new THREE.Vector3(66*k,74*k,90*k).add(HOME)}
+ function homeCam(){var asp=host.clientWidth/Math.max(1,host.clientHeight),k=asp<1?1.25:asp<1.4?1.05:.88;if(asp<1)return new THREE.Vector3(118,112,24).add(HOME);return new THREE.Vector3(66*k,74*k,90*k).add(HOME)}
  cam.position.copy(homeCam());ctl.target.copy(HOME);
  var anim=null;function fly(t,c){anim={ft:ctl.target.clone(),fc:cam.position.clone(),tt:t,tc:c,t0:performance.now(),d:1200};kick()}
  /* rótulos */
