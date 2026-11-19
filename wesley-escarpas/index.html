@@ -1764,8 +1764,8 @@ function init3D(){
  $$('#mood button').forEach(function(b){b.onclick=function(){tgt=MO[b.dataset.m];$$('#mood button').forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});viewer.classList.toggle('sunset',b.dataset.m==='sunset');kick()}});
  /* câmera e controles */
  var ctl=new THREE.OrbitControls(cam,R.domElement);ctl.enableDamping=true;ctl.dampingFactor=.07;ctl.minDistance=7;ctl.maxDistance=260;ctl.maxPolarAngle=1.22;ctl.enablePan=false;ctl.autoRotate=!RM;ctl.autoRotateSpeed=.4;ctl.enabled=false;
- var HOME=new THREE.Vector3(-6,0,-6);
- function homeCam(){var asp=host.clientWidth/Math.max(1,host.clientHeight),k=asp<1?1.55:asp<1.4?1.22:1;return new THREE.Vector3(66*k,74*k,90*k).add(HOME)}
+ var HOME=new THREE.Vector3(1,0,-15);
+ function homeCam(){var asp=host.clientWidth/Math.max(1,host.clientHeight),k=asp<1?1.25:asp<1.4?1.05:.88;return new THREE.Vector3(66*k,74*k,90*k).add(HOME)}
  cam.position.copy(homeCam());ctl.target.copy(HOME);
  var anim=null;function fly(t,c){anim={ft:ctl.target.clone(),fc:cam.position.clone(),tt:t,tc:c,t0:performance.now(),d:1200};kick()}
  /* rótulos */
