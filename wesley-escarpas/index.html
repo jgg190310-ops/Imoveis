@@ -1765,8 +1765,9 @@ function init3D(){
  /* câmera e controles */
  var ctl=new THREE.OrbitControls(cam,R.domElement);ctl.enableDamping=true;ctl.dampingFactor=.07;ctl.minDistance=7;ctl.maxDistance=260;ctl.maxPolarAngle=1.22;ctl.enablePan=false;ctl.autoRotate=!RM;ctl.autoRotateSpeed=.4;ctl.enabled=false;
  var HOME=new THREE.Vector3(1,0,-15);
- function homeCam(){var asp=host.clientWidth/Math.max(1,host.clientHeight),k=asp<1?1.25:asp<1.4?1.05:.88;if(asp<1)return new THREE.Vector3(118,112,24).add(HOME);return new THREE.Vector3(66*k,74*k,90*k).add(HOME)}
- cam.position.copy(homeCam());ctl.target.copy(HOME);
+ function homeCam(){var asp=host.clientWidth/Math.max(1,host.clientHeight),k=asp<1?1.25:asp<1.4?1.05:.88;if(asp<1)return new THREE.Vector3(124,118,0).add(homeT());return new THREE.Vector3(66*k,74*k,90*k).add(HOME)}
+ function homeT(){return host.clientWidth/Math.max(1,host.clientHeight)<1?new THREE.Vector3(-2,0,-8.5):HOME.clone()}
+ cam.position.copy(homeCam());ctl.target.copy(homeT());
  var anim=null;function fly(t,c){anim={ft:ctl.target.clone(),fc:cam.position.clone(),tt:t,tc:c,t0:performance.now(),d:1200};kick()}
  /* rótulos */
  var pins=houses.map(function(h,i){var b=document.createElement('button');b.className='pin';b.type='button';b.style.display='none';b.onclick=function(){select(i)};lab.appendChild(b);return b});
@@ -1786,7 +1787,7 @@ function init3D(){
  $('#rclose').onclick=closeInfo;
  function step(d){var n=houses.length,i=sel<0?0:sel;for(var k=0;k<n;k++){i=(i+d+n)%n;if(CASAS[i])return select(i)}}$('#rprev').onclick=function(){step(-1)};$('#rnext').onclick=function(){step(1)};
  $('#ropen').onclick=function(){if(sel>=0)go('casa/'+CASAS[sel].ref)};
- $('#vreset').onclick=function(){closeInfo();fly(HOME.clone(),homeCam());ctl.autoRotate=!RM};
+ $('#vreset').onclick=function(){closeInfo();fly(homeT(),homeCam());ctl.autoRotate=!RM};
  $('#gatebtn').onclick=function(){viewer.classList.add('live');ctl.enabled=true;ctl.autoRotate=false;kick()};
  $('#vexit').onclick=function(){viewer.classList.remove('live');ctl.enabled=false};
  /* clique nas casas */
