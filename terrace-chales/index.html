@@ -64,8 +64,9 @@ section{position:relative;z-index:2;scroll-margin-top:86px}
 #bar.solid{background:rgba(253,249,244,.93);border-bottom-color:var(--line);box-shadow:0 10px 30px -22px rgba(34,42,31,.5)}
 #bar.inverse{background:rgba(26,34,22,.18);color:var(--cream)}
 .barin{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px clamp(16px,4vw,48px)}
-#prog{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--green-mid);transition:width .12s linear}
-#bar.inverse #prog{background:var(--sun)}
+#prog{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--green-mid);
+  transition:width .12s linear,opacity .4s ease;opacity:1}
+#bar.inverse #prog{opacity:0}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
 .brand .mark{width:40px;height:40px;flex:none;object-fit:contain;transition:filter .4s}
 #bar.inverse .brand .mark{filter:brightness(0) invert(1) opacity(.94) drop-shadow(0 1px 4px rgba(0,0,0,.45))}
@@ -103,7 +104,7 @@ section{position:relative;z-index:2;scroll-margin-top:86px}
    radial-gradient(130% 80% at 18% 92%,rgba(20,28,18,.82),transparent 62%),
    linear-gradient(rgba(20,28,18,.52) 0%,rgba(20,28,18,.1) 28%,rgba(20,28,18,.5) 64%,rgba(20,28,18,.9) 100%)}
 .hero-inner{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;justify-content:flex-end;
-  padding:0 clamp(20px,5vw,80px) clamp(28px,5vh,56px);color:var(--cream)}
+  padding:0 clamp(20px,5vw,80px) clamp(62px,8vh,92px);color:var(--cream)}
 .eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;opacity:.86;font-weight:500;margin-bottom:16px}
 #hero h1{font-size:clamp(44px,9.2vw,116px);font-weight:300;letter-spacing:-.035em;text-shadow:0 2px 46px rgba(0,0,0,.4)}
 #hero h1 em{font-style:italic;color:var(--sun)}
@@ -208,8 +209,9 @@ section{position:relative;z-index:2;scroll-margin-top:86px}
 
 /* ===== reserva direta ===== */
 #direto{background:var(--green-deep);color:var(--cream);border-radius:60px 60px 0 0 / 34px 34px 0 0;margin-top:-1px}
-#stats{border-radius:60px 60px 0 0 / 34px 34px 0 0}
 #local{border-radius:60px 60px 0 0 / 34px 34px 0 0}
+/* o bloco de números sobe sobre a capa: o arco revela a foto, nunca o papel */
+#stats{border-radius:60px 60px 0 0 / 34px 34px 0 0;margin-top:-36px;z-index:4}
 #direto .tag{color:var(--sun)}
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
 .col{border:1px solid rgba(255,255,255,.17);border-radius:var(--r);padding:30px 26px}
