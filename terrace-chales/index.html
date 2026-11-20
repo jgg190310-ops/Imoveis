@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Terrace Chalés — Monte Verde, MG</title>
+<meta name="description" content="Três chalés a 500 metros do centro de Monte Verde (MG). Hidro dupla com vista, lareira ao pé da cama, estacionamento privativo.">
+<link rel="icon" type="image/png" sizes="32x32" href="fotos/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="fotos/favicon-64.png">
+<link rel="apple-touch-icon" href="fotos/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Terrace Chalés — Monte Verde, MG">
+<meta property="og:description" content="Três chalés a 500 metros do centro de Monte Verde. Hidro dupla com vista, lareira ao pé da cama e estacionamento privativo.">
+<meta property="og:image" content="fotos/logo.png">
+<meta name="theme-color" content="#4a5d44">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#232a20;
+  --ink-2:#36402f;
+  --green:#4a5d44;
+  --green-deep:#2b3728;
+  --green-soft:#8aa082;
+  --red:#cf2a21;
+  --red-soft:#e9705f;
+  --cream:#f7ece3;
+  --paper:#fdf8f3;
+  --sand:#e6d4c4;
+  --line:rgba(35,42,32,.13);
+  --shadow:0 24px 60px -24px rgba(35,42,32,.45);
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--paper);color:var(--ink);
+  line-height:1.65;overflow-x:hidden}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.1;letter-spacing:-.015em}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* marca d'água */
+#wm{position:fixed;inset:0;z-index:900;pointer-events:none;overflow:hidden;
+    background-image:repeating-linear-gradient(-38deg,transparent 0 220px,rgba(207,42,33,.045) 220px 440px)}
+#wm span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-24deg);
+    font-weight:600;font-size:clamp(13px,3.2vw,26px);letter-spacing:.42em;
+    color:rgba(207,42,33,.15);white-space:nowrap;text-transform:uppercase}
+
+/* barra de vidro */
+#bar{position:fixed;top:0;left:0;right:0;z-index:950;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:12px clamp(16px,4vw,48px);
+  background:rgba(253,248,243,.55);
+  -webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);
+  border-bottom:1px solid transparent;
+  transition:background .4s ease,border-color .4s ease,box-shadow .4s ease,color .4s ease}
+#bar.solid{background:rgba(253,248,243,.9);border-bottom-color:var(--line);
+  box-shadow:0 10px 30px -22px rgba(35,42,32,.5)}
+#bar.inverse{background:rgba(35,42,32,.2);color:var(--cream)}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand .mark{width:40px;height:40px;flex:none;object-fit:contain;transition:filter .4s ease}
+#bar.inverse .brand .mark{filter:brightness(0) invert(1) opacity(.94) drop-shadow(0 1px 4px rgba(0,0,0,.45))}
+.brand b{font-family:'Fraunces',serif;font-size:18.5px;font-weight:400;letter-spacing:-.01em;display:block;line-height:1.1}
+.brand small{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;opacity:.62;font-weight:500}
+#bar nav{display:flex;gap:28px;align-items:center}
+#bar nav a{font-size:13.5px;text-decoration:none;opacity:.78;transition:opacity .25s}
+#bar nav a:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;gap:9px;border-radius:999px;border:0;cursor:pointer;
+  font-family:'Inter',sans-serif;font-size:13.5px;font-weight:550;padding:11px 21px;text-decoration:none;
+  transition:transform .25s cubic-bezier(.2,.9,.3,1),box-shadow .25s,background .25s}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 26px -12px rgba(207,42,33,.8)}
+.btn-red:hover{transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(207,42,33,.9)}
+.btn-ghost{border:1px solid currentColor;opacity:.85}
+.btn-ghost:hover{opacity:1;transform:translateY(-2px)}
+#burger{display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:transparent;
+  align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:4.5px;color:inherit}
+#burger i{display:block;width:16px;height:1.5px;background:currentColor;transition:transform .3s,opacity .3s}
+#burger.x i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+#burger.x i:nth-child(2){opacity:0}
+#burger.x i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* hero */
+#hero{position:relative;height:100svh;min-height:600px;overflow:hidden;background:#17242a}
+.layer{position:absolute;left:0;width:100%;will-change:transform}
+#heroimg{top:-12%;height:124%;
+  background:url("https://h-img3.cloudbeds.com/uploads/221550/monteverde_picodoselado_01~~69920c75a3fee.jpg") center 55%/cover no-repeat}
+#scrim{position:absolute;inset:0;z-index:3;
+  background:linear-gradient(rgba(18,28,22,.5) 0%,rgba(18,28,22,.18) 34%,rgba(18,28,22,.62) 72%,rgba(18,28,22,.86) 100%)}
+.hero-inner{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 clamp(20px,5vw,80px) clamp(58px,9vh,98px);color:var(--cream)}
+.eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;opacity:.86;font-weight:500;margin-bottom:18px}
+#hero h1{font-size:clamp(42px,9vw,106px);font-weight:300;text-shadow:0 2px 40px rgba(0,0,0,.35)}
+#hero h1 em{font-style:italic;color:#f0a38f}
+.hero-sub{margin-top:18px;max-width:44ch;font-size:clamp(15px,1.7vw,18.5px);font-weight:300;opacity:.93}
+.hero-cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+#scrollcue{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:6;color:var(--cream);
+  font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.6;display:flex;flex-direction:column;align-items:center;gap:8px}
+#scrollcue b{display:block;width:1px;height:36px;background:linear-gradient(currentColor,transparent);animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%,100%{opacity:.25;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+@media(max-width:860px),(max-height:760px){#scrollcue{display:none}}
+
+section{position:relative;z-index:2;scroll-margin-top:76px}
+.wrap{max-width:1180px;margin:0 auto;padding:clamp(64px,11vh,128px) clamp(20px,5vw,48px)}
+.tag{font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:16px}
+.lead{font-size:clamp(23px,3.4vw,40px);font-weight:300;max-width:21ch;line-height:1.15}
+.body{font-size:16.5px;font-weight:300;color:var(--ink-2);opacity:.88;max-width:56ch}
+.split{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(32px,6vw,80px);align-items:center}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.8,.3,1),transform .9s cubic-bezier(.2,.8,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* selo booking */
+.badge{display:inline-flex;align-items:center;gap:12px;margin-top:28px;border:1px solid var(--line);
+  border-radius:999px;padding:9px 9px 9px 18px;background:var(--paper)}
+.badge .n{background:var(--green);color:var(--cream);border-radius:999px;padding:6px 14px;
+  font-family:'Fraunces',serif;font-size:17px;letter-spacing:-.02em}
+.badge span{font-size:12.5px;opacity:.78;letter-spacing:.02em}
+
+/* destaques */
+#destaques{background:var(--cream)}
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:48px}
+.feat{background:var(--cream);padding:32px 26px}
+.feat svg{width:29px;height:29px;stroke:var(--green);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.feat h3{font-size:18.5px;margin:15px 0 8px}
+.feat p{font-size:14.2px;font-weight:300;opacity:.8;line-height:1.6}
+
+/* galeria */
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:48px}
+.shot{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;background:#223a33;
+  transition:transform .55s cubic-bezier(.2,.8,.3,1),box-shadow .55s}
+.shot:hover{transform:translateY(-5px) scale(1.012);box-shadow:var(--shadow)}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 14px;color:#fff;
+  font-size:12.5px;background:linear-gradient(transparent,rgba(20,26,18,.74));
+  opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.shot:hover figcaption{opacity:1;transform:none}
+.g1{grid-column:span 6;aspect-ratio:4/5}
+.g2{grid-column:span 6;aspect-ratio:4/5}
+.g3,.g4{grid-column:span 6;aspect-ratio:3/4}
+.galnote{margin-top:18px;font-size:12.5px;opacity:.6;font-weight:300}
+
+/* faixa */
+#faixa{position:relative;height:clamp(300px,52vh,440px);overflow:hidden;background:#1a2a20}
+#faixa .layer{top:-15%;height:130%;
+  background:url("https://h-img3.cloudbeds.com/uploads/221550/cpia_de_img_9440~~69920cc876c8e.jpg") center 60%/cover no-repeat}
+#faixa .fscrim{position:absolute;inset:0;z-index:3;background:rgba(18,28,22,.55)}
+#faixa .quote{position:absolute;inset:0;z-index:4;display:grid;place-items:center;text-align:center;padding:0 24px;color:var(--cream)}
+#faixa .quote p{font-family:'Fraunces',serif;font-size:clamp(22px,3.6vw,38px);font-weight:300;line-height:1.3;max-width:19ch;
+  text-shadow:0 2px 30px rgba(0,0,0,.4)}
+
+/* chalés */
+.rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px;margin-top:48px}
+.room{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--paper);
+  transition:transform .5s cubic-bezier(.2,.8,.3,1),box-shadow .5s}
+.room:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.room .pic{aspect-ratio:4/5;background:#2b3728}
+.room .pic img{width:100%;height:100%;object-fit:cover;display:block}
+.room .txt{padding:26px 24px 28px}
+.room h3{font-size:21px;margin-bottom:10px}
+.room p{font-size:14.4px;font-weight:300;opacity:.82;line-height:1.62}
+
+/* localização */
+#local{background:var(--green);color:var(--cream)}
+#local .tag{color:#f0a38f}
+#local .body{color:#e6ded4;opacity:.92}
+.mapbox{position:relative;display:block;margin-top:40px;border-radius:var(--r);overflow:hidden;
+  border:1px solid rgba(255,255,255,.16);box-shadow:var(--shadow);aspect-ratio:16/8;background:#2b3728;
+  text-decoration:none;transition:transform .5s cubic-bezier(.2,.8,.3,1)}
+.mapbox:hover{transform:translateY(-4px)}
+.mapbox svg{width:100%;height:100%;display:block}
+.maplabel{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);
+  background:rgba(253,248,243,.94);color:var(--ink);border-radius:999px;padding:11px 22px;
+  font-size:13.5px;font-weight:550;white-space:nowrap;box-shadow:0 10px 28px -14px rgba(0,0,0,.6);
+  transition:transform .35s cubic-bezier(.2,.9,.3,1)}
+.mapbox:hover .maplabel{transform:translateX(-50%) translateY(-3px)}
+.near{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.near span{font-size:12.5px;border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 15px;opacity:.9}
+@media(max-width:600px){.mapbox{aspect-ratio:4/3}}
+
+/* cta */
+#cta{background:var(--cream);text-align:center}
+#cta .wrap{max-width:720px}
+#cta h2{font-size:clamp(30px,5.4vw,52px);font-weight:300}
+#cta p{margin:18px auto 30px;font-weight:300;opacity:.84}
+.ctabtns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+footer{background:var(--green-deep);color:#ddd6cb;font-size:13.5px}
+footer .wrap{padding-top:52px;padding-bottom:52px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:start}
+footer .fbrand{display:flex;align-items:center;gap:12px;margin-bottom:16px;color:var(--cream)}
+footer .fbrand .mark{width:54px;height:54px;border-radius:50%;object-fit:cover;flex:none}
+footer a{color:#f0a38f;text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer .credit{opacity:.55;font-size:12px;text-align:right;align-self:end}
+@media(max-width:700px){footer .wrap{grid-template-columns:1fr}footer .credit{text-align:left}}
+
+#zap{position:fixed;right:clamp(16px,3vw,30px);bottom:clamp(16px,3vw,30px);z-index:940;
+  display:flex;align-items:center;gap:11px;background:#25d366;color:#fff;text-decoration:none;
+  padding:14px 20px;border-radius:999px;font-size:14.5px;font-weight:550;
+  box-shadow:0 18px 40px -14px rgba(37,211,102,.85);transition:transform .3s cubic-bezier(.2,.9,.3,1)}
+#zap:hover{transform:translateY(-3px) scale(1.03)}
+#zap svg{width:21px;height:21px;fill:currentColor}
+#zap b{display:none}
+@media(min-width:720px){#zap b{display:inline;font-weight:550}}
+
+#lb{position:fixed;inset:0;z-index:999;background:rgba(20,26,18,.93);display:none;place-items:center;padding:24px;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+#lb.on{display:grid}
+#lb .box{width:min(1000px,92vw)}
+#lb .inner{width:100%;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:#223a33}
+#lb .inner img{width:100%;height:auto;display:block}
+#lb .cap{color:#ddd6cb;text-align:center;margin-top:16px;font-size:13.5px}
+#lbx{position:absolute;top:22px;right:24px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
+  background:transparent;color:#fff;font-size:22px;cursor:pointer;line-height:1}
+
+@media(max-width:860px){
+  .split{grid-template-columns:1fr}
+  .g1,.g2,.g3,.g4{grid-column:span 12;aspect-ratio:4/5}
+  #bar nav{position:fixed;inset:62px 0 auto;flex-direction:column;gap:0;
+    background:rgba(253,248,243,.98);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line);padding:8px 0 20px;
+    transform:translateY(-130%);transition:transform .45s cubic-bezier(.2,.8,.3,1);color:var(--ink)}
+  #bar nav.open{transform:none}
+  #bar nav a{padding:15px 28px;width:100%;font-size:16px;opacity:.9}
+  #bar nav .btn{margin:14px 28px 0;width:calc(100% - 56px);padding:15px 21px;justify-content:center}
+  #burger{display:flex}
+  #bar.inverse #burger{border-color:rgba(255,255,255,.35)}
+  .wrap{padding-top:72px;padding-bottom:72px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div id="wm" aria-hidden="true"><span>Prévia não autorizada</span></div>
+
+<header id="bar" class="inverse">
+  <a class="brand" href="#hero">
+    <img class="mark" src="fotos/mark.png" alt="Terrace Chalés">
+    <span><b>Terrace Chalés</b><small>Monte Verde</small></span>
+  </a>
+  <nav id="menu">
+    <a href="#sobre">A casa na serra</a>
+    <a href="#chales">Os chalés</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#local">Como chegar</a>
+    <a class="btn btn-red" href="https://hotels.cloudbeds.com/reservas/bjasvx" target="_blank" rel="noopener">Reservar</a>
+  </nav>
+  <button id="burger" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i><i></i></button>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="hero">
+  <div class="layer" id="heroimg"></div>
+  <div id="scrim"></div>
+
+  <div class="hero-inner">
+    <p class="eyebrow">Monte Verde · Serra da Mantiqueira</p>
+    <h1>Vem pra serra<br><em>e sinta-se em casa.</em></h1>
+    <p class="hero-sub">Três chalés a 500 metros do centro de Monte Verde. Hidro dupla com vista, lareira ao pé da cama e estacionamento privativo na porta.</p>
+    <div class="hero-cta">
+      <a class="btn btn-red" href="https://hotels.cloudbeds.com/reservas/bjasvx" target="_blank" rel="noopener">Ver disponibilidade</a>
+      <a class="btn btn-ghost" href="#chales">Conhecer os chalés</a>
+    </div>
+  </div>
+  <div id="scrollcue"><span>Role</span><b></b></div>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section id="sobre">
+  <div class="wrap split">
+    <div class="reveal">
+      <p class="tag">O lugar</p>
+      <h2 class="lead">Perto de tudo, longe da pressa.</h2>
+      <div class="badge">
+        <span class="n">9,9</span>
+        <span>Traveller Review Awards 2025<br>Booking.com</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="body">Monte Verde fica a 1.550 metros de altitude, na Serra da Mantiqueira: neblina de manhã, frio de verdade à noite e araucária no horizonte.</p>
+      <p class="body" style="margin-top:18px">O Terrace são três chalés na Av. Monte Verde, a 500 metros do centrinho — dá pra ir a pé pros restaurantes, cafés e lojinhas e deixar o carro parado na vaga coberta o fim de semana inteiro.</p>
+      <p class="body" style="margin-top:18px">Cada chalé é independente, amplo e preparado pro frio. Você chega, acende a lareira e pronto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESTAQUES ============ -->
+<section id="destaques">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="tag">Em cada chalé</p>
+      <h2 class="lead">O que você encontra lá dentro.</h2>
+    </div>
+    <div class="feats reveal">
+      <div class="feat">
+        <svg viewBox="0 0 24 24"><path d="M12 3c2.5 3 4 5 4 7.5A4 4 0 0 1 12 15a4 4 0 0 1-4-4.5C8 8 9.5 6 12 3Z"/><path d="M6 21h12"/><path d="M8 21c0-3 1.8-4.5 4-4.5s4 1.5 4 4.5"/></svg>
+        <h3>Lareira ao pé da cama</h3>
+        <p>Acesa de dentro do quarto, pra ver o fogo deitado.</p>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5v-3Z"/><path d="M6 12V6a2 2 0 0 1 4 0"/><circle cx="7" cy="16" r=".6" fill="currentColor"/><circle cx="12" cy="17" r=".6" fill="currentColor"/><circle cx="17" cy="16" r=".6" fill="currentColor"/></svg>
+        <h3>Hidro dupla com vista</h3>
+        <p>Banheira pra dois, de frente pro vidro e pra serra.</p>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="12.5" rx="1.8"/><path d="M9 20.5h6"/><path d="M12 17.5v3"/></svg>
+        <h3>TV 50" 4K</h3>
+        <p>Pra fechar a noite depois que o frio aperta lá fora.</p>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24"><rect x="5.5" y="3" width="13" height="18" rx="2"/><path d="M5.5 10.5h13"/><path d="M8.5 6.6v1.4M8.5 13.5v1.6"/></svg>
+        <h3>Frigobar e wi-fi</h3>
+        <p>Internet boa e frigobar pra deixar o vinho gelando.</p>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24"><path d="M5 17h14l-1.6-6.4A2 2 0 0 0 15.5 9h-7a2 2 0 0 0-1.9 1.6L5 17Z"/><path d="M4 17h16v2.5H4z"/><circle cx="8" cy="19.5" r="1.3"/><circle cx="16" cy="19.5" r="1.3"/></svg>
+        <h3>Estacionamento privativo</h3>
+        <p>Vaga coberta no próprio chalé, sem disputa por lugar.</p>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <h3>500 m do centro</h3>
+        <p>Restaurantes, cafés e lojinhas a uma caminhada curta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAIXA ============ -->
+<section id="faixa">
+  <div class="layer" id="f1"></div>
+  <div class="fscrim"></div>
+  <div class="quote"><p>Você chega, acende a lareira e o resto do mundo espera.</p></div>
+</section>
+
+<!-- ============ CHALÉS ============ -->
+<section id="chales">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="tag">Acomodações</p>
+      <h2 class="lead">Três chalés, a mesma ideia.</h2>
+      <p class="body" style="margin-top:20px">Independentes, amplos e com entrada própria. O que muda é a vista — o essencial está nos três.</p>
+    </div>
+    <div class="rooms reveal">
+      <article class="room">
+        <div class="pic"><img src="https://h-img2.cloudbeds.com/uploads/221550/cpia_de_img_6329~~69920c8430487.jpg" alt="Hidromassagem dupla de frente para o vidro, com a mata ao fundo" loading="lazy" decoding="async"></div>
+        <div class="txt">
+          <h3>Hidro dupla, de frente pra vista</h3>
+          <p>Banheira para dois virada pro vidro. A mata ocupa a janela inteira, de manhã com neblina e de tarde com sol.</p>
+        </div>
+      </article>
+      <article class="room">
+        <div class="pic"><img src="https://h-img3.cloudbeds.com/uploads/221550/cpia_de_img_6356~~69920c8c87b13.jpg" alt="Lareira acesa dentro do quarto do chalé" loading="lazy" decoding="async"></div>
+        <div class="txt">
+          <h3>Lareira ao pé da cama</h3>
+          <p>A lareira fica dentro do quarto, na frente da cama. Em Monte Verde isso muda a noite inteira.</p>
+        </div>
+      </article>
+      <article class="room">
+        <div class="pic"><img src="https://h-img1.cloudbeds.com/uploads/221550/cpia_de_img_6457~~69920c99deead.jpg" alt="Café da manhã na varanda do chalé, com vista para o verde" loading="lazy" decoding="async"></div>
+        <div class="txt">
+          <h3>Varanda e vaga na porta</h3>
+          <p>Entrada independente, varanda pra tomar café olhando a serra e estacionamento coberto no próprio chalé.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERIA ============ -->
+<section id="galeria" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="tag">Galeria</p>
+      <h2 class="lead">Um passeio rápido.</h2>
+    </div>
+    <div class="gal reveal" id="gal">
+      <figure class="shot g1" data-cap="Quarto com teto de madeira e pé-direito alto">
+        <img src="https://h-img2.cloudbeds.com/uploads/221550/cpia_de_img_6358~~69920c929c538.jpg" alt="Quarto do chalé, com teto de madeira" loading="lazy" decoding="async">
+        <figcaption>Quarto</figcaption>
+      </figure>
+      <figure class="shot g2" data-cap="Lareira acesa no chalé">
+        <img src="https://h-img2.cloudbeds.com/uploads/221550/img-20240207-wa0038~~69920c696ce4b.jpg" alt="Lareira acesa no quarto" loading="lazy" decoding="async">
+        <figcaption>Lareira</figcaption>
+      </figure>
+      <figure class="shot g3" data-cap="Café da manhã servido no chalé">
+        <img src="https://h-img3.cloudbeds.com/uploads/221550/cpia_de_img_6471~~69920c9d8c421.jpg" alt="Café da manhã servido no chalé" loading="lazy" decoding="async">
+        <figcaption>Café da manhã</figcaption>
+      </figure>
+      <figure class="shot g4" data-cap="Suíte do chalé">
+        <img src="https://h-img2.cloudbeds.com/uploads/221550/cpia_de_img_6357~~69920c8e5ffa4.jpg" alt="Segundo quarto do chalé" loading="lazy" decoding="async">
+        <figcaption>Suíte</figcaption>
+      </figure>
+    </div>
+    
+  </div>
+</section>
+
+<!-- ============ LOCALIZAÇÃO ============ -->
+<section id="local">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="tag">Como chegar</p>
+      <h2 class="lead">Av. Monte Verde, 2094.</h2>
+      <p class="body" style="margin-top:20px">Monte Verde, Camanducaia (MG), CEP 37650-000. Cerca de 2h30 de Campinas, 3h de São Paulo e 1h30 de Pouso Alegre.</p>
+      <div class="near">
+        <span>500 m do centro</span><span>Pedra Redonda</span><span>Pico do Selado</span><span>Restaurantes e cafés</span>
+      </div>
+    </div>
+    <a class="mapbox reveal"
+       href="https://www.google.com/maps/search/?api=1&query=Av.+Monte+Verde,+2094,+Monte+Verde,+Camanducaia+-+MG"
+       target="_blank" rel="noopener" aria-label="Abrir a localização no Google Maps">
+      <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs><linearGradient id="mp" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#22362a"/><stop offset="1" stop-color="#324f39"/></linearGradient></defs>
+        <rect width="1200" height="600" fill="url(#mp)"/>
+        <g stroke="#f7ece3" stroke-opacity=".12" stroke-width="1.5" fill="none">
+          <path d="M0 180 H1200M0 320 H1200M0 460 H1200M200 0 V600M520 0 V600M860 0 V600"/>
+        </g>
+        <path d="M-20 360 C 220 300, 420 420, 640 352 S 1080 250, 1220 318" stroke="#e9705f" stroke-opacity=".5" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <g fill="#192619" opacity=".55">
+          <path d="M80 520 l40-70 40 70Z"/><path d="M150 530 l30-54 30 54Z"/>
+          <path d="M1000 500 l44-78 44 78Z"/><path d="M1080 524 l30-56 30 56Z"/>
+        </g>
+        <g transform="translate(600,300)">
+          <circle r="54" fill="#cf2a21" opacity=".16"/><circle r="30" fill="#cf2a21" opacity=".28"/>
+          <path d="M0 18 C -16 -2, -22 -12, -22 -22 A 22 22 0 1 1 22 -22 C 22 -12, 16 -2, 0 18Z" fill="#cf2a21"/>
+          <circle cy="-22" r="8" fill="#f7ece3"/>
+        </g>
+      </svg>
+      <span class="maplabel">Abrir no Google Maps &nbsp;&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section id="cta">
+  <div class="wrap reveal">
+    <p class="tag">Reservas</p>
+    <h2>Garanta a sua data.</h2>
+    <p>Reserve direto, sem intermediário. Ou chame no WhatsApp que a gente tira qualquer dúvida.</p>
+    <div class="ctabtns">
+      <a class="btn btn-red" style="padding:16px 30px;font-size:15.5px" href="https://hotels.cloudbeds.com/reservas/bjasvx" target="_blank" rel="noopener">Reservar agora</a>
+      <a class="btn btn-ghost" style="padding:16px 30px;font-size:15.5px" href="https://wa.me/5535987000736" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fbrand">
+        <img class="mark" src="fotos/logo.png" alt="Terrace Chalés">
+        <span style="font-family:Fraunces,serif;font-size:19px">Terrace Chalés</span>
+      </div>
+      Av. Monte Verde, 2094 — Monte Verde, Camanducaia (MG)<br>
+      <a href="https://wa.me/5535987000736" target="_blank" rel="noopener">(35) 98700-0736</a> ·
+      <a href="mailto:contato@terrachales.com.br">contato@terrachales.com.br</a><br>
+      <a href="https://instagram.com/terracemonteverde" target="_blank" rel="noopener">@terracemonteverde</a>
+    </div>
+    <div class="credit">Site criado por João Gabriel Geo</div>
+  </div>
+</footer>
+
+<a id="zap" href="https://wa.me/5535987000736" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29Z"/></svg>
+  <b>WhatsApp</b>
+</a>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button id="lbx" aria-label="Fechar">&times;</button>
+  <div class="box">
+    <div class="inner" id="lbi"></div>
+    <p class="cap" id="lbc"></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var bar=document.getElementById('bar'),hero=document.getElementById('hero'),
+      menu=document.getElementById('menu'),burger=document.getElementById('burger');
+
+  burger.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    burger.classList.toggle('x',open);
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  Array.prototype.forEach.call(menu.querySelectorAll('a'),function(a){
+    a.addEventListener('click',function(){
+      menu.classList.remove('open');burger.classList.remove('x');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  var L={img:document.getElementById('heroimg'),
+         scrim:document.getElementById('scrim'),
+         f1:document.getElementById('f1')},
+      faixa=document.getElementById('faixa'),
+      heroInner=hero.querySelector('.hero-inner'),
+      els=document.querySelectorAll('.reveal'),
+      reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      lastY=null;
+
+  function frame(){
+    var vh=window.innerHeight||document.documentElement.clientHeight,
+        hr=hero.getBoundingClientRect(),
+        y=Math.max(0,-hr.top),
+        h=hr.height||1;
+
+    if(y!==lastY){
+      lastY=y;
+      if(!reduce && hr.bottom>-60){
+        var p=Math.min(1,y/h);
+        L.img.style.transform='translate3d(0,'+(y*.32)+'px,0) scale('+(1+p*.06)+')';
+        if(L.scrim) L.scrim.style.opacity=String(Math.min(1,.82+p*.18));
+        if(heroInner){
+          heroInner.style.transform='translate3d(0,'+(y*.3)+'px,0)';
+          heroInner.style.opacity=String(Math.max(0,1-p*1.5));
+        }
+      }
+      var over = hr.bottom > 70;
+      bar.classList.toggle('inverse',over);
+      bar.classList.toggle('solid',!over);
+    }
+
+    if(!reduce && faixa){
+      var fr=faixa.getBoundingClientRect();
+      if(fr.bottom>-120 && fr.top<vh+120){
+        var c=(vh/2-(fr.top+fr.height/2))/vh;
+        L.f1.style.transform='translate3d(0,'+(c*58)+'px,0)';
+      }
+    }
+
+    for(var i=els.length-1;i>=0;i--){
+      var el=els[i];
+      if(el.classList.contains('in')) continue;
+      var r=el.getBoundingClientRect();
+      if(r.top < vh*0.92 && r.bottom > 0) el.classList.add('in');
+    }
+
+    window.requestAnimationFrame(frame);
+  }
+  window.requestAnimationFrame(frame);
+  window.setTimeout(function(){
+    Array.prototype.forEach.call(els,function(e){e.classList.add('in');});
+  },2500);
+
+  var lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),
+      lbc=document.getElementById('lbc'),lbx=document.getElementById('lbx');
+  function close(){ lb.classList.remove('on'); lbi.innerHTML=''; document.body.style.overflow=''; }
+  Array.prototype.forEach.call(document.querySelectorAll('.shot'),function(f){
+    f.setAttribute('tabindex','0');
+    function open(){
+      var im=f.querySelector('img'); if(!im) return;
+      lbi.innerHTML='';
+      var big=document.createElement('img');
+      big.src=im.currentSrc||im.src; big.alt=im.alt||'';
+      lbi.appendChild(big);
+      lbc.textContent=f.getAttribute('data-cap')||'';
+      lb.classList.add('on'); document.body.style.overflow='hidden';
+    }
+    f.addEventListener('click',open);
+    f.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();open();} });
+  });
+  lbx.addEventListener('click',close);
+  lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+</body>
+</html>
