@@ -239,6 +239,24 @@ footer .marca{align-items:center;margin-bottom:16px}
 .lb .prox{right:18px;top:50%;transform:translateY(-50%)}
 .lb .cont{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:rgba(255,255,255,.7);font-size:.75rem;letter-spacing:.3em}
 
+
+/* ---------- ADAPTAÇÃO DESKTOP (fotos verticais) ---------- */
+.capa-foto{display:none}
+.banda-tri{display:none}
+@media (min-width:861px){
+  .capa-img img{filter:blur(22px) brightness(.62) saturate(1.2);transform:scale(1.15);animation:none}
+  .capa-foto{display:block;position:absolute;z-index:2;right:max(40px,calc((100vw - 1160px)/2 + 24px));top:calc(var(--aviso) + 96px);
+    height:calc(100svh - var(--aviso) - 170px);aspect-ratio:591/1280;overflow:hidden;
+    box-shadow:0 40px 100px rgba(0,0,0,.45);outline:1px solid rgba(226,207,166,.5);outline-offset:12px;cursor:zoom-in}
+  .capa-foto img{width:100%;height:100%;object-fit:cover;animation:kenburns 22s ease-out both}
+  .capa-txt{padding-right:calc(30vw + 40px)}
+  .banda .banda-img{display:none}
+  .banda-tri{display:grid;position:absolute;inset:0;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--abismo)}
+  .banda-tri div{overflow:hidden;position:relative}
+  .banda-tri img{position:absolute;left:0;top:-15%;width:100%;height:130%;object-fit:cover;will-change:transform}
+  .final .banda-img img{filter:blur(16px) brightness(.8);transform:scale(1.12)}
+}
+
 /* ---------- REVEAL ---------- */
 .rv{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
 .rv.on{opacity:1;transform:none}
@@ -306,6 +324,7 @@ footer .marca{align-items:center;margin-bottom:16px}
       <a href="#acomodacoes" class="btn btn-vidro">Ver acomodações</a>
     </div>
   </div>
+  <figure class="capa-foto" data-idx="0"><img src="https://img.olx.com.br/images/90/907654691446233.jpg" alt="Praia de Meaípe"></figure>
   <div class="rolar">Role</div>
 </section>
 
@@ -336,6 +355,11 @@ footer .marca{align-items:center;margin-bottom:16px}
 
 <section class="banda">
   <div class="banda-img" data-px="0.22"><img src="https://img.olx.com.br/images/88/885693452403133.jpg" alt="" loading="lazy"></div>
+  <div class="banda-tri">
+    <div><img data-px2="0.12" src="https://img.olx.com.br/images/90/907654691446233.jpg" alt="" loading="lazy"></div>
+    <div><img data-px2="-0.1" src="https://img.olx.com.br/images/88/885693452403133.jpg" alt="" loading="lazy"></div>
+    <div><img data-px2="0.16" src="https://img.olx.com.br/images/89/893687578081567.jpg" alt="" loading="lazy"></div>
+  </div>
   <div class="banda-txt">
     <h2 class="rv">A virada mais bonita<br>é a <em>pé na areia</em></h2>
     <p class="rv d1">Réveillon 2027 · Meaípe</p>
@@ -486,16 +510,16 @@ footer .marca{align-items:center;margin-bottom:16px}
 const WHATSAPP = ''; // número da Josie com DDI+DDD, ex.: 5527999999999
 
 const FOTOS = [
-  ['90/907654691446233','Praia de Meaípe','largo'],
+  ['90/907654691446233','Praia de Meaípe','alto'],
   ['88/885693452403133','Águas de Meaípe','alto'],
-  ['89/893687578081567','Piscinas naturais',''],
+  ['83/830607696383934','Quarto','largo'],
+  ['89/893687578081567','Piscinas naturais','alto'],
+  ['85/852606210888491','Sala',''],
   ['79/792666332010516','Quarto',''],
-  ['85/852606210888491','Sala','alto'],
-  ['81/811695695082332','Quarto','largo'],
-  ['83/830607696383934','Quarto',''],
+  ['87/879630212059294','Quarto','largo'],
+  ['81/811695695082332','Quarto',''],
   ['84/849626091169515','Quarto com sala',''],
-  ['87/879630212059294','Quarto',''],
-  ['82/822696100610820','Quarto',''],
+  ['82/822696100610820','Quarto','alto'],
   ['78/788616571427599','Fachada','largo'],
 ];
 const src = id => 'https://img.olx.com.br/images/' + id + '.jpg';
@@ -579,6 +603,7 @@ addEventListener('keydown',e=>{if(e.key==='Escape'&&gaveta.classList.contains('a
 
 /* ===== Barra sólida + parallax leve ===== */
 const px=[...document.querySelectorAll('[data-px]')];
+const px2=[...document.querySelectorAll('[data-px2]')];
 const reduz=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let tick=false;
 function frame(){
@@ -591,6 +616,12 @@ function frame(){
       if(box.bottom<-50||box.top>vh+50) return;
       const centro=box.top+box.height/2-vh/2;
       el.style.transform='translate3d(0,'+(centro*-parseFloat(el.dataset.px)*fator).toFixed(1)+'px,0)';
+    });
+    px2.forEach(el=>{
+      const box=el.parentElement.getBoundingClientRect();
+      if(box.bottom<-50||box.top>vh+50||box.width===0) return;
+      const centro=box.top+box.height/2-vh/2;
+      el.style.transform='translate3d(0,'+(centro*-parseFloat(el.dataset.px2)).toFixed(1)+'px,0)';
     });
   }
   tick=false;
