@@ -249,7 +249,9 @@ footer .marca{align-items:center;margin-bottom:16px}
     height:calc(100svh - var(--aviso) - 170px);aspect-ratio:3/4;overflow:hidden;
     box-shadow:0 40px 100px rgba(0,0,0,.45);outline:1px solid rgba(226,207,166,.5);outline-offset:12px;cursor:zoom-in}
   .capa-foto img{width:100%;height:100%;object-fit:cover;animation:kenburns 22s ease-out both}
-  .capa-txt{padding-right:calc(48vw + 20px)}
+  .capa-txt{padding-right:clamp(380px,40vw,560px)}
+  .capa h1{font-size:clamp(3rem,5.4vw,5.4rem)}
+  .capa-txt{padding-bottom:clamp(70px,12vh,130px)}
   .banda .banda-img{display:none}
   .banda-tri{display:grid;position:absolute;inset:0;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--abismo)}
   .banda-tri div{overflow:hidden;position:relative}
@@ -322,7 +324,7 @@ img.cbp,div img.cbp{position:absolute;left:0;width:100%;height:190%;top:-45%;obj
   <div class="capa-img" data-px="0.35"><img class="cbp" src="https://img.olx.com.br/images/90/907654691446233.jpg" alt="Praia de Meaípe, Guarapari" fetchpriority="high"></div>
   <div class="capa-txt">
     <div class="olho rv">Guarapari · Espírito Santo</div>
-    <h1 class="rv d1">Em frente<br>ao mar de <em>Meaípe</em></h1>
+    <h1 class="rv d1">Em frente ao mar<br>de <em>Meaípe</em></h1>
     <p class="rv d2">Casa completa e suítes a poucos passos da areia. Réveillon 2027 e verão inteiro no litoral mais charmoso de Guarapari.</p>
     <div class="capa-acoes rv d3">
       <a href="#" class="btn btn-ouro js-zap" data-msg="Olá! Quero reservar o pacote de Réveillon em Meaípe.">Reservar o Réveillon</a>
