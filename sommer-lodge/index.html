@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sommer Lodge — Garopaba, SC</title>
-<meta name="description" content="Quatro suítes independentes a 100 metros da Surfland, em Garopaba (SC). A 5 minutos da Praia do Ouvidor e 12 da Praia do Rosa.">
+<meta name="description" content="Quatro suítes independentes a 100 metros da Surfland, em Garopaba (SC). Praia do Ouvidor a 5 minutos, Praia do Rosa a 12.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sommer Lodge — Garopaba, SC">
-<meta property="og:description" content="Quatro suítes independentes a 100 metros da Surfland, em Garopaba. Mar, mata e piscina de ondas na porta.">
+<meta property="og:description" content="Quatro suítes independentes a 100 metros da Surfland. Mar, mata e piscina de ondas na porta.">
 <meta name="theme-color" content="#14433b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
   --ink:#16211e; --ink-2:#36453f;
   --teal:#14433b; --teal-mid:#2c5c54; --teal-deep:#0a2b26; --teal-soft:#8fb3a8;
   --sand:#e6d6c2; --sun:#e8bb84; --clay:#b9734a;
-  --cream:#f6efe6; --paper:#fcf8f2; --mist:#eae2d6;
+  --cream:#f6efe6; --paper:#fcf8f2; --mist:#eee7dc;
   --line:rgba(22,33,30,.14); --hair:rgba(22,33,30,.08);
   --shadow:0 30px 70px -30px rgba(10,43,38,.5);
   --shadow-sm:0 12px 30px -16px rgba(10,43,38,.4);
@@ -27,13 +27,15 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--paper);color:var(--ink);
   line-height:1.65;overflow-x:hidden}
+body.lock{overflow:hidden}
 ::selection{background:var(--teal);color:var(--cream)}
 :focus-visible{outline:2px solid var(--teal-mid);outline-offset:3px;border-radius:4px}
 h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.1;letter-spacing:-.02em;text-wrap:balance}
 img{max-width:100%;display:block}
 a{color:inherit}
+button{font-family:inherit}
 section{position:relative;z-index:2;scroll-margin-top:84px}
-.wrap{max-width:1180px;margin:0 auto;padding:clamp(60px,10vh,118px) clamp(20px,5vw,48px)}
+.wrap{max-width:1180px;margin:0 auto;padding:clamp(58px,9.5vh,112px) clamp(20px,5vw,48px)}
 .tag{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--teal-mid);font-weight:600;
   margin-bottom:16px;display:flex;align-items:center;gap:12px}
 .tag::before{content:"";width:26px;height:1px;background:currentColor;opacity:.5;flex:none}
@@ -43,13 +45,13 @@ section{position:relative;z-index:2;scroll-margin-top:84px}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.2,.8,.3,1),transform .85s cubic-bezier(.2,.8,.3,1)}
 .reveal.in{opacity:1;transform:none}
 
-#wm{position:fixed;inset:0;z-index:900;pointer-events:none;overflow:hidden;
-    background-image:repeating-linear-gradient(-38deg,transparent 0 230px,rgba(20,67,59,.045) 230px 460px)}
+#wm{position:fixed;inset:0;z-index:990;pointer-events:none;overflow:hidden;
+    background-image:repeating-linear-gradient(-38deg,transparent 0 230px,rgba(20,67,59,.04) 230px 460px)}
 #wm span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-24deg);
     font-weight:600;font-size:clamp(13px,3.2vw,26px);letter-spacing:.42em;
-    color:rgba(20,67,59,.12);white-space:nowrap;text-transform:uppercase}
+    color:rgba(20,67,59,.11);white-space:nowrap;text-transform:uppercase}
 
-#bar{position:fixed;top:0;left:0;right:0;z-index:950;
+#bar{position:fixed;top:0;left:0;right:0;z-index:800;
   background:rgba(252,248,242,.55);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);
   border-bottom:1px solid transparent;transition:background .4s,border-color .4s,box-shadow .4s,color .4s}
 #bar.solid{background:rgba(252,248,242,.93);border-bottom-color:var(--line);box-shadow:0 10px 30px -22px rgba(10,43,38,.5)}
@@ -59,10 +61,10 @@ section{position:relative;z-index:2;scroll-margin-top:84px}
 #bar.inverse #prog{opacity:0}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
 .brand .mark{width:38px;height:38px;flex:none;border-radius:50%;border:1.5px solid currentColor;
-  display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:15px;opacity:.9}
+  display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:14px;opacity:.9}
 .brand b{font-family:'Fraunces',serif;font-size:18px;font-weight:400;display:block;line-height:1.1}
 .brand small{font-size:9px;letter-spacing:.26em;text-transform:uppercase;opacity:.62;font-weight:500}
-#bar nav{display:flex;gap:clamp(13px,1.5vw,22px);align-items:center;flex-wrap:nowrap}
+#bar nav{display:flex;gap:clamp(12px,1.4vw,21px);align-items:center;flex-wrap:nowrap}
 #bar nav a{font-size:13.5px;text-decoration:none;opacity:.72;transition:opacity .25s;position:relative;padding:3px 0}
 #bar nav a:hover,#bar nav a.cur{opacity:1}
 #bar nav a.cur::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:currentColor;opacity:.5}
@@ -70,122 +72,219 @@ section{position:relative;z-index:2;scroll-margin-top:84px}
 #bar nav a.btn::after{display:none}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;border:0;cursor:pointer;
   flex:none;white-space:nowrap;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;padding:11px 22px;
-  text-decoration:none;transition:transform .25s cubic-bezier(.2,.9,.3,1),box-shadow .25s,background .25s}
+  text-decoration:none;transition:transform .25s cubic-bezier(.2,.9,.3,1),box-shadow .25s,background .25s,opacity .25s}
 .btn-teal{background:var(--teal);color:var(--cream);box-shadow:0 10px 26px -12px rgba(10,43,38,.85),inset 0 1px 0 rgba(255,255,255,.14)}
 .btn-teal:hover{background:var(--teal-mid);transform:translateY(-2px)}
-.btn-ghost{border:1px solid currentColor;opacity:.85;background:transparent}
+.btn-cream{background:var(--cream);color:var(--teal-deep)}
+.btn-cream:hover{transform:translateY(-2px)}
+.btn-ghost{border:1px solid currentColor;opacity:.85;background:transparent;color:inherit}
 .btn-ghost:hover{opacity:1;transform:translateY(-2px)}
-#lang{display:flex;border:1px solid currentColor;border-radius:999px;overflow:hidden;opacity:.6;flex:none}
-#lang button{background:transparent;border:0;color:inherit;font-family:inherit;font-size:11px;font-weight:600;
-  letter-spacing:.08em;padding:6px 10px;cursor:pointer;transition:background .25s,color .25s}
+#lang{display:flex;border:1px solid currentColor;border-radius:999px;overflow:hidden;opacity:.62;flex:none}
+#lang button{background:transparent;border:0;color:inherit;font-size:11px;font-weight:600;
+  letter-spacing:.08em;padding:6px 10px;cursor:pointer;transition:background .25s}
 #lang button.on{background:currentColor}
-#lang button.on span{color:var(--paper);mix-blend-mode:normal}
+#lang button.on span{color:var(--paper)}
 #bar.inverse #lang button.on span{color:var(--teal-deep)}
 #lang:hover{opacity:1}
-#burger{display:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;
-  align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:4.5px;color:inherit}
+#burger{display:none;width:40px;height:40px;border-radius:50%;border:1px solid currentColor;background:transparent;
+  align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:4.5px;color:inherit;opacity:.7}
 #burger i{display:block;width:16px;height:1.5px;background:currentColor;transition:transform .3s,opacity .3s}
 #burger.x i:nth-child(1){transform:translateY(6px) rotate(45deg)}
 #burger.x i:nth-child(2){opacity:0}
 #burger.x i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-#hero{position:relative;height:100svh;min-height:620px;overflow:hidden;background:var(--teal-deep)}
+#hero{position:relative;height:100svh;min-height:650px;overflow:hidden;background:var(--teal-deep)}
 .layer{position:absolute;left:0;width:100%;will-change:transform}
-#heroimg{top:-12%;height:124%;
-  background:linear-gradient(170deg,#0d3b35 0%,#14433b 38%,#1d5349 66%,#2c6b5c 100%)}
-#herowave{position:absolute;left:0;right:0;bottom:-2px;z-index:4;opacity:.5;pointer-events:none}
+#heroimg{top:-12%;height:124%;background:linear-gradient(168deg,#0b352f 0%,#14433b 34%,#1f5a4f 62%,#2f7363 100%)}
+#heroimg::after{content:"";position:absolute;inset:0;opacity:.4;
+  background:radial-gradient(44% 30% at 76% 20%,rgba(232,187,132,.5),transparent 70%)}
+#herowave{position:absolute;left:0;right:0;bottom:-1px;z-index:4;pointer-events:none;height:130px}
 #scrim{position:absolute;inset:0;z-index:3;
-  background:radial-gradient(130% 80% at 18% 92%,rgba(7,31,27,.8),transparent 62%),
-   linear-gradient(rgba(7,31,27,.45) 0%,rgba(7,31,27,.08) 30%,rgba(7,31,27,.45) 66%,rgba(7,31,27,.9) 100%)}
+  background:radial-gradient(130% 80% at 18% 92%,rgba(7,31,27,.82),transparent 62%),
+   linear-gradient(rgba(7,31,27,.45) 0%,rgba(7,31,27,.06) 30%,rgba(7,31,27,.45) 64%,rgba(7,31,27,.92) 100%)}
 .hero-inner{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;justify-content:flex-end;
-  padding:0 clamp(20px,5vw,80px) clamp(58px,8vh,88px);color:var(--cream)}
+  padding:0 clamp(20px,5vw,80px) clamp(54px,7vh,80px);color:var(--cream)}
 .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;opacity:.86;font-weight:500;margin-bottom:14px}
-#hero h1{font-size:clamp(42px,9vw,112px);font-weight:300;letter-spacing:-.035em;text-shadow:0 2px 46px rgba(0,0,0,.4)}
+#hero h1{font-size:clamp(42px,8.6vw,106px);font-weight:300;letter-spacing:-.035em;text-shadow:0 2px 46px rgba(0,0,0,.4)}
 #hero h1 em{font-style:italic;color:var(--sun)}
-.hero-sub{margin-top:14px;max-width:46ch;font-size:clamp(14.5px,1.6vw,18px);font-weight:300;opacity:.93}
-.hero-cta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
-#scrollhint{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:7;color:var(--cream);
-  opacity:.55;font-size:10px;letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;
+.hero-sub{margin-top:13px;max-width:46ch;font-size:clamp(14.5px,1.6vw,18px);font-weight:300;opacity:.93}
+
+.book{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;
+  background:rgba(252,248,242,.9);-webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%);
+  border:1px solid rgba(255,255,255,.45);border-radius:20px;padding:14px;color:var(--ink);
+  box-shadow:0 26px 60px -22px rgba(0,0,0,.6);max-width:720px}
+.fld{display:flex;flex-direction:column;gap:5px;flex:1 1 140px;min-width:124px}
+.fld label{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.6;font-weight:600}
+.fld input,.fld select{font-family:inherit;font-size:14.5px;color:var(--ink);background:transparent;
+  border:0;border-bottom:1px solid var(--line);padding:5px 0;width:100%;border-radius:0}
+.fld input:focus,.fld select:focus{outline:0;border-bottom-color:var(--teal-mid)}
+.book .btn{flex:0 0 auto}
+#bkWarn{flex:1 1 100%;font-size:12.5px;color:var(--clay);display:none}
+#bkWarn.on{display:block}
+
+#scrollhint{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:7;color:var(--cream);
+  opacity:.5;font-size:10px;letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;
   align-items:center;gap:7px;animation:bob 2.6s ease-in-out infinite}
-#scrollhint::after{content:"";width:1px;height:26px;background:currentColor}
+#scrollhint::after{content:"";width:1px;height:24px;background:currentColor}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
 
 .strip{background:var(--teal);color:var(--cream);position:relative;z-index:3}
 .strip .inner{max-width:1180px;margin:0 auto;padding:30px clamp(20px,5vw,48px);
   display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.stat b{display:block;font-family:'Fraunces',serif;font-size:clamp(26px,3.4vw,38px);font-weight:300;line-height:1}
-.stat span{display:block;font-size:11px;letter-spacing:.17em;text-transform:uppercase;opacity:.72;margin-top:7px}
+.stat b{display:block;font-family:'Fraunces',serif;font-size:clamp(25px,3.3vw,37px);font-weight:300;line-height:1}
+.stat span{display:block;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;opacity:.72;margin-top:7px}
 
-.ph{position:relative;background:var(--mist);border:1px dashed rgba(22,33,30,.26);border-radius:var(--r);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
-  color:var(--teal-mid);text-align:center;padding:18px;overflow:hidden}
-.ph::before{content:"";position:absolute;inset:0;opacity:.5;
+.ph{position:relative;background:var(--mist);border:1px dashed rgba(22,33,30,.24);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  color:var(--teal-mid);text-align:center;padding:16px;overflow:hidden}
+.ph::before{content:"";position:absolute;inset:0;opacity:.45;
   background:repeating-linear-gradient(45deg,transparent 0 11px,rgba(20,67,59,.045) 11px 22px)}
-.ph svg{position:relative;opacity:.4}
-.ph em{position:relative;font-style:normal;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
-  font-weight:500;opacity:.68;line-height:1.5}
+.ph svg{position:relative;opacity:.38;flex:none}
+.ph em{position:relative;font-style:normal;font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:500;opacity:.66;line-height:1.5}
 
-.grid-suites{display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:22px;margin-top:40px}
+#fchips{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}
+.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:8px 16px;
+  font-size:12.5px;cursor:pointer;color:var(--ink-2);transition:background .25s,color .25s,border-color .25s}
+.chip:hover{border-color:var(--teal-mid)}
+.chip.on{background:var(--teal);border-color:var(--teal);color:var(--cream)}
+
+.grid-suites{display:grid;grid-template-columns:repeat(auto-fit,minmax(256px,1fr));gap:22px;margin-top:24px}
 .suite{background:var(--cream);border:1px solid var(--hair);border-radius:var(--r);overflow:hidden;
-  box-shadow:var(--shadow-sm);transition:transform .35s cubic-bezier(.2,.9,.3,1),box-shadow .35s}
+  box-shadow:var(--shadow-sm);transition:transform .35s cubic-bezier(.2,.9,.3,1),box-shadow .35s,opacity .3s;
+  cursor:pointer;text-align:left;width:100%;border-width:1px;display:block}
 .suite:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.suite .ph{height:176px;border:0;border-radius:0;border-bottom:1px solid var(--hair)}
-.suite .in{padding:20px 22px 24px}
-.suite h3{font-size:24px;font-weight:400}
+.suite.hide{display:none}
+.suite .ph{height:180px;border:0;border-bottom:1px solid var(--hair)}
+.suite .in{padding:19px 21px 22px}
+.suite h3{font-size:23px;font-weight:400}
 .suite .mean{font-size:12.5px;color:var(--clay);font-style:italic;margin-top:5px;line-height:1.5}
-.suite .cap{margin-top:14px;padding-top:13px;border-top:1px solid var(--hair);
-  font-size:12.5px;letter-spacing:.06em;color:var(--ink-2);display:flex;align-items:center;gap:7px}
+.suite .foot{margin-top:14px;padding-top:13px;border-top:1px solid var(--hair);
+  display:flex;align-items:center;justify-content:space-between;gap:10px}
+.suite .cap{font-size:12.5px;color:var(--ink-2);display:flex;align-items:center;gap:7px}
+.suite .more{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-mid);font-weight:600;
+  display:flex;align-items:center;gap:6px}
 
-.amen{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));gap:14px;margin-top:36px}
-.amen div{background:var(--cream);border:1px solid var(--hair);border-radius:14px;padding:18px 18px;
-  display:flex;align-items:center;gap:12px;font-size:14.5px;font-weight:400}
+.amen{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));gap:13px;margin-top:34px}
+.amen div{background:var(--cream);border:1px solid var(--hair);border-radius:14px;padding:17px;
+  display:flex;align-items:center;gap:12px;font-size:14.5px}
 .amen svg{flex:none;color:var(--teal-mid)}
 
-#band{position:relative;height:clamp(300px,42vh,440px);overflow:hidden;background:var(--teal-deep);z-index:1}
-#bandimg{top:-18%;height:136%;background:linear-gradient(145deg,#12403a,#2c6b5c 55%,#4a8c79)}
+#band{position:relative;height:clamp(300px,42vh,430px);overflow:hidden;background:var(--teal-deep);z-index:1}
+#bandimg{top:-18%;height:136%;background:linear-gradient(145deg,#12403a,#2c6b5c 52%,#4d9080)}
 #band .cap{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;
   justify-content:center;text-align:center;color:var(--cream);padding:0 24px;gap:12px;
-  background:linear-gradient(rgba(7,31,27,.42),rgba(7,31,27,.5))}
-#band .cap p{font-family:'Fraunces',serif;font-size:clamp(22px,3.6vw,40px);font-weight:300;font-style:italic;max-width:19ch;line-height:1.2}
+  background:linear-gradient(rgba(7,31,27,.42),rgba(7,31,27,.52))}
+#band .cap p{font-family:'Fraunces',serif;font-size:clamp(22px,3.6vw,40px);font-weight:300;font-style:italic;max-width:20ch;line-height:1.2}
 
-.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(218px,1fr));gap:14px;margin-top:38px}
-.gal .ph{height:206px;cursor:default}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:13px;margin-top:34px}
+.gal .ph{height:200px;cursor:zoom-in;border-radius:14px;transition:transform .3s}
+.gal .ph:hover{transform:scale(1.015)}
 .gal .ph.wide{grid-column:span 2}
 
-.loc{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;margin-top:38px}
+.near{display:grid;grid-template-columns:repeat(auto-fit,minmax(222px,1fr));gap:18px;margin-top:34px}
+.near article{background:var(--cream);border:1px solid var(--hair);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm)}
+.near .ph{height:138px;border:0;border-bottom:1px solid var(--hair)}
+.near .in{padding:17px 19px 20px}
+.near h4{font-size:19px;font-weight:400}
+.near .t{font-family:'Fraunces',serif;color:var(--teal-mid);font-size:15px;margin-top:6px;display:block}
+.near p{font-size:13.5px;color:var(--ink-2);font-weight:300;margin-top:8px;line-height:1.6}
+
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;margin-top:34px}
 .map{border-radius:var(--r);overflow:hidden;border:1px solid var(--hair);box-shadow:var(--shadow-sm);
-  height:360px;background:var(--mist)}
+  height:370px;background:var(--mist)}
 .map iframe{width:100%;height:100%;border:0;display:block}
 .dists{list-style:none}
-.dists li{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:14px 0;
+.dists li{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:13px 0;
   border-bottom:1px solid var(--hair);font-size:15.5px}
 .dists li:last-child{border-bottom:0}
 .dists b{font-weight:400}
 .dists span{font-family:'Fraunces',serif;font-size:17px;color:var(--teal-mid);white-space:nowrap}
 
-.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:16px;margin-top:34px}
-.rules div{background:var(--cream);border:1px solid var(--hair);border-radius:14px;padding:22px}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin-top:32px}
+.rules div{background:var(--cream);border:1px solid var(--hair);border-radius:14px;padding:21px}
 .rules small{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--teal-mid);font-weight:600}
-.rules b{display:block;font-family:'Fraunces',serif;font-size:27px;font-weight:300;margin-top:8px}
+.rules b{display:block;font-family:'Fraunces',serif;font-size:26px;font-weight:300;margin-top:8px;line-height:1.15}
+
+.faq{margin-top:32px;max-width:780px}
+.faq details{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;padding:19px 34px 19px 0;position:relative;
+  font-size:16.5px;font-weight:400;transition:color .25s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--teal-mid)}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:9px;height:9px;
+  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+  transform:translateY(-70%) rotate(45deg);transition:transform .3s;opacity:.55}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+.faq .a{font-size:15px;font-weight:300;color:var(--ink-2);padding:0 0 20px;line-height:1.75;max-width:62ch}
 
 #cta{background:var(--teal);color:var(--cream);text-align:center;position:relative;z-index:3}
-#cta .wrap{display:flex;flex-direction:column;align-items:center;gap:18px}
-#cta h2{font-size:clamp(30px,5vw,56px);font-weight:300;max-width:16ch}
+#cta .wrap{display:flex;flex-direction:column;align-items:center;gap:16px}
+#cta h2{font-size:clamp(30px,5vw,54px);font-weight:300;max-width:16ch}
 #cta h2 em{font-style:italic;color:var(--sun)}
-#cta p{font-size:16px;font-weight:300;opacity:.84;max-width:42ch}
+#cta p{font-size:16px;font-weight:300;opacity:.84;max-width:44ch}
 #cta .btns{display:flex;gap:11px;flex-wrap:wrap;justify-content:center;margin-top:6px}
 
 footer{background:var(--teal-deep);color:rgba(246,239,230,.72);font-size:13px;position:relative;z-index:3}
 footer .inner{max-width:1180px;margin:0 auto;padding:36px clamp(20px,5vw,48px);
-  display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+  display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:flex-start}
 footer a{color:var(--sun);text-decoration:none}
 footer a:hover{text-decoration:underline}
+footer nav{display:flex;flex-direction:column;gap:7px;font-size:13px}
+footer nav a{color:rgba(246,239,230,.72)}
 .credit{font-size:12px;opacity:.6}
 
-#float{position:fixed;right:16px;bottom:16px;z-index:960;transform:translateY(100px);opacity:0;
+#float{position:fixed;right:16px;bottom:16px;z-index:780;transform:translateY(110px);opacity:0;
   transition:transform .45s cubic-bezier(.2,.9,.3,1),opacity .45s}
 #float.in{transform:none;opacity:1}
 #float a{box-shadow:0 16px 36px -14px rgba(10,43,38,.9)}
+
+/* ===== detalhe da suíte ===== */
+#dv{position:fixed;inset:0;z-index:900;background:var(--paper);overflow-y:auto;overscroll-behavior:contain;
+  opacity:0;visibility:hidden;transform:translateY(22px);
+  transition:opacity .35s,transform .35s cubic-bezier(.2,.9,.3,1),visibility .35s}
+#dv.open{opacity:1;visibility:visible;transform:none}
+#dvbar{position:sticky;top:0;z-index:5;background:rgba(252,248,242,.93);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+#dvbar .in{max-width:1000px;margin:0 auto;padding:11px clamp(16px,4vw,32px);
+  display:flex;align-items:center;justify-content:space-between;gap:14px}
+#dvback{display:flex;align-items:center;gap:8px;background:transparent;border:0;cursor:pointer;
+  font-size:13.5px;color:var(--ink-2);padding:7px 2px}
+#dvback:hover{color:var(--teal)}
+#dvwrap{max-width:1000px;margin:0 auto;padding:clamp(26px,5vw,46px) clamp(16px,4vw,32px) 80px}
+#dvwrap h2{font-size:clamp(34px,6vw,58px);font-weight:300}
+#dvmean{color:var(--clay);font-style:italic;font-size:15.5px;margin-top:9px;max-width:40ch}
+#dvhero{height:clamp(200px,34vw,330px);border-radius:var(--r);margin-top:24px}
+#dvgal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:11px;margin-top:11px}
+#dvgal .ph{height:118px;border-radius:12px;cursor:zoom-in}
+#dvfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin-top:30px}
+#dvfacts div{background:var(--cream);border:1px solid var(--hair);border-radius:14px;padding:17px}
+#dvfacts small{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-mid);font-weight:600}
+#dvfacts b{display:block;font-family:'Fraunces',serif;font-size:21px;font-weight:300;margin-top:7px;line-height:1.2}
+#dvamen{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+#dvamen span{border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:12.5px;color:var(--ink-2)}
+#dvcta{margin-top:34px;display:flex;gap:10px;flex-wrap:wrap}
+
+/* ===== lightbox ===== */
+#lb{position:fixed;inset:0;z-index:960;background:rgba(7,22,19,.94);display:flex;align-items:center;
+  justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:60px 16px}
+#lb.open{opacity:1;visibility:visible}
+#lbbox{width:min(900px,100%);aspect-ratio:3/2;max-height:100%;border-radius:var(--r);background:var(--mist);
+  border:1px dashed rgba(246,239,230,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;color:var(--teal-mid);text-align:center;padding:22px;position:relative;overflow:hidden}
+#lbbox::before{content:"";position:absolute;inset:0;opacity:.4;
+  background:repeating-linear-gradient(45deg,transparent 0 13px,rgba(20,67,59,.05) 13px 26px)}
+#lbcap{position:relative;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;opacity:.72}
+#lbn{position:absolute;top:18px;left:50%;transform:translateX(-50%);color:rgba(246,239,230,.72);
+  font-size:12px;letter-spacing:.2em}
+#lb button{position:absolute;background:rgba(246,239,230,.12);border:1px solid rgba(246,239,230,.3);
+  color:var(--cream);width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:18px;
+  display:flex;align-items:center;justify-content:center;transition:background .25s}
+#lb button:hover{background:rgba(246,239,230,.26)}
+#lbx{top:14px;right:14px}
+#lbp{left:12px;top:50%;margin-top:-23px}
+#lbnx{right:12px;top:50%;margin-top:-23px}
 
 @media(max-width:860px){
   .loc{grid-template-columns:1fr}
@@ -203,8 +302,14 @@ footer a:hover{text-decoration:underline}
   #bar nav a{padding:13px 14px;opacity:.85;font-size:15px;border-radius:10px}
   #bar nav a.cur::after{display:none}
   #bar nav a.btn{margin-top:4px;justify-content:center}
-  .hero-inner{padding-bottom:clamp(72px,11vh,96px)}
+  .hero-inner{padding-bottom:clamp(64px,10vh,88px)}
   #scrollhint{display:none}
+  .book{padding:12px;gap:9px}
+  .fld{flex:1 1 calc(50% - 5px);min-width:0}
+  .book .btn{flex:1 1 100%}
+  #lb button{width:42px;height:42px}
+  #lbp{left:6px}
+  #lbnx{right:6px}
 }
 </style>
 </head>
@@ -218,15 +323,16 @@ footer a:hover{text-decoration:underline}
       <span class="mark">SL</span>
       <span>
         <b>Sommer Lodge</b>
-        <small data-pt="Garopaba · SC" data-en="Garopaba · SC">Garopaba · SC</small>
+        <small>Garopaba · SC</small>
       </span>
     </a>
     <nav id="nav">
       <a href="#sobre" data-pt="A casa" data-en="The lodge">A casa</a>
       <a href="#suites" data-pt="Suítes" data-en="Suites">Suítes</a>
       <a href="#galeria" data-pt="Fotos" data-en="Photos">Fotos</a>
-      <a href="#local" data-pt="Localização" data-en="Location">Localização</a>
-      <a class="btn btn-teal" href="#contato" data-pt="Reservar" data-en="Book now">Reservar</a>
+      <a href="#perto" data-pt="Arredores" data-en="Around">Arredores</a>
+      <a href="#local" data-pt="Mapa" data-en="Map">Mapa</a>
+      <a class="btn btn-teal" href="#contato" data-pt="Reservar" data-en="Book">Reservar</a>
     </nav>
     <div style="display:flex;align-items:center;gap:10px">
       <div id="lang">
@@ -242,28 +348,47 @@ footer a:hover{text-decoration:underline}
 <section id="hero">
   <div class="layer" id="heroimg"></div>
   <div id="scrim"></div>
-  <svg id="herowave" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true" style="height:120px">
-    <path d="M0,96 C240,150 420,30 720,72 C1020,114 1200,160 1440,110 L1440,180 L0,180 Z" fill="rgba(252,248,242,.1)"/>
-    <path d="M0,130 C280,170 480,80 760,112 C1040,144 1220,172 1440,140 L1440,180 L0,180 Z" fill="rgba(252,248,242,.14)"/>
+  <svg id="herowave" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,96 C240,150 420,30 720,72 C1020,114 1200,160 1440,110 L1440,180 L0,180 Z" fill="rgba(252,248,242,.08)"/>
+    <path d="M0,130 C280,170 480,80 760,112 C1040,144 1220,172 1440,140 L1440,180 L0,180 Z" fill="rgba(252,248,242,.12)"/>
   </svg>
   <div class="hero-inner">
-    <div class="eyebrow" data-pt="Garopaba · Santa Catarina" data-en="Garopaba · Santa Catarina">Garopaba · Santa Catarina</div>
+    <div class="eyebrow">Garopaba · Santa Catarina</div>
     <h1>Sommer <em>Lodge</em></h1>
     <p class="hero-sub" data-pt="Quatro suítes independentes a 100 metros da Surfland. Praia do Ouvidor a 5 minutos, Praia do Rosa a 12." data-en="Four independent suites, 100 m from Surfland. Praia do Ouvidor 5 minutes away, Praia do Rosa 12.">Quatro suítes independentes a 100 metros da Surfland. Praia do Ouvidor a 5 minutos, Praia do Rosa a 12.</p>
-    <div class="hero-cta">
-      <a class="btn btn-teal" href="#contato" data-pt="Consultar datas" data-en="Check dates">Consultar datas</a>
-      <a class="btn btn-ghost" href="#suites" data-pt="Ver as suítes" data-en="See the suites">Ver as suítes</a>
-    </div>
+
+    <form class="book" id="bk" autocomplete="off">
+      <div class="fld">
+        <label for="bkin" data-pt="Check-in" data-en="Check-in">Check-in</label>
+        <input type="date" id="bkin">
+      </div>
+      <div class="fld">
+        <label for="bkout" data-pt="Check-out" data-en="Check-out">Check-out</label>
+        <input type="date" id="bkout">
+      </div>
+      <div class="fld">
+        <label for="bkg" data-pt="Hóspedes" data-en="Guests">Hóspedes</label>
+        <select id="bkg">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5" data-pt="5 ou mais" data-en="5 or more">5 ou mais</option>
+        </select>
+      </div>
+      <button class="btn btn-teal" type="submit" data-pt="Consultar" data-en="Check">Consultar</button>
+      <div id="bkWarn"></div>
+    </form>
   </div>
   <div id="scrollhint" data-pt="Role" data-en="Scroll">Role</div>
 </section>
 
 <div class="strip">
   <div class="inner">
-    <div class="stat"><b>4</b><span data-pt="Suítes" data-en="Suites">Suítes</span></div>
-    <div class="stat"><b>2–4</b><span data-pt="Hóspedes cada" data-en="Guests each">Hóspedes cada</span></div>
-    <div class="stat"><b>100 m</b><span data-pt="Da Surfland" data-en="From Surfland">Da Surfland</span></div>
-    <div class="stat"><b>5 min</b><span data-pt="Praia do Ouvidor" data-en="Praia do Ouvidor">Praia do Ouvidor</span></div>
+    <div class="stat"><b data-n="4">4</b><span data-pt="Suítes" data-en="Suites">Suítes</span></div>
+    <div class="stat"><b data-pt="2–4" data-en="2–4">2–4</b><span data-pt="Hóspedes cada" data-en="Guests each">Hóspedes cada</span></div>
+    <div class="stat"><b data-n="100" data-suf=" m">100 m</b><span data-pt="Da Surfland" data-en="From Surfland">Da Surfland</span></div>
+    <div class="stat"><b data-n="5" data-suf=" min">5 min</b><span>Praia do Ouvidor</span></div>
   </div>
 </div>
 
@@ -280,55 +405,11 @@ footer a:hover{text-decoration:underline}
   <div class="wrap">
     <div class="tag reveal" data-pt="Acomodações" data-en="Accommodation">Acomodações</div>
     <h2 class="lead reveal" data-pt="Quatro suítes, quatro <em>praias</em>." data-en="Four suites, four <em>beaches</em>.">Quatro suítes, quatro <em>praias</em>.</h2>
-    <div class="grid-suites">
+    <p class="body reveal" style="margin-top:20px" data-pt="Todas acomodam de 2 a 4 hóspedes e têm entrada independente. Toque numa suíte para ver os detalhes." data-en="All of them sleep 2 to 4 guests and have a private entrance. Tap a suite to see the details.">Todas acomodam de 2 a 4 hóspedes e têm entrada independente. Toque numa suíte para ver os detalhes.</p>
+    <div class="grid-suites" id="sgrid"></div>
 
-      <article class="suite reveal">
-        <div class="ph"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/></svg><em data-pt="Foto da Wainui" data-en="Wainui photo">Foto da Wainui</em></div>
-        <div class="in">
-          <h3>Wainui</h3>
-          <p class="mean" data-pt="Praia larga de areia dourada, na Nova Zelândia" data-en="A wide golden-sand beach in New Zealand">Praia larga de areia dourada, na Nova Zelândia</p>
-          <p class="cap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg><span data-pt="2 a 4 hóspedes" data-en="2 to 4 guests">2 a 4 hóspedes</span></p>
-        </div>
-      </article>
-
-      <article class="suite reveal">
-        <div class="ph"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/></svg><em data-pt="Foto da Waipataki" data-en="Waipataki photo">Foto da Waipataki</em></div>
-        <div class="in">
-          <h3>Waipataki</h3>
-          <p class="mean" data-pt="Batizada pelas falésias que marcam a costa" data-en="Named for its famous coastal headlands">Batizada pelas falésias que marcam a costa</p>
-          <p class="cap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg><span data-pt="2 a 4 hóspedes" data-en="2 to 4 guests">2 a 4 hóspedes</span></p>
-        </div>
-      </article>
-
-      <article class="suite reveal">
-        <div class="ph"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/></svg><em data-pt="Foto da Tolaga Bay" data-en="Tolaga Bay photo">Foto da Tolaga Bay</em></div>
-        <div class="in">
-          <h3>Tolaga Bay</h3>
-          <p class="mean" data-pt="Inspirada na baía aberta da costa leste" data-en="Inspired by the long open bay of the East Coast">Inspirada na baía aberta da costa leste</p>
-          <p class="cap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg><span data-pt="2 a 4 hóspedes" data-en="2 to 4 guests">2 a 4 hóspedes</span></p>
-        </div>
-      </article>
-
-      <article class="suite reveal">
-        <div class="ph"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/></svg><em data-pt="Foto da Haumoana" data-en="Haumoana photo">Foto da Haumoana</em></div>
-        <div class="in">
-          <h3>Haumoana</h3>
-          <p class="mean" data-pt="“Brisa do mar”, em māori" data-en="“Sea breeze”, in Māori">“Brisa do mar”, em māori</p>
-          <p class="cap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg><span data-pt="2 a 4 hóspedes" data-en="2 to 4 guests">2 a 4 hóspedes</span></p>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="tag reveal" style="margin-top:62px" data-pt="Em todas as suítes" data-en="In every suite">Em todas as suítes</div>
-    <div class="amen">
-      <div class="reveal"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h10"/><path d="M17 15l2 2 2-2"/></svg><span data-pt="Ar-condicionado" data-en="Air conditioning">Ar-condicionado</span></div>
-      <div class="reveal"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M5 10h14"/><path d="M9 6.5v1M9 13.5v2"/></svg><span data-pt="Frigobar" data-en="Mini fridge">Frigobar</span></div>
-      <div class="reveal"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M8 21h8M12 18v3"/></svg><span data-pt="TV a cabo" data-en="Cable TV">TV a cabo</span></div>
-      <div class="reveal"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg><span data-pt="Cozinha compacta" data-en="Small kitchen">Cozinha compacta</span></div>
-      <div class="reveal"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5.5 5.5 0 0 1 7 0"/><path d="M2 9a15 15 0 0 1 20 0"/><circle cx="12" cy="19.5" r="1"/></svg><span data-pt="Internet fibra" data-en="Fibre internet">Internet fibra</span></div>
-      <div class="reveal"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10l9-6 9 6v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M15 21v-8H9v8"/></svg><span data-pt="Entrada independente" data-en="Private entrance">Entrada independente</span></div>
-    </div>
+    <div class="tag reveal" style="margin-top:58px" data-pt="Em todas as suítes" data-en="In every suite">Em todas as suítes</div>
+    <div class="amen" id="amen"></div>
   </div>
 </section>
 
@@ -343,17 +424,19 @@ footer a:hover{text-decoration:underline}
   <div class="wrap">
     <div class="tag reveal" data-pt="Galeria" data-en="Gallery">Galeria</div>
     <h2 class="lead reveal" data-pt="As suítes, o entorno e a <em>mata</em>." data-en="The suites, the surroundings and the <em>forest</em>.">As suítes, o entorno e a <em>mata</em>.</h2>
-    <div class="gal">
-      <div class="ph wide reveal"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/></svg><em data-pt="Vista aérea do lodge" data-en="Lodge from above">Vista aérea do lodge</em></div>
-      <div class="ph reveal"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/></svg><em data-pt="Interior da suíte" data-en="Inside a suite">Interior da suíte</em></div>
-      <div class="ph reveal"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/></svg><em data-pt="Área externa" data-en="Outdoor area">Área externa</em></div>
-      <div class="ph reveal"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/></svg><em data-pt="Mata atlântica" data-en="Atlantic forest">Mata atlântica</em></div>
-      <div class="ph wide reveal"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/></svg><em data-pt="Praia do Rosa / Ouvidor" data-en="Praia do Rosa / Ouvidor">Praia do Rosa / Ouvidor</em></div>
-    </div>
+    <div class="gal" id="gal"></div>
   </div>
 </section>
 
-<section id="local" style="background:var(--mist)">
+<section id="perto" style="background:var(--mist)">
+  <div class="wrap">
+    <div class="tag reveal" data-pt="Arredores" data-en="Around">Arredores</div>
+    <h2 class="lead reveal" data-pt="O que tem <em>por perto</em>." data-en="What's <em>nearby</em>.">O que tem <em>por perto</em>.</h2>
+    <div class="near" id="near"></div>
+  </div>
+</section>
+
+<section id="local">
   <div class="wrap">
     <div class="tag reveal" data-pt="Localização" data-en="Location">Localização</div>
     <h2 class="lead reveal" data-pt="Tudo a poucos <em>minutos</em> de carro." data-en="Everything a few <em>minutes</em> away.">Tudo a poucos <em>minutos</em> de carro.</h2>
@@ -365,21 +448,24 @@ footer a:hover{text-decoration:underline}
       <div class="reveal">
         <ul class="dists">
           <li><b data-pt="Surfland (piscina de ondas)" data-en="Surfland (wave pool)">Surfland (piscina de ondas)</b><span>100 m</span></li>
-          <li><b data-pt="Praia do Ouvidor" data-en="Praia do Ouvidor">Praia do Ouvidor</b><span data-pt="5 min" data-en="5 min">5 min</span></li>
-          <li><b data-pt="Praia do Rosa" data-en="Praia do Rosa">Praia do Rosa</b><span data-pt="12 min" data-en="12 min">12 min</span></li>
-          <li><b data-pt="Barra da Ferrugem" data-en="Barra da Ferrugem">Barra da Ferrugem</b><span data-pt="20 min" data-en="20 min">20 min</span></li>
+          <li><b>Praia do Ouvidor</b><span>5 min</span></li>
+          <li><b>Praia do Rosa</b><span>12 min</span></li>
+          <li><b>Barra da Ferrugem</b><span>20 min</span></li>
           <li><b data-pt="Cachoeiras da mata (3)" data-en="Rainforest waterfalls (3)">Cachoeiras da mata (3)</b><span data-pt="20 min a 1 h" data-en="20 min to 1 h">20 min a 1 h</span></li>
         </ul>
         <p class="body" style="margin-top:18px;font-size:14.5px" data-pt="Os tempos variam na alta temporada, conforme o trânsito." data-en="Times vary in high season, depending on traffic.">Os tempos variam na alta temporada, conforme o trânsito.</p>
       </div>
     </div>
 
-    <div class="tag reveal" style="margin-top:58px" data-pt="Horários" data-en="Times">Horários</div>
+    <div class="tag reveal" style="margin-top:56px" data-pt="Horários" data-en="Times">Horários</div>
     <div class="rules">
       <div class="reveal"><small data-pt="Check-in" data-en="Check-in">Check-in</small><b data-pt="a partir das 12h" data-en="from 12:00 pm">a partir das 12h</b></div>
       <div class="reveal"><small data-pt="Check-out" data-en="Check-out">Check-out</small><b data-pt="até as 10h" data-en="until 10:00 am">até as 10h</b></div>
       <div class="reveal"><small data-pt="Capacidade" data-en="Capacity">Capacidade</small><b data-pt="2 a 4 por suíte" data-en="2 to 4 per suite">2 a 4 por suíte</b></div>
     </div>
+
+    <div class="tag reveal" style="margin-top:56px" data-pt="Dúvidas" data-en="FAQ">Dúvidas</div>
+    <div class="faq" id="faq"></div>
   </div>
 </section>
 
@@ -389,7 +475,8 @@ footer a:hover{text-decoration:underline}
       <h2 data-pt="Vem passar uns dias no <em>Sommer Lodge</em>." data-en="Come spend a few days at <em>Sommer Lodge</em>.">Vem passar uns dias no <em>Sommer Lodge</em>.</h2>
       <p data-pt="Me conta as datas e quantas pessoas, que eu confirmo a disponibilidade das suítes." data-en="Tell me your dates and how many guests, and I'll confirm suite availability.">Me conta as datas e quantas pessoas, que eu confirmo a disponibilidade das suítes.</p>
       <div class="btns">
-        <a class="btn btn-teal" style="background:var(--cream);color:var(--teal-deep)" href="mailto:sommerluis71@gmail.com?subject=Reserva%20Sommer%20Lodge" data-pt="Enviar e-mail" data-en="Send an email">Enviar e-mail</a>
+        <a class="btn btn-cream" id="mailbtn" href="mailto:sommerluis71@gmail.com?subject=Reserva%20Sommer%20Lodge" data-pt="Enviar e-mail" data-en="Send an email">Enviar e-mail</a>
+        <a class="btn btn-ghost" href="#suites" data-pt="Ver as suítes" data-en="See the suites">Ver as suítes</a>
       </div>
     </div>
   </div>
@@ -402,87 +489,413 @@ footer a:hover{text-decoration:underline}
       <div style="margin-top:4px">Garopaba · Santa Catarina</div>
       <div style="margin-top:7px"><a href="mailto:sommerluis71@gmail.com">sommerluis71@gmail.com</a></div>
     </div>
+    <nav>
+      <a href="#sobre" data-pt="A casa" data-en="The lodge">A casa</a>
+      <a href="#suites" data-pt="Suítes" data-en="Suites">Suítes</a>
+      <a href="#galeria" data-pt="Fotos" data-en="Photos">Fotos</a>
+      <a href="#local" data-pt="Mapa" data-en="Map">Mapa</a>
+    </nav>
     <div class="credit">Site criado por João Gabriel Geo</div>
   </div>
 </footer>
 
 <div id="float"><a class="btn btn-teal" href="#contato" data-pt="Consultar datas" data-en="Check dates">Consultar datas</a></div>
 
+<div id="dv" role="dialog" aria-modal="true" aria-hidden="true">
+  <div id="dvbar">
+    <div class="in">
+      <button id="dvback" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg>
+        <span data-pt="Voltar" data-en="Back">Voltar</span>
+      </button>
+      <a class="btn btn-teal" href="#contato" id="dvbook" data-pt="Reservar" data-en="Book">Reservar</a>
+    </div>
+  </div>
+  <div id="dvwrap">
+    <h2 id="dvname"></h2>
+    <p id="dvmean"></p>
+    <div class="ph" id="dvhero"></div>
+    <div id="dvgal"></div>
+    <div id="dvfacts"></div>
+    <div class="tag" style="margin-top:34px" data-pt="Comodidades" data-en="Amenities">Comodidades</div>
+    <div id="dvamen"></div>
+    <p class="body" id="dvdesc" style="margin-top:26px"></p>
+    <div id="dvcta">
+      <a class="btn btn-teal" href="mailto:sommerluis71@gmail.com" id="dvmail" data-pt="Consultar datas" data-en="Check dates">Consultar datas</a>
+    </div>
+  </div>
+</div>
+
+<div id="lb" role="dialog" aria-modal="true" aria-hidden="true">
+  <div id="lbn"></div>
+  <button id="lbx" type="button" aria-label="Fechar">&#10005;</button>
+  <button id="lbp" type="button" aria-label="Anterior">&#8249;</button>
+  <button id="lbnx" type="button" aria-label="Próxima">&#8250;</button>
+  <div id="lbbox">
+    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="opacity:.38"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/></svg>
+    <div id="lbcap"></div>
+  </div>
+</div>
+
 <script>
 (function(){
-  var bar=document.getElementById('bar'),hero=document.getElementById('hero'),
-      prog=document.getElementById('prog'),heroimg=document.getElementById('heroimg'),
-      band=document.getElementById('band'),bandimg=document.getElementById('bandimg'),
-      flo=document.getElementById('float'),nav=document.getElementById('nav'),
-      burger=document.getElementById('burger');
+var ICO={
+  cam:'<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/></svg>',
+  user:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>',
+  arrow:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  ac:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h10"/><path d="M17 15l2 2 2-2"/></svg>',
+  fridge:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M5 10h14"/><path d="M9 6.5v1M9 13.5v2"/></svg>',
+  tv:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M8 21h8M12 18v3"/></svg>',
+  kit:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>',
+  wifi:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5.5 5.5 0 0 1 7 0"/><path d="M2 9a15 15 0 0 1 20 0"/><circle cx="12" cy="19.5" r="1"/></svg>',
+  door:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10l9-6 9 6v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M15 21v-8H9v8"/></svg>'
+};
 
-  var links=[].slice.call(nav.querySelectorAll('a[href^="#"]'));
-  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+var SUITES=[
+ {id:'wainui',n:'Wainui',cap:4,
+  mp:'Batizada por uma praia larga de areia dourada, na Nova Zelândia.',
+  me:'Named after a wide golden-sand beach in New Zealand.',
+  dp:'Suíte independente com entrada própria, para 2 a 4 hóspedes. Ar-condicionado, frigobar, TV a cabo, cozinha compacta e internet de fibra.',
+  de:'Independent suite with its own entrance, for 2 to 4 guests. Air conditioning, mini fridge, cable TV, small kitchen and fibre internet.'},
+ {id:'waipataki',n:'Waipataki',cap:4,
+  mp:'Leva o nome das falésias que marcam aquela costa.',
+  me:'Named for the headlands that mark that coastline.',
+  dp:'Suíte independente com entrada própria, para 2 a 4 hóspedes. Ar-condicionado, frigobar, TV a cabo, cozinha compacta e internet de fibra.',
+  de:'Independent suite with its own entrance, for 2 to 4 guests. Air conditioning, mini fridge, cable TV, small kitchen and fibre internet.'},
+ {id:'tolaga',n:'Tolaga Bay',cap:4,
+  mp:'Inspirada na baía aberta e comprida da costa leste.',
+  me:'Inspired by the long open bay of the East Coast.',
+  dp:'Suíte independente com entrada própria, para 2 a 4 hóspedes. Ar-condicionado, frigobar, TV a cabo, cozinha compacta e internet de fibra.',
+  de:'Independent suite with its own entrance, for 2 to 4 guests. Air conditioning, mini fridge, cable TV, small kitchen and fibre internet.'},
+ {id:'haumoana',n:'Haumoana',cap:4,
+  mp:'“Brisa do mar”, em māori.',
+  me:'“Sea breeze”, in Māori.',
+  dp:'Suíte independente com entrada própria, para 2 a 4 hóspedes. Ar-condicionado, frigobar, TV a cabo, cozinha compacta e internet de fibra.',
+  de:'Independent suite with its own entrance, for 2 to 4 guests. Air conditioning, mini fridge, cable TV, small kitchen and fibre internet.'}
+];
 
-  function onScroll(){
-    var y=window.pageYOffset||document.documentElement.scrollTop;
-    var hh=hero.offsetHeight;
-    bar.classList.toggle('inverse',y<hh-70);
-    bar.classList.toggle('solid',y>=hh-70);
-    var h=document.documentElement.scrollHeight-window.innerHeight;
-    prog.style.width=(h>0?(y/h*100):0)+'%';
-    flo.classList.toggle('in',y>hh*0.9);
-    if(y<hh*1.2){heroimg.style.transform='translate3d(0,'+(y*0.34)+'px,0)';}
-    if(band){
-      var r=band.getBoundingClientRect();
-      if(r.bottom>0&&r.top<window.innerHeight){
-        bandimg.style.transform='translate3d(0,'+((window.innerHeight-r.top)*0.08-40)+'px,0)';
-      }
-    }
-    var cur=null;
-    for(var i=0;i<secs.length;i++){
-      if(secs[i]&&secs[i].getBoundingClientRect().top<=140) cur=links[i];
-    }
-    links.forEach(function(a){a.classList.remove('cur');});
-    if(cur&&!cur.classList.contains('btn')) cur.classList.add('cur');
-  }
-  var tick=false;
-  window.addEventListener('scroll',function(){
-    if(!tick){tick=true;requestAnimationFrame(function(){onScroll();tick=false;});}
-  },{passive:true});
-  window.addEventListener('resize',onScroll);
-  onScroll();
+var AMEN=[
+ {i:'ac',p:'Ar-condicionado',e:'Air conditioning'},
+ {i:'fridge',p:'Frigobar',e:'Mini fridge'},
+ {i:'tv',p:'TV a cabo',e:'Cable TV'},
+ {i:'kit',p:'Cozinha compacta',e:'Small kitchen'},
+ {i:'wifi',p:'Internet fibra',e:'Fibre internet'},
+ {i:'door',p:'Entrada independente',e:'Private entrance'}
+];
 
-  burger.addEventListener('click',function(){
-    nav.classList.toggle('open');burger.classList.toggle('x');
-  });
-  nav.addEventListener('click',function(e){
-    if(e.target.tagName==='A'){nav.classList.remove('open');burger.classList.remove('x');}
-  });
-  document.addEventListener('click',function(e){
-    if(!nav.contains(e.target)&&!burger.contains(e.target)){
-      nav.classList.remove('open');burger.classList.remove('x');
-    }
-  });
+var GAL=[
+ {p:'Vista aérea do lodge',e:'The lodge from above',w:1},
+ {p:'Interior da suíte',e:'Inside a suite',w:0},
+ {p:'Área externa',e:'Outdoor area',w:0},
+ {p:'Cozinha compacta',e:'Small kitchen',w:0},
+ {p:'Mata atlântica',e:'Atlantic forest',w:0},
+ {p:'Praia do Ouvidor',e:'Praia do Ouvidor',w:1}
+];
 
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
-  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-  [].slice.call(document.querySelectorAll('.reveal')).forEach(function(el,i){
+var NEAR=[
+ {p:'Surfland',e:'Surfland',tp:'100 m',te:'100 m',
+  dp:'A piscina de ondas fica literalmente na esquina — dá pra ir a pé.',
+  de:'The wave pool is right around the corner — walking distance.'},
+ {p:'Praia do Ouvidor',e:'Praia do Ouvidor',tp:'5 min de carro',te:'5 min drive',
+  dp:'A praia mais próxima do lodge.',de:'The closest beach to the lodge.'},
+ {p:'Praia do Rosa',e:'Praia do Rosa',tp:'12 min de carro',te:'12 min drive',
+  dp:'Uma das praias mais conhecidas do litoral catarinense.',
+  de:'One of the best-known beaches on the Santa Catarina coast.'},
+ {p:'Barra da Ferrugem',e:'Barra da Ferrugem',tp:'20 min de carro',te:'20 min drive',
+  dp:'Mais um trecho de praia da região, a vinte minutos.',
+  de:'Another stretch of coast in the region, twenty minutes away.'},
+ {p:'Cachoeiras da mata',e:'Rainforest waterfalls',tp:'20 min a 1 h',te:'20 min to 1 h',
+  dp:'Três cachoeiras em meio à mata atlântica. O tempo varia com o trânsito da temporada.',
+  de:'Three waterfalls in the Atlantic forest. Travel time varies with high-season traffic.'}
+];
+
+var FAQ=[
+ {qp:'Qual o horário de check-in e check-out?',qe:'What are the check-in and check-out times?',
+  ap:'Check-in a partir das 12h e check-out até as 10h.',ae:'Check-in from 12:00 pm and check-out until 10:00 am.'},
+ {qp:'Quantas pessoas cabem em cada suíte?',qe:'How many guests fit in each suite?',
+  ap:'Cada suíte acomoda de 2 a 4 hóspedes.',ae:'Each suite sleeps 2 to 4 guests.'},
+ {qp:'As suítes têm cozinha?',qe:'Do the suites have a kitchen?',
+  ap:'Sim. Todas têm cozinha compacta e frigobar.',ae:'Yes. All of them have a small kitchen and a mini fridge.'},
+ {qp:'Tem internet?',qe:'Is there internet?',
+  ap:'Sim, internet de fibra em todas as suítes.',ae:'Yes, fibre internet in every suite.'},
+ {qp:'Quanto tempo até as praias?',qe:'How far are the beaches?',
+  ap:'Praia do Ouvidor a 5 minutos, Praia do Rosa a 12 e Barra da Ferrugem a 20, de carro. Os tempos variam na alta temporada.',
+  ae:'Praia do Ouvidor is 5 minutes away, Praia do Rosa 12 and Barra da Ferrugem 20, by car. Times vary in high season.'},
+ {qp:'A Surfland é longe?',qe:'Is Surfland far?',
+  ap:'Não. O lodge fica a 100 metros da Surfland.',ae:'No. The lodge is 100 m from Surfland.'}
+];
+
+var L='pt';
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+function obsAll(){
+  [].slice.call(document.querySelectorAll('.reveal:not(.in)')).forEach(function(el,i){
     el.style.transitionDelay=(Math.min(i%4,3)*70)+'ms';io.observe(el);
   });
+}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function ph(label,cls,extra){
+  return '<div class="ph '+(cls||'')+'"'+(extra||'')+'>'+ICO.cam+'<em>'+esc(label)+'</em></div>';
+}
 
-  var btns=[].slice.call(document.querySelectorAll('#lang button'));
-  function setLang(l){
-    document.documentElement.lang = (l==='pt'?'pt-BR':'en');
-    [].slice.call(document.querySelectorAll('[data-pt]')).forEach(function(el){
-      var v=el.getAttribute(l==='pt'?'data-pt':'data-en');
-      if(v!=null) el.innerHTML=v;
-    });
-    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-l')===l);});
-    try{localStorage.setItem('sl-lang',l);}catch(e){}
+/* ---------- render ---------- */
+var sgrid=document.getElementById('sgrid');
+function renderSuites(){
+  sgrid.innerHTML=SUITES.map(function(s,i){
+    return '<article class="suite reveal" data-i="'+i+'" data-cap="'+s.cap+'" tabindex="0" role="button">'+
+      ph(L==='pt'?('Foto da '+s.n):(s.n+' photo'))+
+      '<div class="in"><h3>'+esc(s.n)+'</h3>'+
+      '<p class="mean">'+esc(L==='pt'?s.mp:s.me)+'</p>'+
+      '<div class="foot"><span class="cap">'+ICO.user+' '+(L==='pt'?'2 a 4 hóspedes':'2 to 4 guests')+'</span>'+
+      '<span class="more">'+(L==='pt'?'Ver':'View')+' '+ICO.arrow+'</span></div></div></article>';
+  }).join('');
+  obsAll();
+}
+document.getElementById('amen').innerHTML=AMEN.map(function(a){
+  return '<div class="reveal">'+ICO[a.i]+'<span data-pt="'+a.p+'" data-en="'+a.e+'">'+a.p+'</span></div>';
+}).join('');
+
+var galEl=document.getElementById('gal');
+function renderGal(){
+  galEl.innerHTML=GAL.map(function(g,i){
+    return ph(L==='pt'?g.p:g.e,(g.w?'wide ':'')+'reveal',' data-g="'+i+'" tabindex="0" role="button"');
+  }).join('');
+  obsAll();
+}
+function renderNear(){
+  document.getElementById('near').innerHTML=NEAR.map(function(n){
+    return '<article class="reveal">'+ph(L==='pt'?n.p:n.e)+
+      '<div class="in"><h4>'+esc(L==='pt'?n.p:n.e)+'</h4>'+
+      '<span class="t">'+esc(L==='pt'?n.tp:n.te)+'</span>'+
+      '<p>'+esc(L==='pt'?n.dp:n.de)+'</p></div></article>';
+  }).join('');
+  obsAll();
+}
+function renderFaq(){
+  document.getElementById('faq').innerHTML=FAQ.map(function(f){
+    return '<details><summary>'+esc(L==='pt'?f.qp:f.qe)+'</summary>'+
+      '<div class="a">'+esc(L==='pt'?f.ap:f.ae)+'</div></details>';
+  }).join('');
+}
+renderSuites();renderGal();renderNear();renderFaq();
+
+/* ---------- detalhe ---------- */
+var dv=document.getElementById('dv'),lastFocus=null;
+function openDv(i){
+  var s=SUITES[i];if(!s)return;
+  document.getElementById('dvname').textContent=s.n;
+  document.getElementById('dvmean').textContent=L==='pt'?s.mp:s.me;
+  var hero=document.getElementById('dvhero');
+  hero.innerHTML=ICO.cam+'<em>'+esc(L==='pt'?('Foto principal da '+s.n):('Main '+s.n+' photo'))+'</em>';
+  var labels=L==='pt'?['Quarto','Cozinha','Banheiro','Entrada']:['Bedroom','Kitchen','Bathroom','Entrance'];
+  document.getElementById('dvgal').innerHTML=labels.map(function(l,k){
+    return ph(l,'',' data-dg="'+k+'" data-dgname="'+esc(s.n)+'" tabindex="0" role="button"');
+  }).join('');
+  document.getElementById('dvfacts').innerHTML=
+    '<div><small>'+(L==='pt'?'Hóspedes':'Guests')+'</small><b>2 '+(L==='pt'?'a':'to')+' 4</b></div>'+
+    '<div><small>'+(L==='pt'?'Check-in':'Check-in')+'</small><b>'+(L==='pt'?'a partir das 12h':'from 12:00 pm')+'</b></div>'+
+    '<div><small>'+(L==='pt'?'Check-out':'Check-out')+'</small><b>'+(L==='pt'?'até as 10h':'until 10:00 am')+'</b></div>'+
+    '<div><small>'+(L==='pt'?'Surfland':'Surfland')+'</small><b>100 m</b></div>';
+  document.getElementById('dvamen').innerHTML=AMEN.map(function(a){
+    return '<span>'+esc(L==='pt'?a.p:a.e)+'</span>';
+  }).join('');
+  document.getElementById('dvdesc').textContent=L==='pt'?s.dp:s.de;
+  document.getElementById('dvmail').href='mailto:sommerluis71@gmail.com?subject='+
+    encodeURIComponent((L==='pt'?'Reserva — suíte ':'Booking — ')+s.n+' — Sommer Lodge');
+  dv.classList.add('open');dv.setAttribute('aria-hidden','false');
+  document.body.classList.add('lock');dv.scrollTop=0;
+  lastFocus=document.activeElement;
+  document.getElementById('dvback').focus();
+}
+function closeDv(){
+  dv.classList.remove('open');dv.setAttribute('aria-hidden','true');
+  if(!document.getElementById('lb').classList.contains('open')) document.body.classList.remove('lock');
+  if(lastFocus&&lastFocus.focus)lastFocus.focus();
+}
+document.getElementById('dvback').addEventListener('click',closeDv);
+document.getElementById('dvbook').addEventListener('click',closeDv);
+sgrid.addEventListener('click',function(e){
+  var a=e.target.closest('.suite');if(a)openDv(parseInt(a.getAttribute('data-i'),10));
+});
+sgrid.addEventListener('keydown',function(e){
+  if(e.key!=='Enter'&&e.key!==' ')return;
+  var a=e.target.closest('.suite');
+  if(a){e.preventDefault();openDv(parseInt(a.getAttribute('data-i'),10));}
+});
+
+/* ---------- lightbox ---------- */
+var lb=document.getElementById('lb'),lbcap=document.getElementById('lbcap'),lbn=document.getElementById('lbn');
+var lbList=[],lbI=0;
+function lbShow(){
+  if(!lbList.length)return;
+  lbcap.textContent=lbList[lbI];
+  lbn.textContent=(lbI+1)+' / '+lbList.length;
+}
+function openLb(list,i){
+  lbList=list;lbI=i||0;lbShow();
+  lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.classList.add('lock');
+  document.getElementById('lbx').focus();
+}
+function closeLb(){
+  lb.classList.remove('open');lb.setAttribute('aria-hidden','true');
+  if(!dv.classList.contains('open'))document.body.classList.remove('lock');
+}
+function lbStep(d){
+  if(!lbList.length)return;
+  lbI=(lbI+d+lbList.length)%lbList.length;lbShow();
+}
+document.getElementById('lbx').addEventListener('click',closeLb);
+document.getElementById('lbp').addEventListener('click',function(){lbStep(-1);});
+document.getElementById('lbnx').addEventListener('click',function(){lbStep(1);});
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+
+galEl.addEventListener('click',function(e){
+  var el=e.target.closest('[data-g]');if(!el)return;
+  openLb(GAL.map(function(g){return L==='pt'?g.p:g.e;}),parseInt(el.getAttribute('data-g'),10));
+});
+galEl.addEventListener('keydown',function(e){
+  if(e.key!=='Enter'&&e.key!==' ')return;
+  var el=e.target.closest('[data-g]');
+  if(el){e.preventDefault();
+    openLb(GAL.map(function(g){return L==='pt'?g.p:g.e;}),parseInt(el.getAttribute('data-g'),10));}
+});
+document.getElementById('dvgal').addEventListener('click',function(e){
+  var el=e.target.closest('[data-dg]');if(!el)return;
+  var nm=el.getAttribute('data-dgname');
+  var labels=L==='pt'?['Quarto','Cozinha','Banheiro','Entrada']:['Bedroom','Kitchen','Bathroom','Entrance'];
+  openLb(labels.map(function(l){return l+' — '+nm;}),parseInt(el.getAttribute('data-dg'),10));
+});
+
+document.addEventListener('keydown',function(e){
+  if(lb.classList.contains('open')){
+    if(e.key==='Escape')closeLb();
+    else if(e.key==='ArrowLeft')lbStep(-1);
+    else if(e.key==='ArrowRight')lbStep(1);
+    return;
   }
-  btns.forEach(function(b){
-    b.addEventListener('click',function(){setLang(b.getAttribute('data-l'));});
+  if(e.key==='Escape'&&dv.classList.contains('open'))closeDv();
+});
+var tx=0;
+lb.addEventListener('touchstart',function(e){tx=e.changedTouches[0].clientX;},{passive:true});
+lb.addEventListener('touchend',function(e){
+  var d=e.changedTouches[0].clientX-tx;
+  if(Math.abs(d)>50)lbStep(d<0?1:-1);
+},{passive:true});
+
+/* ---------- busca de datas ---------- */
+var bk=document.getElementById('bk'),bkWarn=document.getElementById('bkWarn');
+var bkin=document.getElementById('bkin'),bkout=document.getElementById('bkout'),bkg=document.getElementById('bkg');
+function today(){
+  var d=new Date(),m=String(d.getMonth()+1),dd=String(d.getDate());
+  return d.getFullYear()+'-'+(m.length<2?'0'+m:m)+'-'+(dd.length<2?'0'+dd:dd);
+}
+bkin.min=today();bkout.min=today();
+bkin.addEventListener('change',function(){if(bkin.value)bkout.min=bkin.value;});
+bk.addEventListener('submit',function(e){
+  e.preventDefault();
+  bkWarn.classList.remove('on');
+  if(!bkin.value||!bkout.value){
+    bkWarn.textContent=L==='pt'?'Escolha as duas datas primeiro.':'Pick both dates first.';
+    bkWarn.classList.add('on');return;
+  }
+  if(bkout.value<=bkin.value){
+    bkWarn.textContent=L==='pt'?'O check-out tem que ser depois do check-in.':'Check-out must be after check-in.';
+    bkWarn.classList.add('on');return;
+  }
+  var g=bkg.value,gl=(g==='5')?(L==='pt'?'5 ou mais':'5 or more'):g;
+  var sub=(L==='pt'?'Reserva Sommer Lodge — ':'Booking Sommer Lodge — ')+bkin.value+' a '+bkout.value;
+  var body=(L==='pt'
+    ? 'Olá! Gostaria de consultar disponibilidade.\n\nCheck-in: '+bkin.value+'\nCheck-out: '+bkout.value+'\nHóspedes: '+gl+'\n\nObrigado!'
+    : 'Hello! I would like to check availability.\n\nCheck-in: '+bkin.value+'\nCheck-out: '+bkout.value+'\nGuests: '+gl+'\n\nThank you!');
+  document.getElementById('mailbtn').href='mailto:sommerluis71@gmail.com?subject='+
+    encodeURIComponent(sub)+'&body='+encodeURIComponent(body);
+  var ct=document.getElementById('contato');
+  if(ct&&ct.scrollIntoView)ct.scrollIntoView({behavior:'smooth'});
+});
+
+/* ---------- scroll ---------- */
+var bar=document.getElementById('bar'),hero=document.getElementById('hero'),
+    prog=document.getElementById('prog'),heroimg=document.getElementById('heroimg'),
+    band=document.getElementById('band'),bandimg=document.getElementById('bandimg'),
+    flo=document.getElementById('float'),nav=document.getElementById('nav'),
+    burger=document.getElementById('burger');
+var links=[].slice.call(nav.querySelectorAll('a[href^="#"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+function onScroll(){
+  var y=window.pageYOffset||document.documentElement.scrollTop,hh=hero.offsetHeight;
+  bar.classList.toggle('inverse',y<hh-70);
+  bar.classList.toggle('solid',y>=hh-70);
+  var h=document.documentElement.scrollHeight-window.innerHeight;
+  prog.style.width=(h>0?(y/h*100):0)+'%';
+  flo.classList.toggle('in',y>hh*0.9);
+  if(y<hh*1.2)heroimg.style.transform='translate3d(0,'+(y*0.34)+'px,0)';
+  if(band){
+    var r=band.getBoundingClientRect();
+    if(r.bottom>0&&r.top<window.innerHeight)
+      bandimg.style.transform='translate3d(0,'+((window.innerHeight-r.top)*0.08-40)+'px,0)';
+  }
+  var cur=null;
+  for(var i=0;i<secs.length;i++){
+    if(secs[i]&&secs[i].getBoundingClientRect().top<=140)cur=links[i];
+  }
+  links.forEach(function(a){a.classList.remove('cur');});
+  if(cur&&!cur.classList.contains('btn'))cur.classList.add('cur');
+}
+var tick=false;
+window.addEventListener('scroll',function(){
+  if(!tick){tick=true;requestAnimationFrame(function(){onScroll();tick=false;});}
+},{passive:true});
+window.addEventListener('resize',onScroll);
+onScroll();
+
+burger.addEventListener('click',function(){nav.classList.toggle('open');burger.classList.toggle('x');});
+nav.addEventListener('click',function(e){
+  if(e.target.tagName==='A'){nav.classList.remove('open');burger.classList.remove('x');}
+});
+document.addEventListener('click',function(e){
+  if(!nav.contains(e.target)&&!burger.contains(e.target)){
+    nav.classList.remove('open');burger.classList.remove('x');
+  }
+});
+
+/* ---------- reveal + contadores ---------- */
+obsAll();
+
+var cio=new IntersectionObserver(function(es){
+  es.forEach(function(en){
+    if(!en.isIntersecting)return;
+    var el=en.target,to=parseInt(el.getAttribute('data-n'),10),suf=el.getAttribute('data-suf')||'';
+    var st=null,dur=1100;
+    function step(ts){
+      if(!st)st=ts;
+      var p=Math.min((ts-st)/dur,1),e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(to*e)+suf;
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    cio.unobserve(el);
   });
-  var saved=null;
-  try{saved=localStorage.getItem('sl-lang');}catch(e){}
-  if(saved==='en') setLang('en');
+},{threshold:0.6});
+[].slice.call(document.querySelectorAll('[data-n]')).forEach(function(el){cio.observe(el);});
+
+/* ---------- idioma ---------- */
+var btns=[].slice.call(document.querySelectorAll('#lang button'));
+function setLang(l){
+  L=l;
+  document.documentElement.lang=(l==='pt'?'pt-BR':'en');
+  [].slice.call(document.querySelectorAll('[data-pt]')).forEach(function(el){
+    var v=el.getAttribute(l==='pt'?'data-pt':'data-en');
+    if(v!=null)el.innerHTML=v;
+  });
+  btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-l')===l);});
+  renderSuites();renderGal();renderNear();renderFaq();
+  if(dv.classList.contains('open'))closeDv();
+  try{localStorage.setItem('sl-lang',l);}catch(e){}
+}
+btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-l'));});});
+var saved=null;try{saved=localStorage.getItem('sl-lang');}catch(e){}
+if(saved==='en')setLang('en');
 })();
 </script>
 </body>
