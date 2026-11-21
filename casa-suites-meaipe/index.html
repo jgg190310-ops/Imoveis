@@ -246,16 +246,21 @@ footer .marca{align-items:center;margin-bottom:16px}
 @media (min-width:861px){
   .capa-img img{filter:blur(22px) brightness(.62) saturate(1.2);transform:scale(1.15);animation:none}
   .capa-foto{display:block;position:absolute;z-index:2;right:max(40px,calc((100vw - 1160px)/2 + 24px));top:calc(var(--aviso) + 96px);
-    height:calc(100svh - var(--aviso) - 170px);aspect-ratio:591/1280;overflow:hidden;
+    height:calc(100svh - var(--aviso) - 170px);aspect-ratio:3/4;overflow:hidden;
     box-shadow:0 40px 100px rgba(0,0,0,.45);outline:1px solid rgba(226,207,166,.5);outline-offset:12px;cursor:zoom-in}
   .capa-foto img{width:100%;height:100%;object-fit:cover;animation:kenburns 22s ease-out both}
-  .capa-txt{padding-right:calc(30vw + 40px)}
+  .capa-txt{padding-right:calc(48vw + 20px)}
   .banda .banda-img{display:none}
   .banda-tri{display:grid;position:absolute;inset:0;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--abismo)}
   .banda-tri div{overflow:hidden;position:relative}
-  .banda-tri img{position:absolute;left:0;top:-15%;width:100%;height:130%;object-fit:cover;will-change:transform}
+  .banda-tri img{will-change:transform}
   .final .banda-img img{filter:blur(16px) brightness(.8);transform:scale(1.12)}
 }
+
+/* fotos do mar vêm com faixa preta (print de celular): corta as faixas */
+img.cb{position:absolute;left:0;width:100%;height:162%;top:-31%;object-fit:cover}
+img.cbp{position:absolute;left:0;width:100%;height:190%;top:-45%;object-fit:cover}
+.lb img.cb-lb{clip-path:inset(19.5% 0 18.5% 0)}
 
 /* ---------- REVEAL ---------- */
 .rv{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
@@ -314,7 +319,7 @@ footer .marca{align-items:center;margin-bottom:16px}
 </nav>
 
 <section class="capa" id="inicio">
-  <div class="capa-img" data-px="0.35"><img src="https://img.olx.com.br/images/90/907654691446233.jpg" alt="Praia de Meaípe, Guarapari" fetchpriority="high"></div>
+  <div class="capa-img" data-px="0.35"><img class="cbp" src="https://img.olx.com.br/images/90/907654691446233.jpg" alt="Praia de Meaípe, Guarapari" fetchpriority="high"></div>
   <div class="capa-txt">
     <div class="olho rv">Guarapari · Espírito Santo</div>
     <h1 class="rv d1">Em frente<br>ao mar de <em>Meaípe</em></h1>
@@ -324,7 +329,7 @@ footer .marca{align-items:center;margin-bottom:16px}
       <a href="#acomodacoes" class="btn btn-vidro">Ver acomodações</a>
     </div>
   </div>
-  <figure class="capa-foto" data-idx="0"><img src="https://img.olx.com.br/images/90/907654691446233.jpg" alt="Praia de Meaípe"></figure>
+  <figure class="capa-foto" data-idx="0"><img class="cb" src="https://img.olx.com.br/images/90/907654691446233.jpg" alt="Praia de Meaípe"></figure>
   <div class="rolar">Role</div>
 </section>
 
@@ -340,8 +345,8 @@ footer .marca{align-items:center;margin-bottom:16px}
 <section class="sec mar" id="mar">
   <div class="wrap mar-grid">
     <div class="mar-fotos">
-      <figure class="mf1 rv"><img src="https://img.olx.com.br/images/88/885693452403133.jpg" alt="Águas cristalinas de Meaípe" loading="lazy"></figure>
-      <figure class="mf2 rv d2"><img src="https://img.olx.com.br/images/89/893687578081567.jpg" alt="Piscinas naturais entre as pedras" loading="lazy"></figure>
+      <figure class="mf1 rv"><img class="cb" src="https://img.olx.com.br/images/88/885693452403133.jpg" alt="Águas cristalinas de Meaípe" loading="lazy"></figure>
+      <figure class="mf2 rv d2"><img class="cb" src="https://img.olx.com.br/images/89/893687578081567.jpg" alt="Piscinas naturais entre as pedras" loading="lazy"></figure>
     </div>
     <div class="mar-txt">
       <div class="olho rv">O endereço</div>
@@ -354,11 +359,11 @@ footer .marca{align-items:center;margin-bottom:16px}
 </section>
 
 <section class="banda">
-  <div class="banda-img" data-px="0.22"><img src="https://img.olx.com.br/images/88/885693452403133.jpg" alt="" loading="lazy"></div>
+  <div class="banda-img" data-px="0.22"><img class="cbp" src="https://img.olx.com.br/images/88/885693452403133.jpg" alt="" loading="lazy"></div>
   <div class="banda-tri">
-    <div><img data-px2="0.12" src="https://img.olx.com.br/images/90/907654691446233.jpg" alt="" loading="lazy"></div>
-    <div><img data-px2="-0.1" src="https://img.olx.com.br/images/88/885693452403133.jpg" alt="" loading="lazy"></div>
-    <div><img data-px2="0.16" src="https://img.olx.com.br/images/89/893687578081567.jpg" alt="" loading="lazy"></div>
+    <div><img class="cbp" data-px2="0.05" src="https://img.olx.com.br/images/90/907654691446233.jpg" alt="" loading="lazy"></div>
+    <div><img class="cbp" data-px2="-0.04" src="https://img.olx.com.br/images/88/885693452403133.jpg" alt="" loading="lazy"></div>
+    <div><img class="cbp" data-px2="0.06" src="https://img.olx.com.br/images/89/893687578081567.jpg" alt="" loading="lazy"></div>
   </div>
   <div class="banda-txt">
     <h2 class="rv">A virada mais bonita<br>é a <em>pé na areia</em></h2>
@@ -478,7 +483,7 @@ footer .marca{align-items:center;margin-bottom:16px}
 </section>
 
 <section class="final">
-  <div class="banda-img" data-px="0.2"><img src="https://img.olx.com.br/images/90/907654691446233.jpg" alt="" loading="lazy"></div>
+  <div class="banda-img" data-px="0.2"><img class="cbp" src="https://img.olx.com.br/images/90/907654691446233.jpg" alt="" loading="lazy"></div>
   <div class="wrap">
     <div class="olho rv" style="color:var(--dourado-claro)">Réveillon 2027</div>
     <h2 class="rv d1">Garanta a sua <em>virada</em></h2>
@@ -519,9 +524,9 @@ const FOTOS = [
   ['87/879630212059294','Quarto','largo'],
   ['81/811695695082332','Quarto',''],
   ['84/849626091169515','Quarto com sala',''],
-  ['82/822696100610820','Quarto','alto'],
   ['78/788616571427599','Fachada','largo'],
 ];
+const MAR = ['90/907654691446233','88/885693452403133','89/893687578081567'];
 const src = id => 'https://img.olx.com.br/images/' + id + '.jpg';
 
 /* ===== WhatsApp ===== */
@@ -537,7 +542,7 @@ FOTOS.forEach((f,i)=>{
   const fig = document.createElement('figure');
   fig.className = 'rv ' + (f[2]||'');
   fig.dataset.idx = i;
-  fig.innerHTML = '<img loading="lazy" src="'+src(f[0])+'" alt="'+f[1]+'">';
+  fig.innerHTML = '<img loading="lazy"'+(MAR.includes(f[0])?' class="cb"':'')+' src="'+src(f[0])+'" alt="'+f[1]+'">';
   gal.appendChild(fig);
 });
 // fotos da seção "o mar" abrem a mesma galeria
@@ -552,7 +557,7 @@ let atual=0, aberto=false;
 function mostra(i){
   atual=(i+FOTOS.length)%FOTOS.length;
   lbImg.style.opacity=0;
-  const im=new Image(); im.onload=()=>{lbImg.src=im.src;lbImg.alt=FOTOS[atual][1];lbImg.style.opacity=1};
+  const im=new Image(); im.onload=()=>{lbImg.src=im.src;lbImg.alt=FOTOS[atual][1];lbImg.classList.toggle('cb-lb',MAR.includes(FOTOS[atual][0]));lbImg.style.opacity=1};
   im.src=src(FOTOS[atual][0]);
   lbCont.textContent=(atual+1)+' / '+FOTOS.length;
 }
@@ -604,6 +609,7 @@ addEventListener('keydown',e=>{if(e.key==='Escape'&&gaveta.classList.contains('a
 /* ===== Barra sólida + parallax leve ===== */
 const px=[...document.querySelectorAll('[data-px]')];
 const px2=[...document.querySelectorAll('[data-px2]')];
+const pend=[...document.querySelectorAll('.rv')];
 const reduz=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let tick=false;
 function frame(){
@@ -624,6 +630,7 @@ function frame(){
       el.style.transform='translate3d(0,'+(centro*-parseFloat(el.dataset.px2)).toFixed(1)+'px,0)';
     });
   }
+  pend.forEach(el=>{ if(!el.classList.contains('on') && el.getBoundingClientRect().top < vh*0.94) el.classList.add('on'); });
   tick=false;
 }
 addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
@@ -631,6 +638,7 @@ addEventListener('resize',frame);
 frame();
 
 /* ===== Reveal ===== */
+setTimeout(()=>document.querySelectorAll('.capa .rv').forEach(e=>e.classList.add('on')),120);
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
