@@ -51,22 +51,27 @@ h2.big em{font-style:italic;color:var(--sea-d)}
 }
 
 /* ---------- barra de vidro ---------- */
-#bar{position:fixed;top:0;left:0;right:0;z-index:800;
+/* o vidro fica num pseudo-elemento: backdrop-filter no proprio #bar
+   criaria containing block e quebraria o menu fixed do celular */
+#bar{position:fixed;top:0;left:0;right:0;z-index:800;transition:color .45s}
+#bar::before{content:"";position:absolute;inset:0;z-index:-1;
   background:rgba(246,241,232,.58);-webkit-backdrop-filter:saturate(170%) blur(20px);
   backdrop-filter:saturate(170%) blur(20px);
-  border-bottom:1px solid transparent;transition:background .45s,border-color .45s,color .45s}
-#bar.solid{background:rgba(246,241,232,.93);border-bottom-color:var(--hair)}
-#bar.inverse{background:rgba(6,24,27,.22);color:var(--sand);border-bottom-color:rgba(255,255,255,.14)}
+  border-bottom:1px solid transparent;transition:background .45s,border-color .45s}
+#bar.solid::before{background:rgba(246,241,232,.94);border-bottom-color:var(--hair)}
+#bar.inverse::before{background:rgba(6,24,27,.42);border-bottom-color:rgba(255,255,255,.16)}
+#bar.inverse{color:var(--sand);text-shadow:0 1px 14px rgba(6,24,27,.45)}
 .barin{display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:11px clamp(16px,4vw,56px)}
 #prog{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--sea);
   transition:width .12s linear,opacity .4s}
 #bar.inverse #prog{opacity:0}
+#bar.inverse .btn-wa{text-shadow:none}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
 .brand .mk{flex:none;width:34px;height:34px;border-radius:50%;background:var(--sea);
   display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:17px;
   transition:background .4s}
-#bar.inverse .brand .mk{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45)}
+#bar.inverse .brand .mk{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.5);text-shadow:none}
 .brand b{font-family:'Fraunces',serif;font-size:18px;font-weight:400;display:block;line-height:1.05;letter-spacing:-.01em}
 .brand small{font-size:11.5px;opacity:.66;display:block;margin-top:2px;letter-spacing:.06em;text-transform:uppercase}
 #nav{display:flex;gap:clamp(13px,1.6vw,26px);align-items:center}
@@ -97,7 +102,7 @@ h2.big em{font-style:italic;color:var(--sea-d)}
 #heroimg{position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;
   object-position:center 56%;will-change:transform}
 #scrim{position:absolute;inset:0;z-index:3;
-  background:linear-gradient(rgba(6,24,27,.5) 0%,rgba(6,24,27,.06) 30%,rgba(6,24,27,.46) 64%,rgba(6,24,27,.93) 100%)}
+  background:linear-gradient(rgba(6,24,27,.6) 0%,rgba(6,24,27,.08) 32%,rgba(6,24,27,.46) 64%,rgba(6,24,27,.93) 100%)}
 .hero-in{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;
   justify-content:flex-end;padding:0 clamp(20px,5vw,56px) clamp(24px,4vh,42px);color:var(--sand)}
 .tag{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;
@@ -202,7 +207,7 @@ footer a:hover{border-bottom-color:var(--sea)}
 #float.in{opacity:1;visibility:visible;transform:none}
 
 /* ---------- lightbox ---------- */
-#lb{position:fixed;inset:0;z-index:960;background:rgba(6,24,27,.97);display:flex;
+#lb{position:fixed;inset:0;z-index:960;background:rgba(6,24,27,.985);display:flex;
   align-items:center;justify-content:center;padding:54px 14px;
   opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
 #lb.open{opacity:1;visibility:visible}
