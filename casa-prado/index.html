@@ -499,24 +499,10 @@ window.addEventListener('scroll',function(){
 window.addEventListener('resize',onScroll);
 onScroll();
 
-/* ---- rolagem suave das ancoras, feita na mao ---- */
-function smoothTo(top){
-  var start=window.pageYOffset||document.documentElement.scrollTop;
-  var dist=top-start;
-  if(Math.abs(dist)<2)return;
-  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches){
-    window.scrollTo(0,top);return;
-  }
-  var dur=Math.min(900,Math.max(380,Math.abs(dist)*0.42)),t0=null;
-  function step(ts){
-    if(t0===null)t0=ts;
-    var p=Math.min(1,(ts-t0)/dur);
-    var e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
-    window.scrollTo(0,start+dist*e);
-    if(p<1)requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
+/* ---- rolagem suave das ancoras ----
+   O smooth fica so aqui, e nao em scroll-behavior no html: assim a rolagem
+   normal do dedo continua 100% nativa. Se o navegador nao animar, cai no
+   pulo direto pelo setTimeout abaixo. */
 document.addEventListener('click',function(e){
   var a=e.target.closest?e.target.closest('a[href^="#"]'):null;
   if(!a)return;
@@ -526,8 +512,14 @@ document.addEventListener('click',function(e){
   if(!el)return;
   e.preventDefault();
   closeNav();
-  var top=el.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop)-66;
-  smoothTo(Math.max(0,top));
+  var now=function(){return window.pageYOffset||document.documentElement.scrollTop||0;};
+  var from=now();
+  var top=Math.max(0,el.getBoundingClientRect().top+from-66);
+  try{window.scrollTo({top:top,behavior:'smooth'});}
+  catch(err){window.scrollTo(0,top);}
+  setTimeout(function(){
+    if(Math.abs(top-from)>8&&Math.abs(now()-from)<4)window.scrollTo(0,top);
+  },420);
   if(history.replaceState)history.replaceState(null,'',id);
 });
 
