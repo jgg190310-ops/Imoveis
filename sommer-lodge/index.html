@@ -13,7 +13,7 @@
 <meta name="theme-color" content="#0a1f25">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#12252a; --ink-2:#2c4046; --deep:#0a1f25; --deeper:#06161a;
@@ -66,6 +66,12 @@ h2.big em{font-family:'Newsreader',serif;font-style:italic;font-weight:300;lette
 #bar.inverse #prog{opacity:0}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
 .brand svg{flex:none}
+.brand{min-width:0}
+.brand .wm{font-family:'Newsreader',serif;font-weight:600;font-size:16px;letter-spacing:.15em;
+  text-transform:uppercase;display:block;line-height:1.05;white-space:nowrap}
+.brand .sub{font-family:'Newsreader',serif;font-weight:500;font-size:9.5px;letter-spacing:.17em;
+  text-transform:uppercase;display:block;margin-top:3px;white-space:nowrap;color:#9a7a27}
+#bar.inverse .brand .sub{color:#e0bf6a}
 .brand .mk{flex:none;width:48px;height:36px;object-fit:contain;display:block}
 .brand b{font-family:'Bricolage Grotesque',sans-serif;font-size:19px;font-weight:700;letter-spacing:-.035em;display:block;line-height:1}
 .brand small{font-family:'Newsreader',serif;font-style:italic;font-size:12.5px;opacity:.66;display:block;margin-top:1px}
@@ -105,10 +111,21 @@ h2.big em{font-family:'Newsreader',serif;font-style:italic;font-weight:300;lette
 .hero-in{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;justify-content:flex-end;
   padding:0 clamp(20px,5vw,56px) clamp(22px,4vh,38px);color:#f3f2ee}
 .hero-top{flex:1;display:flex;align-items:flex-end;padding-bottom:clamp(16px,3vh,30px)}
-#hero h1{font-size:clamp(54px,13vw,170px);font-weight:800;letter-spacing:-.055em;line-height:.86;
+.lock{width:100%}
+#hero h1{font-family:'Newsreader',serif;font-size:clamp(44px,10.4vw,132px);font-weight:600;
+  letter-spacing:.04em;line-height:.98;text-transform:uppercase;
   text-shadow:0 2px 60px rgba(0,0,0,.35)}
 #hero h1 span{display:block}
-#hero h1 .l2{color:var(--cyan);margin-left:.06em}
+#hero h1 .l2{letter-spacing:.14em}
+.lock-mk{display:block;width:clamp(52px,7vw,84px);height:auto;margin-bottom:clamp(8px,1.4vh,16px)}
+.lock-eyebrow{font-family:'Newsreader',serif;font-weight:500;color:#e6c76f;
+  font-size:clamp(11px,1.35vw,15px);letter-spacing:.3em;text-transform:uppercase;
+  margin-bottom:clamp(9px,1.5vh,16px);line-height:1.3;text-shadow:0 1px 14px rgba(6,22,26,.75)}
+.lock-tag{display:flex;align-items:center;gap:14px;margin-top:clamp(11px,1.8vh,20px);
+  font-family:'Newsreader',serif;font-weight:500;color:#e6c76f;
+  font-size:clamp(11px,1.3vw,15px);letter-spacing:.26em;text-transform:uppercase;text-shadow:0 1px 14px rgba(6,22,26,.75)}
+.lock-tag i{height:1px;background:linear-gradient(90deg,rgba(230,199,111,0),#e6c76f);flex:0 0 clamp(26px,5vw,64px)}
+.lock-tag i:last-child{background:linear-gradient(90deg,#e6c76f,rgba(230,199,111,0));flex:0 0 clamp(26px,5vw,64px)}
 .hero-say{font-family:'Newsreader',serif;font-style:italic;font-weight:300;
   font-size:clamp(17px,2.1vw,25px);max-width:28ch;margin-bottom:18px;opacity:.95;line-height:1.5}
 .rail{border-top:1px solid rgba(243,242,238,.26);display:flex;flex-wrap:wrap;
@@ -318,6 +335,7 @@ footer nav a{color:rgba(243,242,238,.68);font-family:'Bricolage Grotesque',sans-
   .loc{grid-template-columns:1fr}
   #dvfacts{grid-template-columns:repeat(2,1fr)}
 }
+@media(max-width:430px){.brand .sub{display:none}}
 @media(max-width:780px){
   body{font-size:16.5px}
   .srow{grid-template-columns:1fr;gap:20px;padding:30px 0}
@@ -330,6 +348,8 @@ footer nav a{color:rgba(243,242,238,.68);font-family:'Bricolage Grotesque',sans-
   .g-a,.g-f{grid-column:span 2;grid-row:span 2}
   .g-b,.g-c,.g-d,.g-e,.g-g,.g-h,.g-i{grid-column:span 1;grid-row:span 2}
   #burger{display:flex}
+  .brand .wm{font-size:15px;letter-spacing:.12em}
+  .brand .mk{width:40px;height:30px}
   #bar nav{position:fixed;top:60px;left:10px;right:10px;flex-direction:column;align-items:stretch;gap:0;
     background:rgba(243,242,238,.98);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
     border:1px solid var(--hair);border-radius:6px;padding:8px;color:var(--ink);
@@ -358,7 +378,7 @@ footer nav a{color:rgba(243,242,238,.68);font-family:'Bricolage Grotesque',sans-
   <div class="barin">
     <a class="brand" href="#hero">
       <img class="mk" src="logo.png" width="48" height="36" alt="Sommer Lodge">
-      <span><b>Sommer Lodge</b><small>Garopaba, Santa Catarina</small></span>
+      <span><b class="wm">Sommer Lodge</b><small class="sub">Garopaba &amp; Praia do Rosa</small></span>
     </a>
     <nav id="nav">
       <a href="#sobre" data-pt="A casa" data-en="The lodge">A casa</a>
@@ -384,7 +404,12 @@ footer nav a{color:rgba(243,242,238,.68);font-family:'Bricolage Grotesque',sans-
   <div id="scrim"></div>
   <div class="hero-in">
     <div class="hero-top">
-      <h1><span>Sommer</span><span class="l2">Lodge</span></h1>
+      <div class="lock">
+        <img class="lock-mk" src="logo.png" alt="" aria-hidden="true">
+        <p class="lock-eyebrow">Garopaba &amp; Praia do Rosa</p>
+        <h1><span>Sommer</span><span class="l2">Lodge</span></h1>
+        <p class="lock-tag"><i></i>Stay &bull; Surf &bull; Relax<i></i></p>
+      </div>
     </div>
     <p class="hero-say" data-pt="Quatro suítes a cem metros da piscina de ondas, em Garopaba." data-en="Four suites a hundred metres from the wave pool, in Garopaba.">Quatro suítes a cem metros da piscina de ondas, em Garopaba.</p>
 
