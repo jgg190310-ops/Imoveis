@@ -182,6 +182,14 @@ h2.big em{font-family:'Newsreader',serif;font-style:italic;font-weight:300;lette
 .gal .pic{cursor:zoom-in;height:100%}
 .gal .pic img{transition:transform .7s cubic-bezier(.2,.8,.3,1)}
 .gal .pic:hover img{transform:scale(1.045)}
+.ggroup{margin-top:58px}
+.ggroup:first-child{margin-top:34px}
+.ghead h3{font-size:clamp(23px,2.7vw,32px);font-weight:500;letter-spacing:-.025em;margin-bottom:11px}
+.gdesc{font-size:17.5px;line-height:1.75;color:var(--ink-2);max-width:56ch}
+.grow{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:11px;margin-top:22px}
+.grow .pic{aspect-ratio:4/3;cursor:zoom-in}
+.grow .pic img{transition:transform .7s cubic-bezier(.2,.8,.3,1)}
+.grow .pic:hover img{transform:scale(1.045)}
 .g-a{grid-column:span 4;grid-row:span 2}
 .g-b{grid-column:span 2;grid-row:span 2}
 .g-c{grid-column:span 2;grid-row:span 2}
@@ -315,6 +323,8 @@ footer nav a{color:rgba(243,242,238,.68);font-family:'Bricolage Grotesque',sans-
   .near{grid-template-columns:1fr}
   .rules{grid-template-columns:1fr}
   .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:minmax(116px,21vw)}
+  .ggroup{margin-top:42px}
+  .grow{grid-template-columns:repeat(2,1fr);gap:8px}
   .g-a,.g-f{grid-column:span 2;grid-row:span 2}
   .g-b,.g-c,.g-d,.g-e,.g-g,.g-h,.g-i{grid-column:span 1;grid-row:span 2}
   #burger{display:flex}
@@ -451,7 +461,7 @@ footer nav a{color:rgba(243,242,238,.68);font-family:'Bricolage Grotesque',sans-
   <div class="wrap">
     <p class="mark-label" data-pt="galeria" data-en="gallery">galeria</p>
     <h2 class="big rise" data-pt="O jardim, as suítes e o que tem em volta." data-en="The garden, the suites and what's around them.">O jardim, as suítes e o que tem em volta.</h2>
-    <div class="gal" id="gal"></div>
+    <div id="gal"></div>
   </div>
 </section>
 
@@ -608,17 +618,60 @@ var AMEN=[
  {i:'door',p:'Porta para o jardim',e:'Door onto the garden'}
 ];
 
-var GAL=[
- {s:'fotos/casa.webp',p:'O jardim visto da varanda',e:'The garden from the verandah',c:'g-a'},
- {s:'fotos/s2-a.webp',p:'Ambiente da suíte',e:'Inside a suite',c:'g-b'},
- {s:'fotos/porsol.webp',p:'Pôr do sol na praia',e:'Sunset on the beach',c:'g-c'},
- {s:'fotos/praia-arvores.webp',p:'O mar visto da trilha',e:'The sea from the trail',c:'g-d'},
- {s:'fotos/int-3.webp',p:'Cozinha com fogão e pia',e:'Kitchen with cooktop and sink',c:'g-e'},
- {s:'fotos/fachada.webp',p:'Entrada e estacionamento',e:'Entrance and parking',c:'g-f'},
- {s:'fotos/s1-a.webp',p:'Cama de casal e de solteiro',e:'Double and single bed',c:'g-g'},
- {s:'fotos/borboleta.webp',p:'Borboleta-coruja no quintal',e:'Owl butterfly in the garden',c:'g-h'},
- {s:'fotos/jardim.webp',p:'Buganvília sobre o pergolado',e:'Bougainvillea over the pergola',c:'g-i'}
+var GALG=[
+ {lp:'a casa',le:'the lodge',
+  tp:'O jardim e as su\u00edtes',te:'The garden and the suites',
+  dp:'Quatro su\u00edtes em volta do jardim, com varanda, \u00e1rea de churrasco e estacionamento na porta.',
+  de:'Four suites around the garden, with a verandah, a barbecue area and parking at the door.',
+  f:[['fotos/casa.webp','O jardim visto da varanda','The garden from the verandah'],
+     ['fotos/aerea.webp','A propriedade vista de cima','The property from above'],
+     ['fotos/s2-a.webp','Ambiente da su\u00edte','Inside a suite'],
+     ['fotos/int-3.webp','Cozinha com fog\u00e3o e pia','Kitchen with cooktop and sink'],
+     ['fotos/s1-a.webp','Cama de casal e de solteiro','Double and single bed'],
+     ['fotos/fachada.webp','Entrada e estacionamento','Entrance and parking']]},
+
+ {lp:'surf',le:'surfing',
+  tp:'Onda por perto o ano inteiro',te:'Waves nearby all year round',
+  dp:'Os picos da regi\u00e3o quebram o ano todo \u2014 de beach break tranquilo a onda de cost\u00e3o pra quem j\u00e1 tem estrada. D\u00e1 pra sair de casa com a prancha debaixo do bra\u00e7o.',
+  de:'The breaks around here work all year \u2014 from easy beach break to point waves for the more experienced. Close enough to walk out with your board under your arm.',
+  f:[['fotos/surf-1.webp','Onda limpa quebrando na praia','A clean wave peeling along the beach'],
+     ['fotos/surf-2.webp','S\u00e9rie entrando no cost\u00e3o','A set coming in at the point'],
+     ['fotos/surf-3.webp','Surfista na parede da onda','A surfer on the face of the wave'],
+     ['fotos/surf-4.webp','Manobra na crista','A turn off the lip'],
+     ['fotos/surf.webp','Pico da regi\u00e3o','A break in the region']]},
+
+ {lp:'natureza',le:'nature',
+  tp:'Mata atl\u00e2ntica na beira do mar',te:'Atlantic forest by the sea',
+  dp:'Flor de restinga, brom\u00e9lia e borboleta-coruja aparecem no pr\u00f3prio quintal. Em volta tem cachoeira na mata e, no inverno, baleia franca na costa.',
+  de:'Dune flowers, bromeliads and owl butterflies turn up in the garden itself. Around it there are waterfalls in the forest and, in winter, right whales off the coast.',
+  f:[['fotos/nat-flor.webp','Flor de restinga na beira da praia','A dune flower by the beach'],
+     ['fotos/nat-bromelia.webp','Brom\u00e9lia florida numa \u00e1rvore','A bromeliad in flower on a tree'],
+     ['fotos/nat-borboleta.webp','Borboleta-coruja no tronco','An owl butterfly on a trunk'],
+     ['fotos/cachoeira.webp','Cachoeira no meio da mata','A waterfall in the forest'],
+     ['fotos/baleia.webp','Baleia franca na costa','A right whale off the coast'],
+     ['fotos/praia-arvores.webp','O mar visto da trilha','The sea from the trail']]},
+
+ {lp:'surfland',le:'surfland',
+  tp:'A piscina de ondas a cem metros',te:'The wave pool a hundred metres away',
+  dp:'A Surfland fica na esquina, a uma caminhada da porta da su\u00edte. Onda certa o dia inteiro, sem depender da condi\u00e7\u00e3o do mar.',
+  de:'Surfland is around the corner, a short walk from your door. A guaranteed wave all day, whatever the ocean is doing.',
+  f:[['fotos/sl-1.webp','A piscina de ondas vista de cima','The wave pool from above'],
+     ['fotos/sl-2.webp','A estrutura da Surfland','The Surfland complex'],
+     ['fotos/surfland.webp','Onda quebrando na piscina','A wave peeling across the pool']]},
+
+ {lp:'outras praias',le:'other beaches',
+  tp:'Ferrugem, Barra, Silveira, Ibiraquera e Siri\u00fa',te:'Ferrugem, Barra, Silveira, Ibiraquera and Siri\u00fa',
+  dp:'Todas a poucos minutos de carro, e cada uma com um mar diferente: da Ferrugem movimentada \u00e0 lagoa de Ibiraquera e \u00e0s dunas do Siri\u00fa.',
+  de:'All a few minutes\u2019 drive away, each with a character of its own: from busy Ferrugem to the Ibiraquera lagoon and the Siri\u00fa dunes.',
+  f:[['fotos/praia-1.webp','Enseada vista do alto','A cove seen from above'],
+     ['fotos/praia-2.webp','Faixa de areia entre os morros','A stretch of sand between the hills'],
+     ['fotos/praia-3.webp','Praia e lagoa lado a lado','Beach and lagoon side by side'],
+     ['fotos/praia-4.webp','Onda quebrando perto do cost\u00e3o','A wave breaking near the point'],
+     ['fotos/rosa.webp','Praia do Rosa','Praia do Rosa'],
+     ['fotos/porsol.webp','P\u00f4r do sol na praia','Sunset on the beach']]}
 ];
+
+var GAL=[];
 
 var NEAR=[
  {s:'fotos/surfland.webp',p:'Surfland',e:'Surfland',tp:'100 m, a pé',te:'100 m, on foot',
@@ -699,8 +752,18 @@ function renderAmen(){
 }
 var galEl=document.getElementById('gal');
 function renderGal(){
-  galEl.innerHTML=GAL.map(function(g,i){
-    return pic(g.s,L==='pt'?g.p:g.e,g.c,' data-g="'+i+'" tabindex="0" role="button"');
+  GAL=[];
+  galEl.innerHTML=GALG.map(function(g){
+    var pics=g.f.map(function(f){
+      var alt=L==='pt'?f[1]:f[2];
+      GAL.push([f[0],alt]);
+      return pic(f[0],alt,'',' data-g="'+(GAL.length-1)+'" tabindex="0" role="button"');
+    }).join('');
+    return '<div class="ggroup rise"><div class="ghead">'+
+      '<p class="mark-label">'+esc(L==='pt'?g.lp:g.le)+'</p>'+
+      '<h3>'+esc(L==='pt'?g.tp:g.te)+'</h3>'+
+      '<p class="gdesc">'+esc(L==='pt'?g.dp:g.de)+'</p></div>'+
+      '<div class="grow">'+pics+'</div></div>';
   }).join('');
 }
 function renderNear(){
@@ -787,7 +850,7 @@ document.getElementById('lbx').addEventListener('click',closeLb);
 document.getElementById('lbp').addEventListener('click',function(){lbStep(-1);});
 document.getElementById('lbnx').addEventListener('click',function(){lbStep(1);});
 lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
-function galList(){return GAL.map(function(g){return [g.s,L==='pt'?g.p:g.e];});}
+function galList(){return GAL;}
 galEl.addEventListener('click',function(e){
   var el=e.target.closest('[data-g]');if(!el)return;
   openLb(galList(),parseInt(el.getAttribute('data-g'),10));
