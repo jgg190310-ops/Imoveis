@@ -23,7 +23,9 @@
   --sh:0 24px 60px -34px rgba(11,42,46,.55);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+/* nada de scroll-behavior:smooth aqui: no celular ele engasga a rolagem
+   por toque. A rolagem suave das ancoras e feita no script, no fim do arquivo. */
+html{-webkit-text-size-adjust:100%}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--sand);color:var(--ink);
   font-size:17px;font-weight:300;line-height:1.7;overflow-x:hidden}
 body.lock{overflow:hidden}
@@ -496,6 +498,38 @@ window.addEventListener('scroll',function(){
 },{passive:true});
 window.addEventListener('resize',onScroll);
 onScroll();
+
+/* ---- rolagem suave das ancoras, feita na mao ---- */
+function smoothTo(top){
+  var start=window.pageYOffset||document.documentElement.scrollTop;
+  var dist=top-start;
+  if(Math.abs(dist)<2)return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    window.scrollTo(0,top);return;
+  }
+  var dur=Math.min(900,Math.max(380,Math.abs(dist)*0.42)),t0=null;
+  function step(ts){
+    if(t0===null)t0=ts;
+    var p=Math.min(1,(ts-t0)/dur);
+    var e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+    window.scrollTo(0,start+dist*e);
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+document.addEventListener('click',function(e){
+  var a=e.target.closest?e.target.closest('a[href^="#"]'):null;
+  if(!a)return;
+  var id=a.getAttribute('href');
+  if(!id||id==='#'||id.length<2)return;
+  var el=document.querySelector(id);
+  if(!el)return;
+  e.preventDefault();
+  closeNav();
+  var top=el.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop)-66;
+  smoothTo(Math.max(0,top));
+  if(history.replaceState)history.replaceState(null,'',id);
+});
 
 /* ---- menu mobile ---- */
 function closeNav(){nav.classList.remove('open');burger.classList.remove('x');burger.setAttribute('aria-expanded','false');}
