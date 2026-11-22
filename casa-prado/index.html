@@ -481,7 +481,9 @@ function onScroll(){
   bar.classList.toggle('solid',y>=hh-64);
   var h=document.documentElement.scrollHeight-window.innerHeight;
   prog.style.width=(h>0?(y/h*100):0)+'%';
-  flo.classList.toggle('in',y>hh*0.9);
+  var res=document.getElementById('reservar').getBoundingClientRect();
+  /* some perto do fim: la embaixo ja tem o botao grande e o rodape */
+  flo.classList.toggle('in',y>hh*0.9&&res.top>window.innerHeight*0.72);
   if(y<hh*1.25)heroimg.style.transform='translate3d(0,'+(y*0.3)+'px,0)';
   var r=band.getBoundingClientRect();
   if(r.bottom>0&&r.top<window.innerHeight)
