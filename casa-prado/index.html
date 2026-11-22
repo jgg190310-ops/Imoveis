@@ -3,13 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="referrer" content="no-referrer">
 <title>Casa de Temporada em Prado &mdash; 500 m da praia, Bahia</title>
 <meta name="description" content="Casa de temporada em Prado (BA), a 500 m da praia Segura as Ondas e 700 m do centro. Piscina, churrasqueira com forno a lenha, 7 quartos com ar-condicionado split e espaço para 20 pessoas.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Casa de Temporada em Prado — 500 m da praia">
 <meta property="og:description" content="Piscina, churrasqueira, 7 quartos com ar-condicionado e lugar para 20 pessoas, em Prado (BA).">
-<meta property="og:image" content="https://img.olx.com.br/images/41/415612943580396.jpg">
+<meta property="og:image" content="https://jgg190310-ops.github.io/Imoveis/casa-prado/fotos/01-piscina-casa.webp">
 <meta name="theme-color" content="#0b2a2e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -151,6 +150,11 @@ h2.big em{font-style:italic;color:var(--sea-d)}
   background:linear-gradient(transparent,rgba(6,24,27,.8))}
 #gal figure:hover figcaption{opacity:1}
 
+/* ---------- video ---------- */
+.vid{position:relative;border:1px solid var(--rule);background:var(--deeper);
+  aspect-ratio:16/9;overflow:hidden;margin-top:clamp(26px,4vw,42px)}
+.vid video{width:100%;height:100%;display:block;object-fit:cover;background:var(--deeper)}
+
 /* ---------- faixa parallax ---------- */
 .band{position:relative;height:clamp(300px,52vh,520px);overflow:hidden;background:var(--deeper);z-index:2}
 .band img{position:absolute;left:0;top:-14%;width:100%;height:128%;object-fit:cover;will-change:transform}
@@ -273,6 +277,7 @@ footer a:hover{border-bottom-color:var(--sea)}
     <nav id="nav">
       <a href="#casa">A casa</a>
       <a href="#galeria">Fotos</a>
+      <a href="#video">Vídeo</a>
       <a href="#comodidades">Estrutura</a>
       <a href="#local">Localização</a>
       <a class="btn btn-wa" href="https://wa.me/5573991331665?text=Ol%C3%A1%2C%20Augusto!%20Vi%20o%20site%20da%20casa%20em%20Prado%20e%20gostaria%20de%20consultar%20disponibilidade." target="_blank" rel="noopener">
@@ -286,7 +291,7 @@ footer a:hover{border-bottom-color:var(--sea)}
 </div>
 
 <header id="hero">
-  <img id="heroimg" src="https://img.olx.com.br/images/41/415612943580396.jpg" referrerpolicy="no-referrer" alt="Piscina da casa de temporada em Prado, com a casa ao fundo">
+  <img id="heroimg" src="fotos/01-piscina-casa@2x.webp" fetchpriority="high" alt="Piscina da casa de temporada em Prado, com a casa ao fundo">
   <div id="scrim"></div>
   <div class="hero-in">
     <div style="flex:1;display:flex;align-items:flex-end;padding-bottom:clamp(14px,3vh,28px)">
@@ -328,32 +333,53 @@ footer a:hover{border-bottom-color:var(--sea)}
     <p class="mark">galeria</p>
     <h2 class="big rise">A piscina, a varanda e os quartos.</h2>
     <div id="gal">
-      <figure><img src="https://img.olx.com.br/images/41/415612943580396.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Piscina com a casa ao fundo"><figcaption>A piscina, de frente para a casa</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/36/367645709949300.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Área da piscina"><figcaption>Área da piscina</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/43/430685708939835.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Piscina e fachada da casa"><figcaption>A casa vista da piscina</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/58/582625106948955.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Varanda coberta com mesa e cadeiras"><figcaption>Varanda coberta</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/38/380639947932275.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Mesa grande na área da churrasqueira"><figcaption>Mesa grande na área da churrasqueira</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/61/612655580925945.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Forno e fogão a lenha"><figcaption>Forno e fogão a lenha</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/40/408670587757535.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Churrasqueira e bancada"><figcaption>Churrasqueira e bancada</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/65/652603587993064.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Área coberta ao lado do quintal"><figcaption>Área coberta</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/63/637624947244099.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Quintal com área coberta"><figcaption>O quintal</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/50/508656101182489.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Frente da casa com varanda"><figcaption>A frente da casa</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/44/449646821512288.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Lateral da casa e gramado"><figcaption>Lateral e gramado</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/46/465608341969375.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Entrada da casa"><figcaption>A entrada</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/51/516678226667723.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Sala de estar com TV"><figcaption>Sala de estar</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/54/542669944057385.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Cozinha equipada"><figcaption>A cozinha</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/56/568672580626852.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Cozinha e área de serviço"><figcaption>Cozinha e área de serviço</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/48/481678709369534.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Quarto com cama de casal e beliche"><figcaption>Quarto com cama de casal e beliche</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/53/534657343387058.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Quarto com ar-condicionado"><figcaption>Quarto com ar-condicionado</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/47/476653588563734.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Banheiro com box"><figcaption>Um dos seis banheiros</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/66/668688461937156.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Banheiro"><figcaption>Banheiro</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/images/68/684627463993273.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Banheiro com ducha"><figcaption>Banheiro com ducha</figcaption></figure>
+      <figure><img src="fotos/01-piscina-casa.webp" srcset="fotos/01-piscina-casa.webp 1100w, fotos/01-piscina-casa@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="A piscina, com a casa ao fundo" data-full="fotos/01-piscina-casa@2x.webp"><figcaption>A piscina, com a casa ao fundo</figcaption></figure>
+      <figure><img src="fotos/02-piscina-fachada.webp" srcset="fotos/02-piscina-fachada.webp 1100w, fotos/02-piscina-fachada@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="A piscina de frente para os quartos" data-full="fotos/02-piscina-fachada@2x.webp"><figcaption>A piscina de frente para os quartos</figcaption></figure>
+      <figure><img src="fotos/03-piscina-espreguicadeira.webp" srcset="fotos/03-piscina-espreguicadeira.webp 1100w, fotos/03-piscina-espreguicadeira@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Espaço em volta da piscina" data-full="fotos/03-piscina-espreguicadeira@2x.webp"><figcaption>Espaço em volta da piscina</figcaption></figure>
+      <figure><img src="fotos/04-churrasqueira-forno.webp" srcset="fotos/04-churrasqueira-forno.webp 1100w, fotos/04-churrasqueira-forno@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Churrasqueira, forno a lenha e bancada" data-full="fotos/04-churrasqueira-forno@2x.webp"><figcaption>Churrasqueira, forno a lenha e bancada</figcaption></figure>
+      <figure><img src="fotos/05-varanda-gourmet.webp" srcset="fotos/05-varanda-gourmet.webp 1100w, fotos/05-varanda-gourmet@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="A varanda da área gourmet" data-full="fotos/05-varanda-gourmet@2x.webp"><figcaption>A varanda da área gourmet</figcaption></figure>
+      <figure><img src="fotos/06-mesa-grande.webp" srcset="fotos/06-mesa-grande.webp 1100w, fotos/06-mesa-grande@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Mesa grande para todo mundo sentar" data-full="fotos/06-mesa-grande@2x.webp"><figcaption>Mesa grande para todo mundo sentar</figcaption></figure>
+      <figure><img src="fotos/07-churrasqueira-mesa.webp" srcset="fotos/07-churrasqueira-mesa.webp 1100w, fotos/07-churrasqueira-mesa@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="A área da churrasqueira" data-full="fotos/07-churrasqueira-mesa@2x.webp"><figcaption>A área da churrasqueira</figcaption></figure>
+      <figure><img src="fotos/08-varanda-redes.webp" srcset="fotos/08-varanda-redes.webp 1100w, fotos/08-varanda-redes@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Varanda com redes" data-full="fotos/08-varanda-redes@2x.webp"><figcaption>Varanda com redes</figcaption></figure>
+      <figure><img src="fotos/09-quintal-piscina.webp" srcset="fotos/09-quintal-piscina.webp 1100w, fotos/09-quintal-piscina@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="O quintal visto da varanda" data-full="fotos/09-quintal-piscina@2x.webp"><figcaption>O quintal visto da varanda</figcaption></figure>
+      <figure><img src="fotos/10-area-coberta.webp" srcset="fotos/10-area-coberta.webp 1100w, fotos/10-area-coberta@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Área coberta" data-full="fotos/10-area-coberta@2x.webp"><figcaption>Área coberta</figcaption></figure>
+      <figure><img src="fotos/11-quintal.webp" srcset="fotos/11-quintal.webp 1100w, fotos/11-quintal@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="O gramado entre a casa e a área gourmet" data-full="fotos/11-quintal@2x.webp"><figcaption>O gramado entre a casa e a área gourmet</figcaption></figure>
+      <figure><img src="fotos/12-jardim.webp" srcset="fotos/12-jardim.webp 1100w, fotos/12-jardim@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="O jardim" data-full="fotos/12-jardim@2x.webp"><figcaption>O jardim</figcaption></figure>
+      <figure><img src="fotos/13-quintal-vista.webp" srcset="fotos/13-quintal-vista.webp 1100w, fotos/13-quintal-vista@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Quintal e piscina" data-full="fotos/13-quintal-vista@2x.webp"><figcaption>Quintal e piscina</figcaption></figure>
+      <figure><img src="fotos/14-garagem.webp" srcset="fotos/14-garagem.webp 1100w, fotos/14-garagem@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Garagem coberta" data-full="fotos/14-garagem@2x.webp"><figcaption>Garagem coberta</figcaption></figure>
+      <figure><img src="fotos/15-fachada.webp" srcset="fotos/15-fachada.webp 1100w, fotos/15-fachada@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="A frente da casa" data-full="fotos/15-fachada@2x.webp"><figcaption>A frente da casa</figcaption></figure>
+      <figure><img src="fotos/16-cozinha.webp" srcset="fotos/16-cozinha.webp 1100w, fotos/16-cozinha@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="A cozinha" data-full="fotos/16-cozinha@2x.webp"><figcaption>A cozinha</figcaption></figure>
+      <figure><img src="fotos/17-cozinha-pia.webp" srcset="fotos/17-cozinha-pia.webp 1100w, fotos/17-cozinha-pia@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Cozinha equipada" data-full="fotos/17-cozinha-pia@2x.webp"><figcaption>Cozinha equipada</figcaption></figure>
+      <figure><img src="fotos/18-area-servico.webp" srcset="fotos/18-area-servico.webp 1100w, fotos/18-area-servico@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Área de serviço" data-full="fotos/18-area-servico@2x.webp"><figcaption>Área de serviço</figcaption></figure>
+      <figure><img src="fotos/19-quarto-suite.webp" srcset="fotos/19-quarto-suite.webp 1100w, fotos/19-quarto-suite@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Uma das suítes" data-full="fotos/19-quarto-suite@2x.webp"><figcaption>Uma das suítes</figcaption></figure>
+      <figure><img src="fotos/20-quarto-casal.webp" srcset="fotos/20-quarto-casal.webp 1100w, fotos/20-quarto-casal@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Quarto de casal com ar-condicionado" data-full="fotos/20-quarto-casal@2x.webp"><figcaption>Quarto de casal com ar-condicionado</figcaption></figure>
+      <figure><img src="fotos/21-quarto-solteiro.webp" srcset="fotos/21-quarto-solteiro.webp 1100w, fotos/21-quarto-solteiro@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Quarto de solteiro" data-full="fotos/21-quarto-solteiro@2x.webp"><figcaption>Quarto de solteiro</figcaption></figure>
+      <figure><img src="fotos/22-quarto-duas-camas.webp" srcset="fotos/22-quarto-duas-camas.webp 1100w, fotos/22-quarto-duas-camas@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Quarto com duas camas" data-full="fotos/22-quarto-duas-camas@2x.webp"><figcaption>Quarto com duas camas</figcaption></figure>
+      <figure><img src="fotos/23-quarto.webp" srcset="fotos/23-quarto.webp 1100w, fotos/23-quarto@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Quarto com ar-condicionado split" data-full="fotos/23-quarto@2x.webp"><figcaption>Quarto com ar-condicionado split</figcaption></figure>
+      <figure><img src="fotos/24-banheiro.webp" srcset="fotos/24-banheiro.webp 1100w, fotos/24-banheiro@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Um dos seis banheiros" data-full="fotos/24-banheiro@2x.webp"><figcaption>Um dos seis banheiros</figcaption></figure>
+      <figure><img src="fotos/25-banheiro-2.webp" srcset="fotos/25-banheiro-2.webp 1100w, fotos/25-banheiro-2@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Banheiro com box" data-full="fotos/25-banheiro-2@2x.webp"><figcaption>Banheiro com box</figcaption></figure>
+      <figure><img src="fotos/26-banheiro-3.webp" srcset="fotos/26-banheiro-3.webp 1100w, fotos/26-banheiro-3@2x.webp 1700w" sizes="(max-width:420px) 100vw, (max-width:760px) 50vw, 33vw" loading="lazy" decoding="async" alt="Banheiro" data-full="fotos/26-banheiro-3@2x.webp"><figcaption>Banheiro</figcaption></figure>
     </div>
   </div>
 </section>
 
+<section id="video">
+  <div class="wrap" style="padding-top:0">
+    <p class="mark">vídeo</p>
+    <h2 class="big rise">Um tour pela casa.</h2>
+    <div class="vid rise">
+      <video controls preload="none" playsinline poster="fotos/tour-poster.jpg"
+             aria-label="Vídeo com um tour pela casa">
+        <source src="fotos/tour-aereo.mp4" type="video/mp4">
+        Seu navegador não consegue exibir este vídeo.
+      </video>
+    </div>
+    <p class="prose rise" style="margin-top:16px;font-size:15.5px">Gravado pelo proprietário &mdash; 2 min e 33 s, com um trecho aéreo do bairro.</p>
+  </div>
+</section>
+
 <div class="band" id="band">
-  <img id="bandimg" src="https://img.olx.com.br/images/36/367645709949300.jpg" referrerpolicy="no-referrer" loading="lazy" alt="Piscina da casa em Prado">
+  <img id="bandimg" src="fotos/03-piscina-espreguicadeira@2x.webp" loading="lazy" alt="Piscina da casa em Prado">
   <div class="bin"><p>A praia fica a 500 metros. A piscina, logo ali na frente.</p></div>
 </div>
 
@@ -411,7 +437,7 @@ footer a:hover{border-bottom-color:var(--sea)}
     <div class="loc">
       <div class="map">
         <iframe title="Mapa — Prado, Bahia" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=-17.3408,-39.2208&hl=pt-BR&z=15&output=embed"></iframe>
+          src="https://www.google.com/maps?q=-17.336750,-39.223820&hl=pt-BR&z=16&output=embed"></iframe>
       </div>
       <div>
         <ul class="dists">
@@ -570,7 +596,7 @@ var at=0,lastFocus=null;
 function show(i){
   at=(i+figs.length)%figs.length;
   var f=figs[at],im=f.querySelector('img'),cp=f.querySelector('figcaption');
-  lbimg.src=im.getAttribute('src');
+  lbimg.src=im.getAttribute('data-full')||im.getAttribute('src');
   lbimg.alt=im.getAttribute('alt')||'';
   lbcap.textContent=cp?cp.textContent:'';
   lbn.textContent=(at+1)+' / '+figs.length;
