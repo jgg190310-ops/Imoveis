@@ -45,11 +45,12 @@ section{position:relative;z-index:2;scroll-margin-top:72px}
 .mark::after{content:"";flex:1;height:1px;background:var(--rule);transform:translateY(-5px)}
 h2.big{font-size:clamp(32px,5.2vw,62px);max-width:16ch}
 h2.big em{font-style:italic;color:var(--sea-d)}
+/* o texto so comeca escondido se o script estiver rodando (classe .js) */
 .rise{opacity:1}
 @media (prefers-reduced-motion:no-preference){
-  .rise{opacity:0;transform:translateY(18px);
+  .js .rise{opacity:0;transform:translateY(18px);
     transition:opacity .8s cubic-bezier(.2,.8,.3,1),transform .8s cubic-bezier(.2,.8,.3,1)}
-  .rise.in{opacity:1;transform:none}
+  .js .rise.in{opacity:1;transform:none}
 }
 
 /* ---------- barra de vidro ---------- */
@@ -537,13 +538,24 @@ document.addEventListener('click',function(e){
 });
 
 /* ---- animação de entrada ---- */
+var risers=[].slice.call(document.querySelectorAll('.rise'));
+function revealAll(){risers.forEach(function(el){el.classList.add('in');});}
 if('IntersectionObserver' in window){
+  document.documentElement.classList.add('js');
   var io=new IntersectionObserver(function(es){
     es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
   },{rootMargin:'0px 0px -8% 0px',threshold:.08});
-  [].forEach.call(document.querySelectorAll('.rise'),function(el){io.observe(el);});
+  risers.forEach(function(el){io.observe(el);});
+  /* rede de seguranca: se nada apareceu em 2s, mostra tudo na marra */
+  setTimeout(function(){
+    var inView=risers.filter(function(el){
+      var r=el.getBoundingClientRect();
+      return r.top<window.innerHeight*0.95&&r.bottom>0;
+    });
+    if(inView.length&&!inView.some(function(el){return el.classList.contains('in');}))revealAll();
+  },2000);
 }else{
-  [].forEach.call(document.querySelectorAll('.rise'),function(el){el.classList.add('in');});
+  revealAll();
 }
 
 /* ---- lightbox ---- */
