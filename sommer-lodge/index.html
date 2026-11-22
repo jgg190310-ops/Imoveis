@@ -3,11 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sommer Lodge — Garopaba, SC</title>
+<title>Sommer Lodge — Garopaba &amp; Praia do Rosa, SC</title>
 <meta name="description" content="Quatro suítes independentes a 100 metros da Surfland, em Garopaba (SC). Praia do Ouvidor a 5 minutos, Praia do Rosa a 12.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314433b'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23f6efe6' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Sommer Lodge — Garopaba, SC">
+<meta property="og:title" content="Sommer Lodge — Garopaba &amp; Praia do Rosa">
 <meta property="og:description" content="Quatro suítes independentes a 100 metros da Surfland. Mar, mata e piscina de ondas na porta.">
+<meta property="og:image" content="fotos/hero.webp">
 <meta name="theme-color" content="#14433b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +57,7 @@ section{position:relative;z-index:2;scroll-margin-top:84px}
   background:rgba(252,248,242,.55);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);
   border-bottom:1px solid transparent;transition:background .4s,border-color .4s,box-shadow .4s,color .4s}
 #bar.solid{background:rgba(252,248,242,.93);border-bottom-color:var(--line);box-shadow:0 10px 30px -22px rgba(10,43,38,.5)}
-#bar.inverse{background:rgba(10,43,38,.18);color:var(--cream)}
+#bar.inverse{background:rgba(10,43,38,.2);color:var(--cream)}
 .barin{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px clamp(16px,4vw,48px)}
 #prog{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--teal-mid);transition:width .12s linear,opacity .4s;opacity:1}
 #bar.inverse #prog{opacity:0}
@@ -75,6 +77,8 @@ section{position:relative;z-index:2;scroll-margin-top:84px}
   text-decoration:none;transition:transform .25s cubic-bezier(.2,.9,.3,1),box-shadow .25s,background .25s,opacity .25s}
 .btn-teal{background:var(--teal);color:var(--cream);box-shadow:0 10px 26px -12px rgba(10,43,38,.85),inset 0 1px 0 rgba(255,255,255,.14)}
 .btn-teal:hover{background:var(--teal-mid);transform:translateY(-2px)}
+.btn-wa{background:#1faa58;color:#fff;box-shadow:0 10px 26px -12px rgba(16,90,46,.9)}
+.btn-wa:hover{background:#199c4e;transform:translateY(-2px)}
 .btn-cream{background:var(--cream);color:var(--teal-deep)}
 .btn-cream:hover{transform:translateY(-2px)}
 .btn-ghost{border:1px solid currentColor;opacity:.85;background:transparent;color:inherit}
@@ -95,24 +99,22 @@ section{position:relative;z-index:2;scroll-margin-top:84px}
 
 #hero{position:relative;height:100svh;min-height:650px;overflow:hidden;background:var(--teal-deep)}
 .layer{position:absolute;left:0;width:100%;will-change:transform}
-#heroimg{top:-12%;height:124%;background:linear-gradient(168deg,#0b352f 0%,#14433b 34%,#1f5a4f 62%,#2f7363 100%)}
-#heroimg::after{content:"";position:absolute;inset:0;opacity:.4;
-  background:radial-gradient(44% 30% at 76% 20%,rgba(232,187,132,.5),transparent 70%)}
-#herowave{position:absolute;left:0;right:0;bottom:-1px;z-index:4;pointer-events:none;height:130px}
+#heroimg{top:-12%;height:124%;background:url("fotos/hero.webp") center 42%/cover no-repeat}
+#herowave{position:absolute;left:0;right:0;bottom:-1px;z-index:4;pointer-events:none;height:120px}
 #scrim{position:absolute;inset:0;z-index:3;
-  background:radial-gradient(130% 80% at 18% 92%,rgba(7,31,27,.82),transparent 62%),
-   linear-gradient(rgba(7,31,27,.45) 0%,rgba(7,31,27,.06) 30%,rgba(7,31,27,.45) 64%,rgba(7,31,27,.92) 100%)}
+  background:radial-gradient(130% 80% at 18% 92%,rgba(7,31,27,.86),transparent 64%),
+   linear-gradient(rgba(7,31,27,.5) 0%,rgba(7,31,27,.08) 28%,rgba(7,31,27,.48) 62%,rgba(7,31,27,.93) 100%)}
 .hero-inner{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;justify-content:flex-end;
   padding:0 clamp(20px,5vw,80px) clamp(54px,7vh,80px);color:var(--cream)}
-.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;opacity:.86;font-weight:500;margin-bottom:14px}
-#hero h1{font-size:clamp(42px,8.6vw,106px);font-weight:300;letter-spacing:-.035em;text-shadow:0 2px 46px rgba(0,0,0,.4)}
+.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;opacity:.88;font-weight:500;margin-bottom:14px}
+#hero h1{font-size:clamp(42px,8.6vw,106px);font-weight:300;letter-spacing:-.035em;text-shadow:0 2px 46px rgba(0,0,0,.45)}
 #hero h1 em{font-style:italic;color:var(--sun)}
-.hero-sub{margin-top:13px;max-width:46ch;font-size:clamp(14.5px,1.6vw,18px);font-weight:300;opacity:.93}
+.hero-sub{margin-top:13px;max-width:46ch;font-size:clamp(14.5px,1.6vw,18px);font-weight:300;opacity:.94}
 
 .book{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;
   background:rgba(252,248,242,.9);-webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%);
   border:1px solid rgba(255,255,255,.45);border-radius:20px;padding:14px;color:var(--ink);
-  box-shadow:0 26px 60px -22px rgba(0,0,0,.6);max-width:720px}
+  box-shadow:0 26px 60px -22px rgba(0,0,0,.6);max-width:730px}
 .fld{display:flex;flex-direction:column;gap:5px;flex:1 1 140px;min-width:124px}
 .fld label{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.6;font-weight:600}
 .fld input,.fld select{font-family:inherit;font-size:14.5px;color:var(--ink);background:transparent;
@@ -134,28 +136,19 @@ section{position:relative;z-index:2;scroll-margin-top:84px}
 .stat b{display:block;font-family:'Fraunces',serif;font-size:clamp(25px,3.3vw,37px);font-weight:300;line-height:1}
 .stat span{display:block;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;opacity:.72;margin-top:7px}
 
-.ph{position:relative;background:var(--mist);border:1px dashed rgba(22,33,30,.24);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-  color:var(--teal-mid);text-align:center;padding:16px;overflow:hidden}
-.ph::before{content:"";position:absolute;inset:0;opacity:.45;
-  background:repeating-linear-gradient(45deg,transparent 0 11px,rgba(20,67,59,.045) 11px 22px)}
-.ph svg{position:relative;opacity:.38;flex:none}
-.ph em{position:relative;font-style:normal;font-size:11px;letter-spacing:.13em;text-transform:uppercase;
-  font-weight:500;opacity:.66;line-height:1.5}
+.pic{position:relative;overflow:hidden;background:var(--mist)}
+.pic img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.3,1)}
+.pic:hover img{transform:scale(1.035)}
 
-#fchips{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}
-.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:8px 16px;
-  font-size:12.5px;cursor:pointer;color:var(--ink-2);transition:background .25s,color .25s,border-color .25s}
-.chip:hover{border-color:var(--teal-mid)}
-.chip.on{background:var(--teal);border-color:var(--teal);color:var(--cream)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
+.two .pic{height:clamp(190px,26vw,300px);border-radius:var(--r)}
 
 .grid-suites{display:grid;grid-template-columns:repeat(auto-fit,minmax(256px,1fr));gap:22px;margin-top:24px}
 .suite{background:var(--cream);border:1px solid var(--hair);border-radius:var(--r);overflow:hidden;
-  box-shadow:var(--shadow-sm);transition:transform .35s cubic-bezier(.2,.9,.3,1),box-shadow .35s,opacity .3s;
-  cursor:pointer;text-align:left;width:100%;border-width:1px;display:block}
+  box-shadow:var(--shadow-sm);transition:transform .35s cubic-bezier(.2,.9,.3,1),box-shadow .35s;
+  cursor:pointer;text-align:left;width:100%;display:block}
 .suite:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.suite.hide{display:none}
-.suite .ph{height:180px;border:0;border-bottom:1px solid var(--hair)}
+.suite .pic{height:184px;border-bottom:1px solid var(--hair)}
 .suite .in{padding:19px 21px 22px}
 .suite h3{font-size:23px;font-weight:400}
 .suite .mean{font-size:12.5px;color:var(--clay);font-style:italic;margin-top:5px;line-height:1.5}
@@ -170,21 +163,20 @@ section{position:relative;z-index:2;scroll-margin-top:84px}
   display:flex;align-items:center;gap:12px;font-size:14.5px}
 .amen svg{flex:none;color:var(--teal-mid)}
 
-#band{position:relative;height:clamp(300px,42vh,430px);overflow:hidden;background:var(--teal-deep);z-index:1}
-#bandimg{top:-18%;height:136%;background:linear-gradient(145deg,#12403a,#2c6b5c 52%,#4d9080)}
+#band{position:relative;height:clamp(300px,44vh,450px);overflow:hidden;background:var(--teal-deep);z-index:1}
+#bandimg{top:-18%;height:136%;background:url("fotos/porsol.webp") center 55%/cover no-repeat}
 #band .cap{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;
   justify-content:center;text-align:center;color:var(--cream);padding:0 24px;gap:12px;
-  background:linear-gradient(rgba(7,31,27,.42),rgba(7,31,27,.52))}
-#band .cap p{font-family:'Fraunces',serif;font-size:clamp(22px,3.6vw,40px);font-weight:300;font-style:italic;max-width:20ch;line-height:1.2}
+  background:linear-gradient(rgba(7,31,27,.34),rgba(7,31,27,.5))}
+#band .cap p{font-family:'Fraunces',serif;font-size:clamp(22px,3.6vw,40px);font-weight:300;font-style:italic;max-width:20ch;line-height:1.2;text-shadow:0 2px 30px rgba(0,0,0,.5)}
 
 .gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:13px;margin-top:34px}
-.gal .ph{height:200px;cursor:zoom-in;border-radius:14px;transition:transform .3s}
-.gal .ph:hover{transform:scale(1.015)}
-.gal .ph.wide{grid-column:span 2}
+.gal .pic{height:208px;cursor:zoom-in;border-radius:14px}
+.gal .pic.wide{grid-column:span 2}
 
-.near{display:grid;grid-template-columns:repeat(auto-fit,minmax(222px,1fr));gap:18px;margin-top:34px}
+.near{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:34px}
 .near article{background:var(--cream);border:1px solid var(--hair);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm)}
-.near .ph{height:138px;border:0;border-bottom:1px solid var(--hair)}
+.near .pic{height:150px;border-bottom:1px solid var(--hair)}
 .near .in{padding:17px 19px 20px}
 .near h4{font-size:19px;font-weight:400}
 .near .t{font-family:'Fraunces',serif;color:var(--teal-mid);font-size:15px;margin-top:6px;display:block}
@@ -218,11 +210,13 @@ section{position:relative;z-index:2;scroll-margin-top:84px}
 .faq details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
 .faq .a{font-size:15px;font-weight:300;color:var(--ink-2);padding:0 0 20px;line-height:1.75;max-width:62ch}
 
-#cta{background:var(--teal);color:var(--cream);text-align:center;position:relative;z-index:3}
-#cta .wrap{display:flex;flex-direction:column;align-items:center;gap:16px}
+#cta{position:relative;color:var(--cream);text-align:center;overflow:hidden;background:var(--teal)}
+#ctabg{position:absolute;inset:0;background:url("fotos/rosa.webp") center/cover no-repeat;opacity:.3}
+#cta .wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:16px;
+  background:linear-gradient(rgba(10,43,38,.55),rgba(10,43,38,.7))}
 #cta h2{font-size:clamp(30px,5vw,54px);font-weight:300;max-width:16ch}
 #cta h2 em{font-style:italic;color:var(--sun)}
-#cta p{font-size:16px;font-weight:300;opacity:.84;max-width:44ch}
+#cta p{font-size:16px;font-weight:300;opacity:.9;max-width:44ch}
 #cta .btns{display:flex;gap:11px;flex-wrap:wrap;justify-content:center;margin-top:6px}
 
 footer{background:var(--teal-deep);color:rgba(246,239,230,.72);font-size:13px;position:relative;z-index:3}
@@ -237,9 +231,7 @@ footer nav a{color:rgba(246,239,230,.72)}
 #float{position:fixed;right:16px;bottom:16px;z-index:780;transform:translateY(110px);opacity:0;
   transition:transform .45s cubic-bezier(.2,.9,.3,1),opacity .45s}
 #float.in{transform:none;opacity:1}
-#float a{box-shadow:0 16px 36px -14px rgba(10,43,38,.9)}
 
-/* ===== detalhe da suíte ===== */
 #dv{position:fixed;inset:0;z-index:900;background:var(--paper);overflow-y:auto;overscroll-behavior:contain;
   opacity:0;visibility:hidden;transform:translateY(22px);
   transition:opacity .35s,transform .35s cubic-bezier(.2,.9,.3,1),visibility .35s}
@@ -254,9 +246,9 @@ footer nav a{color:rgba(246,239,230,.72)}
 #dvwrap{max-width:1000px;margin:0 auto;padding:clamp(26px,5vw,46px) clamp(16px,4vw,32px) 80px}
 #dvwrap h2{font-size:clamp(34px,6vw,58px);font-weight:300}
 #dvmean{color:var(--clay);font-style:italic;font-size:15.5px;margin-top:9px;max-width:40ch}
-#dvhero{height:clamp(200px,34vw,330px);border-radius:var(--r);margin-top:24px}
+#dvhero{height:clamp(210px,36vw,380px);border-radius:var(--r);margin-top:24px;cursor:zoom-in}
 #dvgal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:11px;margin-top:11px}
-#dvgal .ph{height:118px;border-radius:12px;cursor:zoom-in}
+#dvgal .pic{height:124px;border-radius:12px;cursor:zoom-in}
 #dvfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin-top:30px}
 #dvfacts div{background:var(--cream);border:1px solid var(--hair);border-radius:14px;padding:17px}
 #dvfacts small{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-mid);font-weight:600}
@@ -265,18 +257,15 @@ footer nav a{color:rgba(246,239,230,.72)}
 #dvamen span{border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:12.5px;color:var(--ink-2)}
 #dvcta{margin-top:34px;display:flex;gap:10px;flex-wrap:wrap}
 
-/* ===== lightbox ===== */
-#lb{position:fixed;inset:0;z-index:960;background:rgba(7,22,19,.94);display:flex;align-items:center;
+#lb{position:fixed;inset:0;z-index:960;background:rgba(7,22,19,.95);display:flex;align-items:center;
   justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;
-  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:60px 16px}
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:62px 14px 70px}
 #lb.open{opacity:1;visibility:visible}
-#lbbox{width:min(900px,100%);aspect-ratio:3/2;max-height:100%;border-radius:var(--r);background:var(--mist);
-  border:1px dashed rgba(246,239,230,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:12px;color:var(--teal-mid);text-align:center;padding:22px;position:relative;overflow:hidden}
-#lbbox::before{content:"";position:absolute;inset:0;opacity:.4;
-  background:repeating-linear-gradient(45deg,transparent 0 13px,rgba(20,67,59,.05) 13px 26px)}
-#lbcap{position:relative;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;opacity:.72}
-#lbn{position:absolute;top:18px;left:50%;transform:translateX(-50%);color:rgba(246,239,230,.72);
+#lbimg{max-width:min(1100px,100%);max-height:100%;object-fit:contain;border-radius:10px;
+  box-shadow:0 30px 80px -30px rgba(0,0,0,.9)}
+#lbcap{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:rgba(246,239,230,.84);
+  font-size:13px;padding:0 60px}
+#lbn{position:absolute;top:18px;left:50%;transform:translateX(-50%);color:rgba(246,239,230,.7);
   font-size:12px;letter-spacing:.2em}
 #lb button{position:absolute;background:rgba(246,239,230,.12);border:1px solid rgba(246,239,230,.3);
   color:var(--cream);width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:18px;
@@ -289,7 +278,8 @@ footer nav a{color:rgba(246,239,230,.72)}
 @media(max-width:860px){
   .loc{grid-template-columns:1fr}
   .strip .inner{grid-template-columns:repeat(2,1fr);gap:22px}
-  .gal .ph.wide{grid-column:span 1}
+  .gal .pic.wide{grid-column:span 1}
+  .two{grid-template-columns:1fr}
 }
 @media(max-width:720px){
   #burger{display:flex}
@@ -310,6 +300,7 @@ footer nav a{color:rgba(246,239,230,.72)}
   #lb button{width:42px;height:42px}
   #lbp{left:6px}
   #lbnx{right:6px}
+  #lbcap{padding:0 20px;font-size:12px}
 }
 </style>
 </head>
@@ -332,7 +323,7 @@ footer nav a{color:rgba(246,239,230,.72)}
       <a href="#galeria" data-pt="Fotos" data-en="Photos">Fotos</a>
       <a href="#perto" data-pt="Arredores" data-en="Around">Arredores</a>
       <a href="#local" data-pt="Mapa" data-en="Map">Mapa</a>
-      <a class="btn btn-teal" href="#contato" data-pt="Reservar" data-en="Book">Reservar</a>
+      <a class="btn btn-wa" href="https://wa.me/5548991196477" target="_blank" rel="noopener" data-pt="Reservar" data-en="Book">Reservar</a>
     </nav>
     <div style="display:flex;align-items:center;gap:10px">
       <div id="lang">
@@ -349,11 +340,11 @@ footer nav a{color:rgba(246,239,230,.72)}
   <div class="layer" id="heroimg"></div>
   <div id="scrim"></div>
   <svg id="herowave" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,96 C240,150 420,30 720,72 C1020,114 1200,160 1440,110 L1440,180 L0,180 Z" fill="rgba(252,248,242,.08)"/>
-    <path d="M0,130 C280,170 480,80 760,112 C1040,144 1220,172 1440,140 L1440,180 L0,180 Z" fill="rgba(252,248,242,.12)"/>
+    <path d="M0,96 C240,150 420,30 720,72 C1020,114 1200,160 1440,110 L1440,180 L0,180 Z" fill="rgba(252,248,242,.07)"/>
+    <path d="M0,130 C280,170 480,80 760,112 C1040,144 1220,172 1440,140 L1440,180 L0,180 Z" fill="rgba(252,248,242,.11)"/>
   </svg>
   <div class="hero-inner">
-    <div class="eyebrow">Garopaba · Santa Catarina</div>
+    <div class="eyebrow">Garopaba &amp; Praia do Rosa · Stay &amp; Surf</div>
     <h1>Sommer <em>Lodge</em></h1>
     <p class="hero-sub" data-pt="Quatro suítes independentes a 100 metros da Surfland. Praia do Ouvidor a 5 minutos, Praia do Rosa a 12." data-en="Four independent suites, 100 m from Surfland. Praia do Ouvidor 5 minutes away, Praia do Rosa 12.">Quatro suítes independentes a 100 metros da Surfland. Praia do Ouvidor a 5 minutos, Praia do Rosa a 12.</p>
 
@@ -376,7 +367,7 @@ footer nav a{color:rgba(246,239,230,.72)}
           <option value="5" data-pt="5 ou mais" data-en="5 or more">5 ou mais</option>
         </select>
       </div>
-      <button class="btn btn-teal" type="submit" data-pt="Consultar" data-en="Check">Consultar</button>
+      <button class="btn btn-wa" type="submit" data-pt="Consultar no WhatsApp" data-en="Ask on WhatsApp">Consultar no WhatsApp</button>
       <div id="bkWarn"></div>
     </form>
   </div>
@@ -386,7 +377,7 @@ footer nav a{color:rgba(246,239,230,.72)}
 <div class="strip">
   <div class="inner">
     <div class="stat"><b data-n="4">4</b><span data-pt="Suítes" data-en="Suites">Suítes</span></div>
-    <div class="stat"><b data-pt="2–4" data-en="2–4">2–4</b><span data-pt="Hóspedes cada" data-en="Guests each">Hóspedes cada</span></div>
+    <div class="stat"><b>2–4</b><span data-pt="Hóspedes cada" data-en="Guests each">Hóspedes cada</span></div>
     <div class="stat"><b data-n="100" data-suf=" m">100 m</b><span data-pt="Da Surfland" data-en="From Surfland">Da Surfland</span></div>
     <div class="stat"><b data-n="5" data-suf=" min">5 min</b><span>Praia do Ouvidor</span></div>
   </div>
@@ -396,8 +387,12 @@ footer nav a{color:rgba(246,239,230,.72)}
   <div class="wrap">
     <div class="tag reveal" data-pt="A casa" data-en="The lodge">A casa</div>
     <h2 class="lead reveal" data-pt="Um refúgio pequeno entre a <em>mata</em> e o mar." data-en="A small retreat between the <em>forest</em> and the sea.">Um refúgio pequeno entre a <em>mata</em> e o mar.</h2>
-    <p class="body reveal" style="margin-top:24px" data-pt="O Sommer Lodge fica em Garopaba, no sul de Santa Catarina, a 100 metros da Surfland — a piscina de ondas. São quatro suítes independentes, cada uma com entrada própria, pensadas pra quem quer a praia perto e silêncio na hora de dormir." data-en="Sommer Lodge sits in Garopaba, southern Santa Catarina, 100 m from Surfland — the wave pool. Four independent suites, each with its own entrance, made for guests who want the beach close and quiet at night.">O Sommer Lodge fica em Garopaba, no sul de Santa Catarina, a 100 metros da Surfland — a piscina de ondas. São quatro suítes independentes, cada uma com entrada própria, pensadas pra quem quer a praia perto e silêncio na hora de dormir.</p>
+    <p class="body reveal" style="margin-top:24px" data-pt="O Sommer Lodge fica em Garopaba, no sul de Santa Catarina, a 100 metros da Surfland — a piscina de ondas. São quatro suítes independentes, cada uma com entrada própria para o jardim, pensadas pra quem quer a praia perto e silêncio na hora de dormir." data-en="Sommer Lodge sits in Garopaba, southern Santa Catarina, 100 m from Surfland — the wave pool. Four independent suites, each with its own entrance onto the garden, made for guests who want the beach close and quiet at night.">O Sommer Lodge fica em Garopaba, no sul de Santa Catarina, a 100 metros da Surfland — a piscina de ondas. São quatro suítes independentes, cada uma com entrada própria para o jardim, pensadas pra quem quer a praia perto e silêncio na hora de dormir.</p>
     <p class="body reveal" style="margin-top:16px" data-pt="As suítes levam nomes de praias da Nova Zelândia. Haumoana, em māori, quer dizer brisa do mar." data-en="The suites are named after New Zealand beaches. Haumoana means sea breeze in Māori.">As suítes levam nomes de praias da Nova Zelândia. Haumoana, em māori, quer dizer brisa do mar.</p>
+    <div class="two">
+      <div class="pic reveal"><img src="fotos/casa.webp" alt="Jardim e varanda das suítes" loading="lazy"></div>
+      <div class="pic reveal"><img src="fotos/jardim.webp" alt="Pergolado com buganvílias no jardim" loading="lazy"></div>
+    </div>
   </div>
 </section>
 
@@ -405,7 +400,7 @@ footer nav a{color:rgba(246,239,230,.72)}
   <div class="wrap">
     <div class="tag reveal" data-pt="Acomodações" data-en="Accommodation">Acomodações</div>
     <h2 class="lead reveal" data-pt="Quatro suítes, quatro <em>praias</em>." data-en="Four suites, four <em>beaches</em>.">Quatro suítes, quatro <em>praias</em>.</h2>
-    <p class="body reveal" style="margin-top:20px" data-pt="Todas acomodam de 2 a 4 hóspedes e têm entrada independente. Toque numa suíte para ver os detalhes." data-en="All of them sleep 2 to 4 guests and have a private entrance. Tap a suite to see the details.">Todas acomodam de 2 a 4 hóspedes e têm entrada independente. Toque numa suíte para ver os detalhes.</p>
+    <p class="body reveal" style="margin-top:20px" data-pt="Todas acomodam de 2 a 4 hóspedes e têm entrada independente. Toque numa suíte para ver as fotos e os detalhes." data-en="All of them sleep 2 to 4 guests and have a private entrance. Tap a suite to see photos and details.">Todas acomodam de 2 a 4 hóspedes e têm entrada independente. Toque numa suíte para ver as fotos e os detalhes.</p>
     <div class="grid-suites" id="sgrid"></div>
 
     <div class="tag reveal" style="margin-top:58px" data-pt="Em todas as suítes" data-en="In every suite">Em todas as suítes</div>
@@ -423,7 +418,7 @@ footer nav a{color:rgba(246,239,230,.72)}
 <section id="galeria">
   <div class="wrap">
     <div class="tag reveal" data-pt="Galeria" data-en="Gallery">Galeria</div>
-    <h2 class="lead reveal" data-pt="As suítes, o entorno e a <em>mata</em>." data-en="The suites, the surroundings and the <em>forest</em>.">As suítes, o entorno e a <em>mata</em>.</h2>
+    <h2 class="lead reveal" data-pt="As suítes, o jardim e a <em>região</em>." data-en="The suites, the garden and the <em>region</em>.">As suítes, o jardim e a <em>região</em>.</h2>
     <div class="gal" id="gal"></div>
   </div>
 </section>
@@ -471,12 +466,13 @@ footer nav a{color:rgba(246,239,230,.72)}
 
 <section id="contato">
   <div id="cta">
+    <div id="ctabg"></div>
     <div class="wrap">
       <h2 data-pt="Vem passar uns dias no <em>Sommer Lodge</em>." data-en="Come spend a few days at <em>Sommer Lodge</em>.">Vem passar uns dias no <em>Sommer Lodge</em>.</h2>
       <p data-pt="Me conta as datas e quantas pessoas, que eu confirmo a disponibilidade das suítes." data-en="Tell me your dates and how many guests, and I'll confirm suite availability.">Me conta as datas e quantas pessoas, que eu confirmo a disponibilidade das suítes.</p>
       <div class="btns">
-        <a class="btn btn-cream" id="mailbtn" href="mailto:sommerluis71@gmail.com?subject=Reserva%20Sommer%20Lodge" data-pt="Enviar e-mail" data-en="Send an email">Enviar e-mail</a>
-        <a class="btn btn-ghost" href="#suites" data-pt="Ver as suítes" data-en="See the suites">Ver as suítes</a>
+        <a class="btn btn-wa" id="wabtn" href="https://wa.me/5548991196477" target="_blank" rel="noopener" data-pt="Falar no WhatsApp" data-en="Chat on WhatsApp">Falar no WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:sommerluis71@gmail.com?subject=Reserva%20Sommer%20Lodge" data-pt="Enviar e-mail" data-en="Send an email">Enviar e-mail</a>
       </div>
     </div>
   </div>
@@ -487,7 +483,8 @@ footer nav a{color:rgba(246,239,230,.72)}
     <div>
       <div style="font-family:'Fraunces',serif;font-size:17px;color:var(--cream)">Sommer Lodge</div>
       <div style="margin-top:4px">Garopaba · Santa Catarina</div>
-      <div style="margin-top:7px"><a href="mailto:sommerluis71@gmail.com">sommerluis71@gmail.com</a></div>
+      <div style="margin-top:7px"><a href="https://wa.me/5548991196477" target="_blank" rel="noopener">(48) 99119-6477</a></div>
+      <div style="margin-top:3px"><a href="mailto:sommerluis71@gmail.com">sommerluis71@gmail.com</a></div>
     </div>
     <nav>
       <a href="#sobre" data-pt="A casa" data-en="The lodge">A casa</a>
@@ -499,7 +496,7 @@ footer nav a{color:rgba(246,239,230,.72)}
   </div>
 </footer>
 
-<div id="float"><a class="btn btn-teal" href="#contato" data-pt="Consultar datas" data-en="Check dates">Consultar datas</a></div>
+<div id="float"><a class="btn btn-wa" href="https://wa.me/5548991196477" target="_blank" rel="noopener" data-pt="Reservar" data-en="Book">Reservar</a></div>
 
 <div id="dv" role="dialog" aria-modal="true" aria-hidden="true">
   <div id="dvbar">
@@ -508,20 +505,20 @@ footer nav a{color:rgba(246,239,230,.72)}
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg>
         <span data-pt="Voltar" data-en="Back">Voltar</span>
       </button>
-      <a class="btn btn-teal" href="#contato" id="dvbook" data-pt="Reservar" data-en="Book">Reservar</a>
+      <a class="btn btn-wa" id="dvwa" href="https://wa.me/5548991196477" target="_blank" rel="noopener" data-pt="Reservar" data-en="Book">Reservar</a>
     </div>
   </div>
   <div id="dvwrap">
     <h2 id="dvname"></h2>
     <p id="dvmean"></p>
-    <div class="ph" id="dvhero"></div>
+    <div class="pic" id="dvhero"><img id="dvheroimg" alt=""></div>
     <div id="dvgal"></div>
     <div id="dvfacts"></div>
     <div class="tag" style="margin-top:34px" data-pt="Comodidades" data-en="Amenities">Comodidades</div>
     <div id="dvamen"></div>
     <p class="body" id="dvdesc" style="margin-top:26px"></p>
     <div id="dvcta">
-      <a class="btn btn-teal" href="mailto:sommerluis71@gmail.com" id="dvmail" data-pt="Consultar datas" data-en="Check dates">Consultar datas</a>
+      <a class="btn btn-wa" id="dvwa2" href="https://wa.me/5548991196477" target="_blank" rel="noopener" data-pt="Consultar datas" data-en="Check dates">Consultar datas</a>
     </div>
   </div>
 </div>
@@ -531,16 +528,14 @@ footer nav a{color:rgba(246,239,230,.72)}
   <button id="lbx" type="button" aria-label="Fechar">&#10005;</button>
   <button id="lbp" type="button" aria-label="Anterior">&#8249;</button>
   <button id="lbnx" type="button" aria-label="Próxima">&#8250;</button>
-  <div id="lbbox">
-    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="opacity:.38"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/></svg>
-    <div id="lbcap"></div>
-  </div>
+  <img id="lbimg" alt="">
+  <div id="lbcap"></div>
 </div>
 
 <script>
 (function(){
+var WA='https://wa.me/5548991196477';
 var ICO={
-  cam:'<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/></svg>',
   user:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>',
   arrow:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
   ac:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h10"/><path d="M17 15l2 2 2-2"/></svg>',
@@ -550,28 +545,26 @@ var ICO={
   wifi:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5.5 5.5 0 0 1 7 0"/><path d="M2 9a15 15 0 0 1 20 0"/><circle cx="12" cy="19.5" r="1"/></svg>',
   door:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10l9-6 9 6v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M15 21v-8H9v8"/></svg>'
 };
+var DESC_PT='Suíte independente com entrada própria para o jardim, para 2 a 4 hóspedes. Ar-condicionado, frigobar, TV a cabo, cozinha compacta e internet de fibra.';
+var DESC_EN='Independent suite with its own entrance onto the garden, for 2 to 4 guests. Air conditioning, mini fridge, cable TV, small kitchen and fibre internet.';
 
 var SUITES=[
- {id:'wainui',n:'Wainui',cap:4,
+ {n:'Wainui',img:'fotos/s1-a.webp',
   mp:'Batizada por uma praia larga de areia dourada, na Nova Zelândia.',
   me:'Named after a wide golden-sand beach in New Zealand.',
-  dp:'Suíte independente com entrada própria, para 2 a 4 hóspedes. Ar-condicionado, frigobar, TV a cabo, cozinha compacta e internet de fibra.',
-  de:'Independent suite with its own entrance, for 2 to 4 guests. Air conditioning, mini fridge, cable TV, small kitchen and fibre internet.'},
- {id:'waipataki',n:'Waipataki',cap:4,
+  g:[['fotos/s1-a.webp','Camas','Beds'],['fotos/int-1.webp','Quarto e cozinha','Room and kitchen'],['fotos/int-3.webp','Cozinha compacta','Small kitchen'],['fotos/int-4.webp','Pia e frigobar','Sink and fridge']]},
+ {n:'Waipataki',img:'fotos/s2-a.webp',
   mp:'Leva o nome das falésias que marcam aquela costa.',
   me:'Named for the headlands that mark that coastline.',
-  dp:'Suíte independente com entrada própria, para 2 a 4 hóspedes. Ar-condicionado, frigobar, TV a cabo, cozinha compacta e internet de fibra.',
-  de:'Independent suite with its own entrance, for 2 to 4 guests. Air conditioning, mini fridge, cable TV, small kitchen and fibre internet.'},
- {id:'tolaga',n:'Tolaga Bay',cap:4,
+  g:[['fotos/s2-a.webp','Ambiente da suíte','The suite'],['fotos/int-5.webp','Cozinha e TV','Kitchen and TV'],['fotos/int-2.webp','Mesa e TV','Table and TV'],['fotos/int-4.webp','Pia e frigobar','Sink and fridge']]},
+ {n:'Tolaga Bay',img:'fotos/s3-a.webp',
   mp:'Inspirada na baía aberta e comprida da costa leste.',
   me:'Inspired by the long open bay of the East Coast.',
-  dp:'Suíte independente com entrada própria, para 2 a 4 hóspedes. Ar-condicionado, frigobar, TV a cabo, cozinha compacta e internet de fibra.',
-  de:'Independent suite with its own entrance, for 2 to 4 guests. Air conditioning, mini fridge, cable TV, small kitchen and fibre internet.'},
- {id:'haumoana',n:'Haumoana',cap:4,
+  g:[['fotos/s3-a.webp','Quarto','Bedroom'],['fotos/int-2.webp','Mesa e TV','Table and TV'],['fotos/int-3.webp','Cozinha compacta','Small kitchen'],['fotos/int-1.webp','Quarto e cozinha','Room and kitchen']]},
+ {n:'Haumoana',img:'fotos/s4-a.webp',
   mp:'“Brisa do mar”, em māori.',
   me:'“Sea breeze”, in Māori.',
-  dp:'Suíte independente com entrada própria, para 2 a 4 hóspedes. Ar-condicionado, frigobar, TV a cabo, cozinha compacta e internet de fibra.',
-  de:'Independent suite with its own entrance, for 2 to 4 guests. Air conditioning, mini fridge, cable TV, small kitchen and fibre internet.'}
+  g:[['fotos/s4-a.webp','Banheiro e espelho','Bathroom and mirror'],['fotos/int-5.webp','Cozinha e TV','Kitchen and TV'],['fotos/int-1.webp','Quarto e cozinha','Room and kitchen'],['fotos/int-3.webp','Cozinha compacta','Small kitchen']]}
 ];
 
 var AMEN=[
@@ -584,29 +577,38 @@ var AMEN=[
 ];
 
 var GAL=[
- {p:'Vista aérea do lodge',e:'The lodge from above',w:1},
- {p:'Interior da suíte',e:'Inside a suite',w:0},
- {p:'Área externa',e:'Outdoor area',w:0},
- {p:'Cozinha compacta',e:'Small kitchen',w:0},
- {p:'Mata atlântica',e:'Atlantic forest',w:0},
- {p:'Praia do Ouvidor',e:'Praia do Ouvidor',w:1}
+ {s:'fotos/casa.webp',p:'Jardim e varanda das suítes',e:'Garden and suite verandah',w:1},
+ {s:'fotos/s2-a.webp',p:'Ambiente da suíte',e:'Inside a suite',w:0},
+ {s:'fotos/jardim.webp',p:'Pergolado com buganvílias',e:'Pergola with bougainvillea',w:0},
+ {s:'fotos/int-3.webp',p:'Cozinha compacta',e:'Small kitchen',w:0},
+ {s:'fotos/s1-a.webp',p:'Camas da suíte',e:'Suite beds',w:0},
+ {s:'fotos/fachada.webp',p:'Entrada e estacionamento',e:'Entrance and parking',w:1},
+ {s:'fotos/int-2.webp',p:'Mesa e TV',e:'Table and TV',w:0},
+ {s:'fotos/flor.webp',p:'Flor no jardim',e:'Flower in the garden',w:0},
+ {s:'fotos/borboleta.webp',p:'Borboleta-coruja',e:'Owl butterfly',w:0},
+ {s:'fotos/placa.webp',p:'Caminho da praia',e:'Path to the beach',w:0},
+ {s:'fotos/praia-arvores.webp',p:'Mar visto da trilha',e:'The sea from the trail',w:0},
+ {s:'fotos/porsol.webp',p:'Pôr do sol na praia',e:'Sunset on the beach',w:1}
 ];
 
 var NEAR=[
- {p:'Surfland',e:'Surfland',tp:'100 m',te:'100 m',
-  dp:'A piscina de ondas fica literalmente na esquina — dá pra ir a pé.',
-  de:'The wave pool is right around the corner — walking distance.'},
- {p:'Praia do Ouvidor',e:'Praia do Ouvidor',tp:'5 min de carro',te:'5 min drive',
+ {s:'fotos/surfland.webp',p:'Surfland',e:'Surfland',tp:'100 m',te:'100 m',
+  dp:'A piscina de ondas fica na esquina — dá pra ir a pé.',
+  de:'The wave pool is around the corner — walking distance.'},
+ {s:'fotos/praia-arvores.webp',p:'Praia do Ouvidor',e:'Praia do Ouvidor',tp:'5 min de carro',te:'5 min drive',
   dp:'A praia mais próxima do lodge.',de:'The closest beach to the lodge.'},
- {p:'Praia do Rosa',e:'Praia do Rosa',tp:'12 min de carro',te:'12 min drive',
+ {s:'fotos/rosa.webp',p:'Praia do Rosa',e:'Praia do Rosa',tp:'12 min de carro',te:'12 min drive',
   dp:'Uma das praias mais conhecidas do litoral catarinense.',
   de:'One of the best-known beaches on the Santa Catarina coast.'},
- {p:'Barra da Ferrugem',e:'Barra da Ferrugem',tp:'20 min de carro',te:'20 min drive',
-  dp:'Mais um trecho de praia da região, a vinte minutos.',
-  de:'Another stretch of coast in the region, twenty minutes away.'},
- {p:'Cachoeiras da mata',e:'Rainforest waterfalls',tp:'20 min a 1 h',te:'20 min to 1 h',
+ {s:'fotos/surf.webp',p:'Surf na região',e:'Surf nearby',tp:'Ouvidor, Rosa e Ferrugem',te:'Ouvidor, Rosa and Ferrugem',
+  dp:'Barra da Ferrugem fica a 20 minutos de carro.',
+  de:'Barra da Ferrugem is a 20-minute drive away.'},
+ {s:'fotos/cachoeira.webp',p:'Cachoeiras da mata',e:'Rainforest waterfalls',tp:'20 min a 1 h',te:'20 min to 1 h',
   dp:'Três cachoeiras em meio à mata atlântica. O tempo varia com o trânsito da temporada.',
-  de:'Three waterfalls in the Atlantic forest. Travel time varies with high-season traffic.'}
+  de:'Three waterfalls in the Atlantic forest. Travel time varies with high-season traffic.'},
+ {s:'fotos/baleia.webp',p:'Baleias francas',e:'Right whales',tp:'Inverno e primavera',te:'Winter and spring',
+  dp:'As baleias francas aparecem na costa de Garopaba na temporada.',
+  de:'Right whales show up off the Garopaba coast in season.'}
 ];
 
 var FAQ=[
@@ -615,14 +617,16 @@ var FAQ=[
  {qp:'Quantas pessoas cabem em cada suíte?',qe:'How many guests fit in each suite?',
   ap:'Cada suíte acomoda de 2 a 4 hóspedes.',ae:'Each suite sleeps 2 to 4 guests.'},
  {qp:'As suítes têm cozinha?',qe:'Do the suites have a kitchen?',
-  ap:'Sim. Todas têm cozinha compacta e frigobar.',ae:'Yes. All of them have a small kitchen and a mini fridge.'},
+  ap:'Sim. Todas têm cozinha compacta com fogão, pia e frigobar.',ae:'Yes. All of them have a small kitchen with a cooktop, sink and mini fridge.'},
  {qp:'Tem internet?',qe:'Is there internet?',
   ap:'Sim, internet de fibra em todas as suítes.',ae:'Yes, fibre internet in every suite.'},
  {qp:'Quanto tempo até as praias?',qe:'How far are the beaches?',
   ap:'Praia do Ouvidor a 5 minutos, Praia do Rosa a 12 e Barra da Ferrugem a 20, de carro. Os tempos variam na alta temporada.',
   ae:'Praia do Ouvidor is 5 minutes away, Praia do Rosa 12 and Barra da Ferrugem 20, by car. Times vary in high season.'},
  {qp:'A Surfland é longe?',qe:'Is Surfland far?',
-  ap:'Não. O lodge fica a 100 metros da Surfland.',ae:'No. The lodge is 100 m from Surfland.'}
+  ap:'Não. O lodge fica a 100 metros da Surfland, dá pra ir a pé.',ae:'No. The lodge is 100 m from Surfland — walking distance.'},
+ {qp:'Tem estacionamento?',qe:'Is there parking?',
+  ap:'Sim, há espaço para carro dentro do terreno.',ae:'Yes, there is space for a car inside the property.'}
 ];
 
 var L='pt';
@@ -634,17 +638,16 @@ function obsAll(){
     el.style.transitionDelay=(Math.min(i%4,3)*70)+'ms';io.observe(el);
   });
 }
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function ph(label,cls,extra){
-  return '<div class="ph '+(cls||'')+'"'+(extra||'')+'>'+ICO.cam+'<em>'+esc(label)+'</em></div>';
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function pic(src,alt,cls,extra){
+  return '<div class="pic '+(cls||'')+'"'+(extra||'')+'><img src="'+esc(src)+'" alt="'+esc(alt)+'" loading="lazy"></div>';
 }
 
-/* ---------- render ---------- */
 var sgrid=document.getElementById('sgrid');
 function renderSuites(){
   sgrid.innerHTML=SUITES.map(function(s,i){
-    return '<article class="suite reveal" data-i="'+i+'" data-cap="'+s.cap+'" tabindex="0" role="button">'+
-      ph(L==='pt'?('Foto da '+s.n):(s.n+' photo'))+
+    return '<article class="suite reveal" data-i="'+i+'" tabindex="0" role="button">'+
+      pic(s.img,s.n,'')+
       '<div class="in"><h3>'+esc(s.n)+'</h3>'+
       '<p class="mean">'+esc(L==='pt'?s.mp:s.me)+'</p>'+
       '<div class="foot"><span class="cap">'+ICO.user+' '+(L==='pt'?'2 a 4 hóspedes':'2 to 4 guests')+'</span>'+
@@ -652,20 +655,22 @@ function renderSuites(){
   }).join('');
   obsAll();
 }
-document.getElementById('amen').innerHTML=AMEN.map(function(a){
-  return '<div class="reveal">'+ICO[a.i]+'<span data-pt="'+a.p+'" data-en="'+a.e+'">'+a.p+'</span></div>';
-}).join('');
-
+function renderAmen(){
+  document.getElementById('amen').innerHTML=AMEN.map(function(a){
+    return '<div class="reveal">'+ICO[a.i]+'<span>'+esc(L==='pt'?a.p:a.e)+'</span></div>';
+  }).join('');
+  obsAll();
+}
 var galEl=document.getElementById('gal');
 function renderGal(){
   galEl.innerHTML=GAL.map(function(g,i){
-    return ph(L==='pt'?g.p:g.e,(g.w?'wide ':'')+'reveal',' data-g="'+i+'" tabindex="0" role="button"');
+    return pic(g.s,L==='pt'?g.p:g.e,(g.w?'wide ':'')+'reveal',' data-g="'+i+'" tabindex="0" role="button"');
   }).join('');
   obsAll();
 }
 function renderNear(){
   document.getElementById('near').innerHTML=NEAR.map(function(n){
-    return '<article class="reveal">'+ph(L==='pt'?n.p:n.e)+
+    return '<article class="reveal">'+pic(n.s,L==='pt'?n.p:n.e,'')+
       '<div class="in"><h4>'+esc(L==='pt'?n.p:n.e)+'</h4>'+
       '<span class="t">'+esc(L==='pt'?n.tp:n.te)+'</span>'+
       '<p>'+esc(L==='pt'?n.dp:n.de)+'</p></div></article>';
@@ -678,31 +683,31 @@ function renderFaq(){
       '<div class="a">'+esc(L==='pt'?f.ap:f.ae)+'</div></details>';
   }).join('');
 }
-renderSuites();renderGal();renderNear();renderFaq();
+renderSuites();renderAmen();renderGal();renderNear();renderFaq();
 
 /* ---------- detalhe ---------- */
-var dv=document.getElementById('dv'),lastFocus=null;
+var dv=document.getElementById('dv'),lastFocus=null,dvI=0;
 function openDv(i){
-  var s=SUITES[i];if(!s)return;
+  var s=SUITES[i];if(!s)return;dvI=i;
   document.getElementById('dvname').textContent=s.n;
   document.getElementById('dvmean').textContent=L==='pt'?s.mp:s.me;
-  var hero=document.getElementById('dvhero');
-  hero.innerHTML=ICO.cam+'<em>'+esc(L==='pt'?('Foto principal da '+s.n):('Main '+s.n+' photo'))+'</em>';
-  var labels=L==='pt'?['Quarto','Cozinha','Banheiro','Entrada']:['Bedroom','Kitchen','Bathroom','Entrance'];
-  document.getElementById('dvgal').innerHTML=labels.map(function(l,k){
-    return ph(l,'',' data-dg="'+k+'" data-dgname="'+esc(s.n)+'" tabindex="0" role="button"');
+  var hi=document.getElementById('dvheroimg');
+  hi.src=s.img;hi.alt=s.n;
+  document.getElementById('dvgal').innerHTML=s.g.map(function(g,k){
+    return pic(g[0],L==='pt'?g[1]:g[2],'',' data-dg="'+k+'" tabindex="0" role="button"');
   }).join('');
   document.getElementById('dvfacts').innerHTML=
     '<div><small>'+(L==='pt'?'Hóspedes':'Guests')+'</small><b>2 '+(L==='pt'?'a':'to')+' 4</b></div>'+
-    '<div><small>'+(L==='pt'?'Check-in':'Check-in')+'</small><b>'+(L==='pt'?'a partir das 12h':'from 12:00 pm')+'</b></div>'+
-    '<div><small>'+(L==='pt'?'Check-out':'Check-out')+'</small><b>'+(L==='pt'?'até as 10h':'until 10:00 am')+'</b></div>'+
-    '<div><small>'+(L==='pt'?'Surfland':'Surfland')+'</small><b>100 m</b></div>';
+    '<div><small>Check-in</small><b>'+(L==='pt'?'a partir das 12h':'from 12:00 pm')+'</b></div>'+
+    '<div><small>Check-out</small><b>'+(L==='pt'?'até as 10h':'until 10:00 am')+'</b></div>'+
+    '<div><small>Surfland</small><b>100 m</b></div>';
   document.getElementById('dvamen').innerHTML=AMEN.map(function(a){
     return '<span>'+esc(L==='pt'?a.p:a.e)+'</span>';
   }).join('');
-  document.getElementById('dvdesc').textContent=L==='pt'?s.dp:s.de;
-  document.getElementById('dvmail').href='mailto:sommerluis71@gmail.com?subject='+
-    encodeURIComponent((L==='pt'?'Reserva — suíte ':'Booking — ')+s.n+' — Sommer Lodge');
+  document.getElementById('dvdesc').textContent=L==='pt'?DESC_PT:DESC_EN;
+  var msg=encodeURIComponent((L==='pt'?'Olá! Tenho interesse na suíte ':'Hi! I am interested in the ')+s.n+(L==='pt'?' do Sommer Lodge.':' suite at Sommer Lodge.'));
+  document.getElementById('dvwa').href=WA+'?text='+msg;
+  document.getElementById('dvwa2').href=WA+'?text='+msg;
   dv.classList.add('open');dv.setAttribute('aria-hidden','false');
   document.body.classList.add('lock');dv.scrollTop=0;
   lastFocus=document.activeElement;
@@ -710,11 +715,10 @@ function openDv(i){
 }
 function closeDv(){
   dv.classList.remove('open');dv.setAttribute('aria-hidden','true');
-  if(!document.getElementById('lb').classList.contains('open')) document.body.classList.remove('lock');
+  if(!document.getElementById('lb').classList.contains('open'))document.body.classList.remove('lock');
   if(lastFocus&&lastFocus.focus)lastFocus.focus();
 }
 document.getElementById('dvback').addEventListener('click',closeDv);
-document.getElementById('dvbook').addEventListener('click',closeDv);
 sgrid.addEventListener('click',function(e){
   var a=e.target.closest('.suite');if(a)openDv(parseInt(a.getAttribute('data-i'),10));
 });
@@ -725,14 +729,17 @@ sgrid.addEventListener('keydown',function(e){
 });
 
 /* ---------- lightbox ---------- */
-var lb=document.getElementById('lb'),lbcap=document.getElementById('lbcap'),lbn=document.getElementById('lbn');
+var lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),
+    lbcap=document.getElementById('lbcap'),lbn=document.getElementById('lbn');
 var lbList=[],lbI=0;
 function lbShow(){
   if(!lbList.length)return;
-  lbcap.textContent=lbList[lbI];
+  lbimg.src=lbList[lbI][0];lbimg.alt=lbList[lbI][1];
+  lbcap.textContent=lbList[lbI][1];
   lbn.textContent=(lbI+1)+' / '+lbList.length;
 }
 function openLb(list,i){
+  if(!list.length)return;
   lbList=list;lbI=i||0;lbShow();
   lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.classList.add('lock');
   document.getElementById('lbx').focus();
@@ -750,22 +757,30 @@ document.getElementById('lbp').addEventListener('click',function(){lbStep(-1);})
 document.getElementById('lbnx').addEventListener('click',function(){lbStep(1);});
 lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
 
+function galList(){return GAL.map(function(g){return [g.s,L==='pt'?g.p:g.e];});}
 galEl.addEventListener('click',function(e){
   var el=e.target.closest('[data-g]');if(!el)return;
-  openLb(GAL.map(function(g){return L==='pt'?g.p:g.e;}),parseInt(el.getAttribute('data-g'),10));
+  openLb(galList(),parseInt(el.getAttribute('data-g'),10));
 });
 galEl.addEventListener('keydown',function(e){
   if(e.key!=='Enter'&&e.key!==' ')return;
   var el=e.target.closest('[data-g]');
-  if(el){e.preventDefault();
-    openLb(GAL.map(function(g){return L==='pt'?g.p:g.e;}),parseInt(el.getAttribute('data-g'),10));}
+  if(el){e.preventDefault();openLb(galList(),parseInt(el.getAttribute('data-g'),10));}
 });
+function dvList(){
+  var s=SUITES[dvI];if(!s)return [];
+  return s.g.map(function(g){return [g[0],L==='pt'?g[1]:g[2]];});
+}
 document.getElementById('dvgal').addEventListener('click',function(e){
   var el=e.target.closest('[data-dg]');if(!el)return;
-  var nm=el.getAttribute('data-dgname');
-  var labels=L==='pt'?['Quarto','Cozinha','Banheiro','Entrada']:['Bedroom','Kitchen','Bathroom','Entrance'];
-  openLb(labels.map(function(l){return l+' — '+nm;}),parseInt(el.getAttribute('data-dg'),10));
+  openLb(dvList(),parseInt(el.getAttribute('data-dg'),10));
 });
+document.getElementById('dvgal').addEventListener('keydown',function(e){
+  if(e.key!=='Enter'&&e.key!==' ')return;
+  var el=e.target.closest('[data-dg]');
+  if(el){e.preventDefault();openLb(dvList(),parseInt(el.getAttribute('data-dg'),10));}
+});
+document.getElementById('dvhero').addEventListener('click',function(){openLb(dvList(),0);});
 
 document.addEventListener('keydown',function(e){
   if(lb.classList.contains('open')){
@@ -790,6 +805,7 @@ function today(){
   var d=new Date(),m=String(d.getMonth()+1),dd=String(d.getDate());
   return d.getFullYear()+'-'+(m.length<2?'0'+m:m)+'-'+(dd.length<2?'0'+dd:dd);
 }
+function br(iso){var p=iso.split('-');return p.length===3?p[2]+'/'+p[1]+'/'+p[0]:iso;}
 bkin.min=today();bkout.min=today();
 bkin.addEventListener('change',function(){if(bkin.value)bkout.min=bkin.value;});
 bk.addEventListener('submit',function(e){
@@ -804,14 +820,10 @@ bk.addEventListener('submit',function(e){
     bkWarn.classList.add('on');return;
   }
   var g=bkg.value,gl=(g==='5')?(L==='pt'?'5 ou mais':'5 or more'):g;
-  var sub=(L==='pt'?'Reserva Sommer Lodge — ':'Booking Sommer Lodge — ')+bkin.value+' a '+bkout.value;
-  var body=(L==='pt'
-    ? 'Olá! Gostaria de consultar disponibilidade.\n\nCheck-in: '+bkin.value+'\nCheck-out: '+bkout.value+'\nHóspedes: '+gl+'\n\nObrigado!'
-    : 'Hello! I would like to check availability.\n\nCheck-in: '+bkin.value+'\nCheck-out: '+bkout.value+'\nGuests: '+gl+'\n\nThank you!');
-  document.getElementById('mailbtn').href='mailto:sommerluis71@gmail.com?subject='+
-    encodeURIComponent(sub)+'&body='+encodeURIComponent(body);
-  var ct=document.getElementById('contato');
-  if(ct&&ct.scrollIntoView)ct.scrollIntoView({behavior:'smooth'});
+  var txt=(L==='pt'
+    ? 'Olá! Gostaria de consultar disponibilidade no Sommer Lodge.\nCheck-in: '+br(bkin.value)+'\nCheck-out: '+br(bkout.value)+'\nHóspedes: '+gl
+    : 'Hello! I would like to check availability at Sommer Lodge.\nCheck-in: '+bkin.value+'\nCheck-out: '+bkout.value+'\nGuests: '+gl);
+  window.open(WA+'?text='+encodeURIComponent(txt),'_blank','noopener');
 });
 
 /* ---------- scroll ---------- */
@@ -859,7 +871,6 @@ document.addEventListener('click',function(e){
   }
 });
 
-/* ---------- reveal + contadores ---------- */
 obsAll();
 
 var cio=new IntersectionObserver(function(es){
@@ -889,8 +900,9 @@ function setLang(l){
     if(v!=null)el.innerHTML=v;
   });
   btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-l')===l);});
-  renderSuites();renderGal();renderNear();renderFaq();
+  renderSuites();renderAmen();renderGal();renderNear();renderFaq();
   if(dv.classList.contains('open'))closeDv();
+  if(lb.classList.contains('open'))closeLb();
   try{localStorage.setItem('sl-lang',l);}catch(e){}
 }
 btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-l'));});});
