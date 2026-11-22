@@ -180,6 +180,38 @@ h2.big em{font-family:'Newsreader',serif;font-style:italic;font-weight:300;lette
   border-bottom:2px solid var(--cyan);padding-bottom:3px;transition:gap .25s}
 .srow:hover .slink{gap:14px}
 
+/* planta 3d */
+#planta3d .cartao{position:relative;margin-top:clamp(28px,4.5vh,50px);border-radius:22px;overflow:hidden;
+  background:var(--deep);box-shadow:var(--sh);display:block;text-decoration:none;color:#f3f2ee}
+#planta3d .cartao img{width:100%;height:auto;aspect-ratio:1308/900;object-fit:cover;
+  transition:transform .9s cubic-bezier(.2,.8,.3,1)}
+#planta3d .cartao:hover img{transform:scale(1.035)}
+#planta3d .cartao .veu{position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(6,22,26,.82) 0%,rgba(6,22,26,.25) 42%,rgba(6,22,26,0) 72%)}
+#planta3d .cartao .dentro{position:absolute;left:0;right:0;bottom:0;z-index:2;
+  display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;
+  padding:clamp(20px,3.4vw,38px)}
+#planta3d .cartao h3{font-size:clamp(23px,3.2vw,38px);font-weight:500;letter-spacing:-.03em;max-width:17ch}
+#planta3d .cartao p{font-family:'Newsreader',serif;font-size:15.5px;font-weight:300;
+  opacity:.82;margin-top:9px;max-width:40ch}
+#planta3d .cartao .abrir{display:inline-flex;align-items:center;gap:10px;flex:none;
+  background:#f3f2ee;color:var(--deep);border-radius:999px;padding:13px 24px;
+  font-family:'Bricolage Grotesque',sans-serif;font-size:14.5px;font-weight:500;
+  transition:transform .22s cubic-bezier(.2,.9,.3,1),background .22s}
+#planta3d .cartao:hover .abrir{background:var(--cyan);color:#fff;transform:translateY(-2px)}
+#planta3d .cartao .abrir svg{width:17px;height:17px}
+#planta3d .fichas{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+#planta3d .fichas span{background:var(--white);border:1px solid var(--hair);border-radius:999px;
+  padding:9px 16px;font-family:'Bricolage Grotesque',sans-serif;font-size:13.5px;font-weight:500;color:var(--ink-2)}
+@media (max-width:640px){
+  /* no celular a imagem aparece inteira e o texto desce pra baixo dela */
+  #planta3d .cartao .veu{display:none}
+  #planta3d .cartao .dentro{position:static;flex-direction:column;align-items:stretch;gap:14px}
+  #planta3d .cartao h3{font-size:22px}
+  #planta3d .cartao p{font-size:14.5px}
+  #planta3d .cartao .abrir{justify-content:center;width:100%}
+}
+
 .amen{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(28px,4vh,44px)}
 .amen div{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--hair);
   border-radius:3px;padding:13px 17px;font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:500}
@@ -383,6 +415,7 @@ footer nav a{color:rgba(243,242,238,.68);font-family:'Bricolage Grotesque',sans-
     <nav id="nav">
       <a href="#sobre" data-pt="A casa" data-en="The lodge">A casa</a>
       <a href="#suites" data-pt="Suítes" data-en="Suites">Suítes</a>
+      <a href="#planta3d" data-pt="Planta 3D" data-en="3D plan">Planta 3D</a>
       <a href="#galeria" data-pt="Fotos" data-en="Photos">Fotos</a>
       <a href="#perto" data-pt="Arredores" data-en="Around">Arredores</a>
       <a href="#local" data-pt="Como chegar" data-en="Getting here">Como chegar</a>
@@ -472,6 +505,38 @@ footer nav a{color:rgba(243,242,238,.68);font-family:'Bricolage Grotesque',sans-
   </div>
 </section>
 
+<section id="planta3d">
+  <div class="wrap">
+    <p class="mark-label" data-pt="planta 3d" data-en="3d floor plan">planta 3d</p>
+    <h2 class="big rise" data-pt="Entre na suíte antes de reservar." data-en="Step inside the suite before you book.">Entre na suíte antes de reservar.</h2>
+    <p class="prose" style="margin-top:18px" data-pt="As quatro suítes são iguais: 4 × 5 m, banheiro privativo, kitchenette e porta para a varanda. Gire o modelo, tire o telhado e veja como tudo se encaixa." data-en="The four suites are identical: 4 × 5 m, private bathroom, kitchenette and a door onto the verandah. Spin the model, lift the roof and see how it all fits.">As quatro suítes são iguais: 4 × 5 m, banheiro privativo, kitchenette e porta para a varanda. Gire o modelo, tire o telhado e veja como tudo se encaixa.</p>
+
+    <a class="cartao rise" href="planta/">
+      <img src="fotos/planta-3d.webp" width="1308" height="900" loading="lazy" decoding="async"
+           alt="Planta 3D das quatro suítes do Sommer Lodge vista de cima, sem o telhado">
+      <span class="veu"></span>
+      <span class="dentro">
+        <span>
+          <h3 data-pt="Planta 3D interativa" data-en="Interactive 3D floor plan">Planta 3D interativa</h3>
+          <p data-pt="As quatro suítes, a varanda e o jardim — em 3D, no celular ou no computador." data-en="The four suites, the verandah and the garden — in 3D, on your phone or computer.">As quatro suítes, a varanda e o jardim — em 3D, no celular ou no computador.</p>
+        </span>
+        <span class="abrir">
+          <span data-pt="Abrir a planta 3D" data-en="Open the 3D plan">Abrir a planta 3D</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+        </span>
+      </span>
+    </a>
+
+    <div class="fichas">
+      <span data-pt="20 m² por suíte" data-en="20 m² per suite">20 m² por suíte</span>
+      <span data-pt="4 × 5 m" data-en="4 × 5 m">4 × 5 m</span>
+      <span data-pt="Banheiro privativo" data-en="Private bathroom">Banheiro privativo</span>
+      <span data-pt="Kitchenette" data-en="Kitchenette">Kitchenette</span>
+      <span data-pt="Varanda coberta" data-en="Covered verandah">Varanda coberta</span>
+    </div>
+  </div>
+</section>
+
 <section id="band">
   <div id="bandimg"></div>
   <div class="cap">
@@ -556,6 +621,7 @@ footer nav a{color:rgba(243,242,238,.68);font-family:'Bricolage Grotesque',sans-
     <nav>
       <a href="#sobre" data-pt="A casa" data-en="The lodge">A casa</a>
       <a href="#suites" data-pt="Suítes" data-en="Suites">Suítes</a>
+      <a href="#planta3d" data-pt="Planta 3D" data-en="3D plan">Planta 3D</a>
       <a href="#galeria" data-pt="Fotos" data-en="Photos">Fotos</a>
       <a href="#local" data-pt="Como chegar" data-en="Getting here">Como chegar</a>
     </nav>
