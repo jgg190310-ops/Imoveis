@@ -119,16 +119,22 @@ h2.big em{font-family:'Newsreader',serif;font-style:italic;font-weight:300;lette
 .rail .sp{flex:1;min-width:0}
 
 .book{margin:18px 0 clamp(20px,3.4vh,30px);display:flex;flex-wrap:wrap;gap:9px;align-items:flex-end;
-  background:rgba(243,242,238,.58);-webkit-backdrop-filter:blur(22px) saturate(150%);backdrop-filter:blur(22px) saturate(150%);
-  border:1px solid rgba(255,255,255,.4);border-radius:4px;padding:14px;color:var(--ink);max-width:720px;box-shadow:var(--sh)}
+  background:rgba(243,242,238,.3);-webkit-backdrop-filter:blur(26px) saturate(160%);backdrop-filter:blur(26px) saturate(160%);
+  border:1px solid rgba(255,255,255,.45);border-radius:4px;padding:14px;color:#f3f2ee;max-width:720px;box-shadow:var(--sh)}
 .fld{display:flex;flex-direction:column;gap:3px;flex:1 1 142px;min-width:126px}
 .fld label{font-family:'Newsreader',serif;font-style:italic;font-size:13.5px;color:var(--ink-2)}
 .fld input,.fld select{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:500;color:var(--ink);
   background:transparent;border:0;border-bottom:1.5px solid var(--rule);padding:4px 0;width:100%;border-radius:0}
 .fld input:focus,.fld select:focus{outline:0;border-bottom-color:var(--cyan)}
-.book .fld label{color:#2d4046}
-.book .fld input,.book .fld select{border-bottom-color:rgba(18,37,42,.3)}
-#bkWarn{flex:1 1 100%;font-family:'Newsreader',serif;font-style:italic;font-size:14.5px;color:#c25a36;display:none}
+.book .fld label{color:rgba(243,242,238,.88);text-shadow:0 1px 10px rgba(6,22,26,.6)}
+.book .fld input,.book .fld select{color:#f3f2ee;border-bottom-color:rgba(243,242,238,.45);
+  text-shadow:0 1px 10px rgba(6,22,26,.5)}
+.book .fld select option{color:var(--ink);background:var(--paper)}
+.book .fld input:focus,.book .fld select:focus{border-bottom-color:var(--cyan)}
+.btn-glass{background:rgba(243,242,238,.14);color:#f3f2ee;border:1.5px solid rgba(243,242,238,.55)}
+.btn-glass:hover{background:rgba(243,242,238,.28);transform:translateY(-2px)}
+#bkWarn{flex:1 1 100%;font-family:'Newsreader',serif;font-style:italic;font-size:14.5px;
+  color:#ffd9c6;text-shadow:0 1px 10px rgba(6,22,26,.7);display:none}
 #bkWarn.on{display:block}
 
 .about{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,70px);align-items:start}
@@ -393,7 +399,7 @@ footer nav a{color:rgba(243,242,238,.68);font-family:'Bricolage Grotesque',sans-
           <option value="5" data-pt="5 ou mais" data-en="5 or more">5 ou mais</option>
         </select>
       </div>
-      <button class="btn btn-wa" type="submit" data-pt="Ver disponibilidade" data-en="Check availability">Ver disponibilidade</button>
+      <button class="btn btn-glass" type="submit" data-pt="Ver disponibilidade" data-en="Check availability">Ver disponibilidade</button>
       <div id="bkWarn"></div>
     </form>
 
