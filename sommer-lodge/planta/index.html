@@ -976,7 +976,10 @@ function loop() {
   requestAnimationFrame(loop);
 }
 loop();
-requestAnimationFrame(() => setTimeout(() => document.getElementById('carregando').classList.add('fora'), 400));
+const tiraCapa = () => document.getElementById('carregando').classList.add('fora');
+requestAnimationFrame(() => setTimeout(tiraCapa, 400));
+// se a aba abrir em segundo plano o requestAnimationFrame não roda; isso destrava a capa
+setTimeout(tiraCapa, 3000);
 
 addEventListener('resize', () => {
   camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
