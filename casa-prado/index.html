@@ -10,6 +10,7 @@
 <meta property="og:description" content="Piscina, churrasqueira com forno a lenha e 7 quartos com ar-condicionado, a 500 m da praia Segura as Ondas.">
 <meta property="og:image" content="https://jgg190310-ops.github.io/Imoveis/casa-prado/fotos/01-piscina-casa.webp">
 <meta name="theme-color" content="#0E3430">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%230E3430'/%3E%3Cg fill='none' stroke='%23D6B57E' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.5 44c.2-8 1.2-14 4.5-18.8' stroke-width='2.6'/%3E%3Cg stroke-width='2.2'%3E%3Cpath d='M25 25.2C20.5 21.5 13 21 7 26'/%3E%3Cpath d='M25 25.2C21 18.5 14 15.5 7 17.5'/%3E%3Cpath d='M25 25.2C24.5 16.5 28.5 10 36 8.5'/%3E%3Cpath d='M25 25.2C30 19 37.5 17.5 43 20.5'/%3E%3Cpath d='M25 25.2C31 23.5 38 25.5 42.5 30.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Jost:wght@400..600&display=swap" rel="stylesheet">
@@ -66,11 +67,13 @@ section{position:relative;z-index:2}
 #bar.inverse{color:var(--foam)}
 .barin{display:flex;align-items:center;justify-content:space-between;gap:18px;
   padding:13px var(--pad)}
-.brand{text-decoration:none;display:block;line-height:1.1}
+.brand{text-decoration:none;display:flex;align-items:center;gap:11px;line-height:1.1}
+.palm{width:30px;height:30px;flex:none;color:var(--sun)}
+#bar.inverse .palm{color:var(--sun-2)}
 .brand b{display:block;font-family:'Gloock',Georgia,serif;font-weight:400;
   font-size:19px;letter-spacing:-.012em}
-.brand span{display:block;font-size:12px;color:var(--mute);letter-spacing:.01em}
-#bar.inverse .brand span{color:rgba(246,242,234,.72)}
+.brand i{display:block;font-style:normal;font-size:12px;color:var(--mute);letter-spacing:.01em}
+#bar.inverse .brand i{color:rgba(246,242,234,.74)}
 #nav{display:flex;align-items:center;gap:clamp(14px,1.7vw,28px)}
 #nav a{font-size:15px;text-decoration:none;opacity:.72;transition:opacity .2s;padding:5px 0;position:relative}
 #nav a:hover,#nav a.cur{opacity:1}
@@ -92,7 +95,7 @@ section{position:relative;z-index:2}
 /* ---------- capa ---------- */
 #hero{position:relative;height:100svh;min-height:590px;overflow:hidden;background:var(--deep)}
 #heroimg{position:absolute;left:0;top:-11%;width:100%;height:122%;object-fit:cover;
-  object-position:center 58%;will-change:transform}
+  object-position:center 66%;will-change:transform}
 #hero::after{content:"";position:absolute;inset:0;z-index:2;
   background:linear-gradient(rgba(14,52,48,.52) 0,rgba(14,52,48,.12) 32%,rgba(14,52,48,.58) 72%,rgba(14,52,48,.95) 100%)}
 .hero-in{position:absolute;inset:auto 0 0 0;z-index:4;color:var(--foam);
@@ -263,7 +266,7 @@ footer a:hover{border-bottom-color:var(--sun)}
 
 <div id="bar">
   <div class="barin">
-    <a class="brand" href="#topo"><b>Casa em Prado</b><span>Prado, sul da Bahia</span></a>
+    <a class="brand" href="#topo"><svg class="palm" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 44c.2-8 1.2-14 4.5-18.8" stroke-width="2.6"/><g stroke-width="2.2"><path d="M25 25.2C20.5 21.5 13 21 7 26"/><path d="M25 25.2C21 18.5 14 15.5 7 17.5"/><path d="M25 25.2C24.5 16.5 28.5 10 36 8.5"/><path d="M25 25.2C30 19 37.5 17.5 43 20.5"/><path d="M25 25.2C31 23.5 38 25.5 42.5 30.5"/></g><g fill="currentColor" stroke="none"><circle cx="22.4" cy="27.6" r="1.2"/><circle cx="27.4" cy="28.2" r="1.2"/></g></svg><span><b>Casa em Prado</b><i>Prado, sul da Bahia</i></span></a>
     <nav id="nav">
       <a href="#casa">A casa</a>
       <a href="#galeria">Fotos</a>
@@ -440,7 +443,7 @@ footer a:hover{border-bottom-color:var(--sun)}
 
 <footer>
   <div class="fin">
-    <span>Casa de temporada em Prado, Bahia</span>
+    <span style="display:inline-flex;align-items:center;gap:10px"><svg class="palm" style="width:26px;height:26px;color:var(--sun-2)" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 44c.2-8 1.2-14 4.5-18.8" stroke-width="2.6"/><g stroke-width="2.2"><path d="M25 25.2C20.5 21.5 13 21 7 26"/><path d="M25 25.2C21 18.5 14 15.5 7 17.5"/><path d="M25 25.2C24.5 16.5 28.5 10 36 8.5"/><path d="M25 25.2C30 19 37.5 17.5 43 20.5"/><path d="M25 25.2C31 23.5 38 25.5 42.5 30.5"/></g><g fill="currentColor" stroke="none"><circle cx="22.4" cy="27.6" r="1.2"/><circle cx="27.4" cy="28.2" r="1.2"/></g></svg>Casa de temporada em Prado, Bahia</span>
     <span>Site criado por <a href="https://wa.me/5531999131903" target="_blank" rel="noopener">João Gabriel Geo</a> — (31) 99913-1903</span>
   </div>
 </footer>
