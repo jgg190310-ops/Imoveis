@@ -14,7 +14,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%230b3550'/%3E%3Cg fill='none' stroke='%23e0bb84' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.5 44c.2-8 1.2-14 4.5-18.8' stroke-width='2.6'/%3E%3Cg stroke-width='2.2'%3E%3Cpath d='M25 25.2C20.5 21.5 13 21 7 26'/%3E%3Cpath d='M25 25.2C21 18.5 14 15.5 7 17.5'/%3E%3Cpath d='M25 25.2C24.5 16.5 28.5 10 36 8.5'/%3E%3Cpath d='M25 25.2C30 19 37.5 17.5 43 20.5'/%3E%3Cpath d='M25 25.2C31 23.5 38 25.5 42.5 30.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://img.olx.com.br" crossorigin>
+<link rel="preconnect" href="https://img.olx.com.br">
 <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Jost:wght@400..600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -274,18 +274,32 @@ footer a:hover{border-bottom-color:var(--sun)}
 </head>
 <body>
 <script>
-document.addEventListener('error',function(e){
-  var t=e.target;
-  if(!t||t.tagName!=='IMG')return;
-  if(t.getAttribute('data-retry'))return;
-  var s=t.getAttribute('src')||'';
-  if(s.indexOf('img.olx.com.br')<0)return;
-  t.setAttribute('data-retry','1');
-  setTimeout(function(){
-    t.removeAttribute('srcset');
-    t.setAttribute('src',s+(s.indexOf('?')<0?'?':'&')+'r=1');
-  },900);
-},true);
+(function(){
+  var MAX=3, q=[], running=0;
+  function start(){
+    while(running<MAX && q.length){
+      (function(im){
+        running++;
+        var src=im.getAttribute('data-src'), ss=im.getAttribute('data-srcset'), tried=0;
+        function done(){ running--; im.removeAttribute('data-src'); start(); }
+        function fail(){
+          if(tried<2){ tried++; setTimeout(function(){ im.removeAttribute('srcset'); im.src=src+'&r='+tried; },700*tried); }
+          else done();
+        }
+        im.addEventListener('load',function(){ if(im.naturalWidth>0) done(); else fail(); });
+        im.addEventListener('error',fail);
+        if(ss) im.setAttribute('srcset',ss);
+        im.src=src;
+      })(q.shift());
+    }
+  }
+  function boot(){
+    q=[].slice.call(document.querySelectorAll('img[data-src]'));
+    start();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot);
+  else boot();
+})();
 </script>
 
 <div id="bar">
@@ -325,7 +339,7 @@ document.addEventListener('error',function(e){
         <div class="tally"><div><b>12</b><span>pessoas</span></div><div><b>3</b><span>quartos</span></div><div><b>2</b><span>banheiros</span></div></div>
       </div>
       <div class="shot">
-        <img src="https://img.olx.com.br/images/81/813670766249239.jpg?v=1" loading="lazy" alt="Rede azul na varanda da casa">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/images/81/813670766249239.jpg?v=1" alt="Rede azul na varanda da casa">
       </div>
     </div>
   </div>
@@ -336,30 +350,30 @@ document.addEventListener('error',function(e){
     <h2 class="d2">A casa e a vista</h2>
     <p class="lead" style="margin-top:18px">Da varanda aos quartos, e a praia logo abaixo. Toque na foto para ampliar.</p>
     <div id="gal">
-      <figure><img src="https://img.olx.com.br/thumbs500x500/61/615697643848199.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/61/615697643848199.jpg?v=1 500w, https://img.olx.com.br/images/61/615697643848199.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista aérea do Condomínio Casas Brancas" data-full="https://img.olx.com.br/images/61/615697643848199.jpg?v=1"><figcaption>O condomínio visto de cima, com o mar ao fundo</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/98/984668286018474.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/98/984668286018474.jpg?v=1 500w, https://img.olx.com.br/images/98/984668286018474.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista da praia a partir do Pontal do Atalaia" data-full="https://img.olx.com.br/images/98/984668286018474.jpg?v=1"><figcaption>A praia vista do Pontal</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/81/813670766249239.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/81/813670766249239.jpg?v=1 500w, https://img.olx.com.br/images/81/813670766249239.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Rede azul na varanda da casa" data-full="https://img.olx.com.br/images/81/813670766249239.jpg?v=1"><figcaption>Rede na varanda</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/81/816625649853810.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/81/816625649853810.jpg?v=1 500w, https://img.olx.com.br/images/81/816625649853810.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Mesa na varanda com vista para o mar" data-full="https://img.olx.com.br/images/81/816625649853810.jpg?v=1"><figcaption>Mesa na varanda, de frente para o mar</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/53/530647409721098.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/53/530647409721098.jpg?v=1 500w, https://img.olx.com.br/images/53/530647409721098.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Fachada branca da casa" data-full="https://img.olx.com.br/images/53/530647409721098.jpg?v=1"><figcaption>A fachada branca da casa</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/98/981618886167127.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/98/981618886167127.jpg?v=1 500w, https://img.olx.com.br/images/98/981618886167127.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Vista do condomínio a partir da casa" data-full="https://img.olx.com.br/images/98/981618886167127.jpg?v=1"><figcaption>A vista do condomínio</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/82/822609165198361.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/82/822609165198361.jpg?v=1 500w, https://img.olx.com.br/images/82/822609165198361.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Área externa da casa com vista" data-full="https://img.olx.com.br/images/82/822609165198361.jpg?v=1"><figcaption>A área externa</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/81/819687640746398.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/81/819687640746398.jpg?v=1 500w, https://img.olx.com.br/images/81/819687640746398.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Escadaria de acesso" data-full="https://img.olx.com.br/images/81/819687640746398.jpg?v=1"><figcaption>A escadaria de acesso</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/81/817691644896671.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/81/817691644896671.jpg?v=1 500w, https://img.olx.com.br/images/81/817691644896671.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Sala de estar com sofás" data-full="https://img.olx.com.br/images/81/817691644896671.jpg?v=1"><figcaption>Sala de estar</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/81/812695400535632.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/81/812695400535632.jpg?v=1 500w, https://img.olx.com.br/images/81/812695400535632.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Sala de jantar da casa" data-full="https://img.olx.com.br/images/81/812695400535632.jpg?v=1"><figcaption>Sala de jantar</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/81/813649761591008.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/81/813649761591008.jpg?v=1 500w, https://img.olx.com.br/images/81/813649761591008.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Cozinha equipada" data-full="https://img.olx.com.br/images/81/813649761591008.jpg?v=1"><figcaption>Cozinha equipada</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/82/829696163457097.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/82/829696163457097.jpg?v=1 500w, https://img.olx.com.br/images/82/829696163457097.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Bancada da cozinha com fogão" data-full="https://img.olx.com.br/images/82/829696163457097.jpg?v=1"><figcaption>Bancada e fogão</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/81/816621647416316.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/81/816621647416316.jpg?v=1 500w, https://img.olx.com.br/images/81/816621647416316.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com cama de casal" data-full="https://img.olx.com.br/images/81/816621647416316.jpg?v=1"><figcaption>Quarto de casal</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/20/205696761827933.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/20/205696761827933.jpg?v=1 500w, https://img.olx.com.br/images/20/205696761827933.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com cama de casal" data-full="https://img.olx.com.br/images/20/205696761827933.jpg?v=1"><figcaption>Outra cama de casal</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/81/813618046006414.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/81/813618046006414.jpg?v=1 500w, https://img.olx.com.br/images/81/813618046006414.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com beliches" data-full="https://img.olx.com.br/images/81/813618046006414.jpg?v=1"><figcaption>Quarto com beliches</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/81/813641285493099.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/81/813641285493099.jpg?v=1 500w, https://img.olx.com.br/images/81/813641285493099.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com dois beliches" data-full="https://img.olx.com.br/images/81/813641285493099.jpg?v=1"><figcaption>Beliches para as crianças</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/81/818648285214872.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/81/818648285214872.jpg?v=1 500w, https://img.olx.com.br/images/81/818648285214872.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Banheiro da casa" data-full="https://img.olx.com.br/images/81/818648285214872.jpg?v=1"><figcaption>Um dos banheiros</figcaption></figure>
-      <figure><img src="https://img.olx.com.br/thumbs500x500/20/208678400684789.jpg?v=1" srcset="https://img.olx.com.br/thumbs500x500/20/208678400684789.jpg?v=1 500w, https://img.olx.com.br/images/20/208678400684789.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Segundo banheiro da casa" data-full="https://img.olx.com.br/images/20/208678400684789.jpg?v=1"><figcaption>O outro banheiro</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/61/615697643848199.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/61/615697643848199.jpg?v=1 500w, https://img.olx.com.br/images/61/615697643848199.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista aérea do Condomínio Casas Brancas" data-full="https://img.olx.com.br/images/61/615697643848199.jpg?v=1"><figcaption>O condomínio visto de cima, com o mar ao fundo</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/98/984668286018474.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/98/984668286018474.jpg?v=1 500w, https://img.olx.com.br/images/98/984668286018474.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista da praia a partir do Pontal do Atalaia" data-full="https://img.olx.com.br/images/98/984668286018474.jpg?v=1"><figcaption>A praia vista do Pontal</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/81/813670766249239.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/81/813670766249239.jpg?v=1 500w, https://img.olx.com.br/images/81/813670766249239.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Rede azul na varanda da casa" data-full="https://img.olx.com.br/images/81/813670766249239.jpg?v=1"><figcaption>Rede na varanda</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/81/816625649853810.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/81/816625649853810.jpg?v=1 500w, https://img.olx.com.br/images/81/816625649853810.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Mesa na varanda com vista para o mar" data-full="https://img.olx.com.br/images/81/816625649853810.jpg?v=1"><figcaption>Mesa na varanda, de frente para o mar</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/53/530647409721098.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/53/530647409721098.jpg?v=1 500w, https://img.olx.com.br/images/53/530647409721098.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Fachada branca da casa" data-full="https://img.olx.com.br/images/53/530647409721098.jpg?v=1"><figcaption>A fachada branca da casa</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/98/981618886167127.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/98/981618886167127.jpg?v=1 500w, https://img.olx.com.br/images/98/981618886167127.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista do condomínio a partir da casa" data-full="https://img.olx.com.br/images/98/981618886167127.jpg?v=1"><figcaption>A vista do condomínio</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/82/822609165198361.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/82/822609165198361.jpg?v=1 500w, https://img.olx.com.br/images/82/822609165198361.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Área externa da casa com vista" data-full="https://img.olx.com.br/images/82/822609165198361.jpg?v=1"><figcaption>A área externa</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/81/819687640746398.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/81/819687640746398.jpg?v=1 500w, https://img.olx.com.br/images/81/819687640746398.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Escadaria de acesso" data-full="https://img.olx.com.br/images/81/819687640746398.jpg?v=1"><figcaption>A escadaria de acesso</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/81/817691644896671.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/81/817691644896671.jpg?v=1 500w, https://img.olx.com.br/images/81/817691644896671.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Sala de estar com sofás" data-full="https://img.olx.com.br/images/81/817691644896671.jpg?v=1"><figcaption>Sala de estar</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/81/812695400535632.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/81/812695400535632.jpg?v=1 500w, https://img.olx.com.br/images/81/812695400535632.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Sala de jantar da casa" data-full="https://img.olx.com.br/images/81/812695400535632.jpg?v=1"><figcaption>Sala de jantar</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/81/813649761591008.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/81/813649761591008.jpg?v=1 500w, https://img.olx.com.br/images/81/813649761591008.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Cozinha equipada" data-full="https://img.olx.com.br/images/81/813649761591008.jpg?v=1"><figcaption>Cozinha equipada</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/82/829696163457097.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/82/829696163457097.jpg?v=1 500w, https://img.olx.com.br/images/82/829696163457097.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Bancada da cozinha com fogão" data-full="https://img.olx.com.br/images/82/829696163457097.jpg?v=1"><figcaption>Bancada e fogão</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/81/816621647416316.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/81/816621647416316.jpg?v=1 500w, https://img.olx.com.br/images/81/816621647416316.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Quarto com cama de casal" data-full="https://img.olx.com.br/images/81/816621647416316.jpg?v=1"><figcaption>Quarto de casal</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/20/205696761827933.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/20/205696761827933.jpg?v=1 500w, https://img.olx.com.br/images/20/205696761827933.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Quarto com cama de casal" data-full="https://img.olx.com.br/images/20/205696761827933.jpg?v=1"><figcaption>Outra cama de casal</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/81/813618046006414.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/81/813618046006414.jpg?v=1 500w, https://img.olx.com.br/images/81/813618046006414.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Quarto com beliches" data-full="https://img.olx.com.br/images/81/813618046006414.jpg?v=1"><figcaption>Quarto com beliches</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/81/813641285493099.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/81/813641285493099.jpg?v=1 500w, https://img.olx.com.br/images/81/813641285493099.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Quarto com dois beliches" data-full="https://img.olx.com.br/images/81/813641285493099.jpg?v=1"><figcaption>Beliches para as crianças</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/81/818648285214872.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/81/818648285214872.jpg?v=1 500w, https://img.olx.com.br/images/81/818648285214872.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Banheiro da casa" data-full="https://img.olx.com.br/images/81/818648285214872.jpg?v=1"><figcaption>Um dos banheiros</figcaption></figure>
+      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/thumbs500x500/20/208678400684789.jpg?v=1" data-srcset="https://img.olx.com.br/thumbs500x500/20/208678400684789.jpg?v=1 500w, https://img.olx.com.br/images/20/208678400684789.jpg?v=1 960w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Segundo banheiro da casa" data-full="https://img.olx.com.br/images/20/208678400684789.jpg?v=1"><figcaption>O outro banheiro</figcaption></figure>
     </div>
   </div>
 </section>
 
 <div class="band" id="band">
-  <img id="bandimg" src="https://img.olx.com.br/images/98/984668286018474.jpg?v=1" loading="lazy" alt="Praia vista do Pontal do Atalaia">
+  <img id="bandimg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="https://img.olx.com.br/images/98/984668286018474.jpg?v=1" alt="Praia vista do Pontal do Atalaia">
   <div><p class="serif">As Prainhas do Pontal ficam logo ali, descendo a escadaria.</p></div>
 </div>
 
