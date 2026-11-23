@@ -962,7 +962,7 @@ function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
 
 // --- pérgola do jardim, do lado da entrada ---
 (() => {
-  const x0 = -9.6, x1 = -5.4, z0 = 5.6, z1 = 7.8, ALTP = 2.45;
+  const x0 = -11.6, x1 = -7.4, z0 = 10.70, z1 = 12.90, ALTP = 2.45;
   const cx = (x0 + x1) / 2, cz = (z0 + z1) / 2;
   [[x0, z0], [x1, z0], [x0, z1], [x1, z1], [cx, z0], [cx, z1]]
     .forEach(([px, pz]) => caixa(.16, ALTP, .16, MAT.madeiraMed, px, 0, pz, G.externo));
@@ -980,7 +980,7 @@ function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
   cil(.21, .26, 1.02, MAT.tronco, px, 0, pz, G.externo, 10);
   caixa(.92, .07, .66, MAT.madeiraClara, px, 1.02, pz, G.externo);
 });
-[[14.2, 12.0, 1.02], [16.8, 5.4, .90], [-11.2, 12.1, .92],
+[[14.2, 12.0, 1.02], [16.8, 5.4, .90], [-14.8, 9.2, .92],
  [-6.8, 12.2, .95], [-4.9, 8.6, .88], [-9.8, 9.4, .92], [4.4, 12.3, .95], [2.6, 8.8, .86]]
   .forEach(([px, pz, e]) => palmeira(px, pz, 0, G.externo, e));
 
@@ -996,7 +996,7 @@ const MAT_FLAMB = std({ color: '#c4342c', roughness: .9, flatShading: true });
 
 (() => {
   const { x0, x1, z0, z1 } = LOTE;
-  const H = 1.70, PASSO = 2.8, PZ0 = 1.2, PZ1 = 5.2;   // PZ = vão do portão
+  const H = 1.70, PASSO = 2.8, PZ0 = 2.0, PZ1 = 9.5;   // PZ = vão do portão comprido
 
   const painel = (eixo, fixo, de, ate) => {
     const comp = ate - de, meio = (de + ate) / 2;
@@ -1026,12 +1026,12 @@ const MAT_FLAMB = std({ color: '#c4342c', roughness: .9, flatShading: true });
     const larg = PZ1 - PZ0, meio = (PZ0 + PZ1) / 2;
     const t = new THREE.Mesh(new THREE.BoxGeometry(.04, 1.50, larg - .20), MAT_TELA);
     t.position.set(x0, .95, meio); G.externo.add(t);
-    [PZ0 + .07, meio, PZ1 - .07].forEach(pz => caixa(.13, 1.80, .13, MAT.madeiraEsc, x0, 0, pz, G.externo));
-    [.22, 1.70].forEach(h => caixa(.08, .08, larg, MAT.madeiraEsc, x0, h, meio, G.externo, false));
+    [0, 1, 2, 3, 4].forEach(i => caixa(.13, 1.80, .13, MAT.madeiraEsc, x0, 0, PZ0 + .07 + i * (larg - .14) / 4, G.externo));
+    [.22, .95, 1.70].forEach(h => caixa(.08, .08, larg, MAT.madeiraEsc, x0, h, meio, G.externo, false));
   })();
 
   // cascalho da entrada até a garagem
-  piso(x0 + .1, -8.6, PZ0 - .4, PZ1 + .4, .02, MAT.brita, G.externo, .08);
+  piso(x0 + .1, -8.6, 2.4, 7.2, .02, MAT.brita, G.externo, .08);
 })();
 
 /* Cerca interna que separa a área privada da casa da área dos hóspedes, com
@@ -1065,6 +1065,17 @@ const MAT_FLAMB = std({ color: '#c4342c', roughness: .9, flatShading: true });
    A que fica perto da cerca interna continua sendo árvore normal. */
 [[16.4, 8.4, 1.05], [10.2, 12.2, .92], [-15.4, 7.0, 1.00], [-15.6, -1.6, 1.05]]
   .forEach(([px, pz, e]) => arvore(px, pz, 0, e));
+
+/* Poste alto de energia no canto da entrada, onde o Luis marcou em verde. */
+(() => {
+  const px = -17.3, pz = 13.2, H = 8.4;
+  cil(.17, .23, H, MAT_CINZA, px, 0, pz, G.externo, 10);
+  caixa(1.70, .14, .14, MAT.madeiraEsc, px, H - .60, pz, G.externo);
+  caixa(1.15, .12, .12, MAT.madeiraEsc, px, H - 1.25, pz, G.externo);
+  [-.72, .72].forEach(d => cil(.08, .08, .26, MAT.preto, px + d, H - .46, pz, G.externo, 8));
+  [-.50, .50].forEach(d => cil(.07, .07, .22, MAT.preto, px + d, H - 1.13, pz, G.externo, 8));
+  caixa(.46, .62, .34, MAT_CINZA, px + .30, H - 3.00, pz, G.externo);
+})();
 
 // flamboyant florido junto das suítes, como nas fotos
 function flamboyant(px, pz, esc = 1, pai = G.externo) {
@@ -1104,7 +1115,7 @@ const AMB = [
   { id: 'casa', nome: 'Casa do proprietário', sub: '6 × 8 m · dois pisos', pos: [11.1, 8.1, -1.0], tipo: 'ext', d: 22 },
   { id: 'entrada', nome: 'Entrada', sub: 'portão de tela e cascalho', pos: [-16.2, 3.0, 3.2], tipo: 'ext', d: 15 },
   { id: 'churrasco', nome: 'Área de churrasco', sub: 'forno de barro, coberta', pos: [-.8, 4.1, 11.0], tipo: 'ext', d: 14 },
-  { id: 'pergola', nome: 'Pérgola', sub: 'trepadeira florida', pos: [-7.5, 3.2, 6.7], tipo: 'ext', d: 13 },
+  { id: 'pergola', nome: 'Pérgola', sub: 'trepadeira florida', pos: [-9.5, 3.2, 11.8], tipo: 'ext', d: 13 },
   { id: 'quarto', nome: 'Quarto', sub: 'casal + beliche', pos: [-2.9, 1.5, -2.2], tipo: 'int', d: 8.5 },
   { id: 'kit', nome: 'Kitchenette', sub: 'cooktop, pia e frigobar', pos: [-.5, 1.5, -3.3], tipo: 'int', d: 7.6 },
   { id: 'banheiro', nome: 'Banheiro', sub: 'box, pia e vaso', pos: [-3.2, 1.5, -4.1], tipo: 'int', d: 7.2 },
