@@ -2,14 +2,13 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Casa de Temporada em Arraial do Cabo — Condomínio Casas Brancas, Pontal do Atalaia</title>
 <meta name="description" content="Casa de temporada no Condomínio Casas Brancas, Pontal do Atalaia, Arraial do Cabo. Até 12 pessoas, segurança 24h, vista da Praia Grande e acesso às Prainhas do Pontal.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Casa de Temporada em Arraial do Cabo — Casas Brancas">
 <meta property="og:description" content="Casa de temporada no Condomínio Casas Brancas, Pontal do Atalaia, Arraial do Cabo. Até 12 pessoas, segurança 24h, vista da Praia Grande e acesso às Prainhas do Pontal.">
-<meta property="og:image" content="https://jgg190310-ops.github.io/Imoveis/casa-arraial/fotos/01-o-condominio-visto-de-cima-com-o-m@2x.webp">
+<meta property="og:image" content="https://jgg190310-ops.github.io/Imoveis/casa-arraial/fotos/04-mesa-na-varanda-de-frente-para-o-m@2x.webp">
 <meta name="theme-color" content="#0b3550">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%230b3550'/%3E%3Cg fill='none' stroke='%23e0bb84' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.5 44c.2-8 1.2-14 4.5-18.8' stroke-width='2.6'/%3E%3Cg stroke-width='2.2'%3E%3Cpath d='M25 25.2C20.5 21.5 13 21 7 26'/%3E%3Cpath d='M25 25.2C21 18.5 14 15.5 7 17.5'/%3E%3Cpath d='M25 25.2C24.5 16.5 28.5 10 36 8.5'/%3E%3Cpath d='M25 25.2C30 19 37.5 17.5 43 20.5'/%3E%3Cpath d='M25 25.2C31 23.5 38 25.5 42.5 30.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,7 +95,7 @@ section{position:relative;z-index:2}
 /* ---------- capa ---------- */
 #hero{position:relative;height:100svh;min-height:590px;overflow:hidden;background:var(--deep)}
 #heroimg{position:absolute;left:0;top:-11%;width:100%;height:122%;object-fit:cover;
-  object-position:center 66%;will-change:transform}
+  object-position:34% 46%;will-change:transform}
 #hero::after{content:"";position:absolute;inset:0;z-index:2;
   background:linear-gradient(rgba(14,52,48,.52) 0,rgba(14,52,48,.12) 32%,rgba(14,52,48,.58) 72%,rgba(14,52,48,.95) 100%)}
 .hero-in{position:absolute;inset:auto 0 0 0;z-index:4;color:var(--foam);
@@ -263,16 +262,97 @@ footer a:hover{border-bottom-color:var(--sun)}
   #gal figure:first-child{grid-column:auto;grid-row:auto}}
 </style>
 <style>
-:root{--deep:#0b3550;--deep-2:#104463;--ocean:#1a6c96;--foam:#f8f6f0;--paper:#e9e3d7;--sun:#c08a3e;--sun-2:#e0bb84;}
-#bar::before{background:rgba(248,246,240,.64)}
+:root{--deep:#0b3550;--deep-2:#104463;--ocean:#1a6c96;--foam:#f8f6f0;--paper:#e9e4d9;--sun:#c08a3e;--sun-2:#e0bb84;
+  --line:rgba(11,40,60,.15);--line-d:rgba(248,246,240,.18);}
+#bar::before{background:rgba(248,246,240,.66)}
 #bar.solid::before{background:rgba(248,246,240,.95)}
-#bar.inverse::before{background:rgba(11,53,80,.46)}
-#hero::after{background:linear-gradient(rgba(8,40,62,.62) 0,rgba(8,40,62,.30) 32%,rgba(8,40,62,.66) 72%,rgba(8,40,62,.96) 100%)}
-.band div{background:linear-gradient(rgba(8,40,62,.34),rgba(8,40,62,.64))}
-.hero-in h1{text-shadow:0 2px 30px rgba(6,30,46,.62)}
-.hero-say{text-shadow:0 1px 18px rgba(6,30,46,.62)}
-.band p{text-shadow:0 2px 34px rgba(6,30,46,.62)}
-.facts{text-shadow:0 1px 14px rgba(6,30,46,.62)}
+#bar.inverse::before{background:rgba(8,40,62,.5)}
+#hero::after{background:linear-gradient(rgba(6,32,50,.62) 0,rgba(6,32,50,.26) 28%,rgba(6,32,50,.58) 58%,rgba(6,32,50,.86) 82%,rgba(6,32,50,.97) 100%)}
+.hero-in h1{text-shadow:0 2px 30px rgba(4,24,38,.62)}
+.hero-say{text-shadow:0 1px 18px rgba(4,24,38,.62)}
+.facts{text-shadow:0 1px 14px rgba(4,24,38,.62)}
+.band div{background:linear-gradient(rgba(6,32,50,.34),rgba(6,32,50,.66))}
+.band p{text-shadow:0 2px 34px rgba(4,24,38,.62)}
+#gal figcaption{background:linear-gradient(transparent,rgba(6,32,50,.88))}
+#lb{background:rgba(5,26,40,.985)}
+.cta-bar{background:rgba(11,53,80,.94)}
+/* ========== destaques ========== */
+.hl{background:var(--paper)}
+.hl .wrap{padding-top:clamp(42px,5vw,70px);padding-bottom:clamp(42px,5vw,70px)}
+.hl-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(16px,2.2vw,30px)}
+.hl-grid div{display:flex;flex-direction:column;gap:9px;align-items:flex-start}
+.hl-grid svg{width:25px;height:25px;stroke:var(--sun);fill:none;stroke-width:1.5;
+  stroke-linecap:round;stroke-linejoin:round;flex:none}
+.hl-grid b{font-size:15px;font-weight:600;letter-spacing:-.012em;line-height:1.25}
+.hl-grid span{font-size:13px;color:var(--mute);line-height:1.42}
+@media(max-width:900px){.hl-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 18px}}
+@media(max-width:480px){.hl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ========== filtros da galeria ========== */
+.filt{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(24px,3vw,36px)}
+.filt button{font:inherit;font-size:14px;padding:9px 17px;border-radius:999px;cursor:pointer;
+  background:transparent;color:rgba(245,243,240,.72);
+  border:1px solid rgba(245,243,240,.22);transition:all .22s ease;white-space:nowrap}
+.filt button:hover{border-color:var(--sun-2);color:var(--sun-2)}
+.filt button.on{background:var(--foam);border-color:var(--foam);color:var(--deep);font-weight:600}
+#gal figure[hidden]{display:none}
+.gal-vazia{color:rgba(245,243,240,.6);font-size:15px;margin-top:24px}
+
+/* ========== como reservar ========== */
+.steps{margin-top:clamp(32px,4vw,56px);display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,3vw,44px);counter-reset:p}
+.steps article{counter-increment:p;position:relative;padding-top:52px}
+.steps article::before{content:counter(p,decimal-leading-zero);position:absolute;top:0;left:0;
+  font-family:'Gloock',Georgia,serif;font-size:34px;line-height:1;color:var(--sun);
+  letter-spacing:-.02em}
+.steps article::after{content:"";position:absolute;top:44px;left:0;width:34px;height:1.5px;
+  background:var(--sun)}
+.steps h3{font-size:18px;font-weight:700;letter-spacing:-.015em;margin-bottom:8px}
+.steps p{font-size:15px;color:var(--mute);line-height:1.56;max-width:32ch}
+.dark .steps p{color:rgba(245,243,240,.7)}
+@media(max-width:820px){.steps{grid-template-columns:1fr;gap:30px}
+  .steps article{padding-top:46px}}
+
+/* ========== perguntas frequentes ========== */
+.faq{margin-top:clamp(28px,4vw,46px);border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:19px 44px 19px 0;position:relative;
+  font-size:17px;font-weight:600;letter-spacing:-.012em;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:13px;height:13px;
+  margin-top:-7px;border-right:1.8px solid var(--sun);border-bottom:1.8px solid var(--sun);
+  transform:rotate(45deg);transition:transform .3s ease}
+.faq details[open] summary::after{transform:rotate(-135deg)}
+.faq summary:hover{color:var(--ocean)}
+.faq .ans{padding:0 44px 22px 0;font-size:15.5px;color:var(--mute);line-height:1.62;max-width:62ch}
+
+/* ========== animacao de entrada ========== */
+@media (prefers-reduced-motion:no-preference){
+  .rv{opacity:0;transform:translateY(24px);
+    transition:opacity .75s ease,transform .75s cubic-bezier(.2,.75,.25,1)}
+  .rv.in{opacity:1;transform:none}
+  .rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+}
+
+/* ========== barra fixa de reserva (celular) ========== */
+.cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:850;display:none;
+  align-items:center;justify-content:space-between;gap:14px;
+  padding:11px var(--pad) calc(11px + env(safe-area-inset-bottom));
+  background:rgba(42,48,51,.93);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+  border-top:1px solid rgba(245,243,240,.16);
+  transform:translateY(110%);transition:transform .38s cubic-bezier(.3,.8,.3,1)}
+.cta-bar.in{transform:none}
+.cta-bar .v{color:var(--foam);line-height:1.1;min-width:0}
+.cta-bar .v b{display:block;font-family:'Gloock',Georgia,serif;font-weight:400;font-size:23px;
+  letter-spacing:-.02em}
+.cta-bar .v span{font-size:12px;color:rgba(245,243,240,.62)}
+.cta-bar .zap{padding:12px 18px;font-size:14.5px;flex:none}
+@media(max-width:700px){
+  .cta-bar{display:flex}
+  #float{display:none}
+}
+
+
 </style>
 </head>
 <body>
@@ -286,6 +366,7 @@ footer a:hover{border-bottom-color:var(--sun)}
       <a href="#comodidades">Estrutura</a>
       <a href="#quartos">Quartos</a>
       <a href="#local">Onde fica</a>
+      <a href="#faq">Dúvidas</a>
       <a class="zap" href="https://wa.me/5521983085833?text=Ol%C3%A1%2C%20Bruno!%20Vi%20o%20site%20da%20casa%20no%20Pontal%20do%20Atalaia%20e%20gostaria%20de%20consultar%20disponibilidade." target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-5.4c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-1.4-.6-2.4-1.6-3.1-2.9-.1-.2 0-.4.1-.5l.5-.6c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3 .6 1.8 1.8 3.3 3.3 4.4 1 .7 2.1 1.2 3.3 1.3.9.1 1.7-.2 2.3-.9.2-.3.3-.7.2-1 0-.1-.2-.2-.5-.3z"/></svg>
         Falar no WhatsApp
       </a>
@@ -295,7 +376,7 @@ footer a:hover{border-bottom-color:var(--sun)}
 </div>
 
 <header id="hero">
-  <img id="heroimg" src="fotos/01-o-condominio-visto-de-cima-com-o-m@2x.webp" fetchpriority="high" alt="Vista do Condomínio Casas Brancas com o mar de Arraial do Cabo ao fundo">
+  <img id="heroimg" src="fotos/04-mesa-na-varanda-de-frente-para-o-m@2x.webp" fetchpriority="high" alt="Mesa na varanda da casa, de frente para o mar de Arraial do Cabo">
   <div class="hero-in">
     <h1 class="d1">O pôr do sol mais famoso de <em>Arraial</em></h1>
     <p class="hero-say">Casa de praia no Condomínio Casas Brancas, no Pontal do Atalaia, com vista da Praia Grande e acesso às Prainhas do Pontal pela escadaria.</p>
@@ -304,17 +385,30 @@ footer a:hover{border-bottom-color:var(--sun)}
 </header>
 <span id="topo"></span>
 
+<section class="hl" id="destaques">
+  <div class="wrap">
+    <div class="hl-grid">
+      <div class="rv rv-d0"><svg viewBox="0 0 24 24"><path d="M12 3.2l7 2.9v4.8c0 4.3-2.9 8.1-7 9.4-4.1-1.3-7-5.1-7-9.4V6.1l7-2.9z"/><path d="M9.2 11.8l2 2 3.6-3.9"/></svg><b>Condomínio fechado</b><span>Portaria e segurança 24 horas</span></div>
+      <div class="rv rv-d1"><svg viewBox="0 0 24 24"><circle cx="17.6" cy="6.6" r="2.4"/><path d="M2 14.2c1.7 0 1.7-1.3 3.4-1.3s1.7 1.3 3.4 1.3 1.7-1.3 3.4-1.3 1.7 1.3 3.4 1.3 1.7-1.3 3.4-1.3 1.7 1.3 3 1.3"/><path d="M2 18.6c1.7 0 1.7-1.3 3.4-1.3s1.7 1.3 3.4 1.3 1.7-1.3 3.4-1.3 1.7 1.3 3.4 1.3 1.7-1.3 3.4-1.3 1.7 1.3 3 1.3"/></svg><b>Vista da Praia Grande</b><span>A área externa é de frente para o mar</span></div>
+      <div class="rv rv-d2"><svg viewBox="0 0 24 24"><path d="M3.5 20.5h3.6v-4.2h3.6v-4.2h3.6V7.9h3.6V3.7"/><path d="M3.5 20.5h17"/></svg><b>Prainhas do Pontal</b><span>Acesso liberado pela escadaria do condomínio</span></div>
+      <div class="rv rv-d3"><svg viewBox="0 0 24 24"><path d="M12 3v8"/><path d="M8.5 5.5c0 2 3.5 2 3.5 5.5"/><path d="M15.5 5.5c0 2-3.5 2-3.5 5.5" opacity=".55"/><path d="M4 13h16"/><path d="M6 13l2.5 8"/><path d="M18 13l-2.5 8"/></svg><b>Churrasqueira</b><span>Para o almoço demorado de domingo</span></div>
+      <div class="rv rv-d0"><svg viewBox="0 0 24 24"><path d="M12 3.4v3.8"/><path d="M5.2 12.6a6.8 6.8 0 0 1 13.6 0z"/><path d="M8.4 16.4v1.6"/><path d="M12 16.9v2.2"/><path d="M15.6 16.4v1.6"/></svg><b>Chuveirão</b><span>Banho gostoso na volta da praia</span></div>
+      <div class="rv rv-d1"><svg viewBox="0 0 24 24"><path d="M5 12.6a10 10 0 0 1 14 0"/><path d="M8.4 16a5.2 5.2 0 0 1 7.2 0"/><path d="M1.8 9.2a15 15 0 0 1 20.4 0"/><circle cx="12" cy="19.4" r=".9" fill="currentColor" stroke="none"/></svg><b>Wi-Fi e TV a cabo</b><span>Internet e canais por assinatura</span></div>
+    </div>
+  </div>
+</section>
+
 <section id="casa">
   <div class="wrap">
     <div class="split">
       <div>
-        <h2 class="d2">Nas Casas da Grécia, de frente para o mar</h2>
-        <p class="lead" style="margin-top:24px">A casa fica no Condomínio Casas Brancas, no Pontal do Atalaia, conhecido como as Casas da Grécia, em condomínio fechado com segurança 24 horas e duas vagas de estacionamento. A Praia Grande fica a cinco minutos.</p>
-        <p class="lead" style="margin-top:14px">Ampla e espaçosa, com sala de TV, sala de jantar, cozinha equipada com fogão, microondas, geladeira, freezer e todos os utensílios, Wi-Fi, churrasqueira e uma área externa com chuveirão para o banho pós-praia. Quem se hospeda aqui tem acesso liberado às famosas Prainhas do Pontal pela escadaria.</p>
-        <div class="tally"><div><b>12</b><span>pessoas</span></div><div><b>3</b><span>quartos</span></div><div><b>2</b><span>banheiros</span></div></div>
+        <h2 class="d2 rv">Nas Casas da Grécia, de frente para o mar</h2>
+        <p class="lead rv rv-d1" style="margin-top:24px">A casa fica no Condomínio Casas Brancas, no Pontal do Atalaia, conhecido como as Casas da Grécia, em condomínio fechado com segurança 24 horas e duas vagas de estacionamento. A Praia Grande fica a cinco minutos.</p>
+        <p class="lead rv rv-d1" style="margin-top:14px">Ampla e espaçosa, com sala de TV, sala de jantar, cozinha equipada com fogão, microondas, geladeira, freezer e todos os utensílios, Wi-Fi, churrasqueira e uma área externa com chuveirão para o banho pós-praia. Quem se hospeda aqui tem acesso liberado às famosas Prainhas do Pontal pela escadaria.</p>
+        <div class="tally rv rv-d2"><div><b>12</b><span>pessoas</span></div><div><b>3</b><span>quartos</span></div><div><b>2</b><span>banheiros</span></div></div>
       </div>
       <div class="shot">
-        <img src="fotos/03-rede-na-varanda@2x.webp" loading="lazy" alt="Rede azul na varanda da casa">
+        <img src="fotos/03-rede-na-varanda@2x.webp" loading="lazy" decoding="async" alt="Rede azul na varanda da casa">
       </div>
     </div>
   </div>
@@ -322,40 +416,48 @@ footer a:hover{border-bottom-color:var(--sun)}
 
 <section id="galeria" class="dark">
   <div class="wrap">
-    <h2 class="d2">A casa e a vista</h2>
-    <p class="lead" style="margin-top:18px">Da varanda aos quartos, e a praia logo abaixo. Toque na foto para ampliar.</p>
+    <h2 class="d2 rv">A casa e a vista</h2>
+    <p class="lead rv rv-d1" style="margin-top:18px">Da varanda aos quartos, e a praia logo abaixo. Toque na foto para ampliar.</p>
+    <div class="filt rv rv-d1" id="filt">
+      <button type="button" class="on" data-f="all">Tudo</button>
+      <button type="button" data-f="externa">Vista e área externa</button>
+      <button type="button" data-f="sala">Sala</button>
+      <button type="button" data-f="cozinha">Cozinha</button>
+      <button type="button" data-f="quartos">Quartos</button>
+      <button type="button" data-f="banheiros">Banheiros</button>
+    </div>
     <div id="gal">
-      <figure><img src="fotos/01-o-condominio-visto-de-cima-com-o-m.webp" srcset="fotos/01-o-condominio-visto-de-cima-com-o-m.webp 700w, fotos/01-o-condominio-visto-de-cima-com-o-m@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista aérea do Condomínio Casas Brancas" data-full="fotos/01-o-condominio-visto-de-cima-com-o-m@2x.webp"><figcaption>O condomínio visto de cima, com o mar ao fundo</figcaption></figure>
-      <figure><img src="fotos/02-a-praia-vista-do-pontal.webp" srcset="fotos/02-a-praia-vista-do-pontal.webp 700w, fotos/02-a-praia-vista-do-pontal@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista da praia a partir do Pontal do Atalaia" data-full="fotos/02-a-praia-vista-do-pontal@2x.webp"><figcaption>A praia vista do Pontal</figcaption></figure>
-      <figure><img src="fotos/03-rede-na-varanda.webp" srcset="fotos/03-rede-na-varanda.webp 700w, fotos/03-rede-na-varanda@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Rede azul na varanda da casa" data-full="fotos/03-rede-na-varanda@2x.webp"><figcaption>Rede na varanda</figcaption></figure>
-      <figure><img src="fotos/04-mesa-na-varanda-de-frente-para-o-m.webp" srcset="fotos/04-mesa-na-varanda-de-frente-para-o-m.webp 700w, fotos/04-mesa-na-varanda-de-frente-para-o-m@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Mesa na varanda com vista para o mar" data-full="fotos/04-mesa-na-varanda-de-frente-para-o-m@2x.webp"><figcaption>Mesa na varanda, de frente para o mar</figcaption></figure>
-      <figure><img src="fotos/05-a-fachada-branca-da-casa.webp" srcset="fotos/05-a-fachada-branca-da-casa.webp 700w, fotos/05-a-fachada-branca-da-casa@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Fachada branca da casa" data-full="fotos/05-a-fachada-branca-da-casa@2x.webp"><figcaption>A fachada branca da casa</figcaption></figure>
-      <figure><img src="fotos/06-a-vista-do-condominio.webp" srcset="fotos/06-a-vista-do-condominio.webp 700w, fotos/06-a-vista-do-condominio@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Vista do condomínio a partir da casa" data-full="fotos/06-a-vista-do-condominio@2x.webp"><figcaption>A vista do condomínio</figcaption></figure>
-      <figure><img src="fotos/07-a-area-externa.webp" srcset="fotos/07-a-area-externa.webp 700w, fotos/07-a-area-externa@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Área externa da casa com vista" data-full="fotos/07-a-area-externa@2x.webp"><figcaption>A área externa</figcaption></figure>
-      <figure><img src="fotos/08-a-escadaria-de-acesso.webp" srcset="fotos/08-a-escadaria-de-acesso.webp 700w, fotos/08-a-escadaria-de-acesso@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Escadaria de acesso" data-full="fotos/08-a-escadaria-de-acesso@2x.webp"><figcaption>A escadaria de acesso</figcaption></figure>
-      <figure><img src="fotos/09-sala-de-estar.webp" srcset="fotos/09-sala-de-estar.webp 700w, fotos/09-sala-de-estar@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Sala de estar com sofás" data-full="fotos/09-sala-de-estar@2x.webp"><figcaption>Sala de estar</figcaption></figure>
-      <figure><img src="fotos/10-sala-de-jantar.webp" srcset="fotos/10-sala-de-jantar.webp 700w, fotos/10-sala-de-jantar@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Sala de jantar da casa" data-full="fotos/10-sala-de-jantar@2x.webp"><figcaption>Sala de jantar</figcaption></figure>
-      <figure><img src="fotos/11-cozinha-equipada.webp" srcset="fotos/11-cozinha-equipada.webp 700w, fotos/11-cozinha-equipada@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Cozinha equipada" data-full="fotos/11-cozinha-equipada@2x.webp"><figcaption>Cozinha equipada</figcaption></figure>
-      <figure><img src="fotos/12-bancada-e-fogao.webp" srcset="fotos/12-bancada-e-fogao.webp 700w, fotos/12-bancada-e-fogao@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Bancada da cozinha com fogão" data-full="fotos/12-bancada-e-fogao@2x.webp"><figcaption>Bancada e fogão</figcaption></figure>
-      <figure><img src="fotos/13-quarto-de-casal.webp" srcset="fotos/13-quarto-de-casal.webp 700w, fotos/13-quarto-de-casal@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com cama de casal" data-full="fotos/13-quarto-de-casal@2x.webp"><figcaption>Quarto de casal</figcaption></figure>
-      <figure><img src="fotos/14-outra-cama-de-casal.webp" srcset="fotos/14-outra-cama-de-casal.webp 700w, fotos/14-outra-cama-de-casal@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com cama de casal" data-full="fotos/14-outra-cama-de-casal@2x.webp"><figcaption>Outra cama de casal</figcaption></figure>
-      <figure><img src="fotos/15-quarto-com-beliches.webp" srcset="fotos/15-quarto-com-beliches.webp 700w, fotos/15-quarto-com-beliches@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com beliches" data-full="fotos/15-quarto-com-beliches@2x.webp"><figcaption>Quarto com beliches</figcaption></figure>
-      <figure><img src="fotos/16-beliches-para-as-criancas.webp" srcset="fotos/16-beliches-para-as-criancas.webp 700w, fotos/16-beliches-para-as-criancas@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com dois beliches" data-full="fotos/16-beliches-para-as-criancas@2x.webp"><figcaption>Beliches para as crianças</figcaption></figure>
-      <figure><img src="fotos/17-um-dos-banheiros.webp" srcset="fotos/17-um-dos-banheiros.webp 700w, fotos/17-um-dos-banheiros@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Banheiro da casa" data-full="fotos/17-um-dos-banheiros@2x.webp"><figcaption>Um dos banheiros</figcaption></figure>
-      <figure><img src="fotos/18-o-outro-banheiro.webp" srcset="fotos/18-o-outro-banheiro.webp 700w, fotos/18-o-outro-banheiro@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Segundo banheiro da casa" data-full="fotos/18-o-outro-banheiro@2x.webp"><figcaption>O outro banheiro</figcaption></figure>
+      <figure data-g="externa"><img src="fotos/01-o-condominio-visto-de-cima-com-o-m.webp" srcset="fotos/01-o-condominio-visto-de-cima-com-o-m.webp 820w, fotos/01-o-condominio-visto-de-cima-com-o-m@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" decoding="async" alt="Vista aérea do Condomínio Casas Brancas" data-full="fotos/01-o-condominio-visto-de-cima-com-o-m@2x.webp"><figcaption>O condomínio visto de cima, com o mar ao fundo</figcaption></figure>
+      <figure data-g="externa"><img src="fotos/02-a-praia-vista-do-pontal.webp" srcset="fotos/02-a-praia-vista-do-pontal.webp 820w, fotos/02-a-praia-vista-do-pontal@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" decoding="async" alt="Vista da praia a partir do Pontal do Atalaia" data-full="fotos/02-a-praia-vista-do-pontal@2x.webp"><figcaption>A praia vista do Pontal</figcaption></figure>
+      <figure data-g="externa"><img src="fotos/06-a-vista-do-condominio.webp" srcset="fotos/06-a-vista-do-condominio.webp 820w, fotos/06-a-vista-do-condominio@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" decoding="async" alt="Vista do condomínio a partir da casa" data-full="fotos/06-a-vista-do-condominio@2x.webp"><figcaption>A vista do condomínio</figcaption></figure>
+      <figure data-g="externa"><img src="fotos/04-mesa-na-varanda-de-frente-para-o-m.webp" srcset="fotos/04-mesa-na-varanda-de-frente-para-o-m.webp 820w, fotos/04-mesa-na-varanda-de-frente-para-o-m@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Mesa na varanda com vista para o mar" data-full="fotos/04-mesa-na-varanda-de-frente-para-o-m@2x.webp"><figcaption>Mesa na varanda, de frente para o mar</figcaption></figure>
+      <figure data-g="externa"><img src="fotos/03-rede-na-varanda.webp" srcset="fotos/03-rede-na-varanda.webp 820w, fotos/03-rede-na-varanda@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Rede azul na varanda da casa" data-full="fotos/03-rede-na-varanda@2x.webp"><figcaption>Rede na varanda</figcaption></figure>
+      <figure data-g="externa"><img src="fotos/05-a-fachada-branca-da-casa.webp" srcset="fotos/05-a-fachada-branca-da-casa.webp 820w, fotos/05-a-fachada-branca-da-casa@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Fachada branca da casa" data-full="fotos/05-a-fachada-branca-da-casa@2x.webp"><figcaption>A fachada branca da casa</figcaption></figure>
+      <figure data-g="externa"><img src="fotos/07-a-area-externa.webp" srcset="fotos/07-a-area-externa.webp 820w, fotos/07-a-area-externa@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Área externa da casa com vista" data-full="fotos/07-a-area-externa@2x.webp"><figcaption>A área externa</figcaption></figure>
+      <figure data-g="externa"><img src="fotos/08-a-escadaria-de-acesso.webp" srcset="fotos/08-a-escadaria-de-acesso.webp 820w, fotos/08-a-escadaria-de-acesso@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Escadaria de acesso" data-full="fotos/08-a-escadaria-de-acesso@2x.webp"><figcaption>A escadaria de acesso</figcaption></figure>
+      <figure data-g="sala"><img src="fotos/09-sala-de-estar.webp" srcset="fotos/09-sala-de-estar.webp 820w, fotos/09-sala-de-estar@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Sala de estar com sofás" data-full="fotos/09-sala-de-estar@2x.webp"><figcaption>Sala de estar</figcaption></figure>
+      <figure data-g="sala"><img src="fotos/10-sala-de-jantar.webp" srcset="fotos/10-sala-de-jantar.webp 820w, fotos/10-sala-de-jantar@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Sala de jantar da casa" data-full="fotos/10-sala-de-jantar@2x.webp"><figcaption>Sala de jantar</figcaption></figure>
+      <figure data-g="cozinha"><img src="fotos/11-cozinha-equipada.webp" srcset="fotos/11-cozinha-equipada.webp 820w, fotos/11-cozinha-equipada@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Cozinha equipada" data-full="fotos/11-cozinha-equipada@2x.webp"><figcaption>Cozinha equipada</figcaption></figure>
+      <figure data-g="cozinha"><img src="fotos/12-bancada-e-fogao.webp" srcset="fotos/12-bancada-e-fogao.webp 820w, fotos/12-bancada-e-fogao@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Bancada da cozinha com fogão" data-full="fotos/12-bancada-e-fogao@2x.webp"><figcaption>Bancada e fogão</figcaption></figure>
+      <figure data-g="quartos"><img src="fotos/13-quarto-de-casal.webp" srcset="fotos/13-quarto-de-casal.webp 820w, fotos/13-quarto-de-casal@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Quarto com cama de casal" data-full="fotos/13-quarto-de-casal@2x.webp"><figcaption>Quarto de casal</figcaption></figure>
+      <figure data-g="quartos"><img src="fotos/14-outra-cama-de-casal.webp" srcset="fotos/14-outra-cama-de-casal.webp 820w, fotos/14-outra-cama-de-casal@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Quarto com cama de casal" data-full="fotos/14-outra-cama-de-casal@2x.webp"><figcaption>Outra cama de casal</figcaption></figure>
+      <figure data-g="quartos"><img src="fotos/15-quarto-com-beliches.webp" srcset="fotos/15-quarto-com-beliches.webp 820w, fotos/15-quarto-com-beliches@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Quarto com beliches" data-full="fotos/15-quarto-com-beliches@2x.webp"><figcaption>Quarto com beliches</figcaption></figure>
+      <figure data-g="quartos"><img src="fotos/16-beliches-para-as-criancas.webp" srcset="fotos/16-beliches-para-as-criancas.webp 820w, fotos/16-beliches-para-as-criancas@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Quarto com dois beliches" data-full="fotos/16-beliches-para-as-criancas@2x.webp"><figcaption>Beliches para as crianças</figcaption></figure>
+      <figure data-g="banheiros"><img src="fotos/17-um-dos-banheiros.webp" srcset="fotos/17-um-dos-banheiros.webp 820w, fotos/17-um-dos-banheiros@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Banheiro da casa" data-full="fotos/17-um-dos-banheiros@2x.webp"><figcaption>Um dos banheiros</figcaption></figure>
+      <figure data-g="banheiros"><img src="fotos/18-o-outro-banheiro.webp" srcset="fotos/18-o-outro-banheiro.webp 820w, fotos/18-o-outro-banheiro@2x.webp 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" decoding="async" alt="Segundo banheiro da casa" data-full="fotos/18-o-outro-banheiro@2x.webp"><figcaption>O outro banheiro</figcaption></figure>
     </div>
   </div>
 </section>
 
 <div class="band" id="band">
-  <img id="bandimg" src="fotos/02-a-praia-vista-do-pontal@2x.webp" loading="lazy" alt="Praia vista do Pontal do Atalaia">
+  <img id="bandimg" src="fotos/07-a-area-externa@2x.webp" loading="lazy" decoding="async" alt="Área externa da casa com vista para o mar">
   <div><p class="serif">As Prainhas do Pontal ficam logo ali, descendo a escadaria.</p></div>
 </div>
 
 <section id="comodidades" class="dark">
   <div class="wrap">
-    <h2 class="d2">O que a casa tem</h2>
-    <div class="rows">
+    <h2 class="d2 rv">O que a casa tem</h2>
+    <div class="rows rv rv-d1">
       <div>Condomínio fechado <em>segurança 24h</em></div>
       <div>Vista da Praia Grande <em></em></div>
       <div>Acesso às Prainhas do Pontal <em>pela escadaria</em></div>
@@ -374,25 +476,37 @@ footer a:hover{border-bottom-color:var(--sun)}
 
 <section id="quartos">
   <div class="wrap">
-    <h2 class="d2">Onde cada um dorme</h2>
-    <p class="lead" style="margin-top:18px">São três quartos e dois banheiros, para até 12 pessoas. O primeiro quarto tem uma cama de casal e duas de solteiro, o segundo tem dois beliches, e o terceiro tem uma cama de casal.</p>
+    <h2 class="d2 rv">Onde cada um dorme</h2>
+    <p class="lead rv rv-d1" style="margin-top:18px">São três quartos e dois banheiros, para até 12 pessoas. O primeiro quarto tem uma cama de casal e duas de solteiro, o segundo tem dois beliches, e o terceiro tem uma cama de casal.</p>
     <div class="beds">
-      <article><b>12</b><h3>Pessoas</h3><p>Dá para duas ou três famílias juntas.</p></article>
-      <article><b>3</b><h3>Quartos</h3><p>Camas de casal, de solteiro e beliches.</p></article>
-      <article><b>2</b><h3>Banheiros</h3><p>Mais o chuveirão da área externa.</p></article>
-      <article><b>2</b><h3>Vagas</h3><p>Estacionamento dentro do condomínio.</p></article>
+      <article class="rv rv-d0"><b>12</b><h3>Pessoas</h3><p>Dá para duas ou três famílias juntas.</p></article>
+      <article class="rv rv-d1"><b>3</b><h3>Quartos</h3><p>Camas de casal, de solteiro e beliches.</p></article>
+      <article class="rv rv-d2"><b>2</b><h3>Banheiros</h3><p>Mais o chuveirão da área externa.</p></article>
+      <article class="rv rv-d3"><b>2</b><h3>Vagas</h3><p>Estacionamento dentro do condomínio.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="como" class="dark">
+  <div class="wrap">
+    <h2 class="d2 rv">Como reservar a casa</h2>
+    <p class="lead rv rv-d1" style="margin-top:18px">A casa é alugada pelo próprio dono, sem intermediário e sem taxa de plataforma.</p>
+    <div class="steps">
+      <article class="rv rv-d0"><h3>Mande as datas</h3><p>Chame o Bruno no WhatsApp com o período que você quer e quantas pessoas são. Ele confirma na hora se está livre.</p></article>
+      <article class="rv rv-d1"><h3>Combine o pacote</h3><p>O valor muda conforme a quantidade de pessoas e de dias. Feriados e alta temporada têm pacote à parte, combinado direto com ele.</p></article>
+      <article class="rv rv-d2"><h3>Feche direto com o dono</h3><p>Sem intermediário e sem taxa de plataforma. O mínimo é de três diárias.</p></article>
     </div>
   </div>
 </section>
 
 <section id="local">
-  <div class="wrap" style="padding-top:0">
-    <h2 class="d2">Onde fica</h2>
-    <p class="lead" style="margin-top:18px">No Pontal do Atalaia, em Arraial do Cabo. A Praia Grande fica a cinco minutos e as Prainhas do Pontal têm acesso liberado para quem se hospeda, pela escadaria do condomínio.</p>
+  <div class="wrap">
+    <h2 class="d2 rv">Onde fica</h2>
+    <p class="lead rv rv-d1" style="margin-top:18px">No Pontal do Atalaia, em Arraial do Cabo. A Praia Grande fica a cinco minutos e as Prainhas do Pontal têm acesso liberado para quem se hospeda, pela escadaria do condomínio.</p>
     <div class="loc">
       <div class="map">
         <iframe title="Mapa de Casa no Pontal" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Pontal+do+Atalaia,+Arraial+do+Cabo+-+RJ&hl=pt-BR&z=14&output=embed"></iframe>
+          src="https://www.google.com/maps?q=Pontal+do+Atalaia,+Arraial+do+Cabo+-+RJ&amp;hl=pt-BR&amp;z=14&amp;output=embed"></iframe>
       </div>
       <ul class="dists">
         <li>Praia Grande <b>5 min</b></li>
@@ -404,11 +518,26 @@ footer a:hover{border-bottom-color:var(--sun)}
   </div>
 </section>
 
+<section id="faq">
+  <div class="wrap" style="padding-top:0">
+    <h2 class="d2 rv">Perguntas frequentes</h2>
+    <div class="faq rv rv-d1">
+      <details><summary>Quantas pessoas a casa acomoda?</summary><div class="ans">Até 12 pessoas, distribuídas em três quartos: um com cama de casal e duas de solteiro, um com dois beliches e um com cama de casal.</div></details>
+      <details><summary>Qual é o mínimo de diárias?</summary><div class="ans">Três diárias. Em feriados e alta temporada o proprietário monta pacotes por período.</div></details>
+      <details><summary>A diária é sempre o mesmo valor?</summary><div class="ans">Não. A diária começa em R$ 350 para quatro pessoas e muda conforme a quantidade de pessoas e de dias. O melhor é consultar já com as suas datas.</div></details>
+      <details><summary>Como é o acesso à praia?</summary><div class="ans">A Praia Grande fica a cinco minutos. Quem se hospeda no condomínio tem acesso liberado às Prainhas do Pontal pela escadaria, que é um acesso quase exclusivo.</div></details>
+      <details><summary>O condomínio é seguro?</summary><div class="ans">É um condomínio fechado, com segurança 24 horas, e a casa tem duas vagas de estacionamento dentro dele.</div></details>
+      <details><summary>Tem churrasqueira?</summary><div class="ans">Tem. A área externa tem churrasqueira e chuveirão para o banho na volta da praia.</div></details>
+      <details><summary>A cozinha é equipada?</summary><div class="ans">Sim: fogão, microondas, geladeira, freezer e todos os utensílios. A casa também tem Wi-Fi, sala de TV e sala de jantar.</div></details>
+    </div>
+  </div>
+</section>
+
 <section id="reservar" class="dark">
   <div class="wrap">
-    <h2 class="d2">Fale direto com o Bruno</h2>
-    <p class="lead" style="margin-top:18px">A casa é alugada pelo próprio dono, sem intermediário. Mande as datas e quantas pessoas são que ele confirma a disponibilidade e fecha o valor.</p>
-    <div class="deal">
+    <h2 class="d2 rv">Fale direto com o Bruno</h2>
+    <p class="lead rv rv-d1" style="margin-top:18px">A casa é alugada pelo próprio dono, sem intermediário. Mande as datas e quantas pessoas são que ele confirma a disponibilidade e fecha o valor.</p>
+    <div class="deal rv rv-d1">
       <div class="price"><b>R$ 350</b><span>a diária, para 4 pessoas</span></div>
       <p class="fine">Mínimo de 3 diárias. O valor muda conforme a quantidade de pessoas e de dias. Feriados e alta temporada têm pacotes à parte, combinados direto com o proprietário.</p>
       <a class="zap" href="https://wa.me/5521983085833?text=Ol%C3%A1%2C%20Bruno!%20Vi%20o%20site%20da%20casa%20no%20Pontal%20do%20Atalaia%20e%20gostaria%20de%20consultar%20disponibilidade." target="_blank" rel="noopener"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-5.4c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-1.4-.6-2.4-1.6-3.1-2.9-.1-.2 0-.4.1-.5l.5-.6c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3 .6 1.8 1.8 3.3 3.3 4.4 1 .7 2.1 1.2 3.3 1.3.9.1 1.7-.2 2.3-.9.2-.3.3-.7.2-1 0-.1-.2-.2-.5-.3z"/></svg>
@@ -424,6 +553,12 @@ footer a:hover{border-bottom-color:var(--sun)}
     <span>Site criado por <a href="https://wa.me/5531999131903" target="_blank" rel="noopener">João Gabriel Geo</a> (31) 99913-1903</span>
   </div>
 </footer>
+
+<div class="cta-bar" id="ctabar">
+  <div class="v"><b>R$ 350</b><span>a diária, conforme o período</span></div>
+  <a class="zap" href="https://wa.me/5521983085833?text=Ol%C3%A1%2C%20Bruno!%20Vi%20o%20site%20da%20casa%20no%20Pontal%20do%20Atalaia%20e%20gostaria%20de%20consultar%20disponibilidade." target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-5.4c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-1.4-.6-2.4-1.6-3.1-2.9-.1-.2 0-.4.1-.5l.5-.6c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3 .6 1.8 1.8 3.3 3.3 4.4 1 .7 2.1 1.2 3.3 1.3.9.1 1.7-.2 2.3-.9.2-.3.3-.7.2-1 0-.1-.2-.2-.5-.3z"/></svg>
+    Consultar</a>
+</div>
 
 <a id="float" class="zap" href="https://wa.me/5521983085833?text=Ol%C3%A1%2C%20Bruno!%20Vi%20o%20site%20da%20casa%20no%20Pontal%20do%20Atalaia%20e%20gostaria%20de%20consultar%20disponibilidade." target="_blank" rel="noopener"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-5.4c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-1.4-.6-2.4-1.6-3.1-2.9-.1-.2 0-.4.1-.5l.5-.6c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3 .6 1.8 1.8 3.3 3.3 4.4 1 .7 2.1 1.2 3.3 1.3.9.1 1.7-.2 2.3-.9.2-.3.3-.7.2-1 0-.1-.2-.2-.5-.3z"/></svg>
   WhatsApp
@@ -520,15 +655,23 @@ var lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),
     lbx=document.getElementById('lbx'),lbp=document.getElementById('lbp'),
     lbnx=document.getElementById('lbnx');
 var at=0,lastFocus=null;
+function vis(){
+  var l=figs.filter(function(f){return !f.hidden;});
+  return l.length?l:figs;
+}
 function show(i){
-  at=(i+figs.length)%figs.length;
-  var f=figs[at],im=f.querySelector('img'),cp=f.querySelector('figcaption');
+  var lst=vis();
+  at=(i+lst.length)%lst.length;
+  var f=lst[at],im=f.querySelector('img'),cp=f.querySelector('figcaption');
   lbimg.src=im.getAttribute('data-full')||im.getAttribute('src');
   lbimg.alt=im.getAttribute('alt')||'';
   lbcap.textContent=cp?cp.textContent:'';
-  lbn.textContent=(at+1)+' de '+figs.length;
+  lbn.textContent=(at+1)+' de '+lst.length;
 }
-function open(i){lastFocus=document.activeElement;show(i);lb.classList.add('open');
+function open(i){
+  var lst=vis(),p=lst.indexOf(figs[i]);
+  if(p<0)p=0;
+  lastFocus=document.activeElement;show(p);lb.classList.add('open');
   document.body.classList.add('lock');lbx.focus();}
 function close(){lb.classList.remove('open');document.body.classList.remove('lock');
   if(lastFocus&&lastFocus.focus)lastFocus.focus();}
@@ -550,11 +693,77 @@ document.addEventListener('keydown',function(e){
   else if(e.key==='ArrowLeft')show(at-1);
 });
 var sx=0,sy=0;
-lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+lb.addEventListener('touchstart',function(e){
+  var t=(e.touches&&e.touches[0])||(e.changedTouches&&e.changedTouches[0]);
+  if(!t)return; sx=t.clientX; sy=t.clientY;
+},{passive:true});
 lb.addEventListener('touchend',function(e){
-  var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;
+  var t=e.changedTouches&&e.changedTouches[0];
+  if(!t)return;
+  var dx=t.clientX-sx,dy=t.clientY-sy;
   if(Math.abs(dx)>52&&Math.abs(dx)>Math.abs(dy))show(dx<0?at+1:at-1);
 },{passive:true});
+})();
+</script>
+<script>
+(function(){
+"use strict";
+
+/* ----- animacao de entrada ----- */
+var alvos=[].slice.call(document.querySelectorAll('.rv'));
+if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  alvos.forEach(function(e){e.classList.add('in');});
+}else{
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  alvos.forEach(function(e){io.observe(e);});
+
+  /* rede de seguranca: nada pode ficar invisivel se o observador falhar */
+  function rede(){
+    alvos.forEach(function(e){
+      if(e.classList.contains('in'))return;
+      if(e.getBoundingClientRect().top < window.innerHeight*1.15) e.classList.add('in');
+    });
+  }
+  window.addEventListener('scroll',rede,{passive:true});
+  window.addEventListener('load',rede);
+  setTimeout(rede,1200); setTimeout(rede,3000);
+  setTimeout(function(){alvos.forEach(function(e){
+    e.classList.add('in');
+    e.style.opacity='1'; e.style.transform='none'; e.style.transition='none';
+  });},9000);
+}
+
+/* ----- filtros da galeria ----- */
+var filt=document.getElementById('filt'), gal=document.getElementById('gal');
+if(filt&&gal){
+  var figs=[].slice.call(gal.querySelectorAll('figure'));
+  filt.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b||!filt.contains(b)) return;
+    [].slice.call(filt.querySelectorAll('button')).forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on');
+    var f=b.getAttribute('data-f');
+    figs.forEach(function(fg){ fg.hidden = !(f==='all'||fg.getAttribute('data-g')===f); });
+    if(window.__galFiltro) window.__galFiltro();
+  });
+}
+
+/* ----- barra fixa de reserva ----- */
+var cta=document.getElementById('ctabar'), hero=document.getElementById('hero'),
+    reservar=document.getElementById('reservar');
+if(cta&&hero&&reservar){
+  var t=0;
+  function pos(){
+    var y=window.pageYOffset||document.documentElement.scrollTop;
+    var r=reservar.getBoundingClientRect();
+    cta.classList.toggle('in', y>hero.offsetHeight*0.85 && r.top>window.innerHeight*0.7);
+  }
+  function agenda(){ if(t)return; t=setTimeout(function(){t=0;pos();},90); }
+  window.addEventListener('scroll',agenda,{passive:true});
+  window.addEventListener('resize',agenda);
+  pos();
+}
 })();
 </script>
 </body>
