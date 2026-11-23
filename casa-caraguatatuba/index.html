@@ -272,34 +272,7 @@ footer a:hover{border-bottom-color:var(--sun)}
 </style>
 </head>
 <body>
-<script>
-(function(){
-  var MAX=3, q=[], running=0;
-  function start(){
-    while(running<MAX && q.length){
-      (function(im){
-        running++;
-        var src=im.getAttribute('data-src'), ss=im.getAttribute('data-srcset'), tried=0;
-        function done(){ running--; im.removeAttribute('data-src'); start(); }
-        function fail(){
-          if(tried<2){ tried++; setTimeout(function(){ im.removeAttribute('srcset'); im.src=src+(src.indexOf('?')<0?'?':'&')+'r='+tried; },700*tried); }
-          else done();
-        }
-        im.addEventListener('load',function(){ if(im.naturalWidth>0) done(); else fail(); });
-        im.addEventListener('error',fail);
-        if(ss) im.setAttribute('srcset',ss);
-        im.src=src;
-      })(q.shift());
-    }
-  }
-  function boot(){
-    q=[].slice.call(document.querySelectorAll('img[data-src]'));
-    start();
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot);
-  else boot();
-})();
-</script>
+
 
 <div id="bar">
   <div class="barin">
@@ -338,7 +311,7 @@ footer a:hover{border-bottom-color:var(--sun)}
         <div class="tally"><div><b>10</b><span>pessoas</span></div><div><b>2</b><span>quartos</span></div><div><b>3</b><span>vagas</span></div></div>
       </div>
       <div class="shot">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/02-piscina-noite.jpg" alt="Piscina da casa iluminada à noite">
+        <img loading="lazy" decoding="async" src="fotos/02-piscina-noite.jpg" alt="Piscina da casa iluminada à noite">
       </div>
     </div>
   </div>
@@ -349,33 +322,33 @@ footer a:hover{border-bottom-color:var(--sun)}
     <h2 class="d2">A casa por dentro e por fora</h2>
     <p class="lead" style="margin-top:18px">Da piscina aos quartos. Toque na foto para ampliar.</p>
     <div id="gal">
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/01-piscina-dia.jpg" data-srcset="fotos/t/01-piscina-dia.jpg 620w, fotos/01-piscina-dia.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Piscina particular da casa" data-full="fotos/01-piscina-dia.jpg"><figcaption>A piscina da casa</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/02-piscina-noite.jpg" data-srcset="fotos/t/02-piscina-noite.jpg 620w, fotos/02-piscina-noite.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Piscina iluminada à noite" data-full="fotos/02-piscina-noite.jpg"><figcaption>A piscina à noite</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/03-fachada-garagem.jpg" data-srcset="fotos/t/03-fachada-garagem.jpg 620w, fotos/03-fachada-garagem.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Fachada da casa com garagem coberta" data-full="fotos/03-fachada-garagem.jpg"><figcaption>A frente e a garagem</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/04-fachada-sacada.jpg" data-srcset="fotos/t/04-fachada-sacada.jpg 620w, fotos/04-fachada-sacada.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Lateral da casa com sacada" data-full="fotos/04-fachada-sacada.jpg"><figcaption>A lateral e a sacada</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/05-sala.jpg" data-srcset="fotos/t/05-sala.jpg 620w, fotos/05-sala.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Sala de estar e jantar da casa" data-full="fotos/05-sala.jpg"><figcaption>Sala de estar e jantar</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/06-sala-tv.jpg" data-srcset="fotos/t/06-sala-tv.jpg 620w, fotos/06-sala-tv.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Painel ripado com televisão e ar-condicionado" data-full="fotos/06-sala-tv.jpg"><figcaption>Sala com televisão</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/07-sala-sofa.jpg" data-srcset="fotos/t/07-sala-sofa.jpg 620w, fotos/07-sala-sofa.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Sofá da sala visto da entrada" data-full="fotos/07-sala-sofa.jpg"><figcaption>O sofá da sala</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/08-sala-mesa.jpg" data-srcset="fotos/t/08-sala-mesa.jpg 620w, fotos/08-sala-mesa.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Mesa grande de jantar com bancos" data-full="fotos/08-sala-mesa.jpg"><figcaption>Mesa para a família toda</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/13-escada.jpg" data-srcset="fotos/t/13-escada.jpg 620w, fotos/13-escada.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Escada com guarda-corpo de vidro" data-full="fotos/13-escada.jpg"><figcaption>A escada de granito</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/09-cozinha.jpg" data-srcset="fotos/t/09-cozinha.jpg 620w, fotos/09-cozinha.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Cozinha equipada com geladeira e bancada" data-full="fotos/09-cozinha.jpg"><figcaption>Cozinha equipada</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/10-cozinha-fogao.jpg" data-srcset="fotos/t/10-cozinha-fogao.jpg 620w, fotos/10-cozinha-fogao.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Fogão e bancada de granito da cozinha" data-full="fotos/10-cozinha-fogao.jpg"><figcaption>Fogão e bancada</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/11-cozinha-bancada.jpg" data-srcset="fotos/t/11-cozinha-bancada.jpg 620w, fotos/11-cozinha-bancada.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Armários e pia da cozinha" data-full="fotos/11-cozinha-bancada.jpg"><figcaption>Armários e pia</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/12-cozinha-saida.jpg" data-srcset="fotos/t/12-cozinha-saida.jpg 620w, fotos/12-cozinha-saida.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Saída da cozinha para a área da piscina" data-full="fotos/12-cozinha-saida.jpg"><figcaption>Saída para a piscina</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/14-quarto1-sacada.jpg" data-srcset="fotos/t/14-quarto1-sacada.jpg 620w, fotos/14-quarto1-sacada.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Quarto de casal com sacada e ar-condicionado" data-full="fotos/14-quarto1-sacada.jpg"><figcaption>Quarto com sacada</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/15-quarto1.jpg" data-srcset="fotos/t/15-quarto1.jpg 620w, fotos/15-quarto1.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Quarto de casal com cortinas" data-full="fotos/15-quarto1.jpg"><figcaption>Quarto de casal</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/16-quarto2.jpg" data-srcset="fotos/t/16-quarto2.jpg 620w, fotos/16-quarto2.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Quarto de casal arrumado" data-full="fotos/16-quarto2.jpg"><figcaption>Outro quarto de casal</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/17-quarto2-armario.jpg" data-srcset="fotos/t/17-quarto2-armario.jpg 620w, fotos/17-quarto2-armario.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Quarto com guarda-roupa de madeira" data-full="fotos/17-quarto2-armario.jpg"><figcaption>Quarto com guarda-roupa</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/18-quarto3-beliche.jpg" data-srcset="fotos/t/18-quarto3-beliche.jpg 620w, fotos/18-quarto3-beliche.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Beliche com cama auxiliar" data-full="fotos/18-quarto3-beliche.jpg"><figcaption>Beliche para as crianças</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/19-banheiro1.jpg" data-srcset="fotos/t/19-banheiro1.jpg 620w, fotos/19-banheiro1.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Banheiro com box de vidro e ducha" data-full="fotos/19-banheiro1.jpg"><figcaption>Banheiro com box</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/20-banheiro2.jpg" data-srcset="fotos/t/20-banheiro2.jpg 620w, fotos/20-banheiro2.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Segundo banheiro com box de vidro" data-full="fotos/20-banheiro2.jpg"><figcaption>O segundo banheiro</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/t/21-lavabo.jpg" data-srcset="fotos/t/21-lavabo.jpg 620w, fotos/21-lavabo.jpg 1600w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Lavabo social embaixo da escada" data-full="fotos/21-lavabo.jpg"><figcaption>Lavabo social</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/01-piscina-dia.jpg" alt="Piscina particular da casa" data-full="fotos/01-piscina-dia.jpg"><figcaption>A piscina da casa</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/02-piscina-noite.jpg" alt="Piscina iluminada à noite" data-full="fotos/02-piscina-noite.jpg"><figcaption>A piscina à noite</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/03-fachada-garagem.jpg" alt="Fachada da casa com garagem coberta" data-full="fotos/03-fachada-garagem.jpg"><figcaption>A frente e a garagem</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/04-fachada-sacada.jpg" alt="Lateral da casa com sacada" data-full="fotos/04-fachada-sacada.jpg"><figcaption>A lateral e a sacada</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/05-sala.jpg" alt="Sala de estar e jantar da casa" data-full="fotos/05-sala.jpg"><figcaption>Sala de estar e jantar</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/06-sala-tv.jpg" alt="Painel ripado com televisão e ar-condicionado" data-full="fotos/06-sala-tv.jpg"><figcaption>Sala com televisão</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/07-sala-sofa.jpg" alt="Sofá da sala visto da entrada" data-full="fotos/07-sala-sofa.jpg"><figcaption>O sofá da sala</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/08-sala-mesa.jpg" alt="Mesa grande de jantar com bancos" data-full="fotos/08-sala-mesa.jpg"><figcaption>Mesa para a família toda</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/13-escada.jpg" alt="Escada com guarda-corpo de vidro" data-full="fotos/13-escada.jpg"><figcaption>A escada de granito</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/09-cozinha.jpg" alt="Cozinha equipada com geladeira e bancada" data-full="fotos/09-cozinha.jpg"><figcaption>Cozinha equipada</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/10-cozinha-fogao.jpg" alt="Fogão e bancada de granito da cozinha" data-full="fotos/10-cozinha-fogao.jpg"><figcaption>Fogão e bancada</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/11-cozinha-bancada.jpg" alt="Armários e pia da cozinha" data-full="fotos/11-cozinha-bancada.jpg"><figcaption>Armários e pia</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/12-cozinha-saida.jpg" alt="Saída da cozinha para a área da piscina" data-full="fotos/12-cozinha-saida.jpg"><figcaption>Saída para a piscina</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/14-quarto1-sacada.jpg" alt="Quarto de casal com sacada e ar-condicionado" data-full="fotos/14-quarto1-sacada.jpg"><figcaption>Quarto com sacada</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/15-quarto1.jpg" alt="Quarto de casal com cortinas" data-full="fotos/15-quarto1.jpg"><figcaption>Quarto de casal</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/16-quarto2.jpg" alt="Quarto de casal arrumado" data-full="fotos/16-quarto2.jpg"><figcaption>Outro quarto de casal</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/17-quarto2-armario.jpg" alt="Quarto com guarda-roupa de madeira" data-full="fotos/17-quarto2-armario.jpg"><figcaption>Quarto com guarda-roupa</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/18-quarto3-beliche.jpg" alt="Beliche com cama auxiliar" data-full="fotos/18-quarto3-beliche.jpg"><figcaption>Beliche para as crianças</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/19-banheiro1.jpg" alt="Banheiro com box de vidro e ducha" data-full="fotos/19-banheiro1.jpg"><figcaption>Banheiro com box</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/20-banheiro2.jpg" alt="Segundo banheiro com box de vidro" data-full="fotos/20-banheiro2.jpg"><figcaption>O segundo banheiro</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="fotos/t/21-lavabo.jpg" alt="Lavabo social embaixo da escada" data-full="fotos/21-lavabo.jpg"><figcaption>Lavabo social</figcaption></figure>
     </div>
   </div>
 </section>
 
 <div class="band" id="band">
-  <img id="bandimg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/03-fachada-garagem.jpg" alt="Fachada da casa com garagem">
+  <img loading="lazy" decoding="async" id="bandimg" src="fotos/03-fachada-garagem.jpg" alt="Fachada da casa com garagem">
   <div><p class="serif">Piscina em casa, churrasqueira do lado e o litoral norte logo ali.</p></div>
 </div>
 
