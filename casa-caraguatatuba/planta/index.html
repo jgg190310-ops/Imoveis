@@ -288,7 +288,7 @@ const M = {
   pisoMolh:  std({ color: '#d9d5cc', roughness: .55 }),
   laje:      std({ color: '#cfccc4', roughness: .95 }),
   granito:   std({ color: '#23262a', roughness: .35, metalness: .15 }),
-  madeira:   std({ color: '#9a6a39', roughness: .72 }),
+  madeira:   std({ color: '#a17b4c', roughness: .78 }),
   ripado:    std({ color: '#a8743d', roughness: .66 }),
   movel:     std({ color: '#b9bcbd', roughness: .75 }),
   inox:      std({ color: '#b6bbbe', roughness: .35, metalness: .55 }),
@@ -632,7 +632,9 @@ function parede(g, eixo, fixo, a0, a1, y, alt, mat, vaos = []) {
   caixa(g, .08, 1.7, .08, M.madeira, 2.2, Y1, 14.8);
   caixa(g, .08, 1.7, .08, M.madeira, 3.6, Y1, 13.0);
   caixa(g, .08, 1.7, .08, M.madeira, 3.6, Y1, 14.8);
-  caixa(g, 1.5, .06, 1.9, M.madeira, 2.9, Y1 + 1.68, 13.9);
+  caixa(g, .07, .3, 1.9, M.madeira, 2.23, Y1 + 1.68, 13.9);
+  caixa(g, .07, .3, 1.9, M.madeira, 3.57, Y1 + 1.68, 13.9);
+  caixa(g, 1.4, .07, .07, M.madeira, 2.9, Y1 + 1.9, 13.0);
   arCond(2.9, 12.65);
   // quarto
   camaCasal(2.9, 16.6);
