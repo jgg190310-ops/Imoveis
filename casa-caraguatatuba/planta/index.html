@@ -803,8 +803,7 @@ GRUPOS.forEach(([titulo, itens]) => {
       b.classList.add('on'); botaoAtivo = b;
       aberto = true;
       document.querySelectorAll('#segCorte button').forEach(x => x.classList.toggle('on', x.dataset.n === 'aberto'));
-      if (p === 'sup' && pisoAtivo === 'terreo') pisoAtivo = 'tudo';
-      if (p === 'terreo' && pisoAtivo === 'sup') pisoAtivo = 'tudo';
+      pisoAtivo = p === 'sup' ? 'sup' : 'terreo';
       document.querySelectorAll('#segPiso button').forEach(x => x.classList.toggle('on', x.dataset.p === pisoAtivo));
       aplicar();
       const cx = (r.x0 + r.x1) / 2 - CX, cz = (r.z0 + r.z1) / 2 - CZ;
