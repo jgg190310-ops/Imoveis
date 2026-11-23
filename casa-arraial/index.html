@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casa de Temporada em Arraial do Cabo — Condomínio Casas Brancas, Pontal do Atalaia</title>
+<meta name="description" content="Casa de temporada no Condomínio Casas Brancas, Pontal do Atalaia, Arraial do Cabo. Até 12 pessoas, segurança 24h, vista da Praia Grande e acesso às Prainhas do Pontal.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Casa de Temporada em Arraial do Cabo — Casas Brancas">
+<meta property="og:description" content="Casa de temporada no Condomínio Casas Brancas, Pontal do Atalaia, Arraial do Cabo. Até 12 pessoas, segurança 24h, vista da Praia Grande e acesso às Prainhas do Pontal.">
+<meta property="og:image" content="https://img.olx.com.br/images/61/615697643848199.jpg">
+<meta name="theme-color" content="#0b3550">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%230b3550'/%3E%3Cg fill='none' stroke='%23e0bb84' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.5 44c.2-8 1.2-14 4.5-18.8' stroke-width='2.6'/%3E%3Cg stroke-width='2.2'%3E%3Cpath d='M25 25.2C20.5 21.5 13 21 7 26'/%3E%3Cpath d='M25 25.2C21 18.5 14 15.5 7 17.5'/%3E%3Cpath d='M25 25.2C24.5 16.5 28.5 10 36 8.5'/%3E%3Cpath d='M25 25.2C30 19 37.5 17.5 43 20.5'/%3E%3Cpath d='M25 25.2C31 23.5 38 25.5 42.5 30.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://img.olx.com.br" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Jost:wght@400..600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#0e3430;        /* verde do lago */
+  --deep-2:#14443e;
+  --ocean:#1d5a52;
+  --foam:#f6f2ea;        /* papel */
+  --paper:#ece5d8;
+  --sun:#b8925a;         /* latao */
+  --sun-2:#d6b57e;
+  --mute:#4a5854;
+  --wa:#12813d;
+  --line:rgba(18,34,31,.13);
+  --line-d:rgba(246,242,234,.16);
+  --r:16px;
+  --pad:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--foam);color:var(--deep);overflow-x:hidden;
+  font-family:'Jost',system-ui,sans-serif;font-size:17px;font-weight:400;
+  line-height:1.62;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--sun-2);color:var(--deep)}
+:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
+
+/* ---------- tipografia ---------- */
+.d1,.d2,.d3{font-family:'Gloock',Georgia,serif;font-weight:400;font-synthesis:none;
+  letter-spacing:-.018em;line-height:1.02;text-wrap:balance}
+.d1{font-size:clamp(44px,8.4vw,104px);line-height:.98}
+.d2{font-size:clamp(31px,4.6vw,58px);max-width:16ch}
+.d3{font-size:clamp(21px,2.2vw,27px);line-height:1.12}
+.serif{font-family:'Gloock',Georgia,serif;font-weight:400;letter-spacing:-.012em}
+p{max-width:64ch}
+.lead{font-size:clamp(18px,1.6vw,21px);line-height:1.6;color:var(--mute)}
+.dark .lead{color:rgba(246,242,234,.72)}
+
+section{position:relative;z-index:2}
+.dark{background:var(--deep);color:var(--foam)}
+.wrap{max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,150px) var(--pad)}
+
+/* ---------- barra de vidro ---------- */
+#bar{position:fixed;top:0;left:0;right:0;z-index:800;transition:color .4s}
+#bar::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:rgba(246,242,234,.64);-webkit-backdrop-filter:saturate(180%) blur(22px);
+  backdrop-filter:saturate(180%) blur(22px);
+  border-bottom:1px solid transparent;transition:background .4s,border-color .4s}
+#bar.solid::before{background:rgba(246,242,234,.95);border-bottom-color:var(--line)}
+#bar.inverse::before{background:rgba(14,52,48,.46);border-bottom-color:rgba(255,255,255,.16)}
+#bar.inverse{color:var(--foam)}
+.barin{display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:13px var(--pad)}
+.brand{text-decoration:none;display:flex;align-items:center;gap:11px;line-height:1.1}
+.palm{width:30px;height:30px;flex:none;color:var(--sun)}
+#bar.inverse .palm{color:var(--sun-2)}
+.brand b{display:block;font-family:'Gloock',Georgia,serif;font-weight:400;
+  font-size:19px;letter-spacing:-.012em}
+.brand i{display:block;font-style:normal;font-size:12px;color:var(--mute);letter-spacing:.01em}
+#bar.inverse .brand i{color:rgba(246,242,234,.74)}
+#nav{display:flex;align-items:center;gap:clamp(14px,1.7vw,28px)}
+#nav a{font-size:15px;text-decoration:none;opacity:.72;transition:opacity .2s;padding:5px 0;position:relative}
+#nav a:hover,#nav a.cur{opacity:1}
+#nav a.cur::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--sun)}
+#nav a.zap::after{display:none}
+.zap{display:inline-flex;align-items:center;gap:9px;background:var(--wa);color:#fff;
+  font-weight:500;font-size:15px;padding:12px 22px;border-radius:999px;
+  text-decoration:none;opacity:1 !important;transition:background .2s,transform .2s}
+.zap:hover{background:#0e6b32;transform:translateY(-1px)}
+.zap svg{flex:none}
+#burger{display:none;width:42px;height:42px;border:1px solid currentColor;background:transparent;
+  color:inherit;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;
+  border-radius:2px;position:relative;z-index:820}
+#burger i{width:16px;height:1.5px;background:currentColor;display:block;transition:transform .3s,opacity .3s}
+#burger.x i:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+#burger.x i:nth-child(2){opacity:0}
+#burger.x i:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* ---------- capa ---------- */
+#hero{position:relative;height:100svh;min-height:590px;overflow:hidden;background:var(--deep)}
+#heroimg{position:absolute;left:0;top:-11%;width:100%;height:122%;object-fit:cover;
+  object-position:center 66%;will-change:transform}
+#hero::after{content:"";position:absolute;inset:0;z-index:2;
+  background:linear-gradient(rgba(14,52,48,.52) 0,rgba(14,52,48,.12) 32%,rgba(14,52,48,.58) 72%,rgba(14,52,48,.95) 100%)}
+.hero-in{position:absolute;inset:auto 0 0 0;z-index:4;color:var(--foam);
+  padding:0 var(--pad) clamp(26px,4.5vh,46px)}
+.hero-in h1{max-width:13ch}
+.hero-in h1 em{font-style:normal;color:var(--sun-2)}
+.hero-say{margin-top:18px;font-size:clamp(17px,1.9vw,22px);max-width:34ch;
+  color:rgba(246,242,234,.88);line-height:1.45}
+.facts{margin-top:clamp(22px,4vh,38px);padding-top:18px;border-top:1px solid var(--line-d);
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 0}
+.facts i{font-style:normal;display:inline-flex;align-items:baseline;gap:7px;padding-right:clamp(14px,2.4vw,30px)}
+.facts i+i{padding-left:clamp(14px,2.4vw,30px);border-left:1px solid var(--line-d)}
+.facts b{font-family:'Gloock',Georgia,serif;font-weight:400;font-size:clamp(22px,2.6vw,32px);
+  letter-spacing:-.015em;line-height:1}
+.facts span{font-size:13.5px;color:rgba(246,242,234,.72)}
+
+/* entrada unica, so na capa */
+@media (prefers-reduced-motion:no-preference){
+  .hero-in>*{opacity:0;transform:translateY(22px);animation:up .9s cubic-bezier(.2,.75,.25,1) forwards}
+  .hero-in>*:nth-child(2){animation-delay:.14s}
+  .hero-in>*:nth-child(3){animation-delay:.26s}
+  @keyframes up{to{opacity:1;transform:none}}
+}
+
+/* ---------- a casa: texto + foto sangrando ---------- */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);
+  gap:clamp(30px,5vw,80px);align-items:center}
+.split .shot{position:relative;margin-right:calc(var(--pad)*-1);align-self:stretch;min-height:420px;
+  border-radius:var(--r) 0 0 var(--r);overflow:hidden}
+.split .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tally{margin-top:clamp(30px,4vw,46px);display:flex;flex-wrap:wrap;gap:0}
+.tally div{padding:0 clamp(16px,2.4vw,30px) 4px 0}
+.tally div+div{padding-left:clamp(16px,2.4vw,30px);border-left:1px solid var(--line)}
+.tally b{display:block;font-family:'Gloock',Georgia,serif;font-weight:400;
+  font-size:clamp(30px,3.8vw,48px);letter-spacing:-.015em;line-height:1}
+.tally span{font-size:14px;color:var(--mute)}
+
+/* ---------- galeria ---------- */
+#gal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:clamp(32px,4vw,52px)}
+#gal figure{margin:0;position:relative;cursor:zoom-in;background:var(--deep-2);
+  overflow:hidden;aspect-ratio:4/3;border-radius:var(--r)}
+#gal figure:first-child{grid-column:span 2;grid-row:span 2}
+#gal img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .7s cubic-bezier(.2,.8,.3,1)}
+#gal figure:hover img{transform:scale(1.04)}
+#gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;
+  color:#fff;font-size:13.5px;opacity:0;transition:opacity .3s;
+  background:linear-gradient(transparent,rgba(14,52,48,.86))}
+#gal figure:hover figcaption,#gal figure:focus-visible figcaption{opacity:1}
+
+/* ---------- video ---------- */
+.vid{position:relative;aspect-ratio:16/9;background:var(--deep-2);overflow:hidden;
+  margin-top:clamp(30px,4vw,48px);border-radius:var(--r)}
+.vid video{width:100%;height:100%;object-fit:cover;background:var(--deep-2)}
+#playbtn{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;
+  border:0;background:var(--foam);color:var(--deep);cursor:pointer;display:grid;place-items:center;
+  transition:transform .25s cubic-bezier(.2,.9,.3,1),opacity .3s}
+#playbtn:hover{transform:scale(1.08)}
+#playbtn.gone{opacity:0;pointer-events:none}
+#playbtn svg{margin-left:5px}
+
+/* ---------- faixa com parallax ---------- */
+.band{position:relative;height:clamp(320px,56vh,560px);overflow:hidden;background:var(--deep);z-index:2}
+.band img{position:absolute;left:0;top:-14%;width:100%;height:128%;object-fit:cover;will-change:transform}
+.band div{position:absolute;inset:0;z-index:3;display:grid;place-items:center;text-align:center;
+  padding:0 var(--pad);background:linear-gradient(rgba(14,52,48,.34),rgba(14,52,48,.62))}
+.band p{color:var(--foam);font-size:clamp(26px,4.4vw,54px);line-height:1.18;max-width:17ch;
+  text-shadow:0 2px 34px rgba(14,52,48,.5)}
+
+/* ---------- estrutura: lista em linhas ---------- */
+.rows{margin-top:clamp(28px,4vw,46px);border-top:1px solid var(--line-d);
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(30px,5vw,72px)}
+.rows div{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  padding:15px 0;border-bottom:1px solid var(--line-d);font-size:16.5px}
+.rows em{font-style:normal;color:var(--sun-2);font-size:14px;text-align:right;flex:none}
+
+/* ---------- quartos ---------- */
+.beds{margin-top:clamp(30px,4vw,52px);display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:clamp(22px,3vw,40px)}
+.beds article{padding-top:18px;border-top:1.5px solid var(--sun)}
+.beds b{display:block;font-family:'Gloock',Georgia,serif;font-weight:400;
+  font-size:clamp(38px,5vw,62px);letter-spacing:-.015em;line-height:1;color:var(--ocean)}
+.beds h3{font-size:17px;font-weight:700;margin:8px 0 4px;letter-spacing:-.015em}
+.beds p{font-size:14.5px;color:var(--mute);line-height:1.5;max-width:26ch}
+
+/* ---------- localizacao ---------- */
+.loc{display:grid;grid-template-columns:1.3fr .8fr;gap:clamp(24px,3.5vw,54px);
+  margin-top:clamp(28px,4vw,46px);align-items:start}
+.map{aspect-ratio:4/3;background:var(--paper);overflow:hidden;border-radius:var(--r)}
+.map iframe{width:100%;height:100%;border:0;display:block}
+.dists{list-style:none;border-top:1px solid var(--line)}
+.dists li{display:flex;justify-content:space-between;gap:14px;align-items:baseline;
+  padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}
+.dists b{font-family:'Gloock',Georgia,serif;font-weight:400;color:var(--ocean);white-space:nowrap}
+
+/* ---------- reserva ---------- */
+.deal{margin-top:clamp(30px,4vw,48px);padding-top:clamp(26px,3vw,40px);
+  border-top:1px solid var(--line-d);display:flex;flex-wrap:wrap;
+  align-items:flex-end;gap:clamp(22px,5vw,64px)}
+.deal .price{line-height:.9}
+.deal .price b{font-size:clamp(52px,8vw,96px);font-weight:500;letter-spacing:-.03em;
+  font-family:'Bodoni Moda',Georgia,serif;font-style:normal;display:block}
+.deal .price span{display:block;margin-top:12px;font-size:14px;color:rgba(246,242,234,.7)}
+.deal .fine{font-size:14.5px;color:rgba(246,242,234,.7);max-width:32ch;line-height:1.55}
+.deal .zap{padding:16px 30px;font-size:17px}
+
+footer{background:var(--deep);color:rgba(246,242,234,.6);font-size:14px;
+  border-top:1px solid var(--line-d)}
+.fin{max-width:1240px;margin:0 auto;padding:34px var(--pad);display:flex;flex-wrap:wrap;
+  gap:14px;justify-content:space-between;align-items:center}
+footer a{color:var(--foam);text-decoration:none;border-bottom:1px solid rgba(246,242,234,.35)}
+footer a:hover{border-bottom-color:var(--sun)}
+
+#float{position:fixed;right:16px;bottom:16px;z-index:700;opacity:0;visibility:hidden;
+  transform:translateY(12px);transition:opacity .35s,transform .35s,visibility .35s;
+  box-shadow:0 16px 40px -14px rgba(0,0,0,.55)}
+#float.in{opacity:1;visibility:visible;transform:none}
+
+/* ---------- lightbox ---------- */
+#lb{position:fixed;inset:0;z-index:960;background:rgba(10,32,29,.985);display:flex;
+  align-items:center;justify-content:center;padding:58px 14px;
+  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+#lb.open{opacity:1;visibility:visible}
+#lbimg{max-width:min(1200px,100%);max-height:100%;object-fit:contain;border-radius:10px}
+#lbcap{position:absolute;bottom:20px;left:0;right:0;text-align:center;
+  color:rgba(246,242,234,.8);font-size:15px;padding:0 20px}
+#lbn{position:absolute;top:20px;left:50%;transform:translateX(-50%);
+  color:rgba(246,242,234,.55);font-size:13.5px;font-variant-numeric:tabular-nums}
+#lb button{position:absolute;background:transparent;border:1px solid rgba(246,242,234,.32);
+  color:var(--foam);width:46px;height:46px;cursor:pointer;display:grid;place-items:center;
+  border-radius:50%;transition:background .2s,border-color .2s}
+#lb button:hover{background:var(--foam);border-color:var(--foam);color:var(--deep)}
+#lbx{top:14px;right:14px}
+#lbp{left:14px;top:50%;margin-top:-23px}
+#lbnx{right:14px;top:50%;margin-top:-23px}
+
+@media (max-width:1000px){
+  .split{grid-template-columns:1fr}
+  .split .shot{margin:0 calc(var(--pad)*-1);min-height:300px;height:52vw}
+  .loc{grid-template-columns:1fr}
+  #gal{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  body{font-size:16.5px}
+  #burger{display:flex}
+  #nav{position:fixed;inset:0 0 0 auto;width:min(84vw,340px);flex-direction:column;
+    align-items:flex-start;justify-content:center;gap:26px;padding:34px var(--pad);
+    background:var(--deep);color:var(--foam);transform:translateX(102%);
+    transition:transform .42s cubic-bezier(.3,.9,.3,1);z-index:810}
+  #nav.open{transform:none}
+  #nav a{font-family:'Gloock',Georgia,serif;font-size:28px;opacity:.94}
+  #nav a.cur::after{display:none}
+  #nav .zap{font-size:16px;margin-top:8px}
+  .rows{grid-template-columns:1fr}
+  .facts i+i{padding-left:14px}
+  .facts i{padding-right:14px}
+  #lb{padding:62px 8px}
+  #lb button{width:42px;height:42px}
+  #lbp{left:6px}#lbnx{right:6px}
+  #gal figcaption{opacity:1;font-size:12.5px;padding:26px 11px 10px}
+  .deal .zap{width:100%;justify-content:center}
+}
+@media (max-width:460px){#gal{grid-template-columns:1fr}
+  #gal figure:first-child{grid-column:auto;grid-row:auto}}
+</style>
+<style>
+:root{--deep:#0b3550;--deep-2:#104463;--ocean:#1a6c96;--foam:#f8f6f0;--paper:#e9e3d7;--sun:#c08a3e;--sun-2:#e0bb84;}
+#bar::before{background:rgba(248,246,240,.64)}
+#bar.solid::before{background:rgba(248,246,240,.95)}
+#bar.inverse::before{background:rgba(11,53,80,.46)}
+#hero::after{background:linear-gradient(rgba(11,53,80,.52) 0,rgba(11,53,80,.10) 32%,rgba(11,53,80,.56) 72%,rgba(11,53,80,.95) 100%)}
+.band div{background:linear-gradient(rgba(11,53,80,.32),rgba(11,53,80,.60))}
+</style>
+</head>
+<body>
+
+<div id="bar">
+  <div class="barin">
+    <a class="brand" href="#topo"><svg class="palm" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 44c.2-8 1.2-14 4.5-18.8" stroke-width="2.6"/><g stroke-width="2.2"><path d="M25 25.2C20.5 21.5 13 21 7 26"/><path d="M25 25.2C21 18.5 14 15.5 7 17.5"/><path d="M25 25.2C24.5 16.5 28.5 10 36 8.5"/><path d="M25 25.2C30 19 37.5 17.5 43 20.5"/><path d="M25 25.2C31 23.5 38 25.5 42.5 30.5"/></g><g fill="currentColor" stroke="none"><circle cx="22.4" cy="27.6" r="1.2"/><circle cx="27.4" cy="28.2" r="1.2"/></g></svg><span><b>Casa no Pontal</b><i>Arraial do Cabo, Rio de Janeiro</i></span></a>
+    <nav id="nav">
+      <a href="#casa">A casa</a>
+      <a href="#galeria">Fotos</a>
+      <a href="#comodidades">Estrutura</a>
+      <a href="#quartos">Quartos</a>
+      <a href="#local">Onde fica</a>
+      <a class="zap" href="https://wa.me/5521983085833?text=Ol%C3%A1%2C%20Bruno!%20Vi%20o%20site%20da%20casa%20no%20Pontal%20do%20Atalaia%20e%20gostaria%20de%20consultar%20disponibilidade." target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-5.4c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-1.4-.6-2.4-1.6-3.1-2.9-.1-.2 0-.4.1-.5l.5-.6c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3 .6 1.8 1.8 3.3 3.3 4.4 1 .7 2.1 1.2 3.3 1.3.9.1 1.7-.2 2.3-.9.2-.3.3-.7.2-1 0-.1-.2-.2-.5-.3z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </nav>
+    <button id="burger" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</div>
+
+<header id="hero">
+  <img id="heroimg" src="https://img.olx.com.br/images/61/615697643848199.jpg" fetchpriority="high" alt="Vista do Condomínio Casas Brancas com o mar de Arraial do Cabo ao fundo">
+  <div class="hero-in">
+    <h1 class="d1">O pôr do sol mais famoso de <em>Arraial</em></h1>
+    <p class="hero-say">Casa de praia no Condomínio Casas Brancas, no Pontal do Atalaia, com vista da Praia Grande e acesso às Prainhas do Pontal pela escadaria.</p>
+    <div class="facts"><i><b>12</b><span>hóspedes</span></i><i><b>3</b><span>quartos</span></i><i><b>2</b><span>banheiros</span></i><i><b>2</b><span>vagas</span></i><i><b>24h</b><span>segurança</span></i></div>
+  </div>
+</header>
+<span id="topo"></span>
+
+<section id="casa">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <h2 class="d2">Nas Casas da Grécia, de frente para o mar</h2>
+        <p class="lead" style="margin-top:24px">A casa fica no Condomínio Casas Brancas, no Pontal do Atalaia, conhecido como as Casas da Grécia, em condomínio fechado com segurança 24 horas e duas vagas de estacionamento. A Praia Grande fica a cinco minutos.</p>
+        <p class="lead" style="margin-top:14px">Ampla e espaçosa, com sala de TV, sala de jantar, cozinha equipada com fogão, microondas, geladeira, freezer e todos os utensílios, Wi-Fi, churrasqueira e uma área externa com chuveirão para o banho pós-praia. Quem se hospeda aqui tem acesso liberado às famosas Prainhas do Pontal pela escadaria.</p>
+        <div class="tally"><div><b>12</b><span>pessoas</span></div><div><b>3</b><span>quartos</span></div><div><b>2</b><span>banheiros</span></div></div>
+      </div>
+      <div class="shot">
+        <img src="https://img.olx.com.br/images/81/813670766249239.jpg" loading="lazy" alt="Rede azul na varanda da casa">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="dark">
+  <div class="wrap">
+    <h2 class="d2">A casa e a vista</h2>
+    <p class="lead" style="margin-top:18px">Da varanda aos quartos, e a praia logo abaixo. Toque na foto para ampliar.</p>
+    <div id="gal">
+      <figure><img src="https://img.olx.com.br/thumbs500x500/61/615697643848199.jpg" srcset="https://img.olx.com.br/thumbs500x500/61/615697643848199.jpg 500w, https://img.olx.com.br/images/61/615697643848199.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista aérea do Condomínio Casas Brancas" data-full="https://img.olx.com.br/images/61/615697643848199.jpg"><figcaption>O condomínio visto de cima, com o mar ao fundo</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/98/984668286018474.jpg" srcset="https://img.olx.com.br/thumbs500x500/98/984668286018474.jpg 500w, https://img.olx.com.br/images/98/984668286018474.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista da praia a partir do Pontal do Atalaia" data-full="https://img.olx.com.br/images/98/984668286018474.jpg"><figcaption>A praia vista do Pontal</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/81/813670766249239.jpg" srcset="https://img.olx.com.br/thumbs500x500/81/813670766249239.jpg 500w, https://img.olx.com.br/images/81/813670766249239.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Rede azul na varanda da casa" data-full="https://img.olx.com.br/images/81/813670766249239.jpg"><figcaption>Rede na varanda</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/81/816625649853810.jpg" srcset="https://img.olx.com.br/thumbs500x500/81/816625649853810.jpg 500w, https://img.olx.com.br/images/81/816625649853810.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Mesa na varanda com vista para o mar" data-full="https://img.olx.com.br/images/81/816625649853810.jpg"><figcaption>Mesa na varanda, de frente para o mar</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/53/530647409721098.jpg" srcset="https://img.olx.com.br/thumbs500x500/53/530647409721098.jpg 500w, https://img.olx.com.br/images/53/530647409721098.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Fachada branca da casa" data-full="https://img.olx.com.br/images/53/530647409721098.jpg"><figcaption>A fachada branca da casa</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/98/981618886167127.jpg" srcset="https://img.olx.com.br/thumbs500x500/98/981618886167127.jpg 500w, https://img.olx.com.br/images/98/981618886167127.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Vista do condomínio a partir da casa" data-full="https://img.olx.com.br/images/98/981618886167127.jpg"><figcaption>A vista do condomínio</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/82/822609165198361.jpg" srcset="https://img.olx.com.br/thumbs500x500/82/822609165198361.jpg 500w, https://img.olx.com.br/images/82/822609165198361.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Área externa da casa com vista" data-full="https://img.olx.com.br/images/82/822609165198361.jpg"><figcaption>A área externa</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/81/819687640746398.jpg" srcset="https://img.olx.com.br/thumbs500x500/81/819687640746398.jpg 500w, https://img.olx.com.br/images/81/819687640746398.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Escadaria de acesso" data-full="https://img.olx.com.br/images/81/819687640746398.jpg"><figcaption>A escadaria de acesso</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/81/817691644896671.jpg" srcset="https://img.olx.com.br/thumbs500x500/81/817691644896671.jpg 500w, https://img.olx.com.br/images/81/817691644896671.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Sala de estar com sofás" data-full="https://img.olx.com.br/images/81/817691644896671.jpg"><figcaption>Sala de estar</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/81/812695400535632.jpg" srcset="https://img.olx.com.br/thumbs500x500/81/812695400535632.jpg 500w, https://img.olx.com.br/images/81/812695400535632.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Sala de jantar da casa" data-full="https://img.olx.com.br/images/81/812695400535632.jpg"><figcaption>Sala de jantar</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/81/813649761591008.jpg" srcset="https://img.olx.com.br/thumbs500x500/81/813649761591008.jpg 500w, https://img.olx.com.br/images/81/813649761591008.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Cozinha equipada" data-full="https://img.olx.com.br/images/81/813649761591008.jpg"><figcaption>Cozinha equipada</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/82/829696163457097.jpg" srcset="https://img.olx.com.br/thumbs500x500/82/829696163457097.jpg 500w, https://img.olx.com.br/images/82/829696163457097.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Bancada da cozinha com fogão" data-full="https://img.olx.com.br/images/82/829696163457097.jpg"><figcaption>Bancada e fogão</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/81/816621647416316.jpg" srcset="https://img.olx.com.br/thumbs500x500/81/816621647416316.jpg 500w, https://img.olx.com.br/images/81/816621647416316.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com cama de casal" data-full="https://img.olx.com.br/images/81/816621647416316.jpg"><figcaption>Quarto de casal</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/20/205696761827933.jpg" srcset="https://img.olx.com.br/thumbs500x500/20/205696761827933.jpg 500w, https://img.olx.com.br/images/20/205696761827933.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com cama de casal" data-full="https://img.olx.com.br/images/20/205696761827933.jpg"><figcaption>Outra cama de casal</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/81/813618046006414.jpg" srcset="https://img.olx.com.br/thumbs500x500/81/813618046006414.jpg 500w, https://img.olx.com.br/images/81/813618046006414.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com beliches" data-full="https://img.olx.com.br/images/81/813618046006414.jpg"><figcaption>Quarto com beliches</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/81/813641285493099.jpg" srcset="https://img.olx.com.br/thumbs500x500/81/813641285493099.jpg 500w, https://img.olx.com.br/images/81/813641285493099.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com dois beliches" data-full="https://img.olx.com.br/images/81/813641285493099.jpg"><figcaption>Beliches para as crianças</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/81/818648285214872.jpg" srcset="https://img.olx.com.br/thumbs500x500/81/818648285214872.jpg 500w, https://img.olx.com.br/images/81/818648285214872.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Banheiro da casa" data-full="https://img.olx.com.br/images/81/818648285214872.jpg"><figcaption>Um dos banheiros</figcaption></figure>
+      <figure><img src="https://img.olx.com.br/thumbs500x500/20/208678400684789.jpg" srcset="https://img.olx.com.br/thumbs500x500/20/208678400684789.jpg 500w, https://img.olx.com.br/images/20/208678400684789.jpg 1200w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Segundo banheiro da casa" data-full="https://img.olx.com.br/images/20/208678400684789.jpg"><figcaption>O outro banheiro</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="band" id="band">
+  <img id="bandimg" src="https://img.olx.com.br/images/98/984668286018474.jpg" loading="lazy" alt="Praia vista do Pontal do Atalaia">
+  <div><p class="serif">As Prainhas do Pontal ficam logo ali, descendo a escadaria.</p></div>
+</div>
+
+<section id="comodidades" class="dark">
+  <div class="wrap">
+    <h2 class="d2">O que a casa tem</h2>
+    <div class="rows">
+      <div>Condomínio fechado <em>segurança 24h</em></div>
+      <div>Vista da Praia Grande <em></em></div>
+      <div>Acesso às Prainhas do Pontal <em>pela escadaria</em></div>
+      <div>Churrasqueira <em></em></div>
+      <div>Chuveirão <em>na área externa</em></div>
+      <div>Varanda e terraço <em></em></div>
+      <div>Internet Wi-Fi <em></em></div>
+      <div>TV a cabo <em></em></div>
+      <div>Sala de TV e sala de jantar <em></em></div>
+      <div>Cozinha equipada <em>fogão, microondas, geladeira e freezer</em></div>
+      <div>Ventilador <em></em></div>
+      <div>Estacionamento <em>2 vagas</em></div>
+    </div>
+  </div>
+</section>
+
+<section id="quartos">
+  <div class="wrap">
+    <h2 class="d2">Onde cada um dorme</h2>
+    <p class="lead" style="margin-top:18px">São três quartos e dois banheiros, para até 12 pessoas. O primeiro quarto tem uma cama de casal e duas de solteiro, o segundo tem dois beliches, e o terceiro tem uma cama de casal.</p>
+    <div class="beds">
+      <article><b>12</b><h3>Pessoas</h3><p>Dá para duas ou três famílias juntas.</p></article>
+      <article><b>3</b><h3>Quartos</h3><p>Camas de casal, de solteiro e beliches.</p></article>
+      <article><b>2</b><h3>Banheiros</h3><p>Mais o chuveirão da área externa.</p></article>
+      <article><b>2</b><h3>Vagas</h3><p>Estacionamento dentro do condomínio.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="local">
+  <div class="wrap" style="padding-top:0">
+    <h2 class="d2">Onde fica</h2>
+    <p class="lead" style="margin-top:18px">No Pontal do Atalaia, em Arraial do Cabo. A Praia Grande fica a cinco minutos e as Prainhas do Pontal têm acesso liberado para quem se hospeda, pela escadaria do condomínio.</p>
+    <div class="loc">
+      <div class="map">
+        <iframe title="Mapa de Casa no Pontal" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Pontal+do+Atalaia,+Arraial+do+Cabo+-+RJ&hl=pt-BR&z=14&output=embed"></iframe>
+      </div>
+      <ul class="dists">
+        <li>Praia Grande <b>5 min</b></li>
+        <li>Prainhas do Pontal <b>pela escadaria</b></li>
+        <li>Condomínio <b>segurança 24h</b></li>
+        <li>Endereço completo <b>na reserva</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="reservar" class="dark">
+  <div class="wrap">
+    <h2 class="d2">Fale direto com o Bruno</h2>
+    <p class="lead" style="margin-top:18px">A casa é alugada pelo próprio dono, sem intermediário. Mande as datas e quantas pessoas são que ele confirma a disponibilidade e fecha o valor.</p>
+    <div class="deal">
+      <div class="price"><b>R$ 350</b><span>a diária, para 4 pessoas</span></div>
+      <p class="fine">Mínimo de 3 diárias. O valor muda conforme a quantidade de pessoas e de dias. Feriados e alta temporada têm pacotes à parte, combinados direto com o proprietário.</p>
+      <a class="zap" href="https://wa.me/5521983085833?text=Ol%C3%A1%2C%20Bruno!%20Vi%20o%20site%20da%20casa%20no%20Pontal%20do%20Atalaia%20e%20gostaria%20de%20consultar%20disponibilidade." target="_blank" rel="noopener"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-5.4c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-1.4-.6-2.4-1.6-3.1-2.9-.1-.2 0-.4.1-.5l.5-.6c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3 .6 1.8 1.8 3.3 3.3 4.4 1 .7 2.1 1.2 3.3 1.3.9.1 1.7-.2 2.3-.9.2-.3.3-.7.2-1 0-.1-.2-.2-.5-.3z"/></svg>
+        Consultar disponibilidade
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fin">
+    <span style="display:inline-flex;align-items:center;gap:10px"><svg class="palm" style="width:26px;height:26px;color:var(--sun-2)" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 44c.2-8 1.2-14 4.5-18.8" stroke-width="2.6"/><g stroke-width="2.2"><path d="M25 25.2C20.5 21.5 13 21 7 26"/><path d="M25 25.2C21 18.5 14 15.5 7 17.5"/><path d="M25 25.2C24.5 16.5 28.5 10 36 8.5"/><path d="M25 25.2C30 19 37.5 17.5 43 20.5"/><path d="M25 25.2C31 23.5 38 25.5 42.5 30.5"/></g><g fill="currentColor" stroke="none"><circle cx="22.4" cy="27.6" r="1.2"/><circle cx="27.4" cy="28.2" r="1.2"/></g></svg>Casa de temporada em Arraial do Cabo, RJ</span>
+    <span>Site criado por <a href="https://wa.me/5531999131903" target="_blank" rel="noopener">João Gabriel Geo</a> (31) 99913-1903</span>
+  </div>
+</footer>
+
+<a id="float" class="zap" href="https://wa.me/5521983085833?text=Ol%C3%A1%2C%20Bruno!%20Vi%20o%20site%20da%20casa%20no%20Pontal%20do%20Atalaia%20e%20gostaria%20de%20consultar%20disponibilidade." target="_blank" rel="noopener"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-5.4c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-1.4-.6-2.4-1.6-3.1-2.9-.1-.2 0-.4.1-.5l.5-.6c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3 .6 1.8 1.8 3.3 3.3 4.4 1 .7 2.1 1.2 3.3 1.3.9.1 1.7-.2 2.3-.9.2-.3.3-.7.2-1 0-.1-.2-.2-.5-.3z"/></svg>
+  WhatsApp
+</a>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <img id="lbimg" alt="">
+  <span id="lbn"></span>
+  <span id="lbcap"></span>
+  <button id="lbx" aria-label="Fechar"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <button id="lbp" aria-label="Foto anterior"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button id="lbnx" aria-label="Proxima foto"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+
+<script>
+(function(){
+"use strict";
+var bar=document.getElementById('bar'),hero=document.getElementById('hero'),
+    heroimg=document.getElementById('heroimg'),band=document.getElementById('band'),
+    bandimg=document.getElementById('bandimg'),flo=document.getElementById('float'),
+    nav=document.getElementById('nav'),burger=document.getElementById('burger'),
+    reservar=document.getElementById('reservar');
+var links=[].slice.call(nav.querySelectorAll('a[href^="#"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+
+function onScroll(){
+  var y=window.pageYOffset||document.documentElement.scrollTop,hh=hero.offsetHeight;
+  bar.classList.toggle('inverse',y<hh-66);
+  bar.classList.toggle('solid',y>=hh-66);
+  var r=reservar.getBoundingClientRect();
+  flo.classList.toggle('in',y>hh*0.9&&r.top>window.innerHeight*0.72);
+  if(y<hh*1.25)heroimg.style.transform='translate3d(0,'+(y*0.3)+'px,0)';
+  var b=band.getBoundingClientRect();
+  if(b.bottom>0&&b.top<window.innerHeight)
+    bandimg.style.transform='translate3d(0,'+((window.innerHeight-b.top)*0.08-42)+'px,0)';
+  var cur=null;
+  for(var i=0;i<secs.length;i++){
+    if(secs[i]&&secs[i].getBoundingClientRect().top<=140)cur=links[i];
+  }
+  links.forEach(function(a){a.classList.remove('cur');});
+  if(cur&&!cur.classList.contains('zap'))cur.classList.add('cur');
+}
+var tick=false;
+window.addEventListener('scroll',function(){
+  if(!tick){tick=true;requestAnimationFrame(function(){onScroll();tick=false;});}
+},{passive:true});
+window.addEventListener('resize',onScroll);
+onScroll();
+
+/* menu do celular */
+function closeNav(){nav.classList.remove('open');burger.classList.remove('x');
+  burger.setAttribute('aria-expanded','false');}
+burger.addEventListener('click',function(e){
+  e.stopPropagation();
+  var open=nav.classList.toggle('open');
+  burger.classList.toggle('x',open);
+  burger.setAttribute('aria-expanded',open?'true':'false');
+});
+nav.addEventListener('click',function(e){if(e.target.closest('a'))closeNav();});
+document.addEventListener('click',function(e){
+  if(nav.classList.contains('open')&&!nav.contains(e.target)&&!burger.contains(e.target))closeNav();
+});
+
+/* rolagem das ancoras (sem scroll-behavior global, que trava o toque) */
+document.addEventListener('click',function(e){
+  var a=e.target.closest?e.target.closest('a[href^="#"]'):null;
+  if(!a)return;
+  var id=a.getAttribute('href');
+  if(!id||id==='#'||id.length<2)return;
+  var el=document.querySelector(id);
+  if(!el)return;
+  e.preventDefault();
+  closeNav();
+  var now=function(){return window.pageYOffset||document.documentElement.scrollTop||0;};
+  var from=now(),top=Math.max(0,el.getBoundingClientRect().top+from-68);
+  try{window.scrollTo({top:top,behavior:'smooth'});}catch(err){window.scrollTo(0,top);}
+  setTimeout(function(){
+    if(Math.abs(top-from)>8&&Math.abs(now()-from)<4)window.scrollTo(0,top);
+  },420);
+  if(history.replaceState)history.replaceState(null,'',id);
+});
+
+/* video */
+var tour=document.querySelector('.vid video'),pb=document.getElementById('playbtn');
+if(tour&&pb){
+  pb.addEventListener('click',function(){tour.play().catch(function(){});pb.classList.add('gone');});
+  tour.addEventListener('play',function(){pb.classList.add('gone');});
+}
+
+/* lightbox */
+var figs=[].slice.call(document.querySelectorAll('#gal figure'));
+var lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),
+    lbcap=document.getElementById('lbcap'),lbn=document.getElementById('lbn'),
+    lbx=document.getElementById('lbx'),lbp=document.getElementById('lbp'),
+    lbnx=document.getElementById('lbnx');
+var at=0,lastFocus=null;
+function show(i){
+  at=(i+figs.length)%figs.length;
+  var f=figs[at],im=f.querySelector('img'),cp=f.querySelector('figcaption');
+  lbimg.src=im.getAttribute('data-full')||im.getAttribute('src');
+  lbimg.alt=im.getAttribute('alt')||'';
+  lbcap.textContent=cp?cp.textContent:'';
+  lbn.textContent=(at+1)+' de '+figs.length;
+}
+function open(i){lastFocus=document.activeElement;show(i);lb.classList.add('open');
+  document.body.classList.add('lock');lbx.focus();}
+function close(){lb.classList.remove('open');document.body.classList.remove('lock');
+  if(lastFocus&&lastFocus.focus)lastFocus.focus();}
+figs.forEach(function(f,i){
+  f.setAttribute('tabindex','0');f.setAttribute('role','button');
+  f.addEventListener('click',function(){open(i);});
+  f.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i);}
+  });
+});
+lbx.addEventListener('click',close);
+lbp.addEventListener('click',function(e){e.stopPropagation();show(at-1);});
+lbnx.addEventListener('click',function(e){e.stopPropagation();show(at+1);});
+lb.addEventListener('click',function(e){if(e.target===lb||e.target===lbimg)close();});
+document.addEventListener('keydown',function(e){
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')close();
+  else if(e.key==='ArrowRight')show(at+1);
+  else if(e.key==='ArrowLeft')show(at-1);
+});
+var sx=0,sy=0;
+lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+lb.addEventListener('touchend',function(e){
+  var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;
+  if(Math.abs(dx)>52&&Math.abs(dx)>Math.abs(dy))show(dx<0?at+1:at-1);
+},{passive:true});
+})();
+</script>
+</body>
+</html>
