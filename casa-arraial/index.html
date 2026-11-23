@@ -272,34 +272,6 @@ footer a:hover{border-bottom-color:var(--sun)}
 </style>
 </head>
 <body>
-<script>
-(function(){
-  var MAX=3, q=[], running=0;
-  function start(){
-    while(running<MAX && q.length){
-      (function(im){
-        running++;
-        var src=im.getAttribute('data-src'), ss=im.getAttribute('data-srcset'), tried=0;
-        function done(){ running--; im.removeAttribute('data-src'); start(); }
-        function fail(){
-          if(tried<2){ tried++; setTimeout(function(){ im.removeAttribute('srcset'); im.src=src+'&r='+tried; },700*tried); }
-          else done();
-        }
-        im.addEventListener('load',function(){ if(im.naturalWidth>0) done(); else fail(); });
-        im.addEventListener('error',fail);
-        if(ss) im.setAttribute('srcset',ss);
-        im.src=src;
-      })(q.shift());
-    }
-  }
-  function boot(){
-    q=[].slice.call(document.querySelectorAll('img[data-src]'));
-    start();
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot);
-  else boot();
-})();
-</script>
 
 <div id="bar">
   <div class="barin">
@@ -338,7 +310,7 @@ footer a:hover{border-bottom-color:var(--sun)}
         <div class="tally"><div><b>12</b><span>pessoas</span></div><div><b>3</b><span>quartos</span></div><div><b>2</b><span>banheiros</span></div></div>
       </div>
       <div class="shot">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/03-rede-na-varanda@2x.webp" alt="Rede azul na varanda da casa">
+        <img src="fotos/03-rede-na-varanda@2x.webp" loading="lazy" alt="Rede azul na varanda da casa">
       </div>
     </div>
   </div>
@@ -349,30 +321,30 @@ footer a:hover{border-bottom-color:var(--sun)}
     <h2 class="d2">A casa e a vista</h2>
     <p class="lead" style="margin-top:18px">Da varanda aos quartos, e a praia logo abaixo. Toque na foto para ampliar.</p>
     <div id="gal">
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/01-o-condominio-visto-de-cima-com-o-m.webp" data-srcset="fotos/01-o-condominio-visto-de-cima-com-o-m.webp 700w, fotos/01-o-condominio-visto-de-cima-com-o-m@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista aérea do Condomínio Casas Brancas" data-full="fotos/01-o-condominio-visto-de-cima-com-o-m@2x.webp"><figcaption>O condomínio visto de cima, com o mar ao fundo</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/02-a-praia-vista-do-pontal.webp" data-srcset="fotos/02-a-praia-vista-do-pontal.webp 700w, fotos/02-a-praia-vista-do-pontal@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista da praia a partir do Pontal do Atalaia" data-full="fotos/02-a-praia-vista-do-pontal@2x.webp"><figcaption>A praia vista do Pontal</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/03-rede-na-varanda.webp" data-srcset="fotos/03-rede-na-varanda.webp 700w, fotos/03-rede-na-varanda@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Rede azul na varanda da casa" data-full="fotos/03-rede-na-varanda@2x.webp"><figcaption>Rede na varanda</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/04-mesa-na-varanda-de-frente-para-o-m.webp" data-srcset="fotos/04-mesa-na-varanda-de-frente-para-o-m.webp 700w, fotos/04-mesa-na-varanda-de-frente-para-o-m@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Mesa na varanda com vista para o mar" data-full="fotos/04-mesa-na-varanda-de-frente-para-o-m@2x.webp"><figcaption>Mesa na varanda, de frente para o mar</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/05-a-fachada-branca-da-casa.webp" data-srcset="fotos/05-a-fachada-branca-da-casa.webp 700w, fotos/05-a-fachada-branca-da-casa@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Fachada branca da casa" data-full="fotos/05-a-fachada-branca-da-casa@2x.webp"><figcaption>A fachada branca da casa</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/06-a-vista-do-condominio.webp" data-srcset="fotos/06-a-vista-do-condominio.webp 700w, fotos/06-a-vista-do-condominio@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista do condomínio a partir da casa" data-full="fotos/06-a-vista-do-condominio@2x.webp"><figcaption>A vista do condomínio</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/07-a-area-externa.webp" data-srcset="fotos/07-a-area-externa.webp 700w, fotos/07-a-area-externa@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Área externa da casa com vista" data-full="fotos/07-a-area-externa@2x.webp"><figcaption>A área externa</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/08-a-escadaria-de-acesso.webp" data-srcset="fotos/08-a-escadaria-de-acesso.webp 700w, fotos/08-a-escadaria-de-acesso@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Escadaria de acesso" data-full="fotos/08-a-escadaria-de-acesso@2x.webp"><figcaption>A escadaria de acesso</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/09-sala-de-estar.webp" data-srcset="fotos/09-sala-de-estar.webp 700w, fotos/09-sala-de-estar@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Sala de estar com sofás" data-full="fotos/09-sala-de-estar@2x.webp"><figcaption>Sala de estar</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/10-sala-de-jantar.webp" data-srcset="fotos/10-sala-de-jantar.webp 700w, fotos/10-sala-de-jantar@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Sala de jantar da casa" data-full="fotos/10-sala-de-jantar@2x.webp"><figcaption>Sala de jantar</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/11-cozinha-equipada.webp" data-srcset="fotos/11-cozinha-equipada.webp 700w, fotos/11-cozinha-equipada@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Cozinha equipada" data-full="fotos/11-cozinha-equipada@2x.webp"><figcaption>Cozinha equipada</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/12-bancada-e-fogao.webp" data-srcset="fotos/12-bancada-e-fogao.webp 700w, fotos/12-bancada-e-fogao@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Bancada da cozinha com fogão" data-full="fotos/12-bancada-e-fogao@2x.webp"><figcaption>Bancada e fogão</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/13-quarto-de-casal.webp" data-srcset="fotos/13-quarto-de-casal.webp 700w, fotos/13-quarto-de-casal@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Quarto com cama de casal" data-full="fotos/13-quarto-de-casal@2x.webp"><figcaption>Quarto de casal</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/14-outra-cama-de-casal.webp" data-srcset="fotos/14-outra-cama-de-casal.webp 700w, fotos/14-outra-cama-de-casal@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Quarto com cama de casal" data-full="fotos/14-outra-cama-de-casal@2x.webp"><figcaption>Outra cama de casal</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/15-quarto-com-beliches.webp" data-srcset="fotos/15-quarto-com-beliches.webp 700w, fotos/15-quarto-com-beliches@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Quarto com beliches" data-full="fotos/15-quarto-com-beliches@2x.webp"><figcaption>Quarto com beliches</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/16-beliches-para-as-criancas.webp" data-srcset="fotos/16-beliches-para-as-criancas.webp 700w, fotos/16-beliches-para-as-criancas@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Quarto com dois beliches" data-full="fotos/16-beliches-para-as-criancas@2x.webp"><figcaption>Beliches para as crianças</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/17-um-dos-banheiros.webp" data-srcset="fotos/17-um-dos-banheiros.webp 700w, fotos/17-um-dos-banheiros@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Banheiro da casa" data-full="fotos/17-um-dos-banheiros@2x.webp"><figcaption>Um dos banheiros</figcaption></figure>
-      <figure><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/18-o-outro-banheiro.webp" data-srcset="fotos/18-o-outro-banheiro.webp 700w, fotos/18-o-outro-banheiro@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Segundo banheiro da casa" data-full="fotos/18-o-outro-banheiro@2x.webp"><figcaption>O outro banheiro</figcaption></figure>
+      <figure><img src="fotos/01-o-condominio-visto-de-cima-com-o-m.webp" srcset="fotos/01-o-condominio-visto-de-cima-com-o-m.webp 700w, fotos/01-o-condominio-visto-de-cima-com-o-m@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista aérea do Condomínio Casas Brancas" data-full="fotos/01-o-condominio-visto-de-cima-com-o-m@2x.webp"><figcaption>O condomínio visto de cima, com o mar ao fundo</figcaption></figure>
+      <figure><img src="fotos/02-a-praia-vista-do-pontal.webp" srcset="fotos/02-a-praia-vista-do-pontal.webp 700w, fotos/02-a-praia-vista-do-pontal@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Vista da praia a partir do Pontal do Atalaia" data-full="fotos/02-a-praia-vista-do-pontal@2x.webp"><figcaption>A praia vista do Pontal</figcaption></figure>
+      <figure><img src="fotos/03-rede-na-varanda.webp" srcset="fotos/03-rede-na-varanda.webp 700w, fotos/03-rede-na-varanda@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" alt="Rede azul na varanda da casa" data-full="fotos/03-rede-na-varanda@2x.webp"><figcaption>Rede na varanda</figcaption></figure>
+      <figure><img src="fotos/04-mesa-na-varanda-de-frente-para-o-m.webp" srcset="fotos/04-mesa-na-varanda-de-frente-para-o-m.webp 700w, fotos/04-mesa-na-varanda-de-frente-para-o-m@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Mesa na varanda com vista para o mar" data-full="fotos/04-mesa-na-varanda-de-frente-para-o-m@2x.webp"><figcaption>Mesa na varanda, de frente para o mar</figcaption></figure>
+      <figure><img src="fotos/05-a-fachada-branca-da-casa.webp" srcset="fotos/05-a-fachada-branca-da-casa.webp 700w, fotos/05-a-fachada-branca-da-casa@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Fachada branca da casa" data-full="fotos/05-a-fachada-branca-da-casa@2x.webp"><figcaption>A fachada branca da casa</figcaption></figure>
+      <figure><img src="fotos/06-a-vista-do-condominio.webp" srcset="fotos/06-a-vista-do-condominio.webp 700w, fotos/06-a-vista-do-condominio@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Vista do condomínio a partir da casa" data-full="fotos/06-a-vista-do-condominio@2x.webp"><figcaption>A vista do condomínio</figcaption></figure>
+      <figure><img src="fotos/07-a-area-externa.webp" srcset="fotos/07-a-area-externa.webp 700w, fotos/07-a-area-externa@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Área externa da casa com vista" data-full="fotos/07-a-area-externa@2x.webp"><figcaption>A área externa</figcaption></figure>
+      <figure><img src="fotos/08-a-escadaria-de-acesso.webp" srcset="fotos/08-a-escadaria-de-acesso.webp 700w, fotos/08-a-escadaria-de-acesso@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Escadaria de acesso" data-full="fotos/08-a-escadaria-de-acesso@2x.webp"><figcaption>A escadaria de acesso</figcaption></figure>
+      <figure><img src="fotos/09-sala-de-estar.webp" srcset="fotos/09-sala-de-estar.webp 700w, fotos/09-sala-de-estar@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Sala de estar com sofás" data-full="fotos/09-sala-de-estar@2x.webp"><figcaption>Sala de estar</figcaption></figure>
+      <figure><img src="fotos/10-sala-de-jantar.webp" srcset="fotos/10-sala-de-jantar.webp 700w, fotos/10-sala-de-jantar@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Sala de jantar da casa" data-full="fotos/10-sala-de-jantar@2x.webp"><figcaption>Sala de jantar</figcaption></figure>
+      <figure><img src="fotos/11-cozinha-equipada.webp" srcset="fotos/11-cozinha-equipada.webp 700w, fotos/11-cozinha-equipada@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Cozinha equipada" data-full="fotos/11-cozinha-equipada@2x.webp"><figcaption>Cozinha equipada</figcaption></figure>
+      <figure><img src="fotos/12-bancada-e-fogao.webp" srcset="fotos/12-bancada-e-fogao.webp 700w, fotos/12-bancada-e-fogao@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Bancada da cozinha com fogão" data-full="fotos/12-bancada-e-fogao@2x.webp"><figcaption>Bancada e fogão</figcaption></figure>
+      <figure><img src="fotos/13-quarto-de-casal.webp" srcset="fotos/13-quarto-de-casal.webp 700w, fotos/13-quarto-de-casal@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com cama de casal" data-full="fotos/13-quarto-de-casal@2x.webp"><figcaption>Quarto de casal</figcaption></figure>
+      <figure><img src="fotos/14-outra-cama-de-casal.webp" srcset="fotos/14-outra-cama-de-casal.webp 700w, fotos/14-outra-cama-de-casal@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com cama de casal" data-full="fotos/14-outra-cama-de-casal@2x.webp"><figcaption>Outra cama de casal</figcaption></figure>
+      <figure><img src="fotos/15-quarto-com-beliches.webp" srcset="fotos/15-quarto-com-beliches.webp 700w, fotos/15-quarto-com-beliches@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com beliches" data-full="fotos/15-quarto-com-beliches@2x.webp"><figcaption>Quarto com beliches</figcaption></figure>
+      <figure><img src="fotos/16-beliches-para-as-criancas.webp" srcset="fotos/16-beliches-para-as-criancas.webp 700w, fotos/16-beliches-para-as-criancas@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Quarto com dois beliches" data-full="fotos/16-beliches-para-as-criancas@2x.webp"><figcaption>Beliches para as crianças</figcaption></figure>
+      <figure><img src="fotos/17-um-dos-banheiros.webp" srcset="fotos/17-um-dos-banheiros.webp 700w, fotos/17-um-dos-banheiros@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Banheiro da casa" data-full="fotos/17-um-dos-banheiros@2x.webp"><figcaption>Um dos banheiros</figcaption></figure>
+      <figure><img src="fotos/18-o-outro-banheiro.webp" srcset="fotos/18-o-outro-banheiro.webp 700w, fotos/18-o-outro-banheiro@2x.webp 1280w" sizes="(max-width:460px) 100vw, (max-width:1000px) 50vw, 33vw" loading="lazy" alt="Segundo banheiro da casa" data-full="fotos/18-o-outro-banheiro@2x.webp"><figcaption>O outro banheiro</figcaption></figure>
     </div>
   </div>
 </section>
 
 <div class="band" id="band">
-  <img id="bandimg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" data-src="fotos/02-a-praia-vista-do-pontal@2x.webp" alt="Praia vista do Pontal do Atalaia">
+  <img id="bandimg" src="fotos/02-a-praia-vista-do-pontal@2x.webp" loading="lazy" alt="Praia vista do Pontal do Atalaia">
   <div><p class="serif">As Prainhas do Pontal ficam logo ali, descendo a escadaria.</p></div>
 </div>
 
