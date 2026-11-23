@@ -203,7 +203,7 @@ body.noite .nota{color:#dfe9ec;background:rgba(10,31,37,.5);border-color:rgba(25
   </button>
 </div>
 
-<p class="nota">Modelo em escala, feito a partir das fotos e das medidas da pousada. A casa do proprietário tem 6 × 8 m e dois pisos, colada na parede da última suíte: de cima, a área construída fecha um L. Garagem, churrasqueira coberta e pérgola estão onde o dono apontou.</p>
+<p class="nota">Modelo em escala, feito a partir das fotos e das medidas da pousada. A casa do proprietário tem 6 × 8 m e dois pisos, colada na parede da última suíte: de cima, a área construída fecha um L. Garagem, churrasqueira coberta e pérgola estão onde o dono apontou, e o terreno aparece cercado com tela e as árvores da divisa.</p>
 
 <div id="carregando"><div><b>Sommer Lodge</b><i></i></div></div>
 
@@ -989,6 +989,75 @@ function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
 [[14.8, 16.2, 1.02], [18.2, 12.4, .90], [-10.6, 15.4, .92]]
   .forEach(([px, pz, e]) => palmeira(px, pz, 0, G.externo, e));
 
+/* ============ CERCA DO TERRENO E ÁRVORES DA DIVISA ============ */
+/* "Agora cercar ao redor com as árvores" (Luis, 23/11): o terreno é cercado
+   com tela e mourão de madeira, com o portão na entrada, do lado da garagem,
+   e as árvores altas acompanhando a divisa inteira. */
+const LOTE = { x0: -16.5, x1: 18.0, z0: -8.5, z1: 16.5 };
+const MAT_TELA = new THREE.MeshStandardMaterial({
+  color: '#93a08f', roughness: .75, metalness: .25, transparent: true, opacity: .28, side: THREE.DoubleSide
+});
+const MAT_FLAMB = std({ color: '#c4342c', roughness: .9, flatShading: true });
+
+(() => {
+  const { x0, x1, z0, z1 } = LOTE;
+  const H = 1.70, PASSO = 2.8, PZ0 = 1.2, PZ1 = 5.2;   // PZ = vão do portão
+
+  const painel = (eixo, fixo, de, ate) => {
+    const comp = ate - de, meio = (de + ate) / 2;
+    if (comp <= .1) return;
+    const geo = eixo === 'x' ? new THREE.BoxGeometry(comp, H - .14, .03) : new THREE.BoxGeometry(.03, H - .14, comp);
+    const t = new THREE.Mesh(geo, MAT_TELA);
+    t.position.set(eixo === 'x' ? meio : fixo, .10 + (H - .14) / 2, eixo === 'x' ? fixo : meio);
+    G.externo.add(t);
+    const n = Math.max(1, Math.round(comp / PASSO));
+    for (let i = 0; i <= n; i++) {
+      const p = de + i * comp / n;
+      caixa(.11, H, .11, MAT.madeiraMed, eixo === 'x' ? p : fixo, 0, eixo === 'x' ? fixo : p, G.externo);
+    }
+    [.48, 1.00, 1.52].forEach(h => eixo === 'x'
+      ? caixa(comp, .04, .04, MAT.madeiraMed, meio, h, fixo, G.externo, false)
+      : caixa(.04, .04, comp, MAT.madeiraMed, fixo, h, meio, G.externo, false));
+  };
+
+  painel('z', x0, z0, PZ0);
+  painel('z', x0, PZ1, z1);
+  painel('z', x1, z0, z1);
+  painel('x', z0, x0, x1);
+  painel('x', z1, x0, x1);
+
+  // portão de tela com moldura de madeira, na entrada
+  (() => {
+    const larg = PZ1 - PZ0, meio = (PZ0 + PZ1) / 2;
+    const t = new THREE.Mesh(new THREE.BoxGeometry(.04, 1.50, larg - .20), MAT_TELA);
+    t.position.set(x0, .95, meio); G.externo.add(t);
+    [PZ0 + .07, meio, PZ1 - .07].forEach(pz => caixa(.13, 1.80, .13, MAT.madeiraEsc, x0, 0, pz, G.externo));
+    [.22, 1.70].forEach(h => caixa(.08, .08, larg, MAT.madeiraEsc, x0, h, meio, G.externo, false));
+  })();
+
+  // cascalho da entrada até a garagem
+  piso(x0 + .1, -8.6, PZ0 - .4, PZ1 + .4, .02, MAT.brita, G.externo, .08);
+})();
+
+// árvores altas acompanhando a cerca
+[[-14.6, -6.8, 1.25], [-8.2, -7.3, 1.10], [-1.2, -7.4, 1.20], [5.4, -7.2, 1.05], [12.0, -7.4, 1.15],
+ [16.4, -5.6, 1.10], [16.8, 2.2, 1.00], [16.2, 9.8, 1.05],
+ [10.8, 15.4, .92], [1.6, 15.8, .95], [-6.4, 15.4, .90],
+ [-14.2, 13.4, 1.10], [-15.4, 7.8, 1.00], [-15.6, -1.6, 1.05]]
+  .forEach(([px, pz, e]) => arvore(px, pz, 0, e));
+
+// flamboyant florido junto das suítes, como nas fotos
+function flamboyant(px, pz, esc = 1, pai = G.externo) {
+  cil(.15 * esc, .26 * esc, 3.2 * esc, MAT.tronco, px, 0, pz, pai, 10);
+  for (let i = 0; i < 15; i++) {
+    const m = new THREE.Mesh(new THREE.IcosahedronGeometry(.60 * esc, 0), i % 3 === 0 ? MAT_FLAMB : MAT.folha2);
+    m.position.set(px + rnd(-1.5, 1.5) * esc, (3.2 + rnd(-.15, .95)) * esc, pz + rnd(-1.4, 1.4) * esc);
+    m.scale.setScalar(rnd(.7, 1.25)); m.castShadow = true; m.receiveShadow = true; pai.add(m);
+  }
+}
+flamboyant(9.6, 6.4, 1.05);
+flamboyant(-10.2, 4.4, .90);
+
 /* ======================= OTIMIZAÇÃO ======================= */
 // peça pequena não projeta sombra (economia grande de draw calls no celular),
 // e nada aqui se mexe depois de montado, então a matriz é calculada uma vez só.
@@ -1013,6 +1082,7 @@ const AMB = [
   { id: 'jardim', nome: 'Jardim', sub: 'palmeiras e mata', pos: [X1 + 4.6, 2.6, 4.0], tipo: 'ext', d: 15 },
   { id: 'garagem', nome: 'Garagem', sub: 'depósito do proprietário', pos: [-10.6, 3.2, -1.3], tipo: 'ext', d: 12 },
   { id: 'casa', nome: 'Casa do proprietário', sub: '6 × 8 m · dois pisos', pos: [11.1, 8.8, -1.0], tipo: 'ext', d: 22 },
+  { id: 'entrada', nome: 'Entrada', sub: 'portão de tela e cascalho', pos: [-16.2, 3.0, 3.2], tipo: 'ext', d: 15 },
   { id: 'churrasco', nome: 'Área de churrasco', sub: 'forno de barro, coberta', pos: [-.8, 4.1, 11.0], tipo: 'ext', d: 14 },
   { id: 'pergola', nome: 'Pérgola', sub: 'trepadeira florida', pos: [-7.5, 3.2, 6.7], tipo: 'ext', d: 13 },
   { id: 'quarto', nome: 'Quarto', sub: 'casal + beliche', pos: [-2.9, 1.5, -2.2], tipo: 'int', d: 8.5 },
@@ -1032,7 +1102,7 @@ AMB.forEach(a => {
 });
 
 const amb = document.getElementById('amb');
-const grupos = [['No terreno', ['bloco', 'varanda', 'churrasco', 'pergola', 'jardim', 'garagem', 'casa']], ['Dentro da suíte', ['quarto', 'kit', 'banheiro']], ['As quatro', ['s0', 's1', 's2', 's3']]];
+const grupos = [['No terreno', ['bloco', 'varanda', 'churrasco', 'pergola', 'jardim', 'garagem', 'casa', 'entrada']], ['Dentro da suíte', ['quarto', 'kit', 'banheiro']], ['As quatro', ['s0', 's1', 's2', 's3']]];
 grupos.forEach(([t, ids]) => {
   const h = document.createElement('div'); h.className = 'grupo'; h.textContent = t; amb.appendChild(h);
   ids.forEach(id => {
