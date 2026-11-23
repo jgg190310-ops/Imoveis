@@ -986,7 +986,7 @@ function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
   cil(.21, .26, 1.02, MAT.tronco, px, 0, pz, G.externo, 10);
   caixa(.92, .07, .66, MAT.madeiraClara, px, 1.02, pz, G.externo);
 });
-[[8.6, 15.2, 1.05], [12.4, 14.2, .92], [15.4, 12.0, .85], [-7.8, 14.8, .95], [-11.0, 13.2, .88]]
+[[14.8, 16.2, 1.02], [18.2, 12.4, .90], [-10.6, 15.4, .92]]
   .forEach(([px, pz, e]) => palmeira(px, pz, 0, G.externo, e));
 
 /* ======================= OTIMIZAÇÃO ======================= */
@@ -1058,7 +1058,7 @@ function aplicaModo() {
 // o terreno tem ~29 m de ponta a ponta: em tela deitada cabe de frente,
 // em tela vertical só cabe na diagonal, com o bloco fugindo pro fundo.
 const INICIO_LARGO = { pos: new THREE.Vector3(9, 19, 35), alvo: new THREE.Vector3(2.2, 1.2, -2.2) };
-const INICIO_ESTREITO = { pos: new THREE.Vector3(24, 16, 26), alvo: new THREE.Vector3(2.0, 1.2, -0.5) };
+const INICIO_ESTREITO = { pos: new THREE.Vector3(26, 18, 28), alvo: new THREE.Vector3(2.5, 1.2, 1.0) };
 const telaEstreita = () => innerWidth / innerHeight < .9;
 const INICIO_ATUAL = () => telaEstreita() ? INICIO_ESTREITO : INICIO_LARGO;
 const alvoInicio = () => INICIO_ATUAL().alvo.clone();
