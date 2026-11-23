@@ -764,7 +764,10 @@ if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-moti
   window.addEventListener('scroll',rede,{passive:true});
   window.addEventListener('load',rede);
   setTimeout(rede,1200); setTimeout(rede,3000);
-  setTimeout(function(){alvos.forEach(function(e){e.classList.add('in');});},9000);
+  setTimeout(function(){alvos.forEach(function(e){
+    e.classList.add('in');
+    e.style.opacity='1'; e.style.transform='none'; e.style.transition='none';
+  });},9000);
 }
 
 /* ----- filtros da galeria ----- */
