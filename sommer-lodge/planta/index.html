@@ -986,14 +986,14 @@ function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
   cil(.21, .26, 1.02, MAT.tronco, px, 0, pz, G.externo, 10);
   caixa(.92, .07, .66, MAT.madeiraClara, px, 1.02, pz, G.externo);
 });
-[[14.8, 16.2, 1.02], [18.2, 12.4, .90], [-10.6, 15.4, .92]]
+[[14.2, 12.0, 1.02], [16.8, 5.4, .90], [-11.2, 12.1, .92]]
   .forEach(([px, pz, e]) => palmeira(px, pz, 0, G.externo, e));
 
 /* ============ CERCA DO TERRENO E ÁRVORES DA DIVISA ============ */
 /* "Agora cercar ao redor com as árvores" (Luis, 23/11): o terreno é cercado
    com tela e mourão de madeira, com o portão na entrada, do lado da garagem,
    e as árvores altas acompanhando a divisa inteira. */
-const LOTE = { x0: -16.5, x1: 18.0, z0: -8.5, z1: 16.5 };
+const LOTE = { x0: -16.5, x1: 18.0, z0: -8.5, z1: 13.15 };   // a cerca de trás encosta na área de churrasco
 const MAT_TELA = new THREE.MeshStandardMaterial({
   color: '#93a08f', roughness: .75, metalness: .25, transparent: true, opacity: .28, side: THREE.DoubleSide
 });
@@ -1041,9 +1041,9 @@ const MAT_FLAMB = std({ color: '#c4342c', roughness: .9, flatShading: true });
 
 // árvores altas acompanhando a cerca
 [[-14.6, -6.8, 1.25], [-8.2, -7.3, 1.10], [-1.2, -7.4, 1.20], [5.4, -7.2, 1.05], [12.0, -7.4, 1.15],
- [16.4, -5.6, 1.10], [16.8, 2.2, 1.00], [16.2, 9.8, 1.05],
- [10.8, 15.4, .92], [1.6, 15.8, .95], [-6.4, 15.4, .90],
- [-14.2, 13.4, 1.10], [-15.4, 7.8, 1.00], [-15.6, -1.6, 1.05]]
+ [16.6, -5.6, 1.10], [16.9, 2.2, 1.00], [16.4, 8.4, 1.05],
+ [10.2, 12.2, .92], [4.8, 12.4, .95], [-6.8, 12.2, .90],
+ [-14.4, 11.8, 1.10], [-15.4, 7.0, 1.00], [-15.6, -1.6, 1.05]]
   .forEach(([px, pz, e]) => arvore(px, pz, 0, e));
 
 // flamboyant florido junto das suítes, como nas fotos
