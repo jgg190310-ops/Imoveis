@@ -818,8 +818,7 @@ function telhadoDuasAguas(cx, cz, larg, prof, yBeiral, subida, mat, pai) {
   const zb = ZB, zf = ZB + 6.20, zv = ZB + 8.00;  // 8 m no total: corpo + varanda coberta
   const L = x1 - x0, P = zf - zb, cx = (x0 + x1) / 2, cz = (zb + zf) / 2;
   const Y0 = .28, P1 = 2.80, LAJE = .24, P2 = 2.60;
-  const Y1 = Y0 + P1 + LAJE, TOPO = Y1 + P2, SUB = 1.85, BEI = .40;
-  const yTelha = px => TOPO + SUB * (1 - Math.abs(px - cx) / (L / 2 + BEI));
+  const Y1 = Y0 + P1 + LAJE, TOPO = Y1 + P2, SUB = 1.10, BEI = .45;
 
   // base de alvenaria no corpo e deck de madeira na varanda
   piso(x0 - .25, x1 + .25, zb - .30, zf, Y0, MAT.piso, G.externo, .28);
@@ -869,26 +868,21 @@ function telhadoDuasAguas(cx, cz, larg, prof, yBeiral, subida, mat, pai) {
     caixa(gcx1 - gcx0, .07, .07, MAT.madeiraMed, cx, Y1 + h, gcz, G.externo, false);
     [gcx0, gcx1].forEach(px => caixa(.07, .07, gcz - zf, MAT.madeiraMed, px, Y1 + h, (zf + gcz) / 2, G.externo, false));
   });
-  [x0 + .45, x1 - .45].forEach(px => caixa(.13, yTelha(px) - .14 - Y1, .13, MAT.madeiraEsc, px, Y1, zv + .10, G.externo));
+  [x0 + .45, x1 - .45].forEach(px => caixa(.13, P2 - .06, .13, MAT.madeiraEsc, px, Y1, zv + .10, G.externo));
 
-  // ---------- telhado: cumeeira no comprimento, perpendicular ao das suítes ----------
+  /* ---------- telhado: duas águas caindo no mesmo sentido do telhado dos aptos ----------
+     O Luis corrigiu em 23/11: o caimento é na mesma direção que o dos apartamentos,
+     ou seja, cumeeira no sentido do comprimento do bloco e águas caindo pra frente
+     (jardim) e pros fundos, com a mesma inclinação. */
   (() => {
-    const larg = L + BEI * 2, zt0 = zb - .50, zt1 = zv + .35;
-    const prof = zt1 - zt0, czt = (zt0 + zt1) / 2;
-    const meia = larg / 2, comp = Math.hypot(meia, SUB), ang = Math.atan2(SUB, meia);
-    [1, -1].forEach(s => {
-      const m = new THREE.Mesh(new THREE.BoxGeometry(comp, .13, prof), MAT.telha);
-      m.position.set(cx + s * meia / 2, TOPO + SUB / 2, czt);
-      m.rotation.z = -s * ang;
-      m.castShadow = m.receiveShadow = true; G.externo.add(m);
-    });
-    caixa(.30, .12, prof, MAT.telha, cx, TOPO + SUB - .04, czt, G.externo);
-    // empenas no fundo e na frente do corpo (a varanda fica aberta)
-    [zb - .08, zf + .08].forEach(zz => {
+    const zt0 = zb - .50, zt1 = zv + .40, czt = (zt0 + zt1) / 2;
+    telhadoDuasAguas(cx, czt, L + BEI * 2, zt1 - zt0, TOPO, SUB, MAT.telha, G.externo);
+    // empenas nas duas pontas (triângulo no plano YZ, igual ao do bloco)
+    [x0 - BEI + .10, x1 + BEI - .10].forEach(px => {
       const sh = new THREE.Shape();
-      sh.moveTo(x0 - BEI, TOPO); sh.lineTo(cx, TOPO + SUB); sh.lineTo(x1 + BEI, TOPO); sh.closePath();
+      sh.moveTo(zt0, TOPO); sh.lineTo(czt, TOPO + SUB); sh.lineTo(zt1, TOPO); sh.closePath();
       const m = new THREE.Mesh(new THREE.ExtrudeGeometry(sh, { depth: .16, bevelEnabled: false }), MAT.paredeExt);
-      m.position.set(0, 0, zz);
+      m.rotation.y = -Math.PI / 2; m.position.set(px, 0, 0);
       m.castShadow = m.receiveShadow = true; G.externo.add(m);
     });
   })();
@@ -1081,7 +1075,7 @@ const AMB = [
   { id: 'varanda', nome: 'Varanda coberta', sub: 'deck de madeira', pos: [-.3, 1.55, 1.15], tipo: 'ext', d: 13 },
   { id: 'jardim', nome: 'Jardim', sub: 'palmeiras e mata', pos: [X1 + 4.6, 2.6, 4.0], tipo: 'ext', d: 15 },
   { id: 'garagem', nome: 'Garagem', sub: 'depósito do proprietário', pos: [-10.6, 3.2, -1.3], tipo: 'ext', d: 12 },
-  { id: 'casa', nome: 'Casa do proprietário', sub: '6 × 8 m · dois pisos', pos: [11.1, 8.8, -1.0], tipo: 'ext', d: 22 },
+  { id: 'casa', nome: 'Casa do proprietário', sub: '6 × 8 m · dois pisos', pos: [11.1, 8.1, -1.0], tipo: 'ext', d: 22 },
   { id: 'entrada', nome: 'Entrada', sub: 'portão de tela e cascalho', pos: [-16.2, 3.0, 3.2], tipo: 'ext', d: 15 },
   { id: 'churrasco', nome: 'Área de churrasco', sub: 'forno de barro, coberta', pos: [-.8, 4.1, 11.0], tipo: 'ext', d: 14 },
   { id: 'pergola', nome: 'Pérgola', sub: 'trepadeira florida', pos: [-7.5, 3.2, 6.7], tipo: 'ext', d: 13 },
