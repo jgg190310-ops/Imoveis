@@ -928,7 +928,7 @@ function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
   const Y = .24, ALTP = 2.70;
   piso(x0 - .40, x1 + .40, z0 - .40, z1 + .40, Y, MAT.deck, G.externo, .24);
   // fechamento de ripas de madeira no fundo e numa lateral, como nas fotos
-  for (let i = 0; i <= 9; i++) caixa(L + .70, .13, .05, MAT_VERDE, cx, Y + .22 + i * .22, z1 + .32, G.externo, false);
+  for (let i = 0; i <= 6; i++) caixa(L + .70, .13, .05, MAT_VERDE, cx, Y + .22 + i * .22, z1 + .32, G.externo, false);
   caixa(.05, 2.20, P * .45, MAT_VERDE, x1 + .34, Y, z1 - P * .25, G.externo, false);
   [[x0 + .12, z1 + .32], [x1 + .12, z1 + .32]].forEach(([px, pz]) => caixa(.15, 2.40, .15, MAT.madeiraEsc, px, Y, pz, G.externo));
 
@@ -982,11 +982,11 @@ function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
 })();
 
 // --- mesas altas de tronco e palmeiras do fundo do jardim ---
-[[-1.6, 6.2], [5.4, 7.4]].forEach(([px, pz]) => {
+[[-5.0, 8.4], [6.8, 8.2]].forEach(([px, pz]) => {
   cil(.21, .26, 1.02, MAT.tronco, px, 0, pz, G.externo, 10);
   caixa(.92, .07, .66, MAT.madeiraClara, px, 1.02, pz, G.externo);
 });
-[[7.6, 11.8, 1.0], [11.2, 13.0, .88], [-6.6, 12.8, .92], [4.6, 13.8, .85]]
+[[8.6, 15.2, 1.05], [12.4, 14.2, .92], [15.4, 12.0, .85], [-7.8, 14.8, .95], [-11.0, 13.2, .88]]
   .forEach(([px, pz, e]) => palmeira(px, pz, 0, G.externo, e));
 
 /* ======================= OTIMIZAÇÃO ======================= */
