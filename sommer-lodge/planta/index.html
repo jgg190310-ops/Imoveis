@@ -923,28 +923,33 @@ function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
 
 // --- churrasqueira coberta, de frente pros aptos ---
 (() => {
-  const x0 = -1.5, x1 = 3.3, z0 = 9.3, z1 = 12.7;
+  const x0 = -3.2, x1 = 1.6, z0 = 9.3, z1 = 12.7;
   const L = x1 - x0, P = z1 - z0, cx = (x0 + x1) / 2, cz = (z0 + z1) / 2;
-  const Y = .24, ALTP = 2.55;
+  const Y = .24, ALTP = 2.70;
   piso(x0 - .40, x1 + .40, z0 - .40, z1 + .40, Y, MAT.deck, G.externo, .24);
+  // fechamento de ripas de madeira no fundo e numa lateral, como nas fotos
+  for (let i = 0; i <= 9; i++) caixa(L + .70, .13, .05, MAT_VERDE, cx, Y + .22 + i * .22, z1 + .32, G.externo, false);
+  caixa(.05, 2.20, P * .45, MAT_VERDE, x1 + .34, Y, z1 - P * .25, G.externo, false);
+  [[x0 + .12, z1 + .32], [x1 + .12, z1 + .32]].forEach(([px, pz]) => caixa(.15, 2.40, .15, MAT.madeiraEsc, px, Y, pz, G.externo));
 
   // churrasqueira de tijolo com chaminé, encostada no fundo
   caixa(1.45, 2.20, .95, MAT_TIJOLO, x1 - 1.15, Y, z1 - .62, G.externo);
   caixa(.60, .55, .60, MAT_TIJOLO, x1 - 1.15, Y + 2.20, z1 - .62, G.externo);
   caixa(1.05, .55, .18, MAT.preto, x1 - 1.15, Y + 1.00, z1 - 1.12, G.externo, false);
   // forno de barro sobre base de tijolo
-  caixa(1.30, .95, 1.15, MAT_TIJOLO, x0 + .95, Y, z1 - .75, G.externo);
+  caixa(1.55, 1.00, 1.35, MAT_TIJOLO, x0 + 1.00, Y, z1 - .82, G.externo);
   (() => {
-    const d = new THREE.Mesh(new THREE.SphereGeometry(.62, 18, 12, 0, Math.PI * 2, 0, Math.PI / 2), MAT_BARRO);
-    d.position.set(x0 + .95, Y + .95, z1 - .75); d.scale.set(1, .95, 1);
+    const d = new THREE.Mesh(new THREE.SphereGeometry(.74, 20, 14, 0, Math.PI * 2, 0, Math.PI / 2), MAT_BARRO);
+    d.position.set(x0 + 1.00, Y + 1.00, z1 - .82); d.scale.set(1, .88, 1);
     d.castShadow = d.receiveShadow = true; G.externo.add(d);
-    caixa(.40, .38, .14, MAT.madeiraEsc, x0 + .95, Y + .98, z1 - 1.34, G.externo, false);
+    caixa(.46, .44, .16, MAT.madeiraEsc, x0 + 1.00, Y + 1.04, z1 - 1.52, G.externo, false);
+    caixa(.52, .07, .10, MAT_TIJOLO, x0 + 1.00, Y + 1.50, z1 - 1.50, G.externo, false);
   })();
   // bancada com armário e tampo de granito
   caixa(1.55, .82, .62, MAT_VERDE, cx + .55, Y, z1 - .45, G.externo);
   caixa(1.65, .07, .70, MAT.granito, cx + .55, Y + .82, z1 - .45, G.externo, false);
   // banquinhos
-  [[-.4, 10.6], [.5, 10.4]].forEach(([bx, bz]) => {
+  [[x0 + 1.1, 10.6], [x0 + 2.0, 10.4]].forEach(([bx, bz]) => {
     cil(.19, .19, .62, std({ color: '#2f7f98', roughness: .5 }), bx, Y, bz, G.externo, 12);
   });
   // cobertura: pilares de madeira + telhado de duas águas
@@ -954,16 +959,16 @@ function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
   caixa(L, .14, .14, MAT.madeiraEsc, cx, Y + ALTP - .14, z1 - .12, G.externo, false);
   telhadoDuasAguas(cx, cz, L + .70, P + .70, Y + ALTP, .55, MAT.telha, G.externo);
   // trepadeira florida subindo pela cobertura
-  trepadeira(x0 + .3, Y + ALTP - .2, z0 + .3, 14, .9, G.externo);
-  trepadeira(x1 - .3, Y + ALTP - .35, z0 + .2, 10, .7, G.externo);
-  arbusto(x0 - .9, z0 - .9, 0, .62, G.externo);
-  vasoFlor(x0 - .75, z0 + 1.2);
-  vasoFlor(x1 + .70, z1 - .9);
+  trepadeira(x0 + .45, Y + ALTP - .15, z0 + .25, 22, 1.1, G.externo);
+  trepadeira(x1 - .45, Y + ALTP - .30, z0 + .20, 16, .9, G.externo);
+  trepadeira(x1 + .25, Y + ALTP - .60, z1 - 1.2, 12, .5, G.externo);
+  arbusto(x0 - .95, z0 - .95, 0, .62, G.externo);
+  vasoFlor(x0 - .70, z0 + 1.1);
 })();
 
 // --- pérgola do jardim, do lado da entrada ---
 (() => {
-  const x0 = -7.2, x1 = -3.0, z0 = 5.6, z1 = 7.8, ALTP = 2.45;
+  const x0 = -9.6, x1 = -5.4, z0 = 5.6, z1 = 7.8, ALTP = 2.45;
   const cx = (x0 + x1) / 2, cz = (z0 + z1) / 2;
   [[x0, z0], [x1, z0], [x0, z1], [x1, z1], [cx, z0], [cx, z1]]
     .forEach(([px, pz]) => caixa(.16, ALTP, .16, MAT.madeiraMed, px, 0, pz, G.externo));
@@ -981,7 +986,7 @@ function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
   cil(.21, .26, 1.02, MAT.tronco, px, 0, pz, G.externo, 10);
   caixa(.92, .07, .66, MAT.madeiraClara, px, 1.02, pz, G.externo);
 });
-[[7.6, 11.4, 1.0], [11.0, 12.2, .88], [-5.0, 12.4, .92], [1.0, 14.6, .85]]
+[[7.6, 11.8, 1.0], [11.2, 13.0, .88], [-6.6, 12.8, .92], [4.6, 13.8, .85]]
   .forEach(([px, pz, e]) => palmeira(px, pz, 0, G.externo, e));
 
 /* ======================= OTIMIZAÇÃO ======================= */
@@ -1008,8 +1013,8 @@ const AMB = [
   { id: 'jardim', nome: 'Jardim', sub: 'palmeiras e mata', pos: [X1 + 4.6, 2.6, 4.0], tipo: 'ext', d: 15 },
   { id: 'garagem', nome: 'Garagem', sub: 'depósito do proprietário', pos: [-10.6, 3.2, -1.3], tipo: 'ext', d: 12 },
   { id: 'casa', nome: 'Casa do proprietário', sub: '6 × 8 m · dois pisos', pos: [11.1, 8.2, -1.0], tipo: 'ext', d: 21 },
-  { id: 'churrasco', nome: 'Área de churrasco', sub: 'forno de barro, coberta', pos: [.9, 3.9, 11.0], tipo: 'ext', d: 14 },
-  { id: 'pergola', nome: 'Pérgola', sub: 'trepadeira florida', pos: [-5.1, 3.2, 6.7], tipo: 'ext', d: 13 },
+  { id: 'churrasco', nome: 'Área de churrasco', sub: 'forno de barro, coberta', pos: [-.8, 4.1, 11.0], tipo: 'ext', d: 14 },
+  { id: 'pergola', nome: 'Pérgola', sub: 'trepadeira florida', pos: [-7.5, 3.2, 6.7], tipo: 'ext', d: 13 },
   { id: 'quarto', nome: 'Quarto', sub: 'casal + beliche', pos: [-2.9, 1.5, -2.2], tipo: 'int', d: 8.5 },
   { id: 'kit', nome: 'Kitchenette', sub: 'cooktop, pia e frigobar', pos: [-.5, 1.5, -3.3], tipo: 'int', d: 7.6 },
   { id: 'banheiro', nome: 'Banheiro', sub: 'box, pia e vaso', pos: [-3.2, 1.5, -4.1], tipo: 'int', d: 7.2 },
