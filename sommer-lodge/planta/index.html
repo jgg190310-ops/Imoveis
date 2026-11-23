@@ -870,12 +870,23 @@ function telhadoDuasAguas(cx, cz, larg, prof, yBeiral, subida, mat, pai) {
     caixa(ate - de, .07, .07, MAT.madeiraMed, (de + ate) / 2, Y1 + h, VZ - .09, G.externo, false);
     caixa(.07, .07, VZ - z1, MAT.madeiraMed, ate - .09, Y1 + h, (z1 + VZ) / 2, G.externo, false);
   });
-  // pilares que seguram o beiral sobre a varanda de cima
+  // pilares que seguram a cobertura da varanda de cima
   [de + .30, (de + ate) / 2, ate - .09].forEach(px =>
-    caixa(.13, P2, .13, MAT.madeiraEsc, px, Y1, VZ - .09, G.externo));
+    caixa(.13, P2 - .80, .13, MAT.madeiraEsc, px, Y1, VZ - .09, G.externo));
 
-  // telhado: duas águas, beiral avançado cobrindo as duas varandas
-  telhadoDuasAguas(cx + .35, (BZ0 - .05 + VZ + .10) / 2, L + .80, (VZ + .10) - (BZ0 - .05), TOPO, 1.05, MAT.telha, G.externo);
+  // telhado principal: duas águas sobre o corpo da casa
+  telhadoDuasAguas(cx + .35, cz, L + .80, P + 1.00, TOPO, 1.05, MAT.telha, G.externo);
+
+  // telhadinho de uma água só, cobrindo a varanda de cima
+  (() => {
+    const zi = z1 - .05, zf = VZ + .25, run = zf - zi;
+    const yi = TOPO - .15, yf = TOPO - .95;
+    const comp = Math.hypot(run, yi - yf);
+    const m = new THREE.Mesh(new THREE.BoxGeometry(L + .80, .10, comp), MAT.telha);
+    m.position.set(cx + .35, (yi + yf) / 2, (zi + zf) / 2);
+    m.rotation.x = Math.atan2(yi - yf, run);
+    m.castShadow = m.receiveShadow = true; G.externo.add(m);
+  })();
 
   arbusto(x0 + 1.20, VZ + .95, .02, .70, G.externo);
   arbusto(x1 - .40, VZ + 1.10, .02, .62, G.externo);
