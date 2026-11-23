@@ -961,7 +961,7 @@ function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
 
 // --- pérgola do jardim, do lado da entrada ---
 (() => {
-  const x0 = -9.80, x1 = -5.60, z0 = 10.70, z1 = 12.90, ALTP = 2.45;
+  const x0 = -10.80, x1 = -6.60, z0 = 10.70, z1 = 12.90, ALTP = 2.45;
   const cx = (x0 + x1) / 2, cz = (z0 + z1) / 2;
   [[x0, z0], [x1, z0], [x0, z1], [x1, z1], [cx, z0], [cx, z1]]
     .forEach(([px, pz]) => caixa(.16, ALTP, .16, MAT.madeiraMed, px, 0, pz, G.externo));
@@ -970,7 +970,7 @@ function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
   trepadeira(x0 + .6, ALTP + .05, z0, 16, 1.0, G.externo);
   trepadeira(x1 - .5, ALTP + .05, z1, 14, .9, G.externo);
   trepadeira(cx, ALTP + .05, z0, 10, .8, G.externo);
-  vasoFlor(x0 - .55, z1 + .5);
+  vasoFlor(x0 - .55, z1 - .25);
   vasoFlor(x1 + .45, z0 - .4);
 })();
 
@@ -979,8 +979,13 @@ function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
   cil(.21, .26, 1.02, MAT.tronco, px, 0, pz, G.externo, 10);
   caixa(.92, .07, .66, MAT.madeiraClara, px, 1.02, pz, G.externo);
 });
+/* "Fica uma palmeira entre a pergola e a area de churrasco, um espaco pequeno entre
+   elas, e ali via uma palmeira quase na cerca" (Luis, 23/11): a pérgola andou 1 m pra
+   longe do churrasco, entrou a palmeira do meio (-4.95) e a de trás (-4.60) continua
+   junto da cerca. A do fundo saiu de -11.8 pra não encostar na pérgola nova. */
 [[14.2, 12.0, 1.02], [16.8, 5.4, .90], [-14.8, 9.2, .92],
- [-4.60, 12.55, .95], [-11.8, 11.6, .92], [4.4, 12.3, .95], [2.6, 8.8, .86]]
+ [-4.60, 12.55, .95], [-4.95, 10.60, .88], [-12.9, 11.8, .92],
+ [4.4, 12.3, .95], [2.6, 8.8, .86]]
   .forEach(([px, pz, e]) => palmeira(px, pz, 0, G.externo, e));
 
 /* ============ CERCA DO TERRENO E ÁRVORES DA DIVISA ============ */
@@ -1113,7 +1118,7 @@ const AMB = [
   { id: 'casa', nome: 'Casa do proprietário', sub: '6 × 8 m · dois pisos', pos: [11.1, 8.1, -1.0], tipo: 'ext', d: 22 },
   { id: 'entrada', nome: 'Entrada', sub: 'portão de tela e cascalho', pos: [-16.2, 3.0, 3.2], tipo: 'ext', d: 15 },
   { id: 'churrasco', nome: 'Área de churrasco', sub: 'forno de barro, coberta', pos: [-.8, 4.1, 11.0], tipo: 'ext', d: 14 },
-  { id: 'pergola', nome: 'Pérgola', sub: 'trepadeira florida', pos: [-7.7, 3.2, 11.8], tipo: 'ext', d: 13 },
+  { id: 'pergola', nome: 'Pérgola', sub: 'trepadeira florida', pos: [-8.7, 3.2, 11.8], tipo: 'ext', d: 13 },
   { id: 'quarto', nome: 'Quarto', sub: 'casal + beliche', pos: [-2.9, 1.5, -2.2], tipo: 'int', d: 8.5 },
   { id: 'kit', nome: 'Kitchenette', sub: 'cooktop, pia e frigobar', pos: [-.5, 1.5, -3.3], tipo: 'int', d: 7.6 },
   { id: 'banheiro', nome: 'Banheiro', sub: 'box, pia e vaso', pos: [-3.2, 1.5, -4.1], tipo: 'int', d: 7.2 },
