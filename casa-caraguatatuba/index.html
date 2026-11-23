@@ -788,15 +788,15 @@ if(filt&&gal){
 var cta=document.getElementById('ctabar'), hero=document.getElementById('hero'),
     reservar=document.getElementById('reservar');
 if(cta&&hero&&reservar){
-  var t=false;
+  var t=0;
   function pos(){
     var y=window.pageYOffset||document.documentElement.scrollTop;
     var r=reservar.getBoundingClientRect();
     cta.classList.toggle('in', y>hero.offsetHeight*0.85 && r.top>window.innerHeight*0.7);
-    t=false;
   }
-  window.addEventListener('scroll',function(){ if(!t){t=true;requestAnimationFrame(pos);} },{passive:true});
-  window.addEventListener('resize',pos);
+  function agenda(){ if(t)return; t=setTimeout(function(){t=0;pos();},90); }
+  window.addEventListener('scroll',agenda,{passive:true});
+  window.addEventListener('resize',agenda);
   pos();
 }
 })();
