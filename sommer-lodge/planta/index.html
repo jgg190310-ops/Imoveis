@@ -203,7 +203,7 @@ body.noite .nota{color:#dfe9ec;background:rgba(10,31,37,.5);border-color:rgba(25
   </button>
 </div>
 
-<p class="nota">Modelo em escala, feito a partir das fotos e das medidas da pousada. A garagem e a casa do proprietário — dois pisos, colada na parede da última suíte — estão onde o dono apontou.</p>
+<p class="nota">Modelo em escala, feito a partir das fotos e das medidas da pousada. A casa do proprietário tem 6 × 8 m e dois pisos, colada na parede da última suíte: de cima, a área construída fecha um L. Garagem, churrasqueira coberta e pérgola estão onde o dono apontou.</p>
 
 <div id="carregando"><div><b>Sommer Lodge</b><i></i></div></div>
 
@@ -809,88 +809,180 @@ function telhadoDuasAguas(cx, cz, larg, prof, yBeiral, subida, mat, pai) {
   telhadoDuasAguas(cx, cz, L + .7, P + .7, .22 + alt, .55, MAT_FIBRO, G.externo);
 })();
 
-// --- casa do proprietário: colada na empena da última suíte, dois pisos ---
-/* Correção que o Luis mandou em 23/11: a casa dele é colada na última parede
-   dos quartos, tem dois pisos e varanda coberta. Por isso a cerca saiu daqui. */
+// --- casa do proprietário: 6 × 8 m, dois pisos, fechando o L com as suítes ---
+/* Medidas que o Luis passou em 23/11: a casa é colada na parede da última
+   suíte, tem 6 × 8 m e dois pisos com varanda coberta. Vista de cima, a área
+   construída fecha um L — a casa avança pro jardim além da varanda das suítes. */
 (() => {
-  const x0 = X1 + .08, x1 = X1 + 6.90;       // encostada na parede da última suíte
-  const z0 = ZB, z1 = .10;                   // acompanha a profundidade do bloco
-  const L = x1 - x0, P = z1 - z0;
-  const cx = (x0 + x1) / 2, cz = (z0 + z1) / 2;
-  const Y0 = .28;                            // mesmo nível do piso das suítes
-  const P1 = 2.80, LAJE = .24, P2 = 2.60;    // térreo, laje e piso de cima
-  const Y1 = Y0 + P1 + LAJE;                 // piso de cima
-  const TOPO = Y1 + P2;                      // beiral do telhado
-  const VZ = z1 + DECK_Z;                    // frente da varanda, alinhada com a das suítes
-  const BZ0 = z0 - .45;
+  const x0 = X1 + .08, x1 = X1 + 6.08;      // 6 m, encostada na parede da última suíte
+  const zb = ZB, zf = ZB + 6.20, zv = ZB + 8.00;  // 8 m no total: corpo + varanda coberta
+  const L = x1 - x0, P = zf - zb, cx = (x0 + x1) / 2, cz = (zb + zf) / 2;
+  const Y0 = .28, P1 = 2.80, LAJE = .24, P2 = 2.60;
+  const Y1 = Y0 + P1 + LAJE, TOPO = Y1 + P2, SUB = 1.30, BEI = .45;
+  const yTelha = px => TOPO + SUB * (1 - Math.abs(px - cx) / (L / 2 + BEI));
 
-  // base: deck da varanda coberta na frente
-  piso(x0, x1 + .45, BZ0, VZ, Y0, MAT.deck, G.externo, .28);
-  caixa(L + .45, .26, .07, MAT.madeiraEsc, cx + .22, Y0 - .26, VZ, G.externo);
+  // base de alvenaria no corpo e deck de madeira na varanda
+  piso(x0 - .25, x1 + .25, zb - .30, zf, Y0, MAT.piso, G.externo, .28);
+  piso(x0 - .25, x1 + .25, zf, zv + .30, Y0, MAT.deck, G.externo, .28);
+  caixa(L + .50, .26, .06, MAT.madeiraEsc, cx, Y0 - .26, zv + .30, G.externo);
 
-  // esquadrias (frente em z, lateral leste em x)
-  const janFrente = (px, py, w = 1.25, h = 1.15) => {
-    caixa(w, h, .06, MAT.janelaVidro, px, py, z1 + .02, G.externo, false);
-    caixa(w + .12, .07, .10, MAT.madeiraEsc, px, py + h + .05, z1 + .02, G.externo, false);
-    [-1, 1].forEach(s => caixa(.07, h + .14, .10, MAT.madeiraEsc, px + s * (w / 2 + .05), py - .04, z1 + .02, G.externo, false));
+  const janZ = (px, py, pz, w = 1.25, h = 1.15) => {
+    caixa(w, h, .06, MAT.janelaVidro, px, py, pz, G.externo, false);
+    caixa(w + .12, .07, .10, MAT.madeiraEsc, px, py + h + .05, pz, G.externo, false);
+    [-1, 1].forEach(s => caixa(.07, h + .14, .10, MAT.madeiraEsc, px + s * (w / 2 + .05), py - .04, pz, G.externo, false));
   };
-  const janLado = (pz, py, w = 1.10, h = 1.10) => {
-    caixa(.06, h, w, MAT.janelaVidro, x1 + .02, py, pz, G.externo, false);
-    caixa(.10, .07, w + .12, MAT.madeiraEsc, x1 + .02, py + h + .05, pz, G.externo, false);
-    [-1, 1].forEach(s => caixa(.10, h + .14, .07, MAT.madeiraEsc, x1 + .02, py - .04, pz + s * (w / 2 + .05), G.externo, false));
+  const janX = (px, py, pz, w = 1.15, h = 1.15) => {
+    caixa(.06, h, w, MAT.janelaVidro, px, py, pz, G.externo, false);
+    caixa(.10, .07, w + .12, MAT.madeiraEsc, px, py + h + .05, pz, G.externo, false);
+    [-1, 1].forEach(s => caixa(.10, h + .14, .07, MAT.madeiraEsc, px, py - .04, pz + s * (w / 2 + .05), G.externo, false));
   };
 
   // ---------- térreo ----------
   caixa(L, P1, P, MAT.paredeExt, cx, Y0, cz, G.externo);
-  caixa(.95, 2.12, .07, MAT.madeiraEsc, x0 + 1.50, Y0, z1 + .03, G.externo, false);   // porta
-  janFrente(x0 + 3.40, Y0 + 1.00);
-  janFrente(x0 + 5.40, Y0 + 1.00);
-  janLado(z0 + 1.60, Y0 + 1.00);
-  janLado(z0 + 3.50, Y0 + 1.00);
+  caixa(.95, 2.12, .07, MAT.madeiraEsc, cx - 1.70, Y0, zf + .03, G.externo, false);
+  janZ(cx + 1.60, Y0 + 1.00, zf + .02);
+  janX(x1 + .02, Y0 + 1.00, zb + 1.80);
+  janX(x1 + .02, Y0 + 1.00, zb + 4.20);
+  janX(x0 - .02, Y0 + 1.00, zb + 3.00);
+  janZ(cx, Y0 + 1.00, zb - .02, 1.10);
 
   // laje entre os pisos: avança sobre a varanda e cobre ela
-  caixa(L + .50, LAJE, VZ - BZ0, MAT.laje, cx + .25, Y0 + P1, (BZ0 + VZ) / 2, G.externo);
-  piso(x0, x1 + .42, z1, VZ, Y0 + P1, MAT.forro, G.externo, .05);                      // forro da varanda
-  [x0 + .55, cx + .10, x1 + .30].forEach(px =>
-    caixa(.16, P1, .16, MAT.madeiraEsc, px, Y0, VZ - .22, G.externo));                 // pilares
+  caixa(L + .50, LAJE, (zv + .30) - (zb - .30), MAT.laje, cx, Y0 + P1, ((zv + .30) + (zb - .30)) / 2, G.externo);
+  piso(x0 - .20, x1 + .20, zf, zv + .25, Y0 + P1, MAT.forro, G.externo, .05);
+  [x0 + .45, cx, x1 - .45].forEach(px => caixa(.16, P1, .16, MAT.madeiraEsc, px, Y0, zv + .10, G.externo));
 
   // ---------- piso de cima ----------
   caixa(L, P2, P, MAT.paredeExt, cx, Y1, cz, G.externo);
-  caixa(1.05, 2.10, .07, MAT.janelaVidro, x0 + 1.90, Y1, z1 + .03, G.externo, false);  // porta da varanda
-  caixa(1.17, .07, .10, MAT.madeiraEsc, x0 + 1.90, Y1 + 2.15, z1 + .03, G.externo, false);
-  [-1, 1].forEach(s => caixa(.07, 2.24, .10, MAT.madeiraEsc, x0 + 1.90 + s * .59, Y1, z1 + .03, G.externo, false));
-  janFrente(x0 + 4.60, Y1 + 1.00);
-  janLado(z0 + 2.50, Y1 + 1.00);
+  caixa(1.05, 2.10, .07, MAT.janelaVidro, cx - 1.70, Y1, zf + .03, G.externo, false);
+  caixa(1.17, .07, .10, MAT.madeiraEsc, cx - 1.70, Y1 + 2.15, zf + .03, G.externo, false);
+  [-1, 1].forEach(s => caixa(.07, 2.24, .10, MAT.madeiraEsc, cx - 1.70 + s * .59, Y1, zf + .03, G.externo, false));
+  janZ(cx + 1.60, Y1 + 1.00, zf + .02);
+  janX(x1 + .02, Y1 + 1.00, zb + 2.10);
+  janX(x1 + .02, Y1 + 1.00, zb + 4.30);
+  janZ(cx, Y1 + 1.00, zb - .02, 1.10);
 
   // guarda-corpo de madeira da varanda de cima
-  const GC = 1.02, de = x0, ate = x1 + .42;
-  for (let i = 0; i <= 6; i++) caixa(.10, GC, .10, MAT.madeiraMed, de + i * (ate - de) / 6, Y1, VZ - .09, G.externo, false);
-  for (let i = 0; i <= 3; i++) caixa(.10, GC, .10, MAT.madeiraMed, ate - .09, Y1, z1 + i * (VZ - z1) / 3, G.externo, false);
+  const gcx0 = x0 - .20, gcx1 = x1 + .20, gcz = zv + .22;
+  for (let i = 0; i <= 5; i++) caixa(.10, 1.02, .10, MAT.madeiraMed, gcx0 + i * (gcx1 - gcx0) / 5, Y1, gcz, G.externo, false);
+  [gcx0, gcx1].forEach(px => { for (let i = 1; i <= 2; i++) caixa(.10, 1.02, .10, MAT.madeiraMed, px, Y1, zf + i * (gcz - zf) / 2, G.externo, false); });
   [.30, .64, .96].forEach(h => {
-    caixa(ate - de, .07, .07, MAT.madeiraMed, (de + ate) / 2, Y1 + h, VZ - .09, G.externo, false);
-    caixa(.07, .07, VZ - z1, MAT.madeiraMed, ate - .09, Y1 + h, (z1 + VZ) / 2, G.externo, false);
+    caixa(gcx1 - gcx0, .07, .07, MAT.madeiraMed, cx, Y1 + h, gcz, G.externo, false);
+    [gcx0, gcx1].forEach(px => caixa(.07, .07, gcz - zf, MAT.madeiraMed, px, Y1 + h, (zf + gcz) / 2, G.externo, false));
   });
-  // pilares que seguram a cobertura da varanda de cima
-  [de + .30, (de + ate) / 2, ate - .09].forEach(px =>
-    caixa(.13, P2 - .80, .13, MAT.madeiraEsc, px, Y1, VZ - .09, G.externo));
+  [x0 + .45, x1 - .45].forEach(px => caixa(.13, yTelha(px) - .14 - Y1, .13, MAT.madeiraEsc, px, Y1, zv + .10, G.externo));
 
-  // telhado principal: duas águas sobre o corpo da casa
-  telhadoDuasAguas(cx + .35, cz, L + .80, P + 1.00, TOPO, 1.05, MAT.telha, G.externo);
-
-  // telhadinho de uma água só, cobrindo a varanda de cima
+  // ---------- telhado: cumeeira no comprimento, perpendicular ao das suítes ----------
   (() => {
-    const zi = z1 - .05, zf = VZ + .25, run = zf - zi;
-    const yi = TOPO - .15, yf = TOPO - .95;
-    const comp = Math.hypot(run, yi - yf);
-    const m = new THREE.Mesh(new THREE.BoxGeometry(L + .80, .10, comp), MAT.telha);
-    m.position.set(cx + .35, (yi + yf) / 2, (zi + zf) / 2);
-    m.rotation.x = Math.atan2(yi - yf, run);
-    m.castShadow = m.receiveShadow = true; G.externo.add(m);
+    const larg = L + BEI * 2, zt0 = zb - .50, zt1 = zv + .35;
+    const prof = zt1 - zt0, czt = (zt0 + zt1) / 2;
+    const meia = larg / 2, comp = Math.hypot(meia, SUB), ang = Math.atan2(SUB, meia);
+    [1, -1].forEach(s => {
+      const m = new THREE.Mesh(new THREE.BoxGeometry(comp, .13, prof), MAT.telha);
+      m.position.set(cx + s * meia / 2, TOPO + SUB / 2, czt);
+      m.rotation.z = -s * ang;
+      m.castShadow = m.receiveShadow = true; G.externo.add(m);
+    });
+    caixa(.30, .12, prof, MAT.telha, cx, TOPO + SUB - .04, czt, G.externo);
+    // empenas no fundo e na frente do corpo (a varanda fica aberta)
+    [zb - .08, zf + .08].forEach(zz => {
+      const sh = new THREE.Shape();
+      sh.moveTo(x0 - BEI, TOPO); sh.lineTo(cx, TOPO + SUB); sh.lineTo(x1 + BEI, TOPO); sh.closePath();
+      const m = new THREE.Mesh(new THREE.ExtrudeGeometry(sh, { depth: .16, bevelEnabled: false }), MAT.paredeExt);
+      m.position.set(0, 0, zz);
+      m.castShadow = m.receiveShadow = true; G.externo.add(m);
+    });
   })();
 
-  arbusto(x0 + 1.20, VZ + .95, .02, .70, G.externo);
-  arbusto(x1 - .40, VZ + 1.10, .02, .62, G.externo);
+  arbusto(x0 - .95, zv + 1.30, .02, .68, G.externo);
+  arbusto(x1 + .75, zv + .90, .02, .60, G.externo);
 })();
+
+/* ============ ÁREA DE CHURRASCO COBERTA, PÉRGOLA E JARDIM ============ */
+/* "O 3D tem que ficar bem fiel todo o terreno" (Luis, 23/11): do lado oposto
+   às suítes fica a área de churrasco coberta, com forno de barro, churrasqueira
+   de tijolo e bancada sobre deck, virada pros apartamentos. E tem a pérgola. */
+const MAT_TIJOLO = std({ color: '#a8552f', roughness: .95 });
+const MAT_BARRO = std({ color: '#b06a4b', roughness: 1 });
+const MAT_VERDE = std({ color: '#49523f', roughness: .8 });
+const MAT_FLOR = std({ color: '#cf4a85', roughness: .9, flatShading: true });
+
+function trepadeira(px, py, pz, n, esc, pai) {
+  for (let i = 0; i < n; i++) {
+    const m = new THREE.Mesh(new THREE.IcosahedronGeometry(.34, 0), i % 3 === 0 ? MAT_FLOR : MAT.folha2);
+    m.position.set(px + rnd(-esc, esc), py + rnd(-.18, .18), pz + rnd(-.3, .3));
+    m.scale.setScalar(rnd(.6, 1.15)); pai.add(m);
+  }
+}
+
+function vasoFlor(px, pz, y = 0, esc = 1, pai = G.externo) {
+  cil(.22 * esc, .16 * esc, .34 * esc, MAT.vaso, px, y, pz, pai, 12);
+  const f = new THREE.Mesh(new THREE.IcosahedronGeometry(.26 * esc, 0), MAT_FLOR);
+  f.position.set(px, y + .52 * esc, pz); f.scale.set(1.2, .8, 1.2);
+  f.castShadow = true; f.receiveShadow = true; pai.add(f);
+}
+
+// --- churrasqueira coberta, de frente pros aptos ---
+(() => {
+  const x0 = -1.5, x1 = 3.3, z0 = 9.3, z1 = 12.7;
+  const L = x1 - x0, P = z1 - z0, cx = (x0 + x1) / 2, cz = (z0 + z1) / 2;
+  const Y = .24, ALTP = 2.55;
+  piso(x0 - .40, x1 + .40, z0 - .40, z1 + .40, Y, MAT.deck, G.externo, .24);
+
+  // churrasqueira de tijolo com chaminé, encostada no fundo
+  caixa(1.45, 2.20, .95, MAT_TIJOLO, x1 - 1.15, Y, z1 - .62, G.externo);
+  caixa(.60, .55, .60, MAT_TIJOLO, x1 - 1.15, Y + 2.20, z1 - .62, G.externo);
+  caixa(1.05, .55, .18, MAT.preto, x1 - 1.15, Y + 1.00, z1 - 1.12, G.externo, false);
+  // forno de barro sobre base de tijolo
+  caixa(1.30, .95, 1.15, MAT_TIJOLO, x0 + .95, Y, z1 - .75, G.externo);
+  (() => {
+    const d = new THREE.Mesh(new THREE.SphereGeometry(.62, 18, 12, 0, Math.PI * 2, 0, Math.PI / 2), MAT_BARRO);
+    d.position.set(x0 + .95, Y + .95, z1 - .75); d.scale.set(1, .95, 1);
+    d.castShadow = d.receiveShadow = true; G.externo.add(d);
+    caixa(.40, .38, .14, MAT.madeiraEsc, x0 + .95, Y + .98, z1 - 1.34, G.externo, false);
+  })();
+  // bancada com armário e tampo de granito
+  caixa(1.55, .82, .62, MAT_VERDE, cx + .55, Y, z1 - .45, G.externo);
+  caixa(1.65, .07, .70, MAT.granito, cx + .55, Y + .82, z1 - .45, G.externo, false);
+  // banquinhos
+  [[-.4, 10.6], [.5, 10.4]].forEach(([bx, bz]) => {
+    cil(.19, .19, .62, std({ color: '#2f7f98', roughness: .5 }), bx, Y, bz, G.externo, 12);
+  });
+  // cobertura: pilares de madeira + telhado de duas águas
+  [[x0 + .12, z0 + .12], [x1 - .12, z0 + .12], [x0 + .12, z1 - .12], [x1 - .12, z1 - .12]]
+    .forEach(([px, pz]) => caixa(.17, ALTP, .17, MAT.madeiraEsc, px, Y, pz, G.externo));
+  caixa(L, .14, .14, MAT.madeiraEsc, cx, Y + ALTP - .14, z0 + .12, G.externo, false);
+  caixa(L, .14, .14, MAT.madeiraEsc, cx, Y + ALTP - .14, z1 - .12, G.externo, false);
+  telhadoDuasAguas(cx, cz, L + .70, P + .70, Y + ALTP, .55, MAT.telha, G.externo);
+  // trepadeira florida subindo pela cobertura
+  trepadeira(x0 + .3, Y + ALTP - .2, z0 + .3, 14, .9, G.externo);
+  trepadeira(x1 - .3, Y + ALTP - .35, z0 + .2, 10, .7, G.externo);
+  arbusto(x0 - .9, z0 - .9, 0, .62, G.externo);
+  vasoFlor(x0 - .75, z0 + 1.2);
+  vasoFlor(x1 + .70, z1 - .9);
+})();
+
+// --- pérgola do jardim, do lado da entrada ---
+(() => {
+  const x0 = -7.2, x1 = -3.0, z0 = 5.6, z1 = 7.8, ALTP = 2.45;
+  const cx = (x0 + x1) / 2, cz = (z0 + z1) / 2;
+  [[x0, z0], [x1, z0], [x0, z1], [x1, z1], [cx, z0], [cx, z1]]
+    .forEach(([px, pz]) => caixa(.16, ALTP, .16, MAT.madeiraMed, px, 0, pz, G.externo));
+  [z0, z1].forEach(pz => caixa(x1 - x0 + .5, .13, .13, MAT.madeiraMed, cx, ALTP - .13, pz, G.externo, false));
+  for (let i = 0; i <= 7; i++) caixa(.09, .09, z1 - z0 + .5, MAT.madeiraMed, x0 + i * (x1 - x0) / 7, ALTP, cz, G.externo, false);
+  trepadeira(x0 + .6, ALTP + .05, z0, 16, 1.0, G.externo);
+  trepadeira(x1 - .5, ALTP + .05, z1, 14, .9, G.externo);
+  trepadeira(cx, ALTP + .05, z0, 10, .8, G.externo);
+  vasoFlor(x0 - .55, z1 + .5);
+  vasoFlor(x1 + .45, z0 - .4);
+})();
+
+// --- mesas altas de tronco e palmeiras do fundo do jardim ---
+[[-1.6, 6.2], [5.4, 7.4]].forEach(([px, pz]) => {
+  cil(.21, .26, 1.02, MAT.tronco, px, 0, pz, G.externo, 10);
+  caixa(.92, .07, .66, MAT.madeiraClara, px, 1.02, pz, G.externo);
+});
+[[7.6, 11.4, 1.0], [11.0, 12.2, .88], [-5.0, 12.4, .92], [1.0, 14.6, .85]]
+  .forEach(([px, pz, e]) => palmeira(px, pz, 0, G.externo, e));
 
 /* ======================= OTIMIZAÇÃO ======================= */
 // peça pequena não projeta sombra (economia grande de draw calls no celular),
@@ -915,7 +1007,9 @@ const AMB = [
   { id: 'varanda', nome: 'Varanda coberta', sub: 'deck de madeira', pos: [-.3, 1.55, 1.15], tipo: 'ext', d: 13 },
   { id: 'jardim', nome: 'Jardim', sub: 'palmeiras e mata', pos: [X1 + 4.6, 2.6, 4.0], tipo: 'ext', d: 15 },
   { id: 'garagem', nome: 'Garagem', sub: 'depósito do proprietário', pos: [-10.6, 3.2, -1.3], tipo: 'ext', d: 12 },
-  { id: 'casa', nome: 'Casa do proprietário', sub: 'dois pisos, colada nas suítes', pos: [11.5, 7.4, -2.4], tipo: 'ext', d: 20 },
+  { id: 'casa', nome: 'Casa do proprietário', sub: '6 × 8 m · dois pisos', pos: [11.1, 8.2, -1.0], tipo: 'ext', d: 21 },
+  { id: 'churrasco', nome: 'Área de churrasco', sub: 'forno de barro, coberta', pos: [.9, 3.9, 11.0], tipo: 'ext', d: 14 },
+  { id: 'pergola', nome: 'Pérgola', sub: 'trepadeira florida', pos: [-5.1, 3.2, 6.7], tipo: 'ext', d: 13 },
   { id: 'quarto', nome: 'Quarto', sub: 'casal + beliche', pos: [-2.9, 1.5, -2.2], tipo: 'int', d: 8.5 },
   { id: 'kit', nome: 'Kitchenette', sub: 'cooktop, pia e frigobar', pos: [-.5, 1.5, -3.3], tipo: 'int', d: 7.6 },
   { id: 'banheiro', nome: 'Banheiro', sub: 'box, pia e vaso', pos: [-3.2, 1.5, -4.1], tipo: 'int', d: 7.2 },
@@ -933,7 +1027,7 @@ AMB.forEach(a => {
 });
 
 const amb = document.getElementById('amb');
-const grupos = [['No terreno', ['bloco', 'varanda', 'jardim', 'garagem', 'casa']], ['Dentro da suíte', ['quarto', 'kit', 'banheiro']], ['As quatro', ['s0', 's1', 's2', 's3']]];
+const grupos = [['No terreno', ['bloco', 'varanda', 'churrasco', 'pergola', 'jardim', 'garagem', 'casa']], ['Dentro da suíte', ['quarto', 'kit', 'banheiro']], ['As quatro', ['s0', 's1', 's2', 's3']]];
 grupos.forEach(([t, ids]) => {
   const h = document.createElement('div'); h.className = 'grupo'; h.textContent = t; amb.appendChild(h);
   ids.forEach(id => {
