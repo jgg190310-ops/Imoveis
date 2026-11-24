@@ -56,7 +56,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .ctrl{position:fixed;z-index:16;left:50%;bottom:16px;transform:translateX(-50%);display:flex;gap:6px;flex-wrap:wrap;justify-content:center;
   padding:7px;border-radius:999px;background:rgba(11,43,51,.62);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
   border:1px solid rgba(255,255,255,.2);box-shadow:0 14px 40px -22px rgba(0,0,0,.6);max-width:calc(100vw - 20px)}
-.ctrl button{color:#fff;padding:9px 14px;border-radius:999px;font:500 12.5px var(--sans);opacity:.78;transition:background .2s,opacity .2s}
+.ctrl button{color:#fff;padding:9px 14px;border-radius:999px;font:500 12.5px var(--sans);opacity:.78;white-space:nowrap;transition:background .2s,opacity .2s}
 .ctrl button:hover{opacity:1;background:rgba(255,255,255,.14)}
 .ctrl button.on{background:var(--sea);opacity:1}
 
@@ -76,15 +76,23 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 
 @media(max-width:900px){
   .amb{display:none}
-  .titulo{left:10px;right:10px;bottom:80px;max-width:none;padding:14px 16px}
-  .titulo h1{font-size:22px}
-  .titulo p{font-size:12.5px}
+  .titulo{left:10px;right:10px;bottom:84px;max-width:none;padding:12px 14px}
+  .titulo h1{font-size:20px}
+  .titulo p{font-size:12px;margin-top:6px}
   .topo{gap:10px;padding:6px 6px 6px 12px}
   .topo .marca{font-size:11px}
   .topo a{padding:8px 13px;font-size:11.5px}
-  .ctrl button{padding:8px 11px;font-size:11.5px}
+  .ctrl{flex-wrap:nowrap;gap:3px;padding:5px;bottom:12px}
+  .ctrl button{padding:8px 10px;font-size:11.5px}
   .rot{font-size:10.5px;padding:4px 7px}
   .rot small{font-size:9.5px}
+}
+@media(max-width:420px){
+  .titulo p{display:none}
+  .titulo{bottom:78px;padding:10px 13px}
+  .titulo h1{font-size:18px}
+  .ctrl button{padding:7px 8px;font-size:11px}
+  .abas button{padding:7px 12px;font-size:12px}
 }
 </style>
 </head>
@@ -125,20 +133,20 @@ import { OrbitControls } from './vendor/OrbitControls.js';
 import { CSS2DRenderer, CSS2DObject } from './vendor/CSS2DRenderer.js';
 
 /* ====================== DADOS DAS CASAS ====================== */
-/* Medidas improvisadas a partir das fotos e da descricao do proprietario. */
+/* Medidas improvisadas a partir das fotos e da descrição do proprietário. */
 
 const CASAS = [
 {
   id:'beira-mar', nome:'Casa Beira-Mar', tag:'Lagoa Pequena',
-  txt:'Sobrado de frente para o mar: seis quartos, sendo tres suites, varanda na frente e piscina entre a casa e a praia.',
+  txt:'Sobrado de frente para o mar: seis quartos, sendo três suítes, varanda na frente e piscina entre a casa e a praia.',
   praia:true, largura:14,
   andares:[
     { h:2.8, fileiras:[
       { d:5.0, comodos:[ {n:'Sala de estar',s:'integrada com a varanda',t:'sala',w:8}, {n:'Cozinha',s:'com copa',t:'cozinha',w:6} ]},
-      { d:5.5, comodos:[ {n:'Suite 1',s:'casal, banheiro proprio',t:'suite',w:6}, {n:'Banheiro',s:'social',t:'banheiro',w:3}, {n:'Quarto 2',s:'duas camas',t:'quarto',w:5} ]}
+      { d:5.5, comodos:[ {n:'Suíte 1',s:'casal, banheiro próprio',t:'suite',w:6}, {n:'Banheiro',s:'social',t:'banheiro',w:3}, {n:'Quarto 2',s:'duas camas',t:'quarto',w:5} ]}
     ]},
     { h:2.7, fileiras:[
-      { d:5.0, comodos:[ {n:'Suite 2',s:'casal, vista pro mar',t:'suite',w:7}, {n:'Suite 3',s:'casal, vista pro mar',t:'suite',w:7} ]},
+      { d:5.0, comodos:[ {n:'Suíte 2',s:'casal, vista para o mar',t:'suite',w:7}, {n:'Suíte 3',s:'casal, vista para o mar',t:'suite',w:7} ]},
       { d:5.5, comodos:[ {n:'Quarto 4',s:'duas camas',t:'quarto',w:7}, {n:'Quarto 5',s:'duas camas',t:'quarto',w:7} ]}
     ]}
   ],
@@ -149,32 +157,32 @@ const CASAS = [
 },
 {
   id:'beco-garrafas', nome:'Casa do Beco das Garrafas', tag:'50 m da praia',
-  txt:'Casa terrea com cinco quartos, quatro deles suites, area gourmet coberta com lavabo e piscina ao lado do gramado.',
+  txt:'Casa térrea com cinco quartos, quatro deles suítes, área gourmet coberta com lavabo e piscina ao lado do gramado.',
   largura:16,
   andares:[
     { h:2.9, fileiras:[
       { d:5.0, comodos:[ {n:'Sala de jantar',s:'mesa grande',t:'sala',w:9}, {n:'Cozinha',s:'equipada',t:'cozinha',w:7} ]},
-      { d:5.5, comodos:[ {n:'Suite 1',s:'casal',t:'suite',w:4}, {n:'Suite 2',s:'casal',t:'suite',w:4}, {n:'Suite 3',s:'duas camas',t:'suite',w:4}, {n:'Suite 4',s:'duas camas',t:'suite',w:4} ]},
-      { d:4.0, comodos:[ {n:'Quarto 5',s:'duas camas',t:'quarto',w:6}, {n:'Banheiro',s:'social',t:'banheiro',w:4}, {n:'Area de servico',s:'',t:'servico',w:6} ]}
+      { d:5.5, comodos:[ {n:'Suíte 1',s:'casal',t:'suite',w:4}, {n:'Suíte 2',s:'casal',t:'suite',w:4}, {n:'Suíte 3',s:'duas camas',t:'suite',w:4}, {n:'Suíte 4',s:'duas camas',t:'suite',w:4} ]},
+      { d:4.0, comodos:[ {n:'Quarto 5',s:'duas camas',t:'quarto',w:6}, {n:'Banheiro',s:'social',t:'banheiro',w:4}, {n:'Área de serviço',s:'',t:'servico',w:6} ]}
     ]}
   ],
   varanda:{ d:2.6, nivel:0 },
   piscina:{ cx:-13, cz:3, w:8, d:4 },
   gourmet:{ cx:13, cz:2, w:7, d:6 },
   extras:[ {t:'label', n:'Piscina', s:'8 x 4 m', x:-13, z:3, y:1.1},
-           {t:'label', n:'Area gourmet', s:'churrasqueira e lavabo', x:13, z:2, y:3.2},
+           {t:'label', n:'Área gourmet', s:'churrasqueira e lavabo', x:13, z:2, y:3.2},
            {t:'label', n:'Beco das Garrafas', s:'bares, a 50 m', x:0, z:19, y:1.4} ],
   arvores:[[-11,12],[11,12],[-17,-6],[17,-6],[0,-13]]
 },
 {
-  id:'segura-as-ondas', nome:'Casa Segura as Ondas', tag:'7 quartos, ate 20 pessoas',
-  txt:'A maior das quatro: sete quartos, seis banheiros, piscina de um lado e area coberta com churrasqueira e forno a lenha do outro.',
+  id:'segura-as-ondas', nome:'Casa Segura as Ondas', tag:'7 quartos, até 20 pessoas',
+  txt:'A maior das quatro: sete quartos, seis banheiros, piscina de um lado e área coberta com churrasqueira e forno a lenha do outro.',
   largura:18,
   andares:[
     { h:2.9, fileiras:[
-      { d:5.0, comodos:[ {n:'Sala',s:'integrada',t:'sala',w:8}, {n:'Cozinha',s:'equipada',t:'cozinha',w:6}, {n:'Area de servico',s:'',t:'servico',w:4} ]},
-      { d:5.0, comodos:[ {n:'Suite 1',s:'casal',t:'suite',w:5}, {n:'Suite 2',s:'casal',t:'suite',w:5}, {n:'Suite 3',s:'casal',t:'suite',w:5}, {n:'Banheiro',s:'social',t:'banheiro',w:3} ]},
-      { d:4.6, comodos:[ {n:'Demi-suite 1',s:'lavabo no quarto',t:'suite',w:4.5}, {n:'Demi-suite 2',s:'lavabo no quarto',t:'suite',w:4.5}, {n:'Quarto 6',s:'solteiro',t:'quarto',w:4.5}, {n:'Quarto 7',s:'duas camas',t:'quarto',w:4.5} ]}
+      { d:5.0, comodos:[ {n:'Sala',s:'integrada',t:'sala',w:8}, {n:'Cozinha',s:'equipada',t:'cozinha',w:6}, {n:'Área de serviço',s:'',t:'servico',w:4} ]},
+      { d:5.0, comodos:[ {n:'Suíte 1',s:'casal',t:'suite',w:5}, {n:'Suíte 2',s:'casal',t:'suite',w:5}, {n:'Suíte 3',s:'casal',t:'suite',w:5}, {n:'Banheiro',s:'social',t:'banheiro',w:3} ]},
+      { d:4.6, comodos:[ {n:'Demi-suíte 1',s:'lavabo no quarto',t:'suite',w:4.5}, {n:'Demi-suíte 2',s:'lavabo no quarto',t:'suite',w:4.5}, {n:'Quarto 6',s:'solteiro',t:'quarto',w:4.5}, {n:'Quarto 7',s:'duas camas',t:'quarto',w:4.5} ]}
     ]}
   ],
   varanda:{ d:3.0, nivel:0 },
@@ -182,26 +190,26 @@ const CASAS = [
   gourmet:{ cx:14, cz:1, w:8, d:7 },
   garagem:{ cx:0, cz:-14, w:12, d:5.5 },
   extras:[ {t:'label', n:'Piscina', s:'9 x 4,5 m', x:-14, z:2, y:1.1},
-           {t:'label', n:'Churrasqueira', s:'forno e fogao a lenha', x:14, z:1, y:3.4},
+           {t:'label', n:'Churrasqueira', s:'forno e fogão a lenha', x:14, z:1, y:3.4},
            {t:'label', n:'Garagem', s:'5 carros, coberta', x:0, z:-14, y:3.2} ],
   arvores:[[-10,13],[10,13],[-18,-8],[18,-8],[-18,10],[18,10]]
 },
 {
   id:'novo-prado', nome:'Casa do Novo Prado', tag:'400 m da praia',
-  txt:'Casa terrea com quatro quartos, tres deles suites, piscina com cascata e area gourmet de mesa grande.',
+  txt:'Casa térrea com quatro quartos, três deles suítes, piscina com cascata e área gourmet de mesa grande.',
   largura:13,
   andares:[
     { h:2.9, fileiras:[
       { d:5.0, comodos:[ {n:'Sala de TV',s:'com sofa',t:'sala',w:7}, {n:'Cozinha',s:'equipada',t:'cozinha',w:6} ]},
-      { d:5.5, comodos:[ {n:'Suite 1',s:'casal',t:'suite',w:4.5}, {n:'Suite 2',s:'casal',t:'suite',w:4.5}, {n:'Suite 3',s:'duas camas',t:'suite',w:4} ]},
-      { d:3.6, comodos:[ {n:'Quarto 4',s:'duas camas',t:'quarto',w:6}, {n:'Banheiro',s:'social',t:'banheiro',w:3}, {n:'Area de servico',s:'',t:'servico',w:4} ]}
+      { d:5.5, comodos:[ {n:'Suíte 1',s:'casal',t:'suite',w:4.5}, {n:'Suíte 2',s:'casal',t:'suite',w:4.5}, {n:'Suíte 3',s:'duas camas',t:'suite',w:4} ]},
+      { d:3.6, comodos:[ {n:'Quarto 4',s:'duas camas',t:'quarto',w:6}, {n:'Banheiro',s:'social',t:'banheiro',w:3}, {n:'Área de serviço',s:'',t:'servico',w:4} ]}
     ]}
   ],
   varanda:{ d:2.8, nivel:0 },
   piscina:{ cx:-11, cz:3, w:7.5, d:4 },
   gourmet:{ cx:11, cz:2, w:7, d:6 },
   extras:[ {t:'label', n:'Piscina', s:'com cascata', x:-11, z:3, y:1.1},
-           {t:'label', n:'Area gourmet', s:'mesa grande e lavabo', x:11, z:2, y:3.2} ],
+           {t:'label', n:'Área gourmet', s:'mesa grande e lavabo', x:11, z:2, y:3.2} ],
   arvores:[[-8,11],[8,11],[-14,-6],[14,-6],[0,-11]]
 }
 ];
@@ -253,6 +261,7 @@ const M = {
   parede:  new THREE.MeshLambertMaterial({ color:0xf3efe6 }),
   parede2: new THREE.MeshLambertMaterial({ color:0xe4ddd0 }),
   telha:   new THREE.MeshLambertMaterial({ color:0xb4643f }),
+  telhaD:  new THREE.MeshLambertMaterial({ color:0xb4643f, side:THREE.DoubleSide }),
   madeira: new THREE.MeshLambertMaterial({ color:0x8b5e3c }),
   madeira2:new THREE.MeshLambertMaterial({ color:0xa9794f }),
   agua:    new THREE.MeshLambertMaterial({ color:0x2fb6cf }),
@@ -354,10 +363,10 @@ function telhado(cx, cz, w, d, baseY, parent, altura){
     -hw,0,-hd,  hw,0,-hd,  hw,0,hd,  -hw,0,hd,            // base
     -hw*0.22,h,-hd*0.22,  hw*0.22,h,-hd*0.22,  hw*0.22,h,hd*0.22,  -hw*0.22,h,hd*0.22  // topo
   ]);
-  const idx = [0,1,5, 0,5,4, 1,2,6, 1,6,5, 2,3,7, 2,7,6, 3,0,4, 3,4,7, 4,5,6, 4,6,7];
+  const idx = [1,0,4, 1,4,5, 2,1,5, 2,5,6, 3,2,6, 3,6,7, 0,3,7, 0,7,4, 4,6,5, 4,7,6];
   geo.setAttribute('position', new THREE.BufferAttribute(v,3));
   geo.setIndex(idx); geo.computeVertexNormals();
-  const m = new THREE.Mesh(geo, M.telha);
+  const m = new THREE.Mesh(geo, M.telhaD);
   m.position.set(cx, baseY, cz); m.castShadow = true; m.receiveShadow = true;
   (parent||gTelhado).add(m);
   return m;
@@ -509,7 +518,7 @@ const elAbas = document.getElementById('abas'), elAmb = document.getElementById(
 function montaLista(){
   elAmb.innerHTML = '<h2>Ambientes</h2>';
   const ext = AMB.filter(a=>a.ext), terreo = AMB.filter(a=>!a.ext && a.nivel==='terreo'), sup = AMB.filter(a=>!a.ext && a.nivel==='superior');
-  [['Area externa', ext], ['Terreo', terreo], ['Pavimento superior', sup]].forEach(([t, lista])=>{
+  [['Área externa', ext], ['Térreo', terreo], ['Pavimento superior', sup]].forEach(([t, lista])=>{
     if(!lista.length) return;
     const h = document.createElement('div'); h.className='grupo'; h.textContent=t; elAmb.appendChild(h);
     lista.forEach(a=>{
@@ -568,8 +577,9 @@ document.getElementById('bt-topo').addEventListener('click', function(){
   this.classList.toggle('on', vistaTopo);
   if(vistaTopo){
     telhadoOn = false; document.getElementById('bt-telhado').classList.remove('on'); aplicaNivel();
-    const r = raio();
-    anima(new THREE.Vector3(0, r*1.5, 0.01), new THREE.Vector3(0,0,0));
+    let r = raio();
+    if(innerWidth < 760) r *= 1.5;
+    anima(new THREE.Vector3(0, r*1.45, 0.01), new THREE.Vector3(0,0,2));
   } else { enquadra(); }
 });
 document.getElementById('bt-reset').addEventListener('click', ()=>{
@@ -580,11 +590,13 @@ document.getElementById('bt-reset').addEventListener('click', ()=>{
 function raio(){
   const c = casaAtual;
   let prof = 0; c.andares[0].fileiras.forEach(f=>prof+=f.d);
-  return Math.max(c.largura, prof) + 16;
+  return Math.max(c.largura, prof) + 22;
 }
 function enquadra(){
-  const r = raio();
-  anima(new THREE.Vector3(r*0.72, r*0.62, r*0.95), new THREE.Vector3(0, 1.5, 0));
+  let r = raio();
+  if(innerWidth < 760) r *= 1.45;
+  else if(innerWidth < 1100) r *= 1.15;
+  anima(new THREE.Vector3(r*0.66, r*0.58, r*0.92), new THREE.Vector3(0, 1.5, 3));
 }
 let animando = null;
 function anima(pos, alvo){
@@ -628,9 +640,17 @@ function loop(){
 }
 loop();
 
-const inicial = Math.max(0, CASAS.findIndex(c => c.id === location.hash.slice(1)));
-selecionar(inicial);
+function porHash(){
+  const i = CASAS.findIndex(c => c.id === location.hash.slice(1));
+  selecionar(i < 0 ? 0 : i);
+}
+addEventListener('hashchange', porHash);
+porHash();
 
+if(innerWidth < 560){
+  document.getElementById('bt-topo').textContent = 'De cima';
+  document.getElementById('bt-reset').textContent = 'Centro';
+}
 const dica = document.getElementById('dica');
 setTimeout(()=>dica.classList.add('off'), 5200);
 renderer.domElement.addEventListener('pointerdown', ()=>dica.classList.add('off'), { once:true });
