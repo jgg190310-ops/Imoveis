@@ -416,7 +416,6 @@ function parede(g, eixo, fixo, a0, a1, y, alt, mat, vaos = []) {
 
   // piscina
   const p = PISCINA, pw = p.x1 - p.x0, pd = p.z1 - p.z0;
-  caixa(g, pw + .3, .05, pd + .3, M.pisoMolh, (p.x0 + p.x1) / 2, 0, (p.z0 + p.z1) / 2, false);
   // caixa da piscina (paredes de pastilha)
   parede(g, 'x', p.z0, p.x0, p.x1, -p.prof, p.prof, M.pastilha);
   parede(g, 'x', p.z1, p.x0, p.x1, -p.prof, p.prof, M.pastilha);
