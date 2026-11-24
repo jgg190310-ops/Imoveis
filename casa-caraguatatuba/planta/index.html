@@ -132,7 +132,7 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
   .titulo p{font-size:13px}
   .amb{left:12px;right:12px;top:auto;width:auto;
     bottom:calc(max(16px,env(safe-area-inset-bottom)) + 108px);
-    max-height:34vh;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 8px}
+    max-height:27vh;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 8px}
   .amb h4{grid-column:1/-1;padding:7px 6px 3px}
   .nota{display:none}
   .dica{font-size:11px}
@@ -708,7 +708,7 @@ rotulo({ x0: 4.6, x1: 7.2, z0: 2.0, z1: 5.0, n: 'Garagem', a: '3 vagas' }, 'terr
 
 /* ===================== CÂMERA E ESTADO ===================== */
 const ALVO = new THREE.Vector3(0, 1.4, 0);
-const VISTA_INICIAL = new THREE.Vector3(-14, 11, -17);
+const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-20, 16, -24) : new THREE.Vector3(-14, 11, -17);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
@@ -846,6 +846,7 @@ let primeiroQuadro = true;
 })();
 
 setTimeout(() => document.getElementById('dica').classList.add('off'), 5200);
+if (MOBILE) setTimeout(() => document.getElementById('titulo').classList.add('fechado'), 6500);
 </script>
 </body>
 </html>
