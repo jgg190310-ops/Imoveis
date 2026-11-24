@@ -253,7 +253,8 @@ sol.shadow.mapSize.set(MOBILE ? 1024 : 2048, MOBILE ? 1024 : 2048);
 sol.shadow.camera.left = -22; sol.shadow.camera.right = 22;
 sol.shadow.camera.top = 30; sol.shadow.camera.bottom = -14;
 sol.shadow.camera.near = 1; sol.shadow.camera.far = 70;
-sol.shadow.bias = -0.0008;
+sol.shadow.bias = -0.0006;
+sol.shadow.normalBias = 0.045;
 scene.add(sol);
 scene.add(new THREE.DirectionalLight('#dfeaff', .45).translateX(14).translateY(12).translateZ(-16));
 
@@ -836,7 +837,10 @@ GRUPOS.forEach(([titulo, itens]) => {
       aplicar();
       const cx = (r.x0 + r.x1) / 2 - CX, cz = (r.z0 + r.z1) / 2 - CZ;
       const y = p === 'sup' ? Y1 : 0;
-      irPara(new THREE.Vector3(cx - 4.2, y + 8.2, cz - 4.6), new THREE.Vector3(cx, y + .7, cz));
+      const maior = Math.max(r.x1 - r.x0, r.z1 - r.z0);
+      const raio = Math.max(7.5, maior * (MOBILE ? 2.6 : 2.0));
+      irPara(new THREE.Vector3(cx - raio * .55, y + raio * .92, cz - raio * .62),
+             new THREE.Vector3(cx, y + .7, cz));
     });
     ambBox.appendChild(b);
   });
