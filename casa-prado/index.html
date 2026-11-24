@@ -70,7 +70,7 @@ h2.big em{font-family:'Newsreader',serif;font-style:italic;font-weight:300;lette
 #bar nav a:hover,#bar nav a.cur{opacity:1}
 #bar nav a.cur::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--sea)}
 #bar nav a.btn::after{display:none}
-#bar nav a.btn{padding:11px 22px}
+#bar nav a.btn{padding:11px 22px;opacity:1}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;border:0;cursor:pointer;
   flex:none;white-space:nowrap;font-family:'Bricolage Grotesque',sans-serif;font-size:14.5px;font-weight:500;
   letter-spacing:-.01em;padding:11px 22px;text-decoration:none;
@@ -86,61 +86,52 @@ h2.big em{font-family:'Newsreader',serif;font-style:italic;font-weight:300;lette
 #burger.x i:nth-child(2){opacity:0}
 #burger.x i:nth-child(3){transform:translateY(-6.1px) rotate(-45deg)}
 
-#hero{position:relative;height:100svh;min-height:660px;max-height:1100px;overflow:hidden;background:var(--deeper);color:#f5f1e8;display:flex;flex-direction:column}
-#heroimg{position:absolute;left:0;top:-10%;width:100%;height:120%;z-index:0;
-  background:url("casas/band.webp") center 60%/cover no-repeat;opacity:.26;will-change:transform}
-#scrim{position:absolute;inset:0;z-index:1;
-  background:radial-gradient(120% 80% at 20% 0%,rgba(31,147,166,.22),rgba(7,30,36,0) 60%),
-             linear-gradient(rgba(7,30,36,.55),rgba(7,30,36,.86) 55%,var(--deeper))}
-.hero-in{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;
-  padding:calc(78px + 2.4vh) clamp(14px,3.6vw,56px) clamp(14px,2.6vh,30px);gap:clamp(16px,2.8vh,30px)}
+#hero{position:relative;height:100svh;min-height:720px;max-height:1150px;overflow:hidden;background:var(--paper);color:var(--ink);display:flex;flex-direction:column}
+#heroimg{position:absolute;right:-18%;top:-30%;width:80%;height:110%;z-index:0;pointer-events:none;will-change:transform;
+  background:radial-gradient(closest-side,rgba(31,147,166,.17),rgba(31,147,166,0))}
+#scrim{display:none}
+.hero-in{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;width:100%;max-width:1480px;margin:0 auto;
+  padding:calc(82px + 2.4vh) clamp(14px,3.6vw,56px) clamp(16px,3vh,34px);gap:clamp(16px,2.8vh,30px)}
 .hero-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px 40px;flex-wrap:wrap;will-change:transform}
-.lock-eyebrow{font-family:'Newsreader',serif;font-weight:500;color:#f0cd82;
-  font-size:clamp(11px,1.2vw,14px);letter-spacing:.3em;text-transform:uppercase;margin-bottom:12px;line-height:1.3}
-#hero h1{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(36px,4.5vw,68px);line-height:1;
-  letter-spacing:-.025em}
-#hero h1 .n{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.055em;color:#f0cd82}
-#hero h1 em{font-style:italic;font-weight:300}
-.hero-say{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:clamp(16px,1.6vw,20px);
-  opacity:.88;margin-top:12px;max-width:40ch;line-height:1.5}
-.hero-side{display:flex;gap:clamp(18px,3vw,40px);padding-bottom:6px}
-.hero-side div{display:flex;flex-direction:column;gap:3px;border-left:2px solid rgba(240,205,130,.55);padding-left:12px}
-.hero-side b{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(17px,1.8vw,23px);font-weight:700;letter-spacing:-.035em;line-height:1}
-.hero-side span{font-family:'Newsreader',serif;font-style:italic;font-size:14px;opacity:.72}
+.lock-eyebrow{font-family:'Newsreader',serif;font-style:italic;font-size:17px;color:var(--sea-d);margin-bottom:8px}
+#hero h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(40px,4.7vw,74px);line-height:.95;letter-spacing:-.055em}
+#hero h1 em{display:inline;font-family:'Newsreader',serif;font-style:italic;font-weight:400;letter-spacing:-.025em;color:var(--sea-d)}
+.hero-say{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:clamp(16px,1.5vw,19px);color:var(--ink-2);margin-top:14px;max-width:42ch;line-height:1.5}
+.hero-side{display:flex;align-items:flex-end;gap:clamp(18px,2.6vw,36px);padding-bottom:6px}
+.hero-side .st{display:flex;flex-direction:column;gap:3px;border-left:2px solid var(--sea);padding-left:12px}
+.hero-side b{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(17px,1.7vw,22px);font-weight:700;letter-spacing:-.035em;line-height:1}
+.hero-side span{font-family:'Newsreader',serif;font-style:italic;font-size:14px;color:var(--ink-2)}
+.hero-side .btn{padding:14px 24px}
+.hero-cta{display:none}
 
-.quad{flex:1;display:flex;gap:clamp(8px,.9vw,14px);min-height:0}
-.qc{position:relative;flex:1 1 0;min-width:0;border:0;padding:0;margin:0;border-radius:18px;overflow:hidden;cursor:pointer;
-  color:#f5f1e8;text-align:left;background:var(--deep);isolation:isolate;
-  box-shadow:0 28px 60px -36px rgba(0,0,0,.9);transition:flex-grow .65s cubic-bezier(.2,.8,.3,1)}
-.qimg{position:absolute;left:0;right:0;top:-9%;bottom:-9%;z-index:0;will-change:transform}
-.qimg img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform 1s cubic-bezier(.2,.8,.3,1)}
+.quad{flex:1;display:grid;grid-template-columns:1.2fr 1.2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:clamp(8px,.8vw,12px);
+  min-height:0}
+.qc{position:relative;min-width:0;min-height:0;border:0;padding:0;margin:0;border-radius:18px;overflow:hidden;cursor:pointer;
+  color:#f5f1e8;text-align:left;background:var(--deep);isolation:isolate;box-shadow:0 24px 50px -34px rgba(7,30,36,.75)}
+.qc.big{grid-column:1/3;grid-row:1/3}
+.qc.wide{grid-column:3/5;grid-row:1}
+.qimg{position:absolute;left:0;right:0;top:-8%;bottom:-8%;z-index:0;will-change:transform}
+.qimg img{width:100%;height:100%;object-fit:cover;transform:scale(1.03);transition:transform 1s cubic-bezier(.2,.8,.3,1)}
 .qc::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(rgba(7,30,36,.45) 0%,rgba(7,30,36,0) 24%,rgba(7,30,36,0) 40%,rgba(7,30,36,.62) 64%,rgba(7,30,36,.94) 100%)}
-.qnum{position:absolute;top:14px;left:14px;z-index:3;font-family:'Bricolage Grotesque',sans-serif;font-size:11.5px;font-weight:500;
-  letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border-radius:999px;
-  background:rgba(7,30,36,.38);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.24)}
+  background:linear-gradient(rgba(7,30,36,.28) 0%,rgba(7,30,36,0) 22%,rgba(7,30,36,0) 48%,rgba(7,30,36,.55) 72%,rgba(7,30,36,.9) 100%)}
+.qbadge{position:absolute;top:14px;left:14px;z-index:3;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:13px;
+  letter-spacing:-.01em;padding:6px 12px;border-radius:999px;background:var(--paper);color:var(--ink)}
+.big .qbadge{background:#e8b55e;font-size:15px;padding:7px 14px}
 .qarrow{position:absolute;top:12px;right:12px;z-index:3;width:36px;height:36px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;background:rgba(245,241,232,.92);color:var(--deep);
   transition:transform .35s cubic-bezier(.2,.9,.3,1),background .25s}
-.qtxt{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:clamp(14px,1.7vw,26px)}
-.qq{display:flex;align-items:baseline;gap:8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
-  font-size:clamp(58px,6.6vw,104px);line-height:.8;letter-spacing:-.065em;color:#f0cd82}
-.qq small{font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(16px,1.5vw,21px);letter-spacing:0;color:#f5f1e8}
-.qn{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(19px,1.75vw,26px);
-  letter-spacing:-.035em;line-height:1.08;margin-top:12px}
-.qb{display:block;font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:15px;opacity:.86;margin-top:3px;line-height:1.35}
-.qchips{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;max-height:27px;overflow:hidden}
-@media(min-width:761px) and (max-width:1180px){.qchips{display:none}.qb{min-height:2.7em}}
-.qchips i{font-style:normal;font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:500;
-  padding:4px 10px;border-radius:999px;border:1px solid rgba(245,241,232,.38);background:rgba(7,30,36,.25)}
-.qc:focus-visible{outline:3px solid #f0cd82;outline-offset:3px}
-@media (hover:hover) and (min-width:761px){
-  .quad:hover .qc{flex-grow:.82}
-  .quad .qc:hover{flex-grow:1.55}
-  .qc:hover .qimg img{transform:scale(1.1)}
-  .qc:hover .qarrow{transform:rotate(-45deg);background:#f0cd82}
+.qtxt{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:clamp(14px,1.6vw,24px)}
+.qn{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(18px,1.6vw,24px);letter-spacing:-.03em;line-height:1.05}
+.big .qn{font-size:clamp(30px,3.4vw,52px);letter-spacing:-.045em}
+.qc.big::after{background:linear-gradient(rgba(7,30,36,.25) 0%,rgba(7,30,36,0) 20%,rgba(7,30,36,0) 62%,rgba(7,30,36,.78) 100%)}
+.qb{display:block;font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:15px;opacity:.9;margin-top:4px;line-height:1.35}
+.big .qb{font-size:clamp(15px,1.4vw,19px)}
+.qc:not(.big):not(.wide) .qb{display:none}
+.qc:focus-visible{outline:3px solid var(--sea);outline-offset:3px}
+@media (hover:hover){
+  .qc:hover .qimg img{transform:scale(1.09)}
+  .qc:hover .qarrow{transform:rotate(-45deg);background:#e8b55e}
 }
-.quad-hint{font-family:'Newsreader',serif;font-style:italic;font-size:14.5px;opacity:.7;text-align:center;margin-top:-6px}
 
 #datas{background:var(--paper)}
 #datas .wrap{padding-top:clamp(34px,5.5vh,64px);padding-bottom:clamp(34px,5.5vh,64px)}
@@ -163,31 +154,34 @@ h2.big em{font-family:'Newsreader',serif;font-style:italic;font-weight:300;lette
 
 @media(max-width:760px){
   #hero{height:auto;min-height:100svh;max-height:none}
-  .hero-in{padding-top:calc(66px + 1.2vh);gap:12px}
-  #hero h1{font-size:clamp(29px,8.4vw,40px);line-height:1.02}
   #hero h1 em{display:block}
-  .hero-say{display:none}
+  .hero-in{padding-top:calc(68px + 1.4vh);gap:14px}
+  .lock-eyebrow{display:none}
+  #hero h1{font-size:clamp(38px,11.4vw,48px)}
+  .hero-say{font-size:16px;margin-top:8px}
   .hero-side{display:none}
-  .lock-eyebrow{margin-bottom:8px;font-size:10.5px}
-  .quad{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;min-height:max(440px,calc(100svh - 205px))}
-  .qc{border-radius:14px}
-  .qnum{top:9px;left:9px;font-size:9.5px;padding:4px 8px;letter-spacing:.12em}
+  .quad{grid-template-columns:repeat(3,1fr);grid-template-rows:1.5fr 1fr;gap:8px;min-height:max(470px,calc(100svh - 300px))}
+  .qc.big{grid-column:1/-1;grid-row:1}
+  .qc.wide{grid-column:auto;grid-row:auto}
+  .qc{border-radius:15px}
+  .qc.wide .qb{display:none}
+  .qbadge{top:9px;left:9px;font-size:11.5px;padding:4px 9px}
+  .big .qbadge{font-size:13px;padding:5px 11px}
   .qarrow{top:8px;right:8px;width:28px;height:28px}
   .qarrow svg{width:13px;height:13px}
-  .qtxt{padding:12px}
-  .qq{font-size:clamp(44px,13vw,58px);gap:5px}
-  .qq small{font-size:14px}
-  .qn{font-size:15.5px;margin-top:8px}
-  .qb{font-size:12.5px}
-  .qchips{display:none}
-  .quad-hint{font-size:13px;margin-top:-2px}
+  .qc:not(.big) .qarrow{display:none}
+  .qtxt{padding:10px 11px}
+  .qn{font-size:15px}
+  .big .qn{font-size:30px}
+  .big .qb{font-size:15px}
+  .hero-cta{display:flex;justify-content:center;width:100%;padding:15px}
   .datas-in{grid-template-columns:1fr;gap:16px}
   .book{padding:16px;gap:12px}
   .fld{flex:1 1 calc(50% - 6px);min-width:0}
   .fld.casa{flex:1 1 100%}
   .book .btn{flex:1 1 100%}
 }
-@media(max-width:360px){.qb{display:none}}
+@media(max-width:360px){.qn{font-size:13.5px}}
 
 .about{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,70px);align-items:start}
 .about-pics{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start;margin-top:34px}
@@ -438,7 +432,7 @@ footer nav a{color:rgba(245,241,232,.68);font-family:'Bricolage Grotesque',sans-
 </head>
 <body>
 
-<header id="bar" class="inverse">
+<header id="bar">
   <div class="barin">
     <a class="brand" href="#hero">
       <svg class="mk" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="10" fill="currentColor" opacity=".14"/><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M8 30h32"/><path d="M12 30V19l12-8 12 8v11"/><path d="M8 36c3 0 3-2 6-2s3 2 6 2 3-2 6-2 3 2 6 2 3-2 6-2"/></g></svg>
@@ -463,18 +457,18 @@ footer nav a{color:rgba(245,241,232,.68);font-family:'Bricolage Grotesque',sans-
   <div class="hero-in">
     <div class="hero-head" id="hhead">
       <div>
-        <p class="lock-eyebrow">Prado &middot; Sul da Bahia</p>
-        <h1><span class="n">4 casas</span> de temporada <em>em Prado</em></h1>
-        <p class="hero-say">Todas com piscina, alugadas direto com o Augusto. Escolha a sua.</p>
+        <p class="lock-eyebrow">Prado, sul da Bahia</p>
+        <h1>4 casas <em>em Prado, BA</em></h1>
+        <p class="hero-say">Todas com piscina, direto com o dono. Toque numa casa para ver fotos, planta 3D e datas.</p>
       </div>
       <div class="hero-side">
-        <div><b>7, 6, 5 e 4</b><span>quartos</span></div>
-        <div><b>Piscina</b><span>nas quatro casas</span></div>
-        <div><b>Direto</b><span>com o dono</span></div>
+        <div class="st"><b>7, 6, 5 e 4</b><span>quartos</span></div>
+        <div class="st"><b>Piscina</b><span>nas quatro casas</span></div>
+        <a class="btn btn-wa" href="#datas">Consultar datas</a>
       </div>
     </div>
     <div class="quad" id="quad"></div>
-    <p class="quad-hint">Toque numa casa para ver as fotos, a planta 3D e consultar as datas.</p>
+    <a class="btn btn-wa hero-cta" href="#datas">Consultar datas no WhatsApp</a>
   </div>
 </section>
 
@@ -730,7 +724,7 @@ var ICO={
   car:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 16v-3l2-5h12l2 5v3"/><path d="M4 16h16v3h-3v-3M7 19H4z"/><circle cx="7.5" cy="16.5" r="1.3"/><circle cx="16.5" cy="16.5" r="1.3"/></svg>'
 };
 
-var CASAS=[{"slug": "segura-as-ondas", "nome": "Casa 7 quartos · Novo Prado", "tag": "Novo Prado · até 20 pessoas", "resumo": "A maior das quatro, no Novo Prado: sete quartos, seis banheiros e espaço para vinte pessoas.", "chips": ["7 quartos", "20 pessoas", "500 m da praia", "5 vagas"], "fatos": [["Quartos", "7"], ["Banheiros", "6"], ["Pessoas", "20"], ["Até a praia", "500 m"]], "itens": ["Piscina com área em volta", "Churrasqueira coberta", "Forno e fogão a lenha", "Ar-condicionado split nos 7 quartos", "Wi-Fi", "Geladeira e freezer", "Varanda com redes", "Garagem coberta para 5 carros", "Duchas para o banho de praia", "Quintal gramado"], "desc": "Casa térrea no bairro Novo Prado, que se abre toda para o quintal: de um lado a piscina, do outro a área coberta com churrasqueira, forno e fogão a lenha. São sete quartos (três suítes, duas demi-suítes e dois quartos) e seis banheiros, com espaço para vinte pessoas. Fica a 500 metros da praia Segura as Ondas e a 700 metros do centro.", "galtexto": "Da piscina aos quartos, na casa que recebe até vinte pessoas.", "fotos": [["fotos/01-piscina-casa.webp", "A piscina, com a casa ao fundo"], ["fotos/02-piscina-fachada.webp", "A piscina de frente para os quartos"], ["fotos/03-piscina-espreguicadeira.webp", "Espaço em volta da piscina"], ["fotos/04-churrasqueira-forno.webp", "Churrasqueira, forno a lenha e bancada"], ["fotos/05-varanda-gourmet.webp", "A varanda da área gourmet"], ["fotos/06-mesa-grande.webp", "Mesa grande para todo mundo sentar"], ["fotos/07-churrasqueira-mesa.webp", "A área da churrasqueira"], ["fotos/08-varanda-redes.webp", "Varanda com redes, de frente para o quintal"], ["fotos/09-quintal-piscina.webp", "Quintal e piscina"], ["fotos/10-area-coberta.webp", "Área coberta"], ["fotos/11-quintal.webp", "O gramado entre a casa e a área gourmet"], ["fotos/12-jardim.webp", "O jardim"], ["fotos/13-quintal-vista.webp", "O quintal visto da varanda"], ["fotos/14-garagem.webp", "Garagem coberta para cinco carros"], ["fotos/15-fachada.webp", "A frente da casa"], ["fotos/16-cozinha.webp", "A cozinha"], ["fotos/17-cozinha-pia.webp", "Cozinha equipada"], ["fotos/18-area-servico.webp", "Área de serviço"], ["fotos/19-quarto-suite.webp", "Uma das suítes"], ["fotos/20-quarto-casal.webp", "Quarto de casal com ar-condicionado"], ["fotos/21-quarto-solteiro.webp", "Quarto de solteiro"], ["fotos/22-quarto-duas-camas.webp", "Quarto com duas camas"], ["fotos/23-quarto.webp", "Quarto com ar-condicionado split"], ["fotos/24-banheiro.webp", "Um dos seis banheiros"], ["fotos/25-banheiro-2.webp", "Banheiro com box"], ["fotos/26-banheiro-3.webp", "Banheiro"]], "q": "7", "curto": "Novo Prado", "bairro": "Até 20 pessoas · 500 m da praia", "capa": "casas/capas/7-quartos.webp"}, {"slug": "beira-mar", "nome": "Casa 6 quartos · Pé na areia", "tag": "Basevi · praia da Lagoa Pequena", "resumo": "Pé na areia na praia da Lagoa Pequena, no bairro Basevi, a 1,5 km do centro.", "chips": ["6 quartos", "3 suítes", "Pé na areia", "Piscina"], "fatos": [["Quartos", "6"], ["Suítes", "3"], ["Banheiros", "4 + lavabo"], ["Praia", "no fundo"]], "itens": ["Piscina", "Suítes de frente para a piscina", "2 quartos separados da casa, com banheiro", "Ar-condicionado split em todos os quartos", "Área gourmet com lavabo", "Cozinha equipada", "Varanda", "Pé na areia", "1,5 km do centro"], "desc": "Casa pé na areia na praia da Lagoa Pequena, no bairro Basevi, a 1.500 metros do centro do Prado. São seis quartos, todos com ar-condicionado split. As três suítes ficam de frente para a piscina, abrindo para a varanda, e dois quartos ficam numa construção separada da casa, com um banheiro na frente. São quatro banheiros no total, mais um lavabo na sala.", "galtexto": "A praia da Lagoa Pequena no fundo do quintal, a piscina na frente das suítes e a varanda com redes.", "fotos": [["casas/beira-mar/01-aerea-praia.webp", "A casa e a praia vistas de cima"], ["casas/beira-mar/02-piscina-mar.webp", "Piscina com o mar ao fundo"], ["casas/beira-mar/03-piscina-casa.webp", "Piscina com a casa ao fundo"], ["casas/beira-mar/04-piscina-casa-2.webp", "A casa vista da piscina"], ["casas/beira-mar/05-piscina-espreguicadeiras.webp", "Espreguiçadeiras na beira da piscina"], ["casas/beira-mar/06-piscina-coqueiros.webp", "Piscina entre os coqueiros"], ["casas/beira-mar/07-piscina-gramado.webp", "Piscina e gramado"], ["casas/beira-mar/08-piscina-borda.webp", "Borda da piscina"], ["casas/beira-mar/09-casa-piscina.webp", "A casa e a piscina"], ["casas/beira-mar/10-fachada.webp", "A frente da casa"], ["casas/beira-mar/11-fachada-2.webp", "A casa vista de fora"], ["casas/beira-mar/12-fachada-lateral.webp", "A casa pela lateral"], ["casas/beira-mar/13-varanda-mar.webp", "Varanda de frente para o mar"], ["casas/beira-mar/14-varanda-vista.webp", "Vista da varanda"], ["casas/beira-mar/15-pergolado.webp", "Pergolado no quintal"], ["casas/beira-mar/16-mesa-varanda.webp", "Mesa e cadeiras na varanda"], ["casas/beira-mar/17-casa-pergolado.webp", "A casa e o pergolado"], ["casas/beira-mar/18-casa-frente.webp", "A frente da casa, da rua"], ["casas/beira-mar/19-rede-varanda.webp", "Rede na varanda"], ["casas/beira-mar/20-lateral.webp", "Lateral da casa"], ["casas/beira-mar/21-entrada.webp", "Entrada da casa"], ["casas/beira-mar/22-varanda-piscina.webp", "Varanda de frente para a piscina"], ["casas/beira-mar/23-terreno-praia.webp", "O terreno aberto para a praia"], ["casas/beira-mar/24-praia.webp", "A praia em frente à casa"], ["casas/beira-mar/25-cozinha-sala.webp", "Cozinha e sala integradas"], ["casas/beira-mar/26-cozinha.webp", "Cozinha"], ["casas/beira-mar/27-sala-tv.webp", "Sala de TV"], ["casas/beira-mar/28-sala-mesa.webp", "Sala com mesa de jantar"]], "q": "6", "curto": "Pé na areia", "bairro": "Basevi · praia da Lagoa Pequena", "capa": "casas/capas/pe-na-areia.webp"}, {"slug": "beco-garrafas", "nome": "Casa 5 quartos · Centro do Prado", "tag": "Centro · 50 m da praia", "resumo": "No centro do Prado, a cinquenta metros da praia e do Beco das Garrafas.", "chips": ["5 quartos", "4 suítes", "50 m da praia", "Piscina"], "fatos": [["Quartos", "5"], ["Suítes", "4"], ["Banheiros", "5 + lavabo"], ["Até a praia", "50 m"]], "itens": ["Piscina", "Ar-condicionado split em todos os quartos", "Área gourmet com lavabo", "Cozinha equipada", "Varanda", "50 m da praia", "50 m do Beco das Garrafas"], "desc": "Casa no centro do Prado, a cinquenta metros da praia e do Beco das Garrafas, com a praia no fundo da casa. São cinco quartos, todos com ar-condicionado split, sendo quatro suítes, cinco banheiros no total e mais um lavabo na área gourmet. Dá para fazer tudo a pé: praia, praça, bares e os melhores restaurantes do Prado.", "galtexto": "Piscina, área gourmet e um corredor de pedra entre a casa e o quintal, a cinquenta metros do mar.", "fotos": [["casas/beco-garrafas/01-fachada-piscina.webp", "A fachada vista da piscina"], ["casas/beco-garrafas/02-piscina-gramado.webp", "Piscina e gramado"], ["casas/beco-garrafas/03-piscina-area.webp", "Área em volta da piscina"], ["casas/beco-garrafas/04-piscina-lateral.webp", "Piscina pela lateral da casa"], ["casas/beco-garrafas/05-piscina-deck.webp", "Piscina e deck de pedra"], ["casas/beco-garrafas/06-piscina-varanda.webp", "Piscina vista da varanda"], ["casas/beco-garrafas/07-piscina-quintal.webp", "Piscina no quintal"], ["casas/beco-garrafas/08-fachada-jardim.webp", "A fachada e o jardim"], ["casas/beco-garrafas/09-fachada.webp", "A frente da casa"], ["casas/beco-garrafas/10-casa-quintal.webp", "A casa vista do quintal"], ["casas/beco-garrafas/11-entrada.webp", "Entrada da casa"], ["casas/beco-garrafas/12-rua.webp", "A casa vista da rua"], ["casas/beco-garrafas/13-lateral.webp", "Lateral da casa"], ["casas/beco-garrafas/14-corredor-lateral.webp", "Corredor lateral coberto"], ["casas/beco-garrafas/15-area-coberta.webp", "Área coberta ao lado da casa"], ["casas/beco-garrafas/16-pergolado.webp", "Pergolado no quintal"], ["casas/beco-garrafas/17-area-gourmet-mesa.webp", "Área gourmet com mesa de madeira"], ["casas/beco-garrafas/18-area-gourmet.webp", "Área gourmet"], ["casas/beco-garrafas/19-mesa-grande.webp", "Mesa grande de madeira na área gourmet"], ["casas/beco-garrafas/20-churrasqueira.webp", "Churrasqueira da área gourmet"], ["casas/beco-garrafas/21-sala-jantar.webp", "Sala de jantar"], ["casas/beco-garrafas/22-sala-jantar-2.webp", "Mesa de jantar"], ["casas/beco-garrafas/23-sala-tv.webp", "Sala de TV"], ["casas/beco-garrafas/24-sala-estar.webp", "Sala de estar"], ["casas/beco-garrafas/25-cozinha.webp", "Cozinha"], ["casas/beco-garrafas/26-varanda-mesa.webp", "Mesa na varanda"], ["casas/beco-garrafas/27-varanda.webp", "Varanda da casa"], ["casas/beco-garrafas/28-varanda-piso.webp", "Varanda e piso de pedra"], ["casas/beco-garrafas/29-quarto-1.webp", "Quarto com ar-condicionado split"], ["casas/beco-garrafas/30-quarto-2.webp", "Quarto com ar-condicionado split"], ["casas/beco-garrafas/31-quarto-3.webp", "Quarto com ar-condicionado split"], ["casas/beco-garrafas/32-quarto-4.webp", "Quarto com ar-condicionado split"], ["casas/beco-garrafas/33-quarto-5.webp", "Quarto com ar-condicionado split"], ["casas/beco-garrafas/34-banheiro-1.webp", "Banheiro da casa"], ["casas/beco-garrafas/35-banheiro-2.webp", "Banheiro da casa"], ["casas/beco-garrafas/36-banheiro-3.webp", "Banheiro da casa"]], "q": "5", "curto": "Centro do Prado", "bairro": "50 m da praia e do Beco das Garrafas", "capa": "casas/capas/5-quartos.webp"}, {"slug": "novo-prado", "nome": "Casa 4 quartos · Novo Prado", "tag": "Novo Prado · 400 m da praia", "resumo": "No bairro Novo Prado, a quatro minutos a pé da praia Segura as Ondas.", "chips": ["4 quartos", "3 suítes", "400 m da praia", "Piscina"], "fatos": [["Quartos", "4"], ["Suítes", "3"], ["Banheiros", "4 + lavabo"], ["Até a praia", "400 m"]], "itens": ["Piscina", "Ar-condicionado split em todos os quartos", "Área gourmet com lavabo", "Cozinha equipada", "Varanda com redes", "400 m da praia", "600 m do centro"], "desc": "Casa no bairro Novo Prado, a 400 metros da praia Segura as Ondas e a 600 metros do centro. São quatro quartos, todos com ar-condicionado split, sendo três suítes, quatro banheiros no total e mais um lavabo na área gourmet.", "galtexto": "Piscina com cascata, área gourmet de mesa grande e quatro quartos em bairro tranquilo.", "fotos": [["casas/novo-prado/01-piscina-cascata.webp", "Piscina com cascata no quintal"], ["casas/novo-prado/02-piscina-espreguicadeira.webp", "Piscina e espreguiçadeira"], ["casas/novo-prado/03-piscina-area.webp", "Área em volta da piscina"], ["casas/novo-prado/04-piscina-coqueiros.webp", "Piscina entre os coqueiros"], ["casas/novo-prado/05-piscina-varanda.webp", "Piscina vista da varanda"], ["casas/novo-prado/06-piscina-palmeira.webp", "Piscina e palmeira no quintal"], ["casas/novo-prado/07-espreguicadeira.webp", "Espreguiçadeira ao lado da piscina"], ["casas/novo-prado/08-quintal-piscina.webp", "Quintal e piscina"], ["casas/novo-prado/09-jardim.webp", "Jardim com árvore no quintal"], ["casas/novo-prado/10-varanda-redes.webp", "Varanda com redes"], ["casas/novo-prado/11-mesa-grande.webp", "Mesa grande de madeira na área gourmet"], ["casas/novo-prado/12-area-gourmet.webp", "Área gourmet"], ["casas/novo-prado/13-area-gourmet-2.webp", "A área gourmet por outro ângulo"], ["casas/novo-prado/14-sala-tv.webp", "Sala de TV"], ["casas/novo-prado/15-sala-estar.webp", "Sala de estar"], ["casas/novo-prado/16-cozinha.webp", "Cozinha"], ["casas/novo-prado/17-quarto-1.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/18-quarto-2.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/19-quarto-3.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/20-quarto-4.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/21-quarto-5.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/22-quarto-6.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/23-quarto-7.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/24-quarto-8.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/25-corredor.webp", "Corredor interno"], ["casas/novo-prado/26-banheiro-1.webp", "Banheiro da casa"], ["casas/novo-prado/27-banheiro-2.webp", "Banheiro da casa"], ["casas/novo-prado/28-banheiro-3.webp", "Banheiro da casa"], ["casas/novo-prado/29-banheiro-4.webp", "Banheiro da casa"]], "q": "4", "curto": "Novo Prado", "bairro": "400 m da praia · 600 m do centro", "capa": "casas/capas/4-quartos.webp"}];
+var CASAS=[{"slug": "segura-as-ondas", "nome": "Casa 7 quartos · Novo Prado", "tag": "Novo Prado · até 20 pessoas", "resumo": "A maior das quatro, no Novo Prado: sete quartos, seis banheiros e espaço para vinte pessoas.", "chips": ["7 quartos", "20 pessoas", "500 m da praia", "5 vagas"], "fatos": [["Quartos", "7"], ["Banheiros", "6"], ["Pessoas", "20"], ["Até a praia", "500 m"]], "itens": ["Piscina com área em volta", "Churrasqueira coberta", "Forno e fogão a lenha", "Ar-condicionado split nos 7 quartos", "Wi-Fi", "Geladeira e freezer", "Varanda com redes", "Garagem coberta para 5 carros", "Duchas para o banho de praia", "Quintal gramado"], "desc": "Casa térrea no bairro Novo Prado, que se abre toda para o quintal: de um lado a piscina, do outro a área coberta com churrasqueira, forno e fogão a lenha. São sete quartos (três suítes, duas demi-suítes e dois quartos) e seis banheiros, com espaço para vinte pessoas. Fica a 500 metros da praia Segura as Ondas e a 700 metros do centro.", "galtexto": "Da piscina aos quartos, na casa que recebe até vinte pessoas.", "fotos": [["fotos/01-piscina-casa.webp", "A piscina, com a casa ao fundo"], ["fotos/02-piscina-fachada.webp", "A piscina de frente para os quartos"], ["fotos/03-piscina-espreguicadeira.webp", "Espaço em volta da piscina"], ["fotos/04-churrasqueira-forno.webp", "Churrasqueira, forno a lenha e bancada"], ["fotos/05-varanda-gourmet.webp", "A varanda da área gourmet"], ["fotos/06-mesa-grande.webp", "Mesa grande para todo mundo sentar"], ["fotos/07-churrasqueira-mesa.webp", "A área da churrasqueira"], ["fotos/08-varanda-redes.webp", "Varanda com redes, de frente para o quintal"], ["fotos/09-quintal-piscina.webp", "Quintal e piscina"], ["fotos/10-area-coberta.webp", "Área coberta"], ["fotos/11-quintal.webp", "O gramado entre a casa e a área gourmet"], ["fotos/12-jardim.webp", "O jardim"], ["fotos/13-quintal-vista.webp", "O quintal visto da varanda"], ["fotos/14-garagem.webp", "Garagem coberta para cinco carros"], ["fotos/15-fachada.webp", "A frente da casa"], ["fotos/16-cozinha.webp", "A cozinha"], ["fotos/17-cozinha-pia.webp", "Cozinha equipada"], ["fotos/18-area-servico.webp", "Área de serviço"], ["fotos/19-quarto-suite.webp", "Uma das suítes"], ["fotos/20-quarto-casal.webp", "Quarto de casal com ar-condicionado"], ["fotos/21-quarto-solteiro.webp", "Quarto de solteiro"], ["fotos/22-quarto-duas-camas.webp", "Quarto com duas camas"], ["fotos/23-quarto.webp", "Quarto com ar-condicionado split"], ["fotos/24-banheiro.webp", "Um dos seis banheiros"], ["fotos/25-banheiro-2.webp", "Banheiro com box"], ["fotos/26-banheiro-3.webp", "Banheiro"]], "q": "7", "curto": "Novo Prado", "bairro": "Até 20 pessoas · 500 m da praia", "capa": "casas/capas/7-quartos.webp", "mos": "casas/capas/m7.webp", "mpos": "30% 60%"}, {"slug": "beira-mar", "nome": "Casa 6 quartos · Pé na areia", "tag": "Basevi · praia da Lagoa Pequena", "resumo": "Pé na areia na praia da Lagoa Pequena, no bairro Basevi, a 1,5 km do centro.", "chips": ["6 quartos", "3 suítes", "Pé na areia", "Piscina"], "fatos": [["Quartos", "6"], ["Suítes", "3"], ["Banheiros", "4 + lavabo"], ["Praia", "no fundo"]], "itens": ["Piscina", "Suítes de frente para a piscina", "2 quartos separados da casa, com banheiro", "Ar-condicionado split em todos os quartos", "Área gourmet com lavabo", "Cozinha equipada", "Varanda", "Pé na areia", "1,5 km do centro"], "desc": "Casa pé na areia na praia da Lagoa Pequena, no bairro Basevi, a 1.500 metros do centro do Prado. São seis quartos, todos com ar-condicionado split. As três suítes ficam de frente para a piscina, abrindo para a varanda, e dois quartos ficam numa construção separada da casa, com um banheiro na frente. São quatro banheiros no total, mais um lavabo na sala.", "galtexto": "A praia da Lagoa Pequena no fundo do quintal, a piscina na frente das suítes e a varanda com redes.", "fotos": [["casas/beira-mar/01-aerea-praia.webp", "A casa e a praia vistas de cima"], ["casas/beira-mar/02-piscina-mar.webp", "Piscina com o mar ao fundo"], ["casas/beira-mar/03-piscina-casa.webp", "Piscina com a casa ao fundo"], ["casas/beira-mar/04-piscina-casa-2.webp", "A casa vista da piscina"], ["casas/beira-mar/05-piscina-espreguicadeiras.webp", "Espreguiçadeiras na beira da piscina"], ["casas/beira-mar/06-piscina-coqueiros.webp", "Piscina entre os coqueiros"], ["casas/beira-mar/07-piscina-gramado.webp", "Piscina e gramado"], ["casas/beira-mar/08-piscina-borda.webp", "Borda da piscina"], ["casas/beira-mar/09-casa-piscina.webp", "A casa e a piscina"], ["casas/beira-mar/10-fachada.webp", "A frente da casa"], ["casas/beira-mar/11-fachada-2.webp", "A casa vista de fora"], ["casas/beira-mar/12-fachada-lateral.webp", "A casa pela lateral"], ["casas/beira-mar/13-varanda-mar.webp", "Varanda de frente para o mar"], ["casas/beira-mar/14-varanda-vista.webp", "Vista da varanda"], ["casas/beira-mar/15-pergolado.webp", "Pergolado no quintal"], ["casas/beira-mar/16-mesa-varanda.webp", "Mesa e cadeiras na varanda"], ["casas/beira-mar/17-casa-pergolado.webp", "A casa e o pergolado"], ["casas/beira-mar/18-casa-frente.webp", "A frente da casa, da rua"], ["casas/beira-mar/19-rede-varanda.webp", "Rede na varanda"], ["casas/beira-mar/20-lateral.webp", "Lateral da casa"], ["casas/beira-mar/21-entrada.webp", "Entrada da casa"], ["casas/beira-mar/22-varanda-piscina.webp", "Varanda de frente para a piscina"], ["casas/beira-mar/23-terreno-praia.webp", "O terreno aberto para a praia"], ["casas/beira-mar/24-praia.webp", "A praia em frente à casa"], ["casas/beira-mar/25-cozinha-sala.webp", "Cozinha e sala integradas"], ["casas/beira-mar/26-cozinha.webp", "Cozinha"], ["casas/beira-mar/27-sala-tv.webp", "Sala de TV"], ["casas/beira-mar/28-sala-mesa.webp", "Sala com mesa de jantar"]], "q": "6", "curto": "Pé na areia", "bairro": "Basevi · praia da Lagoa Pequena", "capa": "casas/capas/pe-na-areia.webp", "mos": "casas/capas/m6.webp", "mpos": "32% 50%"}, {"slug": "beco-garrafas", "nome": "Casa 5 quartos · Centro do Prado", "tag": "Centro · 50 m da praia", "resumo": "No centro do Prado, a cinquenta metros da praia e do Beco das Garrafas.", "chips": ["5 quartos", "4 suítes", "50 m da praia", "Piscina"], "fatos": [["Quartos", "5"], ["Suítes", "4"], ["Banheiros", "5 + lavabo"], ["Até a praia", "50 m"]], "itens": ["Piscina", "Ar-condicionado split em todos os quartos", "Área gourmet com lavabo", "Cozinha equipada", "Varanda", "50 m da praia", "50 m do Beco das Garrafas"], "desc": "Casa no centro do Prado, a cinquenta metros da praia e do Beco das Garrafas, com a praia no fundo da casa. São cinco quartos, todos com ar-condicionado split, sendo quatro suítes, cinco banheiros no total e mais um lavabo na área gourmet. Dá para fazer tudo a pé: praia, praça, bares e os melhores restaurantes do Prado.", "galtexto": "Piscina, área gourmet e um corredor de pedra entre a casa e o quintal, a cinquenta metros do mar.", "fotos": [["casas/beco-garrafas/01-fachada-piscina.webp", "A fachada vista da piscina"], ["casas/beco-garrafas/02-piscina-gramado.webp", "Piscina e gramado"], ["casas/beco-garrafas/03-piscina-area.webp", "Área em volta da piscina"], ["casas/beco-garrafas/04-piscina-lateral.webp", "Piscina pela lateral da casa"], ["casas/beco-garrafas/05-piscina-deck.webp", "Piscina e deck de pedra"], ["casas/beco-garrafas/06-piscina-varanda.webp", "Piscina vista da varanda"], ["casas/beco-garrafas/07-piscina-quintal.webp", "Piscina no quintal"], ["casas/beco-garrafas/08-fachada-jardim.webp", "A fachada e o jardim"], ["casas/beco-garrafas/09-fachada.webp", "A frente da casa"], ["casas/beco-garrafas/10-casa-quintal.webp", "A casa vista do quintal"], ["casas/beco-garrafas/11-entrada.webp", "Entrada da casa"], ["casas/beco-garrafas/12-rua.webp", "A casa vista da rua"], ["casas/beco-garrafas/13-lateral.webp", "Lateral da casa"], ["casas/beco-garrafas/14-corredor-lateral.webp", "Corredor lateral coberto"], ["casas/beco-garrafas/15-area-coberta.webp", "Área coberta ao lado da casa"], ["casas/beco-garrafas/16-pergolado.webp", "Pergolado no quintal"], ["casas/beco-garrafas/17-area-gourmet-mesa.webp", "Área gourmet com mesa de madeira"], ["casas/beco-garrafas/18-area-gourmet.webp", "Área gourmet"], ["casas/beco-garrafas/19-mesa-grande.webp", "Mesa grande de madeira na área gourmet"], ["casas/beco-garrafas/20-churrasqueira.webp", "Churrasqueira da área gourmet"], ["casas/beco-garrafas/21-sala-jantar.webp", "Sala de jantar"], ["casas/beco-garrafas/22-sala-jantar-2.webp", "Mesa de jantar"], ["casas/beco-garrafas/23-sala-tv.webp", "Sala de TV"], ["casas/beco-garrafas/24-sala-estar.webp", "Sala de estar"], ["casas/beco-garrafas/25-cozinha.webp", "Cozinha"], ["casas/beco-garrafas/26-varanda-mesa.webp", "Mesa na varanda"], ["casas/beco-garrafas/27-varanda.webp", "Varanda da casa"], ["casas/beco-garrafas/28-varanda-piso.webp", "Varanda e piso de pedra"], ["casas/beco-garrafas/29-quarto-1.webp", "Quarto com ar-condicionado split"], ["casas/beco-garrafas/30-quarto-2.webp", "Quarto com ar-condicionado split"], ["casas/beco-garrafas/31-quarto-3.webp", "Quarto com ar-condicionado split"], ["casas/beco-garrafas/32-quarto-4.webp", "Quarto com ar-condicionado split"], ["casas/beco-garrafas/33-quarto-5.webp", "Quarto com ar-condicionado split"], ["casas/beco-garrafas/34-banheiro-1.webp", "Banheiro da casa"], ["casas/beco-garrafas/35-banheiro-2.webp", "Banheiro da casa"], ["casas/beco-garrafas/36-banheiro-3.webp", "Banheiro da casa"]], "q": "5", "curto": "Centro do Prado", "bairro": "50 m da praia e do Beco das Garrafas", "capa": "casas/capas/5-quartos.webp", "mos": "casas/capas/m5.webp", "mpos": "40% 60%"}, {"slug": "novo-prado", "nome": "Casa 4 quartos · Novo Prado", "tag": "Novo Prado · 400 m da praia", "resumo": "No bairro Novo Prado, a quatro minutos a pé da praia Segura as Ondas.", "chips": ["4 quartos", "3 suítes", "400 m da praia", "Piscina"], "fatos": [["Quartos", "4"], ["Suítes", "3"], ["Banheiros", "4 + lavabo"], ["Até a praia", "400 m"]], "itens": ["Piscina", "Ar-condicionado split em todos os quartos", "Área gourmet com lavabo", "Cozinha equipada", "Varanda com redes", "400 m da praia", "600 m do centro"], "desc": "Casa no bairro Novo Prado, a 400 metros da praia Segura as Ondas e a 600 metros do centro. São quatro quartos, todos com ar-condicionado split, sendo três suítes, quatro banheiros no total e mais um lavabo na área gourmet.", "galtexto": "Piscina com cascata, área gourmet de mesa grande e quatro quartos em bairro tranquilo.", "fotos": [["casas/novo-prado/01-piscina-cascata.webp", "Piscina com cascata no quintal"], ["casas/novo-prado/02-piscina-espreguicadeira.webp", "Piscina e espreguiçadeira"], ["casas/novo-prado/03-piscina-area.webp", "Área em volta da piscina"], ["casas/novo-prado/04-piscina-coqueiros.webp", "Piscina entre os coqueiros"], ["casas/novo-prado/05-piscina-varanda.webp", "Piscina vista da varanda"], ["casas/novo-prado/06-piscina-palmeira.webp", "Piscina e palmeira no quintal"], ["casas/novo-prado/07-espreguicadeira.webp", "Espreguiçadeira ao lado da piscina"], ["casas/novo-prado/08-quintal-piscina.webp", "Quintal e piscina"], ["casas/novo-prado/09-jardim.webp", "Jardim com árvore no quintal"], ["casas/novo-prado/10-varanda-redes.webp", "Varanda com redes"], ["casas/novo-prado/11-mesa-grande.webp", "Mesa grande de madeira na área gourmet"], ["casas/novo-prado/12-area-gourmet.webp", "Área gourmet"], ["casas/novo-prado/13-area-gourmet-2.webp", "A área gourmet por outro ângulo"], ["casas/novo-prado/14-sala-tv.webp", "Sala de TV"], ["casas/novo-prado/15-sala-estar.webp", "Sala de estar"], ["casas/novo-prado/16-cozinha.webp", "Cozinha"], ["casas/novo-prado/17-quarto-1.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/18-quarto-2.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/19-quarto-3.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/20-quarto-4.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/21-quarto-5.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/22-quarto-6.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/23-quarto-7.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/24-quarto-8.webp", "Quarto com ar-condicionado split"], ["casas/novo-prado/25-corredor.webp", "Corredor interno"], ["casas/novo-prado/26-banheiro-1.webp", "Banheiro da casa"], ["casas/novo-prado/27-banheiro-2.webp", "Banheiro da casa"], ["casas/novo-prado/28-banheiro-3.webp", "Banheiro da casa"], ["casas/novo-prado/29-banheiro-4.webp", "Banheiro da casa"]], "q": "4", "curto": "Novo Prado", "bairro": "400 m da praia · 600 m do centro", "capa": "casas/capas/4-quartos.webp", "mos": "casas/capas/m4.webp", "mpos": "62% 60%"}];
 
 var AMEN=[
  {i:'pool',t:'Piscina em todas'},
@@ -851,16 +845,15 @@ function renderFaq(){
 }
 var quad=document.getElementById('quad');
 function renderQuad(){
-  quad.innerHTML=CASAS.map(function(c,i){
-    return '<button class="qc" type="button" data-i="'+i+'" aria-label="'+esc(c.nome)+'">'+
-      '<span class="qimg"><img src="'+esc(c.capa)+'" alt="" '+(i<2?'':'loading="lazy" ')+'decoding="async"></span>'+
-      '<span class="qnum">Casa '+(i+1)+' de '+CASAS.length+'</span>'+
+  var ord=[1,0,2,3];
+  quad.innerHTML=ord.map(function(i,k){
+    var c=CASAS[i],cls=k===0?' big':(k===1?' wide':'');
+    return '<button class="qc'+cls+'" type="button" data-i="'+i+'" aria-label="'+esc(c.nome)+'">'+
+      '<span class="qimg"><img src="'+esc(c.mos)+'" alt="" style="object-position:'+c.mpos+'" decoding="async"></span>'+
+      '<span class="qbadge">'+esc(c.q)+' quartos</span>'+
       '<span class="qarrow">'+ICO.arrow+'</span>'+
-      '<span class="qtxt"><span class="qq">'+esc(c.q)+'<small>quartos</small></span>'+
-      '<span class="qn">'+esc(c.curto)+'</span>'+
-      '<span class="qb">'+esc(c.bairro)+'</span>'+
-      '<span class="qchips">'+c.chips.slice(1).map(function(t){return '<i>'+esc(t)+'</i>';}).join('')+'</span>'+
-      '</span></button>';
+      '<span class="qtxt"><span class="qn">'+esc(c.curto)+'</span>'+
+      '<span class="qb">'+esc(c.bairro)+'</span></span></button>';
   }).join('');
   var sel=document.getElementById('bkc');
   CASAS.forEach(function(c){var o=document.createElement('option');o.value=c.nome;o.textContent=c.nome;sel.appendChild(o);});
@@ -1013,15 +1006,14 @@ var links=[].slice.call(nav.querySelectorAll('a[href^="#"]'));
 var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
 function onScroll(){
   var y=window.pageYOffset||document.documentElement.scrollTop,hh=hero.offsetHeight;
-  bar.classList.toggle('inverse',y<hh-64);
-  bar.classList.toggle('solid',y>=hh-64);
+  bar.classList.toggle('solid',y>12);
   var h=document.documentElement.scrollHeight-window.innerHeight;
   prog.style.width=(h>0?(y/h*100):0)+'%';
   flo.classList.toggle('in',y>hh*0.9);
   if(y<hh*1.2){
-    heroimg.style.transform='translate3d(0,'+(y*0.32)+'px,0)';
-    hhead.style.transform='translate3d(0,'+(y*0.16)+'px,0)';hhead.style.opacity=Math.max(0,1-y/(hh*0.55));
-    for(var q=0;q<qimgs.length;q++)qimgs[q].style.transform='translate3d(0,'+(y*0.09)+'px,0)';
+    heroimg.style.transform='translate3d(0,'+(y*0.35)+'px,0)';
+    hhead.style.transform='translate3d(0,'+(y*0.14)+'px,0)';
+    for(var q=0;q<qimgs.length;q++)qimgs[q].style.transform='translate3d(0,'+(y*(q===0?0.1:0.06))+'px,0)';
   }
   if(band){
     var r=band.getBoundingClientRect();
