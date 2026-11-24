@@ -388,8 +388,18 @@ function parede(g, eixo, fixo, a0, a1, y, alt, mat, vaos = []) {
   caixa(g, 1.0, .03, 5.4, M.grama, .5, 0, 3.1, false);
   // piso cimentado da garagem / acesso
   caixa(g, 5.6, .04, 6.0, M.calcada, 4.5, 0, 3.0, false);
-  // deck da area da piscina
-  caixa(g, LOTE.x1 - .3, .04, 7.0, M.pisoMolh, (LOTE.x1) / 2, 0, 22.0, false);
+  // deck da area da piscina, recortado em volta da piscina
+  (function deck() {
+    const p = PISCINA, X0 = .05, X1 = LOTE.x1 - .05, Z0 = 18.57, Z1 = 25.55;
+    const faixa = (x0, x1, z0, z1) => {
+      if (x1 - x0 < .02 || z1 - z0 < .02) return;
+      caixa(g, x1 - x0, .04, z1 - z0, M.pisoMolh, (x0 + x1) / 2, 0, (z0 + z1) / 2, false);
+    };
+    faixa(X0, X1, Z0, p.z0);       // frente da piscina
+    faixa(X0, X1, p.z1, Z1);       // fundo
+    faixa(X0, p.x0, p.z0, p.z1);   // lateral esquerda
+    faixa(p.x1, X1, p.z0, p.z1);   // lateral direita
+  })();
   // corredor lateral
   caixa(g, 2.93, .04, 12.5, M.pisoMolh, 5.89, 0, 12.3, false);
 
