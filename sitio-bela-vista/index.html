@@ -566,9 +566,9 @@ footer a{color:var(--ouro-2)}
   /* revelar */
   var alvos=[].slice.call(document.querySelectorAll('.rv'));
   alvos.forEach(function(el,i){el.style.transitionDelay=(i%4)*70+'ms';});
-  var pendente=false;
+  var ultimo=0;
   function revelar(){
-    pendente=false;
+    ultimo=Date.now();
     var lim=(window.innerHeight||document.documentElement.clientHeight)*0.94;
     for(var i=alvos.length-1;i>=0;i--){
       var el=alvos[i];
@@ -576,11 +576,16 @@ footer a{color:var(--ouro-2)}
       if(r.top<lim&&r.bottom>-40){el.classList.add('in');alvos.splice(i,1);}
     }
   }
-  function pedirRevelar(){if(!pendente){pendente=true;requestAnimationFrame(revelar);}}
-  addEventListener('scroll',pedirRevelar,{passive:true});
-  addEventListener('resize',pedirRevelar,{passive:true});
-  addEventListener('load',pedirRevelar);
-  revelar();setTimeout(revelar,400);setTimeout(revelar,1200);
+  addEventListener('scroll',revelar,{passive:true});
+  addEventListener('resize',revelar,{passive:true});
+  addEventListener('load',revelar);
+  addEventListener('visibilitychange',revelar);
+  addEventListener('pageshow',revelar);
+  revelar();
+  var relogio=setInterval(function(){
+    revelar();
+    if(!alvos.length)clearInterval(relogio);
+  },500);
 })();
 </script>
 </body>
