@@ -628,8 +628,8 @@ Object.values(T).forEach(r => rotulo(r, 'casa', 1.6));
 Object.values(EXT).forEach(r => rotulo(r, 'ext', 1.1));
 
 /* ===================== CÂMERA E ESTADO ===================== */
-const ALVO = new THREE.Vector3(0, 1.2, 1.0);
-const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-22, 18, -24) : new THREE.Vector3(-17, 13, -19);
+const ALVO = new THREE.Vector3(0, 1.0, 0.5);
+const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-23, 18, 21) : new THREE.Vector3(-18, 13, 17);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
@@ -734,7 +734,10 @@ GRUPOS.forEach(([titulo, itens, tipo]) => {
       const cx = (r.x0 + r.x1) / 2 - CX, cz = (r.z0 + r.z1) / 2 - CZ;
       const maior = Math.max(r.x1 - r.x0, r.z1 - r.z0);
       const raio = Math.max(8.5, maior * (MOBILE ? 2.3 : 1.85));
-      irPara(new THREE.Vector3(cx - raio * .55, raio * .9, cz - raio * .62),
+      // ambientes externos no fundo do lote sao vistos pelo fundo,
+      // senao a casa fica na frente da camera
+      const lado = (tipo === 'ext' && cz > 0) ? 1 : -1;
+      irPara(new THREE.Vector3(cx - raio * .55, raio * .9, cz + raio * .62 * lado),
              new THREE.Vector3(cx, .7, cz));
     });
     ambBox.appendChild(b);
