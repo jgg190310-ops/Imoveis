@@ -149,9 +149,9 @@ const CASAS = [
       { d:4.6, comodos:[ {n:'Demi-suíte 1',s:'lavabo no quarto',t:'suite',w:4.5}, {n:'Demi-suíte 2',s:'lavabo no quarto',t:'suite',w:4.5}, {n:'Quarto 6',s:'solteiro',t:'quarto',w:4.5}, {n:'Quarto 7',s:'duas camas',t:'quarto',w:4.5} ]}
     ]}
   ],
-  varanda:{ d:3.0, nivel:0 },
-  piscina:{ cx:-14, cz:2, w:9, d:4.5 },
-  gourmet:{ cx:14, cz:1, w:8, d:7 },
+  varanda:{ d:3.0, nivel:0, redes:2 },
+  piscina:{ cx:-14, cz:2, w:9, d:4.5, forma:'feijao', bica:true },
+  gourmet:{ cx:14, cz:1, w:8, d:7, forno:true },
   garagem:{ cx:0, cz:-14, w:12, d:5.5 },
   extras:[ {t:'label', n:'Piscina', s:'9 x 4,5 m', x:-14, z:2, y:1.1},
            {t:'label', n:'Churrasqueira', s:'forno e fogão a lenha', x:14, z:1, y:3.4},
@@ -173,8 +173,8 @@ const CASAS = [
   anexo:{ cx:16, cz:-1.5, w:8.4, d:4.2, h:2.7,
     comodos:[ {n:'Quarto 5',s:'separado da casa',t:'quarto',w:4.2,ly:2.4}, {n:'Quarto 6',s:'separado da casa',t:'quarto',w:4.2,ly:2.4} ],
     banheiro:{ n:'Banheiro', s:'na frente dos quartos', w:2.8, d:2.2 } },
-  varanda:{ d:3.0, s:'de frente para a piscina', lx:-5, ly:0.35 },
-  piscina:{ cx:0, cz:12.5, w:8, d:4.5 },
+  varanda:{ d:3.0, s:'de frente para a piscina', lx:-5, ly:0.35, redes:2 },
+  piscina:{ cx:0, cz:12.5, w:8, d:4.5, escada:true },
   extras:[ {t:'label', n:'Praia da Lagoa Pequena', s:'no fundo do quintal', x:20, z:19, y:1.4}, {t:'label', n:'Piscina', s:'em frente às suítes', x:0, z:12.5, y:1.1} ],
   arvores:[[-9,10],[9,11],[-11,2],[-9,-9],[8,-9],[22,9]]
 },
@@ -185,23 +185,24 @@ const CASAS = [
   /* medidas em cm tiradas da planta de reforma (x para leste, y para sul, 0 = canto noroeste da casa) */
   casa:[0,0,1752,845], alturaPiso:0.45, pe:3.0,
   comodos:[
-    {n:'Suíte 1',s:'11,6 m²',t:'quarto',casal:true,r:[15,15,397,300],rot:{ly:2.3}},
-    {n:'WC suíte 1',s:'',t:'banheiro',r:[15,308,250,416],rot:{lx:-0.55,ly:1.0}},
-    {n:'WC suíte 2',s:'',t:'banheiro',r:[15,432,250,539],rot:{lx:0.55,ly:1.0}},
-    {n:'Suíte 2',s:'11,3 m²',t:'quarto',casal:true,r:[15,555,397,830],rot:{ly:2.3}},
+    {n:'Suíte 1',s:'11,6 m²',t:'quarto',casal:true,porta:['s',0.78],r:[15,15,397,300],rot:{ly:2.3}},
+    {n:'WC suíte 1',s:'',t:'banheiro',porta:['n',0.6],r:[15,308,250,416],rot:{lx:-0.55,ly:1.0}},
+    {n:'WC suíte 2',s:'',t:'banheiro',porta:['s',0.6],r:[15,432,250,539],rot:{lx:0.55,ly:1.0}},
+    {n:'Suíte 2',s:'11,3 m²',t:'quarto',casal:true,porta:['n',0.78],r:[15,555,397,830],rot:{ly:2.3}},
     {n:'Cozinha',s:'13,7 m²',t:'cozinha',r:[411,15,803,379]},
-    {n:'WC suíte 3',s:'',t:'banheiro',r:[821,15,1012,182],rot:{ly:1.0}},
-    {n:'WC social',s:'',t:'banheiro',r:[821,197,1012,363],rot:{ly:2.2}},
-    {n:'Suíte 3',s:'a maior, 17 m²',t:'quarto',casal:true,r:[1027,15,1425,368]},
-    {n:'Quarto 5',s:'ampliado',t:'quarto',r:[1440,15,1737,395]},
+    {n:'WC suíte 3',s:'',t:'banheiro',porta:['e',0.45],r:[821,15,1012,182],rot:{ly:1.0}},
+    {n:'WC social',s:'',t:'banheiro',porta:['s',0.75],r:[821,197,1012,363],rot:{ly:2.2}},
+    {n:'Suíte 3',s:'a maior, 17 m²',t:'quarto',casal:true,porta:['s',0.15],r:[1027,15,1425,368]},
+    {n:'Quarto 5',s:'ampliado',t:'quarto',porta:['s',0.25],r:[1440,15,1737,395]},
     {n:'Corredor',s:'',t:'livre',r:[266,380,1181,500],rot:{ly:0.4,lx:-1.2}},
     {n:'Sala',s:'13,5 m²',t:'sala',livre:true,r:[411,515,824,830]},
-    {n:'Suíte 4',s:'com banheiro novo',t:'quarto',casal:true,r:[840,545,1166,830]},
-    {n:'WC suíte 4',s:'novo',t:'banheiro',r:[1181,575,1320,830],rot:{ly:1.0}},
+    {n:'Suíte 4',s:'com banheiro novo',t:'quarto',casal:true,porta:['n',0.62],r:[840,545,1166,830]},
+    {n:'WC suíte 4',s:'novo',t:'banheiro',porta:['w',0.3],r:[1181,575,1320,830],rot:{ly:1.0}},
     {n:'Sala ampla',s:'TV e jantar',t:'sala',livre:true,r:[1335,410,1737,830]}
   ],
   varanda:{ larg:150, s:'de frente para a piscina' },
   piscina:[-863,-9,-530,696],
+  piscinaOpc:{ forma:'arredondada', bica:true, bicaZ:0, espreg:2 },
   deck:[-1033,-646,-130,-195],
   gourmet:[-1036,873,-434,1325],
   degraus:[-260,-130,-139,120],
@@ -223,8 +224,8 @@ const CASAS = [
       { d:3.6, comodos:[ {n:'Quarto 4',s:'duas camas',t:'quarto',w:6}, {n:'Banheiro',s:'social',t:'banheiro',w:3}, {n:'Área de serviço',s:'',t:'servico',w:4} ]}
     ]}
   ],
-  varanda:{ d:2.8, nivel:0 },
-  piscina:{ cx:-11, cz:3, w:7.5, d:4 },
+  varanda:{ d:2.8, nivel:0, redes:2 },
+  piscina:{ cx:-11, cz:3, w:7.5, d:4, cascata:true, prainha:true },
   gourmet:{ cx:11, cz:2, w:7, d:6 },
   extras:[ {t:'label', n:'Piscina', s:'com cascata', x:-11, z:3, y:1.1},
            {t:'label', n:'Área gourmet', s:'mesa grande e lavabo', x:11, z:2, y:3.2} ],
@@ -259,6 +260,7 @@ controls.dampingFactor = 0.08;
 controls.maxPolarAngle = Math.PI/2 - 0.04;
 controls.minDistance = 10;
 controls.maxDistance = 90;
+window.__planta = { camera, controls };
 
 cena.add(new THREE.HemisphereLight(0xdff1f6, 0x9c8e74, 1.05));
 const sol = new THREE.DirectionalLight(0xfff3dd, 1.5);
@@ -291,7 +293,17 @@ const M = {
   tronco:  new THREE.MeshLambertMaterial({ color:0x7a5a3a }),
   copa:    new THREE.MeshLambertMaterial({ color:0x5f8a4a }),
   palma:   new THREE.MeshLambertMaterial({ color:0x6f9a52 }),
-  vidro:   new THREE.MeshLambertMaterial({ color:0x9fc5cf, transparent:true, opacity:.5 })
+  vidro:   new THREE.MeshLambertMaterial({ color:0x9fc5cf, transparent:true, opacity:.5 }),
+  porta:   new THREE.MeshLambertMaterial({ color:0x6b4a2f }),
+  tv:      new THREE.MeshLambertMaterial({ color:0x1d2326 }),
+  tapete:  new THREE.MeshLambertMaterial({ color:0xcdb994 }),
+  tijolo:  new THREE.MeshLambertMaterial({ color:0xa85a3c }),
+  rede:    new THREE.MeshLambertMaterial({ color:0xf1e2c4, side:THREE.DoubleSide }),
+  agua2:   new THREE.MeshLambertMaterial({ color:0xc8f1f8, transparent:true, opacity:.75 }),
+  metal:   new THREE.MeshLambertMaterial({ color:0xc9ced1 }),
+  prainha: new THREE.MeshLambertMaterial({ color:0x63d3e3 }),
+  azulejo: new THREE.MeshLambertMaterial({ color:0x1f5fa8 }),
+  folha:   new THREE.MeshLambertMaterial({ color:0x4f7d3c })
 };
 
 const BOX = new THREE.BoxGeometry(1,1,1);
@@ -358,6 +370,162 @@ function louca(x,y,z,parent){
   box(0.45,0.4,0.6, M.louca, x,y+0.2,z, parent);
   box(0.5,0.12,0.5, M.louca, x+0.9,y+0.8,z, parent);
 }
+/* ====================== DETALHES (moveis, portas, janelas, piscina) ====================== */
+function grupoEm(x,y,z,ry,parent){ const g = new THREE.Group(); g.position.set(x,y,z); g.rotation.y = ry||0; (parent||grupo).add(g); return g; }
+function porta(x,y,z,parent,ry,w){ box(w||0.8, 2.1, 0.24, M.porta, x, y+1.05, z, parent, ry); }
+function janela(x,y,z,parent,ry,len,alta){
+  const hh = alta ? 0.6 : 1.2, yc = alta ? 1.95 : 1.55;
+  box(len, hh, 0.24, M.vidro, x, y+yc, z, parent, ry);
+  box(len+0.1, 0.06, 0.3, M.borda, x, y+yc-hh/2-0.03, z, parent, ry);
+}
+function cadeira(x,y,z,parent,ry){
+  const g = grupoEm(x,y,z,ry,parent);
+  box(0.44,0.06,0.44, M.madeira2, 0,0.46,0, g);
+  box(0.44,0.48,0.06, M.madeira2, 0,0.72,-0.2, g);
+  [[-0.19,-0.19],[0.19,-0.19],[-0.19,0.19],[0.19,0.19]].forEach(p=>box(0.05,0.45,0.05,M.madeira,p[0],0.22,p[1],g));
+}
+function mesaCadeiras(x,y,z,parent,w,d,n){
+  mesa(x,y,z,parent,w,d);
+  const por = Math.max(1, Math.floor(n/2));
+  for(let i=0;i<por;i++){
+    const px = x - w/2 + (i+0.5)*w/por;
+    cadeira(px, y, z - d/2 - 0.35, parent, 0);
+    cadeira(px, y, z + d/2 + 0.35, parent, Math.PI);
+  }
+}
+function banco(x,y,z,parent,w,ry){ const g = grupoEm(x,y,z,ry,parent); box(w,0.07,0.36,M.madeira2,0,0.45,0,g); box(0.08,0.43,0.3,M.madeira,-w/2+0.2,0.22,0,g); box(0.08,0.43,0.3,M.madeira,w/2-0.2,0.22,0,g); }
+function vaso(x,y,z,parent,ry){ const g = grupoEm(x,y,z,ry,parent); box(0.38,0.4,0.5,M.louca,0,0.2,0.05,g); box(0.4,0.36,0.16,M.louca,0,0.55,-0.22,g); }
+function pia(x,y,z,parent,ry){ const g = grupoEm(x,y,z,ry,parent); box(0.85,0.82,0.45,M.bancada,0,0.41,0,g); box(0.42,0.1,0.3,M.louca,0,0.87,0,g); box(0.6,0.7,0.03,M.vidro,0,1.5,-0.21,g); }
+function chuveiro(x,y,z,parent,ry,w){ const g = grupoEm(x,y,z,ry,parent); box(w,0.04,0.9,M.borda,0,0.02,0,g); box(w,1.9,0.04,M.vidro,0,0.97,0.45,g); box(0.05,0.05,0.25,M.metal,0,2.05,-0.32,g); }
+function guardaRoupa(x,y,z,parent,ry,w){ box(w,2.1,0.56,M.madeira2,x,y+1.05,z,parent,ry); }
+function arCond(x,y,z,parent,ry){ box(0.8,0.28,0.22,M.louca,x,y+2.3,z,parent,ry); }
+function sofaG(x,y,z,parent,w,ry){ const g = grupoEm(x,y,z,ry,parent); box(w,0.42,0.95,M.sofa,0,0.3,0,g); box(w,0.5,0.25,M.sofa,0,0.62,-0.35,g); box(0.22,0.6,0.95,M.sofa,-w/2+0.11,0.42,0,g); box(0.22,0.6,0.95,M.sofa,w/2-0.11,0.42,0,g); }
+function tvRack(x,y,z,parent,ry){ const g = grupoEm(x,y,z,ry,parent); box(1.7,0.45,0.42,M.madeira,0,0.22,0,g); box(1.25,0.72,0.06,M.tv,0,1.25,-0.12,g); }
+
+/* quarto: cama encostada na parede do fundo (lado -z do comodo) */
+function quartoDet(q, yb, p, c){
+  const tipo = c.camas || ((c.casal === true || /casal/.test(c.s||'')) ? 'casal' : (c.casal === false ? 'solteiros' : (/duas camas|solteiro/.test(c.s||'') ? 'solteiros' : 'casal')));
+  const zb = q.cz - q.d/2 + 1.15;
+  let suiteW = 0;
+  if(c.t === 'suite' && q.w >= 3.2 && q.d >= 3.4){
+    /* banheiro da suite no canto da frente, a direita */
+    suiteW = 1.5; const bz = q.cz + q.d/2 - 0.85, bx = q.cx + q.w/2 - 0.75;
+    box(1.5, 2.3, 0.08, M.parede2, bx, yb+1.15, q.cz + q.d/2 - 1.7, p);
+    box(0.08, 2.3, 1.7, M.parede2, q.cx + q.w/2 - 1.5, yb+1.15, bz, p);
+    porta(q.cx + q.w/2 - 1.5, yb, bz + 0.2, p, Math.PI/2, 0.7);
+    vaso(bx + 0.35, yb, bz - 0.35, p, 0); pia(bx - 0.25, yb, bz + 0.5, p, Math.PI);
+  }
+  const cx = q.cx - suiteW*0.25;
+  if(tipo === 'casal'){
+    cama(cx, yb, zb, p, true);
+    box(0.45,0.5,0.4,M.madeira, cx-1.1, yb+0.25, q.cz - q.d/2 + 0.35, p);
+    box(0.45,0.5,0.4,M.madeira, cx+1.1, yb+0.25, q.cz - q.d/2 + 0.35, p);
+  } else if(tipo === 'casal+solteiro' && q.w >= 3.6){
+    cama(cx-0.6, yb, zb, p, true); cama(cx+1.1, yb, zb, p, false);
+  } else if(tipo === 'beliche'){
+    cama(cx, yb, zb, p, false); box(1.0,0.2,2.0,M.madeira,cx,yb+1.45,zb,p); box(0.92,0.18,1.9,M.tecido,cx,yb+1.62,zb,p);
+    [[-0.46,-0.96],[0.46,-0.96],[-0.46,0.96],[0.46,0.96]].forEach(o=>box(0.07,1.75,0.07,M.madeira,cx+o[0],yb+0.88,zb+o[1],p));
+  } else {
+    if(q.w >= 2.7){ cama(cx-0.7, yb, zb, p, false); cama(cx+0.7, yb, zb, p, false); box(0.4,0.5,0.4,M.madeira,cx,yb+0.25,q.cz-q.d/2+0.3,p); }
+    else cama(cx, yb, zb, p, false);
+  }
+  /* guarda-roupa na parede lateral esquerda */
+  if(q.d >= 3.2){ const L = Math.min(1.8, q.d - 2.5); guardaRoupa(q.cx - q.w/2 + 0.34, yb, q.cz + q.d/2 - 0.3 - L/2, p, Math.PI/2, L); }
+  else if(q.w >= 3.0){ guardaRoupa(q.cx - q.w/2 + 0.2 + 0.8, yb, q.cz + q.d/2 - 0.34, p, 0, 1.6); }
+  arCond(cx, yb, q.cz - q.d/2 + 0.14, p, 0);
+}
+function banheiroDet(q, yb, p){
+  if(q.w < 1.1 || q.d < 1.2){ vaso(q.cx, yb, q.cz, p, 0); return; }
+  vaso(q.cx - q.w/2 + 0.32, yb, q.cz - q.d/2 + 0.42, p, 0);
+  pia(q.cx + q.w/2 - 0.5, yb, q.cz - q.d/2 + 0.3, p, 0);
+  if(q.d >= 1.7) chuveiro(q.cx, yb, q.cz + q.d/2 - 0.5, p, 0, Math.min(q.w - 0.2, 1.1));
+}
+function cozinhaDet(q, yb, p){
+  const L = Math.min(q.w - 1.3, 3.6), bz = q.cz - q.d/2 + 0.36;
+  bancada(q.cx - 0.35, yb, bz, p, L);
+  box(L, 0.6, 0.36, M.madeira2, q.cx - 0.35, yb + 1.85, q.cz - q.d/2 + 0.2, p);
+  box(0.6, 0.04, 0.58, M.tv, q.cx - 0.35 - L/2 + 0.6, yb + 0.95, bz, p);
+  box(0.75, 1.85, 0.7, M.louca, q.cx + q.w/2 - 0.5, yb + 0.93, q.cz - q.d/2 + 0.42, p);
+  if(q.d >= 3.0) mesaCadeiras(q.cx, yb, q.cz + q.d*0.18, p, 1.4, 0.8, 4);
+}
+function salaDet(q, yb, p, c){
+  const grande = q.w*q.d > 17;
+  const sx = grande ? q.cx - q.w/4 : q.cx;
+  box(Math.min(q.w*0.45, 2.6), 0.02, 1.8, M.tapete, sx, yb+0.02, q.cz - 0.1, p);
+  sofaG(sx, yb, q.cz - q.d/2 + 0.75, p, Math.min(q.w*0.5, 2.6), 0);
+  tvRack(sx, yb, q.cz + q.d/2 - 0.35, p, Math.PI);
+  if(grande) mesaCadeiras(q.cx + q.w/4, yb, q.cz, p, 2.0, 0.95, 6);
+}
+function servicoDet(q, yb, p){ box(0.65,0.9,0.65,M.louca,q.cx-0.5,yb+0.45,q.cz-q.d/2+0.4,p); box(0.6,0.85,0.55,M.louca,q.cx+0.4,yb+0.43,q.cz-q.d/2+0.35,p); }
+function mobiliar(c, q, yb, p){
+  if(c.t === 'suite' || c.t === 'quarto') quartoDet(q, yb, p, c);
+  else if(c.t === 'banheiro') banheiroDet(q, yb, p);
+  else if(c.t === 'cozinha') cozinhaDet(q, yb, p);
+  else if(c.t === 'sala') salaDet(q, yb, p, c);
+  else if(c.t === 'servico') servicoDet(q, yb, p);
+}
+function rede(x1,z1,x2,z2,y,parent){
+  const n = 6, pts = [];
+  for(let i=0;i<=n;i++){ const t=i/n; pts.push([x1+(x2-x1)*t, y - 0.55*Math.sin(Math.PI*t), z1+(z2-z1)*t]); }
+  for(let i=0;i<n;i++){
+    const a = pts[i], b = pts[i+1], dx=b[0]-a[0], dy=b[1]-a[1], dz=b[2]-a[2], hl=Math.hypot(dx,dz), len=Math.hypot(hl,dy);
+    const m = new THREE.Mesh(BOX, M.rede); m.scale.set(len, 0.03, 0.62);
+    m.position.set((a[0]+b[0])/2, (a[1]+b[1])/2, (a[2]+b[2])/2);
+    m.rotation.order = 'YZX'; m.rotation.y = -Math.atan2(dz, dx); m.rotation.z = Math.atan2(dy, hl);
+    m.castShadow = true; (parent||grupo).add(m);
+  }
+}
+function churrasqueira(x,y,z,parent,ry){
+  const g = grupoEm(x,y,z,ry,parent);
+  box(1.4,0.95,0.7,M.tijolo,0,0.47,0,g); box(1.1,0.9,0.6,M.tijolo,0,1.4,-0.05,g); box(0.5,1.4,0.45,M.tijolo,0,2.55,-0.08,g);
+  box(0.8,0.06,0.5,M.tv,0,0.98,0.05,g);
+}
+function espreguicadeira(x,y,z,parent,ry){ const g = grupoEm(x,y,z,ry,parent); box(0.65,0.12,1.5,M.tecido,0,0.3,0.15,g); const e = box(0.65,0.1,0.65,M.tecido,0,0.5,-0.78,g); e.rotation.x = -0.6; }
+function formaPiscina(f, w, d){
+  const s = new THREE.Shape();
+  if(f === 'feijao'){
+    s.moveTo(-w/2, 0);
+    s.bezierCurveTo(-w/2, d*0.62, -w*0.12, d*0.66, 0, d*0.24);
+    s.bezierCurveTo(w*0.12, d*0.66, w/2, d*0.62, w/2, 0);
+    s.bezierCurveTo(w/2, -d*0.66, -w/2, -d*0.66, -w/2, 0);
+  } else {
+    const r = f === 'arredondada' ? Math.min(w,d)*0.28 : 0.08;
+    s.moveTo(-w/2+r, -d/2); s.lineTo(w/2-r, -d/2); s.quadraticCurveTo(w/2, -d/2, w/2, -d/2+r);
+    s.lineTo(w/2, d/2-r); s.quadraticCurveTo(w/2, d/2, w/2-r, d/2); s.lineTo(-w/2+r, d/2);
+    s.quadraticCurveTo(-w/2, d/2, -w/2, d/2-r); s.lineTo(-w/2, -d/2+r); s.quadraticCurveTo(-w/2, -d/2, -w/2+r, -d/2);
+  }
+  return s;
+}
+function chapa(shape, mat, y, cx, cz, alt, parent){
+  const g = new THREE.ExtrudeGeometry(shape, { depth: alt, bevelEnabled:false, curveSegments:24 });
+  const m = new THREE.Mesh(g, mat); m.rotation.x = -Math.PI/2; m.position.set(cx, y, cz);
+  m.receiveShadow = true; (parent||grupo).add(m); return m;
+}
+/* piscina detalhada: p = {cx,cz,w,d,forma,bica,cascata,escada,prainha,lado} (eixo maior em x) */
+function piscinaDet(p, parent){
+  const f = p.forma || 'retangular', yb = p.y || 0;
+  chapa(formaPiscina(f, p.w + 1.5, p.d + 1.5), M.borda, yb + 0.02, p.cx, p.cz, 0.18, parent);
+  chapa(formaPiscina(f, p.w + 0.12, p.d + 0.12), f === 'retangular' ? M.azulejo : M.agua, yb + 0.03, p.cx, p.cz, 0.17, parent);
+  chapa(formaPiscina(f, p.w, p.d), M.agua, yb + 0.04, p.cx, p.cz, 0.17, parent);
+  if(p.prainha) box(p.w*0.22, 0.02, p.d - 0.2, M.prainha, p.cx - p.w/2 + p.w*0.12, yb + 0.22, p.cz, parent);
+  if(p.escada){
+    [-0.3, 0.3].forEach(o=>{
+      const t = new THREE.Mesh(new THREE.TorusGeometry(0.25, 0.03, 6, 14, Math.PI), M.metal);
+      t.position.set(p.cx + p.w/2 - 0.9 + o, yb + 0.25, p.cz - p.d/2 - 0.05); t.rotation.y = Math.PI/2; (parent||grupo).add(t);
+    });
+  }
+  if(p.cascata || p.bica){
+    const big = !!p.cascata;
+    const x0 = p.cx + p.w/2 + 0.55, z0 = p.cz + (p.bicaZ||0), topo = big ? 2.2 : 1.1;
+    box(0.12, topo, 0.12, M.metal, x0, yb + topo/2, z0, parent);
+    const curva = new THREE.QuadraticBezierCurve3(new THREE.Vector3(x0, yb + topo, z0), new THREE.Vector3(x0 - (big?1.6:0.7), yb + topo + (big?0.9:0.3), z0), new THREE.Vector3(x0 - (big?2.4:1.1), yb + 0.2, z0));
+    const tubo = new THREE.Mesh(new THREE.TubeGeometry(curva, 20, big ? 0.13 : 0.05, 8, false), M.agua2);
+    (parent||grupo).add(tubo);
+  }
+  const n = p.espreg === undefined ? 2 : p.espreg;
+  for(let i=0;i<n;i++) espreguicadeira(p.cx - p.w/2 + 1.0 + i*0.95, yb, p.cz + p.d/2 + 1.35, parent, Math.PI);
+}
+
 function palmeira(x,z,parent,esc){
   const e = esc||1;
   box(0.3*e,5.2*e,0.3*e, M.tronco, x,2.6*e,z, parent);
@@ -421,17 +589,20 @@ function montaPlano(casa){
       box(esp, H, q.d, M.parede2, q.cx - q.w/2, yb+H/2, q.cz, grupo);
       box(esp, H, q.d, M.parede2, q.cx + q.w/2, yb+H/2, q.cz, grupo);
     }
-    if(c.t === 'quarto'){
-      if(c.casal) cama(q.cx, yb, q.cz - 0.2, grupo, true);
-      else { cama(q.cx-0.7, yb, q.cz-0.2, grupo, false); cama(q.cx+0.7, yb, q.cz-0.2, grupo, false); }
-    } else if(c.t === 'banheiro'){
-      louca(q.cx-0.35, yb, q.cz, grupo);
-    } else if(c.t === 'cozinha'){
-      bancada(q.cx, yb, q.cz - q.d/2 + 0.5, grupo, Math.min(q.w-0.8, 3.4));
-      mesa(q.cx, yb, q.cz + 0.6, grupo, 1.6, 0.9);
-    } else if(c.t === 'sala'){
-      sofa(q.cx-0.5, yb, q.cz+0.5, grupo, Math.min(q.w-1.2, 2.8));
-      mesa(q.cx+0.6, yb, q.cz-1.0, grupo, 1.8, 0.95);
+    mobiliar(c, q, yb, grupo);
+    /* porta pelo lado indicado na planta */
+    if(c.porta){
+      const [lado, t] = c.porta, r = c.r, w = c.t === 'banheiro' ? 0.65 : 0.8;
+      if(lado === 'n' || lado === 's'){ const px = r[0] + t*(r[2]-r[0]), py = lado === 'n' ? r[1] : r[3]; const v = PT([px,py]); porta(v[0], yb, v[1], grupo, Math.PI/2, w); }
+      else { const py = r[1] + t*(r[3]-r[1]), px = lado === 'w' ? r[0] : r[2]; const v = PT([px,py]); porta(v[0], yb, v[1], grupo, 0, w); }
+    }
+    /* janelas nas faces externas */
+    { const r = c.r, [ex0,ey0,ex1,ey1] = casa.casa, alta = c.t === 'banheiro', len = alta ? 0.6 : 1.4;
+      if(c.t !== 'livre'){
+        if(r[1] - ey0 < 25){ const v = PT([(r[0]+r[2])/2, ey0]); janela(v[0], yb, v[1], grupo, Math.PI/2, Math.min(len, (r[2]-r[0])/100 - 0.6), alta); }
+        if(ey1 - r[3] < 25){ const v = PT([(r[0]+r[2])/2, ey1]); janela(v[0], yb, v[1], grupo, Math.PI/2, Math.min(len, (r[2]-r[0])/100 - 0.6), alta); }
+        if(ex1 - r[2] < 25){ const v = PT([ex1, (r[1]+r[3])/2]); janela(v[0], yb, v[1], grupo, 0, Math.min(len, (r[3]-r[1])/100 - 0.6), alta); }
+      }
     }
     const o = c.rot || {};
     rotulo(c.n, c.s, q.cx + (o.lx||0), yb + (o.ly||1.6), q.cz + (o.lz||0), false, 'terreo', grupo);
@@ -442,15 +613,14 @@ function montaPlano(casa){
   const topo = y0 + H;
   for(let i=0;i<6;i++) box(0.24, H, 0.24, M.madeira, C.cx - C.w/2 + 0.3 + i*(C.w-0.6)/5, y0+H/2, C.cz + C.d/2 + vd - 0.2, grupo);
   rotulo('Varanda', casa.varanda.s, C.cx - C.w/2 + 2.2, y0 + 0.5, vz + 0.3, true, 'todos', grupo);
+  { const zr = C.cz + C.d/2 + vd - 0.35, px = i => C.cx - C.w/2 + 0.3 + i*(C.w-0.6)/5;
+    rede(px(1)+0.2, zr, px(2)-0.2, zr, y0 + 1.75, grupo); rede(px(3)+0.2, zr, px(4)-0.2, zr, y0 + 1.75, grupo); }
   telhado(C.cx, C.cz + vd/2, C.w + 1.4, C.d + vd + 0.6, topo, gTelhado, 1.7);
   /* degraus entre a varanda e o quintal */
   if(casa.degraus){ const g = R(casa.degraus); for(let i=0;i<3;i++){ const hh = y0*(3-i)/3; box(g.w, hh, g.d/3, M.borda, g.cx, hh/2, g.cz - g.d/2 + g.d/6 + i*g.d/3, grupo); } }
   /* piscina */
   const P = R(casa.piscina);
-  box(P.w+1.4, 0.2, P.d+1.4, M.borda, P.cx, 0.1, P.cz, grupo);
-  box(P.w, 0.4, P.d, M.agua, P.cx, 0.12, P.cz, grupo);
-  box(1.6,0.18,0.7, M.tecido, P.cx + P.w/2 + 1.0, 0.3, P.cz - 0.6, grupo);
-  box(1.6,0.18,0.7, M.tecido, P.cx + P.w/2 + 1.0, 0.3, P.cz + 0.6, grupo);
+  piscinaDet(Object.assign({ cx:P.cx, cz:P.cz, w:P.w, d:P.d }, casa.piscinaOpc||{}), grupo);
   /* deck com pergolado */
   const D = R(casa.deck);
   box(D.w, 0.16, D.d, M.madeira2, D.cx, 0.08, D.cz, grupo);
@@ -464,7 +634,9 @@ function montaPlano(casa){
   [[-1,-1],[1,-1],[-1,1]].forEach(s=>box(0.24, 2.9, 0.24, M.madeira, G.cx + s[0]*(G.w/2-0.25), 1.45, G.cz + s[1]*(G.d/2-0.25), grupo));
   box(G.w+0.6, 0.22, G.d+0.6, M.telha, G.cx, 3.0, G.cz, gTelhado);
   bancada(G.cx - 0.6, 0.2, G.cz + G.d/2 - 0.6, grupo, Math.min(G.w-2, 3.4));
+  churrasqueira(G.cx - G.w/2 + 1.1, 0.2, G.cz + G.d/2 - 0.6, grupo, Math.PI);
   mesa(G.cx - 0.8, 0.2, G.cz - 0.3, grupo, 2.6, 1.0);
+  banco(G.cx - 0.8, 0.2, G.cz - 1.05, grupo, 2.4, 0); banco(G.cx - 0.8, 0.2, G.cz + 0.45, grupo, 2.4, 0);
   box(1.4, 2.4, 1.6, M.parede2, G.cx + G.w/2 - 0.9, 1.4, G.cz + G.d/2 - 1.0, grupo);
   /* arvores e rotulos externos */
   (casa.arvores||[]).forEach((a,i)=>{ const t = PT(a); if(i%2===0) palmeira(t[0], t[1], grupo, 0.9); else arvore(t[0], t[1], grupo, 0.9); });
@@ -489,12 +661,9 @@ function bloco(b, cx, cz, baseY, parent, nivel){
   b.comodos.forEach((c, ci)=>{
     const xc = x + c.w/2;
     if(ci < b.comodos.length-1) box(esp, h, d, M.parede2, x + c.w, baseY+h/2, cz, parent);
-    if(c.t === 'banheiro') louca(xc-0.3, baseY, cz, parent);
-    else {
-      const duplo = c.casal !== undefined ? c.casal : /casal/.test(c.s||'');
-      if(duplo) cama(xc, baseY, cz-0.3, parent, true);
-      else { cama(xc-0.75, baseY, cz-0.3, parent, false); cama(xc+0.75, baseY, cz-0.3, parent, false); }
-    }
+    mobiliar(c, { cx:xc, cz, w:c.w, d }, baseY, parent);
+    porta(x + 0.7, baseY, cz + d/2, parent, 0, 0.8);
+    janela(xc, baseY, cz - d/2, parent, 0, Math.min(1.2, c.w - 1.2), false);
     rotulo(c.n, c.s, xc + (b.rotX||0), baseY+(c.ly||1.5), cz + (b.rotZ||0), false, nivel, parent);
     x += c.w;
   });
@@ -558,25 +727,14 @@ function monta(casa){
           box(esp, h, fil.d, M.parede2, x + c.w, baseY+h/2, zc, parent);
 
         /* mobilia */
-        if(c.t === 'suite' || c.t === 'quarto'){
-          const duplo = c.casal !== undefined ? c.casal : /casal/.test(c.s||'');
-          if(duplo) cama(xc, baseY, zc-0.4, parent, true);
-          else { cama(xc-0.8, baseY, zc-0.4, parent, false); cama(xc+0.8, baseY, zc-0.4, parent, false); }
-          box(0.9,0.5,0.45, M.madeira, xc, baseY+0.25, zc+fil.d/2-0.5, parent);
-          if(c.t === 'suite') louca(xc + c.w/2 - 1.2, baseY, zc - fil.d/2 + 0.8, parent);
-        } else if(c.t === 'sala'){
-          sofa(xc-0.6, baseY, zc+0.4, parent, Math.min(c.w-1.6, 2.8));
-          box(1.4,0.08,0.4, M.bancada, xc+1.6, baseY+0.7, zc-0.6, parent);
-          mesa(xc+1.2, baseY, zc+1.2, parent, 1.6, 0.9);
-        } else if(c.t === 'cozinha'){
-          bancada(xc, baseY, zc - fil.d/2 + 0.6, parent, Math.min(c.w-1.0, 4.2));
-          mesa(xc, baseY, zc + 0.9, parent, Math.min(c.w-2.2, 2.2), 0.9);
-        } else if(c.t === 'banheiro'){
-          louca(xc-0.3, baseY, zc, parent);
-        } else if(c.t === 'servico'){
-          box(0.7,0.9,0.6, M.louca, xc-0.6, baseY+0.45, zc, parent);
-          box(0.7,0.9,0.6, M.louca, xc+0.4, baseY+0.45, zc, parent);
-        }
+        mobiliar(c, { cx:xc, cz:zc, w:c.w, d:fil.d }, baseY, parent);
+        /* porta: na parede da frente do comodo, perto do canto esquerdo */
+        if(!(ai > 0 && fi === 0)) porta(x + 0.7, baseY, zc + fil.d/2, parent, 0, c.t === 'banheiro' ? 0.65 : 0.8);
+        /* janelas nas paredes externas */
+        const ehUltima = fi === andar.fileiras.length-1, alta = c.t === 'banheiro';
+        if(ehUltima) janela(xc + 0.4, baseY, zc - fil.d/2, parent, 0, alta ? 0.6 : Math.min(1.5, c.w - 1.4), alta);
+        if(ci === 0) janela(-W/2, baseY, zc + 0.3, parent, Math.PI/2, alta ? 0.6 : Math.min(1.5, fil.d - 1.6), alta);
+        if(ci === fil.comodos.length-1) janela(W/2, baseY, zc + 0.3, parent, Math.PI/2, alta ? 0.6 : Math.min(1.5, fil.d - 1.6), alta);
 
         rotulo(c.n, c.s, xc + (c.lx||0), baseY + (c.ly||1.5), zc + (c.lz||0), false, ai === 0 ? 'terreo' : 'superior', parent);
         x += c.w;
@@ -593,6 +751,9 @@ function monta(casa){
     const topo = casa.andares[0].h + 0.25;
     [-W/2+0.4, -W/6, W/6, W/2-0.4].forEach(px => box(0.22, topo, 0.22, M.madeira, px, topo/2, z0+varD-0.3, grupo));
     box(W+0.6, 0.2, varD+0.6, M.madeira2, 0, topo, vz, grupo);
+    const postes = [-W/2+0.4, -W/6, W/6, W/2-0.4];
+    for(let i=0;i<(casa.varanda.redes||0) && i<2;i++) rede(postes[i*2]+0.15, z0+varD-0.35, postes[i*2+1]-0.15, z0+varD-0.35, 1.75, grupo);
+    if(casa.varanda.mesa !== false) mesaCadeiras(W/2 - 2.2, 0.2, vz - 0.1, grupo, 1.2, 0.8, 4);
     rotulo('Varanda', casa.varanda.s || 'coberta, na frente', casa.varanda.lx||0, casa.varanda.ly||(topo+0.5), z0+varD-0.3, true, 'todos', grupo);
   }
 
@@ -626,7 +787,8 @@ function monta(casa){
       box(0.18, bh, bn.d, M.parede2, a.cx+bn.w/2, 0.25+bh/2, bz, grupo);
       box(bn.w*0.3, bh, 0.18, M.parede, a.cx-bn.w*0.35, 0.25+bh/2, bz-bn.d/2, grupo);
       box(bn.w*0.3, bh, 0.18, M.parede, a.cx+bn.w*0.35, 0.25+bh/2, bz-bn.d/2, grupo);
-      louca(a.cx-0.4, 0.25, bz+0.2, grupo);
+      vaso(a.cx - bn.w/2 + 0.35, 0.25, bz - 0.2, grupo, 0); pia(a.cx + bn.w/2 - 0.5, 0.25, bz + bn.d/2 - 0.3, grupo, Math.PI);
+      porta(a.cx - bn.w*0.0, 0.25, bz - bn.d/2, grupo, 0, 0.7);
       telhado(a.cx, bz, bn.w, bn.d, 0.25+bh, gTelhado, 0.7);
       rotulo(bn.n, bn.s, a.cx - 0.6, 0.5, bz + 1.2, false, 'terreo', grupo);
       /* caminho de pedras entre os quartos e o banheiro */
@@ -636,11 +798,7 @@ function monta(casa){
 
   /* piscina */
   if(casa.piscina){
-    const p = casa.piscina;
-    box(p.w+1.6, 0.22, p.d+1.6, M.borda, p.cx, 0.11, p.cz, grupo);
-    box(p.w, 0.5, p.d, M.agua, p.cx, 0.12, p.cz, grupo);
-    box(1.6,0.18,0.7, M.tecido, p.cx - p.w/2 - 1.3, 0.3, p.cz, grupo, Math.PI/2);
-    box(1.6,0.18,0.7, M.tecido, p.cx - p.w/2 - 1.3, 0.3, p.cz+1.3, grupo, Math.PI/2);
+    piscinaDet(casa.piscina, grupo);
   }
 
   /* area gourmet */
@@ -650,8 +808,12 @@ function monta(casa){
     [[-g.w/2+0.3,-g.d/2+0.3],[g.w/2-0.3,-g.d/2+0.3],[-g.w/2+0.3,g.d/2-0.3],[g.w/2-0.3,g.d/2-0.3]].forEach(p=>
       box(0.24,2.9,0.24, M.madeira, g.cx+p[0], 1.45, g.cz+p[1], grupo));
     box(g.w+0.8, 0.22, g.d+0.8, M.telha, g.cx, 2.95, g.cz, grupo);
-    bancada(g.cx, 0.2, g.cz - g.d/2 + 0.7, grupo, g.w-1.6);
-    mesa(g.cx, 0.2, g.cz + 0.8, grupo, Math.min(g.w-1.4, 3.2), 1.1);
+    bancada(g.cx + 0.6, 0.2, g.cz - g.d/2 + 0.7, grupo, g.w-3.2);
+    churrasqueira(g.cx - g.w/2 + 1.1, 0.2, g.cz - g.d/2 + 0.6, grupo, 0);
+    if(g.forno) box(1.0, 1.6, 0.8, M.tijolo, g.cx + g.w/2 - 0.8, 1.0, g.cz - g.d/2 + 0.6, grupo);
+    mesa(g.cx, 0.2, g.cz + 0.9, grupo, Math.min(g.w-2.4, 3.0), 1.0);
+    banco(g.cx, 0.2, g.cz + 0.15, grupo, Math.min(g.w-2.6, 2.8), 0);
+    banco(g.cx, 0.2, g.cz + 1.65, grupo, Math.min(g.w-2.6, 2.8), 0);
   }
 
   /* garagem */
@@ -661,6 +823,7 @@ function monta(casa){
     [[-g.w/2+0.3,-g.d/2+0.3],[g.w/2-0.3,-g.d/2+0.3],[-g.w/2+0.3,g.d/2-0.3],[g.w/2-0.3,g.d/2-0.3]].forEach(p=>
       box(0.22,2.7,0.22, M.madeira, g.cx+p[0], 1.35, g.cz+p[1], grupo));
     box(g.w+0.6, 0.2, g.d+0.6, M.telha, g.cx, 2.75, g.cz, grupo);
+    [M.sofa, M.louca].forEach((mt,i)=>{ const cx2 = g.cx - g.w/4 + i*g.w/2; box(1.8,0.7,4.0,mt,cx2,0.55,g.cz,grupo); box(1.6,0.5,2.0,mt,cx2,1.1,g.cz-0.2,grupo); box(1.62,0.4,1.6,M.vidro,cx2,1.12,g.cz-0.2,grupo); });
   }
 
   /* arvores e palmeiras */
