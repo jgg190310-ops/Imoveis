@@ -666,7 +666,7 @@ function rotulo(r, grupo, y) {
   el.className = 'rot';
   el.innerHTML = '<b>' + r.n + '</b>';
   const o = new CSS2DObject(el);
-  o.position.set((r.x0 + r.x1) / 2 - CX, y, (r.z0 + r.z1) / 2 - CZ);
+  o.position.set((r.rx !== undefined ? r.rx : (r.x0 + r.x1) / 2) - CX, y, (r.rz !== undefined ? r.rz : (r.z0 + r.z1) / 2) - CZ);
   scene.add(o);
   rotulos.push({ o, el, piso: grupo });
   return o;
