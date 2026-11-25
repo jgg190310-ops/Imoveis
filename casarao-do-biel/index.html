@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Casarão do Biel · Casa de temporada em Barra do Jacuípe</title>
+<meta name="description" content="Casa de temporada em Barra do Jacuípe, Camaçari-BA: 3 quartos climatizados, piscina, deck e quiosque com churrasqueira. Até 13 pessoas. Diária a partir de R$ 600.">
+<meta name="theme-color" content="#0b1416">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Casarão do Biel · Barra do Jacuípe">
+<meta property="og:description" content="Piscina, deck e quiosque com churrasqueira. Três quartos climatizados pra até 13 pessoas.">
+<meta property="og:image" content="https://img.olx.com.br/images/21/213615822239953.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fundo:#0b1416; --painel:#121f22; --painel-2:#182b2f;
+  --coral:#ff6b4a; --coral-2:#ff8f74;
+  --agua:#2f9bb0; --agua-2:#51c3d6;
+  --areia:#e8c88b; --mata:#3f7f55;
+  --branco:#f3f7f6; --texto:#b4c6c7; --suave:#7f9496;
+  --f:'Outfit',system-ui,-apple-system,Segoe UI,sans-serif;
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--fundo);color:var(--texto);font:300 16px/1.65 var(--f);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+::selection{background:var(--coral);color:#fff}
+
+.wrap{width:min(1240px,93vw);margin:0 auto}
+h2{font:700 clamp(30px,5vw,50px)/1.06 var(--f);color:var(--branco);letter-spacing:-.03em}
+h3{font:600 19px var(--f);color:var(--branco);letter-spacing:-.01em}
+.olho{display:inline-block;font:600 11px var(--f);letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+.lead{font-size:clamp(15.5px,1.85vw,18px);line-height:1.74;max-width:62ch}
+
+/* ---------- barra de vidro ---------- */
+#bar{position:fixed;z-index:60;top:0;left:0;right:0;padding:16px 0;
+  transition:background .4s,backdrop-filter .4s,padding .4s,border-color .4s;
+  border-bottom:1px solid transparent}
+#bar.on{background:rgba(11,20,22,.7);backdrop-filter:blur(20px) saturate(1.5);
+  -webkit-backdrop-filter:blur(20px) saturate(1.5);padding:10px 0;
+  border-bottom-color:rgba(243,247,246,.1)}
+#bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.marca{display:flex;align-items:center;gap:10px;flex:none}
+.marca .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  background:var(--coral);color:#fff;flex:none}
+.marca .ic svg{width:19px;height:19px}
+.marca b{font:700 17px var(--f);color:var(--branco);letter-spacing:-.02em;line-height:1.1}
+.marca i{display:block;font:500 9.5px var(--f);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--suave);font-style:normal}
+#nav{display:flex;align-items:center;gap:28px}
+#nav a{font:400 14.5px var(--f);color:var(--texto);transition:color .22s}
+#nav a:hover{color:var(--branco)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:12px 24px;border-radius:999px;font:600 14.5px var(--f);
+  transition:transform .22s,background .22s,box-shadow .22s;flex:none}
+.btn-coral{background:var(--coral);color:#fff;box-shadow:0 12px 30px -14px rgba(255,107,74,.9)}
+.btn-coral:hover{background:var(--coral-2);transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(243,247,246,.22);color:var(--branco)}
+.btn-ghost:hover{background:rgba(243,247,246,.08)}
+.btn-zap{background:#1fa855;color:#fff;box-shadow:0 12px 30px -14px rgba(31,168,85,.9)}
+.btn-zap:hover{background:#25c162;transform:translateY(-2px)}
+#burger{display:none;width:40px;height:40px;place-items:center}
+#burger svg{width:24px;height:24px;color:var(--branco)}
+
+/* ---------- mosaico de capa ---------- */
+#hero{padding:clamp(96px,14vh,150px) 0 clamp(30px,5vh,60px)}
+.mosaico{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(110px,15vh,165px);
+  gap:12px}
+.t{position:relative;border-radius:var(--r);overflow:hidden;background:var(--painel);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:20px 22px;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.t:hover{transform:translateY(-4px)}
+.t.foto{cursor:zoom-in}
+.t .bg{position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.t.foto:hover .bg{transform:scale(1.07)}
+.t .vel{position:absolute;inset:0;background:linear-gradient(transparent 32%,rgba(11,20,22,.88))}
+.t .txt{position:relative;z-index:2}
+.t .txt b{display:block;font:700 clamp(20px,2.6vw,30px)/1.1 var(--f);color:#fff;letter-spacing:-.025em}
+.t .txt span{display:block;margin-top:5px;font:400 13.5px var(--f);color:rgba(255,255,255,.76)}
+.t.cap{grid-column:span 2;grid-row:span 2}
+.t.cap .txt b{font-size:clamp(30px,4.6vw,52px);line-height:.98}
+.t.cap .txt span{font-size:clamp(14px,1.7vw,17px);margin-top:10px}
+.t.wide{grid-column:span 2}
+.t.tall{grid-row:span 2}
+.t.cor-agua{background:linear-gradient(145deg,var(--agua),#1d6c7d)}
+.t.cor-areia{background:linear-gradient(145deg,var(--areia),#c79c54)}
+.t.cor-areia .txt b,.t.cor-areia .txt span{color:#2a1f0d}
+.t.cor-areia .txt span{color:rgba(42,31,13,.72)}
+.t.cor-mata{background:linear-gradient(145deg,var(--mata),#2a5c3c)}
+.t.cor-coral{background:linear-gradient(145deg,var(--coral),#d8472a)}
+.t.cor-escura{background:var(--painel-2)}
+.t .mini{position:relative;z-index:2;width:26px;height:26px;margin-bottom:auto;opacity:.9}
+.faixa-preco{margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;gap:16px;
+  justify-content:space-between;padding:20px 24px;border-radius:var(--r);background:var(--painel)}
+.faixa-preco .p b{font:700 clamp(26px,3.4vw,36px) var(--f);color:var(--branco);letter-spacing:-.03em}
+.faixa-preco .p span{display:block;font-size:13.5px;color:var(--suave)}
+
+/* ---------- seções ---------- */
+section{padding:clamp(60px,9vh,104px) 0}
+.cab{max-width:68ch;margin-bottom:clamp(30px,4.5vh,50px)}
+.cab .olho{margin-bottom:14px}
+.cab h2+p{margin-top:16px}
+
+/* cartões */
+.cartoes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cartao{padding:28px 26px;border-radius:var(--r);background:var(--painel);
+  border:1px solid rgba(243,247,246,.07);transition:transform .3s,border-color .3s}
+.cartao:hover{transform:translateY(-4px);border-color:rgba(255,107,74,.4)}
+.cartao .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+  background:rgba(255,107,74,.14);color:var(--coral);margin-bottom:16px}
+.cartao .ic svg{width:21px;height:21px}
+.cartao h3{margin-bottom:10px}
+.cartao ul{list-style:none;display:grid;gap:8px;margin-top:10px}
+.cartao li{position:relative;padding-left:17px;font-size:14.6px}
+.cartao li::before{content:"";position:absolute;left:0;top:.68em;width:6px;height:6px;
+  border-radius:50%;background:var(--coral);opacity:.75}
+
+/* quartos */
+.camas{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cama{padding:28px 26px;border-radius:var(--r);background:var(--painel-2)}
+.cama b{display:block;font:700 13px var(--f);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--agua-2);margin-bottom:12px}
+.cama h3{margin-bottom:8px}
+.cama p{font-size:14.6px;color:var(--suave)}
+
+/* planta 3d */
+.planta{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,52px);
+  align-items:center;padding:clamp(30px,5vw,58px);border-radius:28px;
+  background:linear-gradient(140deg,rgba(47,155,176,.2),transparent 58%),var(--painel)}
+.plantafig{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;
+  background:linear-gradient(160deg,#17333a,#0d1a1d);border:1px solid rgba(81,195,214,.25)}
+.plantafig svg{position:absolute;inset:0;width:100%;height:100%}
+.plantafig .tag{position:absolute;right:12px;bottom:12px;padding:7px 14px;border-radius:999px;
+  font:600 11px var(--f);letter-spacing:.14em;text-transform:uppercase;color:#07181c;background:var(--agua-2)}
+
+/* valores */
+.tabela{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.linha{padding:28px 26px;border-radius:var(--r);background:var(--painel);
+  border:1px solid rgba(243,247,246,.07);text-align:center;transition:transform .3s,border-color .3s}
+.linha:hover{transform:translateY(-4px);border-color:rgba(255,107,74,.45)}
+.linha small{display:block;font:600 11.5px var(--f);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--suave);margin-bottom:12px}
+.linha b{display:block;font:700 clamp(28px,3.6vw,40px) var(--f);color:var(--branco);letter-spacing:-.03em}
+.linha i{display:block;font-style:normal;font-size:13.5px;color:var(--suave);margin-top:6px}
+.linha.destaque{background:linear-gradient(145deg,rgba(255,107,74,.2),var(--painel));
+  border-color:rgba(255,107,74,.5)}
+
+/* mapa */
+.mapa{border-radius:var(--r);overflow:hidden;aspect-ratio:16/8;background:var(--painel);
+  border:1px solid rgba(243,247,246,.08)}
+.mapa iframe{width:100%;height:100%;border:0;filter:grayscale(.3) invert(.92) hue-rotate(180deg) contrast(.88) brightness(.95)}
+
+/* fechamento */
+#reservar{position:relative;overflow:hidden}
+#reservar .caixa{position:relative;border-radius:28px;overflow:hidden;
+  padding:clamp(40px,7vw,78px) clamp(26px,5vw,60px);text-align:center}
+#reservar .caixa .bg{position:absolute;inset:0;
+  background:url('https://img.olx.com.br/images/22/223650946287979.jpg') center/cover;opacity:.3}
+#reservar .caixa::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(70% 80% at 50% 50%,rgba(11,20,22,.74),rgba(11,20,22,.96))}
+#reservar .caixa>*{position:relative;z-index:2}
+#reservar h2{margin-bottom:16px}
+#reservar .lead{margin:0 auto 28px}
+.insta{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:14px;color:var(--suave)}
+.insta svg{width:17px;height:17px}
+
+/* rodapé */
+footer{border-top:1px solid rgba(243,247,246,.08);padding:42px 0 36px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+footer p{font-size:13.5px;color:var(--suave)}
+footer a{color:var(--coral-2)}
+
+/* zap fixo */
+#zapfixo{position:fixed;z-index:70;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;
+  display:grid;place-items:center;background:#1fa855;color:#fff;
+  box-shadow:0 16px 38px -14px rgba(31,168,85,.9);transition:transform .3s,opacity .3s;
+  opacity:0;pointer-events:none}
+#zapfixo.on{opacity:1;pointer-events:auto}
+#zapfixo:hover{transform:scale(1.08)}
+#zapfixo svg{width:29px;height:29px}
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:90;background:rgba(6,12,13,.96);display:none;place-items:center;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#lb.on{display:grid}
+#lb img{max-width:92vw;max-height:80vh;object-fit:contain;border-radius:12px}
+#lb .cap{margin-top:14px;font-size:14px;color:var(--texto);text-align:center}
+#lb .x,#lb .p,#lb .n{position:absolute;display:grid;place-items:center;color:var(--branco);
+  width:48px;height:48px;border-radius:50%;background:rgba(243,247,246,.1);transition:background .22s}
+#lb .x:hover,#lb .p:hover,#lb .n:hover{background:rgba(255,107,74,.6)}
+#lb .x{top:20px;right:20px;font-size:22px}
+#lb .p{left:3vw;top:50%;transform:translateY(-50%);font-size:24px}
+#lb .n{right:3vw;top:50%;transform:translateY(-50%);font-size:24px}
+
+/* revelar */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.2,.7,.2,1),transform .85s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1000px){
+  #nav{position:fixed;inset:0 0 auto 0;flex-direction:column;justify-content:center;
+    height:100svh;background:rgba(11,20,22,.98);backdrop-filter:blur(14px);gap:24px;
+    transform:translateY(-102%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  #nav.on{transform:none}
+  #nav a{font-size:22px;font-weight:600}
+  #burger{display:grid;z-index:3}
+  #bar .btn{display:none}
+  .mosaico{grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(100px,13vh,140px)}
+  .t.cap{grid-column:span 2;grid-row:span 2}
+  .t.wide{grid-column:span 2}
+  .cartoes,.camas,.tabela{grid-template-columns:1fr}
+  .planta{grid-template-columns:1fr}
+  .faixa-preco{flex-direction:column;align-items:stretch;text-align:center}
+  .faixa-preco .btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="bar">
+  <div class="wrap">
+    <a class="marca" href="#">
+      <span class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 10.5 12 4l9 6.5"/><path d="M5.5 9.4V20h13V9.4"/><path d="M10 20v-5h4v5"/>
+        </svg>
+      </span>
+      <span><b>Casarão do Biel</b><i>Barra do Jacuípe</i></span>
+    </a>
+    <nav id="nav">
+      <a href="#acasa">A casa</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="planta/">Planta 3D</a>
+      <a href="#local">Onde fica</a>
+      <a href="#valores">Valores</a>
+    </nav>
+    <a class="btn btn-coral" href="https://wa.me/5571988714839?text=Oi!%20Vi%20o%20site%20do%20Casar%C3%A3o%20do%20Biel%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener">Reservar</a>
+    <button id="burger" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<section id="hero">
+  <div class="wrap">
+    <div class="mosaico">
+      <div class="t cap foto" data-i="0">
+        <div class="bg" id="capabg" style="background-image:url('https://img.olx.com.br/images/21/213615822239953.jpg')"></div>
+        <div class="vel"></div>
+        <div class="txt">
+          <b>Casarão do Biel<br>Barra do Jacuípe</b>
+          <span>Piscina, deck e quiosque com churrasqueira. Três quartos climatizados pra até 13 pessoas, a casa inteira só pra vocês.</span>
+        </div>
+      </div>
+      <div class="t cor-agua tall">
+        <svg class="mini" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c2 0 2-1.6 4-1.6s2 1.6 4 1.6 2-1.6 4-1.6 2 1.6 4 1.6"/><path d="M3 19c2 0 2-1.6 4-1.6s2 1.6 4 1.6 2-1.6 4-1.6 2 1.6 4 1.6"/><path d="M8 11V6a2 2 0 1 1 4 0"/><path d="M14 11V6a2 2 0 1 1 4 0"/></svg>
+        <div class="txt"><b>Piscina</b><span>Com deck de madeira em volta</span></div>
+      </div>
+      <div class="t foto" data-i="1">
+        <div class="bg" style="background-image:url('https://img.olx.com.br/images/19/196669225306030.jpg')"></div>
+        <div class="vel"></div>
+        <div class="txt"><b>Quiosque</b><span>Balcão e banquetas</span></div>
+      </div>
+      <div class="t cor-areia">
+        <div class="txt"><b>13</b><span>pessoas acomodadas</span></div>
+      </div>
+      <div class="t foto" data-i="2">
+        <div class="bg" style="background-image:url('https://img.olx.com.br/images/22/223650946287979.jpg')"></div>
+        <div class="vel"></div>
+        <div class="txt"><b>Área externa</b><span>Iluminada à noite</span></div>
+      </div>
+      <div class="t cor-mata">
+        <div class="txt"><b>3 quartos</b><span>Todos com ar-condicionado</span></div>
+      </div>
+      <div class="t cor-coral wide">
+        <div class="txt"><b>Planta 3D da casa</b><span>Gire a casa e entre em cada ambiente antes de reservar</span></div>
+        <a href="planta/" style="position:absolute;inset:0;z-index:3" aria-label="Abrir a planta 3D"></a>
+      </div>
+      <div class="t foto" data-i="3">
+        <div class="bg" style="background-image:url('https://img.olx.com.br/images/20/201645104964457.jpg')"></div>
+        <div class="vel"></div>
+        <div class="txt"><b>Churrasqueira</b><span>No quiosque</span></div>
+      </div>
+      <div class="t cor-escura">
+        <div class="txt"><b>2 vagas</b><span>Estacionamento</span></div>
+      </div>
+    </div>
+
+    <div class="faixa-preco">
+      <div class="p"><b>R$ 600</b><span>a diária · 3 diárias por R$ 1.400</span></div>
+      <a class="btn btn-zap" href="https://wa.me/5571988714839?text=Oi!%20Vi%20o%20site%20do%20Casar%C3%A3o%20do%20Biel%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.89 2.38 1.01 2.54c.12.17 1.74 2.65 4.21 3.72.59.25 1.05.4 1.4.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29Z"/></svg>
+        Reservar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="acasa">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">A casa</span>
+      <h2>Tudo mobiliado,<br>é só chegar com a mala</h2>
+      <p class="lead">O Casarão do Biel é uma casa inteira em Barra do Jacuípe, totalmente equipada e mobiliada. Três quartos, todos climatizados com ar-condicionado, e camas box com colchões complementares pra acomodar o grupo inteiro sem aperto.</p>
+      <p class="lead" style="margin-top:14px">A cozinha vem completa, com utensílios e eletrodomésticos. Do lado de fora ficam a piscina, o deck de madeira e o quiosque com churrasqueira, pia e freezer, que é onde o pessoal acaba passando o dia e a noite.</p>
+    </div>
+  </div>
+</section>
+
+<section id="fotos" style="padding-top:0">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Fotos</span>
+      <h2>A área externa</h2>
+      <p class="lead">Toque em qualquer foto pra ver maior.</p>
+    </div>
+    <div class="mosaico" id="grade"></div>
+  </div>
+</section>
+
+<section id="estrutura">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Estrutura</span>
+      <h2>O que tem na casa</h2>
+    </div>
+    <div class="cartoes">
+      <div class="cartao rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c2 0 2-1.6 4-1.6s2 1.6 4 1.6 2-1.6 4-1.6 2 1.6 4 1.6"/><path d="M3 19c2 0 2-1.6 4-1.6s2 1.6 4 1.6 2-1.6 4-1.6 2 1.6 4 1.6"/><path d="M8 11V6a2 2 0 1 1 4 0"/></svg></span>
+        <h3>Área externa</h3>
+        <ul>
+          <li>Piscina</li>
+          <li>Deck de madeira</li>
+          <li>Quiosque com churrasqueira</li>
+          <li>Pia e freezer no quiosque</li>
+          <li>Duas redes para descanso</li>
+          <li>Varanda e terraço</li>
+        </ul>
+      </div>
+      <div class="cartao rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg></span>
+        <h3>Dentro de casa</h3>
+        <ul>
+          <li>Casa mobiliada e equipada</li>
+          <li>Cozinha com utensílios e eletrodomésticos</li>
+          <li>Ar-condicionado nos 3 quartos</li>
+          <li>Três ventiladores</li>
+          <li>Chuveiro elétrico</li>
+          <li>Máquina de lavar</li>
+        </ul>
+      </div>
+      <div class="cartao rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <h3>Praticidades</h3>
+        <ul>
+          <li>Estacionamento com 2 vagas</li>
+          <li>Internet</li>
+          <li>TV a cabo</li>
+          <li>Geladeira e fogão</li>
+          <li>Animais são bem-vindos</li>
+          <li>Acomoda até 13 pessoas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quartos" style="padding-top:0">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Acomodação</span>
+      <h2>Onde cada um dorme</h2>
+      <p class="lead">Três quartos, sendo um deles suíte. Todos climatizados com ar-condicionado e com cama box mais colchões complementares.</p>
+    </div>
+    <div class="camas">
+      <div class="cama rv"><b>Quarto 01</b><h3>Suíte</h3><p>Com banheiro privativo e ar-condicionado.</p></div>
+      <div class="cama rv"><b>Quarto 02</b><h3>Quarto climatizado</h3><p>Cama box e colchões complementares.</p></div>
+      <div class="cama rv"><b>Quarto 03</b><h3>Quarto climatizado</h3><p>Cama box e colchões complementares.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="planta3d" style="padding-top:0">
+  <div class="wrap">
+    <div class="planta rv">
+      <div>
+        <span class="olho">Planta 3D</span>
+        <h2 style="margin:14px 0 16px">Conheça a casa<br>antes de reservar</h2>
+        <p class="lead">Um modelo tridimensional da casa que o hóspede gira com o dedo, abre a cobertura e entra em cada ambiente. Acaba com aquela conversa de mandar foto por foto no WhatsApp pra explicar o espaço.</p>
+        <p style="margin-top:24px"><a class="btn btn-coral" href="planta/">Abrir a planta 3D</a></p>
+      </div>
+      <div class="plantafig">
+        <svg viewBox="0 0 400 300" fill="none" stroke="#51c3d6" stroke-width="1.5" stroke-linejoin="round">
+          <rect x="48" y="52" width="200" height="196" stroke-opacity=".85"/>
+          <path d="M48 140h200M152 52v88M152 190h96M48 190h104" stroke-opacity=".55"/>
+          <rect x="268" y="96" width="92" height="64" rx="6" stroke-opacity=".6"/>
+          <path d="M268 196h92M276 196v48M352 196v48M268 244h92" stroke-opacity=".4"/>
+          <path d="M48 52 148 16l100 36" stroke-opacity=".45"/>
+          <path d="M20 272h360" stroke-opacity=".22"/>
+        </svg>
+        <span class="tag">Modelo 3D</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="local">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Onde fica</span>
+      <h2>Barra do Jacuípe</h2>
+      <p class="lead">A casa fica em Barra do Jacuípe, no distrito de Monte Gordo, em Camaçari, na Bahia. O endereço completo e as orientações de chegada são passados na reserva.</p>
+    </div>
+    <div class="mapa rv">
+      <iframe src="https://www.google.com/maps?q=Barra+do+Jacu%C3%ADpe,+Cama%C3%A7ari,+BA&output=embed" loading="lazy" title="Mapa de Barra do Jacuípe" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="valores">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Valores</span>
+      <h2>Quanto fica a estadia</h2>
+      <p class="lead">Quanto mais dias, melhor o valor da diária. A reserva é fechada direto comigo, pelo WhatsApp.</p>
+    </div>
+    <div class="tabela">
+      <div class="linha rv"><small>1 diária</small><b>R$ 600</b><i>a casa inteira</i></div>
+      <div class="linha rv"><small>2 diárias</small><b>R$ 1.200</b><i>R$ 600 por dia</i></div>
+      <div class="linha destaque rv"><small>3 diárias</small><b>R$ 1.400</b><i>cerca de R$ 467 por dia</i></div>
+    </div>
+  </div>
+</section>
+
+<section id="reservar">
+  <div class="wrap">
+    <div class="caixa rv">
+      <div class="bg"></div>
+      <span class="olho">Casarão do Biel</span>
+      <h2 style="margin-top:14px">Me chama e a gente<br>vê suas datas</h2>
+      <p class="lead">Fala as datas e quantas pessoas vão, que eu confirmo a disponibilidade e te mando mais fotos da casa.</p>
+      <a class="btn btn-zap" href="https://wa.me/5571988714839?text=Oi!%20Vi%20o%20site%20do%20Casar%C3%A3o%20do%20Biel%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <a class="insta" href="https://instagram.com/casaraodobiel" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        @casaraodobiel
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Casarão do Biel · Barra do Jacuípe, Camaçari — BA</p>
+    <p>Site criado por <a href="https://jgg190310-ops.github.io/Imoveis/portfolio/#trabalhos" target="_blank" rel="noopener">João Gabriel Geo</a></p>
+  </div>
+</footer>
+
+<a id="zapfixo" href="https://wa.me/5571988714839?text=Oi!%20Vi%20o%20site%20do%20Casar%C3%A3o%20do%20Biel%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.89 2.38 1.01 2.54c.12.17 1.74 2.65 4.21 3.72.59.25 1.05.4 1.4.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29Z"/></svg>
+</a>
+
+<div id="lb" role="dialog" aria-modal="true">
+  <button class="x" id="lbx" aria-label="Fechar">&times;</button>
+  <button class="p" id="lbp" aria-label="Anterior">&#8249;</button>
+  <button class="n" id="lbn" aria-label="Próxima">&#8250;</button>
+  <div style="display:grid;place-items:center">
+    <img id="lbimg" alt="">
+    <p class="cap" id="lbcap"></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var FOTOS=[
+    {s:'https://img.olx.com.br/images/21/213615822239953.jpg',c:'Piscina e deck de madeira ao anoitecer'},
+    {s:'https://img.olx.com.br/images/19/196669225306030.jpg',c:'Quiosque com balcão e banquetas'},
+    {s:'https://img.olx.com.br/images/22/223650946287979.jpg',c:'Área externa iluminada'},
+    {s:'https://img.olx.com.br/images/20/201645104964457.jpg',c:'Churrasqueira e área de convivência'},
+    {s:'https://img.olx.com.br/images/17/178635701684063.jpg',c:'Piscina com a iluminação da noite'},
+    {s:'https://img.olx.com.br/images/18/188673708170129.jpg',c:'Quintal visto do fundo'}
+  ];
+  var ARRANJO=['cap','','tall','','wide','',''];
+
+  /* galeria em mosaico */
+  var grade=document.getElementById('grade');
+  FOTOS.forEach(function(f,i){
+    var d=document.createElement('div');
+    d.className='t foto rv '+(i===0?'cap':i===3?'wide':i===1?'tall':'');
+    d.innerHTML='<div class="bg" style="background-image:url(\''+f.s+'\')"></div>'+
+      '<div class="vel"></div><div class="txt"><span>'+f.c+'</span></div>';
+    d.addEventListener('click',function(){abre(i);});
+    grade.appendChild(d);
+  });
+
+  /* capa clicável */
+  document.querySelectorAll('#hero .t.foto').forEach(function(el){
+    el.addEventListener('click',function(){abre(parseInt(el.dataset.i,10)||0);});
+  });
+
+  /* lightbox */
+  var lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),
+      lbcap=document.getElementById('lbcap'),atual=0;
+  function abre(i){atual=(i+FOTOS.length)%FOTOS.length;
+    lbimg.src=FOTOS[atual].s;lbimg.alt=FOTOS[atual].c;lbcap.textContent=FOTOS[atual].c;
+    lb.classList.add('on');document.body.style.overflow='hidden';}
+  function fecha(){lb.classList.remove('on');document.body.style.overflow='';}
+  document.getElementById('lbx').addEventListener('click',fecha);
+  document.getElementById('lbp').addEventListener('click',function(e){e.stopPropagation();abre(atual-1);});
+  document.getElementById('lbn').addEventListener('click',function(e){e.stopPropagation();abre(atual+1);});
+  lb.addEventListener('click',function(e){if(e.target===lb)fecha();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('on'))return;
+    if(e.key==='Escape')fecha();
+    if(e.key==='ArrowRight')abre(atual+1);
+    if(e.key==='ArrowLeft')abre(atual-1);
+  });
+
+  /* barra + zap + parallax da capa */
+  var bar=document.getElementById('bar'),zap=document.getElementById('zapfixo'),
+      capa=document.getElementById('capabg');
+  function aoRolar(){
+    var y=scrollY||document.documentElement.scrollTop;
+    bar.classList.toggle('on',y>50);
+    zap.classList.toggle('on',y>400);
+    if(capa&&y<innerHeight*1.3)capa.style.transform='translate3d(0,'+(y*0.12)+'px,0) scale(1.08)';
+  }
+  addEventListener('scroll',aoRolar,{passive:true});aoRolar();
+
+  /* menu */
+  var nav=document.getElementById('nav');
+  document.getElementById('burger').addEventListener('click',function(){nav.classList.toggle('on');});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')nav.classList.remove('on');});
+
+  /* revelar */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    document.querySelectorAll('.rv').forEach(function(el,i){
+      el.style.transitionDelay=(i%4)*70+'ms';io.observe(el);
+    });
+  }else{
+    document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});
+  }
+})();
+</script>
+</body>
+</html>
