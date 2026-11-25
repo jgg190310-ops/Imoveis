@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Casarão do Biel · Casa de temporada em Barra do Jacuípe</title>
 <meta name="description" content="Casa de temporada em Barra do Jacuípe, Camaçari-BA: 3 quartos climatizados, piscina, deck e quiosque com churrasqueira. Até 13 pessoas. Diária a partir de R$ 600.">
@@ -71,6 +72,14 @@ h3{font:500 19px var(--sans);color:var(--creme);letter-spacing:.01em}
 #burger{display:none;width:40px;height:40px;place-items:center}
 #burger svg{width:24px;height:24px;color:var(--creme)}
 
+#bar:not(.on) .marca b{color:#fff}
+#bar:not(.on) .marca i{color:rgba(255,255,255,.8)}
+#bar:not(.on) .marca svg{color:#e6efdd}
+#bar:not(.on) #nav a{color:rgba(255,255,255,.9)}
+#bar:not(.on) #nav a:hover{color:#fff}
+#bar:not(.on) #nav a::after{background:#fff}
+#bar:not(.on) #burger svg{color:#fff}
+@media(max-width:1000px){#bar:not(.on) #nav.on a{color:var(--texto)}}
 /* ---------- capa com parallax ---------- */
 #hero{position:relative;height:clamp(540px,88svh,780px);display:flex;align-items:flex-end;
   overflow:hidden;background:#35482e}
