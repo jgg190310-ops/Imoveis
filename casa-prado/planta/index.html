@@ -88,6 +88,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
   .rot{font-size:10.5px;padding:4px 7px}
   .rot small{font-size:9.5px}
 }
+@media(max-width:560px){.rot small{display:none}}
 @media(max-width:420px){
   .titulo p{display:none}
   .titulo{bottom:78px;padding:10px 13px}
@@ -178,23 +179,38 @@ const CASAS = [
   arvores:[[-9,10],[9,11],[-11,2],[-9,-9],[8,-9],[22,9]]
 },
 {
-  id:'beco-garrafas', nome:'Casa 5 quartos · Centro do Prado', aba:'5 quartos · Centro', tag:'Centro · 50 m da praia',
-  txt:'Casa térrea com cinco quartos, quatro deles suítes, área gourmet coberta com lavabo e piscina ao lado do gramado.',
-  largura:16,
-  andares:[
-    { h:2.9, fileiras:[
-      { d:5.0, comodos:[ {n:'Sala de jantar',s:'mesa grande',t:'sala',w:9}, {n:'Cozinha',s:'equipada',t:'cozinha',w:7} ]},
-      { d:5.5, comodos:[ {n:'Suíte 1',s:'casal',t:'suite',w:4}, {n:'Suíte 2',s:'casal',t:'suite',w:4}, {n:'Suíte 3',s:'duas camas',t:'suite',w:4}, {n:'Suíte 4',s:'duas camas',t:'suite',w:4} ]},
-      { d:4.0, comodos:[ {n:'Quarto 5',s:'duas camas',t:'quarto',w:6}, {n:'Banheiro',s:'social',t:'banheiro',w:4}, {n:'Área de serviço',s:'',t:'servico',w:6} ]}
-    ]}
+  id:'beco-garrafas', nome:'Casa 5 quartos · Centro do Prado', aba:'5 quartos · Centro', tag:'Centro · feita pela planta da casa',
+  txt:'Montada a partir da planta da reforma: cinco quartos, quatro deles suítes, cozinha, duas salas, área gourmet com lavabo e piscina com deck.',
+  plano:true,
+  /* medidas em cm tiradas da planta de reforma (x para leste, y para sul, 0 = canto noroeste da casa) */
+  casa:[0,0,1752,845], alturaPiso:0.45, pe:3.0,
+  comodos:[
+    {n:'Suíte 1',s:'11,6 m²',t:'quarto',casal:true,r:[15,15,397,300],rot:{ly:2.3}},
+    {n:'WC suíte 1',s:'',t:'banheiro',r:[15,308,250,416],rot:{lx:-0.55,ly:1.0}},
+    {n:'WC suíte 2',s:'',t:'banheiro',r:[15,432,250,539],rot:{lx:0.55,ly:1.0}},
+    {n:'Suíte 2',s:'11,3 m²',t:'quarto',casal:true,r:[15,555,397,830],rot:{ly:2.3}},
+    {n:'Cozinha',s:'13,7 m²',t:'cozinha',r:[411,15,803,379]},
+    {n:'WC suíte 3',s:'',t:'banheiro',r:[821,15,1012,182],rot:{ly:1.0}},
+    {n:'WC social',s:'',t:'banheiro',r:[821,197,1012,363],rot:{ly:2.2}},
+    {n:'Suíte 3',s:'a maior, 17 m²',t:'quarto',casal:true,r:[1027,15,1425,368]},
+    {n:'Quarto 5',s:'ampliado',t:'quarto',r:[1440,15,1737,395]},
+    {n:'Corredor',s:'',t:'livre',r:[266,380,1181,500],rot:{ly:0.4,lx:-1.2}},
+    {n:'Sala',s:'13,5 m²',t:'sala',livre:true,r:[411,515,824,830]},
+    {n:'Suíte 4',s:'com banheiro novo',t:'quarto',casal:true,r:[840,545,1166,830]},
+    {n:'WC suíte 4',s:'novo',t:'banheiro',r:[1181,575,1320,830],rot:{ly:1.0}},
+    {n:'Sala ampla',s:'TV e jantar',t:'sala',livre:true,r:[1335,410,1737,830]}
   ],
-  varanda:{ d:2.6, nivel:0 },
-  piscina:{ cx:-13, cz:3, w:8, d:4 },
-  gourmet:{ cx:13, cz:2, w:7, d:6 },
-  extras:[ {t:'label', n:'Piscina', s:'8 x 4 m', x:-13, z:3, y:1.1},
-           {t:'label', n:'Área gourmet', s:'churrasqueira e lavabo', x:13, z:2, y:3.2},
-           {t:'label', n:'Beco das Garrafas', s:'bares, a 50 m', x:0, z:19, y:1.4} ],
-  arvores:[[-11,12],[11,12],[-17,-6],[17,-6],[0,-13]]
+  varanda:{ larg:150, s:'de frente para a piscina' },
+  piscina:[-863,-9,-530,696],
+  deck:[-1033,-646,-130,-195],
+  gourmet:[-1036,873,-434,1325],
+  degraus:[-260,-130,-139,120],
+  lote:[-1059,-653,1765,1334],
+  extras:[ {t:'label', n:'Piscina', s:'3,3 x 7 m', p:[-700,350], y:1.1},
+           {t:'label', n:'Deck com pergolado', s:'27 m²', p:[-580,-420], y:3.4},
+           {t:'label', n:'Área gourmet', s:'churrasqueira e lavabo', p:[-735,1100], y:3.4},
+           {t:'label', n:'Praia e Beco das Garrafas', s:'a 50 m', p:[-300,1500], y:1.2} ],
+  arvores:[[-200,-500],[-900,950],[1500,-560],[300,1200],[-1000,-200]]
 },
 {
   id:'novo-prado', nome:'Casa 4 quartos · Novo Prado', aba:'4 quartos · Novo Prado', tag:'Novo Prado · 400 m da praia',
@@ -374,6 +390,91 @@ function telhado(cx, cz, w, d, baseY, parent, altura){
   return m;
 }
 
+/* ====== casa montada pela planta real (medidas em cm) ======
+   planta: x para leste, y para sul. Na cena a piscina (oeste) fica na frente: z = -(x - cx), x = y - cy */
+function montaPlano(casa){
+  limpa(); casaAtual = casa;
+  const [hx0,hy0,hx1,hy1] = casa.casa, cx = (hx0+hx1)/2, cy = (hy0+hy1)/2;
+  const R = r => { const xa=(r[1]-cy)/100, xb=(r[3]-cy)/100, za=-(r[2]-cx)/100, zb=-(r[0]-cx)/100;
+                   return { cx:(xa+xb)/2, cz:(za+zb)/2, w:xb-xa, d:zb-za }; };
+  const PT = p => [ (p[1]-cy)/100, -(p[0]-cx)/100 ];
+  const y0 = casa.alturaPiso, H = casa.pe, esp = 0.12;
+  /* terreno */
+  const L = R(casa.lote);
+  box(L.w+40, 0.3, L.d+40, M.grama, L.cx, -0.15, L.cz, grupo).castShadow = false;
+  /* casa: base elevada e piso */
+  const C = R(casa.casa);
+  box(C.w+0.3, y0, C.d+0.3, M.borda, C.cx, y0/2, C.cz, grupo);
+  box(C.w, 0.06, C.d, M.piso, C.cx, y0+0.03, C.cz, grupo);
+  /* paredes externas (frente para a piscina com vidro) */
+  box(C.w+0.2, H, 0.2, M.parede, C.cx, y0+H/2, C.cz - C.d/2, grupo);
+  box(0.2, H, C.d+0.2, M.parede2, C.cx - C.w/2, y0+H/2, C.cz, grupo);
+  box(0.2, H, C.d+0.2, M.parede2, C.cx + C.w/2, y0+H/2, C.cz, grupo);
+  [[-0.5,0.16],[-0.17,0.16],[0.17,0.16],[0.5,0.16]].forEach(f=>box(C.w*f[1]*0.9, H, 0.2, M.parede, C.cx + C.w*f[0]*0.82, y0+H/2, C.cz + C.d/2, grupo));
+  box(C.w*0.92, H-0.6, 0.08, M.vidro, C.cx, y0+(H-0.6)/2+0.3, C.cz + C.d/2, grupo);
+  /* comodos */
+  casa.comodos.forEach(c=>{
+    const q = R(c.r), yb = y0;
+    if(c.t !== 'livre' && !c.livre){
+      box(q.w, H, esp, M.parede2, q.cx, yb+H/2, q.cz - q.d/2, grupo);
+      box(q.w, H, esp, M.parede2, q.cx, yb+H/2, q.cz + q.d/2, grupo);
+      box(esp, H, q.d, M.parede2, q.cx - q.w/2, yb+H/2, q.cz, grupo);
+      box(esp, H, q.d, M.parede2, q.cx + q.w/2, yb+H/2, q.cz, grupo);
+    }
+    if(c.t === 'quarto'){
+      if(c.casal) cama(q.cx, yb, q.cz - 0.2, grupo, true);
+      else { cama(q.cx-0.7, yb, q.cz-0.2, grupo, false); cama(q.cx+0.7, yb, q.cz-0.2, grupo, false); }
+    } else if(c.t === 'banheiro'){
+      louca(q.cx-0.35, yb, q.cz, grupo);
+    } else if(c.t === 'cozinha'){
+      bancada(q.cx, yb, q.cz - q.d/2 + 0.5, grupo, Math.min(q.w-0.8, 3.4));
+      mesa(q.cx, yb, q.cz + 0.6, grupo, 1.6, 0.9);
+    } else if(c.t === 'sala'){
+      sofa(q.cx-0.5, yb, q.cz+0.5, grupo, Math.min(q.w-1.2, 2.8));
+      mesa(q.cx+0.6, yb, q.cz-1.0, grupo, 1.8, 0.95);
+    }
+    const o = c.rot || {};
+    rotulo(c.n, c.s, q.cx + (o.lx||0), yb + (o.ly||1.6), q.cz + (o.lz||0), false, 'terreo', grupo);
+  });
+  /* varanda na frente (lado da piscina) */
+  const vd = casa.varanda.larg/100, vz = C.cz + C.d/2 + vd/2;
+  box(C.w, y0, vd, M.piso, C.cx, y0/2, vz, grupo);
+  const topo = y0 + H;
+  for(let i=0;i<6;i++) box(0.24, H, 0.24, M.madeira, C.cx - C.w/2 + 0.3 + i*(C.w-0.6)/5, y0+H/2, C.cz + C.d/2 + vd - 0.2, grupo);
+  rotulo('Varanda', casa.varanda.s, C.cx - C.w/2 + 2.2, y0 + 0.5, vz + 0.3, true, 'todos', grupo);
+  telhado(C.cx, C.cz + vd/2, C.w + 1.4, C.d + vd + 0.6, topo, gTelhado, 1.7);
+  /* degraus entre a varanda e o quintal */
+  if(casa.degraus){ const g = R(casa.degraus); for(let i=0;i<3;i++){ const hh = y0*(3-i)/3; box(g.w, hh, g.d/3, M.borda, g.cx, hh/2, g.cz - g.d/2 + g.d/6 + i*g.d/3, grupo); } }
+  /* piscina */
+  const P = R(casa.piscina);
+  box(P.w+1.4, 0.2, P.d+1.4, M.borda, P.cx, 0.1, P.cz, grupo);
+  box(P.w, 0.4, P.d, M.agua, P.cx, 0.12, P.cz, grupo);
+  box(1.6,0.18,0.7, M.tecido, P.cx + P.w/2 + 1.0, 0.3, P.cz - 0.6, grupo);
+  box(1.6,0.18,0.7, M.tecido, P.cx + P.w/2 + 1.0, 0.3, P.cz + 0.6, grupo);
+  /* deck com pergolado */
+  const D = R(casa.deck);
+  box(D.w, 0.16, D.d, M.madeira2, D.cx, 0.08, D.cz, grupo);
+  [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(s=>box(0.2, 2.9, 0.2, M.madeira, D.cx + s[0]*(D.w/2-0.3), 1.45, D.cz + s[1]*(D.d/2-0.3), grupo));
+  for(let i=0;i<9;i++) box(D.w, 0.1, 0.12, M.madeira, D.cx, 2.95, D.cz - D.d/2 + 0.3 + i*(D.d-0.6)/8, gTelhado);
+  /* area gourmet coberta, com lavabo */
+  const G = R(casa.gourmet);
+  box(G.w, 0.2, G.d, M.piso, G.cx, 0.1, G.cz, grupo);
+  box(G.w, 2.8, 0.18, M.parede, G.cx, 1.5, G.cz + G.d/2, grupo);
+  box(0.18, 2.8, G.d, M.parede2, G.cx + G.w/2, 1.5, G.cz, grupo);
+  [[-1,-1],[1,-1],[-1,1]].forEach(s=>box(0.24, 2.9, 0.24, M.madeira, G.cx + s[0]*(G.w/2-0.25), 1.45, G.cz + s[1]*(G.d/2-0.25), grupo));
+  box(G.w+0.6, 0.22, G.d+0.6, M.telha, G.cx, 3.0, G.cz, gTelhado);
+  bancada(G.cx - 0.6, 0.2, G.cz + G.d/2 - 0.6, grupo, Math.min(G.w-2, 3.4));
+  mesa(G.cx - 0.8, 0.2, G.cz - 0.3, grupo, 2.6, 1.0);
+  box(1.4, 2.4, 1.6, M.parede2, G.cx + G.w/2 - 0.9, 1.4, G.cz + G.d/2 - 1.0, grupo);
+  /* arvores e rotulos externos */
+  (casa.arvores||[]).forEach((a,i)=>{ const t = PT(a); if(i%2===0) palmeira(t[0], t[1], grupo, 0.9); else arvore(t[0], t[1], grupo, 0.9); });
+  (casa.extras||[]).forEach(e=>{ const t = PT(e.p); rotulo(e.n, e.s, t[0], e.y, t[1], true, 'todos', grupo); });
+  casa._alvo = [L.cx*0.5 + C.cx*0.5, 1.5, (C.cz + P.cz)/2];
+  casa._raio = 34;
+  casa._topo = [C.cx, 0, (C.cz - C.d/2 + P.cz + P.d/2)/2];
+  montaLista(); aplicaNivel(); enquadra();
+}
+
 /* bloco de uma fileira: andar de cima parcial e construcao separada */
 function bloco(b, cx, cz, baseY, parent, nivel){
   const w = b.w, d = b.d, h = b.h, esp = 0.18;
@@ -400,6 +501,7 @@ function bloco(b, cx, cz, baseY, parent, nivel){
 }
 
 function monta(casa){
+  if(casa.plano) return montaPlano(casa);
   limpa();
   casaAtual = casa;
 
@@ -604,7 +706,7 @@ function selecionar(i){
   elTag.textContent = c.tag; elNome.textContent = c.nome; elTxt.textContent = c.txt;
   nivelAtual = 'todos'; telhadoOn = true;
   document.getElementById('bt-telhado').classList.add('on');
-  const temCima = c.andares.length>1 || !!c.superior;
+  const temCima = (c.andares||[]).length>1 || !!c.superior;
   document.getElementById('bt-nivel').textContent = 'Térreo';
   document.getElementById('bt-nivel').style.display = temCima ? '' : 'none';
   document.getElementById('bt-nivel').classList.remove('on');
@@ -641,7 +743,10 @@ document.getElementById('bt-topo').addEventListener('click', function(){
     telhadoOn = false; document.getElementById('bt-telhado').classList.remove('on'); aplicaNivel();
     let r = raio();
     if(innerWidth < 760) r *= 1.5;
-    anima(new THREE.Vector3(0, r*1.45, 0.01), new THREE.Vector3(0,0,2));
+    if(casaAtual.plano){
+      const a = casaAtual._topo, mob = innerWidth < 760;
+      anima(new THREE.Vector3(a[0] - (mob?0:1.2), (mob? r*1.25 : r*1.2), a[2] + (mob?1.2:0)), new THREE.Vector3(a[0],0,a[2]));
+    } else anima(new THREE.Vector3(0, r*1.45, 0.01), new THREE.Vector3(0,0,2));
   } else { enquadra(); }
 });
 document.getElementById('bt-reset').addEventListener('click', ()=>{
@@ -651,6 +756,7 @@ document.getElementById('bt-reset').addEventListener('click', ()=>{
 
 function raio(){
   const c = casaAtual;
+  if(c.plano) return c._raio || 36;
   let prof = 0; c.andares[0].fileiras.forEach(f=>prof+=f.d);
   const lado = c.anexo ? (Math.abs(c.anexo.cx) + c.anexo.w/2 + 3) : 0;
   return Math.max(c.largura, prof, lado) + 22;
@@ -659,6 +765,12 @@ function enquadra(){
   let r = raio();
   if(innerWidth < 760) r *= 1.45;
   else if(innerWidth < 1100) r *= 1.15;
+  if(casaAtual.plano){
+    const a = casaAtual._alvo;
+    if(innerWidth < 760){ r *= 1.3; anima(new THREE.Vector3(a[0] + 1.5 - r*0.25, r*0.95, a[2] + r*0.9), new THREE.Vector3(a[0] + 1.5, 1.5, a[2] - 3)); }
+    else anima(new THREE.Vector3(a[0] - r*0.55, r*0.62, a[2] + r*0.95), new THREE.Vector3(a[0], 1.5, a[2] - 1));
+    return;
+  }
   const ox = casaAtual.anexo ? casaAtual.anexo.cx*0.35 : 0;
   if(casaAtual.anexo && innerWidth < 760){
     /* no celular a casa e a construcao separada ficam uma atras da outra, cabe tudo na tela */
