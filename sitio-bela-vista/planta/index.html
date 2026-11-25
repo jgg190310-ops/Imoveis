@@ -582,7 +582,10 @@ function arvore(g, x, z, h = 4.4, r = 1.7) {
   const bw = .45, cx = (P.x0 + P.x1) / 2, cz = (P.z0 + P.z1) / 2;
   const pw = P.x1 - P.x0, pd = P.z1 - P.z0;
   /* borda / coroamento */
-  piso(g, { x0: P.x0 - bw, x1: P.x1 + bw, z0: P.z0 - bw, z1: P.z1 + bw }, M.pastilha, .12);
+  piso(g, { x0: P.x0 - bw, x1: P.x1 + bw, z0: P.z0 - bw, z1: P.z0 }, M.pastilha, .12);
+  piso(g, { x0: P.x0 - bw, x1: P.x1 + bw, z0: P.z1, z1: P.z1 + bw }, M.pastilha, .12);
+  piso(g, { x0: P.x0 - bw, x1: P.x0, z0: P.z0, z1: P.z1 }, M.pastilha, .12);
+  piso(g, { x0: P.x1, x1: P.x1 + bw, z0: P.z0, z1: P.z1 }, M.pastilha, .12);
   /* caixa da piscina, com as paredes aparentes e o fundo mais fundo */
   caixa(g, pw + .3, .12, pd + .3, M.pastilha, cx, -PROF_PISC - .12, cz, false);
   caixa(g, pw + .3, PROF_PISC, .22, M.pastilha, cx, -PROF_PISC, P.z0 - .04, false);

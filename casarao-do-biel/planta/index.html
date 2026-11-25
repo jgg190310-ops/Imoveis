@@ -577,7 +577,10 @@ function coqueiro(g, x, z, h = 6.0) {
   const P = EXT.piscina, bw = .4;
   const cxp = (P.x0 + P.x1) / 2, czp = (P.z0 + P.z1) / 2;
   const pw = P.x1 - P.x0, pd = P.z1 - P.z0;
-  piso(g, { x0: P.x0 - bw, x1: P.x1 + bw, z0: P.z0 - bw, z1: P.z1 + bw }, M.pastilha, .14);
+  piso(g, { x0: P.x0 - bw, x1: P.x1 + bw, z0: P.z0 - bw, z1: P.z0 }, M.pastilha, .14);
+  piso(g, { x0: P.x0 - bw, x1: P.x1 + bw, z0: P.z1, z1: P.z1 + bw }, M.pastilha, .14);
+  piso(g, { x0: P.x0 - bw, x1: P.x0, z0: P.z0, z1: P.z1 }, M.pastilha, .14);
+  piso(g, { x0: P.x1, x1: P.x1 + bw, z0: P.z0, z1: P.z1 }, M.pastilha, .14);
   caixa(g, pw + .3, .12, pd + .3, M.pastilha, cxp, -PROF_PISC - .12, czp, false);
   caixa(g, pw + .3, PROF_PISC, .22, M.pastilha, cxp, -PROF_PISC, P.z0 - .04, false);
   caixa(g, pw + .3, PROF_PISC, .22, M.pastilha, cxp, -PROF_PISC, P.z1 + .04, false);
