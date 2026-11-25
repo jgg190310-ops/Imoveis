@@ -385,7 +385,10 @@ function coqueiro(g, x, z, h = 6.0) {
   chao.receiveShadow = true;
   g.add(chao);
 
-  piso(g, LOTE, M.grama, -.06, .3);
+  piso(g, { x0: LOTE.x0, x1: LOTE.x1, z0: LOTE.z0, z1: 16.5 }, M.grama, -.06, .3);
+  piso(g, { x0: LOTE.x0, x1: LOTE.x1, z0: 21.1, z1: LOTE.z1 }, M.grama, -.06, .3);
+  piso(g, { x0: LOTE.x0, x1: 1.7, z0: 16.5, z1: 21.1 }, M.grama, -.06, .3);
+  piso(g, { x0: 7.9, x1: LOTE.x1, z0: 16.5, z1: 21.1 }, M.grama, -.06, .3);
   piso(g, { x0: CASA.x0 - 1.2, x1: CASA.x1 + 1.2, z0: CASA.z0 - 1.2, z1: CASA.z1 + .9 }, M.pisoMolh, .02);
   piso(g, { x0: 5.2, x1: 7.2, z0: 0, z1: 4 }, M.pisoMolh, .03);
   piso(g, { x0: -4, x1: 21, z0: -3.2, z1: 0 }, M.areiaCh, .02);
@@ -399,10 +402,10 @@ function coqueiro(g, x, z, h = 6.0) {
   parede(g, 'x', LOTE.z1 - .1, LOTE.x0, LOTE.x1, 0, h, M.paredeExt);
   parede(g, 'x', LOTE.z0 + .1, LOTE.x0, LOTE.x1, 0, h, M.paredeExt, [{ a: 5.0, b: 7.4 }, { a: 11.4, b: 15.6 }]);
 
-  coqueiro(g, .9, 13.6, 6.6);
-  coqueiro(g, 15.2, 11.4, 5.8);
-  coqueiro(g, 15.1, 22.8, 6.2);
-  coqueiro(g, 1.0, 1.6, 5.4);
+  coqueiro(g, .75, 8.6, 6.6);
+  coqueiro(g, 15.2, 9.2, 5.8);
+  coqueiro(g, 15.2, 22.9, 6.2);
+  coqueiro(g, .8, 2.0, 5.4);
 })();
 
 /* ===================== CASA ===================== */
@@ -558,21 +561,31 @@ function coqueiro(g, x, z, h = 6.0) {
 (function lazer() {
   const g = G.lazer;
 
-  /* deck de madeira */
-  piso(g, EXT.deck, M.deck, .08);
-  for (let i = 0; i < 22; i++)
-    caixa(g, EXT.deck.x1 - EXT.deck.x0, .012, .07, M.deckEsc,
-      (EXT.deck.x0 + EXT.deck.x1) / 2, .082, EXT.deck.z0 + .2 + i * ((EXT.deck.z1 - EXT.deck.z0 - .4) / 21), false);
+  /* deck de madeira, aberto em volta da piscina */
+  const D = EXT.deck, Pi = EXT.piscina;
+  piso(g, { x0: D.x0, x1: D.x1, z0: D.z0, z1: Pi.z0 - .45 }, M.deck, .08);
+  piso(g, { x0: D.x0, x1: D.x1, z0: Pi.z1 + .45, z1: D.z1 }, M.deck, .08);
+  piso(g, { x0: D.x0, x1: Pi.x0 - .4, z0: Pi.z0 - .45, z1: Pi.z1 + .45 }, M.deck, .08);
+  piso(g, { x0: Pi.x1 + .4, x1: D.x1, z0: Pi.z0 - .45, z1: Pi.z1 + .45 }, M.deck, .08);
+  for (let i = 0; i < 22; i++) {
+    const zz = D.z0 + .2 + i * ((D.z1 - D.z0 - .4) / 21);
+    if (zz > Pi.z0 - .5 && zz < Pi.z1 + .5) continue;
+    caixa(g, D.x1 - D.x0, .012, .07, M.deckEsc, (D.x0 + D.x1) / 2, .082, zz, false);
+  }
 
   /* piscina */
-  const P = EXT.piscina, bw = .35;
-  piso(g, { x0: P.x0 - bw, x1: P.x1 + bw, z0: P.z0 - bw, z1: P.z1 + bw }, M.pastilha, .1);
-  caixa(g, P.x1 - P.x0, PROF_PISC, P.z1 - P.z0, M.pastilha,
-    (P.x0 + P.x1) / 2, .08 - PROF_PISC, (P.z0 + P.z1) / 2, false);
-  caixa(g, P.x1 - P.x0 - .1, .04, P.z1 - P.z0 - .1, M.agua,
-    (P.x0 + P.x1) / 2, -.08, (P.z0 + P.z1) / 2, false);
-  caixa(g, .85, .05, .5, M.pastilha, P.x0 + 1.0, -.4, P.z0 + .36, false);
-  caixa(g, .85, .05, .5, M.pastilha, P.x0 + 1.0, -.7, P.z0 + .86, false);
+  const P = EXT.piscina, bw = .4;
+  const cxp = (P.x0 + P.x1) / 2, czp = (P.z0 + P.z1) / 2;
+  const pw = P.x1 - P.x0, pd = P.z1 - P.z0;
+  piso(g, { x0: P.x0 - bw, x1: P.x1 + bw, z0: P.z0 - bw, z1: P.z1 + bw }, M.pastilha, .14);
+  caixa(g, pw + .3, .12, pd + .3, M.pastilha, cxp, -PROF_PISC - .12, czp, false);
+  caixa(g, pw + .3, PROF_PISC, .22, M.pastilha, cxp, -PROF_PISC, P.z0 - .04, false);
+  caixa(g, pw + .3, PROF_PISC, .22, M.pastilha, cxp, -PROF_PISC, P.z1 + .04, false);
+  caixa(g, .22, PROF_PISC, pd + .3, M.pastilha, P.x0 - .04, -PROF_PISC, czp, false);
+  caixa(g, .22, PROF_PISC, pd + .3, M.pastilha, P.x1 + .04, -PROF_PISC, czp, false);
+  caixa(g, pw, .06, pd, M.agua, cxp, -.12, czp, false);
+  caixa(g, .9, .06, .5, M.pastilha, P.x0 + 1.0, -.45, P.z0 + .34, false);
+  caixa(g, .9, .06, .5, M.pastilha, P.x0 + 1.0, -.8, P.z0 + .84, false);
 
   /* espreguiçadeiras */
   for (let i = 0; i < 2; i++) {

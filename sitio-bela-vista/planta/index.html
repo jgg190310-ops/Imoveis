@@ -381,7 +381,10 @@ function arvore(g, x, z, h = 4.4, r = 1.7) {
   chao.receiveShadow = true;
   g.add(chao);
 
-  piso(g, LOTE, M.grama, -.06, .3);
+  piso(g, { x0: LOTE.x0, x1: LOTE.x1, z0: LOTE.z0, z1: 19.9 }, M.grama, -.06, .3);
+  piso(g, { x0: LOTE.x0, x1: LOTE.x1, z0: 24.7, z1: LOTE.z1 }, M.grama, -.06, .3);
+  piso(g, { x0: LOTE.x0, x1: 2.1, z0: 19.9, z1: 24.7 }, M.grama, -.06, .3);
+  piso(g, { x0: 9.7, x1: LOTE.x1, z0: 19.9, z1: 24.7 }, M.grama, -.06, .3);
   /* faixa de piso ao redor da casa */
   piso(g, { x0: CASA.x0 - 1.3, x1: CASA.x1 + 1.3, z0: CASA.z0 - 1.3, z1: CASA.z1 + 1.3 }, M.pisoMolh, .02);
   /* caminho da entrada */
@@ -391,8 +394,11 @@ function arvore(g, x, z, h = 4.4, r = 1.7) {
   /* estacionamento */
   piso(g, EXT.garagem, M.pisoMolh, .03);
   for (let i = 0; i < 4; i++) caixa(g, .12, .05, 3.6, M.branco, 14.2 + i * 1.1, .04, 3.7, false);
-  /* deck da área de lazer */
-  piso(g, { x0: 2.0, x1: 17.2, z0: 19.2, z1: 24.8 }, M.deck, .06);
+  /* deck da área de lazer, aberto em volta da piscina */
+  piso(g, { x0: 2.0, x1: 17.2, z0: 19.2, z1: 19.95 }, M.deck, .06);
+  piso(g, { x0: 2.0, x1: 17.2, z0: 24.65, z1: 24.8 }, M.deck, .06);
+  piso(g, { x0: 2.0, x1: 2.15, z0: 19.95, z1: 24.65 }, M.deck, .06);
+  piso(g, { x0: 9.65, x1: 17.2, z0: 19.95, z1: 24.65 }, M.deck, .06);
   /* grama do fundo */
   piso(g, { x0: 0, x1: 19, z0: 24.8, z1: 27 }, M.gramaEsc, .01);
 
@@ -573,15 +579,21 @@ function arvore(g, x, z, h = 4.4, r = 1.7) {
   const P = EXT.piscina;
 
   /* piscina */
-  const bw = .4;
-  piso(g, { x0: P.x0 - bw, x1: P.x1 + bw, z0: P.z0 - bw, z1: P.z1 + bw }, M.pastilha, .08);
-  caixa(g, P.x1 - P.x0, PROF_PISC, P.z1 - P.z0, M.pastilha,
-    (P.x0 + P.x1) / 2, .06 - PROF_PISC, (P.z0 + P.z1) / 2, false);
-  caixa(g, P.x1 - P.x0 - .1, .04, P.z1 - P.z0 - .1, M.agua,
-    (P.x0 + P.x1) / 2, -.1, (P.z0 + P.z1) / 2, false);
-  /* escada */
-  caixa(g, .9, .05, .55, M.pastilha, P.x0 + 1.1, -.42, P.z0 + .4, false);
-  caixa(g, .9, .05, .55, M.pastilha, P.x0 + 1.1, -.76, P.z0 + .95, false);
+  const bw = .45, cx = (P.x0 + P.x1) / 2, cz = (P.z0 + P.z1) / 2;
+  const pw = P.x1 - P.x0, pd = P.z1 - P.z0;
+  /* borda / coroamento */
+  piso(g, { x0: P.x0 - bw, x1: P.x1 + bw, z0: P.z0 - bw, z1: P.z1 + bw }, M.pastilha, .12);
+  /* caixa da piscina, com as paredes aparentes e o fundo mais fundo */
+  caixa(g, pw + .3, .12, pd + .3, M.pastilha, cx, -PROF_PISC - .12, cz, false);
+  caixa(g, pw + .3, PROF_PISC, .22, M.pastilha, cx, -PROF_PISC, P.z0 - .04, false);
+  caixa(g, pw + .3, PROF_PISC, .22, M.pastilha, cx, -PROF_PISC, P.z1 + .04, false);
+  caixa(g, .22, PROF_PISC, pd + .3, M.pastilha, P.x0 - .04, -PROF_PISC, cz, false);
+  caixa(g, .22, PROF_PISC, pd + .3, M.pastilha, P.x1 + .04, -PROF_PISC, cz, false);
+  /* lamina d'agua logo abaixo da borda */
+  caixa(g, pw, .06, pd, M.agua, cx, -.12, cz, false);
+  /* escada de acesso */
+  caixa(g, .95, .06, .5, M.pastilha, P.x0 + 1.2, -.45, P.z0 + .35, false);
+  caixa(g, .95, .06, .5, M.pastilha, P.x0 + 1.2, -.8, P.z0 + .85, false);
   /* espreguiçadeiras */
   for (let i = 0; i < 3; i++) {
     caixa(g, .72, .09, 1.9, M.branco, 3.2 + i * 1.5, .5, 19.0, true);
