@@ -305,6 +305,7 @@ const M = {
 };
 
 /* ===================== GRUPOS ===================== */
+const TETOS = [];
 const G = {
   terreno:   new THREE.Group(),
   casa:      new THREE.Group(),
@@ -613,7 +614,7 @@ function arvore(g, x, z, h = 4.4, r = 1.7) {
   /* pergolado */
   for (let i = 0; i <= 8; i++)
     caixa(g, Q.x1 - Q.x0 + .5, .1, .14, M.madClara, (Q.x0 + Q.x1) / 2, .14 + ALT_GOURMET, Q.z0 + .2 + i * ((Q.z1 - Q.z0 - .4) / 8), false);
-  caixa(g, Q.x1 - Q.x0 + .6, .14, Q.z1 - Q.z0 + .6, M.telha, (Q.x0 + Q.x1) / 2, .14 + ALT_GOURMET + .1, (Q.z0 + Q.z1) / 2, true);
+  TETOS.push(caixa(g, Q.x1 - Q.x0 + .6, .14, Q.z1 - Q.z0 + .6, M.telha, (Q.x0 + Q.x1) / 2, .14 + ALT_GOURMET + .1, (Q.z0 + Q.z1) / 2, true));
 
   /* bancada, churrasqueira e fogão a lenha */
   caixa(g, 5.4, .92, .68, M.movel, (Q.x0 + Q.x1) / 2, .14, Q.z1 - .5);
@@ -641,7 +642,7 @@ function arvore(g, x, z, h = 4.4, r = 1.7) {
   parede(g, 'z', L.x1, L.z0, L.z1, .12, 2.5, M.paredeExt);
   parede(g, 'x', L.z1, L.x0, L.x1, .12, 2.5, M.paredeExt);
   parede(g, 'x', L.z0, L.x0, L.x1, .12, 2.5, M.paredeExt);
-  caixa(g, L.x1 - L.x0 + .4, .14, L.z1 - L.z0 + .4, M.telha, (L.x0 + L.x1) / 2, .12 + 2.5, (L.z0 + L.z1) / 2);
+  TETOS.push(caixa(g, L.x1 - L.x0 + .4, .14, L.z1 - L.z0 + .4, M.telha, (L.x0 + L.x1) / 2, .12 + 2.5, (L.z0 + L.z1) / 2));
   caixa(g, .64, .88, .62, M.branco, L.x0 + .6, .12, L.z1 - .6);   // máquina de lavar
   caixa(g, 1.5, .9, .58, M.movel, (L.x0 + L.x1) / 2, .12, L.z0 + .5);
   caixa(g, 1.5, .05, .6, M.granito, (L.x0 + L.x1) / 2, .12 + .9, L.z0 + .5, false);
@@ -701,6 +702,7 @@ function aplicar() {
   G.casa.visible = G.mob.visible = foco !== 'lazer';
   G.lazer.visible = foco !== 'casa';
   G.cobertura.visible = !aberto && foco !== 'lazer';
+  TETOS.forEach(t => { t.visible = !aberto; });
   rotulos.forEach(r => {
     let ok = false;
     if (r.piso === 'casa') ok = aberto && foco !== 'lazer';

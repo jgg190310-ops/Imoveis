@@ -306,6 +306,7 @@ const M = {
 };
 
 /* ===================== GRUPOS ===================== */
+const TETOS = [];
 const G = {
   terreno:   new THREE.Group(),
   casa:      new THREE.Group(),
@@ -605,7 +606,7 @@ function coqueiro(g, x, z, h = 6.0) {
   for (let i = 0; i <= 8; i++)
     caixa(g, Q.x1 - Q.x0 + .45, .09, .13, M.madClara, (Q.x0 + Q.x1) / 2, .16 + ALT_QUIOSQUE,
       Q.z0 + .2 + i * ((Q.z1 - Q.z0 - .4) / 8), false);
-  caixa(g, Q.x1 - Q.x0 + .55, .14, Q.z1 - Q.z0 + .55, M.telha, (Q.x0 + Q.x1) / 2, .16 + ALT_QUIOSQUE + .09, (Q.z0 + Q.z1) / 2, true);
+  TETOS.push(caixa(g, Q.x1 - Q.x0 + .55, .14, Q.z1 - Q.z0 + .55, M.telha, (Q.x0 + Q.x1) / 2, .16 + ALT_QUIOSQUE + .09, (Q.z0 + Q.z1) / 2, true));
 
   /* balcão com banquetas */
   const bz = Q.z0 + 1.0;
@@ -670,6 +671,7 @@ function aplicar() {
   G.casa.visible = G.mob.visible = foco !== 'lazer';
   G.lazer.visible = foco !== 'casa';
   G.cobertura.visible = !aberto && foco !== 'lazer';
+  TETOS.forEach(t => { t.visible = !aberto; });
   rotulos.forEach(r => {
     let ok = false;
     if (r.piso === 'casa') ok = aberto && foco !== 'lazer';
