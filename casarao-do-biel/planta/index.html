@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
 <title>Planta 3D · Casarão do Biel</title>
-<meta name="description" content="Planta 3D interativa do Casarão do Biel, em Barra do Jacuípe: 3 quartos climatizados, sala, cozinha, varanda, piscina, deck, quiosque com churrasqueira e pergolado com mesas e cadeiras.">
+<meta name="description" content="Planta 3D interativa do Casarão do Biel, em Barra do Jacuípe: 3 quartos, sala, cozinha, varanda, piscina, deck, quiosque com churrasqueira e pergolado com mesas e cadeiras.">
 <meta name="theme-color" content="#0b1416">
 <meta property="og:title" content="Planta 3D · Casarão do Biel">
 <meta property="og:description" content="Gire a casa com o dedo, tire a cobertura e entre em cada ambiente.">
@@ -188,7 +188,7 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
   </button>
 </div>
 
-<p class="nota">Modelo representativo, montado a partir das fotos e da descrição do anúncio: 3 quartos climatizados, sendo um suíte, sala, cozinha equipada, varanda, área de serviço no fundo com pia e máquina de lavar, piscina com deck, quiosque com churrasqueira, pia e freezer, e pergolado com mesas e cadeiras. Acomoda até 15 pessoas. Quando o proprietário enviar a planta baixa, o modelo é refeito fiel ao projeto.</p>
+<p class="nota">Modelo representativo, montado a partir das fotos e da descrição do anúncio: 3 quartos, sendo um suíte, sala, cozinha equipada, varanda, área de serviço no fundo com pia e máquina de lavar, piscina com deck em piso, quiosque com churrasqueira, pia e freezer, e pergolado com mesas e cadeiras. Acomoda até 15 pessoas. Quando o proprietário enviar a planta baixa, o modelo é refeito fiel ao projeto.</p>
 
 <div id="carregando"><div><b>Casarão do Biel</b><i></i></div></div>
 
@@ -281,8 +281,8 @@ const M = {
   paredeInt: std({ color: '#f5f1e9' }),
   piso:      std({ color: '#e9e4d9', roughness: .6 }),
   pisoMolh:  std({ color: '#ded7c9', roughness: .5 }),
-  deck:      std({ color: '#a9723f', roughness: .82 }),
-  deckEsc:   std({ color: '#8c5c33', roughness: .85 }),
+  deck:      std({ color: '#ded5c6', roughness: .62 }),
+  deckEsc:   std({ color: '#c6bcab', roughness: .68 }),
   laje:      std({ color: '#cec8bb', roughness: .95 }),
   telha:     std({ color: '#a8603d', roughness: .92 }),
   madeira:   std({ color: '#7d5230', roughness: .78 }),
@@ -564,7 +564,7 @@ function coqueiro(g, x, z, h = 6.0) {
 (function lazer() {
   const g = G.lazer;
 
-  /* deck de madeira, aberto em volta da piscina */
+  /* deck em piso, aberto em volta da piscina */
   const D = EXT.deck, Pi = EXT.piscina;
   piso(g, { x0: D.x0, x1: D.x1, z0: D.z0, z1: Pi.z0 - .45 }, M.deck, .08);
   piso(g, { x0: D.x0, x1: D.x1, z0: Pi.z1 + .45, z1: D.z1 }, M.deck, .08);
