@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Casa no Centro de Cidreira · Temporada a uma quadra do mar</title>
+<meta name="description" content="Casa de temporada no Centro de Cidreira, RS: 2 quartos, 2 banheiros, até 8 pessoas, pátio enorme com quadra de vôlei e churrasqueira. Uma quadra do mar e 350 m da Concha Acústica. Diária R$ 300.">
+<meta name="theme-color" content="#0b1a24">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Casa no Centro de Cidreira · uma quadra do mar">
+<meta property="og:description" content="2 quartos, até 8 pessoas, pátio enorme com quadra de vôlei e churrasqueira. Diária R$ 300.">
+<meta property="og:image" content="https://img.olx.com.br/images/69/692670227120252.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300..600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --preto:#0b1a24; --carvao:#10242f; --fumo:#16303c;
+  --ouro:#d8a86a; --ouro-2:#f0cf9c; --ouro-3:#95713f;
+  --creme:#f3efe6; --areia:#dfd5c4; --texto:#c3c9c9; --suave:#8e9a9c;
+  --sans:'Jost',system-ui,-apple-system,Segoe UI,sans-serif;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --borda:rgba(216,168,106,.24);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--preto);color:var(--texto);font:300 16px/1.72 var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+::selection{background:var(--ouro);color:var(--preto)}
+
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.olho{font:500 10.5px var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--ouro)}
+h2{font:400 clamp(30px,5.2vw,52px)/1.1 var(--serif);color:var(--creme);letter-spacing:-.01em}
+h3{font:500 19px var(--sans);color:var(--creme);letter-spacing:.01em}
+.lead{font-size:clamp(16px,1.9vw,18.5px);line-height:1.78;color:var(--texto);max-width:62ch}
+
+/* ---------- barra de vidro ---------- */
+#bar{position:fixed;z-index:60;top:0;left:0;right:0;padding:14px 0;
+  transition:background .4s,backdrop-filter .4s,padding .4s,border-color .4s;
+  border-bottom:1px solid transparent}
+#bar.on{background:rgba(11,26,36,.62);backdrop-filter:blur(18px) saturate(1.4);
+  -webkit-backdrop-filter:blur(18px) saturate(1.4);padding:9px 0;border-bottom-color:var(--borda)}
+#bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.marca{display:flex;align-items:center;gap:11px;flex:none}
+.marca svg{width:30px;height:30px;color:var(--ouro);flex:none}
+.marca span{display:block;line-height:1.08}
+.marca b{display:block;font:500 21px/1 var(--serif);font-style:italic;color:var(--creme)}
+.marca i{display:block;font:500 8.5px var(--sans);letter-spacing:.32em;text-transform:uppercase;
+  color:var(--ouro);font-style:normal;margin-top:2px}
+#nav{display:flex;align-items:center;gap:30px}
+#nav a{font:400 13.5px var(--sans);letter-spacing:.06em;color:var(--texto);
+  position:relative;padding:4px 0;transition:color .25s}
+#nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;
+  background:var(--ouro);transition:right .3s}
+#nav a:hover{color:var(--creme)}
+#nav a:hover::after{right:0}
+.btn-ouro{flex:none;display:inline-flex;align-items:center;gap:9px;
+  padding:11px 22px;border-radius:2px;background:var(--ouro);color:var(--preto);
+  font:500 12.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;
+  transition:background .25s,transform .25s}
+.btn-ouro:hover{background:var(--ouro-2);transform:translateY(-1px)}
+.btn-linha{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border-radius:2px;
+  border:1px solid var(--borda);color:var(--creme);font:400 13px var(--sans);
+  letter-spacing:.14em;text-transform:uppercase;transition:border-color .25s,background .25s}
+.btn-linha:hover{border-color:var(--ouro);background:rgba(216,168,106,.08)}
+#burger{display:none;width:40px;height:40px;place-items:center}
+#burger svg{width:24px;height:24px;color:var(--creme)}
+
+/* ---------- recorte de foto (tira a moldura do print) ---------- */
+.crop{display:block;position:absolute;inset:0;overflow:hidden}
+.crop img{width:100%;height:auto;display:block}
+
+/* ---------- capa com parallax ---------- */
+#hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;
+  overflow:hidden;background:var(--preto)}
+#heroimg{position:absolute;inset:-14% 0;will-change:transform}
+#heroimg .crop{left:50%;top:50%;right:auto;bottom:auto;
+  transform:translate(-50%,-50%);width:max(101vw,calc(1.388 * 132vh));aspect-ratio:1.388}
+#heroimg .crop img{margin-top:-71.86%;filter:saturate(1.1) contrast(1.03)}
+#hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(11,26,36,.78) 0%,rgba(11,26,36,.34) 34%,rgba(11,26,36,.88) 78%,var(--preto) 100%)}
+#hero .wrap{position:relative;z-index:2;padding:0 0 clamp(44px,8vh,88px)}
+.selo{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;margin-bottom:26px;
+  border:1px solid var(--borda);border-radius:999px;background:rgba(11,26,36,.42);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.selo i{width:5px;height:5px;border-radius:50%;background:var(--ouro);font-style:normal}
+.selo span{font:400 11px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--areia)}
+#hero h1{font:400 clamp(46px,10.5vw,108px)/.92 var(--serif);color:var(--creme);letter-spacing:-.025em}
+#hero h1 em{display:block;font-style:italic;color:var(--ouro-2)}
+#hero .sub{margin-top:22px;font-size:clamp(15px,2vw,19px);color:var(--areia);max-width:48ch;font-weight:300}
+#hero .acoes{margin-top:34px;display:flex;flex-wrap:wrap;gap:13px}
+.rolar{position:absolute;z-index:3;left:50%;bottom:16px;transform:translateX(-50%);
+  display:grid;place-items:center;gap:7px;color:var(--suave)}
+.rolar span{font:400 9.5px var(--sans);letter-spacing:.28em;text-transform:uppercase}
+.rolar i{display:block;width:1px;height:38px;background:linear-gradient(var(--ouro),transparent);
+  animation:desce 2.1s infinite}
+@keyframes desce{0%{opacity:0;transform:scaleY(.2);transform-origin:top}
+  50%{opacity:1;transform:scaleY(1);transform-origin:top}
+  100%{opacity:0;transform:scaleY(1);transform-origin:bottom}}
+
+/* ---------- faixa de números ---------- */
+#faixa{border-top:1px solid var(--borda);border-bottom:1px solid var(--borda);background:var(--carvao)}
+#faixa .wrap{display:grid;grid-template-columns:repeat(5,1fr)}
+.num{padding:34px 14px;text-align:center;border-right:1px solid var(--borda)}
+.num:last-child{border-right:0}
+.num b{display:block;font:400 clamp(26px,3.4vw,38px)/1 var(--serif);color:var(--ouro-2)}
+.num span{display:block;margin-top:9px;font:400 10px var(--sans);letter-spacing:.24em;
+  text-transform:uppercase;color:var(--suave)}
+
+/* ---------- seções ---------- */
+section{padding:clamp(72px,11vh,130px) 0}
+.cab{max-width:68ch;margin-bottom:clamp(36px,5vh,58px)}
+.cab .olho{display:block;margin-bottom:16px}
+.cab h2+p{margin-top:20px}
+
+#acasa .duo{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,70px);align-items:center}
+#acasa .foto{position:relative;border-radius:2px;overflow:hidden;aspect-ratio:1.359;background:#000}
+#acasa .foto .crop img{margin-top:-71.86%}
+#acasa .foto::after{content:"";position:absolute;inset:10px;border:1px solid rgba(243,239,230,.2);
+  pointer-events:none;z-index:2}
+#acasa p+p{margin-top:17px}
+.assina{margin-top:26px;font:500 15px var(--serif);font-style:italic;color:var(--ouro-2)}
+
+/* ---------- galeria ---------- */
+#galeria{background:var(--carvao)}
+.grade{columns:3;column-gap:12px}
+.gi{position:relative;overflow:hidden;cursor:zoom-in;background:#000;
+  break-inside:avoid;margin:0 0 12px;display:block;width:100%}
+.gi .crop{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.gi:hover .crop{transform:scale(1.06)}
+.gi figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;z-index:2;
+  font:400 13px var(--sans);color:var(--creme);
+  background:linear-gradient(transparent,rgba(11,26,36,.9));
+  opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
+.gi:hover figcaption{opacity:1;transform:none}
+
+/* ---------- comodidades ---------- */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,3.4vw,46px)}
+.bloco{border-top:1px solid var(--borda);padding-top:22px}
+.bloco h3{margin-bottom:14px;display:flex;align-items:center;gap:11px}
+.bloco h3 svg{width:19px;height:19px;color:var(--ouro);flex:none}
+.bloco ul{list-style:none;display:grid;gap:9px}
+.bloco li{position:relative;padding-left:18px;font-size:14.8px;color:var(--texto)}
+.bloco li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:1px;background:var(--ouro)}
+
+/* ---------- quartos ---------- */
+#quartos{background:var(--carvao)}
+.camas{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cama{padding:30px 26px;border:1px solid var(--borda);background:var(--fumo);
+  transition:border-color .3s,transform .3s}
+.cama:hover{border-color:var(--ouro);transform:translateY(-4px)}
+.cama .n{font:400 42px/1 var(--serif);color:var(--ouro-3)}
+.cama h3{margin:14px 0 9px}
+.cama p{font-size:14.5px;color:var(--suave)}
+
+/* ---------- planta 3d ---------- */
+#planta3d .caixa{position:relative;border:1px solid var(--borda);background:
+  linear-gradient(135deg,rgba(216,168,106,.1),transparent 55%),var(--carvao);
+  padding:clamp(34px,6vw,66px);display:grid;grid-template-columns:1.1fr .9fr;
+  gap:clamp(26px,4vw,56px);align-items:center}
+.plantafig{position:relative;aspect-ratio:4/3;border:1px solid var(--borda);overflow:hidden;
+  background:linear-gradient(160deg,#17313d,#0d1c26)}
+.plantafig svg{position:absolute;inset:0;width:100%;height:100%}
+.plantafig .tag{position:absolute;right:12px;bottom:12px;padding:6px 13px;
+  font:500 10px var(--sans);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--preto);background:var(--ouro)}
+
+/* ---------- valores ---------- */
+.preco{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin-bottom:12px}
+.preco b{font:400 clamp(40px,6vw,62px)/1 var(--serif);color:var(--ouro-2)}
+.preco span{font:400 13px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--suave)}
+.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.passo{padding:26px 22px;border-left:1px solid var(--borda)}
+.passo b{display:block;font:500 10px var(--sans);letter-spacing:.26em;text-transform:uppercase;
+  color:var(--ouro);margin-bottom:11px}
+.passo p{font-size:14.8px}
+
+/* ---------- a cidade ---------- */
+#saber{background:var(--carvao)}
+.avisos{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.aviso{display:flex;gap:15px;padding:22px 24px;border:1px solid var(--borda);background:var(--fumo)}
+.aviso svg{width:20px;height:20px;color:var(--ouro);flex:none;margin-top:3px}
+.aviso b{display:block;color:var(--creme);font:500 15px var(--sans);margin-bottom:5px}
+.aviso p{font-size:14.3px;color:var(--suave);line-height:1.62}
+
+/* ---------- mapa ---------- */
+.mapa{position:relative;border:1px solid var(--borda);overflow:hidden;aspect-ratio:16/8;background:var(--fumo)}
+.mapa iframe{width:100%;height:100%;border:0;filter:grayscale(.42) invert(.9) hue-rotate(175deg) contrast(.86) brightness(.92)}
+
+/* ---------- fechamento ---------- */
+#reservar{position:relative;overflow:hidden;text-align:center}
+#reservarfoto{position:absolute;inset:-12% 0;will-change:transform;opacity:.22}
+#reservarfoto .crop{left:50%;top:50%;right:auto;bottom:auto;transform:translate(-50%,-50%);
+  width:max(101vw,calc(1 * 116vh));aspect-ratio:1}
+#reservarfoto .crop img{margin-top:-56.27%}
+#reservar::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(62% 72% at 50% 50%,rgba(11,26,36,.74),var(--preto))}
+#reservar .wrap{position:relative;z-index:2}
+#reservar h2{margin-bottom:18px}
+#reservar .lead{margin:0 auto 32px}
+
+/* ---------- rodapé ---------- */
+footer{border-top:1px solid var(--borda);padding:48px 0 38px;background:var(--carvao)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:center}
+footer p{font-size:13px;color:var(--suave)}
+footer a{color:var(--ouro-2)}
+
+/* ---------- zap fixo ---------- */
+#zapfixo{position:fixed;z-index:70;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;
+  display:grid;place-items:center;background:#1fa855;color:#fff;
+  box-shadow:0 16px 38px -14px rgba(31,168,85,.85);transition:transform .3s;
+  opacity:0;pointer-events:none}
+#zapfixo.on{opacity:1;pointer-events:auto}
+#zapfixo:hover{transform:scale(1.08)}
+#zapfixo svg{width:29px;height:29px}
+
+/* ---------- lightbox ---------- */
+#lb{position:fixed;inset:0;z-index:90;background:rgba(7,16,22,.96);display:none;
+  place-items:center;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#lb.on{display:grid}
+#lbbox{position:relative;overflow:hidden;border:1px solid var(--borda);background:#000;
+  width:min(92vw,980px)}
+#lbbox img{width:100%;height:auto;display:block}
+#lb .cap{margin-top:16px;font:400 14px var(--sans);color:var(--areia);text-align:center;
+  max-width:92vw}
+#lb .x,#lb .p,#lb .n{position:absolute;display:grid;place-items:center;color:var(--creme);
+  width:50px;height:50px;border:1px solid var(--borda);border-radius:50%;
+  background:rgba(11,26,36,.7);transition:background .25s;z-index:3}
+#lb .x:hover,#lb .p:hover,#lb .n:hover{background:rgba(216,168,106,.22)}
+#lb .x{top:20px;right:20px;font-size:22px}
+#lb .p{left:3vw;top:50%;transform:translateY(-50%)}
+#lb .n{right:3vw;top:50%;transform:translateY(-50%)}
+
+/* ---------- revelar ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1000px){
+  #nav{position:fixed;inset:0 0 auto 0;top:0;flex-direction:column;justify-content:center;
+    height:100svh;background:rgba(11,26,36,.97);backdrop-filter:blur(14px);gap:26px;
+    transform:translateY(-102%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  #nav.on{transform:none}
+  #nav a{font-size:21px;font-family:var(--serif);letter-spacing:0}
+  #burger{display:grid;z-index:3}
+  #bar .btn-ouro{display:none}
+  #faixa .wrap{grid-template-columns:repeat(2,1fr)}
+  .num{border-bottom:1px solid var(--borda)}
+  .num:nth-child(2n){border-right:0}
+  .num:last-child{grid-column:1/-1;border-bottom:0}
+  #acasa .duo{grid-template-columns:1fr}
+  .grade{columns:2;column-gap:8px}
+  .gi{margin-bottom:8px}
+  .cols,.camas,.passos,.avisos{grid-template-columns:1fr}
+  #planta3d .caixa{grid-template-columns:1fr}
+  .passo{border-left:0;border-top:1px solid var(--borda);padding:20px 0}
+  .gi figcaption{opacity:1;transform:none;font-size:12px;padding:26px 12px 11px}
+  #lb .p{left:8px}
+  #lb .n{right:8px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="bar">
+  <div class="wrap">
+    <a class="marca" href="#topo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2.5 11.2 12 3.6l9.5 7.6"/><path d="M4.8 10.1V20h14.4v-9.9"/><path d="M9.6 20v-5.2h4.8V20"/>
+      </svg>
+      <span><b>Casa Cidreira</b><i>Centro · RS</i></span>
+    </a>
+    <nav id="nav">
+      <a href="#acasa">A casa</a>
+      <a href="#galeria">Fotos</a>
+      <a href="#comodidades">Estrutura</a>
+      <a href="planta/">Planta 3D</a>
+      <a href="#local">Onde fica</a>
+      <a href="#comoreservar">Valores</a>
+    </nav>
+    <a class="btn-ouro" href="https://wa.me/553121810827?text=Oi!%20Vi%20o%20site%20da%20casa%20no%20Centro%20de%20Cidreira%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener">Reservar</a>
+    <button id="burger" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<section id="hero">
+  <div id="heroimg">
+    <span class="crop"><img src="https://img.olx.com.br/images/69/692670227120252.jpg" alt="Fachada da casa no Centro de Cidreira, com o gramado na frente"></span>
+  </div>
+  <div class="wrap">
+    <span class="selo"><i></i><span>Cidreira · Rio Grande do Sul</span></span>
+    <h1>Uma quadra<em>do mar</em></h1>
+    <p class="sub">Casa no Centro de Cidreira, com pátio enorme, churrasqueira e quadra de vôlei. Até oito pessoas, a 350 metros da Concha Acústica.</p>
+    <div class="acoes">
+      <a class="btn-ouro" href="https://wa.me/553121810827?text=Oi!%20Vi%20o%20site%20da%20casa%20no%20Centro%20de%20Cidreira%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener">Ver disponibilidade</a>
+      <a class="btn-linha" href="planta/">Ver a planta 3D</a>
+    </div>
+  </div>
+  <div class="rolar"><i></i><span>Role</span></div>
+</section>
+
+<div id="topo"></div>
+
+<section id="faixa" style="padding:0">
+  <div class="wrap">
+    <div class="num"><b>2</b><span>Quartos</span></div>
+    <div class="num"><b>2</b><span>Banheiros</span></div>
+    <div class="num"><b>8</b><span>Pessoas</span></div>
+    <div class="num"><b>2</b><span>Vagas</span></div>
+    <div class="num"><b>350 m</b><span>Concha Acústica</span></div>
+  </div>
+</section>
+
+<section id="acasa">
+  <div class="wrap duo">
+    <div class="rv">
+      <span class="olho">A casa</span>
+      <h2 style="margin:16px 0 20px">No Centro, com o mar<br>na esquina</h2>
+      <p class="lead">A casa fica bem no Centro de Cidreira, a uma quadra do mar e a 350 metros da Concha Acústica. Dá pra ir à praia a pé, voltar pro almoço e sair de novo de tarde sem pegar o carro.</p>
+      <p class="lead" style="margin-top:17px">São dois dormitórios, sala, cozinha e dois banheiros, com espaço pra até oito pessoas. A cozinha é completa, com balcão, e a sala tem parede de tijolo à vista, televisão e poltronas.</p>
+      <p class="lead" style="margin-top:17px">Lá fora é o que faz diferença: pátio enorme com quadra de vôlei, churrasqueira com mesa grande e garagem coberta para dois carros.</p>
+      <p class="assina">Animais são bem-vindos, e a internet e a TV a cabo já vêm com a casa.</p>
+    </div>
+    <div class="foto rv">
+      <span class="crop"><img src="https://img.olx.com.br/images/77/770601704894031.jpg" alt="Cozinha completa da casa, com balcão e banquetas" loading="lazy"></span>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Fotos</span>
+      <h2>A casa por dentro<br>e o pátio por fora</h2>
+      <p class="lead">Toque em qualquer foto pra ver maior.</p>
+    </div>
+    <div class="grade" id="grade"></div>
+  </div>
+</section>
+
+<section id="comodidades">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Estrutura</span>
+      <h2>O que a casa tem</h2>
+    </div>
+    <div class="cols">
+      <div class="bloco rv">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 10 5l4 9 2-3 4 8z"/></svg>Pátio e lazer</h3>
+        <ul>
+          <li>Pátio enorme</li>
+          <li>Quadra de vôlei</li>
+          <li>Churrasqueira</li>
+          <li>Mesa grande na área da churrasqueira</li>
+          <li>Varanda e terraço</li>
+          <li>Uma quadra da praia</li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg>Dentro de casa</h3>
+        <ul>
+          <li>Sala com TV e poltronas</li>
+          <li>Cozinha completa com balcão</li>
+          <li>Fogão e geladeira</li>
+          <li>Dois dormitórios</li>
+          <li>Dois banheiros</li>
+          <li>Ventilador</li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Praticidades</h3>
+        <ul>
+          <li>Garagem coberta para dois carros</li>
+          <li>Internet</li>
+          <li>TV a cabo</li>
+          <li>Animais são permitidos</li>
+          <li>Área de serviço</li>
+          <li>Acomoda até oito pessoas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quartos">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Acomodação</span>
+      <h2>Onde cada um dorme</h2>
+      <p class="lead">Dois dormitórios, com beliches e camas, mais os dois banheiros da casa. Até oito pessoas no total.</p>
+    </div>
+    <div class="camas">
+      <div class="cama rv"><span class="n">01</span><h3>Primeiro quarto</h3><p>Beliche e cama de solteiro, com janela pro pátio.</p></div>
+      <div class="cama rv"><span class="n">02</span><h3>Segundo quarto</h3><p>Beliche e cama, no mesmo corredor dos banheiros.</p></div>
+      <div class="cama rv"><span class="n">03</span><h3>Dois banheiros</h3><p>Um deles com box, o outro junto da área de serviço.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="planta3d">
+  <div class="wrap">
+    <div class="caixa rv">
+      <div>
+        <span class="olho">Planta 3D</span>
+        <h2 style="margin:16px 0 20px">Passeie pela casa<br>antes de reservar</h2>
+        <p class="lead">Um modelo tridimensional da casa e do pátio que você gira com o dedo, abre a cobertura e entra em cada ambiente. É o jeito mais rápido de quem vai alugar entender o espaço sem receber foto por foto no WhatsApp.</p>
+        <p style="margin-top:28px"><a class="btn-ouro" href="planta/">Abrir a planta 3D</a></p>
+      </div>
+      <div class="plantafig">
+        <svg viewBox="0 0 400 300" fill="none" stroke="#d8a86a" stroke-width="1.4" stroke-linejoin="round">
+          <rect x="48" y="52" width="230" height="170" stroke-opacity=".85"/>
+          <path d="M48 120h230M160 120v102M48 176h112M160 176h118" stroke-opacity=".6"/>
+          <rect x="64" y="68" width="48" height="34" stroke-opacity=".4"/>
+          <rect x="126" y="68" width="48" height="34" stroke-opacity=".4"/>
+          <path d="M48 52 163 16l115 36" stroke-opacity=".5"/>
+          <rect x="296" y="52" width="60" height="78" stroke-opacity=".5"/>
+          <path d="M296 130h60" stroke-opacity=".3"/>
+          <rect x="296" y="150" width="60" height="72" stroke-opacity=".4" stroke-dasharray="5 5"/>
+          <path d="M20 262h360" stroke-opacity=".25"/>
+        </svg>
+        <span class="tag">Modelo 3D</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="local">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Onde fica</span>
+      <h2>Centro de Cidreira</h2>
+      <p class="lead">A casa está no Centro de Cidreira, no litoral norte do Rio Grande do Sul: uma quadra do mar, 350 metros da Concha Acústica e perto do comércio, do mercado e da rodoviária. O endereço completo é passado na hora da reserva.</p>
+    </div>
+    <div class="mapa rv">
+      <iframe src="https://www.google.com/maps?q=Centro,+Cidreira+-+RS&output=embed" loading="lazy" title="Mapa do Centro de Cidreira" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="saber">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Bom saber</span>
+      <h2>Antes de fechar as datas</h2>
+      <p class="lead">O que vale a pena saber de antemão, dito com todas as letras.</p>
+    </div>
+    <div class="avisos">
+      <div class="aviso rv">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0"/><path d="M3 16h18"/><path d="M6 20h12"/></svg>
+        <div><b>A casa não tem piscina</b><p>O lazer aqui é o pátio: quadra de vôlei, churrasqueira e a praia a uma quadra de distância.</p></div>
+      </div>
+      <div class="aviso rv">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 18v2"/><path d="M17 18v2"/></svg>
+        <div><b>Garagem coberta</b><p>Cabem dois carros na garagem, com portão, e ainda sobra espaço no pátio.</p></div>
+      </div>
+      <div class="aviso rv">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5.5a2.5 2.5 0 1 1 5 0c0 1.4-.8 2-1.2 2.9"/><circle cx="6.5" cy="9.5" r="2"/><circle cx="17.5" cy="9.5" r="2"/><path d="M12 12c-3 0-5 2.2-5 4.6 0 1.6 1.2 2.4 2.6 2.4h4.8c1.4 0 2.6-.8 2.6-2.4 0-2.4-2-4.6-5-4.6Z"/></svg>
+        <div><b>Pode levar o pet</b><p>Animais são permitidos na casa, o que nem toda casa de temporada aceita.</p></div>
+      </div>
+      <div class="aviso rv">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><path d="M12 19.5h.01"/></svg>
+        <div><b>Internet e TV a cabo</b><p>A casa já vem com internet e TV a cabo, pros dias de chuva e pra quem precisa trabalhar.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="comoreservar">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Valores</span>
+      <div class="preco"><b>R$ 300</b><span>por diária</span></div>
+      <p class="lead">A reserva é feita direto com o proprietário, pelo WhatsApp. Sem intermediário e sem taxa de plataforma.</p>
+    </div>
+    <div class="passos">
+      <div class="passo rv"><b>Passo 1</b><p>Me chama no WhatsApp com as datas que você quer e quantas pessoas vão.</p></div>
+      <div class="passo rv"><b>Passo 2</b><p>Eu confirmo se está livre e te passo as condições e a forma de pagamento.</p></div>
+      <div class="passo rv"><b>Passo 3</b><p>Reserva fechada, te mando o endereço completo e as orientações de chegada.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reservar">
+  <div id="reservarfoto">
+    <span class="crop"><img src="https://img.olx.com.br/images/75/755662823919733.jpg" alt="Área da churrasqueira com mesa grande" loading="lazy"></span>
+  </div>
+  <div class="wrap">
+    <span class="olho rv">Casa no Centro de Cidreira</span>
+    <h2 class="rv" style="margin-top:16px">Sua praia esse ano<br>pode ser aqui</h2>
+    <p class="lead rv">Me chama no WhatsApp pra ver as datas livres. Respondo com as condições e, se você quiser, mando mais fotos de como a casa está hoje.</p>
+    <p class="rv"><a class="btn-ouro" href="https://wa.me/553121810827?text=Oi!%20Vi%20o%20site%20da%20casa%20no%20Centro%20de%20Cidreira%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener">Falar no WhatsApp</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Casa de temporada · Centro, Cidreira · RS</p>
+    <p>Site criado por <a href="https://jgg190310-ops.github.io/Imoveis/portfolio/#trabalhos" target="_blank" rel="noopener">João Gabriel Geo</a></p>
+  </div>
+</footer>
+
+<a id="zapfixo" href="https://wa.me/553121810827?text=Oi!%20Vi%20o%20site%20da%20casa%20no%20Centro%20de%20Cidreira%20e%20queria%20saber%20sobre%20disponibilidade." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.89 2.38 1.01 2.54c.12.17 1.74 2.65 4.21 3.72.59.25 1.05.4 1.4.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29Z"/></svg>
+</a>
+
+<div id="lb" role="dialog" aria-modal="true">
+  <button class="x" id="lbx" aria-label="Fechar">&times;</button>
+  <button class="p" id="lbp" aria-label="Anterior">&#8249;</button>
+  <button class="n" id="lbn" aria-label="Próxima">&#8250;</button>
+  <div style="display:grid;place-items:center">
+    <div id="lbbox"><img id="lbimg" alt=""></div>
+    <p class="cap" id="lbcap"></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  /* r = proporcao do recorte (largura/altura), m = deslocamento do print em % */
+  var FOTOS=[
+    {s:'https://img.olx.com.br/images/69/692670227120252.jpg',r:1.388,m:-71.86,c:'Fachada da casa, com o gramado na frente'},
+    {s:'https://img.olx.com.br/images/77/770601704894031.jpg',r:1.359,m:-71.86,c:'Cozinha completa, com balcão e banquetas'},
+    {s:'https://img.olx.com.br/images/70/708682700433040.jpg',r:0.998,m:-56.44,c:'Sala de estar, com parede de tijolo à vista'},
+    {s:'https://img.olx.com.br/images/73/731612463127911.jpg',r:1.0,m:-40.68,c:'Quadra de vôlei no pátio'},
+    {s:'https://img.olx.com.br/images/70/702656580647215.jpg',r:1.0,m:-56.61,c:'Cozinha, com geladeira e bancada'},
+    {s:'https://img.olx.com.br/images/74/748615345558138.jpg',r:1.216,m:-70.00,c:'Garagem coberta, com portão'},
+    {s:'https://img.olx.com.br/images/71/712605228255013.jpg',r:1.218,m:-18.68,c:'Primeiro quarto, com beliche e cama de solteiro'},
+    {s:'https://img.olx.com.br/images/75/755662823919733.jpg',r:1.0,m:-56.27,c:'Área da churrasqueira, com mesa grande'},
+    {s:'https://img.olx.com.br/images/72/729660947185912.jpg',r:1.232,m:-75.59,c:'Segundo quarto, com beliche e cama'},
+    {s:'https://img.olx.com.br/images/73/731636220409761.jpg',r:0.998,m:-56.27,c:'Banheiro com box'},
+    {s:'https://img.olx.com.br/images/76/760601228825905.jpg',r:1.086,m:-56.78,c:'Segundo banheiro, junto da área de serviço'}
+  ];
+
+  /* galeria */
+  var grade=document.getElementById('grade');
+  FOTOS.forEach(function(f,i){
+    var fig=document.createElement('figure');
+    fig.className='gi rv';
+    fig.style.aspectRatio=f.r;
+    fig.innerHTML='<span class="crop"><img src="'+f.s+'" alt="'+f.c+'" loading="lazy" style="margin-top:'+f.m+'%"></span>'+
+                  '<figcaption>'+f.c+'</figcaption>';
+    fig.addEventListener('click',function(){abre(i);});
+    grade.appendChild(fig);
+  });
+
+  /* lightbox */
+  var lb=document.getElementById('lb'),lbbox=document.getElementById('lbbox'),
+      lbimg=document.getElementById('lbimg'),lbcap=document.getElementById('lbcap'),atual=0;
+  function abre(i){
+    atual=(i+FOTOS.length)%FOTOS.length;
+    var f=FOTOS[atual];
+    lbbox.style.aspectRatio=f.r;
+    lbbox.style.width='min(92vw,'+(74*f.r)+'vh,980px)';
+    lbimg.src=f.s;lbimg.alt=f.c;lbimg.style.marginTop=f.m+'%';
+    lbcap.textContent=f.c;
+    lb.classList.add('on');document.body.style.overflow='hidden';
+  }
+  function fecha(){lb.classList.remove('on');document.body.style.overflow='';}
+  document.getElementById('lbx').addEventListener('click',fecha);
+  document.getElementById('lbp').addEventListener('click',function(e){e.stopPropagation();abre(atual-1);});
+  document.getElementById('lbn').addEventListener('click',function(e){e.stopPropagation();abre(atual+1);});
+  lb.addEventListener('click',function(e){if(e.target===lb)fecha();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('on'))return;
+    if(e.key==='Escape')fecha();
+    if(e.key==='ArrowRight')abre(atual+1);
+    if(e.key==='ArrowLeft')abre(atual-1);
+  });
+
+  /* barra de vidro + zap + parallax */
+  var bar=document.getElementById('bar'),zap=document.getElementById('zapfixo'),
+      hi=document.getElementById('heroimg'),rf=document.getElementById('reservarfoto'),
+      sec=document.getElementById('reservar');
+  function aoRolar(){
+    var y=scrollY||document.documentElement.scrollTop;
+    bar.classList.toggle('on',y>60);
+    zap.classList.toggle('on',y>400);
+    if(hi&&y<innerHeight*1.2)hi.style.transform='translate3d(0,'+(y*0.28)+'px,0)';
+    if(rf&&sec){
+      var r=sec.getBoundingClientRect();
+      if(r.top<innerHeight&&r.bottom>0){
+        rf.style.transform='translate3d(0,'+((innerHeight-r.top)*0.07-40)+'px,0)';
+      }
+    }
+  }
+  addEventListener('scroll',aoRolar,{passive:true});aoRolar();
+
+  /* menu */
+  var nav=document.getElementById('nav');
+  document.getElementById('burger').addEventListener('click',function(){nav.classList.toggle('on');});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')nav.classList.remove('on');});
+
+  /* revelar */
+  var alvos=[].slice.call(document.querySelectorAll('.rv'));
+  alvos.forEach(function(el,i){el.style.transitionDelay=(i%4)*70+'ms';});
+  function revelar(){
+    var lim=(window.innerHeight||document.documentElement.clientHeight)*0.94;
+    for(var i=alvos.length-1;i>=0;i--){
+      var el=alvos[i];
+      var r=el.getBoundingClientRect();
+      if(r.top<lim&&r.bottom>-40){el.classList.add('in');alvos.splice(i,1);}
+    }
+  }
+  addEventListener('scroll',revelar,{passive:true});
+  addEventListener('resize',revelar,{passive:true});
+  addEventListener('load',revelar);
+  addEventListener('visibilitychange',revelar);
+  addEventListener('pageshow',revelar);
+  revelar();
+  var relogio=setInterval(function(){
+    revelar();
+    if(!alvos.length)clearInterval(relogio);
+  },500);
+})();
+</script>
+</body>
+</html>
