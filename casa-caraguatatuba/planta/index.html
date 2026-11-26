@@ -221,10 +221,10 @@ const host = document.getElementById('cena');
 const MOBILE = innerWidth < 900 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 const renderer = new THREE.WebGLRenderer({ antialias: !MOBILE, powerPreference: 'high-performance' });
-renderer.setPixelRatio(Math.min(devicePixelRatio, MOBILE ? 2 : 2.2));
+renderer.setPixelRatio(Math.min(devicePixelRatio, MOBILE ? 1.5 : 2));
 renderer.setSize(innerWidth, innerHeight);
 renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.shadowMap.type = MOBILE ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.02;
@@ -250,7 +250,7 @@ scene.add(new THREE.HemisphereLight('#eaf2ff', '#6b6a5c', 1.1));
 const sol = new THREE.DirectionalLight('#fff3e2', 2.4);
 sol.position.set(-16, 26, 10);
 sol.castShadow = true;
-sol.shadow.mapSize.set(MOBILE ? 1024 : 2048, MOBILE ? 1024 : 2048);
+sol.shadow.mapSize.set(MOBILE ? 768 : 2048, MOBILE ? 768 : 2048);
 sol.shadow.camera.left = -22; sol.shadow.camera.right = 22;
 sol.shadow.camera.top = 30; sol.shadow.camera.bottom = -14;
 sol.shadow.camera.near = 1; sol.shadow.camera.far = 70;
@@ -410,17 +410,17 @@ function parede(g, eixo, fixo, a0, a1, y, alt, mat, vaos = []) {
   caixa(g, 26, .14, 2.2, M.calcada, CX, -.14, -.9, false);
   // lote
   caixa(g, LOTE.x1 - LOTE.x0, .14, LOTE.z1 - LOTE.z0, M.terra,
-    (LOTE.x0 + LOTE.x1) / 2, -.14, (LOTE.z0 + LOTE.z1) / 2, false);
+    (LOTE.x0 + LOTE.x1) / 2, -.15, (LOTE.z0 + LOTE.z1) / 2, false);
   // faixa de grama na frente
-  caixa(g, 1.0, .03, 5.4, M.grama, .5, 0, 3.1, false);
+  caixa(g, 1.0, .03, 5.4, M.grama, .5, -.01, 3.1, false);
   // piso cimentado da garagem / acesso
-  caixa(g, 5.6, .04, 6.0, M.calcada, 4.5, 0, 3.0, false);
+  caixa(g, 5.6, .04, 6.0, M.calcada, 4.5, -.01, 3.0, false);
   // deck da area da piscina, recortado em volta da piscina
   (function deck() {
     const p = PISCINA, X0 = .05, X1 = LOTE.x1 - .05, Z0 = 18.57, Z1 = 25.55;
     const faixa = (x0, x1, z0, z1) => {
       if (x1 - x0 < .02 || z1 - z0 < .02) return;
-      caixa(g, x1 - x0, .04, z1 - z0, M.pisoMolh, (x0 + x1) / 2, 0, (z0 + z1) / 2, false);
+      caixa(g, x1 - x0, .04, z1 - z0, M.pisoMolh, (x0 + x1) / 2, -.01, (z0 + z1) / 2, false);
     };
     faixa(X0, X1, Z0, p.z0);       // frente da piscina
     faixa(X0, X1, p.z1, Z1);       // fundo
@@ -428,7 +428,7 @@ function parede(g, eixo, fixo, a0, a1, y, alt, mat, vaos = []) {
     faixa(p.x1, X1, p.z0, p.z1);   // lateral direita
   })();
   // corredor lateral
-  caixa(g, 2.93, .04, 12.5, M.pisoMolh, 5.89, 0, 12.3, false);
+  caixa(g, 2.93, .04, 12.5, M.pisoMolh, 5.89, -.01, 12.3, false);
 
   // muros do lote
   const H = 2.2;
