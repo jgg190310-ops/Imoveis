@@ -439,7 +439,7 @@ footer a{color:var(--ouro-2)}
       <p class="lead">A casa está no Centro de Cidreira, no litoral norte do Rio Grande do Sul: uma quadra do mar, 350 metros da Concha Acústica e perto do comércio, do mercado e da rodoviária. O endereço completo é passado na hora da reserva.</p>
     </div>
     <div class="mapa rv">
-      <iframe src="https://www.google.com/maps?q=Centro,+Cidreira+-+RS&output=embed" loading="lazy" title="Mapa do Centro de Cidreira" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps?q=Centro,+Cidreira+-+RS&z=15&output=embed" loading="lazy" title="Mapa do Centro de Cidreira" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
@@ -529,7 +529,7 @@ footer a{color:var(--ouro-2)}
     {s:'https://img.olx.com.br/images/77/770601704894031.jpg',r:1.359,m:-71.86,c:'Cozinha completa, com balcão e banquetas'},
     {s:'https://img.olx.com.br/images/70/708682700433040.jpg',r:0.998,m:-56.44,c:'Sala de estar, com parede de tijolo à vista'},
     {s:'https://img.olx.com.br/images/73/731612463127911.jpg',r:1.0,m:-40.68,c:'Quadra de vôlei no pátio'},
-    {s:'https://img.olx.com.br/images/70/702656580647215.jpg',r:1.0,m:-56.61,c:'Cozinha, com geladeira e bancada'},
+    {s:'https://img.olx.com.br/images/70/702656580647215.jpg',r:1.148,m:-69.49,c:'Cozinha, com geladeira e bancada'},
     {s:'https://img.olx.com.br/images/74/748615345558138.jpg',r:1.216,m:-70.00,c:'Garagem coberta, com portão'},
     {s:'https://img.olx.com.br/images/71/712605228255013.jpg',r:1.218,m:-18.68,c:'Primeiro quarto, com beliche e cama de solteiro'},
     {s:'https://img.olx.com.br/images/75/755662823919733.jpg',r:1.0,m:-56.27,c:'Área da churrasqueira, com mesa grande'},
@@ -577,11 +577,13 @@ footer a{color:var(--ouro-2)}
   /* barra de vidro + zap + parallax */
   var bar=document.getElementById('bar'),zap=document.getElementById('zapfixo'),
       hi=document.getElementById('heroimg'),rf=document.getElementById('reservarfoto'),
-      sec=document.getElementById('reservar');
+      sec=document.getElementById('reservar'),rodape=document.querySelector('footer');
   function aoRolar(){
     var y=scrollY||document.documentElement.scrollTop;
     bar.classList.toggle('on',y>60);
-    zap.classList.toggle('on',y>400);
+    /* some o botão quando o rodapé aparece, pra não tapar o crédito */
+    var noRodape=rodape&&rodape.getBoundingClientRect().top<innerHeight-30;
+    zap.classList.toggle('on',y>400&&!noRodape);
     if(hi&&y<innerHeight*1.2)hi.style.transform='translate3d(0,'+(y*0.28)+'px,0)';
     if(rf&&sec){
       var r=sec.getBoundingClientRect();

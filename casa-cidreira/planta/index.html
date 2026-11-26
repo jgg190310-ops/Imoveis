@@ -278,7 +278,7 @@ const M = {
   azulejo:   std({ color: '#3f6f9a', roughness: .5 }),
   amarelo:   std({ color: '#e0b433', roughness: .6 }),
   vermelho:  std({ color: '#9e3b32', roughness: .66 }),
-  tijolo:    std({ color: '#8d4a36', roughness: .95 }),
+  tijolo:    std({ color: '#a55c42', roughness: .95 }),
   laranja:   std({ color: '#d2622f', roughness: .9 }),
   asfalto:   std({ color: '#5b5f60', roughness: 1 }),
   calcada:   std({ color: '#cfc9bb', roughness: .92 }),
@@ -293,7 +293,7 @@ const M = {
   madeira:   std({ color: '#8a5c33', roughness: .78 }),
   madClara:  std({ color: '#b98b52', roughness: .74 }),
   pedra:     std({ color: '#8c8275', roughness: .98 }),
-  granito:   std({ color: '#2a2622', roughness: .34, metalness: .14 }),
+  granito:   std({ color: '#4a443d', roughness: .38, metalness: .12 }),
   movel:     std({ color: '#d9d2c6', roughness: .78 }),
   inox:      std({ color: '#b5bab9', roughness: .33, metalness: .55 }),
   branco:    std({ color: '#f7f6f2', roughness: .58 }),
@@ -762,7 +762,7 @@ seg('segFoco', 'data-f', v => {
     irPara(new THREE.Vector3(-15, 18, -13), new THREE.Vector3(-4, .5, -2));
   } else if (v === 'lazer') {
     aplicar();
-    irPara(new THREE.Vector3(-8, 15, 4), new THREE.Vector3(3, .5, 8));
+    irPara(new THREE.Vector3(-13, 20, 23), new THREE.Vector3(1, .5, 6));
   } else { aplicar(); reset(); }
 });
 document.getElementById('btnReset').addEventListener('click', () => {
