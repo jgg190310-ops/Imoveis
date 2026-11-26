@@ -5,12 +5,12 @@
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Casarão do Biel · Casa de temporada em Barra do Jacuípe</title>
-<meta name="description" content="Casa de temporada em Barra do Jacuípe, Camaçari-BA: 3 quartos climatizados, piscina, deck e quiosque com churrasqueira. Até 13 pessoas. Diária a partir de R$ 600.">
+<meta name="description" content="Casa de temporada em Barra do Jacuípe, Camaçari-BA: 3 quartos climatizados, piscina, deck e quiosque com churrasqueira. Até 15 pessoas. Diária a partir de R$ 600.">
 <meta name="theme-color" content="#0b1416">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Casarão do Biel · Barra do Jacuípe">
-<meta property="og:description" content="Piscina, deck e quiosque com churrasqueira. Três quartos climatizados pra até 13 pessoas.">
-<meta property="og:image" content="https://img.olx.com.br/images/21/213615822239953.jpg">
+<meta property="og:description" content="Piscina, deck e quiosque com churrasqueira. Três quartos climatizados pra até 15 pessoas.">
+<meta property="og:image" content="https://jgg190310-ops.github.io/Imoveis/casarao-do-biel/midia/area-noite.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&display=swap" rel="stylesheet">
@@ -138,6 +138,14 @@ section{padding:clamp(58px,8.5vh,100px) 0}
 .plantafig .tag{position:absolute;right:12px;bottom:12px;padding:7px 14px;border-radius:999px;
   font:600 11px var(--f);letter-spacing:.14em;text-transform:uppercase;color:#07181c;background:var(--agua-2)}
 
+.video{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,52px);
+  align-items:center;padding:clamp(30px,5vw,58px);border-radius:28px;
+  background:linear-gradient(140deg,rgba(255,107,74,.17),transparent 58%),var(--painel)}
+.videofig{position:relative;border-radius:var(--r);overflow:hidden;background:#091113;
+  border:1px solid rgba(243,247,246,.12);width:min(100%,360px);margin:0 auto;
+  box-shadow:0 30px 70px -32px rgba(0,0,0,.95)}
+.videofig video{width:100%;height:auto;display:block;background:#091113}
+
 .tabela{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .linha{padding:28px 26px;border-radius:var(--r);background:var(--painel);
   border:1px solid rgba(243,247,246,.07);text-align:center;transition:transform .3s,border-color .3s}
@@ -207,7 +215,7 @@ footer a{color:var(--coral-2)}
   .t.wide{grid-column:span 2}
   .t{padding:16px 17px}
   .cartoes,.camas,.tabela{grid-template-columns:1fr}
-  .planta{grid-template-columns:1fr}
+  .planta,.video{grid-template-columns:1fr}
   .faixa-preco{flex-direction:column;align-items:stretch;text-align:center}
   .faixa-preco .btn{width:100%}
 }
@@ -230,6 +238,7 @@ footer a{color:var(--coral-2)}
     <nav id="nav">
       <a href="#acasa">A casa</a>
       <a href="#fotos">Fotos</a>
+      <a href="#video">Vídeo</a>
       <a href="#estrutura">Estrutura</a>
       <a href="planta/">Planta 3D</a>
       <a href="#local">Onde fica</a>
@@ -246,11 +255,11 @@ footer a{color:var(--coral-2)}
   <div class="wrap">
     <div class="mosaico">
       <div class="t cap foto" data-i="0">
-        <div class="bg" id="capabg" style="background-image:url('https://img.olx.com.br/images/21/213615822239953.jpg')"></div>
+        <div class="bg" id="capabg" style="background-image:url('midia/area-noite.jpg')"></div>
         <div class="vel"></div>
         <div class="txt">
           <b>Casarão do Biel<br>Barra do Jacuípe</b>
-          <span>A casa inteira pra vocês: piscina, deck e quiosque com churrasqueira. Três quartos climatizados pra até 13 pessoas.</span>
+          <span>A casa inteira pra vocês: piscina, deck, quiosque com churrasqueira e pergolado com mesas e cadeiras. Três quartos climatizados pra até 15 pessoas.</span>
         </div>
       </div>
       <div class="t cor-agua tall">
@@ -263,9 +272,9 @@ footer a{color:var(--coral-2)}
         <div class="txt"><b>Quiosque</b><span>Balcão e banquetas</span></div>
       </div>
       <div class="t cor-areia">
-        <div class="txt"><b>13</b><span>pessoas acomodadas</span></div>
+        <div class="txt"><b>15</b><span>pessoas acomodadas</span></div>
       </div>
-      <div class="t foto" data-i="3">
+      <div class="t foto" data-i="7">
         <div class="bg" style="background-image:url('https://img.olx.com.br/images/22/223650946287979.jpg')"></div>
         <div class="vel"></div>
         <div class="txt"><b>Área externa</b><span>Iluminada à noite</span></div>
@@ -277,7 +286,7 @@ footer a{color:var(--coral-2)}
         <div class="txt"><b>Planta 3D da casa</b><span>Gire a casa e entre em cada ambiente antes de reservar</span></div>
         <a href="planta/" style="position:absolute;inset:0;z-index:3" aria-label="Abrir a planta 3D"></a>
       </div>
-      <div class="t foto" data-i="2">
+      <div class="t foto" data-i="3">
         <div class="bg" style="background-image:url('https://img.olx.com.br/images/20/201645104964457.jpg')"></div>
         <div class="vel"></div>
         <div class="txt"><b>Churrasqueira</b><span>No quiosque</span></div>
@@ -303,7 +312,7 @@ footer a{color:var(--coral-2)}
       <span class="olho">A casa</span>
       <h2>Tudo mobiliado,<br>é só chegar com a mala</h2>
       <p class="lead">O Casarão do Biel é uma casa inteira em Barra do Jacuípe, totalmente equipada e mobiliada. Três quartos, todos climatizados com ar-condicionado, e camas box com colchões complementares pra acomodar o grupo inteiro sem aperto.</p>
-      <p class="lead" style="margin-top:14px">A cozinha vem completa, com utensílios e eletrodomésticos. Do lado de fora ficam a piscina, o deck de madeira e o quiosque com churrasqueira, pia e freezer, que é onde o pessoal acaba passando o dia e a noite.</p>
+      <p class="lead" style="margin-top:14px">A cozinha vem completa, com utensílios e eletrodomésticos. Do lado de fora ficam a piscina, o deck de madeira, o quiosque com churrasqueira, pia e freezer, e o pergolado com mesas e cadeiras embaixo, que é onde o pessoal acaba passando o dia e a noite. No fundo ainda tem a área de serviço, com pia e máquina de lavar.</p>
     </div>
   </div>
 </section>
@@ -312,10 +321,26 @@ footer a{color:var(--coral-2)}
   <div class="wrap">
     <div class="cab rv">
       <span class="olho">Fotos</span>
-      <h2>O quintal, que é<br>o coração da casa</h2>
+      <h2>A área de lazer, que é<br>o coração da casa</h2>
       <p class="lead">Toque em qualquer foto pra ver maior.</p>
     </div>
     <div class="mosaico" id="grade"></div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="wrap">
+    <div class="video rv">
+      <div class="videofig">
+        <video src="midia/tour.mp4" poster="midia/tour-capa.jpg" controls playsinline preload="none"></video>
+      </div>
+      <div>
+        <span class="olho">Vídeo</span>
+        <h2 style="margin:14px 0 16px">Um giro pela<br>casa inteira</h2>
+        <p class="lead">A vista de cima do terreno, a sala, a cozinha, o quarto climatizado e o quiosque com o balcão montado. Meio minuto de vídeo mostra o tamanho da casa melhor do que foto solta no WhatsApp.</p>
+        <p style="margin-top:24px"><a class="btn btn-coral" href="#valores">Ver os valores</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -334,6 +359,7 @@ footer a{color:var(--coral-2)}
           <li>Deck de madeira</li>
           <li>Quiosque com churrasqueira</li>
           <li>Pia e freezer no quiosque</li>
+          <li>Pergolado com mesas e cadeiras</li>
           <li>Duas redes para descanso</li>
           <li>Varanda e terraço</li>
         </ul>
@@ -347,7 +373,7 @@ footer a{color:var(--coral-2)}
           <li>Ar-condicionado nos 3 quartos</li>
           <li>Três ventiladores</li>
           <li>Chuveiro elétrico</li>
-          <li>Máquina de lavar</li>
+          <li>Área de serviço no fundo, com pia e máquina de lavar</li>
         </ul>
       </div>
       <div class="cartao rv">
@@ -359,7 +385,7 @@ footer a{color:var(--coral-2)}
           <li>TV a cabo</li>
           <li>Geladeira e fogão</li>
           <li>Animais são bem-vindos</li>
-          <li>Acomoda até 13 pessoas</li>
+          <li>Acomoda até 15 pessoas</li>
         </ul>
       </div>
     </div>
@@ -474,12 +500,15 @@ footer a{color:var(--coral-2)}
 (function(){
   "use strict";
   var FOTOS=[
-    {s:'https://img.olx.com.br/images/21/213615822239953.jpg',c:'Piscina e deck de madeira ao anoitecer',k:'cap'},
+    {s:'midia/area-noite.jpg',c:'A área de lazer à noite: piscina, quiosque e pergolado',k:'cap'},
     {s:'https://img.olx.com.br/images/19/196669225306030.jpg',c:'Quiosque com balcão e banquetas',k:'tall'},
+    {s:'midia/pergolado-noite.jpg',c:'O pergolado com mesa, bancos e rede',k:''},
     {s:'https://img.olx.com.br/images/20/201645104964457.jpg',c:'Churrasqueira e área de convivência',k:''},
-    {s:'https://img.olx.com.br/images/22/223650946287979.jpg',c:'Área externa iluminada',k:''},
+    {s:'midia/pergolado.jpg',c:'Debaixo do pergolado, montado para um evento',k:'tall'},
+    {s:'https://img.olx.com.br/images/21/213615822239953.jpg',c:'Piscina e deck de madeira ao anoitecer',k:''},
     {s:'https://img.olx.com.br/images/17/178635701684063.jpg',c:'A piscina com a iluminação da noite',k:'wide'},
-    {s:'https://img.olx.com.br/images/18/188673708170129.jpg',c:'O quintal visto do fundo',k:'wide'}
+    {s:'https://img.olx.com.br/images/22/223650946287979.jpg',c:'Área externa iluminada',k:''},
+    {s:'https://img.olx.com.br/images/18/188673708170129.jpg',c:'A área de lazer vista do fundo',k:'wide'}
   ];
 
   var grade=document.getElementById('grade');

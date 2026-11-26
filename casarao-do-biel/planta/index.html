@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
 <title>Planta 3D · Casarão do Biel</title>
-<meta name="description" content="Planta 3D interativa do Casarão do Biel, em Barra do Jacuípe: 3 quartos climatizados, sala, cozinha, varanda, piscina, deck e quiosque com churrasqueira.">
+<meta name="description" content="Planta 3D interativa do Casarão do Biel, em Barra do Jacuípe: 3 quartos climatizados, sala, cozinha, varanda, piscina, deck, quiosque com churrasqueira e pergolado com mesas e cadeiras.">
 <meta name="theme-color" content="#0b1416">
 <meta property="og:title" content="Planta 3D · Casarão do Biel">
 <meta property="og:description" content="Gire a casa com o dedo, tire a cobertura e entre em cada ambiente.">
@@ -174,7 +174,7 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
   <div class="seg" id="segFoco">
     <button data-f="tudo" class="on">Tudo</button>
     <button data-f="casa">Só a casa</button>
-    <button data-f="lazer">Quintal</button>
+    <button data-f="lazer">Área externa</button>
   </div>
   <button class="ic" id="btnVista" aria-label="Vista de planta">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
@@ -188,7 +188,7 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
   </button>
 </div>
 
-<p class="nota">Modelo representativo, montado a partir das fotos e da descrição do anúncio: 3 quartos climatizados, sendo um suíte, sala, cozinha equipada, varanda, área de serviço, piscina com deck e quiosque com churrasqueira, pia e freezer. Quando o proprietário enviar a planta baixa, o modelo é refeito fiel ao projeto.</p>
+<p class="nota">Modelo representativo, montado a partir das fotos e da descrição do anúncio: 3 quartos climatizados, sendo um suíte, sala, cozinha equipada, varanda, área de serviço no fundo com pia e máquina de lavar, piscina com deck, quiosque com churrasqueira, pia e freezer, e pergolado com mesas e cadeiras. Acomoda até 15 pessoas. Quando o proprietário enviar a planta baixa, o modelo é refeito fiel ao projeto.</p>
 
 <div id="carregando"><div><b>Casarão do Biel</b><i></i></div></div>
 
@@ -267,10 +267,12 @@ const EXT = {
   piscina: { x0: 2.2,  x1: 7.4,  z0: 17.0, z1: 20.6, n: 'Piscina' },
   quiosque:{ x0: 9.2,  x1: 14.4, z0: 16.2, z1: 21.0, n: 'Quiosque' },
   deck:    { x0: 1.0,  x1: 8.4,  z0: 15.4, z1: 22.4, rx: 2.0, rz: 21.7, n: 'Deck' },
+  pergolado:{x0: 10.9, x1: 14.6, z0: 11.0, z1: 15.6, n: 'Pergolado' },
   garagem: { x0: 11.6, x1: 15.4, z0: 1.0,  z1: 5.2,  n: 'Estacionamento' }
 };
 const PROF_PISC = 1.2;
 const ALT_QUIOSQUE = 2.75;
+const ALT_PERGOLA = 2.5;
 
 /* ===================== MATERIAIS ===================== */
 const std = o => new THREE.MeshStandardMaterial(Object.assign({ roughness: .9, metalness: 0 }, o));
@@ -627,6 +629,41 @@ function coqueiro(g, x, z, h = 6.0) {
 
   /* segunda rede, entre os pilares do quiosque */
   caixa(g, 2.2, .1, .62, M.rede, (Q.x0 + Q.x1) / 2, .16 + 1.05, Q.z1 - 1.7, true);
+
+  /* pergolado, com mesas e cadeiras embaixo */
+  const PG = EXT.pergolado, pcx = (PG.x0 + PG.x1) / 2, pcz = (PG.z0 + PG.z1) / 2;
+  piso(g, PG, M.pisoMolh, .14);
+  const pil = [[PG.x0 + .2, PG.z0 + .2], [PG.x1 - .2, PG.z0 + .2],
+               [PG.x0 + .2, PG.z1 - .2], [PG.x1 - .2, PG.z1 - .2],
+               [PG.x0 + .2, pcz], [PG.x1 - .2, pcz]];
+  for (const [px, pz] of pil) caixa(g, .2, ALT_PERGOLA, .2, M.madeira, px, .14, pz);
+  caixa(g, .16, .26, PG.z1 - PG.z0 + .5, M.madeira, PG.x0 + .2, .14 + ALT_PERGOLA + .13, pcz, false);
+  caixa(g, .16, .26, PG.z1 - PG.z0 + .5, M.madeira, PG.x1 - .2, .14 + ALT_PERGOLA + .13, pcz, false);
+  for (let i = 0; i <= 11; i++)
+    TETOS.push(caixa(g, PG.x1 - PG.x0 + .5, .1, .12, M.madClara, pcx,
+      .14 + ALT_PERGOLA + .31, PG.z0 + .15 + i * ((PG.z1 - PG.z0 - .3) / 11), false));
+
+  /* duas mesas compridas com bancos */
+  for (let t = 0; t < 2; t++) {
+    const mz = PG.z0 + 1.35 + t * 2.3;
+    caixa(g, .16, .72, .16, M.madeira, pcx - .72, .14, mz);
+    caixa(g, .16, .72, .16, M.madeira, pcx + .72, .14, mz);
+    caixa(g, 1.95, .09, .88, M.madClara, pcx, .14 + .72, mz, true);
+    caixa(g, .1, .44, .3, M.madeira, pcx, .14, mz - .72, false);
+    caixa(g, .1, .44, .3, M.madeira, pcx, .14, mz + .72, false);
+    caixa(g, 1.95, .08, .34, M.madClara, pcx, .14 + .44, mz - .72, true);
+    caixa(g, 1.95, .08, .34, M.madClara, pcx, .14 + .44, mz + .72, true);
+  }
+
+  /* cadeiras soltas */
+  for (let i = 0; i < 2; i++) {
+    const cz2 = PG.z0 + 1.35 + i * 2.3;
+    caixa(g, .46, .44, .46, M.madClara, PG.x1 - .95, .14, cz2);
+    caixa(g, .46, .52, .08, M.madeira, PG.x1 - .95, .14 + .44, cz2 + .19, false);
+  }
+
+  /* rede entre dois pilares do pergolado */
+  caixa(g, .62, .1, 2.1, M.rede, PG.x0 + .85, .14 + 1.05, pcz, true);
 })();
 
 /* ===================== RÓTULOS ===================== */
@@ -730,9 +767,9 @@ const GRUPOS = [
     ['suite', T.suite], ['quarto2', T.quarto2], ['quarto3', T.quarto3],
     ['wcs', T.wcs], ['wc', T.wc], ['servico', T.servico]
   ], 'casa'],
-  ['No quintal', [
+  ['Na área externa', [
     ['piscina', EXT.piscina], ['quiosque', EXT.quiosque],
-    ['deck', EXT.deck], ['garagem', EXT.garagem]
+    ['pergolado', EXT.pergolado], ['deck', EXT.deck], ['garagem', EXT.garagem]
   ], 'ext']
 ];
 let botaoAtivo = null;
