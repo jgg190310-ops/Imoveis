@@ -679,6 +679,17 @@ const T2 = {
     }
     ruido(g, w, h, 700, ['rgba(40,20,10,.18)', 'rgba(255,230,200,.08)'], [2, 6]);
   }, rx, ry),
+  telhaClara: (rx = 10, ry = 5) => tx(256, 256, (g, w, h) => {
+    g.fillStyle = '#b4ab9d'; g.fillRect(0, 0, w, h);
+    const tw = 26, th = 34;
+    for (let y = 0, r = 0; y < h + th; y += th - 8, r++) for (let x = (r % 2 ? -13 : 0); x < w; x += tw) {
+      const grd = g.createLinearGradient(x, 0, x + tw, 0);
+      const meio = ['#dcd6ca', '#d1cabc', '#c6bdad', '#b9af9f', '#c9b9a2', '#a98f74'][(Math.random() * 6) | 0];
+      grd.addColorStop(0, '#9c9284'); grd.addColorStop(.5, meio); grd.addColorStop(1, '#8e8476');
+      g.fillStyle = grd; g.beginPath(); g.roundRect(x + 1, y, tw - 2, th, [0, 0, 11, 11]); g.fill();
+    }
+    ruido(g, w, h, 520, ['rgba(120,130,95,.20)', 'rgba(140,95,60,.16)', 'rgba(255,255,250,.10)'], [2, 7]);
+  }, rx, ry),
   pedra: (r = 3) => tx(256, 256, (g, w, h) => {
     g.fillStyle = '#9b9488'; g.fillRect(0, 0, w, h);
     for (let i = 0; i < 26; i++) {
@@ -707,6 +718,7 @@ const MAT2 = {
   porcelanato: std({ map: T2.porcelanato(), roughness: .35 }),
   porcelanatoExt: std({ map: T2.porcelanato(14), roughness: .55 }),
   telhaC: std({ map: T2.telhaCeramica(), roughness: .8, side: THREE.DoubleSide }),
+  telhaCl: std({ map: T2.telhaClara(), roughness: .86, side: THREE.DoubleSide }),
   pedra: std({ map: T2.pedra(4), roughness: .95 }),
   azulejoPiscina: std({ map: T2.azulejoPiscina(), roughness: .25 }),
   agua: new THREE.MeshPhysicalMaterial({ color: '#36c2dc', roughness: .05, metalness: 0, transparent: true, opacity: .62, clearcoat: 1 }),
@@ -881,7 +893,9 @@ function vasoPlanta(x, z, esc = 1, pai = G.externo, y = 0) {
 }
 
 /* ======================= TELHADO DE QUATRO AGUAS ======================= */
-function telhado4(x0, z0, x1, z1, yB, sub, pai = G.telhado, mat = MAT2.telhaC) {
+let MTELHA = null;
+function telhado4(x0, z0, x1, z1, yB, sub, pai = G.telhado, mat = null) {
+  mat = mat || MTELHA || MAT2.telhaC;
   const W = x1 - x0, D = z1 - z0, curto = Math.min(W, D), h = curto / 2;
   const cx = (x0 + x1) / 2, cz = (z0 + z1) / 2, yR = yB + sub;
   let r1, r2;
@@ -1182,6 +1196,7 @@ function lote(l) {
 
 function montaCasa(def) {
   nColcha = 0;
+  MTELHA = def.matTelha ? MAT2[def.matTelha] : null;
   const M = MATS();
   piso(-110, 110, -110, 110, 0, MAT.grama, G.externo, .3);
   if (def.praia) {
@@ -1230,59 +1245,113 @@ const CASAS = [
 /* ------------------------------------------------------------------ 7 QUARTOS */
 {
   id: 'segura-as-ondas', aba: '7 quartos · Novo Prado',
-  titulo: ['Novo Prado · até 20 pessoas', 'Casa de 7 quartos', 'Casa térrea com varanda de redes, piscina, área gourmet com churrasqueira, forno e fogão a lenha, e garagem coberta para cinco carros.'],
-  nota: 'Modelo montado a partir das fotos e da descrição do proprietário: sete quartos (três suítes, duas demi-suítes e dois quartos) e seis banheiros. A posição exata dos cômodos é aproximada.',
-  lote: { x0: -21, z0: -8.5, x1: 13, z1: 19.5, alt: 2.6, vaos: { s: [{ c: -15.5, w: 5.2, portao: true }, { c: -9.6, w: 1.1, portao: true }] }, concertina: [['z', -21, -8.5, 19.5], ['x', -8.5, -21, 13]], rua: [-40, 19.7, 40, 27] },
-  pisos: [{ r: [-12.2, 8.6, 2.6, 18.2], m: 'porcelanato' }, { r: [-10.5, 7.9, 10.5, 8.6], m: 'porcelanato' }],
-  pastilhas: [[-12, -7.8, -10.6, 8.4, .9, .6, 'cimento']],
-  blocos: [{
-    casa: [-10, -5, 10, 5], y0: .3,
-    comodos: [
-      { id: 'sala', t: 'sala', r: [-10, 1, -3.5, 5], aberto: ['n'], cab: 'w', portas: [{ lado: 's', t: 3.2, w: 1.8, tipo: 'vidro' }] },
-      { id: 'coz', t: 'cozinha', r: [-10, -5, -5.5, 1], aberto: ['s'], cab: 'n' },
-      { id: 'serv', t: 'servico', r: [-5.5, -5, -3.5, 0], cab: 'n', portas: [{ lado: 'w', t: 3.8 }] },
-      { id: 'wcs', t: 'banheiro', r: [-3.5, -5, -1.8, 0], cab: 'n', portas: [{ lado: 's', t: .85 }] },
-      { id: 'd1', t: 'quarto', camas: 'casal', r: [-1.8, -5, 1.8, 0], cab: 'n', area: [-1.8, -5, .5, 0], portas: [{ lado: 's', t: .6 }] },
-      { id: 'd1w', t: 'lavabo', dentro: 'd1', r: [.5, -5, 1.8, -3.4], cab: 'n', portas: [{ lado: 's', t: .65, w: .66 }] },
-      { id: 'd2', t: 'quarto', camas: 'casal', r: [1.8, -5, 5.4, 0], cab: 'n', area: [1.8, -5, 4.1, 0], portas: [{ lado: 's', t: .6 }] },
-      { id: 'd2w', t: 'lavabo', dentro: 'd2', r: [4.1, -5, 5.4, -3.4], cab: 'n', portas: [{ lado: 's', t: .65, w: .66 }] },
-      { id: 'q6', t: 'quarto', camas: 'solteiro', r: [5.4, -5, 7.4, 0], cab: 'n', tv: false, portas: [{ lado: 's', t: 1.0 }] },
-      { id: 'q7', t: 'quarto', camas: 'solteiros', r: [7.4, -5, 10, 0], cab: 'n', tv: false, portas: [{ lado: 's', t: 1.3 }] },
-      { id: 'cor', t: 'corredor', r: [-3.5, 0, 10, 1] },
-      { id: 's1', t: 'suite', camas: 'casal', r: [-3.5, 1, 1, 5], cab: 'n', area: [-3.5, 1, -.7, 5], camaX: 0, portas: [{ lado: 'n', t: .6 }, { lado: 's', t: 2.0, w: 1.4, tipo: 'vidro' }] },
-      { id: 's1w', t: 'banheiro', dentro: 's1', r: [-.7, 1, 1, 3.1], cab: 'e', portas: [{ lado: 'w', t: 1.5 }] },
-      { id: 's2', t: 'suite', camas: 'casal', r: [1, 1, 5.5, 5], cab: 'n', area: [1, 1, 3.8, 5], portas: [{ lado: 'n', t: .6 }, { lado: 's', t: 2.0, w: 1.4, tipo: 'vidro' }] },
-      { id: 's2w', t: 'banheiro', dentro: 's2', r: [3.8, 1, 5.5, 3.1], cab: 'e', portas: [{ lado: 'w', t: 1.5 }] },
-      { id: 's3', t: 'suite', camas: 'casal+solteiro', r: [5.5, 1, 10, 5], cab: 'n', area: [5.5, 1, 8.3, 5], portas: [{ lado: 'n', t: .6 }, { lado: 's', t: 2.0, w: 1.4, tipo: 'vidro' }] },
-      { id: 's3w', t: 'banheiro', dentro: 's3', r: [8.3, 1, 10, 3.1], cab: 'e', portas: [{ lado: 'w', t: 1.5 }] },
-    ],
-    varanda: { r: [-10, 5, 10, 7.9], postes: 's', n: 8, redes: [[-7.2, 7.55, -4.4, 7.55], [1.6, 7.55, 4.4, 7.55]], mesas: [[-1.6, 6.5]] },
-    telhado: [-10.6, -5.6, 10.6, 8.5], sub: 2.0,
-  }],
-  piscinas: [{ forma: 'feijao', cx: -4.8, cz: 13.6, w: 8.6, d: 4.3, bica: true, borda: .5, espreg: [[-3.5, 3.4, Math.PI], [-2.3, 3.4, Math.PI], [2.3, 3.4, Math.PI]] }],
-  gourmets: [{ r: [3.6, 10.2, 11.6, 16.6], paredes: ['e'], matParede: MAT2.tijolinho, sub: 1.4,
-    itens: [['churrasqueira', 10.8, 12.0, -Math.PI / 2], ['forno', 10.6, 14.6, -Math.PI / 2], ['fogaoLenha', 7.0, 10.85, 0], ['pia', 5.0, 10.85, 0, 1.8], ['mesa', 7.2, 14.2, 0, 3.4], ['rede', 3.9, 16.3, 3.9, 13.4]] }],
-  garagem: { r: [-20.4, 9.6, -12.6, 18.8], sub: 1.1, carros: [[-18.6, 14.3, 0, 1], [-16.0, 14.3, 0, 2], [-13.6, 14.6, Math.PI, 3]] },
-  arvores: [['mangueira', -16, -4, 1.05], ['mangueira', 7, -7, .9], ['coqueiro', 12, 6, 1], ['coqueiro', 12, 0, .95], ['coqueiro', -11.8, 18.6, .9], ['arvore', -1, 17.8, .85], ['arbusto', -10.8, 8.0, .8], ['arbusto', 2.3, 18.6, .7], ['vaso', -9.4, 7.2, 1], ['vaso', 9.3, 7.2, 1], ['coqueiro', 2.8, 9.2, .9]],
-  rotulos: [
-    { id: 'casa', nome: 'A casa', sub: '7 quartos · 6 banheiros', pos: [0, 5.8, 0], tipo: 'ext', d: 26 },
-    { id: 'varanda', nome: 'Varanda', sub: 'redes e mesa', pos: [-6, 1.6, 6.6], tipo: 'ext', d: 13 },
-    { id: 'piscina', nome: 'Piscina', sub: 'com bica', pos: [-4.8, 1.0, 13.6], tipo: 'ext', d: 14 },
-    { id: 'gourmet', nome: 'Área gourmet', sub: 'churrasqueira, forno e fogão a lenha', pos: [7.6, 3.4, 13.4], tipo: 'ext', d: 14 },
-    { id: 'garagem', nome: 'Garagem coberta', sub: 'cinco carros', pos: [-16.5, 3.4, 14.2], tipo: 'ext', d: 16 },
-    { id: 'sala', nome: 'Sala', sub: 'integrada com a cozinha', pos: [-6.8, 1.6, 3.0], tipo: 'int', d: 9 },
-    { id: 'coz', nome: 'Cozinha', sub: 'equipada', pos: [-7.8, 1.6, -2.4], tipo: 'int', d: 9 },
-    { id: 's1', nome: 'Suíte 1', sub: 'casal', pos: [-2.1, 1.6, 3.3], tipo: 'int', d: 8 },
-    { id: 's2', nome: 'Suíte 2', sub: 'casal', pos: [2.4, 1.6, 3.3], tipo: 'int', d: 8 },
-    { id: 's3', nome: 'Suíte 3', sub: 'casal + solteiro', pos: [6.9, 1.6, 3.3], tipo: 'int', d: 8 },
-    { id: 'd1', nome: 'Demi-suíte 1', sub: 'lavabo no quarto', pos: [-.7, 1.6, -2.5], tipo: 'int', d: 8 },
-    { id: 'd2', nome: 'Demi-suíte 2', sub: 'lavabo no quarto', pos: [2.9, 1.6, -2.5], tipo: 'int', d: 8 },
-    { id: 'q6', nome: 'Quarto 6', sub: 'solteiro', pos: [6.4, 1.6, -2.5], tipo: 'int', d: 8 },
-    { id: 'q7', nome: 'Quarto 7', sub: 'duas camas', pos: [8.7, 1.6, -2.5], tipo: 'int', d: 8 },
-    { id: 'wcs', nome: 'Banheiro', sub: 'social', pos: [-2.6, 1.6, -2.5], tipo: 'int', d: 7 },
+  matTelha: 'telhaCl',
+  titulo: ['Novo Prado · até 20 pessoas', 'Casa de 7 quartos', 'A fila de quartos no fundo e a casa na frente, com o pátio da piscina no meio. Área gourmet com pergolado de um lado, garagem aberta e garagem coberta na frente.'],
+  nota: 'Modelo refeito pela planta que o Augusto mandou e pela foto aérea: fila de cinco quartos no fundo, piscina no pátio, área gourmet com pergolado, e a casa com a suíte grande, a suíte pequena, a cozinha e a sala. Sete quartos (três suítes, duas demi-suítes e dois quartos) e seis banheiros. A planta é esquemática, então as medidas são aproximadas.',
+  lote: {
+    x0: -12, z0: -16, x1: 12, z1: 14, alt: 2.4,
+    vaos: { s: [{ c: -5.5, w: 6.5, portao: true }, { c: 0.4, w: 2.2, portao: true }, { c: 8.7, w: 6.4, portao: true }] },
+    rua: [-40, 14.2, 40, 22],
+  },
+  pisos: [
+    { r: [4.6, -9.6, 11.2, -1.6], m: 'porcelanato' },
+    { r: [-12, 6.9, 4.7, 13.4], m: 'cimento' },
+    { r: [-5.5, -8.3, 4.7, -7.4], m: 'porcelanato' },
+    { r: [4.7, -7.4, 5.6, 6.9], m: 'cimento' },
   ],
-  listas: [['No terreno', ['casa', 'varanda', 'piscina', 'gourmet', 'garagem']], ['Dentro da casa', ['sala', 'coz', 's1', 's2', 's3', 'd1', 'd2', 'q6', 'q7', 'wcs']]],
-  cam: { largo: { pos: [2, 30, 44], alvo: [-3, 0, 5] }, estreito: { pos: [30, 36, 46], alvo: [-3, 0, 6] }, planta: [-4, 5.5, 60] },
+  pastilhas: [
+    [-4.6, -6.9, -4.0, -2.0, .92, .56, 'cimento'],
+    [-2.8, -6.9, -2.2, -2.0, .92, .56, 'cimento'],
+  ],
+  blocos: [
+    /* ---- fila de quartos no fundo: Q3 suite, Q4 e Q5, Q6 e Q7 ---- */
+    {
+      casa: [-12, -16, 12, -10.5], y0: .3,
+      comodos: [
+        { id: 'q3', t: 'suite', camas: 'casal', r: [-12, -16, -5.5, -10.5], cab: 'n', area: [-12, -14.1, -5.5, -10.5], portas: [{ lado: 's', t: 2.4, w: 1.4, tipo: 'vidro' }] },
+        { id: 'q3w', t: 'banheiro', dentro: 'q3', r: [-12, -16, -8.6, -14.1], cab: 'n', portas: [{ lado: 's', t: 1.4 }] },
+        { id: 'q4', t: 'quarto', camas: 'casal', r: [-5.5, -16, -1.2, -10.5], cab: 'n', area: [-5.5, -14.1, -1.2, -10.5], portas: [{ lado: 's', t: 1.5, w: 1.3, tipo: 'vidro' }] },
+        { id: 'q4w', t: 'lavabo', dentro: 'q4', r: [-5.5, -16, -3.5, -14.1], cab: 'n', portas: [{ lado: 's', t: .9, w: .7 }] },
+        { id: 'q5', t: 'quarto', camas: 'casal+solteiro', r: [-1.2, -16, 3.0, -10.5], cab: 'n', portas: [{ lado: 's', t: 1.5, w: 1.3, tipo: 'vidro' }] },
+        { id: 'q6', t: 'quarto', camas: 'casal', r: [3.0, -16, 7.3, -10.5], cab: 'n', area: [3.0, -14.1, 7.3, -10.5], portas: [{ lado: 's', t: 1.5, w: 1.3, tipo: 'vidro' }] },
+        { id: 'q6w', t: 'lavabo', dentro: 'q6', r: [3.0, -16, 5.0, -14.1], cab: 'n', portas: [{ lado: 's', t: .9, w: .7 }] },
+        { id: 'q7', t: 'quarto', camas: 'solteiros', r: [7.3, -16, 12, -10.5], cab: 'n', portas: [{ lado: 's', t: 1.8, w: 1.3, tipo: 'vidro' }] },
+      ],
+      varanda: { r: [-12, -10.5, 12, -8.3], postes: 's', n: 10, mesas: [[-8.6, -9.4], [9.4, -9.4]] },
+      telhado: [-12.6, -16.6, 12.6, -8.1], sub: 1.9,
+    },
+    /* ---- a casa, de frente para a rua: suite grande, suite pequena, cozinha, sala ---- */
+    {
+      casa: [-12, -1.5, 4.7, 6.7], y0: .3,
+      comodos: [
+        { id: 'serv', t: 'servico', r: [-12, -1.5, -7.65, 4.4], cab: 'w', portas: [{ lado: 'e', t: 4.6 }] },
+        { id: 'wcs', t: 'banheiro', r: [-12, 4.4, -7.65, 6.7], cab: 'w', portas: [{ lado: 'e', t: 1.0 }] },
+        { id: 'coz', t: 'cozinha', r: [-7.65, -1.5, -3.3, 3.6], aberto: ['e'], cab: 'n' },
+        { id: 'q1', t: 'suite', camas: 'casal', r: [-3.3, -1.5, 4.7, 3.6], cab: 'e', area: [-3.3, -1.5, 2.6, 3.6], portas: [{ lado: 'n', t: 1.0 }, { lado: 's', t: 1.0 }] },
+        { id: 'q1w', t: 'banheiro', dentro: 'q1', r: [2.6, -1.5, 4.7, 1.0], cab: 'e', portas: [{ lado: 'w', t: 1.6 }] },
+        { id: 'q2', t: 'suite', camas: 'casal', r: [-7.65, 3.6, -1.1, 6.7], cab: 's', area: [-7.65, 3.6, -3.0, 6.7], portas: [{ lado: 'n', t: 1.2 }] },
+        { id: 'q2w', t: 'banheiro', dentro: 'q2', r: [-3.0, 3.6, -1.1, 6.7], cab: 'e', portas: [{ lado: 'n', t: 1.0 }] },
+        { id: 'sala', t: 'sala', r: [-1.1, 3.6, 4.7, 6.7], aberto: ['s'], cab: 'n', semJantar: true },
+      ],
+      varanda: { r: [-12, 6.7, 4.7, 8.5], postes: 's', n: 7, redes: [[-10.4, 8.15, -7.8, 8.15]], mesas: [[1.6, 7.6]] },
+      telhado: [-12.6, -2.1, 5.3, 9.1], sub: 2.1,
+    },
+  ],
+  piscinas: [{ forma: 'feijao', cx: 7.8, cz: -5.6, w: 5.6, d: 4.3, rot: Math.PI / 2, bica: true, borda: .5, espreg: [[-2.5, 2.6, Math.PI / 2], [-2.5, 1.2, Math.PI / 2]] }],
+  gourmets: [{
+    r: [-12, -8.4, -5.5, -4.0], paredes: ['w', 'n'], matParede: MAT2.tijolinho, sub: 1.6,
+    itens: [['churrasqueira', -11.2, -7.2, Math.PI / 2], ['forno', -11.2, -5.3, Math.PI / 2], ['fogaoLenha', -9.0, -7.8, 0], ['pia', -7.3, -7.8, 0, 1.6], ['mesa', -8.6, -5.4, 0, 2.8]],
+  }],
+  pergolado: { r: [-11.6, -3.8, -5.8, -1.7], itens: [['espreg', -10.4, -2.6, 0], ['mesa', -7.4, -2.7]] },
+  garagem: { r: [5.4, 6.9, 12, 13.4], sub: 1.1, carros: [[7.0, 10.6, 0, 1], [10.0, 10.6, 0, 2]] },
+  arvores: [
+    ['mangueira', -2.4, -4.8, .85],
+    ['mangueira', 11.0, .4, .85],
+    ['arvore', 3.6, -2.4, .62],
+    ['coqueiro', -13.4, -12.4, 1.0],
+    ['coqueiro', 13.4, -13.4, .95],
+    ['arbusto', -4.8, -8.0, .55],
+    ['arbusto', -2.6, -8.0, .5],
+    ['arbusto', .4, -8.0, .55],
+    ['arbusto', 3.0, -8.0, .5],
+    ['arbusto', 11.2, -9.2, .6],
+    ['arbusto', 11.2, -1.2, .6],
+    ['vaso', -5.2, -9.2, 1],
+    ['vaso', 4.2, -9.2, 1],
+    ['vaso', -11.6, 8.1, 1],
+    ['vaso', 4.3, 8.1, 1],
+  ],
+  extra: () => {
+    // garagem aberta, na frente: so o piso e os carros, sem cobertura
+    [[-10.2, 10.4, 0, 3], [-7.0, 10.4, 0, 1], [-3.8, 10.4, 0, 2], [-.6, 10.4, 0, 3], [2.6, 10.4, 0, 1]]
+      .forEach(([x, z, r, k]) => carro(x, z, r, G.externo, MAT2['carro' + k]));
+  },
+  rotulos: [
+    { id: 'casa', nome: 'A casa', sub: '7 quartos · 6 banheiros', pos: [-4, 6.2, 2.6], tipo: 'ext', d: 30 },
+    { id: 'fila', nome: 'Fila dos quartos', sub: 'cinco quartos no fundo, com varanda', pos: [0, 4.4, -13.2], tipo: 'ext', d: 22 },
+    { id: 'piscina', nome: 'Piscina', sub: 'no pátio, entre a casa e os quartos', pos: [7.8, 1.0, -5.6], tipo: 'ext', d: 16 },
+    { id: 'gourmet', nome: 'Área gourmet', sub: 'churrasqueira, forno e fogão a lenha', pos: [-8.8, 3.6, -6.2], tipo: 'ext', d: 16 },
+    { id: 'pergolado', nome: 'Pergolado', sub: 'deck de madeira, ao lado do gourmet', pos: [-8.7, 3.0, -2.7], tipo: 'ext', d: 14 },
+    { id: 'garagemA', nome: 'Garagem aberta', sub: 'na frente, junto ao portão', pos: [-4, 1.6, 10.4], tipo: 'ext', d: 20 },
+    { id: 'garagemC', nome: 'Garagem coberta', sub: 'no canto da frente', pos: [8.7, 3.2, 10.4], tipo: 'ext', d: 20 },
+    { id: 'q1', nome: 'Q1 · Suíte grande', sub: 'casal, na casa', pos: [-.4, 1.6, 1.0], tipo: 'int', d: 9 },
+    { id: 'q2', nome: 'Q2 · Suíte pequena', sub: 'casal, na casa', pos: [-5.4, 1.6, 5.1], tipo: 'int', d: 9 },
+    { id: 'q3', nome: 'Q3 · Suíte', sub: 'casal, no fundo', pos: [-8.7, 1.6, -12.3], tipo: 'int', d: 9 },
+    { id: 'q4', nome: 'Q4 · Demi-suíte', sub: 'casal, com lavabo', pos: [-3.3, 1.6, -12.3], tipo: 'int', d: 8 },
+    { id: 'q5', nome: 'Q5 · Quarto', sub: 'casal + solteiro', pos: [.9, 1.6, -13.2], tipo: 'int', d: 8 },
+    { id: 'q6', nome: 'Q6 · Demi-suíte', sub: 'casal, com lavabo', pos: [5.1, 1.6, -12.3], tipo: 'int', d: 8 },
+    { id: 'q7', nome: 'Q7 · Quarto', sub: 'duas camas', pos: [9.6, 1.6, -13.2], tipo: 'int', d: 8 },
+    { id: 'coz', nome: 'Cozinha', sub: 'aberta para a suíte grande', pos: [-5.4, 1.6, 1.0], tipo: 'int', d: 9 },
+    { id: 'sala', nome: 'Sala', sub: 'abre para a varanda da frente', pos: [1.8, 1.6, 5.1], tipo: 'int', d: 9 },
+    { id: 'serv', nome: 'Área de serviço', sub: 'na lateral da casa', pos: [-9.8, 1.6, 1.4], tipo: 'int', d: 9 },
+    { id: 'wcs', nome: 'Banheiro social', sub: 'na casa', pos: [-9.8, 1.6, 5.5], tipo: 'int', d: 7 },
+  ],
+  listas: [
+    ['No terreno', ['casa', 'fila', 'piscina', 'gourmet', 'pergolado', 'garagemA', 'garagemC']],
+    ['Os sete quartos', ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7']],
+    ['Resto da casa', ['coz', 'sala', 'serv', 'wcs']],
+  ],
+  cam: { largo: { pos: [3, 34, 40], alvo: [0, 0, -1] }, estreito: { pos: [26, 44, 52], alvo: [0, 0, -1] }, planta: [0, -1, 88] },
 },
 /* ------------------------------------------------------------------ 6 QUARTOS PE NA AREIA */
 {
