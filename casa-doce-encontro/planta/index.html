@@ -302,8 +302,8 @@ const M = {
   preto:     std({ color: '#241f1a', roughness: .48 }),
   grama:     std({ color: '#7d8f52', roughness: 1 }),
   terra:     std({ color: '#b3a881', roughness: 1 }),
-  agua:      new THREE.MeshStandardMaterial({ color: '#2fa5c4', roughness: .1, metalness: .24, transparent: true, opacity: .92 }),
-  fibra:     std({ color: '#8fd8ea', roughness: .25 }),
+  agua:      new THREE.MeshStandardMaterial({ color: '#17b2dd', roughness: .08, metalness: .18, transparent: true, opacity: .95, emissive: '#0a5a72', emissiveIntensity: .3 }),
+  fibra:     std({ color: '#a9e6f5', roughness: .22 }),
   vidro:     new THREE.MeshPhysicalMaterial({ color: '#cfe2e6', roughness: .06, metalness: 0, transparent: true, opacity: .26, transmission: .5 }),
   esquadria: std({ color: '#2f2a26', roughness: .5 }),
   folha:     std({ color: '#4e7a3c', roughness: 1 }),
@@ -725,12 +725,12 @@ function rotulo(r, grupo, y) {
   return o;
 }
 [T.suite1, T.suite2, T.suite3, T.suite4, T.suite5, T.cozinha].forEach(r => rotulo(r, 'casa', 1.7));
-[ALTO.suite6, ALTO.suite7, ALTO.suite8].forEach(r => rotulo(r, 'casa', Y2 + 1.7));
+[ALTO.suite6, ALTO.suite7, ALTO.suite8].forEach(r => rotulo(r, 'casa', Y2 + 2.5));
 Object.values(EXT).forEach(r => rotulo(r, 'ext', 1.2));
 
 /* ===================== CÂMERA E ESTADO ===================== */
-const ALVO = new THREE.Vector3(0, 1.0, 1.5);
-const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-20, 44, -56) : new THREE.Vector3(-23, 29, -37);
+const ALVO = new THREE.Vector3(0, 1.0, 0);
+const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-19, 37, -49) : new THREE.Vector3(-23, 28, -36);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
