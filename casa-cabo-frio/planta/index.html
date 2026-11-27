@@ -733,8 +733,8 @@ function rotulo(r, grupo, y) {
 Object.values(EXT).forEach(r => rotulo(r, 'ext', 1.2));
 
 /* ===================== CÂMERA E ESTADO ===================== */
-const ALVO = MOBILE ? new THREE.Vector3(3.5, 1.5, 2) : new THREE.Vector3(-.5, 1, 1.5);
-const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-17, 30, -36) : new THREE.Vector3(-5, 27, -41);
+const ALVO = MOBILE ? new THREE.Vector3(10, 1.5, 1.5) : new THREE.Vector3(-.5, 1, 1.5);
+const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-13, 26, -30) : new THREE.Vector3(-5, 27, -41);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
