@@ -255,7 +255,7 @@ const EXT = {
   garagem:  { x0: 1.4,  x1: 5.2,  z0: 1.4,  z1: 5.6,  n: 'Garagem' },
   churras:  { x0: 10.2, x1: 12.4, z0: 6.2,  z1: 9.2,  n: 'Churrasqueira' },
   jardim:   { x0: 1.8,  x1: 9.4,  z0: 15.2, z1: 17.2, n: 'Jardim' },
-  piscina:  { x0: 15.2, x1: 19.8, z0: 7.8,  z1: 13.2, n: 'Piscina do condomínio' },
+  piscina:  { x0: 15.2, x1: 19.8, z0: 7.8,  z1: 13.2, n: 'Piscina' },
   deck:     { x0: 13.8, x1: 21.0, z0: 6.2,  z1: 14.8, n: 'Área de lazer' }
 };
 
@@ -732,7 +732,7 @@ rotulo(EXT.piscina, 'ext', 1.6);
 
 /* ===================== CÂMERA E ESTADO ===================== */
 const ALVO = new THREE.Vector3(0, 1.0, -1);
-const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-11, 26, -38) : new THREE.Vector3(-14, 18, -26);
+const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-8.5, 19.5, -28) : new THREE.Vector3(-14, 18, -26);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
