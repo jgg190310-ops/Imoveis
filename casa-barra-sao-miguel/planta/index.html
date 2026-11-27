@@ -215,7 +215,7 @@ controls.maxPolarAngle = Math.PI / 2 - .03;
 /* ===================== LUZ ===================== */
 scene.add(new THREE.HemisphereLight('#eef8ff', '#bfc7a8', .95));
 const sol = new THREE.DirectionalLight('#fff6e4', 2.85);
-sol.position.set(-22, 36, 12);
+sol.position.set(-4, 34, 30);
 sol.castShadow = true;
 sol.shadow.mapSize.set(MOBILE ? 1024 : 2048, MOBILE ? 1024 : 2048);
 sol.shadow.camera.left = -26; sol.shadow.camera.right = 26;
@@ -251,7 +251,7 @@ const EXT = {
   gourmet: { x0: 12.6, x1: 18.6, z0: 2.4,  z1: 7.8,  n: 'Área gourmet' },
   garagem: { x0: 1.2,  x1: 11.0, z0: 1.4,  z1: 7.4,  n: 'Estacionamento' },
   piscina: { x0: 12.7, x1: 17.3, z0: 20.4, z1: 26.4, n: 'Piscina' },
-  deck:    { x0: 11.4, x1: 18.6, z0: 19.0, z1: 27.6, n: 'Deck da piscina' },
+  deck:    { x0: 11.4, x1: 18.6, z0: 19.0, z1: 27.6, n: 'Área da piscina' },
   quintal: { x0: 1.2,  x1: 11.0, z0: 19.0, z1: 27.6, n: 'Quintal' }
 };
 
@@ -677,7 +677,12 @@ function carro(g, x, z, mat, rot = 0) {
 /* ===================== PISCINA E DECK ===================== */
 (function () {
   const g = G.lazer, p = EXT.piscina, d = EXT.deck;
-  piso(g, d, M.pisoExt, .04, .1);
+  /* o piso do deck e feito em quatro faixas em volta da cuba,
+     senao a laje tapa a agua vista de cima */
+  piso(g, { x0: d.x0, x1: d.x1, z0: d.z0, z1: p.z0 }, M.pisoExt, .04, .1);
+  piso(g, { x0: d.x0, x1: d.x1, z0: p.z1, z1: d.z1 }, M.pisoExt, .04, .1);
+  piso(g, { x0: d.x0, x1: p.x0, z0: p.z0, z1: p.z1 }, M.pisoExt, .04, .1);
+  piso(g, { x0: p.x1, x1: d.x1, z0: p.z0, z1: p.z1 }, M.pisoExt, .04, .1);
   /* borda */
   const bw = .42;
   caixa(g, p.x1 - p.x0 + bw * 2, .16, bw, M.borda, (p.x0 + p.x1) / 2, .04, p.z0 - bw / 2, false);
@@ -747,8 +752,8 @@ Object.values(T).forEach(r => rotulo(r, 'casa', 1.9));
 Object.values(EXT).forEach(r => rotulo(r, 'ext', 1.2));
 
 /* ===================== CÂMERA E ESTADO ===================== */
-const ALVO = new THREE.Vector3(0, 1.0, 0);
-const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-16, 36, -50) : new THREE.Vector3(-20, 24, -32);
+const ALVO = new THREE.Vector3(-1, 1.0, 1);
+const VISTA_INICIAL = MOBILE ? new THREE.Vector3(20, 34, 46) : new THREE.Vector3(24, 23, 30);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
@@ -800,10 +805,10 @@ seg('segFoco', 'data-f', v => {
     aberto = true;
     document.querySelectorAll('#segCorte button').forEach(b => b.classList.toggle('on', b.dataset.n === 'aberto'));
     aplicar();
-    irPara(new THREE.Vector3(-14, 21, -8), new THREE.Vector3(-3.3, 1.2, -.7));
+    irPara(new THREE.Vector3(10, 20, 14), new THREE.Vector3(-3.3, 1.2, -.7));
   } else if (v === 'lazer') {
     aplicar();
-    irPara(new THREE.Vector3(1, 18, -6), new THREE.Vector3(5.0, .4, 9.0));
+    irPara(new THREE.Vector3(16, 16, 22), new THREE.Vector3(4.6, .4, 8.4));
   } else { aplicar(); reset(); }
 });
 document.getElementById('btnReset').addEventListener('click', () => {
@@ -851,7 +856,7 @@ GRUPOS.forEach(([titulo, itens, tipo]) => {
       const cx = (r.x0 + r.x1) / 2 - CX, cz = (r.z0 + r.z1) / 2 - CZ;
       const maior = Math.max(r.x1 - r.x0, r.z1 - r.z0);
       const raio = Math.max(13, maior * (MOBILE ? 3.0 : 2.5));
-      irPara(new THREE.Vector3(cx - raio * .6, .8 + raio * .85, cz + raio * .6),
+      irPara(new THREE.Vector3(cx + raio * .62, .8 + raio * .85, cz + raio * .62),
              new THREE.Vector3(cx, .8, cz));
     });
     ambBox.appendChild(b);
