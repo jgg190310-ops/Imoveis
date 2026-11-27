@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Casa em Cabo Frio · Condomínio Encontro dos Peixes · Pacote de Réveillon</title>
+<meta name="description" content="Casa de temporada em condomínio fechado em Cabo Frio-RJ: 2 suítes, 3 banheiros, até 8 pessoas, 2 vagas, piscina e sauna no condomínio. A 5 minutos da Ilha do Japonês e 7 da Praia do Peró. Pacote de Réveillon disponível.">
+<meta name="theme-color" content="#06293c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Casa em Cabo Frio · Encontro dos Peixes">
+<meta property="og:description" content="2 suítes, até 8 pessoas, piscina e sauna no condomínio. Pacote de Réveillon.">
+<meta property="og:image" content="fotos/foto-01.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Jost:wght@300..600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul:#0d7ea8; --azul-2:#22a8cf; --azul-3:#0a5f80;
+  --marinho:#06293c; --marinho-2:#0c3d57; --marinho-3:#1c6b8c;
+  --dourado:#e9b44c; --dourado-2:#f6cf84; --dourado-3:#fbe9c4;
+  --areia:#fcf7ef; --areia-2:#f3eadb;
+  --tinta:#152630; --texto:#4c5c66; --suave:#8597a1;
+  --sans:'Jost',system-ui,-apple-system,Segoe UI,sans-serif;
+  --display:'Archivo',system-ui,sans-serif;
+  --borda:rgba(21,38,48,.12);
+  --sombra:0 24px 60px -32px rgba(10,40,56,.5);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{background:var(--areia);color:var(--texto);font:400 16px/1.7 var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+::selection{background:var(--azul);color:#fff}
+
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.olho{display:inline-block;font:700 10.5px var(--display);letter-spacing:.3em;
+  text-transform:uppercase;color:var(--azul)}
+h2{font:800 clamp(30px,5vw,52px)/1.04 var(--display);color:var(--tinta);letter-spacing:-.025em;
+  text-transform:uppercase}
+h3{font:700 18px var(--display);color:var(--tinta);letter-spacing:-.01em}
+.lead{font-size:clamp(15.5px,1.8vw,18px);line-height:1.78;color:var(--texto);max-width:62ch}
+
+/* ---------- barra de vidro ---------- */
+#bar{position:fixed;z-index:60;top:0;left:0;right:0;padding:15px 0;
+  transition:background .4s,backdrop-filter .4s,padding .4s,border-color .4s,box-shadow .4s;
+  border-bottom:1px solid transparent}
+#bar.on{background:rgba(252,247,239,.72);backdrop-filter:blur(18px) saturate(1.5);
+  -webkit-backdrop-filter:blur(18px) saturate(1.5);padding:9px 0;
+  border-bottom-color:var(--borda);box-shadow:0 10px 30px -24px rgba(10,40,56,.6)}
+#bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:nowrap}
+.marca{display:flex;align-items:center;gap:10px;flex:none;min-width:0}
+.marca svg{width:28px;height:28px;color:var(--dourado);flex:none}
+.marca b{display:block;font:800 17px/1 var(--display);color:#fff;letter-spacing:-.02em;
+  text-transform:uppercase;white-space:nowrap;transition:color .4s}
+.marca i{display:block;font:600 8px var(--display);letter-spacing:.26em;text-transform:uppercase;
+  color:var(--dourado-2);font-style:normal;margin-top:3px;transition:color .4s}
+#bar.on .marca b{color:var(--tinta)}
+#bar.on .marca i{color:var(--azul)}
+#bar.on .marca svg{color:var(--azul)}
+#nav{display:flex;align-items:center;gap:clamp(14px,1.9vw,28px);min-width:0;flex-shrink:1}
+#nav a{font:500 13px var(--sans);letter-spacing:.04em;color:rgba(255,255,255,.9);white-space:nowrap;
+  position:relative;padding:4px 0;transition:color .3s}
+#bar.on #nav a{color:var(--texto)}
+#nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;
+  background:var(--azul-2);transition:right .3s}
+#nav a:hover::after{right:0}
+.btn{flex:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 22px;border-radius:999px;font:700 12px var(--display);
+  letter-spacing:.12em;text-transform:uppercase;transition:transform .25s,background .25s,box-shadow .25s}
+.btn svg{width:15px;height:15px;flex:none}
+.btn-marinho{background:var(--marinho);color:var(--dourado-2)}
+.btn-marinho:hover{background:var(--marinho-2);transform:translateY(-2px);box-shadow:0 14px 28px -16px rgba(6,41,60,.8)}
+.btn-azul{background:var(--azul);color:#fff}
+.btn-azul:hover{background:var(--azul-3);transform:translateY(-2px);box-shadow:0 14px 28px -16px rgba(10,95,128,.85)}
+.btn-linha{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+.btn-linha:hover{background:rgba(255,255,255,.14);border-color:#fff;transform:translateY(-2px)}
+#burger{display:none;width:42px;height:42px;place-items:center;color:#fff;transition:color .4s}
+#bar.on #burger{color:var(--tinta)}
+#burger svg{width:24px;height:24px}
+
+/* menu mobile */
+#menu{position:fixed;inset:0;z-index:70;background:var(--marinho);display:none;
+  flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:32px}
+#menu.aberto{display:flex}
+#menu a{font:800 clamp(24px,6.4vw,38px)/1.5 var(--display);color:var(--areia);
+  text-transform:uppercase;letter-spacing:-.02em}
+#menu a:active{color:var(--dourado)}
+#menu .fecha{position:absolute;top:20px;right:20px;width:46px;height:46px;border-radius:50%;
+  display:grid;place-items:center;background:rgba(252,247,239,.14);color:var(--areia);font-size:26px;line-height:1}
+#menu .zap{margin-top:22px}
+
+/* ---------- capa com parallax ---------- */
+#hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;
+  overflow:hidden;background:var(--marinho)}
+#herofoto{position:absolute;inset:-12% 0 -12%;will-change:transform}
+#herofoto img{width:100%;height:100%;object-fit:cover;object-position:50% 46%;filter:saturate(1.1) contrast(1.04)}
+#hero .veu{position:absolute;inset:0;
+  background:linear-gradient(170deg,rgba(6,41,60,.62) 0%,rgba(13,126,168,.26) 36%,rgba(10,95,128,.48) 68%,rgba(6,41,60,.93) 100%)}
+#hero .bola{position:absolute;top:-16vh;right:-14vw;width:62vw;height:62vw;max-width:720px;max-height:720px;
+  border-radius:50%;background:radial-gradient(circle,rgba(246,207,132,.22) 0%,rgba(34,168,207,.16) 44%,rgba(34,168,207,.05) 62%,rgba(34,168,207,0) 74%);
+  pointer-events:none}
+#hero .wrap{position:relative;z-index:2;padding:132px 0 clamp(40px,7vh,76px)}
+.selo{display:inline-flex;align-items:center;gap:9px;padding:8px 17px;margin-bottom:24px;
+  border:1px solid rgba(255,255,255,.4);border-radius:999px;background:rgba(6,41,60,.34);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.selo i{width:7px;height:7px;border-radius:50%;background:var(--dourado);font-style:normal;
+  box-shadow:0 0 0 4px rgba(233,180,76,.26)}
+.selo span{font:700 10.5px var(--display);letter-spacing:.24em;text-transform:uppercase;color:#fff}
+#hero h1{font:900 clamp(42px,10.5vw,112px)/.88 var(--display);color:#fff;
+  letter-spacing:-.045em;text-transform:uppercase;text-shadow:0 10px 40px rgba(2,22,34,.45)}
+#hero h1 em{display:block;font-style:normal;color:var(--dourado-2)}
+#hero .local{margin-top:20px;font:600 clamp(11px,1.7vw,13.5px) var(--display);
+  letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.92)}
+#hero .sub{margin-top:14px;font-size:clamp(15px,1.9vw,18px);color:rgba(255,255,255,.9);max-width:46ch}
+#hero .acoes{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.rolar{position:absolute;z-index:3;left:50%;bottom:14px;transform:translateX(-50%);
+  display:grid;place-items:center;gap:7px;color:rgba(255,255,255,.8)}
+.rolar span{font:600 9px var(--display);letter-spacing:.26em;text-transform:uppercase}
+.rolar i{display:block;width:2px;height:34px;border-radius:2px;
+  background:linear-gradient(var(--dourado),transparent);animation:desce 2.1s infinite}
+@keyframes desce{0%{opacity:0;transform:scaleY(.2);transform-origin:top}
+  50%{opacity:1;transform:scaleY(1);transform-origin:top}
+  100%{opacity:0;transform:scaleY(1);transform-origin:bottom}}
+
+/* ---------- faixa ---------- */
+#faixa{background:var(--marinho);color:var(--dourado-2);position:relative;z-index:3}
+#faixa .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:10px 26px;padding:17px 0}
+#faixa b{font:700 11.5px var(--display);letter-spacing:.2em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:9px}
+#faixa b svg{width:16px;height:16px;color:var(--azul-2);flex:none}
+
+/* ---------- números ---------- */
+#numeros{background:var(--areia-2);border-bottom:1px solid var(--borda)}
+#numeros .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.num{padding:clamp(26px,4vw,40px) 10px;text-align:center;border-right:1px solid var(--borda);min-width:0}
+.num:last-child{border-right:0}
+.num b{display:block;font:900 clamp(28px,4.4vw,48px)/1 var(--display);color:var(--azul);letter-spacing:-.03em}
+.num span{display:block;margin-top:8px;font:600 9.5px var(--display);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--suave)}
+
+/* ---------- seções ---------- */
+section{padding:clamp(64px,10vh,118px) 0}
+.cab{max-width:66ch;margin-bottom:clamp(32px,5vh,54px)}
+.cab .olho{margin-bottom:14px}
+.cab h2+p{margin-top:18px}
+
+#acasa .duo{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(28px,5vw,64px);align-items:center}
+#acasa .fig{position:relative;border-radius:22px;overflow:hidden;box-shadow:var(--sombra)}
+#acasa .fig img{width:100%;aspect-ratio:4/5;object-fit:cover}
+#acasa .fig .tag{position:absolute;left:16px;bottom:16px;padding:9px 16px;border-radius:999px;
+  background:var(--dourado);color:var(--marinho);font:700 10px var(--display);
+  letter-spacing:.2em;text-transform:uppercase}
+
+.cards{margin-top:clamp(34px,5vh,56px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{position:relative;border-radius:20px;overflow:hidden;min-height:290px;display:flex;
+  align-items:flex-end;padding:22px;color:#fff;box-shadow:var(--sombra)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.card .cor{position:absolute;inset:0;z-index:1}
+.card.c1 .cor{background:linear-gradient(to top,rgba(8,62,86,.95) 0%,rgba(13,126,168,.56) 36%,rgba(34,168,207,.12) 68%,rgba(34,168,207,0) 100%)}
+.card.c2 .cor{background:linear-gradient(to top,rgba(6,41,60,.95) 0%,rgba(12,61,87,.58) 36%,rgba(28,107,140,.12) 68%,rgba(28,107,140,0) 100%)}
+.card.c3 .cor{background:linear-gradient(to top,rgba(120,83,15,.95) 0%,rgba(190,140,47,.54) 36%,rgba(233,180,76,.12) 68%,rgba(233,180,76,0) 100%)}
+.card .txt{position:relative;z-index:2}
+.card h3{color:#fff;font-size:21px;text-transform:uppercase;letter-spacing:-.01em;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.card p{margin-top:6px;font-size:14.2px;line-height:1.6;color:rgba(255,255,255,.95);text-shadow:0 1px 10px rgba(0,0,0,.45)}
+
+/* galeria */
+#galeria{background:var(--areia-2)}
+.grade{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ft{position:relative;border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--areia);
+  aspect-ratio:1;transition:transform .35s,box-shadow .35s;padding:0;display:block;width:100%}
+.ft img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.ft:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
+.ft:hover img{transform:scale(1.07)}
+.ft.g{grid-column:span 2;grid-row:span 2;aspect-ratio:1}
+.maisft{margin-top:22px;text-align:center}
+.notaft{margin-top:20px;font-size:13.6px;color:var(--suave);max-width:62ch}
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:90;background:rgba(5,16,22,.985);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;
+  align-items:center;justify-content:center;padding:clamp(12px,3vw,40px)}
+#lb.aberto{display:flex}
+#lb img{max-width:100%;max-height:86vh;width:auto;border-radius:10px;
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.9)}
+#lb .fechalb{position:absolute;top:max(14px,env(safe-area-inset-top));right:14px;width:48px;height:48px;
+  border-radius:50%;background:rgba(252,247,239,.16);color:#fff;font-size:26px;line-height:1;
+  display:grid;place-items:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#lb .seta{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;
+  background:rgba(252,247,239,.16);color:#fff;display:grid;place-items:center;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#lb .seta svg{width:22px;height:22px}
+#lb .ant{left:max(10px,env(safe-area-inset-left))}
+#lb .prox{right:max(10px,env(safe-area-inset-right))}
+#lb .cont{position:absolute;bottom:max(16px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+  font:600 11px var(--display);letter-spacing:.2em;color:rgba(255,255,255,.8);
+  background:rgba(6,41,60,.6);padding:8px 16px;border-radius:999px}
+
+/* estrutura */
+.listas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(26px,4vw,52px)}
+.bloco{background:#fff;border:1px solid var(--borda);border-radius:20px;padding:clamp(22px,3vw,32px);
+  box-shadow:0 18px 44px -38px rgba(10,40,56,.5)}
+.bloco h3{margin-bottom:16px;padding-bottom:14px;border-bottom:2px solid var(--dourado);
+  text-transform:uppercase;letter-spacing:.04em;font-size:15px}
+.bloco ul{list-style:none;display:grid;gap:11px}
+.bloco li{display:flex;align-items:flex-start;gap:11px;font-size:15.2px;line-height:1.55}
+.bloco li svg{width:17px;height:17px;flex:none;margin-top:4px;color:var(--azul)}
+.bloco li b{color:var(--tinta);font-weight:600}
+
+/* planta 3d */
+#planta3d{background:var(--marinho);color:var(--areia)}
+#planta3d h2{color:#fff}
+#planta3d .lead{color:rgba(252,247,239,.82)}
+#planta3d .olho{color:var(--dourado)}
+#planta3d .caixa{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,60px);align-items:center}
+.plantafig{position:relative;border-radius:20px;padding:clamp(20px,3vw,34px);
+  background:rgba(252,247,239,.07);border:1px solid rgba(252,247,239,.16);display:grid;place-items:center}
+.plantafig svg{width:100%;max-width:400px;height:auto}
+.plantafig .tag{position:absolute;right:14px;top:14px;padding:7px 14px;border-radius:999px;
+  background:var(--dourado);color:var(--marinho);font:700 9.5px var(--display);
+  letter-spacing:.2em;text-transform:uppercase}
+#planta3d .aviso{margin-top:18px;font-size:13.4px;color:rgba(252,247,239,.6);max-width:54ch}
+
+/* localização */
+.mapa{border-radius:20px;overflow:hidden;border:1px solid var(--borda);box-shadow:var(--sombra);
+  background:var(--areia-2)}
+.mapa iframe{display:block;width:100%;height:clamp(300px,48vh,460px);border:0}
+.perto{margin-top:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.perto div{background:#fff;border:1px solid var(--borda);border-radius:16px;padding:18px 20px}
+.perto b{display:block;font:800 22px var(--display);color:var(--azul);letter-spacing:-.02em}
+.perto span{display:block;margin-top:4px;font-size:14px;color:var(--suave)}
+
+/* valores */
+#valores{background:var(--dourado-3)}
+.preco{background:var(--dourado);border-radius:24px;padding:clamp(28px,4.5vw,46px);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;
+  box-shadow:0 30px 70px -40px rgba(140,98,20,.7)}
+.preco .v small{display:block;font:700 10px var(--display);letter-spacing:.24em;
+  text-transform:uppercase;color:#8a6014}
+.preco .v b{display:block;margin-top:8px;font:900 clamp(38px,6.5vw,64px)/1 var(--display);
+  color:var(--marinho);letter-spacing:-.035em}
+.preco .v span{display:block;margin-top:8px;font-size:14.5px;color:#6d4e14}
+.preco .acao{display:grid;gap:10px}
+.preco .acao .btn{padding:16px 30px;font-size:13px}
+.obs{margin-top:22px;font-size:14px;color:#6d4e14;max-width:70ch}
+
+/* rodapé */
+footer{background:var(--marinho);color:rgba(252,247,239,.68);padding:clamp(44px,7vh,76px) 0 calc(32px + 76px)}
+footer .topo{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;
+  padding-bottom:28px;border-bottom:1px solid rgba(252,247,239,.14)}
+footer .marca b{color:var(--areia);font-size:21px}
+footer .marca i{color:var(--dourado)}
+footer .marca svg{color:var(--dourado)}
+footer .cont{display:grid;gap:8px;font-size:14.6px}
+footer .cont a{display:inline-flex;align-items:center;gap:9px;transition:color .25s}
+footer .cont a:hover{color:var(--dourado-2)}
+footer .cont svg{width:16px;height:16px;flex:none;color:var(--azul-2)}
+footer .fim{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+  font-size:12.6px;color:rgba(252,247,239,.5)}
+footer .fim a{color:var(--dourado-2)}
+
+/* botão fixo whatsapp */
+#zap{position:fixed;z-index:50;right:max(16px,env(safe-area-inset-right));
+  bottom:max(16px,env(safe-area-inset-bottom));display:inline-flex;align-items:center;gap:10px;
+  padding:14px 22px;border-radius:999px;background:#25d366;color:#07301a;
+  font:700 12.5px var(--display);letter-spacing:.1em;text-transform:uppercase;
+  box-shadow:0 18px 40px -18px rgba(7,48,26,.75);transition:transform .25s,box-shadow .25s}
+#zap svg{width:19px;height:19px;flex:none}
+#zap:hover{transform:translateY(-3px);box-shadow:0 24px 50px -20px rgba(7,48,26,.85)}
+
+/* revelar */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,.9,.3,1),transform .8s cubic-bezier(.22,.9,.3,1)}
+.rv.on{opacity:1;transform:none}
+
+@media (max-width:1150px){
+  #nav{display:none}
+  #bar .btn{display:none}
+  #burger{display:grid}
+  #acasa .duo,#planta3d .caixa{grid-template-columns:minmax(0,1fr)}
+  #acasa .fig img{aspect-ratio:16/11}
+  .cards{grid-template-columns:1fr}
+  .card{min-height:230px}
+  .listas{grid-template-columns:1fr}
+  .grade{grid-template-columns:repeat(2,1fr)}
+  .ft.g{grid-column:span 2;grid-row:span 1;aspect-ratio:16/11}
+  #numeros .wrap{grid-template-columns:repeat(2,1fr)}
+  .num:nth-child(2){border-right:0}
+  .num:nth-child(1),.num:nth-child(2){border-bottom:1px solid var(--borda)}
+  .perto{grid-template-columns:1fr}
+  #faixa .wrap{justify-content:flex-start}
+  #zap{padding:13px 18px;font-size:11.5px}
+  #hero .wrap{padding-top:112px}
+}
+@media (max-width:520px){
+  #faixa b{font-size:10px;letter-spacing:.14em}
+  #hero .local{letter-spacing:.14em}
+  .preco{flex-direction:column;align-items:stretch}
+  .preco .acao .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= BARRA ================= -->
+<header id="bar">
+  <div class="wrap">
+    <a class="marca" href="#topo" aria-label="Casa em Cabo Frio">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/>
+      </svg>
+      <span><b>Casa em Cabo Frio</b><i>Encontro dos Peixes · RJ</i></span>
+    </a>
+    <nav id="nav">
+      <a href="#acasa">A casa</a>
+      <a href="#galeria">Fotos</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#planta3d">Planta 3D</a>
+      <a href="#local">Local</a>
+      <a href="#valores">Valores</a>
+    </nav>
+    <a class="btn btn-azul" href="https://wa.me/5521964396962?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Cabo%20Frio%20e%20quero%20reservar." target="_blank" rel="noopener">Reservar</a>
+    <button id="burger" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <path d="M3 7h18M3 12h18M3 17h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="fecha" id="fechaMenu" aria-label="Fechar menu">&times;</button>
+  <a href="#acasa">A casa</a>
+  <a href="#galeria">Fotos</a>
+  <a href="#estrutura">Estrutura</a>
+  <a href="#planta3d">Planta 3D</a>
+  <a href="#local">Local</a>
+  <a href="#valores">Valores</a>
+  <a class="btn btn-azul zap" href="https://wa.me/5521964396962?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Cabo%20Frio%20e%20quero%20reservar." target="_blank" rel="noopener">Reservar no WhatsApp</a>
+</div>
+
+<!-- ================= CAPA ================= -->
+<section id="hero" aria-label="Casa em Cabo Frio">
+  <div id="herofoto"><img src="fotos/foto-01.jpg" alt="Área central do condomínio iluminada à noite, com jardim e coqueiro entre os blocos" fetchpriority="high"></div>
+  <div class="veu"></div>
+  <div class="bola"></div>
+  <div class="wrap">
+    <div class="selo"><i></i><span>Pacote de Réveillon disponível</span></div>
+    <h1>Casa em<em>Cabo Frio</em></h1>
+    <p class="local">Condomínio Encontro dos Peixes · Cabo Frio · Rio de Janeiro</p>
+    <p class="sub">Duas suítes, até oito pessoas, piscina e sauna no condomínio. A 5 minutos da Ilha do Japonês.</p>
+    <div class="acoes">
+      <a class="btn btn-marinho" href="https://wa.me/5521964396962?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Cabo%20Frio%20e%20quero%20reservar." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07s.9 2.4 1.02 2.57c.13.16 1.76 2.68 4.26 3.76.6.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        Reservar no WhatsApp
+      </a>
+      <a class="btn btn-linha" href="#galeria">Ver as fotos</a>
+    </div>
+  </div>
+  <div class="rolar"><span>Role</span><i></i></div>
+</section>
+
+<!-- ================= FAIXA ================= -->
+<div id="faixa">
+  <div class="wrap">
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 16c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/><path d="M2 11c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/><path d="M6 8V5a2 2 0 1 1 4 0"/></svg>Piscina</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M3 18h18"/><path d="M7 10V7h10v3"/></svg>2 suítes</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 20c2-3 3-6 3-9a4 4 0 0 1 8 0c0 3 1 6 3 9"/><path d="M9 7c0-1.5 1-2.5 3-2.5S15 5.5 15 7"/></svg>Sauna</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3c1.5 2 .5 3.2 0 4-.6 1 .3 2 1 2.6"/><path d="M4 13h16"/><path d="M6 13v4a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-4"/></svg>Churrasqueira</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 15.8a5.5 5.5 0 0 1 7 0"/><path d="M2 9a15 15 0 0 1 20 0"/><circle cx="12" cy="19" r="1" fill="currentColor"/></svg>Internet</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/></svg>Planta 3D</b>
+  </div>
+</div>
+
+<!-- ================= NÚMEROS ================= -->
+<div id="numeros">
+  <div class="wrap">
+    <div class="num"><b>2</b><span>Suítes</span></div>
+    <div class="num"><b>3</b><span>Banheiros</span></div>
+    <div class="num"><b>8</b><span>Pessoas</span></div>
+    <div class="num"><b>2</b><span>Vagas</span></div>
+  </div>
+</div>
+
+<!-- ================= A CASA ================= -->
+<section id="acasa">
+  <div class="wrap">
+    <div class="duo">
+      <div class="rv">
+        <span class="olho">A casa</span>
+        <h2>Condomínio fechado,<br>clima de família</h2>
+        <p class="lead" style="margin-top:18px">A casa fica dentro do condomínio Encontro dos Peixes, em Cabo Frio, com sistema de segurança privado e duas vagas de garagem. São duas suítes e três banheiros ao todo, com uma cama queen, uma cama de casal padrão e dois colchões de solteiro — colchões de verdade, não colchonetes. Acomoda até oito pessoas.</p>
+        <p class="lead" style="margin-top:14px">É um ambiente familiar, bom para quem viaja com criança. Uma suíte tem ar-condicionado e ventilador de teto; a outra, ventilador de teto e ventilador de chão. A sala tem sofá para seis a oito pessoas e duas mesas de quatro cadeiras cada, para todo mundo sentar junto nas refeições.</p>
+        <p style="margin-top:26px"><a class="btn btn-azul" href="#estrutura">Ver a estrutura completa</a></p>
+      </div>
+      <div class="fig rv">
+        <img src="fotos/foto-03.jpg" alt="Suíte com cama de casal e porta que abre para a área externa do condomínio" loading="lazy">
+        <span class="tag">Suíte 1</span>
+      </div>
+    </div>
+
+    <div class="cards">
+      <article class="card c1 rv">
+        <img src="fotos/foto-02.jpg" alt="Piscina do condomínio, com área coberta e mesas ao lado" loading="lazy">
+        <span class="cor"></span>
+        <div class="txt">
+          <h3>Piscina e sauna</h3>
+          <p>O condomínio tem piscina e sauna à disposição de quem está hospedado.</p>
+        </div>
+      </article>
+      <article class="card c2 rv">
+        <img src="fotos/foto-05.jpg" alt="Vista da varanda para o jardim e os blocos do condomínio" loading="lazy">
+        <span class="cor"></span>
+        <div class="txt">
+          <h3>Varanda</h3>
+          <p>Varanda com vista para o jardim interno do condomínio, no sol da manhã.</p>
+        </div>
+      </article>
+      <article class="card c3 rv">
+        <img src="fotos/foto-01.jpg" alt="Jardim central do condomínio iluminado à noite" loading="lazy">
+        <span class="cor"></span>
+        <div class="txt">
+          <h3>Área comum</h3>
+          <p>Jardim iluminado no meio do condomínio, com churrasqueira e mini quadra gramada.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALERIA ================= -->
+<section id="galeria">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Fotos</span>
+      <h2>A casa e<br>o condomínio</h2>
+      <p class="lead">Toque em qualquer foto para ver em tamanho grande.</p>
+    </div>
+    <div class="grade rv" id="grade"></div>
+    <div class="maisft"><button class="btn btn-marinho" id="maisFt">Ver todas as fotos</button></div>
+  </div>
+</section>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button class="fechalb" id="fechaLb" aria-label="Fechar">&times;</button>
+  <button class="seta ant" id="lbAnt" aria-label="Foto anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg>
+  </button>
+  <img id="lbImg" src="" alt="">
+  <button class="seta prox" id="lbProx" aria-label="Próxima foto">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+  <span class="cont" id="lbCont"></span>
+</div>
+
+<!-- ================= ESTRUTURA ================= -->
+<section id="estrutura">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Estrutura</span>
+      <h2>O que tem na casa</h2>
+    </div>
+    <div class="listas">
+      <div class="bloco rv">
+        <h3>Quartos e banheiros</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>2 suítes</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>3 banheiros</b>, sendo 2 nas suítes</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>1 cama queen</b> e <b>1 cama de casal padrão</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>2 colchões de solteiro</b> (não são colchonetes)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Capacidade para <b>até 8 pessoas</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>1 suíte com <b>ar-condicionado</b> e ventilador de teto</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>1 suíte com ventilador de teto e ventilador de chão</span></li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3>Condomínio e área externa</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Condomínio fechado</b> com sistema de segurança privado</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Piscina</b> no condomínio</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Sauna</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Churrasqueira</b> e <b>mini quadra gramada</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Varanda e terraço</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>2 vagas de garagem</b></span></li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3>Cozinha e comodidades</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Fogão, geladeira e micro-ondas</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Bebedouro de água gelada, cafeteira, liquidificador e tostadeira</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Ferro de passar</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Utensílios para bolos e doces, pirex, tabuleiros e taças</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Internet</b> e <b>TV a cabo</b></span></li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3>Sala e refeições</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Sofá confortável para <b>6 a 8 pessoas</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>2 mesas de 4 cadeiras</b>, 8 lugares para as refeições</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Ambiente familiar, <b>ideal para quem tem criança</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>O endereço completo é passado na hora da reserva</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLANTA 3D ================= -->
+<section id="planta3d">
+  <div class="wrap">
+    <div class="caixa">
+      <div class="rv">
+        <span class="olho">Planta 3D</span>
+        <h2 style="margin:14px 0 18px">Passeie pela casa<br>antes de reservar</h2>
+        <p class="lead">Um modelo tridimensional da casa e da área do condomínio que você gira com o dedo, abre a cobertura e entra em cada ambiente. É o jeito mais rápido de quem vai alugar entender o tamanho do espaço sem receber foto por foto no WhatsApp.</p>
+        <p style="margin-top:24px"><a class="btn btn-azul" href="planta/">Abrir a planta 3D</a></p>
+        <p class="aviso">O modelo foi montado a partir das fotos e da descrição da casa, para dar a noção da distribuição dos ambientes. As medidas são aproximadas.</p>
+      </div>
+      <div class="plantafig rv">
+        <svg viewBox="0 0 400 300" fill="none" stroke="#e9b44c" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+          <rect x="26" y="26" width="348" height="250" stroke-opacity=".3" stroke-dasharray="6 6"/>
+          <rect x="214" y="58" width="140" height="186" stroke-opacity=".9"/>
+          <path d="M214 148h140" stroke-opacity=".55"/>
+          <path d="M292 58v186" stroke-opacity=".45"/>
+          <path d="M214 104h78M292 196h62" stroke-opacity=".4"/>
+          <rect x="214" y="40" width="140" height="18" stroke-opacity=".45" stroke-dasharray="5 5"/>
+          <ellipse cx="108" cy="110" rx="52" ry="32" stroke-opacity=".95"/>
+          <ellipse cx="108" cy="110" rx="40" ry="22" stroke-opacity=".4"/>
+          <rect x="54" y="186" width="44" height="34" stroke-opacity=".6"/>
+          <rect x="112" y="186" width="74" height="56" stroke-opacity=".45" stroke-dasharray="5 5"/>
+          <path d="M26 276h348" stroke-opacity=".22"/>
+          <circle cx="340" cy="268" r="9" stroke-opacity=".32"/>
+          <circle cx="60" cy="52" r="8" stroke-opacity=".3"/>
+        </svg>
+        <span class="tag">Modelo 3D</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOCAL ================= -->
+<section id="local">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Onde fica</span>
+      <h2>Cabo Frio,<br>Região dos Lagos</h2>
+      <p class="lead">A casa fica em condomínio fechado em Cabo Frio, no litoral do Rio de Janeiro. Daqui são 5 minutos até a Ilha do Japonês, 7 minutos até a Praia do Peró e 10 minutos até a Praia do Forte e a Praia das Conchas. Búzios fica a 20 minutos.</p>
+    </div>
+    <div class="mapa rv">
+      <iframe title="Mapa de Cabo Frio - RJ" src="https://www.google.com/maps?q=Praia%20do%20Per%C3%B3%2C%20Cabo%20Frio%20-%20RJ&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <div class="perto rv">
+      <div><b>5 min</b><span>Ilha do Japonês</span></div>
+      <div><b>7 min</b><span>Praia do Peró</span></div>
+      <div><b>20 min</b><span>Búzios</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALORES ================= -->
+<section id="valores">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Valores</span>
+      <h2>Reserve a sua data</h2>
+    </div>
+    <div class="preco rv">
+      <div class="v">
+        <small>Pacote de Réveillon</small>
+        <b>R$ 5.000</b>
+        <span>Casa inteira, até 8 pessoas</span>
+      </div>
+      <div class="acao">
+        <a class="btn btn-marinho" href="https://wa.me/5521964396962?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Cabo%20Frio%20e%20quero%20reservar%20o%20R%C3%A9veillon." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07s.9 2.4 1.02 2.57c.13.16 1.76 2.68 4.26 3.76.6.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          Reservar o Réveillon
+        </a>
+        <a class="btn btn-azul" href="https://wa.me/5521964396962?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Cabo%20Frio%20e%20queria%20consultar%20disponibilidade%20e%20valores%20para%20outras%20datas." target="_blank" rel="noopener">Consultar outras datas</a>
+      </div>
+    </div>
+    <p class="obs">Para outras datas — Carnaval, férias, feriados e fins de semana — fale pelo WhatsApp para consultar valores, disponibilidade e as condições de reserva.</p>
+  </div>
+</section>
+
+<!-- ================= RODAPÉ ================= -->
+<footer>
+  <div class="wrap">
+    <div class="topo">
+      <div class="marca">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/>
+        </svg>
+        <span><b>Casa em Cabo Frio</b><i>Condomínio Encontro dos Peixes · Cabo Frio, RJ</i></span>
+      </div>
+      <div class="cont">
+        <a href="https://wa.me/5521964396962" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Z"/></svg>
+          (21) 96439-6962
+        </a>
+        <a href="#galeria">Ver as fotos da casa</a>
+        <a href="planta/">Abrir a planta 3D</a>
+      </div>
+    </div>
+    <div class="fim">
+      <span>Casa de temporada em condomínio fechado · Cabo Frio — RJ</span>
+      <span>Site criado por <a href="https://jgg190310-ops.github.io/Imoveis/portfolio/" target="_blank" rel="noopener">João Gabriel Geo</a></span>
+    </div>
+  </div>
+</footer>
+
+<a id="zap" href="https://wa.me/5521964396962?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Cabo%20Frio%20e%20quero%20reservar." target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07s.9 2.4 1.02 2.57c.13.16 1.76 2.68 4.26 3.76.6.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+  Reservar
+</a>
+
+<script>
+/* ---------- barra de vidro ---------- */
+var bar = document.getElementById('bar');
+function barra(){ bar.classList.toggle('on', scrollY > 40); }
+addEventListener('scroll', barra, {passive:true});
+barra();
+
+/* ---------- parallax da capa ---------- */
+var heroFoto = document.getElementById('herofoto');
+var animando = false;
+function parallax(){
+  animando = false;
+  var y = scrollY;
+  if (y > innerHeight * 1.2) return;
+  heroFoto.style.transform = 'translate3d(0,' + (y * 0.32) + 'px,0)';
+}
+addEventListener('scroll', function(){
+  if (!animando){ animando = true; requestAnimationFrame(parallax); }
+}, {passive:true});
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) heroFoto.style.transform = '';
+
+/* ---------- menu mobile ---------- */
+var menu = document.getElementById('menu'), burger = document.getElementById('burger');
+function abreMenu(){ menu.classList.add('aberto'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+function fechaMenu(){ menu.classList.remove('aberto'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+burger.addEventListener('click', abreMenu);
+document.getElementById('fechaMenu').addEventListener('click', fechaMenu);
+menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', fechaMenu); });
+
+/* ---------- galeria ---------- */
+var FOTOS = [
+  ['fotos/foto-01.jpg','Jardim central do condomínio iluminado à noite'],
+  ['fotos/foto-02.jpg','Piscina do condomínio, com área coberta ao lado'],
+  ['fotos/foto-03.jpg','Suíte com cama de casal e porta para a área externa'],
+  ['fotos/foto-04.jpg','Suíte com cama de casal, criado-mudo e quadros'],
+  ['fotos/foto-05.jpg','Vista da varanda para o jardim do condomínio']
+];
+var GRANDES = [0];
+var MOSTRA = 10;
+var grade = document.getElementById('grade');
+var maisFt = document.getElementById('maisFt');
+var visiveis = 0;
+
+function pinta(ate){
+  for (var i = visiveis; i < ate && i < FOTOS.length; i++){
+    var fig = document.createElement('button');
+    fig.className = 'ft' + (GRANDES.indexOf(i) > -1 ? ' g' : '');
+    fig.type = 'button';
+    fig.setAttribute('data-i', i);
+    fig.setAttribute('aria-label', 'Ampliar foto: ' + FOTOS[i][1]);
+    var im = document.createElement('img');
+    im.src = FOTOS[i][0];
+    im.alt = FOTOS[i][1];
+    im.loading = 'lazy';
+    fig.appendChild(im);
+    grade.appendChild(fig);
+  }
+  visiveis = Math.min(ate, FOTOS.length);
+  maisFt.style.display = visiveis >= FOTOS.length ? 'none' : '';
+}
+pinta(MOSTRA);
+maisFt.addEventListener('click', function(){ pinta(FOTOS.length); });
+
+/* ---------- lightbox ---------- */
+var lb = document.getElementById('lb'),
+    lbImg = document.getElementById('lbImg'),
+    lbCont = document.getElementById('lbCont'),
+    atual = 0;
+
+function mostra(i){
+  atual = (i + FOTOS.length) % FOTOS.length;
+  lbImg.src = FOTOS[atual][0];
+  lbImg.alt = FOTOS[atual][1];
+  lbCont.textContent = (atual + 1) + ' / ' + FOTOS.length;
+}
+function abreLb(i){
+  mostra(i);
+  lb.classList.add('aberto');
+  document.body.style.overflow = 'hidden';
+}
+function fechaLb(){
+  lb.classList.remove('aberto');
+  document.body.style.overflow = '';
+}
+grade.addEventListener('click', function(e){
+  var b = e.target.closest('.ft');
+  if (b) abreLb(parseInt(b.getAttribute('data-i'), 10));
+});
+document.getElementById('fechaLb').addEventListener('click', fechaLb);
+document.getElementById('lbAnt').addEventListener('click', function(e){ e.stopPropagation(); mostra(atual - 1); });
+document.getElementById('lbProx').addEventListener('click', function(e){ e.stopPropagation(); mostra(atual + 1); });
+lb.addEventListener('click', function(e){ if (e.target === lb) fechaLb(); });
+addEventListener('keydown', function(e){
+  if (!lb.classList.contains('aberto')) return;
+  if (e.key === 'Escape') fechaLb();
+  if (e.key === 'ArrowLeft') mostra(atual - 1);
+  if (e.key === 'ArrowRight') mostra(atual + 1);
+});
+var tx = 0;
+lb.addEventListener('touchstart', function(e){ tx = e.changedTouches[0].clientX; }, {passive:true});
+lb.addEventListener('touchend', function(e){
+  var d = e.changedTouches[0].clientX - tx;
+  if (Math.abs(d) > 50) mostra(atual + (d < 0 ? 1 : -1));
+}, {passive:true});
+
+/* ---------- revelar ao rolar ---------- */
+var obs = new IntersectionObserver(function(ents){
+  ents.forEach(function(en){
+    if (en.isIntersecting){ en.target.classList.add('on'); obs.unobserve(en.target); }
+  });
+}, {rootMargin:'0px 0px -8% 0px', threshold:.08});
+document.querySelectorAll('.rv').forEach(function(el){ obs.observe(el); });
+</script>
+</body>
+</html>
