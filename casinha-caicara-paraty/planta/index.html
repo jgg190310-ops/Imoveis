@@ -527,7 +527,7 @@ function vasoPlanta(g, x, y, z, r = .22) {
   for (let x = -7; x < 23; x += 1.1) caixa(g, .06, .02, 7.6, M.pedra, x, .02, -1.8, false);
 
   /* platô elevado do terreno */
-  piso(g, { x0: .6, x1: 14.4, z0: 2.1, z1: 16.6 }, M.terra, NIV, .5);
+  piso(g, { x0: .6, x1: 14.4, z0: 2.1, z1: 16.6 }, M.terra, NIV - .04, .5);
   /* muro de pedra que segura o terreno, virado pra rua */
   caixa(g, 13.8, NIV + .25, .34, M.pedraSeca, 7.5, 0, 2.25);
   caixa(g, 13.9, .12, .42, M.pedra, 7.5, NIV + .25, 2.25, false);
@@ -567,8 +567,8 @@ function vasoPlanta(g, x, y, z, r = .22) {
   caixa(g, 13.9, .1, .46, M.telhaBarro, 7.5, NIV + 1.9, 16.55, false);
 
   /* casa vizinha ao fundo (não faz parte da locação) */
-  caixa(g, 4.2, 2.6, 3.0, M.paredeCinza, 12.1, NIV, 14.4);
-  telhaColonial(g, { x0: 10.0, x1: 14.2, z0: 12.9, z1: 15.9 }, NIV + 2.6, .5, .35);
+  caixa(g, 3.6, 2.4, 2.4, M.paredeCinza, 12.4, NIV, 15.0);
+  telhaColonial(g, { x0: 10.6, x1: 14.2, z0: 13.8, z1: 16.2 }, NIV + 2.4, .45, .3);
 
   /* vegetação */
   coqueiro(g, 12.6, 6.0, 6.4);
@@ -639,7 +639,7 @@ function vasoPlanta(g, x, y, z, r = .22) {
   const PORTA = { y0: 0, y1: 2.1 };
   const JAN   = { y0: 1.0, y1: 2.0, vidro: true };
 
-  piso(g, CASA, M.porcelanato, NIV, .06);
+  piso(g, CASA, M.porcelanato, NIV + .006, .06);
 
   /* paredes externas */
   parede(g, 'x', CASA.z0, CASA.x0, CASA.x1, NIV, PD, M.branco, [
