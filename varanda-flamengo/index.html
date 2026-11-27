@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Varanda do Flamengo · Salvador, BA">
 <meta property="og:description" content="Village a 100m da Praia do Flamengo. Suíte com ar, varanda com rede e piscina no condomínio.">
-<meta property="og:image" content="https://img.olx.com.br/images/43/438654825376552.jpg">
+<meta property="og:image" content="https://img.olx.com.br/images/30/308676463310624.jpg">
 <link rel="icon" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -205,13 +205,15 @@ footer .creditos{margin-top:30px;padding-top:26px;border-top:1px solid var(--lin
 footer .creditos a{color:var(--menta-3)}
 
 /* ---------- botão fixo ---------- */
-#zap{position:fixed;z-index:55;left:50%;transform:translateX(-50%);
-  bottom:max(18px,env(safe-area-inset-bottom));
+#zap{position:fixed;z-index:55;right:clamp(16px,3vw,34px);
+  bottom:max(20px,env(safe-area-inset-bottom));
   display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;
   background:var(--tinta);color:#fff;font:500 14px var(--sans);
   box-shadow:0 16px 40px -14px rgba(21,32,31,.55);transition:transform .3s,background .3s}
-#zap:hover{background:var(--menta-3);transform:translateX(-50%) translateY(-2px)}
+#zap:hover{background:var(--menta-3);transform:translateY(-2px)}
 #zap svg{width:17px;height:17px;fill:currentColor}
+@media(max-width:700px){#zap{left:50%;right:auto;transform:translateX(-50%)}
+  #zap:hover{transform:translateX(-50%) translateY(-2px)}}
 
 /* ---------- lightbox ---------- */
 #lb{position:fixed;inset:0;z-index:90;background:rgba(8,14,13,.96);
@@ -272,7 +274,7 @@ footer .creditos a{color:var(--menta-3)}
 
 <section id="hero">
   <div id="herofoto">
-    <img src="https://img.olx.com.br/images/43/438654825376552.jpg" alt="Área externa do condomínio com mesa, guarda-sol e a piscina ao fundo">
+    <img src="https://img.olx.com.br/images/30/308676463310624.jpg" alt="Piscina do condomínio cercada de área verde">
   </div>
   <div class="wrap capa">
     <span class="olho">Stella Maris · Salvador · Bahia</span>
@@ -448,9 +450,8 @@ document.getElementById('itens').innerHTML = COMODIDADES.map(function(t){
 
 /* ---------- galeria ---------- */
 var FOTOS = [
-  ['https://img.olx.com.br/images/30/308676463310624.jpg','Piscina do condomínio cercada de área verde'],
   ['https://img.olx.com.br/images/45/453606469363410.jpg','Varanda com rede e vista para o verde'],
-  ['https://img.olx.com.br/images/43/438654825376552.jpg','Área externa com mesa, guarda-sol e a piscina ao fundo'],
+  ['https://img.olx.com.br/images/30/308676463310624.jpg','Piscina do condomínio cercada de área verde'],
   ['https://img.olx.com.br/images/31/314645822645664.jpg','Sala de estar integrada com a cozinha americana'],
   ['https://img.olx.com.br/images/28/284615349483512.jpg','Painel de TV em madeira na sala'],
   ['https://img.olx.com.br/images/46/462699344286139.jpg','Quarto com rede e janela para o verde'],
