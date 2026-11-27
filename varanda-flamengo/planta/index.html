@@ -254,7 +254,7 @@ const T = {
 const EXT = {
   garagem:  { x0: 1.4,  x1: 5.2,  z0: 1.4,  z1: 5.6,  n: 'Garagem' },
   churras:  { x0: 10.2, x1: 12.4, z0: 6.2,  z1: 9.2,  n: 'Churrasqueira' },
-  jardim:   { x0: 6.0,  x1: 11.4, z0: 15.4, z1: 18.2, n: 'Jardim' },
+  jardim:   { x0: 1.8,  x1: 9.4,  z0: 15.2, z1: 17.2, n: 'Jardim' },
   piscina:  { x0: 15.2, x1: 19.8, z0: 7.8,  z1: 13.2, n: 'Piscina do condomínio' },
   deck:     { x0: 13.8, x1: 21.0, z0: 6.2,  z1: 14.8, n: 'Área de lazer' }
 };
@@ -486,7 +486,7 @@ function guardaSol(g, x, z) {
 
   /* calçada e entrada do village */
   piso(g, { x0: .6, x1: 12.8, z0: .2, z1: 6.0 }, M.pisoExt, .03);
-  piso(g, { x0: 9.8, x1: 12.8, z0: 6.0, z1: 15.2 }, M.pisoExt, .03);
+  piso(g, { x0: 9.8, x1: 12.8, z0: 6.0, z1: 17.4 }, M.pisoExt, .03);
   piso(g, { x0: 12.8, x1: 21.6, z0: .2, z1: 5.9 }, M.pisoExt, .03);
 
   /* caminho de pedra até a área de lazer */
@@ -496,9 +496,9 @@ function guardaSol(g, x, z) {
   const muroAlt = 1.15;
   parede(g, 'x', .35, .4, 12.9, 0, muroAlt, M.muro, [{ a: 2.0, b: 4.6 }, { a: 6.4, b: 8.0 }]);
   caixa(g, 12.5, .12, .3, M.muroLat, 6.65, muroAlt, .35, false);
-  parede(g, 'z', .5, .35, 15.6, 0, muroAlt, M.muroLat);
-  parede(g, 'z', 12.9, 5.9, 15.6, 0, muroAlt, M.muroLat);
-  parede(g, 'x', 15.6, .5, 12.9, 0, muroAlt, M.muroLat);
+  parede(g, 'z', .5, .35, 17.6, 0, muroAlt, M.muroLat);
+  parede(g, 'z', 12.9, 5.9, 17.6, 0, muroAlt, M.muroLat);
+  parede(g, 'x', 17.6, .5, 12.9, 0, muroAlt, M.muroLat);
 
   /* portão de pedestre e portão da garagem */
   coluna(g, 1.9, .35, 1.7, .36);
@@ -513,15 +513,15 @@ function guardaSol(g, x, z) {
   coqueiro(g, 14.6, 3.0, 8.4);
   coqueiro(g, 20.2, 3.6, 7.2);
   coqueiro(g, 20.6, 16.4, 7.8);
-  coqueiro(g, 11.0, 17.2, 7.4);
-  coqueiro(g, 2.6, 17.4, 6.9);
+  coqueiro(g, 11.9, 16.4, 7.4);
+  coqueiro(g, 2.4, 16.6, 6.6);
   arbusto(g, 10.6, 5.2, .6);
   arbusto(g, 13.4, 5.4, .7);
   arbusto(g, 21.0, 9.4, .8);
   arbusto(g, 21.1, 12.6, .65);
-  arbusto(g, 1.4, 16.4, .7);
-  arbusto(g, 6.6, 16.6, .6);
-  arbusto(g, 8.8, 16.2, .75);
+  arbusto(g, 1.2, 14.4, .55);
+  arbusto(g, 10.9, 13.2, .6);
+  arbusto(g, 10.7, 10.4, .5);
   arbusto(g, .9, 9.0, .55);
 })();
 
@@ -703,9 +703,15 @@ function guardaSol(g, x, z) {
   /* jardim do fundo do village */
   const j = EXT.jardim;
   piso(g, j, M.grama, .03);
-  arbusto(g, j.x0 + 1.0, j.z0 + 1.0, .6);
-  arbusto(g, j.x1 - 1.2, j.z1 - .9, .7);
-  caixa(g, 1.0, .72, 1.0, M.madClara, (j.x0 + j.x1) / 2, 0, (j.z0 + j.z1) / 2);
+  arbusto(g, j.x0 + 1.0, j.z1 - .8, .6);
+  arbusto(g, j.x1 - 1.0, j.z1 - .9, .7);
+  caixa(g, 1.1, .74, 1.1, M.madClara, (j.x0 + j.x1) / 2, 0, (j.z0 + j.z1) / 2);
+  caixa(g, .42, .46, .42, M.cadeira, (j.x0 + j.x1) / 2 - .95, 0, (j.z0 + j.z1) / 2, true);
+  caixa(g, .42, .46, .42, M.cadeira, (j.x0 + j.x1) / 2 + .95, 0, (j.z0 + j.z1) / 2, true);
+  /* varal e canto de grama */
+  caixa(g, .08, 1.7, .08, M.inox, j.x0 + .6, 0, j.z0 + .5, false);
+  caixa(g, .08, 1.7, .08, M.inox, j.x0 + 3.0, 0, j.z0 + .5, false);
+  caixa(g, 2.4, .04, .04, M.branco, j.x0 + 1.8, 1.6, j.z0 + .5, false);
 })();
 
 /* ===================== RÓTULOS ===================== */
@@ -721,11 +727,12 @@ function rotulo(r, grupo, y) {
   return o;
 }
 [T.sala, T.cozinha, T.suite, T.wc, T.varanda].forEach(r => rotulo(r, 'casa', 1.9));
-Object.values(EXT).forEach(r => rotulo(r, 'ext', 1.2));
+[EXT.garagem, EXT.churras, EXT.jardim].forEach(r => rotulo(r, 'ext', 1.2));
+rotulo(EXT.piscina, 'ext', 1.6);
 
 /* ===================== CÂMERA E ESTADO ===================== */
 const ALVO = new THREE.Vector3(0, 1.0, -1);
-const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-13, 29, -40) : new THREE.Vector3(-16, 20, -27);
+const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-11, 26, -38) : new THREE.Vector3(-14, 18, -26);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
