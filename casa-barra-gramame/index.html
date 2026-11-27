@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Casa Barra de Gramame · Casa de temporada em João Pessoa-PB</title>
+<meta name="description" content="Casa de temporada em Barra de Gramame, João Pessoa-PB: 4 quartos, 3 banheiros, piscina, área gourmet e área verde com fruteiras. Acomoda até 15 pessoas, 3 vagas. Perto das praias do litoral sul.">
+<meta name="theme-color" content="#0b2b3a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Casa Barra de Gramame · João Pessoa-PB">
+<meta property="og:description" content="4 quartos, até 15 pessoas, piscina, área gourmet e área verde. Perto das praias do litoral sul.">
+<meta property="og:image" content="https://img.olx.com.br/images/98/985670225688392.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Jost:wght@300..600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --laranja:#0f93ad; --laranja-2:#36b6cd; --laranja-3:#0a6e84;
+  --amarelo:#f0b93f; --amarelo-2:#f8d98c; --amarelo-3:#fdeec8;
+  --verde:#0b2b3a; --verde-2:#12465d; --verde-3:#2f86a6;
+  --creme:#f7f4ec; --creme-2:#ebe3d5;
+  --tinta:#13242e; --texto:#4b5a63; --suave:#879aa4;
+  --sans:'Jost',system-ui,-apple-system,Segoe UI,sans-serif;
+  --display:'Archivo',system-ui,sans-serif;
+  --borda:rgba(42,33,24,.12);
+  --sombra:0 24px 60px -32px rgba(42,33,24,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{background:var(--creme);color:var(--texto);font:400 16px/1.7 var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+::selection{background:var(--laranja);color:#fff}
+
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.olho{display:inline-block;font:700 10.5px var(--display);letter-spacing:.3em;
+  text-transform:uppercase;color:var(--laranja)}
+h2{font:800 clamp(30px,5vw,52px)/1.04 var(--display);color:var(--tinta);letter-spacing:-.025em;
+  text-transform:uppercase}
+h3{font:700 18px var(--display);color:var(--tinta);letter-spacing:-.01em}
+.lead{font-size:clamp(15.5px,1.8vw,18px);line-height:1.78;color:var(--texto);max-width:62ch}
+
+/* ---------- barra de vidro ---------- */
+#bar{position:fixed;z-index:60;top:0;left:0;right:0;padding:15px 0;
+  transition:background .4s,backdrop-filter .4s,padding .4s,border-color .4s,box-shadow .4s;
+  border-bottom:1px solid transparent}
+#bar.on{background:rgba(253,246,233,.72);backdrop-filter:blur(18px) saturate(1.5);
+  -webkit-backdrop-filter:blur(18px) saturate(1.5);padding:9px 0;
+  border-bottom-color:var(--borda);box-shadow:0 10px 30px -24px rgba(42,33,24,.6)}
+#bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:nowrap}
+.marca{display:flex;align-items:center;gap:10px;flex:none;min-width:0}
+.marca svg{width:28px;height:28px;color:var(--laranja);flex:none}
+.marca b{display:block;font:800 17px/1 var(--display);color:#fff;letter-spacing:-.02em;
+  text-transform:uppercase;white-space:nowrap;transition:color .4s}
+.marca i{display:block;font:600 8px var(--display);letter-spacing:.26em;text-transform:uppercase;
+  color:var(--amarelo-2);font-style:normal;margin-top:3px;transition:color .4s}
+#bar.on .marca b{color:var(--tinta)}
+#bar.on .marca i{color:var(--laranja)}
+#nav{display:flex;align-items:center;gap:clamp(14px,1.9vw,28px);min-width:0;flex-shrink:1}
+#nav a{font:500 13px var(--sans);letter-spacing:.04em;color:rgba(255,255,255,.9);white-space:nowrap;
+  position:relative;padding:4px 0;transition:color .3s}
+#bar.on #nav a{color:var(--texto)}
+#nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;
+  background:var(--laranja);transition:right .3s}
+#nav a:hover::after{right:0}
+.btn{flex:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 22px;border-radius:999px;font:700 12px var(--display);
+  letter-spacing:.12em;text-transform:uppercase;transition:transform .25s,background .25s,box-shadow .25s}
+.btn svg{width:15px;height:15px;flex:none}
+.btn-verde{background:var(--verde);color:var(--amarelo-2)}
+.btn-verde:hover{background:var(--verde-2);transform:translateY(-2px);box-shadow:0 14px 28px -16px rgba(22,48,28,.8)}
+.btn-laranja{background:var(--laranja);color:#fff}
+.btn-laranja:hover{background:var(--laranja-3);transform:translateY(-2px);box-shadow:0 14px 28px -16px rgba(201,65,15,.8)}
+.btn-linha{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+.btn-linha:hover{background:rgba(255,255,255,.14);border-color:#fff;transform:translateY(-2px)}
+#burger{display:none;width:42px;height:42px;place-items:center;color:#fff;transition:color .4s}
+#bar.on #burger{color:var(--tinta)}
+#burger svg{width:24px;height:24px}
+
+/* menu mobile */
+#menu{position:fixed;inset:0;z-index:70;background:var(--verde);display:none;
+  flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:32px}
+#menu.aberto{display:flex}
+#menu a{font:800 clamp(26px,7vw,40px)/1.5 var(--display);color:var(--creme);
+  text-transform:uppercase;letter-spacing:-.02em}
+#menu a:active{color:var(--amarelo)}
+#menu .fecha{position:absolute;top:20px;right:20px;width:46px;height:46px;border-radius:50%;
+  display:grid;place-items:center;background:rgba(253,246,233,.14);color:var(--creme);font-size:26px;line-height:1}
+#menu .zap{margin-top:22px}
+
+/* ---------- capa tropical com parallax ---------- */
+#hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;
+  overflow:hidden;background:var(--laranja-3)}
+#herofoto{position:absolute;inset:-12% 0 -12%;will-change:transform}
+#herofoto img{width:100%;height:100%;object-fit:cover;object-position:50% 32%;filter:saturate(1.14) contrast(1.05)}
+#hero .veu{position:absolute;inset:0;
+  background:linear-gradient(168deg,rgba(239,95,36,.52) 0%,rgba(249,138,43,.22) 34%,rgba(201,65,15,.44) 66%,rgba(22,48,28,.88) 100%)}
+#hero .bola{position:absolute;top:-16vh;right:-14vw;width:62vw;height:62vw;max-width:720px;max-height:720px;
+  border-radius:50%;background:radial-gradient(circle,rgba(255,214,140,.26) 0%,rgba(228,110,30,.17) 44%,rgba(228,110,30,.05) 62%,rgba(228,110,30,0) 74%);
+  pointer-events:none}
+#hero .wrap{position:relative;z-index:2;padding:132px 0 clamp(40px,7vh,76px)}
+.selo{display:inline-flex;align-items:center;gap:9px;padding:8px 17px;margin-bottom:24px;
+  border:1px solid rgba(255,255,255,.4);border-radius:999px;background:rgba(22,48,28,.3);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.selo i{width:7px;height:7px;border-radius:50%;background:var(--amarelo);font-style:normal;
+  box-shadow:0 0 0 4px rgba(248,185,63,.26)}
+.selo span{font:700 10.5px var(--display);letter-spacing:.24em;text-transform:uppercase;color:#fff}
+#hero h1{font:900 clamp(44px,11.5vw,122px)/.86 var(--display);color:#fff;
+  letter-spacing:-.045em;text-transform:uppercase;text-shadow:0 10px 40px rgba(90,25,0,.35)}
+#hero h1 em{display:block;font-style:normal;color:var(--amarelo-2)}
+#hero .local{margin-top:20px;font:600 clamp(11px,1.7vw,13.5px) var(--display);
+  letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.92)}
+#hero .sub{margin-top:14px;font-size:clamp(15px,1.9vw,18px);color:rgba(255,255,255,.9);max-width:46ch}
+#hero .acoes{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.rolar{position:absolute;z-index:3;left:50%;bottom:14px;transform:translateX(-50%);
+  display:grid;place-items:center;gap:7px;color:rgba(255,255,255,.8)}
+.rolar span{font:600 9px var(--display);letter-spacing:.26em;text-transform:uppercase}
+.rolar i{display:block;width:2px;height:34px;border-radius:2px;
+  background:linear-gradient(var(--amarelo),transparent);animation:desce 2.1s infinite}
+@keyframes desce{0%{opacity:0;transform:scaleY(.2);transform-origin:top}
+  50%{opacity:1;transform:scaleY(1);transform-origin:top}
+  100%{opacity:0;transform:scaleY(1);transform-origin:bottom}}
+
+/* ---------- faixa verde de destaques ---------- */
+#faixa{background:var(--verde);color:var(--amarelo-2);position:relative;z-index:3}
+#faixa .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:10px 26px;padding:17px 0}
+#faixa b{font:700 11.5px var(--display);letter-spacing:.2em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:9px}
+#faixa b svg{width:16px;height:16px;color:var(--verde-3);flex:none}
+
+/* ---------- números ---------- */
+#numeros{background:var(--creme-2);border-bottom:1px solid var(--borda)}
+#numeros .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.num{padding:clamp(26px,4vw,40px) 10px;text-align:center;border-right:1px solid var(--borda);min-width:0}
+.num:last-child{border-right:0}
+.num b{display:block;font:900 clamp(28px,4.4vw,48px)/1 var(--display);color:var(--laranja);letter-spacing:-.03em}
+.num span{display:block;margin-top:8px;font:600 9.5px var(--display);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--suave)}
+
+/* ---------- seções ---------- */
+section{padding:clamp(64px,10vh,118px) 0}
+.cab{max-width:66ch;margin-bottom:clamp(32px,5vh,54px)}
+.cab .olho{margin-bottom:14px}
+.cab h2+p{margin-top:18px}
+
+/* a casa */
+#acasa .duo{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(28px,5vw,64px);align-items:center}
+#acasa .fig{position:relative;border-radius:22px;overflow:hidden;box-shadow:var(--sombra)}
+#acasa .fig img{width:100%;aspect-ratio:4/5;object-fit:cover}
+#acasa .fig .tag{position:absolute;left:16px;bottom:16px;padding:9px 16px;border-radius:999px;
+  background:var(--amarelo);color:var(--verde);font:700 10px var(--display);
+  letter-spacing:.2em;text-transform:uppercase}
+
+/* cards coloridos */
+.cards{margin-top:clamp(34px,5vh,56px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{position:relative;border-radius:20px;overflow:hidden;min-height:290px;display:flex;
+  align-items:flex-end;padding:22px;color:#fff;box-shadow:var(--sombra)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.card .cor{position:absolute;inset:0;z-index:1}
+.card.c1 .cor{background:linear-gradient(to top,rgba(168,86,6,.95) 0%,rgba(224,123,18,.56) 36%,rgba(248,185,63,.12) 68%,rgba(248,185,63,0) 100%)}
+.card.c2 .cor{background:linear-gradient(to top,rgba(13,40,21,.95) 0%,rgba(31,74,43,.58) 36%,rgba(79,174,107,.12) 68%,rgba(79,174,107,0) 100%)}
+.card.c3 .cor{background:linear-gradient(to top,rgba(150,42,6,.95) 0%,rgba(201,65,15,.56) 36%,rgba(249,138,43,.12) 68%,rgba(249,138,43,0) 100%)}
+.card .txt{position:relative;z-index:2}
+.card h3{color:#fff;font-size:21px;text-transform:uppercase;letter-spacing:-.01em;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.card p{margin-top:6px;font-size:14.2px;line-height:1.6;color:rgba(255,255,255,.95);text-shadow:0 1px 10px rgba(0,0,0,.45)}
+
+/* galeria */
+#galeria{background:var(--creme-2)}
+.grade{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ft{position:relative;border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--creme);
+  aspect-ratio:1;transition:transform .35s,box-shadow .35s}
+.ft img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.ft:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
+.ft:hover img{transform:scale(1.07)}
+.ft.g{grid-column:span 2;grid-row:span 2;aspect-ratio:1}
+.maisft{margin-top:22px;text-align:center}
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:90;background:rgba(14,16,11,.985);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;
+  align-items:center;justify-content:center;padding:clamp(12px,3vw,40px)}
+#lb.aberto{display:flex}
+#lb img{max-width:100%;max-height:86vh;width:auto;border-radius:10px;
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.9)}
+#lb .fechalb{position:absolute;top:max(14px,env(safe-area-inset-top));right:14px;width:48px;height:48px;
+  border-radius:50%;background:rgba(253,246,233,.16);color:#fff;font-size:26px;line-height:1;
+  display:grid;place-items:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#lb .seta{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;
+  background:rgba(253,246,233,.16);color:#fff;display:grid;place-items:center;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#lb .seta svg{width:22px;height:22px}
+#lb .ant{left:max(10px,env(safe-area-inset-left))}
+#lb .prox{right:max(10px,env(safe-area-inset-right))}
+#lb .cont{position:absolute;bottom:max(16px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+  font:600 11px var(--display);letter-spacing:.2em;color:rgba(255,255,255,.8);
+  background:rgba(22,24,18,.6);padding:8px 16px;border-radius:999px}
+
+/* estrutura */
+.listas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(26px,4vw,52px)}
+.bloco{background:#fff;border:1px solid var(--borda);border-radius:20px;padding:clamp(22px,3vw,32px);
+  box-shadow:0 18px 44px -38px rgba(42,33,24,.5)}
+.bloco h3{margin-bottom:16px;padding-bottom:14px;border-bottom:2px solid var(--amarelo);
+  text-transform:uppercase;letter-spacing:.04em;font-size:15px}
+.bloco ul{list-style:none;display:grid;gap:11px}
+.bloco li{display:flex;align-items:flex-start;gap:11px;font-size:15.2px;line-height:1.55}
+.bloco li svg{width:17px;height:17px;flex:none;margin-top:4px;color:var(--verde-3)}
+.bloco li b{color:var(--tinta);font-weight:600}
+
+/* planta 3d */
+#planta3d{background:var(--verde);color:var(--creme)}
+#planta3d h2{color:#fff}
+#planta3d .lead{color:rgba(253,246,233,.82)}
+#planta3d .olho{color:var(--amarelo)}
+#planta3d .caixa{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,60px);align-items:center}
+.plantafig{position:relative;border-radius:20px;padding:clamp(20px,3vw,34px);
+  background:rgba(253,246,233,.07);border:1px solid rgba(253,246,233,.16);display:grid;place-items:center}
+.plantafig svg{width:100%;max-width:400px;height:auto}
+.plantafig .tag{position:absolute;right:14px;top:14px;padding:7px 14px;border-radius:999px;
+  background:var(--amarelo);color:var(--verde);font:700 9.5px var(--display);
+  letter-spacing:.2em;text-transform:uppercase}
+#planta3d .aviso{margin-top:18px;font-size:13.4px;color:rgba(253,246,233,.6);max-width:52ch}
+
+/* localização */
+.mapa{border-radius:20px;overflow:hidden;border:1px solid var(--borda);box-shadow:var(--sombra);
+  background:var(--creme-2)}
+.mapa iframe{display:block;width:100%;height:clamp(300px,48vh,460px);border:0}
+.perto{margin-top:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.perto div{background:#fff;border:1px solid var(--borda);border-radius:16px;padding:18px 20px}
+.perto b{display:block;font:800 22px var(--display);color:var(--laranja);letter-spacing:-.02em}
+.perto span{display:block;margin-top:4px;font-size:14px;color:var(--suave)}
+
+/* valores */
+#valores{background:var(--amarelo-3)}
+.preco{background:var(--amarelo);border-radius:24px;padding:clamp(28px,4.5vw,46px);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;
+  box-shadow:0 30px 70px -40px rgba(201,65,15,.7)}
+.preco .v small{display:block;font:700 10px var(--display);letter-spacing:.24em;
+  text-transform:uppercase;color:var(--laranja-3)}
+.preco .v b{display:block;margin-top:8px;font:900 clamp(38px,6.5vw,64px)/1 var(--display);
+  color:var(--verde);letter-spacing:-.035em}
+.preco .v span{display:block;margin-top:8px;font-size:14.5px;color:#6d4a18}
+.preco .acao{display:grid;gap:10px}
+.preco .acao .btn{padding:16px 30px;font-size:13px}
+.obs{margin-top:22px;font-size:14px;color:#7a5a24;max-width:70ch}
+
+/* rodapé */
+footer{background:var(--verde);color:rgba(253,246,233,.68);padding:clamp(44px,7vh,76px) 0 calc(32px + 76px)}
+footer .topo{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;
+  padding-bottom:28px;border-bottom:1px solid rgba(253,246,233,.14)}
+footer .marca b{color:var(--creme);font-size:21px}
+footer .marca i{color:var(--amarelo)}
+footer .marca svg{color:var(--amarelo)}
+footer .cont{display:grid;gap:8px;font-size:14.6px}
+footer .cont a{display:inline-flex;align-items:center;gap:9px;transition:color .25s}
+footer .cont a:hover{color:var(--amarelo-2)}
+footer .cont svg{width:16px;height:16px;flex:none;color:var(--verde-3)}
+footer .fim{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+  font-size:12.6px;color:rgba(253,246,233,.5)}
+footer .fim a{color:var(--amarelo-2)}
+
+/* botão fixo whatsapp */
+#zap{position:fixed;z-index:50;right:max(16px,env(safe-area-inset-right));
+  bottom:max(16px,env(safe-area-inset-bottom));display:inline-flex;align-items:center;gap:10px;
+  padding:14px 22px;border-radius:999px;background:#25d366;color:#07301a;
+  font:700 12.5px var(--display);letter-spacing:.1em;text-transform:uppercase;
+  box-shadow:0 18px 40px -18px rgba(7,48,26,.75);transition:transform .25s,box-shadow .25s}
+#zap svg{width:19px;height:19px;flex:none}
+#zap:hover{transform:translateY(-3px);box-shadow:0 24px 50px -20px rgba(7,48,26,.85)}
+
+/* revelar */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,.9,.3,1),transform .8s cubic-bezier(.22,.9,.3,1)}
+.rv.on{opacity:1;transform:none}
+
+@media (max-width:1150px){
+  #nav{display:none}
+  #bar .btn{display:none}
+  #burger{display:grid}
+  #acasa .duo,#planta3d .caixa{grid-template-columns:minmax(0,1fr)}
+  #acasa .fig img{aspect-ratio:16/11}
+  .cards{grid-template-columns:1fr}
+  .card{min-height:230px}
+  .listas{grid-template-columns:1fr}
+  .grade{grid-template-columns:repeat(2,1fr)}
+  .ft.g{grid-column:span 2;grid-row:span 1;aspect-ratio:16/11}
+  #numeros .wrap{grid-template-columns:repeat(2,1fr)}
+  .num:nth-child(2){border-right:0}
+  .num:nth-child(1),.num:nth-child(2){border-bottom:1px solid var(--borda)}
+  .perto{grid-template-columns:1fr}
+  #faixa .wrap{justify-content:flex-start}
+  #zap{padding:13px 18px;font-size:11.5px}
+  #hero .wrap{padding-top:112px}
+}
+@media (max-width:520px){
+  #faixa b{font-size:10px;letter-spacing:.14em}
+  #hero .local{letter-spacing:.14em}
+  .preco{flex-direction:column;align-items:stretch}
+  .preco .acao .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div id="topo"></div>
+
+<!-- ================= BARRA ================= -->
+<header id="bar">
+  <div class="wrap">
+    <a class="marca" href="#topo" aria-label="Casa Barra de Gramame">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/>
+      </svg>
+      <span><b>Casa Barra de Gramame</b><i>João Pessoa · PB</i></span>
+    </a>
+    <nav id="nav">
+      <a href="#acasa">A casa</a>
+      <a href="#galeria">Fotos</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#planta3d">Planta 3D</a>
+      <a href="#local">Local</a>
+      <a href="#valores">Valores</a>
+    </nav>
+    <a class="btn btn-laranja" href="https://wa.me/5583998489707?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Barra%20de%20Gramame%20e%20quero%20reservar." target="_blank" rel="noopener">Reservar</a>
+    <button id="burger" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <path d="M3 7h18M3 12h18M3 17h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="fecha" id="fechaMenu" aria-label="Fechar menu">&times;</button>
+  <a href="#acasa">A casa</a>
+  <a href="#galeria">Fotos</a>
+  <a href="#estrutura">Estrutura</a>
+  <a href="#planta3d">Planta 3D</a>
+  <a href="#local">Local</a>
+  <a href="#valores">Valores</a>
+  <a class="btn btn-laranja zap" href="https://wa.me/5583998489707?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Barra%20de%20Gramame%20e%20quero%20reservar." target="_blank" rel="noopener">Reservar no WhatsApp</a>
+</div>
+
+<!-- ================= CAPA ================= -->
+<section id="hero" aria-label="Casa em Barra de Gramame">
+  <div id="herofoto"><img src="https://img.olx.com.br/images/98/985670225688392.jpg" alt="Vista do alto da casa, com a piscina, o deck e a área verde em volta" fetchpriority="high"></div>
+  <div class="veu"></div>
+  <div class="bola"></div>
+  <div class="wrap">
+    <div class="selo"><i></i><span>Descanso e lazer em família</span></div>
+    <h1>Casa<em>Barra de Gramame</em></h1>
+    <p class="local">Barra de Gramame · João Pessoa · Paraíba</p>
+    <p class="sub">Quatro quartos, piscina e área gourmet para reunir até 15 pessoas, com área verde e fruteiras no terreno.</p>
+    <div class="acoes">
+      <a class="btn btn-verde" href="https://wa.me/5583998489707?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Barra%20de%20Gramame%20e%20quero%20reservar." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07s.9 2.4 1.02 2.57c.13.16 1.76 2.68 4.26 3.76.6.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        Reservar no WhatsApp
+      </a>
+      <a class="btn btn-linha" href="#galeria">Ver as fotos</a>
+    </div>
+  </div>
+  <div class="rolar"><span>Role</span><i></i></div>
+</section>
+
+<!-- ================= FAIXA ================= -->
+<div id="faixa">
+  <div class="wrap">
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 16c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/><path d="M2 11c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/><path d="M6 8V5a2 2 0 1 1 4 0"/></svg>Piscina</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M3 18h18"/><path d="M7 10V7h10v3"/></svg>4 quartos</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3c1.5 2 .5 3.2 0 4-.6 1 .3 2 1 2.6"/><path d="M4 13h16"/><path d="M6 13v4a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-4"/></svg>Área gourmet</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 15.8a5.5 5.5 0 0 1 7 0"/><path d="M2 9a15 15 0 0 1 20 0"/><circle cx="12" cy="19" r="1" fill="currentColor"/></svg>Internet</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/></svg>Planta 3D</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>Perto das praias</b>
+  </div>
+</div>
+
+<!-- ================= NÚMEROS ================= -->
+<div id="numeros">
+  <div class="wrap">
+    <div class="num"><b>4</b><span>Quartos</span></div>
+    <div class="num"><b>3</b><span>Banheiros</span></div>
+    <div class="num"><b>15</b><span>Pessoas</span></div>
+    <div class="num"><b>3</b><span>Vagas</span></div>
+  </div>
+</div>
+
+<!-- ================= A CASA ================= -->
+<section id="acasa">
+  <div class="wrap">
+    <div class="duo">
+      <div class="rv">
+        <span class="olho">A casa</span>
+        <h2>Casa nova,<br>feita para a família</h2>
+        <p class="lead" style="margin-top:18px">A casa é nova e foi pensada para descanso e lazer em família. São quatro quartos e três banheiros, com acomodação para até quinze pessoas e estacionamento para três carros.</p>
+        <p class="lead" style="margin-top:14px">Do lado de fora ficam a piscina, a área gourmet e uma área verde com fruteiras, espaço para as crianças correrem e todo mundo ficar à vontade. A casa fica em Barra de Gramame, no litoral sul de João Pessoa, perto das praias da região.</p>
+        <p style="margin-top:26px"><a class="btn btn-laranja" href="#estrutura">Ver a estrutura completa</a></p>
+      </div>
+      <div class="fig rv">
+        <img src="https://img.olx.com.br/images/11/118660942171489.jpg" alt="Piscina com jato de água e a área verde arborizada ao redor" loading="lazy">
+        <span class="tag">Piscina e área verde</span>
+      </div>
+    </div>
+
+    <div class="cards">
+      <article class="card c1 rv">
+        <img src="https://img.olx.com.br/images/26/260679341725447.jpg" alt="Piscina em frente à casa, com o estacionamento ao lado" loading="lazy">
+        <span class="cor"></span>
+        <div class="txt">
+          <h3>Piscina</h3>
+          <p>Logo na frente da casa, com espaço em volta para mesas e espreguiçadeiras.</p>
+        </div>
+      </article>
+      <article class="card c2 rv">
+        <img src="https://img.olx.com.br/images/19/193639225215862.jpg" alt="Piscina iluminada à noite, com a área gourmet coberta ao fundo" loading="lazy">
+        <span class="cor"></span>
+        <div class="txt">
+          <h3>Área gourmet</h3>
+          <p>Espaço coberto ao lado da piscina para o churrasco e a mesa da família.</p>
+        </div>
+      </article>
+      <article class="card c3 rv">
+        <img src="https://img.olx.com.br/images/21/214627226666545.jpg" alt="Gramado da área verde do terreno, com árvores e iluminação" loading="lazy">
+        <span class="cor"></span>
+        <div class="txt">
+          <h3>Área verde</h3>
+          <p>Gramado com fruteiras e sombra, com espaço de sobra para as crianças.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALERIA ================= -->
+<section id="galeria">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Fotos</span>
+      <h2>A casa por dentro<br>e por fora</h2>
+      <p class="lead">Toque em qualquer foto para ver em tamanho grande.</p>
+    </div>
+    <div class="grade rv" id="grade"></div>
+    <div class="maisft"><button class="btn btn-verde" id="maisFt">Ver todas as fotos</button></div>
+  </div>
+</section>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button class="fechalb" id="fechaLb" aria-label="Fechar">&times;</button>
+  <button class="seta ant" id="lbAnt" aria-label="Foto anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg>
+  </button>
+  <img id="lbImg" src="" alt="">
+  <button class="seta prox" id="lbProx" aria-label="Próxima foto">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+  <span class="cont" id="lbCont"></span>
+</div>
+
+<!-- ================= ESTRUTURA ================= -->
+<section id="estrutura">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Estrutura</span>
+      <h2>O que tem na casa</h2>
+    </div>
+    <div class="listas">
+      <div class="bloco rv">
+        <h3>Quartos e banheiros</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>4 quartos</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>3 banheiros</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Acomoda <b>até 15 pessoas</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Ventilador</span></li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3>Lazer e área externa</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Piscina</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Área gourmet com churrasqueira</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Área verde com fruteiras</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Varanda e terraço</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Estacionamento para 3 carros</b></span></li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3>Cozinha e comodidades</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Fogão e geladeira</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Máquina de lavar</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Internet</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>TV a cabo</span></li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3>Bom saber</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Ideal para férias, fins de semana e reuniões de família</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Próxima às praias do litoral sul de João Pessoa</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>O endereço completo é passado na hora da reserva</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLANTA 3D ================= -->
+<section id="planta3d">
+  <div class="wrap">
+    <div class="caixa">
+      <div class="rv">
+        <span class="olho">Planta 3D</span>
+        <h2 style="margin:14px 0 18px">Passeie pela casa<br>antes de reservar</h2>
+        <p class="lead">Um modelo tridimensional da casa e do terreno que você gira com o dedo, abre a cobertura e entra em cada ambiente. É o jeito mais rápido de quem vai alugar entender o tamanho do espaço sem receber foto por foto no WhatsApp.</p>
+        <p style="margin-top:24px"><a class="btn btn-laranja" href="planta/">Abrir a planta 3D</a></p>
+        <p class="aviso">O modelo foi montado a partir das fotos e da descrição da casa, para dar a noção da distribuição dos ambientes. As medidas são aproximadas.</p>
+      </div>
+      <div class="plantafig rv">
+        <svg viewBox="0 0 400 300" fill="none" stroke="#f0b93f" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+          <rect x="30" y="26" width="340" height="250" stroke-opacity=".3" stroke-dasharray="6 6"/>
+          <rect x="226" y="56" width="126" height="150" stroke-opacity=".9"/>
+          <path d="M289 56v150" stroke-opacity=".45"/>
+          <path d="M226 106h126M226 156h126" stroke-opacity=".55"/>
+          <rect x="190" y="56" width="36" height="150" stroke-opacity=".5"/>
+          <rect x="52" y="56" width="110" height="70" stroke-opacity=".8"/>
+          <path d="M52 92h110M107 56v70" stroke-opacity=".4"/>
+          <rect x="52" y="214" width="300" height="42" stroke-opacity=".45" stroke-dasharray="5 5"/>
+          <ellipse cx="116" cy="170" rx="50" ry="28" stroke-opacity=".95"/>
+          <ellipse cx="116" cy="170" rx="39" ry="19" stroke-opacity=".4"/>
+          <path d="M30 276h340" stroke-opacity=".22"/>
+          <circle cx="76" cy="244" r="9" stroke-opacity=".35"/>
+          <circle cx="330" cy="40" r="8" stroke-opacity=".3"/>
+        </svg>
+        <span class="tag">Modelo 3D</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOCAL ================= -->
+<section id="local">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Onde fica</span>
+      <h2>Barra de Gramame<br>João Pessoa</h2>
+      <p class="lead">A casa fica em Barra de Gramame, no litoral sul de João Pessoa, na Paraíba. É a região da foz do rio Gramame, de praias tranquilas e menos movimentadas que as do centro da cidade, e fica a poucos minutos de Jacumã e do Conde.</p>
+    </div>
+    <div class="mapa rv">
+      <iframe title="Mapa de Barra de Gramame, João Pessoa - PB" src="https://www.google.com/maps?q=Barra%20de%20Gramame%2C%20Jo%C3%A3o%20Pessoa%20-%20PB&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <div class="perto rv">
+      <div><b>Litoral sul</b><span>De João Pessoa</span></div>
+      <div><b>Praias</b><span>Na região</span></div>
+      <div><b>3 vagas</b><span>Estacionamento</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALORES ================= -->
+<section id="valores">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Valores</span>
+      <h2>Reserve a sua data</h2>
+    </div>
+    <div class="preco rv">
+      <div class="v">
+        <small>Valor do anúncio</small>
+        <b>R$ 450</b>
+        <span>Casa inteira, até 15 pessoas</span>
+      </div>
+      <div class="acao">
+        <a class="btn btn-verde" href="https://wa.me/5583998489707?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Barra%20de%20Gramame%20e%20quero%20reservar." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07s.9 2.4 1.02 2.57c.13.16 1.76 2.68 4.26 3.76.6.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          Reservar no WhatsApp
+        </a>
+        <a class="btn btn-laranja" href="https://wa.me/5583998489707?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Barra%20de%20Gramame%20e%20queria%20consultar%20disponibilidade%20e%20valores." target="_blank" rel="noopener">Consultar disponibilidade</a>
+      </div>
+    </div>
+    <p class="obs">Para feriados, férias e fins de semana, fale pelo WhatsApp para confirmar o valor, a disponibilidade e as condições de reserva.</p>
+  </div>
+</section>
+
+<!-- ================= RODAPÉ ================= -->
+<footer>
+  <div class="wrap">
+    <div class="topo">
+      <div class="marca">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/>
+        </svg>
+        <span><b>Casa Barra de Gramame</b><i>Barra de Gramame · João Pessoa, PB</i></span>
+      </div>
+      <div class="cont">
+        <a href="https://wa.me/5583998489707" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Z"/></svg>
+          (83) 99848-9707
+        </a>
+        <a href="#galeria">Ver as fotos da casa</a>
+        <a href="planta/">Abrir a planta 3D</a>
+      </div>
+    </div>
+    <div class="fim">
+      <span>Casa Barra de Gramame · casa de temporada em João Pessoa — PB</span>
+      <span>Site criado por <a href="https://jgg190310-ops.github.io/Imoveis/portfolio/" target="_blank" rel="noopener">João Gabriel Geo</a></span>
+    </div>
+  </div>
+</footer>
+
+<a id="zap" href="https://wa.me/5583998489707?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Barra%20de%20Gramame%20e%20quero%20reservar." target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07s.9 2.4 1.02 2.57c.13.16 1.76 2.68 4.26 3.76.6.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+  Reservar
+</a>
+
+<script>
+/* ---------- barra de vidro ---------- */
+var bar = document.getElementById('bar');
+function barra(){ bar.classList.toggle('on', scrollY > 40); }
+addEventListener('scroll', barra, {passive:true});
+barra();
+
+/* ---------- parallax da capa ---------- */
+var heroFoto = document.getElementById('herofoto');
+var hero = document.getElementById('hero');
+var animando = false;
+function parallax(){
+  animando = false;
+  var y = scrollY;
+  if (y > innerHeight * 1.2) return;
+  heroFoto.style.transform = 'translate3d(0,' + (y * 0.32) + 'px,0)';
+}
+addEventListener('scroll', function(){
+  if (!animando){ animando = true; requestAnimationFrame(parallax); }
+}, {passive:true});
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) heroFoto.style.transform = '';
+
+/* ---------- menu mobile ---------- */
+var menu = document.getElementById('menu'), burger = document.getElementById('burger');
+function abreMenu(){ menu.classList.add('aberto'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+function fechaMenu(){ menu.classList.remove('aberto'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+burger.addEventListener('click', abreMenu);
+document.getElementById('fechaMenu').addEventListener('click', fechaMenu);
+menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', fechaMenu); });
+
+/* ---------- galeria ---------- */
+var FOTOS = [
+  ['https://img.olx.com.br/images/98/985670225688392.jpg','Vista do alto da casa, com a piscina e a área verde em volta'],
+  ['https://img.olx.com.br/images/26/260679341725447.jpg','Piscina em frente à casa, com o estacionamento ao lado'],
+  ['https://img.olx.com.br/images/11/118660942171489.jpg','Piscina com jato de água e árvores em volta'],
+  ['https://img.olx.com.br/images/14/141685704198424.jpg','Vista do alto da piscina, do telhado da casa e da região'],
+  ['https://img.olx.com.br/images/19/193639225215862.jpg','Piscina iluminada à noite, com a área gourmet ao fundo'],
+  ['https://img.olx.com.br/images/21/214627226666545.jpg','Gramado da área verde à noite, com árvores e iluminação'],
+  ['https://img.olx.com.br/images/16/168689826502658.jpg','Sala de estar com sofá, aparador e janela ampla'],
+  ['https://img.olx.com.br/images/23/230608220407207.jpg','Sala com TV, sofá e rack de madeira'],
+  ['https://img.olx.com.br/images/17/175632228675613.jpg','Cozinha com armários planejados e bancada']
+];
+var GRANDES = [0];
+var MOSTRA = 9;
+var grade = document.getElementById('grade');
+var maisFt = document.getElementById('maisFt');
+var visiveis = 0;
+
+function pinta(ate){
+  for (var i = visiveis; i < ate && i < FOTOS.length; i++){
+    var fig = document.createElement('button');
+    fig.className = 'ft' + (GRANDES.indexOf(i) > -1 ? ' g' : '');
+    fig.type = 'button';
+    fig.setAttribute('data-i', i);
+    fig.setAttribute('aria-label', 'Ampliar foto: ' + FOTOS[i][1]);
+    var im = document.createElement('img');
+    im.src = FOTOS[i][0];
+    im.alt = FOTOS[i][1];
+    im.loading = 'lazy';
+    fig.appendChild(im);
+    grade.appendChild(fig);
+  }
+  visiveis = Math.min(ate, FOTOS.length);
+  maisFt.style.display = visiveis >= FOTOS.length ? 'none' : '';
+}
+pinta(MOSTRA);
+maisFt.addEventListener('click', function(){ pinta(FOTOS.length); });
+
+/* ---------- lightbox ---------- */
+var lb = document.getElementById('lb'),
+    lbImg = document.getElementById('lbImg'),
+    lbCont = document.getElementById('lbCont'),
+    atual = 0;
+
+function mostra(i){
+  atual = (i + FOTOS.length) % FOTOS.length;
+  lbImg.src = FOTOS[atual][0];
+  lbImg.alt = FOTOS[atual][1];
+  lbCont.textContent = (atual + 1) + ' / ' + FOTOS.length;
+}
+function abreLb(i){
+  mostra(i);
+  lb.classList.add('aberto');
+  document.body.style.overflow = 'hidden';
+}
+function fechaLb(){
+  lb.classList.remove('aberto');
+  document.body.style.overflow = '';
+}
+grade.addEventListener('click', function(e){
+  var b = e.target.closest('.ft');
+  if (b) abreLb(parseInt(b.getAttribute('data-i'), 10));
+});
+document.getElementById('fechaLb').addEventListener('click', fechaLb);
+document.getElementById('lbAnt').addEventListener('click', function(e){ e.stopPropagation(); mostra(atual - 1); });
+document.getElementById('lbProx').addEventListener('click', function(e){ e.stopPropagation(); mostra(atual + 1); });
+lb.addEventListener('click', function(e){ if (e.target === lb) fechaLb(); });
+addEventListener('keydown', function(e){
+  if (!lb.classList.contains('aberto')) return;
+  if (e.key === 'Escape') fechaLb();
+  if (e.key === 'ArrowLeft') mostra(atual - 1);
+  if (e.key === 'ArrowRight') mostra(atual + 1);
+});
+/* arrastar no celular */
+var tx = 0;
+lb.addEventListener('touchstart', function(e){ tx = e.changedTouches[0].clientX; }, {passive:true});
+lb.addEventListener('touchend', function(e){
+  var d = e.changedTouches[0].clientX - tx;
+  if (Math.abs(d) > 50) mostra(atual + (d < 0 ? 1 : -1));
+}, {passive:true});
+
+/* ---------- revelar ao rolar ---------- */
+var obs = new IntersectionObserver(function(ents){
+  ents.forEach(function(en){
+    if (en.isIntersecting){ en.target.classList.add('on'); obs.unobserve(en.target); }
+  });
+}, {rootMargin:'0px 0px -8% 0px', threshold:.08});
+document.querySelectorAll('.rv').forEach(function(el){ obs.observe(el); });
+</script>
+</body>
+</html>
