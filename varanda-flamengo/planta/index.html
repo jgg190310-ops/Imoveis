@@ -731,8 +731,8 @@ function rotulo(r, grupo, y) {
 rotulo(EXT.piscina, 'ext', 1.6);
 
 /* ===================== CÂMERA E ESTADO ===================== */
-const ALVO = new THREE.Vector3(0, 1.0, -1);
-const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-10, 23, -33) : new THREE.Vector3(-14, 18, -26);
+const ALVO = new THREE.Vector3(MOBILE ? -3.6 : -1.8, 1.0, -.6);
+const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-13, 24, -33) : new THREE.Vector3(-15, 18, -27);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
