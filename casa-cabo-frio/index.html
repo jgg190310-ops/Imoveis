@@ -280,7 +280,9 @@ footer .fim a{color:var(--dourado-2)}
   #acasa .duo,#planta3d .caixa{grid-template-columns:minmax(0,1fr)}
   #acasa .fig{max-width:470px;margin:0 auto}
   .listas{grid-template-columns:1fr}
-  .grade{grid-template-columns:repeat(3,1fr)}
+  .grade{grid-template-columns:repeat(6,1fr)}
+  .ft{grid-column:span 2}
+  .ft:nth-child(4),.ft:nth-child(5){grid-column:span 3}
   #numeros .wrap{grid-template-columns:repeat(2,1fr)}
   .num:nth-child(2){border-right:0}
   .num:nth-child(1),.num:nth-child(2){border-bottom:1px solid var(--borda)}
@@ -293,6 +295,7 @@ footer .fim a{color:var(--dourado-2)}
   .cards{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
   .card{min-height:250px}
   .grade{grid-template-columns:repeat(2,1fr)}
+  .ft,.ft:nth-child(4){grid-column:span 1}
   .ft:nth-child(5){grid-column:span 2;aspect-ratio:16/10}
 }
 @media (max-width:520px){
