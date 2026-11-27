@@ -169,13 +169,12 @@ section{padding:clamp(64px,10vh,118px) 0}
 
 /* galeria */
 #galeria{background:var(--areia-2)}
-.grade{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.grade{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
 .ft{position:relative;border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--areia);
   aspect-ratio:1;transition:transform .35s,box-shadow .35s;padding:0;display:block;width:100%}
 .ft img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .ft:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
 .ft:hover img{transform:scale(1.07)}
-.ft.g{grid-column:span 2;grid-row:span 2;aspect-ratio:1}
 .maisft{margin-top:22px;text-align:center}
 .notaft{margin-top:20px;font-size:13.6px;color:var(--suave);max-width:62ch}
 
@@ -183,7 +182,7 @@ section{padding:clamp(64px,10vh,118px) 0}
 #lb{position:fixed;inset:0;z-index:90;background:rgba(5,16,22,.985);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;
   align-items:center;justify-content:center;padding:clamp(12px,3vw,40px)}
 #lb.aberto{display:flex}
-#lb img{max-width:100%;max-height:86vh;width:auto;border-radius:10px;
+#lb img{max-width:min(100%,640px);max-height:74vh;width:auto;border-radius:10px;
   box-shadow:0 40px 90px -40px rgba(0,0,0,.9)}
 #lb .fechalb{position:absolute;top:max(14px,env(safe-area-inset-top));right:14px;width:48px;height:48px;
   border-radius:50%;background:rgba(252,247,239,.16);color:#fff;font-size:26px;line-height:1;
@@ -279,12 +278,9 @@ footer .fim a{color:var(--dourado-2)}
   #bar .btn{display:none}
   #burger{display:grid}
   #acasa .duo,#planta3d .caixa{grid-template-columns:minmax(0,1fr)}
-  #acasa .fig img{aspect-ratio:16/11}
-  .cards{grid-template-columns:1fr}
-  .card{min-height:230px}
+  #acasa .fig{max-width:470px;margin:0 auto}
   .listas{grid-template-columns:1fr}
-  .grade{grid-template-columns:repeat(2,1fr)}
-  .ft.g{grid-column:span 2;grid-row:span 1;aspect-ratio:16/11}
+  .grade{grid-template-columns:repeat(3,1fr)}
   #numeros .wrap{grid-template-columns:repeat(2,1fr)}
   .num:nth-child(2){border-right:0}
   .num:nth-child(1),.num:nth-child(2){border-bottom:1px solid var(--borda)}
@@ -292,6 +288,12 @@ footer .fim a{color:var(--dourado-2)}
   #faixa .wrap{justify-content:flex-start}
   #zap{padding:13px 18px;font-size:11.5px}
   #hero .wrap{padding-top:112px}
+}
+@media (max-width:760px){
+  .cards{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
+  .card{min-height:250px}
+  .grade{grid-template-columns:repeat(2,1fr)}
+  .ft:nth-child(5){grid-column:span 2;aspect-ratio:16/10}
 }
 @media (max-width:520px){
   #faixa b{font-size:10px;letter-spacing:.14em}
@@ -657,7 +659,7 @@ var FOTOS = [
   ['fotos/foto-04.jpg','Suíte com cama de casal, criado-mudo e quadros'],
   ['fotos/foto-05.jpg','Vista da varanda para o jardim do condomínio']
 ];
-var GRANDES = [0];
+var GRANDES = [];
 var MOSTRA = 10;
 var grade = document.getElementById('grade');
 var maisFt = document.getElementById('maisFt');
