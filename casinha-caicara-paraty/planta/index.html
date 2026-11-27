@@ -595,10 +595,10 @@ function vasoPlanta(g, x, y, z, r = .22) {
   for (const [px, pz] of [[R.x0 + .25, R.z0 + .25], [R.x1 - .25, R.z0 + .25], [(R.x0 + R.x1) / 2, R.z0 + .25]]) {
     caixa(g, .22, ALT_VAR, .22, M.madeira, px, NIV, pz);
   }
-  caixa(g, R.x1 - R.x0 + .5, .2, .2, M.madeira, (R.x0 + R.x1) / 2, NIV + ALT_VAR, R.z0 + .25, false);
-  /* caibros aparentes */
+  caixa(G.cobertura, R.x1 - R.x0 + .5, .2, .2, M.madeira, (R.x0 + R.x1) / 2, NIV + ALT_VAR, R.z0 + .25, false);
+  /* caibros aparentes, somem junto com a cobertura */
   for (let x = R.x0 + .3; x < R.x1; x += .62) {
-    caixa(g, .1, .12, R.z1 - R.z0 + .5, M.madClara, x, NIV + ALT_VAR + .2, (R.z0 + R.z1) / 2, false);
+    caixa(G.cobertura, .1, .12, R.z1 - R.z0 + .5, M.madClara, x, NIV + ALT_VAR + .2, (R.z0 + R.z1) / 2, false);
   }
   /* cobertura de telha */
   const tel = new THREE.Mesh(
@@ -611,26 +611,26 @@ function vasoPlanta(g, x, y, z, r = .22) {
 
   /* mesa de madeira com dois bancos */
   const mx = 6.6, mz = 5.9;
-  caixa(m, 1.5, .08, .82, M.madeira, mx, NIV + .72, mz);
+  caixa(g, 1.5, .08, .82, M.madeira, mx, NIV + .72, mz);
   for (const [px, pz] of [[mx - .62, mz - .3], [mx + .62, mz - .3], [mx - .62, mz + .3], [mx + .62, mz + .3]])
-    caixa(m, .09, .72, .09, M.madeira, px, NIV, pz, false);
-  caixa(m, 1.4, .3, .09, M.branco, mx, NIV + .74, mz, false);
+    caixa(g, .09, .72, .09, M.madeira, px, NIV, pz, false);
+  caixa(g, 1.4, .3, .09, M.branco, mx, NIV + .74, mz, false);
   for (const s of [-1, 1]) {
-    caixa(m, 1.5, .07, .34, M.madeira, mx, NIV + .45, mz + s * .78);
-    caixa(m, .08, .45, .3, M.madeira, mx - .6, NIV, mz + s * .78, false);
-    caixa(m, .08, .45, .3, M.madeira, mx + .6, NIV, mz + s * .78, false);
-    caixa(m, 1.42, .06, .3, M.folha, mx, NIV + .52, mz + s * .78, false);
+    caixa(g, 1.5, .07, .34, M.madeira, mx, NIV + .45, mz + s * .78);
+    caixa(g, .08, .45, .3, M.madeira, mx - .6, NIV, mz + s * .78, false);
+    caixa(g, .08, .45, .3, M.madeira, mx + .6, NIV, mz + s * .78, false);
+    caixa(g, 1.42, .06, .3, M.folha, mx, NIV + .52, mz + s * .78, false);
   }
   /* plantas penduradas e vasos */
   for (const px of [2.6, 3.4, 4.2]) {
-    caixa(m, .22, .2, .22, M.vaso, px, NIV + ALT_VAR - .55, 4.5, false);
+    caixa(g, .22, .2, .22, M.vaso, px, NIV + ALT_VAR - .55, 4.5, false);
     const c = new THREE.Mesh(new THREE.IcosahedronGeometry(.3, 0), M.folhaEsc);
     c.position.set(px, NIV + ALT_VAR - .68, 4.5); g.add(c);
   }
-  vasoPlanta(m, 2.35, NIV + 1.02, 5.4, .2);
-  vasoPlanta(m, 2.35, NIV + 1.02, 6.3, .18);
+  vasoPlanta(g, 2.35, NIV + 1.02, 5.4, .2);
+  vasoPlanta(g, 2.35, NIV + 1.02, 6.3, .18);
   /* luminária do teto */
-  caixa(m, .3, .14, .3, M.luz, 5.5, NIV + ALT_VAR - .22, 5.7, false);
+  caixa(g, .3, .14, .3, M.luz, 5.5, NIV + ALT_VAR - .22, 5.7, false);
 })();
 
 /* ===================== CASINHA ===================== */
