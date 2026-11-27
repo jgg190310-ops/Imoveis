@@ -816,7 +816,7 @@ document.getElementById('btnVista').addEventListener('click', () => {
   if (emPlanta) {
     corte = 'alto'; marca('segCorte', 'data-n', 'alto');
     aplicar();
-    irPara(new THREE.Vector3(0, 58, .01), new THREE.Vector3(0, 0, 0));
+    irPara(new THREE.Vector3(0, 46, .01), new THREE.Vector3(0, 0, 0));
   } else {
     corte = 'fechado'; marca('segCorte', 'data-n', 'fechado');
     aplicar(); reset();
@@ -851,7 +851,7 @@ GRUPOS.forEach(([titulo, itens, tipo]) => {
       const maior = Math.max(r.x1 - r.x0, r.z1 - r.z0);
       const raio = Math.max(12.5, maior * (MOBILE ? 2.9 : 2.4));
       const alto = tipo === 'alto' ? Y2 + .8 : .8;
-      irPara(new THREE.Vector3(cx - raio * .62, alto + raio * .88, cz - raio * .62),
+      irPara(new THREE.Vector3(cx - raio * .45, alto + raio * 1.35, cz - raio * .45),
              new THREE.Vector3(cx, alto, cz));
     });
     ambBox.appendChild(b);
