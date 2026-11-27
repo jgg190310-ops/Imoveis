@@ -664,8 +664,12 @@ function arvore(g, x, z, h = 4.4, r = 1.7) {
 
   /* ---------- piscina ---------- */
   const P = EXT.piscina;
-  /* borda de pedra em volta */
-  piso(g, { x0: P.x0 - 1.4, x1: P.x1 + 1.4, z0: P.z0 - 1.4, z1: P.z1 + 1.4 }, M.pisoMolh, .14);
+  /* borda de pedra em volta, em quatro faixas para nao tapar a cuba */
+  const BD = 1.4;
+  piso(g, { x0: P.x0 - BD, x1: P.x1 + BD, z0: P.z0 - BD, z1: P.z0 }, M.pisoMolh, .14);
+  piso(g, { x0: P.x0 - BD, x1: P.x1 + BD, z0: P.z1, z1: P.z1 + BD }, M.pisoMolh, .14);
+  piso(g, { x0: P.x0 - BD, x1: P.x0, z0: P.z0, z1: P.z1 }, M.pisoMolh, .14);
+  piso(g, { x0: P.x1, x1: P.x1 + BD, z0: P.z0, z1: P.z1 }, M.pisoMolh, .14);
   /* cuba */
   const prof = 1.4;
   caixa(g, P.x1 - P.x0, .06, P.z1 - P.z0, M.pastilha, (P.x0 + P.x1) / 2, .14 - prof, (P.z0 + P.z1) / 2, false);
