@@ -96,7 +96,9 @@ h3{font:700 18px var(--display);color:var(--tinta);letter-spacing:-.01em}
 #hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;
   overflow:hidden;background:var(--marinho)}
 #herofoto{position:absolute;inset:-12% 0 -12%;will-change:transform}
+#herofoto picture{display:block;width:100%;height:100%}
 #herofoto img{width:100%;height:100%;object-fit:cover;object-position:50% 46%;filter:saturate(1.1) contrast(1.04)}
+.brmob{display:none}
 #hero .veu{position:absolute;inset:0;
   background:linear-gradient(170deg,rgba(6,41,60,.62) 0%,rgba(13,126,168,.26) 36%,rgba(10,95,128,.48) 68%,rgba(6,41,60,.93) 100%)}
 #hero .bola{position:absolute;top:-16vh;right:-14vw;width:62vw;height:62vw;max-width:720px;max-height:720px;
@@ -292,6 +294,10 @@ footer .fim a{color:var(--dourado-2)}
   #hero .wrap{padding-top:112px}
 }
 @media (max-width:760px){
+  #herofoto{inset:-7% 0 -7%}
+  #herofoto img{object-position:50% 42%}
+  .brmob{display:inline}
+  #hero .local{line-height:1.7}
   .cards{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
   .card{min-height:250px}
   .grade{grid-template-columns:repeat(2,1fr)}
@@ -351,13 +357,16 @@ footer .fim a{color:var(--dourado-2)}
 
 <!-- ================= CAPA ================= -->
 <section id="hero" aria-label="Casa em Cabo Frio">
-  <div id="herofoto"><img src="fotos/foto-01.jpg" alt="Área central do condomínio iluminada à noite, com jardim e coqueiro entre os blocos" fetchpriority="high"></div>
+  <div id="herofoto"><picture>
+    <source media="(max-width:760px)" srcset="fotos/foto-05.jpg">
+    <img src="fotos/foto-01.jpg" alt="Área central do condomínio, com jardim e coqueiros entre os blocos" fetchpriority="high">
+  </picture></div>
   <div class="veu"></div>
   <div class="bola"></div>
   <div class="wrap">
     <div class="selo"><i></i><span>Pacote de Réveillon disponível</span></div>
     <h1>Casa em<em>Cabo Frio</em></h1>
-    <p class="local">Condomínio Encontro dos Peixes · Cabo Frio · Rio de Janeiro</p>
+    <p class="local">Condomínio Encontro dos Peixes<br class="brmob"> · Cabo Frio · Rio de Janeiro</p>
     <p class="sub">Duas suítes, até oito pessoas, piscina e sauna no condomínio. A 5 minutos da Ilha do Japonês.</p>
     <div class="acoes">
       <a class="btn btn-marinho" href="https://wa.me/5521964396962?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Cabo%20Frio%20e%20quero%20reservar." target="_blank" rel="noopener">
