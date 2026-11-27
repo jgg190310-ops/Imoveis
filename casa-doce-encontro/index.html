@@ -99,7 +99,7 @@ h3{font:700 18px var(--display);color:var(--tinta);letter-spacing:-.01em}
 #hero .veu{position:absolute;inset:0;
   background:linear-gradient(168deg,rgba(239,95,36,.52) 0%,rgba(249,138,43,.22) 34%,rgba(201,65,15,.44) 66%,rgba(22,48,28,.88) 100%)}
 #hero .bola{position:absolute;top:-16vh;right:-14vw;width:62vw;height:62vw;max-width:720px;max-height:720px;
-  border-radius:50%;background:radial-gradient(circle at 34% 30%,rgba(255,220,150,.42),rgba(201,65,15,.5) 62%,rgba(201,65,15,0) 72%);
+  border-radius:50%;background:radial-gradient(circle,rgba(255,214,140,.26) 0%,rgba(228,110,30,.17) 44%,rgba(228,110,30,.05) 62%,rgba(228,110,30,0) 74%);
   pointer-events:none}
 #hero .wrap{position:relative;z-index:2;padding:132px 0 clamp(40px,7vh,76px)}
 .selo{display:inline-flex;align-items:center;gap:9px;padding:8px 17px;margin-bottom:24px;
@@ -160,13 +160,13 @@ section{padding:clamp(64px,10vh,118px) 0}
 .card{position:relative;border-radius:20px;overflow:hidden;min-height:290px;display:flex;
   align-items:flex-end;padding:22px;color:#fff;box-shadow:var(--sombra)}
 .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.card .cor{position:absolute;inset:0;z-index:1;mix-blend-mode:multiply;opacity:.78}
-.card.c1 .cor{background:linear-gradient(200deg,#f8b93f,#e07b12)}
-.card.c2 .cor{background:linear-gradient(200deg,#4fae6b,#1f4a2b)}
-.card.c3 .cor{background:linear-gradient(200deg,#f98a2b,#c9410f)}
+.card .cor{position:absolute;inset:0;z-index:1}
+.card.c1 .cor{background:linear-gradient(to top,rgba(168,86,6,.95) 0%,rgba(224,123,18,.56) 36%,rgba(248,185,63,.12) 68%,rgba(248,185,63,0) 100%)}
+.card.c2 .cor{background:linear-gradient(to top,rgba(13,40,21,.95) 0%,rgba(31,74,43,.58) 36%,rgba(79,174,107,.12) 68%,rgba(79,174,107,0) 100%)}
+.card.c3 .cor{background:linear-gradient(to top,rgba(150,42,6,.95) 0%,rgba(201,65,15,.56) 36%,rgba(249,138,43,.12) 68%,rgba(249,138,43,0) 100%)}
 .card .txt{position:relative;z-index:2}
-.card h3{color:#fff;font-size:21px;text-transform:uppercase;letter-spacing:-.01em}
-.card p{margin-top:6px;font-size:14.2px;line-height:1.6;color:rgba(255,255,255,.93)}
+.card h3{color:#fff;font-size:21px;text-transform:uppercase;letter-spacing:-.01em;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.card p{margin-top:6px;font-size:14.2px;line-height:1.6;color:rgba(255,255,255,.95);text-shadow:0 1px 10px rgba(0,0,0,.45)}
 
 /* galeria */
 #galeria{background:var(--creme-2)}
@@ -247,7 +247,7 @@ section{padding:clamp(64px,10vh,118px) 0}
 .obs{margin-top:22px;font-size:14px;color:#7a5a24;max-width:70ch}
 
 /* rodapé */
-footer{background:var(--verde);color:rgba(253,246,233,.68);padding:clamp(44px,7vh,76px) 0 32px}
+footer{background:var(--verde);color:rgba(253,246,233,.68);padding:clamp(44px,7vh,76px) 0 calc(32px + 76px)}
 footer .topo{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;
   padding-bottom:28px;border-bottom:1px solid rgba(253,246,233,.14)}
 footer .marca b{color:var(--creme);font-size:21px}
@@ -278,7 +278,8 @@ footer .fim a{color:var(--amarelo-2)}
   #nav{display:none}
   #bar .btn{display:none}
   #burger{display:grid}
-  #acasa .duo,#planta3d .caixa{grid-template-columns:1fr}
+  #acasa .duo,#planta3d .caixa{grid-template-columns:minmax(0,1fr)}
+  #acasa .fig img{aspect-ratio:16/11}
   .cards{grid-template-columns:1fr}
   .card{min-height:230px}
   .listas{grid-template-columns:1fr}
@@ -670,7 +671,7 @@ var FOTOS = [
   ['fotos/foto-21.jpg','Vista geral do terreno, da piscina ao fundo da casa'],
   ['fotos/foto-22.jpg','Copa com geladeira e bancada de apoio']
 ];
-var GRANDES = [0,1];
+var GRANDES = [0];
 var MOSTRA = 10;
 var grade = document.getElementById('grade');
 var maisFt = document.getElementById('maisFt');

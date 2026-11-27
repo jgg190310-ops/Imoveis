@@ -191,7 +191,7 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.06;
+renderer.toneMappingExposure = 1.14;
 host.appendChild(renderer.domElement);
 
 const labelRenderer = new CSS2DRenderer({ element: document.getElementById('rotulos') });
@@ -210,8 +210,8 @@ controls.maxDistance = 115;
 controls.maxPolarAngle = Math.PI / 2 - .03;
 
 /* ===================== LUZ ===================== */
-scene.add(new THREE.HemisphereLight('#e8f6ff', '#8a7a55', 1.1));
-const sol = new THREE.DirectionalLight('#fff3dc', 2.5);
+scene.add(new THREE.HemisphereLight('#eef8ff', '#c0b596', .95));
+const sol = new THREE.DirectionalLight('#fff6e4', 2.9);
 sol.position.set(-24, 36, 10);
 sol.castShadow = true;
 sol.shadow.mapSize.set(MOBILE ? 1024 : 2048, MOBILE ? 1024 : 2048);
@@ -267,7 +267,7 @@ const ALTO = {
 /* ---- área externa ---- */
 const EXT = {
   gourmet: { x0: .9,   x1: 8.2,  z0: 1.8,  z1: 9.8,  n: 'Deck e churrasqueira' },
-  piscina: { x0: 9.6,  x1: 14.7, z0: 3.3,  z1: 9.7,  n: 'Piscina' },
+  piscina: { x0: 10.1, x1: 13.3, z0: 3.2,  z1: 9.8,  n: 'Piscina' },
   varanda: { x0: 8.5,  x1: 10.5, z0: 13,   z1: 20,   n: 'Varanda' },
   garagem: { x0: .9,   x1: 6.2,  z0: 12,   z1: 21,   n: 'Estacionamento' },
   quintal: { x0: .9,   x1: 6.2,  z0: 23,   z1: 34,   n: 'Quintal' }
@@ -277,18 +277,18 @@ const ALT_GAR = 2.7;
 /* ===================== MATERIAIS ===================== */
 const std = o => new THREE.MeshStandardMaterial(Object.assign({ roughness: .9, metalness: 0 }, o));
 const M = {
-  paredeExt: std({ color: '#efe8da', roughness: .95 }),
+  paredeExt: std({ color: '#f6f1e6', roughness: .95 }),
   paredeInt: std({ color: '#f4efe4' }),
-  paredeCinza: std({ color: '#b9b2a6', roughness: .94 }),
-  tijolo:    std({ color: '#c08055', roughness: .97 }),
+  paredeCinza: std({ color: '#c6c0b4', roughness: .94 }),
+  tijolo:    std({ color: '#cb8552', roughness: .97 }),
   tijoloEsc: std({ color: '#a86a44', roughness: .98 }),
   piso:      std({ color: '#e9e3d6', roughness: .55 }),
   pisoVar:   std({ color: '#ded2b6', roughness: .72 }),
   pisoMolh:  std({ color: '#ddd7c8', roughness: .46 }),
-  concreto:  std({ color: '#c9c4bb', roughness: .99 }),
+  concreto:  std({ color: '#d5d0c6', roughness: .99 }),
   areia:     std({ color: '#ddcba4', roughness: 1 }),
   laje:      std({ color: '#cdc7ba', roughness: .95 }),
-  telha:     std({ color: '#b6baba', roughness: .88 }),
+  telha:     std({ color: '#d2d6d6', roughness: .86 }),
   telhaBorda:std({ color: '#4b5354', roughness: .85 }),
   pedra:     std({ color: '#d9c58f', roughness: .92 }),
   granito:   std({ color: '#2e2b28', roughness: .3, metalness: .16 }),
@@ -301,7 +301,7 @@ const M = {
   colcha:    std({ color: '#cfc3a4', roughness: .96 }),
   preto:     std({ color: '#241f1a', roughness: .48 }),
   grama:     std({ color: '#7d8f52', roughness: 1 }),
-  terra:     std({ color: '#9a9068', roughness: 1 }),
+  terra:     std({ color: '#b3a881', roughness: 1 }),
   agua:      new THREE.MeshStandardMaterial({ color: '#2fa5c4', roughness: .1, metalness: .24, transparent: true, opacity: .92 }),
   fibra:     std({ color: '#8fd8ea', roughness: .25 }),
   vidro:     new THREE.MeshPhysicalMaterial({ color: '#cfe2e6', roughness: .06, metalness: 0, transparent: true, opacity: .26, transmission: .5 }),
@@ -647,7 +647,7 @@ function split(g, x, y, z, eixoX = true) {
 /* ===================== PISCINA E DECK ===================== */
 (function piscina() {
   const g = G.lazer;
-  const borda = { x0: 8.9, x1: 15.4, z0: 2.6, z1: 10.4 };
+  const borda = { x0: 9.1, x1: 15.2, z0: 2.4, z1: 10.6 };
   const p = EXT.piscina;
 
   /* borda de pedra em volta */
@@ -702,13 +702,13 @@ function rotulo(r, grupo, y) {
   rotulos.push({ o, el, piso: grupo });
   return o;
 }
-Object.values(T).forEach(r => rotulo(r, 'casa', 1.7));
-Object.values(ALTO).forEach(r => rotulo(r, 'casa', Y2 + 1.7));
+[T.suite1, T.suite2, T.suite3, T.suite4, T.suite5, T.cozinha].forEach(r => rotulo(r, 'casa', 1.7));
+[ALTO.suite6, ALTO.suite7, ALTO.suite8].forEach(r => rotulo(r, 'casa', Y2 + 1.7));
 Object.values(EXT).forEach(r => rotulo(r, 'ext', 1.2));
 
 /* ===================== CÂMERA E ESTADO ===================== */
-const ALVO = new THREE.Vector3(0, 1.0, 0);
-const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-40, 34, 40) : new THREE.Vector3(-29, 23, 30);
+const ALVO = new THREE.Vector3(0, 1.0, -1);
+const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-26, 36, -44) : new THREE.Vector3(-21, 27, -34);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
@@ -760,10 +760,10 @@ seg('segFoco', 'data-f', v => {
     aberto = true;
     document.querySelectorAll('#segCorte button').forEach(b => b.classList.toggle('on', b.dataset.n === 'aberto'));
     aplicar();
-    irPara(new THREE.Vector3(-6, 26, 16), new THREE.Vector3(4.9, 1, 5));
+    irPara(new THREE.Vector3(-13, 30, -10), new THREE.Vector3(4.9, 1, 5));
   } else if (v === 'lazer') {
     aplicar();
-    irPara(new THREE.Vector3(-14, 17, -2), new THREE.Vector3(-2.5, .5, -12));
+    irPara(new THREE.Vector3(-13, 19, -31), new THREE.Vector3(-2.5, .5, -13));
   } else { aplicar(); reset(); }
 });
 document.getElementById('btnReset').addEventListener('click', () => {
@@ -778,7 +778,7 @@ document.getElementById('btnVista').addEventListener('click', () => {
     aberto = true;
     document.querySelectorAll('#segCorte button').forEach(b => b.classList.toggle('on', b.dataset.n === 'aberto'));
     aplicar();
-    irPara(new THREE.Vector3(0, 52, .01), new THREE.Vector3(0, 0, 0));
+    irPara(new THREE.Vector3(0, 64, .01), new THREE.Vector3(0, 0, 0));
   } else {
     aberto = false;
     document.querySelectorAll('#segCorte button').forEach(b => b.classList.toggle('on', b.dataset.n === 'fechado'));
@@ -811,7 +811,7 @@ GRUPOS.forEach(([titulo, itens, tipo]) => {
       aplicar();
       const cx = (r.x0 + r.x1) / 2 - CX, cz = (r.z0 + r.z1) / 2 - CZ;
       const maior = Math.max(r.x1 - r.x0, r.z1 - r.z0);
-      const raio = Math.max(9, maior * (MOBILE ? 2.1 : 1.7));
+      const raio = Math.max(13.5, maior * (MOBILE ? 3.1 : 2.6));
       const alto = ALTO[Object.keys(ALTO).find(k => ALTO[k] === r)] ? Y2 + .8 : .8;
       irPara(new THREE.Vector3(cx - raio * .6, alto + raio * .85, cz + raio * .6),
              new THREE.Vector3(cx, alto, cz));
@@ -841,7 +841,7 @@ let primeiroQuadro = true;
 })();
 
 setTimeout(() => document.getElementById('dica').classList.add('off'), 5400);
-if (MOBILE) setTimeout(() => document.getElementById('titulo').classList.add('fechado'), 6800);
+setTimeout(() => document.getElementById('titulo').classList.add('fechado'), MOBILE ? 6800 : 9500);
 </script>
 </body>
 </html>
