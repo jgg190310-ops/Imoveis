@@ -219,7 +219,14 @@ h3{font:700 18px var(--display);color:var(--tinta);letter-spacing:-.01em}
 .card3d .acoes{margin-top:26px;display:flex;flex-wrap:wrap;gap:11px}
 .card3d .vis{position:relative;z-index:2;border-radius:18px;overflow:hidden;aspect-ratio:4/3;
   border:1px solid rgba(255,255,255,.18);background:#0a3f4f}
-.card3d .vis iframe{width:100%;height:100%;border:0;display:block}
+.card3d .vis{display:block;cursor:pointer}
+.card3d .vis iframe{width:100%;height:100%;border:0;display:block;pointer-events:none}
+.card3d .vis .toque{position:absolute;z-index:2;left:50%;bottom:16px;transform:translateX(-50%);
+  display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;
+  background:rgba(6,48,60,.78);border:1px solid rgba(73,212,222,.4);color:#fff;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);white-space:nowrap;
+  font:700 11px var(--display);letter-spacing:.14em;text-transform:uppercase;transition:background .25s}
+.card3d .vis:hover .toque{background:var(--coral);border-color:var(--coral)}
 .card3d .vis .capa-3d{position:absolute;inset:0;display:grid;place-items:center;gap:12px;
   background:linear-gradient(160deg,#0d4c5f,#06303c);color:rgba(255,255,255,.8);text-align:center;padding:24px}
 .card3d .vis .capa-3d svg{width:42px;height:42px;color:var(--turq-2)}
@@ -502,9 +509,10 @@ footer .assin a{color:var(--turq-2)}
           <a class="btn btn-linha" href="#galeria">Ver as fotos</a>
         </div>
       </div>
-      <div class="vis">
-        <iframe src="planta/" title="Planta 3D da casa" loading="lazy"></iframe>
-      </div>
+      <a class="vis" href="planta/" target="_blank" rel="noopener" aria-label="Abrir a planta 3D da casa">
+        <iframe src="planta/?embed=1" title="Prévia da planta 3D da casa" loading="lazy" tabindex="-1"></iframe>
+        <span class="toque">Abrir planta 3D</span>
+      </a>
     </div>
   </div>
 </section>
@@ -523,7 +531,7 @@ footer .assin a{color:var(--turq-2)}
       <div class="dist"><b>5 vagas</b><span>Estacionamento na casa</span></div>
     </div>
     <div class="mapa rev">
-      <iframe src="https://www.google.com/maps?q=Barra%20de%20S%C3%A3o%20Miguel%2C%20Alagoas&output=embed" title="Mapa da Barra de São Miguel, Alagoas" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps?q=Barra%20de%20S%C3%A3o%20Miguel%2C%20Alagoas&z=14&output=embed" title="Mapa da Barra de São Miguel, Alagoas" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
