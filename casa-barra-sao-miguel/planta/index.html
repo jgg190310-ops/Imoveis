@@ -761,8 +761,12 @@ Object.values(EXT).filter(r => r !== EXT.deck).forEach(r => rotulo(r, 'ext', 1.2
 
 /* ===================== CÂMERA E ESTADO ===================== */
 const ALVO = EMBED ? new THREE.Vector3(-1, 1.6, 1) : new THREE.Vector3(-1, 1.0, 1);
-const VISTA_INICIAL = EMBED ? new THREE.Vector3(18, 17, 23)
-  : MOBILE ? new THREE.Vector3(20, 34, 46) : new THREE.Vector3(24, 23, 30);
+/* a tela do celular e estreita e deitada, entao o campo de visao horizontal
+   fica pequeno: a camera precisa recuar na mesma proporcao pra caber o lote */
+const BASE_VISTA = new THREE.Vector3(24, 23, 30);
+const ASPECTO = innerWidth / innerHeight;
+const FATOR = EMBED ? .80 : Math.min(2.3, Math.max(1, 1.55 / Math.max(ASPECTO, .4)));
+const VISTA_INICIAL = BASE_VISTA.clone().multiplyScalar(FATOR);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
@@ -814,10 +818,10 @@ seg('segFoco', 'data-f', v => {
     aberto = true;
     document.querySelectorAll('#segCorte button').forEach(b => b.classList.toggle('on', b.dataset.n === 'aberto'));
     aplicar();
-    irPara(new THREE.Vector3(10, 20, 14), new THREE.Vector3(-3.3, 1.2, -.7));
+    irPara(new THREE.Vector3(10, 20, 14).multiplyScalar(FATOR), new THREE.Vector3(-3.3, 1.2, -.7));
   } else if (v === 'lazer') {
     aplicar();
-    irPara(new THREE.Vector3(16, 16, 22), new THREE.Vector3(4.6, .4, 8.4));
+    irPara(new THREE.Vector3(10, 13, 16).multiplyScalar(FATOR).add(new THREE.Vector3(4.6, 0, 8.4)), new THREE.Vector3(4.6, .4, 8.4));
   } else { aplicar(); reset(); }
 });
 document.getElementById('btnReset').addEventListener('click', () => {
@@ -832,7 +836,7 @@ document.getElementById('btnVista').addEventListener('click', () => {
     aberto = true;
     document.querySelectorAll('#segCorte button').forEach(b => b.classList.toggle('on', b.dataset.n === 'aberto'));
     aplicar();
-    irPara(new THREE.Vector3(0, 50, .01), new THREE.Vector3(0, 0, 0));
+    irPara(new THREE.Vector3(0, 50 * FATOR, .01), new THREE.Vector3(0, 0, 0));
   } else {
     aberto = false;
     document.querySelectorAll('#segCorte button').forEach(b => b.classList.toggle('on', b.dataset.n === 'fechado'));
@@ -864,7 +868,7 @@ GRUPOS.forEach(([titulo, itens, tipo]) => {
       aplicar();
       const cx = (r.x0 + r.x1) / 2 - CX, cz = (r.z0 + r.z1) / 2 - CZ;
       const maior = Math.max(r.x1 - r.x0, r.z1 - r.z0);
-      const raio = Math.max(13, maior * (MOBILE ? 3.0 : 2.5));
+      const raio = Math.max(13, maior * 2.5) * FATOR;
       irPara(new THREE.Vector3(cx + raio * .62, .8 + raio * .85, cz + raio * .62),
              new THREE.Vector3(cx, .8, cz));
     });
