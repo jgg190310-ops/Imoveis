@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+<title>Planta 3D · Casa Barra de São Miguel · Alagoas</title>
+<meta name="description" content="Planta 3D interativa da casa de temporada na Barra de São Miguel, Alagoas: 2 quartos para 6 pessoas, sala, cozinha, varanda com redes, área gourmet, piscina e estacionamento para 5 carros.">
+<meta name="theme-color" content="#06303c">
+<meta property="og:title" content="Planta 3D · Casa Barra de São Miguel">
+<meta property="og:description" content="Gire a casa com o dedo, tire a cobertura e entre em cada ambiente.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Jost:wght@300..600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --mar:#06303c; --mar-2:#0d4c5f; --turq:#17b6c4; --turq-2:#49d4de;
+  --coral:#f2683c; --areia:#f7f1e6; --suave:#93a4ab;
+  --sans:'Jost',system-ui,-apple-system,sans-serif;
+  --display:'Archivo',system-ui,sans-serif;
+  --borda:rgba(73,212,222,.32);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:#cfe4ea;
+  font:300 15px/1.6 var(--sans);color:var(--mar);
+  -webkit-font-smoothing:antialiased;overscroll-behavior:none}
+button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:none}
+#cena{position:fixed;inset:0;touch-action:none}
+#cena canvas{display:block}
+#rotulos{position:fixed;inset:0;pointer-events:none;z-index:5}
+
+.topo{position:fixed;z-index:30;top:max(12px,env(safe-area-inset-top));left:50%;
+  transform:translateX(-50%);display:flex;align-items:center;gap:13px;
+  padding:6px 6px 6px 16px;border-radius:999px;
+  background:rgba(6,48,60,.7);backdrop-filter:blur(16px) saturate(1.35);
+  -webkit-backdrop-filter:blur(16px) saturate(1.35);
+  border:1px solid var(--borda);color:var(--areia);white-space:nowrap;
+  box-shadow:0 14px 44px -20px rgba(0,0,0,.6);max-width:calc(100vw - 20px)}
+.topo .marca{font:700 12px var(--display);letter-spacing:.16em;text-transform:uppercase;
+  display:flex;align-items:center;gap:9px;overflow:hidden;text-overflow:ellipsis}
+.topo .marca svg{width:20px;height:20px;flex:none;color:var(--turq-2)}
+.topo a{color:#fff;text-decoration:none;font:700 11.5px var(--display);letter-spacing:.1em;
+  text-transform:uppercase;padding:10px 16px;border-radius:999px;background:var(--coral);
+  transition:background .2s}
+.topo a:hover{background:#cf4a22}
+
+.titulo{position:fixed;z-index:15;left:max(16px,env(safe-area-inset-left));top:78px;max-width:330px;
+  padding:20px 22px;border-radius:18px;background:rgba(6,48,60,.92);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--borda);box-shadow:0 22px 54px -30px rgba(0,0,0,.8);
+  transition:opacity .35s,transform .35s;color:rgba(247,241,230,.8)}
+.titulo.fechado{opacity:0;transform:translateY(-10px);pointer-events:none}
+.titulo small{display:block;font:700 9.5px var(--display);letter-spacing:.28em;
+  text-transform:uppercase;color:var(--turq-2);margin-bottom:9px}
+.titulo h1{font:900 26px/1 var(--display);color:#fff;letter-spacing:-.03em;text-transform:uppercase}
+.titulo h1 em{display:block;font-style:normal;color:var(--turq-2)}
+.titulo p{font-size:13.2px;line-height:1.6;margin-top:11px}
+.titulo .fecha{position:absolute;top:8px;right:10px;width:30px;height:30px;border-radius:50%;
+  font-size:20px;line-height:1;color:var(--suave);display:grid;place-items:center}
+.titulo .fecha:hover{background:rgba(247,241,230,.12)}
+
+.amb{position:fixed;z-index:15;right:max(13px,env(safe-area-inset-right));top:78px;
+  width:214px;max-height:calc(100vh - 200px);overflow:auto;
+  padding:11px;border-radius:18px;background:rgba(6,48,60,.9);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--borda);box-shadow:0 22px 54px -32px rgba(0,0,0,.8);
+  scrollbar-width:thin;color:rgba(247,241,230,.86)}
+.amb h4{font:700 9px var(--display);letter-spacing:.24em;text-transform:uppercase;
+  color:var(--turq-2);padding:9px 8px 5px}
+.amb button{display:flex;width:100%;justify-content:space-between;align-items:baseline;gap:8px;
+  padding:8px 10px;border-radius:9px;font-size:13.4px;text-align:left;transition:background .18s}
+.amb button:hover{background:rgba(247,241,230,.1)}
+.amb button.on{background:var(--turq-2);color:var(--mar);font-weight:500}
+
+.ctrl{position:fixed;z-index:20;left:50%;transform:translateX(-50%);
+  bottom:max(16px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:9px;
+  padding:8px;border-radius:999px;background:rgba(6,48,60,.74);
+  backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);
+  border:1px solid var(--borda);box-shadow:0 16px 44px -22px rgba(0,0,0,.8);
+  max-width:calc(100vw - 20px);overflow:auto;scrollbar-width:none}
+.ctrl::-webkit-scrollbar{display:none}
+.seg{display:flex;background:rgba(247,241,230,.12);border-radius:999px;padding:3px;flex:none}
+.seg button{padding:8px 15px;border-radius:999px;font:400 12.5px var(--sans);
+  color:rgba(247,241,230,.8);white-space:nowrap;transition:background .2s,color .2s}
+.seg button.on{background:var(--turq-2);color:var(--mar);font-weight:500}
+.ctrl .ic{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:rgba(247,241,230,.12);color:var(--areia);transition:background .2s}
+.ctrl .ic:hover{background:rgba(73,212,222,.34)}
+.ctrl .ic svg{width:18px;height:18px}
+
+.rot{font:500 11.8px var(--sans);color:#fff;white-space:nowrap;
+  padding:4px 10px;border-radius:999px;background:rgba(6,48,60,.84);
+  border:1px solid rgba(73,212,222,.36);transition:opacity .25s;
+  text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.rot.off{opacity:0}
+.rot b{font-weight:500}
+
+.dica{position:fixed;z-index:18;left:50%;transform:translateX(-50%);
+  bottom:calc(max(16px,env(safe-area-inset-bottom)) + 62px);
+  padding:8px 16px;border-radius:999px;background:rgba(6,48,60,.74);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--borda);color:rgba(247,241,230,.9);
+  font:400 12.4px var(--sans);white-space:nowrap;transition:opacity .6s}
+.dica.off{opacity:0;pointer-events:none}
+
+#carregando{position:fixed;inset:0;z-index:95;display:grid;place-items:center;
+  background:#cfe4ea;transition:opacity .5s}
+#carregando.off{opacity:0;pointer-events:none}
+#carregando div{display:grid;place-items:center;gap:14px}
+#carregando b{font:900 20px var(--display);letter-spacing:-.02em;color:var(--mar);text-transform:uppercase}
+#carregando i{display:block;width:44px;height:44px;border-radius:50%;
+  border:3px solid rgba(6,48,60,.18);border-top-color:var(--coral);
+  animation:gira .9s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+
+@media (max-width:900px){
+  .amb{display:none}
+  .titulo{max-width:min(300px,calc(100vw - 32px));top:72px;padding:16px 18px}
+  .titulo h1{font-size:22px}
+  .titulo p{font-size:12.6px}
+  .topo{gap:9px;padding:5px 5px 5px 13px}
+  .topo .marca{font-size:10.5px;letter-spacing:.12em}
+  .topo a{font-size:10.5px;padding:9px 13px}
+  .dica{font-size:11.6px;white-space:normal;max-width:calc(100vw - 28px);text-align:center}
+  .ctrl{flex-wrap:wrap;justify-content:center;border-radius:26px;overflow:visible;
+    gap:7px;padding:7px;max-width:calc(100vw - 22px)}
+  .seg button{padding:8px 13px;font-size:12px}
+  .ctrl .ic{width:34px;height:34px}
+}
+</style>
+</head>
+<body>
+
+<div id="cena"></div>
+<div id="rotulos"></div>
+
+<div class="topo">
+  <span class="marca">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/>
+    </svg>
+    Casa Barra de São Miguel
+  </span>
+  <a href="../">Voltar ao site</a>
+</div>
+
+<div class="titulo" id="titulo">
+  <button class="fecha" id="fechaTitulo" aria-label="Fechar">&times;</button>
+  <small>Planta 3D</small>
+  <h1>Casa<em>Barra de S. Miguel</em></h1>
+  <p>Gire com o dedo, tire a cobertura e entre em cada ambiente. Modelo montado a partir das fotos do anúncio — medidas aproximadas.</p>
+</div>
+
+<div class="amb" id="amb"></div>
+
+<div class="ctrl">
+  <div class="seg" id="segCorte">
+    <button data-n="fechado" class="on">Fechada</button>
+    <button data-n="aberto">Sem telhado</button>
+  </div>
+  <div class="seg" id="segFoco">
+    <button data-f="tudo" class="on">Tudo</button>
+    <button data-f="casa">Quartos</button>
+    <button data-f="lazer">Lazer</button>
+  </div>
+  <button class="ic" id="btnVista" title="Ver de cima" aria-label="Ver de cima">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+    </svg>
+  </button>
+  <button class="ic" id="btnReset" title="Vista inicial" aria-label="Vista inicial">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 12a9 9 0 1 0 2.6-6.4"/><path d="M3 4v5h5"/>
+    </svg>
+  </button>
+</div>
+
+<div class="dica" id="dica">Arraste para girar · dois dedos para mover · pinça para aproximar</div>
+
+<div id="carregando"><div><i></i><b>Montando a casa</b></div></div>
+
+<script type="module">
+import * as THREE from './vendor/three.module.min.js';
+import { OrbitControls } from './vendor/OrbitControls.js';
+import { CSS2DRenderer, CSS2DObject } from './vendor/CSS2DRenderer.js';
+
+/* ===================== BASE ===================== */
+const host = document.getElementById('cena');
+const MOBILE = innerWidth < 900 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+const renderer = new THREE.WebGLRenderer({ antialias: !MOBILE, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.12;
+host.appendChild(renderer.domElement);
+
+const labelRenderer = new CSS2DRenderer({ element: document.getElementById('rotulos') });
+labelRenderer.setSize(innerWidth, innerHeight);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color('#cfe4ea');
+scene.fog = new THREE.Fog('#cfe4ea', 62, 185);
+
+const camera = new THREE.PerspectiveCamera(42, innerWidth / innerHeight, 0.1, 600);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = .07;
+controls.minDistance = 7;
+controls.maxDistance = 115;
+controls.maxPolarAngle = Math.PI / 2 - .03;
+
+/* ===================== LUZ ===================== */
+scene.add(new THREE.HemisphereLight('#eef8ff', '#bfc7a8', .95));
+const sol = new THREE.DirectionalLight('#fff6e4', 2.85);
+sol.position.set(-22, 36, 12);
+sol.castShadow = true;
+sol.shadow.mapSize.set(MOBILE ? 1024 : 2048, MOBILE ? 1024 : 2048);
+sol.shadow.camera.left = -26; sol.shadow.camera.right = 26;
+sol.shadow.camera.top = 40; sol.shadow.camera.bottom = -30;
+sol.shadow.camera.near = 1; sol.shadow.camera.far = 110;
+sol.shadow.bias = -0.0006;
+sol.shadow.normalBias = 0.045;
+scene.add(sol);
+scene.add(new THREE.DirectionalLight('#dceeff', .4).translateX(20).translateY(14).translateZ(-22));
+
+/* ===================== MEDIDAS =====================
+   X = largura do terreno (0 a 20)  |  Z = profundidade (0 na rua, 29 no fundo)
+   Estacionamento e area gourmet na frente, casa no meio, varanda lateral,
+   piscina e quintal no fundo.                                                */
+const LOTE = { x0: 0, x1: 20, z0: 0, z1: 29 };
+
+const ESP = .16;
+const PD  = 3.0;
+const ALT_VAR = 3.1;
+
+const CASA = { x0: 1.2, x1: 12.2, z0: 9.2, z1: 18.4 };
+
+const T = {
+  sala:    { x0: 1.2, x1: 6.8,  z0: 9.2,  z1: 14.0, n: 'Sala de estar' },
+  cozinha: { x0: 6.8, x1: 12.2, z0: 9.2,  z1: 13.2, n: 'Cozinha' },
+  quarto1: { x0: 1.2, x1: 5.8,  z0: 14.0, z1: 18.4, n: 'Quarto 1' },
+  wc:      { x0: 5.8, x1: 8.2,  z0: 14.0, z1: 18.4, n: 'Banheiro' },
+  quarto2: { x0: 8.2, x1: 12.2, z0: 13.2, z1: 18.4, n: 'Quarto 2' }
+};
+
+const EXT = {
+  varanda: { x0: 12.2, x1: 15.8, z0: 9.2,  z1: 18.4, n: 'Varanda com redes' },
+  gourmet: { x0: 12.6, x1: 18.6, z0: 2.4,  z1: 7.8,  n: 'Área gourmet' },
+  garagem: { x0: 1.2,  x1: 11.0, z0: 1.4,  z1: 7.4,  n: 'Estacionamento' },
+  piscina: { x0: 12.7, x1: 17.3, z0: 20.4, z1: 26.4, n: 'Piscina' },
+  deck:    { x0: 11.4, x1: 18.6, z0: 19.0, z1: 27.6, n: 'Deck da piscina' },
+  quintal: { x0: 1.2,  x1: 11.0, z0: 19.0, z1: 27.6, n: 'Quintal' }
+};
+
+/* ===================== MATERIAIS ===================== */
+const std = o => new THREE.MeshStandardMaterial(Object.assign({ roughness: .9, metalness: 0 }, o));
+const M = {
+  paredeExt:  std({ color: '#f6e9b8', roughness: .95 }),
+  paredeAmar: std({ color: '#f2d472', roughness: .95 }),
+  paredeInt:  std({ color: '#f4efe4' }),
+  paredeWc:   std({ color: '#e7eef0', roughness: .6 }),
+  tijolo:     std({ color: '#c8824f', roughness: .97 }),
+  piso:       std({ color: '#ebe6d9', roughness: .5 }),
+  pisoVar:    std({ color: '#d7cdb8', roughness: .72 }),
+  pisoMolh:   std({ color: '#dcd6c7', roughness: .46 }),
+  concreto:   std({ color: '#d2cdc3', roughness: .99 }),
+  laje:       std({ color: '#cbc5b8', roughness: .95 }),
+  telha:      std({ color: '#cfd4d4', roughness: .86 }),
+  telhaBorda: std({ color: '#49514f', roughness: .85 }),
+  granito:    std({ color: '#2c2a27', roughness: .3, metalness: .16 }),
+  madeira:    std({ color: '#8a4b25', roughness: .62 }),
+  madClara:   std({ color: '#a9793f', roughness: .76 }),
+  movel:      std({ color: '#ddd6c9', roughness: .78 }),
+  inox:       std({ color: '#b4b9b8', roughness: .32, metalness: .55 }),
+  branco:     std({ color: '#f8f7f3', roughness: .55 }),
+  cama:       std({ color: '#ded5bd', roughness: .95 }),
+  colcha:     std({ color: '#9fc8cf', roughness: .96 }),
+  preto:      std({ color: '#241f1a', roughness: .48 }),
+  grama:      std({ color: '#5f9e4a', roughness: 1 }),
+  gramaSint:  std({ color: '#4e9e52', roughness: 1 }),
+  terra:      std({ color: '#b3a881', roughness: 1 }),
+  agua:       new THREE.MeshStandardMaterial({ color: '#16b4d8', roughness: .08, metalness: .18, transparent: true, opacity: .95, emissive: '#0a5a72', emissiveIntensity: .3 }),
+  borda:      std({ color: '#e8e3d6', roughness: .7 }),
+  vidro:      new THREE.MeshPhysicalMaterial({ color: '#cfe2e6', roughness: .06, metalness: 0, transparent: true, opacity: .26, transmission: .5 }),
+  esquadria:  std({ color: '#2f2a26', roughness: .5 }),
+  folha:      std({ color: '#4e7a3c', roughness: 1 }),
+  folhaEsc:   std({ color: '#3d6330', roughness: 1 }),
+  tronco:     std({ color: '#7a6244', roughness: 1 }),
+  pisoExt:    std({ color: '#dad5c9', roughness: .86 }),
+  muro:       std({ color: '#f3dd8e', roughness: .93 }),
+  muroTopo:   std({ color: '#d9c478', roughness: .95 }),
+  portao:     std({ color: '#2f6e54', roughness: .55 }),
+  sofa:       std({ color: '#5d7f93', roughness: .95 }),
+  sofa2:      std({ color: '#b6764c', roughness: .95 }),
+  deckMad:    std({ color: '#9c6b3e', roughness: .82 }),
+  rede:       std({ color: '#e0604a', roughness: .95 }),
+  rede2:      std({ color: '#f0c04a', roughness: .95 }),
+  vime:       std({ color: '#7d6244', roughness: .9 }),
+  espreg:     std({ color: '#5d5b57', roughness: .8 }),
+  lona:       std({ color: '#e9e2cf', roughness: .94 }),
+  vaso:       std({ color: '#b9b2a4', roughness: .94 }),
+  carro:      std({ color: '#23262a', roughness: .42, metalness: .3 }),
+  carro2:     std({ color: '#b9bec4', roughness: .4, metalness: .35 }),
+  vidroCarro: new THREE.MeshPhysicalMaterial({ color: '#7f8b92', roughness: .12, metalness: .2, transparent: true, opacity: .7 })
+};
+
+/* ===================== GRUPOS ===================== */
+const TETOS = [];
+const G = {
+  terreno:   new THREE.Group(),
+  casa:      new THREE.Group(),
+  mob:       new THREE.Group(),
+  cobertura: new THREE.Group(),
+  lazer:     new THREE.Group()
+};
+Object.values(G).forEach(g => scene.add(g));
+const CX = (LOTE.x0 + LOTE.x1) / 2, CZ = (LOTE.z0 + LOTE.z1) / 2;
+Object.values(G).forEach(g => g.position.set(-CX, 0, -CZ));
+
+/* ===================== AJUDANTES ===================== */
+function caixa(g, w, h, d, mat, x, y, z, sombra = true) {
+  const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+  m.position.set(x, y + h / 2, z);
+  m.castShadow = sombra; m.receiveShadow = true;
+  g.add(m);
+  return m;
+}
+function piso(g, r, mat, y = 0, esp = .07) {
+  return caixa(g, r.x1 - r.x0, esp, r.z1 - r.z0, mat,
+    (r.x0 + r.x1) / 2, y - esp, (r.z0 + r.z1) / 2, false);
+}
+function parede(g, eixo, fixo, a0, a1, y, alt, mat, vaos = []) {
+  const segs = [];
+  let cur = a0;
+  const ord = vaos.slice().sort((p, q) => p.a - q.a);
+  for (const v of ord) {
+    const va = Math.max(a0, v.a), vb = Math.min(a1, v.b);
+    if (vb <= va) continue;
+    if (va > cur) segs.push([cur, va, y, alt]);
+    const vy0 = v.y0 ?? 0, vy1 = v.y1 ?? alt;
+    if (vy0 > 0) segs.push([va, vb, y, vy0]);
+    if (vy1 < alt) segs.push([va, vb, y + vy1, alt - vy1]);
+    cur = Math.max(cur, vb);
+  }
+  if (cur < a1) segs.push([cur, a1, y, alt]);
+  for (const [s0, s1, sy, sh] of segs) {
+    if (s1 - s0 < .005 || sh < .005) continue;
+    if (eixo === 'x') caixa(g, s1 - s0, sh, ESP, mat, (s0 + s1) / 2, sy, fixo);
+    else caixa(g, ESP, sh, s1 - s0, mat, fixo, sy, (s0 + s1) / 2);
+  }
+  for (const v of ord) {
+    if (!v.vidro) continue;
+    const vy0 = v.y0 ?? 0, vy1 = v.y1 ?? alt;
+    const w = v.b - v.a, h = vy1 - vy0;
+    if (w <= 0 || h <= 0) continue;
+    if (eixo === 'x') {
+      caixa(g, w, h, .04, M.vidro, (v.a + v.b) / 2, y + vy0, fixo, false);
+      caixa(g, w, .07, .09, M.esquadria, (v.a + v.b) / 2, y + vy0, fixo, false);
+      caixa(g, w, .07, .09, M.esquadria, (v.a + v.b) / 2, y + vy1 - .07, fixo, false);
+    } else {
+      caixa(g, .04, h, w, M.vidro, fixo, y + vy0, (v.a + v.b) / 2, false);
+      caixa(g, .09, .07, w, M.esquadria, fixo, y + vy0, (v.a + v.b) / 2, false);
+      caixa(g, .09, .07, w, M.esquadria, fixo, y + vy1 - .07, (v.a + v.b) / 2, false);
+    }
+  }
+}
+function coluna(g, x, z, alt, lado = .34, mat = M.paredeExt) {
+  caixa(g, lado, alt, lado, mat, x, 0, z);
+}
+function telhado(g, r, y, beiral = .5) {
+  const w = r.x1 - r.x0 + beiral * 2, d = r.z1 - r.z0 + beiral * 2;
+  const cx = (r.x0 + r.x1) / 2, cz = (r.z0 + r.z1) / 2;
+  const t = caixa(g, w, .14, d, M.telha, cx, y, cz);
+  caixa(g, w + .1, .1, .16, M.telhaBorda, cx, y - .02, r.z0 - beiral, false);
+  caixa(g, w + .1, .1, .16, M.telhaBorda, cx, y - .02, r.z1 + beiral, false);
+  caixa(g, .16, .1, d + .1, M.telhaBorda, r.x0 - beiral, y - .02, cz, false);
+  caixa(g, .16, .1, d + .1, M.telhaBorda, r.x1 + beiral, y - .02, cz, false);
+  return t;
+}
+function coqueiro(g, x, z, h = 7) {
+  const tr = new THREE.Mesh(new THREE.CylinderGeometry(.16, .3, h, 7), M.tronco);
+  tr.position.set(x, h / 2, z); tr.castShadow = true; g.add(tr);
+  for (let i = 0; i < 7; i++) {
+    const a = (i / 7) * Math.PI * 2;
+    const f = new THREE.Mesh(new THREE.SphereGeometry(1.5, 7, 5), i % 2 ? M.folha : M.folhaEsc);
+    f.scale.set(1, .18, .5);
+    f.position.set(x + Math.cos(a) * 1.25, h - .15 - Math.abs(Math.sin(i)) * .22, z + Math.sin(a) * 1.25);
+    f.rotation.y = -a; f.rotation.z = -.3;
+    f.castShadow = true; g.add(f);
+  }
+}
+function arbusto(g, x, z, r = .8) {
+  const c = new THREE.Mesh(new THREE.IcosahedronGeometry(r, 1), M.folha);
+  c.position.set(x, r * .82, z); c.castShadow = true; c.receiveShadow = true; g.add(c);
+}
+function cama(g, x, z, y = 0, girada = false) {
+  const w = girada ? 2.0 : 1.5, d = girada ? 1.5 : 2.0;
+  caixa(g, w, .34, d, M.preto, x, y, z);
+  caixa(g, w - .06, .24, d - .06, M.colcha, x, y + .34, z);
+  if (girada) {
+    caixa(g, .32, .1, .5, M.cama, x - w / 2 + .3, y + .58, z - .34, false);
+    caixa(g, .32, .1, .5, M.cama, x - w / 2 + .3, y + .58, z + .34, false);
+  } else {
+    caixa(g, .5, .1, .32, M.cama, x - .34, y + .58, z - d / 2 + .3, false);
+    caixa(g, .5, .1, .32, M.cama, x + .34, y + .58, z - d / 2 + .3, false);
+  }
+}
+function beliche(g, x, z) {
+  caixa(g, .95, .3, 1.95, M.preto, x, 0, z);
+  caixa(g, .9, .2, 1.9, M.colcha, x, .3, z, false);
+  caixa(g, .95, .18, 1.95, M.preto, x, 1.42, z);
+  caixa(g, .9, .2, 1.9, M.colcha, x, 1.6, z, false);
+  caixa(g, .08, 1.8, .08, M.preto, x - .42, 0, z - .92, false);
+  caixa(g, .08, 1.8, .08, M.preto, x + .42, 0, z - .92, false);
+  caixa(g, .08, 1.8, .08, M.preto, x - .42, 0, z + .92, false);
+  caixa(g, .08, 1.8, .08, M.preto, x + .42, 0, z + .92, false);
+}
+function banheiro(g, r, y = 0) {
+  const cx = (r.x0 + r.x1) / 2;
+  caixa(g, .95, .09, .52, M.granito, r.x0 + .72, y + .82, r.z0 + .5);
+  caixa(g, .38, .12, .3, M.branco, r.x0 + .62, y + .86, r.z0 + .5, false);
+  caixa(g, .4, .42, .58, M.branco, r.x1 - .55, y, r.z0 + .55);
+  caixa(g, .42, .22, .2, M.branco, r.x1 - .55, y + .42, r.z0 + .34, false);
+  caixa(g, .9, .04, .9, M.pisoMolh, cx, y + .01, r.z1 - .7, false);
+  caixa(g, .04, 1.9, .9, M.vidro, cx - .45, y + .02, r.z1 - .7, false);
+}
+function rede(g, x0, x1, z, y, mat) {
+  const meio = (x0 + x1) / 2, vao = x1 - x0;
+  const curva = new THREE.CatmullRomCurve3([
+    new THREE.Vector3(x0, y, z),
+    new THREE.Vector3(meio, y - .55, z),
+    new THREE.Vector3(x1, y, z)
+  ]);
+  const m = new THREE.Mesh(new THREE.TubeGeometry(curva, 18, .26, 7, false), mat);
+  m.scale.z = 1.9; m.position.z = z - z * 0 ; m.castShadow = true;
+  g.add(m);
+  caixa(g, .06, .06, .06, mat, x0, y, z, false);
+  caixa(g, .06, .06, .06, mat, x1, y, z, false);
+  return m;
+}
+function cadeiraVime(g, x, z, rot = 0) {
+  const grp = new THREE.Group();
+  caixa(grp, .78, .36, .78, M.vime, 0, .18, 0);
+  caixa(grp, .78, .62, .14, M.vime, 0, .54, -.32);
+  caixa(grp, .14, .3, .6, M.vime, -.32, .54, .04);
+  caixa(grp, .14, .3, .6, M.vime, .32, .54, .04);
+  caixa(grp, .64, .12, .62, M.lona, 0, .54, .04, false);
+  grp.position.set(x, 0, z); grp.rotation.y = rot;
+  grp.traverse(o => { o.castShadow = true; o.receiveShadow = true; });
+  g.add(grp);
+}
+function mesaMad(g, x, z, rot = 0) {
+  const grp = new THREE.Group();
+  caixa(grp, 1.7, .09, .82, M.madeira, 0, .74, 0);
+  [[-.75, -.33], [.75, -.33], [-.75, .33], [.75, .33]].forEach(([a, b]) =>
+    caixa(grp, .1, .74, .1, M.madeira, a, 0, b, false));
+  caixa(grp, 1.7, .08, .3, M.madeira, 0, .44, -.58);
+  caixa(grp, 1.7, .08, .3, M.madeira, 0, .44, .58);
+  [[-.75, -.58], [.75, -.58], [-.75, .58], [.75, .58]].forEach(([a, b]) =>
+    caixa(grp, .09, .44, .09, M.madeira, a, 0, b, false));
+  grp.position.set(x, 0, z); grp.rotation.y = rot;
+  grp.traverse(o => { o.castShadow = true; o.receiveShadow = true; });
+  g.add(grp);
+}
+function espreguicadeira(g, x, z, rot = 0) {
+  const grp = new THREE.Group();
+  caixa(grp, .72, .1, 1.85, M.espreg, 0, .34, 0);
+  caixa(grp, .66, .07, 1.75, M.lona, 0, .44, 0, false);
+  const enc = caixa(grp, .66, .07, .78, M.lona, 0, .5, -1.02, false);
+  enc.rotation.x = -.62;
+  [[-.3, -.78], [.3, -.78], [-.3, .78], [.3, .78]].forEach(([a, b]) =>
+    caixa(grp, .07, .34, .07, M.espreg, a, 0, b, false));
+  grp.position.set(x, 0, z); grp.rotation.y = rot;
+  grp.traverse(o => { o.castShadow = true; o.receiveShadow = true; });
+  g.add(grp);
+}
+function carro(g, x, z, mat, rot = 0) {
+  const grp = new THREE.Group();
+  caixa(grp, 1.82, .68, 4.3, mat, 0, .32, 0);
+  caixa(grp, 1.62, .56, 2.3, mat, 0, 1.0, -.15);
+  caixa(grp, 1.5, .44, 2.1, M.vidroCarro, 0, 1.06, -.15, false);
+  [[-.86, -1.42], [.86, -1.42], [-.86, 1.42], [.86, 1.42]].forEach(([a, b]) => {
+    const r = new THREE.Mesh(new THREE.CylinderGeometry(.33, .33, .22, 14), M.preto);
+    r.rotation.z = Math.PI / 2; r.position.set(a, .33, b); r.castShadow = true; grp.add(r);
+  });
+  grp.position.set(x, 0, z); grp.rotation.y = rot;
+  grp.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+  g.add(grp);
+}
+
+/* ===================== TERRENO ===================== */
+(function () {
+  const g = G.terreno;
+  piso(g, LOTE, M.grama, 0, .3);
+  piso(g, { x0: LOTE.x0 - 18, x1: LOTE.x1 + 18, z0: LOTE.z0 - 16, z1: LOTE.z1 + 16 }, M.terra, -.02, .25);
+
+  /* rua */
+  caixa(g, 44, .1, 7.4, std({ color: '#9b9d9f', roughness: 1 }), 10, -.1, -4.2, false);
+  caixa(g, 44, .14, 1.5, M.concreto, 10, -.02, -.5, false);
+
+  /* muro amarelo em volta */
+  const mr = { x0: .2, x1: 19.8, z0: .4, z1: 28.4 };
+  const h = 2.4;
+  parede(g, 'x', mr.z0, mr.x0, mr.x1, 0, h, M.muro, [{ a: 1.0, b: 4.6 }, { a: 12.4, b: 15.2 }]);
+  parede(g, 'x', mr.z1, mr.x0, mr.x1, 0, h, M.muro);
+  parede(g, 'z', mr.x0, mr.z0, mr.z1, 0, h, M.muro);
+  parede(g, 'z', mr.x1, mr.z0, mr.z1, 0, h, M.muro);
+  [[mr.x0, mr.x1, mr.z0], [mr.x0, mr.x1, mr.z1]].forEach(([a, b, zz]) =>
+    caixa(g, b - a + .24, .14, .3, M.muroTopo, (a + b) / 2, h, zz, false));
+  [[mr.z0, mr.z1, mr.x0], [mr.z0, mr.z1, mr.x1]].forEach(([a, b, xx]) =>
+    caixa(g, .3, .14, b - a + .24, M.muroTopo, xx, h, (a + b) / 2, false));
+
+  /* portoes */
+  caixa(g, 3.6, 2.1, .1, M.portao, 2.8, 0, mr.z0, true);
+  for (let i = 0; i < 7; i++) caixa(g, .09, 1.9, .13, M.muroTopo, 1.2 + i * .52, .1, mr.z0 - .02, false);
+  caixa(g, 2.8, 2.1, .1, M.portao, 13.8, 0, mr.z0, true);
+  for (let i = 0; i < 5; i++) caixa(g, .09, 1.9, .13, M.muroTopo, 12.7 + i * .58, .1, mr.z0 - .02, false);
+
+  /* calcadas e pisos externos */
+  piso(g, EXT.garagem, M.pisoExt, .02, .08);
+  piso(g, { x0: 11.4, x1: 18.8, z0: 1.6, z1: 8.6 }, M.pisoExt, .02, .08);
+  piso(g, { x0: 1.2, x1: 18.8, z0: 7.4, z1: 9.2 }, M.pisoExt, .02, .08);
+  /* grama sintetica do quintal */
+  piso(g, EXT.quintal, M.gramaSint, .03, .08);
+  piso(g, { x0: 1.2, x1: 18.8, z0: 18.4, z1: 19.2 }, M.pisoExt, .02, .08);
+})();
+
+/* ===================== CASA ===================== */
+(function () {
+  const g = G.casa;
+  piso(g, CASA, M.piso, .14, .14);
+  caixa(g, CASA.x1 - CASA.x0 + .3, .16, CASA.z1 - CASA.z0 + .3, M.concreto,
+    (CASA.x0 + CASA.x1) / 2, -.02, (CASA.z0 + CASA.z1) / 2, false);
+
+  const Y = .14;
+  /* fachada frontal (z = 9.2) */
+  parede(g, 'x', CASA.z0, CASA.x0, CASA.x1, Y, PD, M.paredeExt, [
+    { a: 2.0, b: 4.4, y0: .95, y1: 2.35, vidro: true },
+    { a: 7.4, b: 9.4, y0: .95, y1: 2.35, vidro: true }
+  ]);
+  /* fundo (z = 18.4) */
+  parede(g, 'x', CASA.z1, CASA.x0, CASA.x1, Y, PD, M.paredeExt, [
+    { a: 2.2, b: 4.2, y0: 1.2, y1: 2.3, vidro: true },
+    { a: 9.0, b: 11.0, y0: 1.2, y1: 2.3, vidro: true },
+    { a: 6.3, b: 7.5, y0: 1.7, y1: 2.4, vidro: true }
+  ]);
+  /* lateral esquerda (x = 1.2) */
+  parede(g, 'z', CASA.x0, CASA.z0, CASA.z1, Y, PD, M.paredeExt, [
+    { a: 10.6, b: 12.6, y0: 1.0, y1: 2.3, vidro: true }
+  ]);
+  /* lateral direita (x = 12.2) - vira pra varanda, com porta e janelas */
+  parede(g, 'z', CASA.x1, CASA.z0, CASA.z1, Y, PD, M.paredeAmar, [
+    { a: 10.0, b: 11.2, y0: 0, y1: 2.15 },
+    { a: 14.2, b: 16.2, y0: 1.0, y1: 2.3, vidro: true }
+  ]);
+
+  /* divisorias internas */
+  parede(g, 'z', 6.8, CASA.z0, 14.0, Y, PD, M.paredeInt, [{ a: 10.4, b: 11.9, y0: 0, y1: 2.1 }]);
+  parede(g, 'x', 14.0, CASA.x0, 8.2, Y, PD, M.paredeInt, [
+    { a: 2.4, b: 3.3, y0: 0, y1: 2.1 }, { a: 6.3, b: 7.2, y0: 0, y1: 2.1 }
+  ]);
+  parede(g, 'z', 5.8, 14.0, CASA.z1, Y, PD, M.paredeWc);
+  parede(g, 'z', 8.2, 13.2, CASA.z1, Y, PD, M.paredeInt, [{ a: 13.5, b: 14.4, y0: 0, y1: 2.1 }]);
+  parede(g, 'x', 13.2, 8.2, CASA.x1, Y, PD, M.paredeInt);
+
+  /* laje / teto */
+  const laje = caixa(G.cobertura, CASA.x1 - CASA.x0 + .36, .2, CASA.z1 - CASA.z0 + .36, M.laje,
+    (CASA.x0 + CASA.x1) / 2, Y + PD, (CASA.z0 + CASA.z1) / 2);
+  TETOS.push(laje);
+  telhado(G.cobertura, { x0: CASA.x0, x1: EXT.varanda.x1, z0: CASA.z0, z1: CASA.z1 }, Y + PD + .36, .55);
+})();
+
+/* ===================== MOBILIA DA CASA ===================== */
+(function () {
+  const m = G.mob, Y = .14;
+
+  /* sala */
+  caixa(m, 2.4, .72, .9, M.sofa, 3.3, Y, 10.3);
+  caixa(m, 2.4, .5, .3, M.sofa, 3.3, Y + .72, 9.95, false);
+  caixa(m, .3, .5, .9, M.sofa, 2.25, Y + .72, 10.3, false);
+  caixa(m, .3, .5, .9, M.sofa, 4.35, Y + .72, 10.3, false);
+  caixa(m, .9, .72, 1.7, M.sofa2, 5.9, Y, 11.6);
+  caixa(m, 1.2, .42, .68, M.madClara, 3.5, Y, 11.9);
+  caixa(m, 2.1, .5, .42, M.preto, 3.4, Y, 13.3);
+  caixa(m, 1.5, .88, .07, M.preto, 3.4, Y + .62, 13.42, false);
+  caixa(m, 2.6, .02, 1.9, std({ color: '#c8bda6', roughness: 1 }), 3.5, Y + .01, 11.6, false);
+
+  /* cozinha */
+  caixa(m, 5.0, .9, .64, M.movel, 9.4, Y, 9.65);
+  caixa(m, 5.1, .08, .7, M.granito, 9.4, Y + .9, 9.65, false);
+  caixa(m, .55, .05, .42, M.inox, 8.2, Y + .93, 9.65, false);
+  caixa(m, .62, .04, .52, M.preto, 10.6, Y + .94, 9.65, false);
+  caixa(m, .76, 1.85, .72, M.inox, 11.6, Y, 11.0);
+  caixa(m, 2.3, .09, .9, M.madClara, 8.5, Y + .76, 12.1);
+  [[7.5, 11.72], [9.5, 11.72], [7.5, 12.48], [9.5, 12.48]].forEach(([a, b]) =>
+    caixa(m, .09, .76, .09, M.madClara, a, Y, b, false));
+  caixa(m, 2.4, .58, .34, M.movel, 9.4, Y + 1.5, 9.5, false);
+
+  /* quarto 1 - casal */
+  cama(m, 3.3, 16.3, Y);
+  caixa(m, .48, .5, .42, M.madClara, 2.3, Y, 15.1, false);
+  caixa(m, .48, .5, .42, M.madClara, 4.3, Y, 15.1, false);
+  caixa(m, .62, 2.1, 1.3, M.movel, 1.9, Y, 17.6);
+  caixa(m, 1.0, .05, .5, M.preto, 3.3, Y + 1.25, 14.25, false);
+
+  /* quarto 2 - casal + beliche */
+  cama(m, 9.3, 15.0, Y);
+  beliche(m, 11.3, 16.9);
+  caixa(m, .48, .5, .42, M.madClara, 8.3, Y, 13.8, false);
+  caixa(m, .62, 2.1, 1.2, M.movel, 8.6, Y, 17.7);
+  caixa(m, 1.0, .05, .5, M.preto, 9.3, Y + 1.25, 13.45, false);
+
+  /* banheiro */
+  banheiro(m, T.wc, Y);
+})();
+
+/* ===================== VARANDA ===================== */
+(function () {
+  const g = G.lazer, v = EXT.varanda, Y = .1;
+  piso(g, v, M.pisoVar, Y + .04, .1);
+  /* parede amarela do fundo da varanda */
+  parede(g, 'z', v.x1, v.z0, v.z1, Y, 1.1, M.paredeAmar);
+  [v.z0 + .4, v.z0 + 3.4, v.z0 + 6.4, v.z1 - .4].forEach(z =>
+    coluna(g, v.x1 - .2, z, ALT_VAR, .3, M.paredeAmar));
+  /* cobertura da varanda */
+  const c = caixa(G.cobertura, v.x1 - v.x0 + 1.1, .18, v.z1 - v.z0 + .9, M.laje,
+    (v.x0 + v.x1) / 2 + .2, Y + ALT_VAR, (v.z0 + v.z1) / 2);
+  TETOS.push(c);
+
+  /* redes */
+  rede(g, v.x0 + .5, v.x1 - .5, v.z0 + 2.1, 1.9, M.rede);
+  rede(g, v.x0 + .5, v.x1 - .5, v.z0 + 5.4, 1.9, M.rede2);
+  /* poltronas de vime e mesinha */
+  cadeiraVime(g, v.x0 + 1.1, v.z1 - 1.5, -Math.PI / 2);
+  cadeiraVime(g, v.x0 + 1.1, v.z1 - 2.8, -Math.PI / 2);
+  caixa(g, .62, .44, .62, M.madClara, v.x0 + 2.3, Y + .04, v.z1 - 2.1);
+  /* vasos */
+  caixa(g, .42, .46, .42, M.vaso, v.x0 + .5, Y + .04, v.z0 + .6);
+  arbusto(g, v.x0 + .5, v.z0 + .6, .45);
+})();
+
+/* ===================== AREA GOURMET ===================== */
+(function () {
+  const g = G.lazer, r = EXT.gourmet, Y = .02;
+  piso(g, r, M.pisoExt, Y + .06, .1);
+  /* parede/fundo em tijolinho */
+  parede(g, 'x', r.z0, r.x0, r.x1, Y, 2.5, M.tijolo);
+  parede(g, 'z', r.x1, r.z0, r.z1, Y, 2.5, M.tijolo, [{ a: r.z0 + 2.0, b: r.z0 + 3.6, y0: 1.0, y1: 2.2 }]);
+  [r.x0 + .25, r.x0 + 3.0, r.x1 - .25].forEach(x => coluna(g, x, r.z1 - .25, 2.9, .3, M.tijolo));
+  const c = caixa(G.cobertura, r.x1 - r.x0 + .9, .17, r.z1 - r.z0 + .9, M.laje,
+    (r.x0 + r.x1) / 2, Y + 2.9, (r.z0 + r.z1) / 2);
+  TETOS.push(c);
+
+  /* bancada / bar em tijolinho com tampo */
+  caixa(g, 4.4, 1.08, .62, M.tijolo, r.x0 + 2.6, Y + .06, r.z0 + .9);
+  caixa(g, 4.7, .09, .82, M.granito, r.x0 + 2.6, Y + 1.14, r.z0 + .92, false);
+  /* banquetas altas */
+  for (let i = 0; i < 4; i++) {
+    const x = r.x0 + 1.1 + i * 1.1, z = r.z0 + 2.0;
+    caixa(g, .42, .74, .42, M.madeira, x, Y + .06, z);
+    caixa(g, .5, .09, .5, M.madeira, x, Y + .8, z, false);
+  }
+  /* churrasqueira */
+  caixa(g, 1.3, 1.1, .78, M.tijolo, r.x1 - 1.1, Y + .06, r.z0 + .95);
+  caixa(g, 1.34, .08, .82, M.granito, r.x1 - 1.1, Y + 1.16, r.z0 + .95, false);
+  caixa(g, 1.0, .9, .6, M.preto, r.x1 - 1.1, Y + 1.24, r.z0 + .95, false);
+  /* mesa */
+  mesaMad(g, r.x0 + 2.0, r.z1 - 1.3);
+  /* prateleira de bebidas */
+  caixa(g, 3.2, .07, .28, M.madClara, r.x0 + 2.2, Y + 1.85, r.z0 + .3, false);
+  caixa(g, 3.2, .07, .28, M.madClara, r.x0 + 2.2, Y + 2.25, r.z0 + .3, false);
+})();
+
+/* ===================== PISCINA E DECK ===================== */
+(function () {
+  const g = G.lazer, p = EXT.piscina, d = EXT.deck;
+  piso(g, d, M.pisoExt, .04, .1);
+  /* borda */
+  const bw = .42;
+  caixa(g, p.x1 - p.x0 + bw * 2, .16, bw, M.borda, (p.x0 + p.x1) / 2, .04, p.z0 - bw / 2, false);
+  caixa(g, p.x1 - p.x0 + bw * 2, .16, bw, M.borda, (p.x0 + p.x1) / 2, .04, p.z1 + bw / 2, false);
+  caixa(g, bw, .16, p.z1 - p.z0, M.borda, p.x0 - bw / 2, .04, (p.z0 + p.z1) / 2, false);
+  caixa(g, bw, .16, p.z1 - p.z0, M.borda, p.x1 + bw / 2, .04, (p.z0 + p.z1) / 2, false);
+  /* cuba */
+  caixa(g, p.x1 - p.x0, 1.5, p.z1 - p.z0, std({ color: '#9fd9ea', roughness: .3 }),
+    (p.x0 + p.x1) / 2, -1.5, (p.z0 + p.z1) / 2, false);
+  const ag = caixa(g, p.x1 - p.x0 - .1, 1.3, p.z1 - p.z0 - .1, M.agua,
+    (p.x0 + p.x1) / 2, -1.3, (p.z0 + p.z1) / 2, false);
+  ag.renderOrder = 2;
+  /* escada */
+  for (let i = 0; i < 3; i++)
+    caixa(g, 1.3, .2, .34, M.borda, p.x0 + 1.3, -.22 - i * .26, p.z0 + .3 + i * .3, false);
+
+  /* espreguicadeiras e mesas do deck */
+  espreguicadeira(g, p.x1 + 1.0, p.z0 + 1.6);
+  espreguicadeira(g, p.x1 + 1.0, p.z0 + 3.5);
+  mesaMad(g, p.x0 - 1.6, p.z0 + 4.4, Math.PI / 2);
+  mesaMad(g, p.x0 - 1.6, p.z1 - .8, Math.PI / 2);
+
+  /* ducha */
+  caixa(g, .12, 2.3, .12, M.inox, p.x1 + 1.9, .04, p.z1 - .8);
+  caixa(g, .5, .08, .5, M.inox, p.x1 + 1.9, 2.3, p.z1 - .8, false);
+
+  /* coqueiros e arbustos */
+  coqueiro(g, 18.2, 20.0, 7.4);
+  coqueiro(g, 18.3, 25.6, 6.6);
+  coqueiro(g, 12.0, 27.0, 7.0);
+  coqueiro(g, 17.6, 9.6, 6.8);
+  [[2.2, 20.4], [3.6, 20.4], [9.6, 20.6], [2.2, 26.6], [9.9, 26.9], [6.0, 27.3]].forEach(([x, z]) => arbusto(g, x, z, .72));
+  /* mesa e bancos no quintal (grama sintetica) */
+  mesaMad(g, 5.6, 22.6);
+  mesaMad(g, 5.6, 25.2);
+})();
+
+/* ===================== ESTACIONAMENTO ===================== */
+(function () {
+  const g = G.lazer, r = EXT.garagem;
+  for (let i = 0; i < 4; i++)
+    caixa(g, .1, .02, r.z1 - r.z0 - .6, std({ color: '#ffffff', roughness: 1 }),
+      r.x0 + 1.96 * (i + 1), .06, (r.z0 + r.z1) / 2, false);
+  carro(g, r.x0 + 1.0, r.z0 + 2.9, M.carro);
+  carro(g, r.x0 + 3.0, r.z0 + 2.9, M.carro2);
+  /* cobertura leve de uma parte */
+  [r.x0 + .3, r.x0 + 4.0].forEach(x => { coluna(g, x, r.z1 - .3, 2.8, .26, M.paredeExt); });
+  const c = caixa(G.cobertura, 5.0, .14, 6.0, M.laje, r.x0 + 2.2, 2.8, (r.z0 + r.z1) / 2);
+  TETOS.push(c);
+  arbusto(g, 11.8, 3.0, .8);
+  arbusto(g, 11.8, 6.2, .7);
+})();
+
+/* ===================== RÓTULOS ===================== */
+const rotulos = [];
+function rotulo(r, grupo, y) {
+  const el = document.createElement('div');
+  el.className = 'rot';
+  el.innerHTML = '<b>' + r.n + '</b>';
+  const o = new CSS2DObject(el);
+  o.position.set((r.x0 + r.x1) / 2 - CX, y, (r.z0 + r.z1) / 2 - CZ);
+  scene.add(o);
+  rotulos.push({ o, el, piso: grupo });
+  return o;
+}
+Object.values(T).forEach(r => rotulo(r, 'casa', 1.9));
+Object.values(EXT).forEach(r => rotulo(r, 'ext', 1.2));
+
+/* ===================== CÂMERA E ESTADO ===================== */
+const ALVO = new THREE.Vector3(0, 1.0, 0);
+const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-16, 36, -50) : new THREE.Vector3(-20, 24, -32);
+
+function irPara(pos, alvo, ms = 900) {
+  const p0 = camera.position.clone(), a0 = controls.target.clone();
+  const t0 = performance.now();
+  (function anima() {
+    const k = Math.min(1, (performance.now() - t0) / ms);
+    const e = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+    camera.position.lerpVectors(p0, pos, e);
+    controls.target.lerpVectors(a0, alvo, e);
+    controls.update();
+    if (k < 1) requestAnimationFrame(anima);
+  })();
+}
+function reset() { irPara(VISTA_INICIAL.clone(), ALVO.clone()); }
+camera.position.copy(VISTA_INICIAL);
+controls.target.copy(ALVO);
+controls.update();
+
+let aberto = false, foco = 'tudo', emPlanta = false;
+
+function aplicar() {
+  G.casa.visible = G.mob.visible = foco !== 'lazer';
+  G.lazer.visible = foco !== 'casa';
+  G.cobertura.visible = !aberto && foco !== 'lazer';
+  TETOS.forEach(t => { t.visible = !aberto; });
+  rotulos.forEach(r => {
+    let ok = false;
+    if (r.piso === 'casa') ok = aberto && foco !== 'lazer';
+    if (r.piso === 'ext') ok = foco !== 'casa';
+    r.el.classList.toggle('off', !ok);
+  });
+}
+aplicar();
+
+/* ===================== CONTROLES ===================== */
+function seg(id, attr, fn) {
+  const box = document.getElementById(id);
+  box.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    [...box.children].forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    fn(b.getAttribute(attr));
+  });
+}
+seg('segCorte', 'data-n', v => { aberto = v === 'aberto'; aplicar(); });
+seg('segFoco', 'data-f', v => {
+  foco = v;
+  if (v === 'casa') {
+    aberto = true;
+    document.querySelectorAll('#segCorte button').forEach(b => b.classList.toggle('on', b.dataset.n === 'aberto'));
+    aplicar();
+    irPara(new THREE.Vector3(-14, 21, -8), new THREE.Vector3(-3.3, 1.2, -.7));
+  } else if (v === 'lazer') {
+    aplicar();
+    irPara(new THREE.Vector3(1, 18, -6), new THREE.Vector3(5.0, .4, 9.0));
+  } else { aplicar(); reset(); }
+});
+document.getElementById('btnReset').addEventListener('click', () => {
+  aberto = false; foco = 'tudo'; emPlanta = false;
+  document.querySelectorAll('#segCorte button').forEach(b => b.classList.toggle('on', b.dataset.n === 'fechado'));
+  document.querySelectorAll('#segFoco button').forEach(b => b.classList.toggle('on', b.dataset.f === 'tudo'));
+  aplicar(); reset();
+});
+document.getElementById('btnVista').addEventListener('click', () => {
+  emPlanta = !emPlanta;
+  if (emPlanta) {
+    aberto = true;
+    document.querySelectorAll('#segCorte button').forEach(b => b.classList.toggle('on', b.dataset.n === 'aberto'));
+    aplicar();
+    irPara(new THREE.Vector3(0, 50, .01), new THREE.Vector3(0, 0, 0));
+  } else {
+    aberto = false;
+    document.querySelectorAll('#segCorte button').forEach(b => b.classList.toggle('on', b.dataset.n === 'fechado'));
+    aplicar(); reset();
+  }
+});
+document.getElementById('fechaTitulo').addEventListener('click', () =>
+  document.getElementById('titulo').classList.add('fechado'));
+
+/* lista de ambientes */
+const ambBox = document.getElementById('amb');
+const GRUPOS = [
+  ['Dentro da casa', [T.sala, T.cozinha, T.quarto1, T.quarto2, T.wc], 'casa'],
+  ['Área externa', [EXT.varanda, EXT.piscina, EXT.deck, EXT.gourmet, EXT.garagem, EXT.quintal], 'ext']
+];
+let botaoAtivo = null;
+GRUPOS.forEach(([titulo, itens, tipo]) => {
+  const h = document.createElement('h4'); h.textContent = titulo; ambBox.appendChild(h);
+  itens.forEach(r => {
+    const b = document.createElement('button');
+    b.innerHTML = '<span>' + r.n + '</span>';
+    b.addEventListener('click', () => {
+      if (botaoAtivo) botaoAtivo.classList.remove('on');
+      b.classList.add('on'); botaoAtivo = b;
+      aberto = true;
+      document.querySelectorAll('#segCorte button').forEach(x => x.classList.toggle('on', x.dataset.n === 'aberto'));
+      foco = 'tudo';
+      document.querySelectorAll('#segFoco button').forEach(x => x.classList.toggle('on', x.dataset.f === 'tudo'));
+      aplicar();
+      const cx = (r.x0 + r.x1) / 2 - CX, cz = (r.z0 + r.z1) / 2 - CZ;
+      const maior = Math.max(r.x1 - r.x0, r.z1 - r.z0);
+      const raio = Math.max(13, maior * (MOBILE ? 3.0 : 2.5));
+      irPara(new THREE.Vector3(cx - raio * .6, .8 + raio * .85, cz + raio * .6),
+             new THREE.Vector3(cx, .8, cz));
+    });
+    ambBox.appendChild(b);
+  });
+});
+
+/* ===================== LOOP ===================== */
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+  labelRenderer.setSize(innerWidth, innerHeight);
+}, { passive: true });
+
+let primeiroQuadro = true;
+(function loop() {
+  requestAnimationFrame(loop);
+  controls.update();
+  renderer.render(scene, camera);
+  labelRenderer.render(scene, camera);
+  if (primeiroQuadro) {
+    primeiroQuadro = false;
+    setTimeout(() => document.getElementById('carregando').classList.add('off'), 280);
+  }
+})();
+
+setTimeout(() => document.getElementById('dica').classList.add('off'), 5400);
+setTimeout(() => document.getElementById('titulo').classList.add('fechado'), MOBILE ? 6800 : 9500);
+</script>
+</body>
+</html>
