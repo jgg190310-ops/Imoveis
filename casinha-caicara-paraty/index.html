@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Casinha Caiçara · Casa de temporada no Centro Histórico de Paraty-RJ</title>
+<meta name="description" content="Casinha Caiçara em Paraty-RJ: studio para até 4 pessoas a 100 metros do Centro Histórico, com varanda privativa, cozinha equipada, Wi-Fi, quintal e estacionamento na rua. Aceita pets.">
+<meta name="theme-color" content="#16301c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Casinha Caiçara · Paraty, Rio de Janeiro">
+<meta property="og:description" content="Studio para até 4 pessoas a 100 m do Centro Histórico de Paraty, com varanda privativa e cozinha equipada.">
+<meta property="og:image" content="fotos/varanda-entardecer.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Jost:wght@300..600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --laranja:#ef5f24; --laranja-2:#f98a2b; --laranja-3:#c9410f;
+  --amarelo:#f8b93f; --amarelo-2:#fcd97a; --amarelo-3:#ffeec2;
+  --verde:#16301c; --verde-2:#1f4a2b; --verde-3:#3f9158;
+  --creme:#fdf6e9; --creme-2:#f6ead6;
+  --tinta:#2a2118; --texto:#584b3c; --suave:#8d7f6c;
+  --sans:'Jost',system-ui,-apple-system,Segoe UI,sans-serif;
+  --display:'Archivo',system-ui,sans-serif;
+  --borda:rgba(42,33,24,.12);
+  --sombra:0 24px 60px -32px rgba(42,33,24,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{background:var(--creme);color:var(--texto);font:400 16px/1.7 var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+::selection{background:var(--laranja);color:#fff}
+
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.olho{display:inline-block;font:700 10.5px var(--display);letter-spacing:.3em;
+  text-transform:uppercase;color:var(--laranja)}
+h2{font:800 clamp(30px,5vw,52px)/1.04 var(--display);color:var(--tinta);letter-spacing:-.025em;
+  text-transform:uppercase}
+h3{font:700 18px var(--display);color:var(--tinta);letter-spacing:-.01em}
+.lead{font-size:clamp(15.5px,1.8vw,18px);line-height:1.78;color:var(--texto);max-width:62ch}
+
+/* ---------- barra de vidro ---------- */
+#bar{position:fixed;z-index:60;top:0;left:0;right:0;padding:15px 0;
+  transition:background .4s,backdrop-filter .4s,padding .4s,border-color .4s,box-shadow .4s;
+  border-bottom:1px solid transparent}
+#bar.on{background:rgba(253,246,233,.72);backdrop-filter:blur(18px) saturate(1.5);
+  -webkit-backdrop-filter:blur(18px) saturate(1.5);padding:9px 0;
+  border-bottom-color:var(--borda);box-shadow:0 10px 30px -24px rgba(42,33,24,.6)}
+#bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:nowrap}
+.marca{display:flex;align-items:center;gap:10px;flex:none;min-width:0}
+.marca svg{width:28px;height:28px;color:var(--laranja);flex:none}
+.marca b{display:block;font:800 17px/1 var(--display);color:#fff;letter-spacing:-.02em;
+  text-transform:uppercase;white-space:nowrap;transition:color .4s}
+.marca i{display:block;font:600 8px var(--display);letter-spacing:.26em;text-transform:uppercase;
+  color:var(--amarelo-2);font-style:normal;margin-top:3px;transition:color .4s}
+#bar.on .marca b{color:var(--tinta)}
+#bar.on .marca i{color:var(--laranja)}
+#nav{display:flex;align-items:center;gap:clamp(14px,1.9vw,28px);min-width:0;flex-shrink:1}
+#nav a{font:500 13px var(--sans);letter-spacing:.04em;color:rgba(255,255,255,.9);white-space:nowrap;
+  position:relative;padding:4px 0;transition:color .3s}
+#bar.on #nav a{color:var(--texto)}
+#nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;
+  background:var(--laranja);transition:right .3s}
+#nav a:hover::after{right:0}
+.btn{flex:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 22px;border-radius:999px;font:700 12px var(--display);
+  letter-spacing:.12em;text-transform:uppercase;transition:transform .25s,background .25s,box-shadow .25s}
+.btn svg{width:15px;height:15px;flex:none}
+.btn-verde{background:var(--verde);color:var(--amarelo-2)}
+.btn-verde:hover{background:var(--verde-2);transform:translateY(-2px);box-shadow:0 14px 28px -16px rgba(22,48,28,.8)}
+.btn-laranja{background:var(--laranja);color:#fff}
+.btn-laranja:hover{background:var(--laranja-3);transform:translateY(-2px);box-shadow:0 14px 28px -16px rgba(201,65,15,.8)}
+.btn-linha{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+.btn-linha:hover{background:rgba(255,255,255,.14);border-color:#fff;transform:translateY(-2px)}
+#burger{display:none;width:42px;height:42px;place-items:center;color:#fff;transition:color .4s}
+#bar.on #burger{color:var(--tinta)}
+#burger svg{width:24px;height:24px}
+
+/* menu mobile */
+#menu{position:fixed;inset:0;z-index:70;background:var(--verde);display:none;
+  flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:32px}
+#menu.aberto{display:flex}
+#menu a{font:800 clamp(26px,7vw,40px)/1.5 var(--display);color:var(--creme);
+  text-transform:uppercase;letter-spacing:-.02em}
+#menu a:active{color:var(--amarelo)}
+#menu .fecha{position:absolute;top:20px;right:20px;width:46px;height:46px;border-radius:50%;
+  display:grid;place-items:center;background:rgba(253,246,233,.14);color:var(--creme);font-size:26px;line-height:1}
+#menu .zap{margin-top:22px}
+
+/* ---------- capa tropical com parallax ---------- */
+#hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;
+  overflow:hidden;background:var(--laranja-3)}
+#herofoto{position:absolute;inset:-12% 0 -12%;will-change:transform}
+#herofoto img{width:100%;height:100%;object-fit:cover;object-position:50% 32%;filter:saturate(1.14) contrast(1.05)}
+#hero .veu{position:absolute;inset:0;
+  background:linear-gradient(168deg,rgba(239,95,36,.52) 0%,rgba(249,138,43,.22) 34%,rgba(201,65,15,.44) 66%,rgba(22,48,28,.88) 100%)}
+#hero .bola{position:absolute;top:-16vh;right:-14vw;width:62vw;height:62vw;max-width:720px;max-height:720px;
+  border-radius:50%;background:radial-gradient(circle,rgba(255,214,140,.26) 0%,rgba(228,110,30,.17) 44%,rgba(228,110,30,.05) 62%,rgba(228,110,30,0) 74%);
+  pointer-events:none}
+#hero .wrap{position:relative;z-index:2;padding:132px 0 clamp(40px,7vh,76px)}
+.selo{display:inline-flex;align-items:center;gap:9px;padding:8px 17px;margin-bottom:24px;
+  border:1px solid rgba(255,255,255,.4);border-radius:999px;background:rgba(22,48,28,.3);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.selo i{width:7px;height:7px;border-radius:50%;background:var(--amarelo);font-style:normal;
+  box-shadow:0 0 0 4px rgba(248,185,63,.26)}
+.selo span{font:700 10.5px var(--display);letter-spacing:.24em;text-transform:uppercase;color:#fff}
+#hero h1{font:900 clamp(44px,11.5vw,122px)/.86 var(--display);color:#fff;
+  letter-spacing:-.045em;text-transform:uppercase;text-shadow:0 10px 40px rgba(90,25,0,.35)}
+#hero h1 em{display:block;font-style:normal;color:var(--amarelo-2)}
+#hero .local{margin-top:20px;font:600 clamp(11px,1.7vw,13.5px) var(--display);
+  letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.92)}
+#hero .sub{margin-top:14px;font-size:clamp(15px,1.9vw,18px);color:rgba(255,255,255,.9);max-width:46ch}
+#hero .acoes{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.rolar{position:absolute;z-index:3;left:50%;bottom:14px;transform:translateX(-50%);
+  display:grid;place-items:center;gap:7px;color:rgba(255,255,255,.8)}
+.rolar span{font:600 9px var(--display);letter-spacing:.26em;text-transform:uppercase}
+.rolar i{display:block;width:2px;height:34px;border-radius:2px;
+  background:linear-gradient(var(--amarelo),transparent);animation:desce 2.1s infinite}
+@keyframes desce{0%{opacity:0;transform:scaleY(.2);transform-origin:top}
+  50%{opacity:1;transform:scaleY(1);transform-origin:top}
+  100%{opacity:0;transform:scaleY(1);transform-origin:bottom}}
+
+/* ---------- faixa verde de destaques ---------- */
+#faixa{background:var(--verde);color:var(--amarelo-2);position:relative;z-index:3}
+#faixa .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:10px 26px;padding:17px 0}
+#faixa b{font:700 11.5px var(--display);letter-spacing:.2em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:9px}
+#faixa b svg{width:16px;height:16px;color:var(--verde-3);flex:none}
+
+/* ---------- números ---------- */
+#numeros{background:var(--creme-2);border-bottom:1px solid var(--borda)}
+#numeros .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.num{padding:clamp(26px,4vw,40px) 10px;text-align:center;border-right:1px solid var(--borda);min-width:0}
+.num:last-child{border-right:0}
+.num b{display:block;font:900 clamp(28px,4.4vw,48px)/1 var(--display);color:var(--laranja);letter-spacing:-.03em}
+.num span{display:block;margin-top:8px;font:600 9.5px var(--display);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--suave)}
+
+/* ---------- seções ---------- */
+section{padding:clamp(64px,10vh,118px) 0}
+.cab{max-width:66ch;margin-bottom:clamp(32px,5vh,54px)}
+.cab .olho{margin-bottom:14px}
+.cab h2+p{margin-top:18px}
+
+/* a casa */
+#acasa .duo{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(28px,5vw,64px);align-items:center}
+#acasa .fig{position:relative;border-radius:22px;overflow:hidden;box-shadow:var(--sombra)}
+#acasa .fig img{width:100%;aspect-ratio:4/5;object-fit:cover}
+#acasa .fig .tag{position:absolute;left:16px;bottom:16px;padding:9px 16px;border-radius:999px;
+  background:var(--amarelo);color:var(--verde);font:700 10px var(--display);
+  letter-spacing:.2em;text-transform:uppercase}
+
+/* cards coloridos */
+.cards{margin-top:clamp(34px,5vh,56px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{position:relative;border-radius:20px;overflow:hidden;min-height:290px;display:flex;
+  align-items:flex-end;padding:22px;color:#fff;box-shadow:var(--sombra)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.card .cor{position:absolute;inset:0;z-index:1}
+.card.c1 .cor{background:linear-gradient(to top,rgba(168,86,6,.95) 0%,rgba(224,123,18,.56) 36%,rgba(248,185,63,.12) 68%,rgba(248,185,63,0) 100%)}
+.card.c2 .cor{background:linear-gradient(to top,rgba(13,40,21,.95) 0%,rgba(31,74,43,.58) 36%,rgba(79,174,107,.12) 68%,rgba(79,174,107,0) 100%)}
+.card.c3 .cor{background:linear-gradient(to top,rgba(150,42,6,.95) 0%,rgba(201,65,15,.56) 36%,rgba(249,138,43,.12) 68%,rgba(249,138,43,0) 100%)}
+.card .txt{position:relative;z-index:2}
+.card h3{color:#fff;font-size:21px;text-transform:uppercase;letter-spacing:-.01em;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.card p{margin-top:6px;font-size:14.2px;line-height:1.6;color:rgba(255,255,255,.95);text-shadow:0 1px 10px rgba(0,0,0,.45)}
+
+/* galeria */
+#galeria{background:var(--creme-2)}
+.grade{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ft{position:relative;border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--creme);
+  aspect-ratio:1;transition:transform .35s,box-shadow .35s}
+.ft img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.ft:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
+.ft:hover img{transform:scale(1.07)}
+.ft.g{grid-column:span 2;grid-row:span 2;aspect-ratio:1}
+.maisft{margin-top:22px;text-align:center}
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:90;background:rgba(14,16,11,.985);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;
+  align-items:center;justify-content:center;padding:clamp(12px,3vw,40px)}
+#lb.aberto{display:flex}
+#lb img{max-width:100%;max-height:86vh;width:auto;border-radius:10px;
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.9)}
+#lb .fechalb{position:absolute;top:max(14px,env(safe-area-inset-top));right:14px;width:48px;height:48px;
+  border-radius:50%;background:rgba(253,246,233,.16);color:#fff;font-size:26px;line-height:1;
+  display:grid;place-items:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#lb .seta{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;
+  background:rgba(253,246,233,.16);color:#fff;display:grid;place-items:center;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#lb .seta svg{width:22px;height:22px}
+#lb .ant{left:max(10px,env(safe-area-inset-left))}
+#lb .prox{right:max(10px,env(safe-area-inset-right))}
+#lb .cont{position:absolute;bottom:max(16px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+  font:600 11px var(--display);letter-spacing:.2em;color:rgba(255,255,255,.8);
+  background:rgba(22,24,18,.6);padding:8px 16px;border-radius:999px}
+
+/* estrutura */
+.listas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(26px,4vw,52px)}
+.bloco{background:#fff;border:1px solid var(--borda);border-radius:20px;padding:clamp(22px,3vw,32px);
+  box-shadow:0 18px 44px -38px rgba(42,33,24,.5)}
+.bloco h3{margin-bottom:16px;padding-bottom:14px;border-bottom:2px solid var(--amarelo);
+  text-transform:uppercase;letter-spacing:.04em;font-size:15px}
+.bloco ul{list-style:none;display:grid;gap:11px}
+.bloco li{display:flex;align-items:flex-start;gap:11px;font-size:15.2px;line-height:1.55}
+.bloco li svg{width:17px;height:17px;flex:none;margin-top:4px;color:var(--verde-3)}
+.bloco li b{color:var(--tinta);font-weight:600}
+
+/* planta 3d */
+#planta3d{background:var(--verde);color:var(--creme)}
+#planta3d h2{color:#fff}
+#planta3d .lead{color:rgba(253,246,233,.82)}
+#planta3d .olho{color:var(--amarelo)}
+#planta3d .caixa{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,60px);align-items:center}
+.plantafig{position:relative;border-radius:20px;padding:clamp(20px,3vw,34px);
+  background:rgba(253,246,233,.07);border:1px solid rgba(253,246,233,.16);display:grid;place-items:center}
+.plantafig svg{width:100%;max-width:400px;height:auto}
+.plantafig .tag{position:absolute;right:14px;top:14px;padding:7px 14px;border-radius:999px;
+  background:var(--amarelo);color:var(--verde);font:700 9.5px var(--display);
+  letter-spacing:.2em;text-transform:uppercase}
+#planta3d .aviso{margin-top:18px;font-size:13.4px;color:rgba(253,246,233,.6);max-width:52ch}
+
+/* localização */
+.mapa{border-radius:20px;overflow:hidden;border:1px solid var(--borda);box-shadow:var(--sombra);
+  background:var(--creme-2)}
+.mapa iframe{display:block;width:100%;height:clamp(300px,48vh,460px);border:0}
+.perto{margin-top:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.perto div{background:#fff;border:1px solid var(--borda);border-radius:16px;padding:18px 20px}
+.perto b{display:block;font:800 22px var(--display);color:var(--laranja);letter-spacing:-.02em}
+.perto span{display:block;margin-top:4px;font-size:14px;color:var(--suave)}
+
+/* valores */
+#valores{background:var(--amarelo-3)}
+.preco{background:var(--amarelo);border-radius:24px;padding:clamp(28px,4.5vw,46px);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;
+  box-shadow:0 30px 70px -40px rgba(201,65,15,.7)}
+.preco .v small{display:block;font:700 10px var(--display);letter-spacing:.24em;
+  text-transform:uppercase;color:var(--laranja-3)}
+.preco .v b{display:block;margin-top:8px;font:900 clamp(38px,6.5vw,64px)/1 var(--display);
+  color:var(--verde);letter-spacing:-.035em}
+.preco .v span{display:block;margin-top:8px;font-size:14.5px;color:#6d4a18}
+.preco .acao{display:grid;gap:10px}
+.preco .acao .btn{padding:16px 30px;font-size:13px}
+.obs{margin-top:22px;font-size:14px;color:#7a5a24;max-width:70ch}
+
+/* rodapé */
+footer{background:var(--verde);color:rgba(253,246,233,.68);padding:clamp(44px,7vh,76px) 0 calc(32px + 76px)}
+footer .topo{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;
+  padding-bottom:28px;border-bottom:1px solid rgba(253,246,233,.14)}
+footer .marca b{color:var(--creme);font-size:21px}
+footer .marca i{color:var(--amarelo)}
+footer .marca svg{color:var(--amarelo)}
+footer .cont{display:grid;gap:8px;font-size:14.6px}
+footer .cont a{display:inline-flex;align-items:center;gap:9px;transition:color .25s}
+footer .cont a:hover{color:var(--amarelo-2)}
+footer .cont svg{width:16px;height:16px;flex:none;color:var(--verde-3)}
+footer .fim{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+  font-size:12.6px;color:rgba(253,246,233,.5)}
+footer .fim a{color:var(--amarelo-2)}
+
+/* botão fixo whatsapp */
+#zap{position:fixed;z-index:50;right:max(16px,env(safe-area-inset-right));
+  bottom:max(16px,env(safe-area-inset-bottom));display:inline-flex;align-items:center;gap:10px;
+  padding:14px 22px;border-radius:999px;background:#25d366;color:#07301a;
+  font:700 12.5px var(--display);letter-spacing:.1em;text-transform:uppercase;
+  box-shadow:0 18px 40px -18px rgba(7,48,26,.75);transition:transform .25s,box-shadow .25s}
+#zap svg{width:19px;height:19px;flex:none}
+#zap:hover{transform:translateY(-3px);box-shadow:0 24px 50px -20px rgba(7,48,26,.85)}
+
+/* revelar */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,.9,.3,1),transform .8s cubic-bezier(.22,.9,.3,1)}
+.rv.on{opacity:1;transform:none}
+
+@media (max-width:1150px){
+  #nav{display:none}
+  #bar .btn{display:none}
+  #burger{display:grid}
+  #acasa .duo,#planta3d .caixa{grid-template-columns:minmax(0,1fr)}
+  #acasa .fig img{aspect-ratio:16/11}
+  .cards{grid-template-columns:1fr}
+  .card{min-height:230px}
+  .listas{grid-template-columns:1fr}
+  .grade{grid-template-columns:repeat(2,1fr)}
+  .ft.g{grid-column:span 2;grid-row:span 1;aspect-ratio:16/11}
+  #numeros .wrap{grid-template-columns:repeat(2,1fr)}
+  .num:nth-child(2){border-right:0}
+  .num:nth-child(1),.num:nth-child(2){border-bottom:1px solid var(--borda)}
+  .perto{grid-template-columns:1fr}
+  #faixa .wrap{justify-content:flex-start}
+  #zap{padding:13px 18px;font-size:11.5px}
+  #hero .wrap{padding-top:112px}
+}
+@media (max-width:520px){
+  #faixa b{font-size:10px;letter-spacing:.14em}
+  #hero .local{letter-spacing:.14em}
+  .preco{flex-direction:column;align-items:stretch}
+  .preco .acao .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+<style>
+/* botão fixo em vermelho Airbnb (sem WhatsApp da anfitriã por enquanto) */
+#zap{background:#ff385c;color:#fff}
+#zap:hover{box-shadow:0 24px 50px -20px rgba(255,56,92,.75)}
+.nota{display:inline-flex;align-items:center;gap:8px}
+.nota svg{width:26px;height:26px;color:var(--laranja-3);flex:none}
+</style>
+</head>
+<body id="topo">
+
+<!-- ================= BARRA ================= -->
+<header id="bar">
+  <div class="wrap">
+    <a class="marca" href="#topo" aria-label="Casinha Caiçara">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/>
+      </svg>
+      <span><b>Casinha Caiçara</b><i>Paraty · RJ</i></span>
+    </a>
+    <nav id="nav">
+      <a href="#acasa">A casinha</a>
+      <a href="#galeria">Fotos</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#planta3d">Planta 3D</a>
+      <a href="#local">Local</a>
+      <a href="#valores">Reservar</a>
+    </nav>
+    <a class="btn btn-laranja" href="https://www.airbnb.com.br/rooms/1332583906757288634" target="_blank" rel="noopener">Reservar</a>
+    <button id="burger" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <path d="M3 7h18M3 12h18M3 17h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="fecha" id="fechaMenu" aria-label="Fechar menu">&times;</button>
+  <a href="#acasa">A casinha</a>
+  <a href="#galeria">Fotos</a>
+  <a href="#estrutura">Estrutura</a>
+  <a href="#planta3d">Planta 3D</a>
+  <a href="#local">Local</a>
+  <a href="#valores">Reservar</a>
+  <a class="btn btn-laranja zap" href="https://www.airbnb.com.br/rooms/1332583906757288634" target="_blank" rel="noopener">Consultar datas</a>
+</div>
+
+<!-- ================= CAPA ================= -->
+<section id="hero" aria-label="Casinha Caiçara">
+  <div id="herofoto"><img src="fotos/varanda-entardecer.jpg" alt="Varanda privativa da Casinha Caiçara no fim de tarde, com mesa de madeira, bancos e o céu azul de Paraty ao fundo" fetchpriority="high"></div>
+  <div class="veu"></div>
+  <div class="bola"></div>
+  <div class="wrap">
+    <div class="selo"><i></i><span>A 100 m do Centro Histórico</span></div>
+    <h1>Casinha<em>Caiçara</em></h1>
+    <p class="local">Paraty · Rio de Janeiro</p>
+    <p class="sub">Uma casinha só sua, com varanda privativa, cozinha equipada e quintal. Para até 4 pessoas, a poucos passos do centro histórico.</p>
+    <div class="acoes">
+      <a class="btn btn-verde" href="https://www.airbnb.com.br/rooms/1332583906757288634" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.8v3.4M16 2.8v3.4"/></svg>
+        Consultar datas
+      </a>
+      <a class="btn btn-linha" href="#galeria">Ver as fotos</a>
+    </div>
+  </div>
+  <div class="rolar"><span>Role</span><i></i></div>
+</section>
+
+<!-- ================= FAIXA ================= -->
+<div id="faixa">
+  <div class="wrap">
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M3 18h18"/><path d="M7 10V7h10v3"/></svg>4 pessoas</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21v-9h14v9"/><path d="M5 12 12 6l7 6"/></svg>Varanda privativa</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 4h16v6H4z"/><path d="M6 10v10M18 10v10"/><circle cx="9" cy="7" r="1" fill="currentColor"/></svg>Cozinha equipada</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 15.8a5.5 5.5 0 0 1 7 0"/><path d="M2 9a15 15 0 0 1 20 0"/><circle cx="12" cy="19" r="1" fill="currentColor"/></svg>Wi-Fi</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/></svg>Planta 3D</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>Centro Histórico</b>
+  </div>
+</div>
+
+<!-- ================= NÚMEROS ================= -->
+<div id="numeros">
+  <div class="wrap">
+    <div class="num"><b>4</b><span>Hóspedes</span></div>
+    <div class="num"><b>3</b><span>Camas</span></div>
+    <div class="num"><b>1</b><span>Banheiro</span></div>
+    <div class="num"><b>100 m</b><span>Do centro histórico</span></div>
+  </div>
+</div>
+
+<!-- ================= A CASINHA ================= -->
+<section id="acasa">
+  <div class="wrap">
+    <div class="duo">
+      <div class="rv">
+        <span class="olho">A casinha</span>
+        <h2>O jeito caiçara<br>de ficar em Paraty</h2>
+        <p class="lead" style="margin-top:18px">A Casinha Caiçara é uma casa independente, com entrada própria pelo portão de madeira e muro de pedra. Por dentro é um studio: a área de dormir com cama de casal e cama de solteiro fica separada por cortina, e a sala tem sofá-cama, geladeira e TV. Cabem até quatro pessoas com conforto.</p>
+        <p class="lead" style="margin-top:14px">A cozinha é equipada para quem quer cozinhar de verdade: fogão com forno, geladeira, liquidificador e cafeteira. E a melhor parte fica do lado de fora: a varanda coberta, com mesa de madeira, bancos estampados e vista para os telhados e a serra, no fim de tarde.</p>
+        <p style="margin-top:26px"><a class="btn btn-laranja" href="#estrutura">Ver a estrutura completa</a></p>
+      </div>
+      <div class="fig rv">
+        <img src="fotos/varanda-vista.jpg" alt="Varanda da Casinha Caiçara com mesa de madeira, bancos com almofadas floridas e janela de madeira vermelha" loading="lazy">
+        <span class="tag">Varanda privativa</span>
+      </div>
+    </div>
+
+    <div class="cards">
+      <article class="card c1 rv">
+        <img src="fotos/quarto.jpg" alt="Área de dormir com cama de casal e cama de solteiro, parede amarela e violão decorativo" loading="lazy">
+        <span class="cor"></span>
+        <div class="txt">
+          <h3>Área de dormir</h3>
+          <p>Cama de casal e cama de solteiro, separadas da sala por cortina, com roupa de cama inclusa.</p>
+        </div>
+      </article>
+      <article class="card c2 rv">
+        <img src="fotos/cozinha.jpg" alt="Cozinha com fogão amarelo, bancada, cafeteira e armários de madeira" loading="lazy">
+        <span class="cor"></span>
+        <div class="txt">
+          <h3>Cozinha equipada</h3>
+          <p>Fogão com forno, geladeira, cafeteira, liquidificador e louça para preparar as refeições.</p>
+        </div>
+      </article>
+      <article class="card c3 rv">
+        <img src="fotos/fachada-rua.jpg" alt="Fachada da Casinha Caiçara vista da rua de pedra, com muro amarelo e portão de madeira" loading="lazy">
+        <span class="cor"></span>
+        <div class="txt">
+          <h3>Rua tranquila</h3>
+          <p>Casa independente em rua de pedra, com estacionamento gratuito na própria rua.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALERIA ================= -->
+<section id="galeria">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Fotos</span>
+      <h2>A casinha por dentro<br>e por fora</h2>
+      <p class="lead">Toque em qualquer foto para ver em tamanho grande.</p>
+    </div>
+    <div class="grade rv" id="grade"></div>
+    <div class="maisft"><button class="btn btn-verde" id="maisFt">Ver todas as fotos</button></div>
+  </div>
+</section>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button class="fechalb" id="fechaLb" aria-label="Fechar">&times;</button>
+  <button class="seta ant" id="lbAnt" aria-label="Foto anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg>
+  </button>
+  <img id="lbImg" src="" alt="">
+  <button class="seta prox" id="lbProx" aria-label="Próxima foto">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+  <span class="cont" id="lbCont"></span>
+</div>
+
+<!-- ================= ESTRUTURA ================= -->
+<section id="estrutura">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Estrutura</span>
+      <h2>O que tem na casinha</h2>
+    </div>
+    <div class="listas">
+      <div class="bloco rv">
+        <h3>Acomodação</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Até 4 hóspedes</b> na casa inteira</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Área de dormir com <b>cama de casal e cama de solteiro</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Mais uma <b>cama de solteiro na sala</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Roupa de cama inclusa</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Banheiro completo</b>, com box</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Ventilador</span></li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3>Cozinha e sala</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Cozinha equipada</b>, com fogão e forno</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Geladeira, <b>cafeteira e liquidificador</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Louça, panelas e utensílios</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>TV</b> e <b>Wi-Fi</b> liberado</span></li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3>Área externa</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Varanda privativa coberta</b>, com mesa e bancos</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Vista para os telhados e a serra</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Quintal</b> com plantas</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Entrada independente, com <b>portão próprio</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Estacionamento gratuito</b> na rua</span></li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3>Bom saber</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Aceita animais de estimação</b> (com taxa)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Toalha de banho <b>não</b> está inclusa</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Não é permitido fumar nem fazer festas</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Horário de silêncio das <b>21h às 9h</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>O endereço completo é passado na hora da reserva</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLANTA 3D ================= -->
+<section id="planta3d">
+  <div class="wrap">
+    <div class="caixa">
+      <div class="rv">
+        <span class="olho">Planta 3D</span>
+        <h2 style="margin:14px 0 18px">Conheça a casinha<br>antes de reservar</h2>
+        <p class="lead">Um modelo tridimensional da casa e do terreno que você gira com o dedo, tira a cobertura e entra em cada ambiente. É o jeito mais rápido de entender a distribuição do espaço sem receber foto por foto no WhatsApp.</p>
+        <p style="margin-top:24px"><a class="btn btn-laranja" href="planta/">Abrir a planta 3D</a></p>
+        <p class="aviso">O modelo foi montado a partir das fotos da casa, para dar a noção da distribuição dos ambientes. As medidas são aproximadas.</p>
+      </div>
+      <div class="plantafig rv">
+        <svg viewBox="0 0 400 300" fill="none" stroke="#f8b93f" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+          <rect x="26" y="24" width="348" height="252" stroke-opacity=".28" stroke-dasharray="6 6"/>
+          <rect x="60" y="60" width="150" height="96" stroke-opacity=".9"/>
+          <path d="M135 60v96" stroke-opacity=".45"/>
+          <rect x="74" y="74" width="44" height="30" stroke-opacity=".5"/>
+          <rect x="74" y="116" width="44" height="26" stroke-opacity=".5"/>
+          <rect x="150" y="74" width="46" height="30" stroke-opacity=".5"/>
+          <rect x="210" y="60" width="84" height="56" stroke-opacity=".8"/>
+          <path d="M210 88h84" stroke-opacity=".3"/>
+          <rect x="222" y="70" width="26" height="14" stroke-opacity=".55"/>
+          <rect x="210" y="116" width="84" height="40" stroke-opacity=".75"/>
+          <ellipse cx="238" cy="136" rx="10" ry="8" stroke-opacity=".6"/>
+          <rect x="262" y="124" width="22" height="24" stroke-opacity=".5"/>
+          <rect x="60" y="176" width="234" height="60" stroke-opacity=".85"/>
+          <path d="M60 176h234" stroke-opacity=".35"/>
+          <rect x="190" y="192" width="70" height="30" stroke-opacity=".55"/>
+          <path d="M60 236h234" stroke-opacity=".3"/>
+          <circle cx="328" cy="200" r="9" stroke-opacity=".32"/>
+          <circle cx="344" cy="226" r="7" stroke-opacity=".26"/>
+          <path d="M26 276h348" stroke-opacity=".22"/>
+        </svg>
+        <span class="tag">Modelo 3D</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOCAL ================= -->
+<section id="local">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Onde fica</span>
+      <h2>A 100 metros<br>do Centro Histórico</h2>
+      <p class="lead">A casinha fica em Paraty, no litoral sul do Rio de Janeiro, a cerca de cem metros de caminhada do centro histórico — as ruas de pedra, os restaurantes, as lojinhas e o cais saem todos a pé. A Praia do Pontal e o Jabaquara também ficam pertinho.</p>
+    </div>
+    <div class="mapa rv">
+      <iframe title="Mapa do Centro Histórico de Paraty - RJ" src="https://www.google.com/maps?q=Centro%20Hist%C3%B3rico%2C%20Paraty%20-%20RJ&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <div class="perto rv">
+      <div><b>100 m</b><span>Até o centro histórico, a pé</span></div>
+      <div><b>Pontal</b><span>Praia logo depois da ponte</span></div>
+      <div><b>Jabaquara</b><span>Praia de águas calmas, pertinho</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALORES ================= -->
+<section id="valores">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Reservas</span>
+      <h2>Reserve a sua data</h2>
+    </div>
+    <div class="preco rv">
+      <div class="v">
+        <small>Avaliação dos hóspedes</small>
+        <b class="nota"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 6.1 6.6.9-4.8 4.7 1.2 6.7L12 17.8 6.1 21l1.2-6.7-4.8-4.7 6.6-.9L12 2.6Z"/></svg>4,64</b>
+        <span>Em 11 avaliações no Airbnb</span>
+      </div>
+      <div class="acao">
+        <a class="btn btn-verde" href="https://www.airbnb.com.br/rooms/1332583906757288634" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.8v3.4M16 2.8v3.4"/></svg>
+          Ver datas e valores
+        </a>
+        <a class="btn btn-laranja" href="#galeria">Ver as fotos de novo</a>
+      </div>
+    </div>
+    <p class="obs">Os valores da diária mudam conforme a data, o feriado e a quantidade de noites. Consulte a disponibilidade para ver o preço exato da sua estadia.</p>
+  </div>
+</section>
+
+<!-- ================= RODAPÉ ================= -->
+<footer>
+  <div class="wrap">
+    <div class="topo">
+      <div class="marca">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/>
+        </svg>
+        <span><b>Casinha Caiçara</b><i>Centro Histórico · Paraty, RJ</i></span>
+      </div>
+      <div class="cont">
+        <a href="https://www.airbnb.com.br/rooms/1332583906757288634" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.8v3.4M16 2.8v3.4"/></svg>
+          Consultar datas e reservar
+        </a>
+        <a href="#galeria">Ver as fotos da casinha</a>
+        <a href="planta/">Abrir a planta 3D</a>
+      </div>
+    </div>
+    <div class="fim">
+      <span>Casinha Caiçara · casa de temporada no Centro Histórico de Paraty — RJ</span>
+      <span>Site criado por <a href="https://jgg190310-ops.github.io/Imoveis/portfolio/" target="_blank" rel="noopener">João Gabriel Geo</a></span>
+    </div>
+  </div>
+</footer>
+
+<a id="zap" href="https://www.airbnb.com.br/rooms/1332583906757288634" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.8v3.4M16 2.8v3.4"/></svg>
+  Reservar
+</a>
+
+<script>
+/* ---------- barra de vidro ---------- */
+var bar = document.getElementById('bar');
+function barra(){ bar.classList.toggle('on', scrollY > 40); }
+addEventListener('scroll', barra, {passive:true});
+barra();
+
+/* ---------- parallax da capa ---------- */
+var heroFoto = document.getElementById('herofoto');
+var animando = false;
+function parallax(){
+  animando = false;
+  var y = scrollY;
+  if (y > innerHeight * 1.2) return;
+  heroFoto.style.transform = 'translate3d(0,' + (y * 0.32) + 'px,0)';
+}
+addEventListener('scroll', function(){
+  if (!animando){ animando = true; requestAnimationFrame(parallax); }
+}, {passive:true});
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) heroFoto.style.transform = '';
+
+/* ---------- menu mobile ---------- */
+var menu = document.getElementById('menu'), burger = document.getElementById('burger');
+function abreMenu(){ menu.classList.add('aberto'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+function fechaMenu(){ menu.classList.remove('aberto'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+burger.addEventListener('click', abreMenu);
+document.getElementById('fechaMenu').addEventListener('click', fechaMenu);
+menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', fechaMenu); });
+
+/* ---------- galeria ---------- */
+var FOTOS = [
+  ['fotos/varanda-entardecer.jpg','Varanda coberta com mesa de madeira e o céu de fim de tarde em Paraty'],
+  ['fotos/quarto.jpg','Área de dormir com cama de casal e cama de solteiro, parede amarela e violão na parede'],
+  ['fotos/sala-ampla.jpg','Sala com sofá-cama preto, geladeira e a área de dormir ao fundo, atrás da cortina'],
+  ['fotos/cozinha.jpg','Cozinha com fogão amarelo, bancada e armários de madeira'],
+  ['fotos/varanda-mesa.jpg','Mesa de madeira com bancos estampados na varanda coberta'],
+  ['fotos/banheiro.jpg','Banheiro com box, vaso sanitário e pia com espelho'],
+  ['fotos/fachada-rua.jpg','Fachada da casa vista da rua de pedra, com muro amarelo e portão de madeira'],
+  ['fotos/portao.jpg','Portão de madeira da entrada, com a plaquinha do Airbnb'],
+  ['fotos/varanda-canto.jpg','Canto da varanda com muro de pedra, plantas penduradas e mesa de madeira'],
+  ['fotos/quarto-camas.jpg','As duas camas vistas de frente, com almofadas vermelhas'],
+  ['fotos/cozinha-sala.jpg','Cozinha e sala integradas, com geladeira e janela para o quintal'],
+  ['fotos/sala-sofa.jpg','Sofá-cama da sala, com quadros e espelho na parede'],
+  ['fotos/quarto-cortina.jpg','Área de dormir vista pela cortina que separa os ambientes'],
+  ['fotos/vista.jpg','Vista da varanda para os telhados e a serra, no fim de tarde'],
+  ['fotos/fachada-pedra.jpg','Muro de pedra e parede amarela da casa, com flores vermelhas'],
+  ['fotos/varanda-vista.jpg','Varanda com janela de madeira vermelha e vista aberta']
+];
+var GRANDES = [0];
+var MOSTRA = 10;
+var grade = document.getElementById('grade');
+var maisFt = document.getElementById('maisFt');
+var visiveis = 0;
+
+function pinta(ate){
+  for (var i = visiveis; i < ate && i < FOTOS.length; i++){
+    var fig = document.createElement('button');
+    fig.className = 'ft' + (GRANDES.indexOf(i) > -1 ? ' g' : '');
+    fig.type = 'button';
+    fig.setAttribute('data-i', i);
+    fig.setAttribute('aria-label', 'Ampliar foto: ' + FOTOS[i][1]);
+    var im = document.createElement('img');
+    im.src = FOTOS[i][0];
+    im.alt = FOTOS[i][1];
+    im.loading = 'lazy';
+    fig.appendChild(im);
+    grade.appendChild(fig);
+  }
+  visiveis = Math.min(ate, FOTOS.length);
+  maisFt.style.display = visiveis >= FOTOS.length ? 'none' : '';
+}
+pinta(MOSTRA);
+maisFt.addEventListener('click', function(){ pinta(FOTOS.length); });
+
+/* ---------- lightbox ---------- */
+var lb = document.getElementById('lb'),
+    lbImg = document.getElementById('lbImg'),
+    lbCont = document.getElementById('lbCont'),
+    atual = 0;
+
+function mostra(i){
+  atual = (i + FOTOS.length) % FOTOS.length;
+  lbImg.src = FOTOS[atual][0];
+  lbImg.alt = FOTOS[atual][1];
+  lbCont.textContent = (atual + 1) + ' / ' + FOTOS.length;
+}
+function abreLb(i){
+  mostra(i);
+  lb.classList.add('aberto');
+  document.body.style.overflow = 'hidden';
+}
+function fechaLb(){
+  lb.classList.remove('aberto');
+  document.body.style.overflow = '';
+}
+grade.addEventListener('click', function(e){
+  var b = e.target.closest('.ft');
+  if (b) abreLb(parseInt(b.getAttribute('data-i'), 10));
+});
+document.getElementById('fechaLb').addEventListener('click', fechaLb);
+document.getElementById('lbAnt').addEventListener('click', function(e){ e.stopPropagation(); mostra(atual - 1); });
+document.getElementById('lbProx').addEventListener('click', function(e){ e.stopPropagation(); mostra(atual + 1); });
+lb.addEventListener('click', function(e){ if (e.target === lb) fechaLb(); });
+addEventListener('keydown', function(e){
+  if (!lb.classList.contains('aberto')) return;
+  if (e.key === 'Escape') fechaLb();
+  if (e.key === 'ArrowLeft') mostra(atual - 1);
+  if (e.key === 'ArrowRight') mostra(atual + 1);
+});
+/* arrastar no celular */
+var tx = 0;
+lb.addEventListener('touchstart', function(e){ tx = e.changedTouches[0].clientX; }, {passive:true});
+lb.addEventListener('touchend', function(e){
+  var d = e.changedTouches[0].clientX - tx;
+  if (Math.abs(d) > 50) mostra(atual + (d < 0 ? 1 : -1));
+}, {passive:true});
+
+/* ---------- revelar ao rolar ---------- */
+var obs = new IntersectionObserver(function(ents){
+  ents.forEach(function(en){
+    if (en.isIntersecting){ en.target.classList.add('on'); obs.unobserve(en.target); }
+  });
+}, {rootMargin:'0px 0px -8% 0px', threshold:.08});
+document.querySelectorAll('.rv').forEach(function(el){ obs.observe(el); });
+</script>
+</body>
+</html>
