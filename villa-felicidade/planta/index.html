@@ -205,6 +205,7 @@ body.noite .nota{color:#dfe9ec;background:rgba(10,31,37,.5);border-color:rgba(25
   <div class="seg" id="segTelhado">
     <button data-n="todos" class="on">Com telhado</button>
     <button data-n="aberto">Por dentro</button>
+    <button data-n="cima" id="btnCima" hidden>Andar de cima</button>
   </div>
   <div class="seg" id="segVista">
     <button data-v="3d" class="on">3D</button>
@@ -1251,7 +1252,7 @@ function montaCasa(def) {
 const CASAS = [
 /* ------------------------------------------------- VILLA FELICIDADE (SITIO) */
 {
-  id: 'villa-felicidade', aba: 'Villa Felicidade · sítio',
+  id: 'villa-felicidade', aba: 'Villa Felicidade · sítio', doisAndares: true,
   matTelha: 'telhaC',
   titulo: ['Zona rural de Guarapari · mais de 16 hóspedes', 'Villa Felicidade', 'O prédio amarelo de dois andares: oito suítes embaixo, com a varanda corrida de frente para o gramado, e em cima a sala, a cozinha gourmet e mais três suítes, com sacada. No terreno, a piscina, a área da churrasqueira e o lago de pesca.'],
   nota: 'Modelo montado a partir das fotos e da descrição do anúncio do sítio: oito suítes no andar de baixo, três suítes, sala e cozinha gourmet em cima, piscina, churrasqueira e lago de pesca no terreno. Sem a planta da casa, as medidas são aproximadas — quando o Oswaldo mandar a planta, o modelo é refeito fiel ao projeto.',
@@ -1288,7 +1289,7 @@ const CASAS = [
         { id: 's8w', t: 'banheiro', dentro: 's8', r: [11, -6, 12.9, -3.5], cab: 'w', portas: [{ lado: 's', t: 1.4, w: .7 }] },
       ],
       varanda: { r: [-17, 0, 15, 2.6], postes: 's', n: 14, redes: [[-16.2, 2.2, -13.6, 2.2], [12.2, 2.2, 14.6, 2.2]], mesas: [[-6.4, 1.3], [8.4, 1.3]] },
-      telhado: [-17.8, -6.8, 15.8, 3.4], sub: 1.5,
+      telhado: [4.6, -6.8, 15.8, 3.4], sub: 1.3,
     },
     /* ---- andar de cima: sala, cozinha gourmet e tres suites ---- */
     {
@@ -1326,14 +1327,14 @@ const CASAS = [
     // lago de pesca, no canto do terreno
     const lx = -17.5, lz = 19.5;
     const f = formaP('feijao', 13, 8.6);
-    const ag = new THREE.Mesh(new THREE.ShapeGeometry(f, 30), std({ color: '#3f7f6d', roughness: .18, metalness: .1 }));
+    const ag = new THREE.Mesh(new THREE.ShapeGeometry(f, 30), std({ color: '#2e6a5c', roughness: .14, metalness: .15 }));
     ag.rotation.x = -Math.PI / 2; ag.position.set(lx, .07, lz); G.externo.add(ag);
-    const anel = formaP('feijao', 14.4, 10); anel.holes.push(formaP('feijao', 13, 8.6));
-    const bor = new THREE.Mesh(new THREE.ShapeGeometry(anel, 30), std({ color: '#8d7a5c', roughness: 1 }));
+    const anel = formaP('feijao', 13.7, 9.2); anel.holes.push(formaP('feijao', 13, 8.6));
+    const bor = new THREE.Mesh(new THREE.ShapeGeometry(anel, 30), std({ color: '#7d6b4f', roughness: 1 }));
     bor.rotation.x = -Math.PI / 2; bor.position.set(lx, .05, lz); G.externo.add(bor);
     // pequeno pier de madeira na beira do lago
-    piso(lx + 4.6, lx + 8.2, lz - .9, lz + .9, .34, MAT.deck, G.externo, .12);
-    [[lx + 4.9, lz - .7], [lx + 4.9, lz + .7], [lx + 7.9, lz - .7], [lx + 7.9, lz + .7]].forEach(([x, z]) => cil(.09, .09, .34, MAT.madeiraMed, x, 0, z, G.externo, 8));
+    piso(lx + 2.2, lx + 6.4, lz - .8, lz + .8, .34, MAT.deck, G.externo, .12);
+    [[lx + 2.5, lz - .6], [lx + 2.5, lz + .6], [lx + 6.1, lz - .6], [lx + 6.1, lz + .6]].forEach(([x, z]) => cil(.09, .09, .34, MAT.madeiraMed, x, 0, z, G.externo, 8));
     // fogueira perto da piscina
     const fg = grupo(6.4, 13.6, 0, G.externo, 0);
     for (let i = 0; i < 12; i++) { const a = i / 12 * Math.PI * 2; caixa(.42, .22, .22, MAT2.pedra, Math.sin(a) * .9, .1, Math.cos(a) * .9, fg, false); }
@@ -1347,18 +1348,18 @@ const CASAS = [
   rotulos: [
     { id: 'casa', nome: 'O prédio', sub: '11 suítes em dois andares', pos: [-6, 8.0, -3.0], tipo: 'ext', d: 46 },
     { id: 'varanda', nome: 'Varanda corrida', sub: 'na frente das oito suítes', pos: [-6, 1.8, 1.4], tipo: 'ext', d: 30 },
-    { id: 'sacada', nome: 'Sacada', sub: 'do andar de cima', pos: [-6, 5.0, 1.4], tipo: 'ext', d: 30 },
+    { id: 'sacada', nome: 'Sacada', sub: 'do andar de cima', pos: [-6, 5.0, 1.4], tipo: 'ext2', d: 30 },
     { id: 'piscina', nome: 'Piscina', sub: 'privativa, o ano todo', pos: [0, 1.0, 10.5], tipo: 'ext', d: 30 },
     { id: 'gourmet', nome: 'Churrasqueira', sub: 'com forno e mesa grande', pos: [13.6, 3.2, 8.4], tipo: 'ext', d: 26 },
     { id: 'fogueira', nome: 'Fogueira', sub: 'ao ar livre', pos: [6.4, 1.2, 13.6], tipo: 'ext', d: 22 },
     { id: 'lago', nome: 'Lago de pesca', sub: 'com devolução dos peixes', pos: [-17.5, 1.2, 19.5], tipo: 'ext', d: 40 },
     { id: 'estac', nome: 'Estacionamento', sub: 'dentro do sítio', pos: [-4.0, 1.6, 21.6], tipo: 'ext', d: 30 },
     { id: 'pasto', nome: 'Pasto', sub: 'os bois e as vacas do sítio', pos: [0, 1.6, -11.0], tipo: 'ext', d: 40 },
-    { id: 'sala', nome: 'Sala de estar', sub: 'no andar de cima', pos: [-14.2, 5.0, -3.0], tipo: 'int', d: 14 },
-    { id: 'coz', nome: 'Cozinha gourmet', sub: 'fogão industrial e freezers', pos: [-9.0, 5.0, -3.0], tipo: 'int', d: 14 },
-    { id: 's9', nome: 'Suíte 9', sub: 'casal + solteiro', pos: [-4.7, 5.0, -1.8], tipo: 'int', d: 11 },
-    { id: 's10', nome: 'Suíte 10', sub: 'casal + solteiro', pos: [-.9, 5.0, -1.8], tipo: 'int', d: 11 },
-    { id: 's11', nome: 'Suíte 11', sub: 'casal', pos: [3.0, 5.0, -1.8], tipo: 'int', d: 11 },
+    { id: 'sala', nome: 'Sala de estar', sub: 'no andar de cima', pos: [-14.2, 5.0, -3.0], tipo: 'sup', d: 14 },
+    { id: 'coz', nome: 'Cozinha gourmet', sub: 'fogão industrial e freezers', pos: [-9.0, 5.0, -3.0], tipo: 'sup', d: 14 },
+    { id: 's9', nome: 'Suíte 9', sub: 'casal + solteiro', pos: [-4.7, 5.0, -1.8], tipo: 'sup', d: 11 },
+    { id: 's10', nome: 'Suíte 10', sub: 'casal + solteiro', pos: [-.9, 5.0, -1.8], tipo: 'sup', d: 11 },
+    { id: 's11', nome: 'Suíte 11', sub: 'casal', pos: [3.0, 5.0, -1.8], tipo: 'sup', d: 11 },
     { id: 's1', nome: 'Suíte 1', sub: 'casal', pos: [-15.0, 1.7, -1.7], tipo: 'int', d: 11 },
     { id: 's2', nome: 'Suíte 2', sub: 'casal', pos: [-11.0, 1.7, -1.7], tipo: 'int', d: 11 },
     { id: 's3', nome: 'Suíte 3', sub: 'casal', pos: [-7.0, 1.7, -1.7], tipo: 'int', d: 11 },
@@ -1377,16 +1378,15 @@ const CASAS = [
 },
 /* ------------------------------------------------- CASA DE PRAIA */
 {
-  id: 'casa-praia', aba: 'Casa de praia',
+  id: 'casa-praia', aba: 'Casa de praia', doisAndares: true,
   matTelha: 'telhaC',
   titulo: ['Pé na areia · de frente para o mar', 'A casa de praia', 'Dois andares de frente para a praia: embaixo a sala, a cozinha, um quarto e um banheiro; em cima os dois quartos de casal com janela para o mar, o segundo banheiro e a varanda com mesa e guarda-sol, olhando a areia por cima do telhado.'],
   nota: 'Modelo montado a partir das fotos da casa: sala, cozinha, um quarto e um banheiro embaixo, dois quartos de casal com vista para o mar, banheiro e varanda em cima. Sem a planta da casa, as medidas e a divisão dos cômodos são aproximadas — quando o Oswaldo mandar a planta, o modelo é refeito fiel ao projeto.',
-  praia: { areia: 13.5, mar: 30 },
-  lote: { x0: -12, z0: -11, x1: 12, z1: 9.4, alt: 1.9, aberto: ['s'], vaos: { n: [{ c: 1.5, w: 3.4, portao: true }] } },
+  praia: { areia: 10.2, mar: 28 },
+  lote: { x0: -11.5, z0: -10.5, x1: 11.5, z1: 9.4, alt: 1.9, aberto: ['s'], vaos: { n: [{ c: 1.5, w: 3.4, portao: true }] } },
   pisos: [
-    { r: [-12, 7.0, 12, 9.4], m: 'cimento' },
-    { r: [-10.6, 4.4, 10.6, 7.0], m: 'pedra' },
-    { r: [-11.4, -10.4, -5.4, -4.6], m: 'cimento' },
+    { r: [-11.5, -10.5, 11.5, 9.4], m: 'cimento' },
+    { r: [-11.2, 4.6, 11.2, 7.2], m: 'pedra' },
   ],
   blocos: [
     /* ---- andar de baixo ---- */
@@ -1401,7 +1401,7 @@ const CASAS = [
         { id: 'cor', t: 'corredor', r: [-1.2, -1.6, 5.6, 2.6] },
       ],
       varanda: { r: [-8.6, 2.6, 8.6, 4.4], postes: 's', n: 8, mesas: [[-5.4, 3.5]] },
-      telhado: [-9.3, -7.1, 9.3, 5.1], sub: 1.3,
+      telhado: [3.9, -7.1, 9.3, 5.1], sub: 1.1,
     },
     /* ---- andar de cima ---- */
     {
@@ -1445,14 +1445,14 @@ const CASAS = [
   },
   rotulos: [
     { id: 'casa', nome: 'A casa', sub: 'dois andares, de frente para o mar', pos: [-2, 7.4, -2.0], tipo: 'ext', d: 34 },
-    { id: 'sacada', nome: 'Varanda de cima', sub: 'mesa e guarda-sol, vista do mar', pos: [-3, 5.4, 4.2], tipo: 'ext', d: 24 },
+    { id: 'sacada', nome: 'Varanda de cima', sub: 'mesa e guarda-sol, vista do mar', pos: [-3, 5.4, 4.2], tipo: 'ext2', d: 24 },
     { id: 'varanda', nome: 'Varanda de baixo', sub: 'de frente para a praia', pos: [3, 1.8, 3.6], tipo: 'ext', d: 22 },
     { id: 'praia', nome: 'A praia', sub: 'do outro lado do calçadão', pos: [0, 1.2, 17.5], tipo: 'ext', d: 40 },
     { id: 'calcadao', nome: 'Calçadão', sub: 'na frente da casa', pos: [6.5, 1.2, 8.2], tipo: 'ext', d: 26 },
-    { id: 'q1', nome: 'Quarto 1', sub: 'casal, janelas para o mar', pos: [-5.3, 5.1, .6], tipo: 'int', d: 12 },
-    { id: 'q2', nome: 'Quarto 2', sub: 'casal, janela para o mar', pos: [1.1, 5.1, .6], tipo: 'int', d: 12 },
-    { id: 'estar', nome: 'Estar de cima', sub: 'entre os quartos', pos: [.3, 5.1, -3.9], tipo: 'int', d: 12 },
-    { id: 'wc2', nome: 'Banheiro de cima', sub: 'com box', pos: [-6.9, 5.1, -3.9], tipo: 'int', d: 10 },
+    { id: 'q1', nome: 'Quarto 1', sub: 'casal, janelas para o mar', pos: [-5.3, 5.1, .6], tipo: 'sup', d: 12 },
+    { id: 'q2', nome: 'Quarto 2', sub: 'casal, janela para o mar', pos: [1.1, 5.1, .6], tipo: 'sup', d: 12 },
+    { id: 'estar', nome: 'Estar de cima', sub: 'entre os quartos', pos: [.3, 5.1, -3.9], tipo: 'sup', d: 12 },
+    { id: 'wc2', nome: 'Banheiro de cima', sub: 'com box', pos: [-6.9, 5.1, -3.9], tipo: 'sup', d: 10 },
     { id: 'sala', nome: 'Sala', sub: 'com TV e mesa de jantar', pos: [-4.9, 1.8, -1.9], tipo: 'int', d: 12 },
     { id: 'coz', nome: 'Cozinha', sub: 'fogão industrial e geladeira', pos: [1.3, 1.8, -4.0], tipo: 'int', d: 12 },
     { id: 'q3', nome: 'Quarto 3', sub: 'solteiro', pos: [6.2, 1.8, -4.0], tipo: 'int', d: 11 },
@@ -1463,7 +1463,7 @@ const CASAS = [
     ['Andar de cima', ['q1', 'q2', 'estar', 'wc2']],
     ['Andar de baixo', ['sala', 'coz', 'q3', 'wc1']],
   ],
-  cam: { largo: { pos: [0, 20, 30], alvo: [0, 0, 2] }, estreito: { pos: [16, 26, 34], alvo: [0, 0, 2] }, planta: [0, 0, 54] },
+  cam: { largo: { pos: [3, 26, 33], alvo: [0, 0, -1] }, estreito: { pos: [18, 32, 38], alvo: [0, 0, -1] }, planta: [0, 0, 58] },
 },
 ];
 
@@ -1532,6 +1532,7 @@ function selecionar(i, primeira) {
   document.getElementById('nota').textContent = DEF.nota;
   document.getElementById('titulo').classList.remove('fechado');
   if (location.hash.slice(1) !== DEF.id) history.replaceState(null, '', '#' + DEF.id);
+  document.getElementById('btnCima').hidden = !DEF.doisAndares;
   modo = 'todos'; aplicaModo(); aplicaNoite();
   if (vista === 'planta') setVista('planta'); else if (!primeira) voa(posInicio(), alvoInicio(), 1.2);
 }
@@ -1541,8 +1542,11 @@ CASAS.forEach((c, i) => { const b = document.createElement('button'); b.textCont
 /* ======================= TELHADO / VISTA ======================= */
 let modo = 'todos', vista = '3d';
 function aplicaModo() {
-  G.telhado.visible = G.fachada.visible = modo === 'todos';
-  rotulos.forEach(({ a, o }) => { o.visible = a.tipo === 'int' ? modo === 'aberto' : true; });
+  G.telhado.visible = modo === 'todos';
+  G.fachada.visible = modo === 'todos' || modo === 'cima';
+  rotulos.forEach(({ a, o }) => {
+    o.visible = a.tipo === 'int' ? modo === 'aberto' : a.tipo === 'sup' ? modo === 'cima' : a.tipo === 'ext2' ? modo !== 'aberto' : modo !== 'cima';
+  });
   document.querySelectorAll('#segTelhado button').forEach(b => b.classList.toggle('on', b.dataset.n === modo));
 }
 
@@ -1559,6 +1563,7 @@ function voa(pos, alvo, dur = 1.1, depois) { anim = { p0: camera.position.clone(
 function focar(a) {
   if (!a) return;
   if (a.tipo === 'int' && modo !== 'aberto') { modo = 'aberto'; aplicaModo(); }
+  if (a.tipo === 'sup' && modo !== 'cima') { modo = 'cima'; aplicaModo(); }
   document.querySelectorAll('#amb button').forEach(b => b.classList.toggle('ativo', b.dataset.id === a.id));
   const alvo = new THREE.Vector3(...a.pos); alvo.y -= .7;
   let pos;
