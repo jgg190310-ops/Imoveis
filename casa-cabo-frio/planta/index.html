@@ -522,8 +522,8 @@ function mesa4(g, x, y, z) {
     [{ a: 2, b: 4.6, ...VAO }, { a: 5.5, b: 6.4, ...PORTA }]);
   parede(g, 'z', 6.9, 6.2, 8, 0, PD, M.paredeInt, [{ a: 6.5, b: 7.4, ...PORTA }]);
 
-  /* laje do pavimento superior */
-  piso(g, BLOCO, M.laje, Y2, LAJE);
+  /* laje do pavimento superior (sai junto com o piso de cima) */
+  piso(G.alto, BLOCO, M.laje, Y2, LAJE);
 
   /* --- móveis do térreo --- */
   /* sala: sofá em L para 6 a 8 pessoas + TV */
@@ -733,8 +733,8 @@ function rotulo(r, grupo, y) {
 Object.values(EXT).forEach(r => rotulo(r, 'ext', 1.2));
 
 /* ===================== CÂMERA E ESTADO ===================== */
-const ALVO = new THREE.Vector3(2, 1, 0);
-const VISTA_INICIAL = MOBILE ? new THREE.Vector3(2, 34, -44) : new THREE.Vector3(-4, 24, -34);
+const ALVO = new THREE.Vector3(-.5, 1, 1.5);
+const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-1, 36, -48) : new THREE.Vector3(-5, 27, -41);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
@@ -785,13 +785,20 @@ function seg(id, attr, fn) {
     fn(b.getAttribute(attr));
   });
 }
-seg('segCorte', 'data-n', v => { corte = v; aplicar(); });
+const VISTA_CASA = new THREE.Vector3(-4.5, 19, -16.5);
+function olhaCasa() {
+  irPara(VISTA_CASA.clone(), new THREE.Vector3(6.8, corte === 'alto' ? Y2 + 1 : 1, .8));
+}
+seg('segCorte', 'data-n', v => {
+  corte = v; emPlanta = false; aplicar();
+  if (v === 'fechado') reset(); else if (foco !== 'lazer') olhaCasa();
+});
 seg('segFoco', 'data-f', v => {
   foco = v;
   if (v === 'casa') {
     if (corte === 'fechado') { corte = 'alto'; marca('segCorte', 'data-n', 'alto'); }
     aplicar();
-    irPara(new THREE.Vector3(-4, 19, -16), new THREE.Vector3(7, 1.5, 0.8));
+    olhaCasa();
   } else if (v === 'lazer') {
     aplicar();
     irPara(new THREE.Vector3(-4, 20, -20), new THREE.Vector3(-9.5, .5, -2.3));
