@@ -732,8 +732,12 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     var alvo=document.querySelector(id);
     if(!alvo) return;
     e.preventDefault();
-    var y=alvo.getBoundingClientRect().top+window.pageYOffset-(innerWidth<760?62:70);
-    window.scrollTo({top:y,behavior:reduz?'auto':'smooth'});
+    /* o menu do celular trava a rolagem do body: fecha antes de rolar */
+    if(menu.classList.contains('aberto')) fechaMenu();
+    requestAnimationFrame(function(){
+      var y=alvo.getBoundingClientRect().top+window.pageYOffset-(innerWidth<760?62:70);
+      window.scrollTo({top:y,behavior:reduz?'auto':'smooth'});
+    });
   });
 });
 })();
