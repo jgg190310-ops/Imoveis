@@ -479,7 +479,7 @@ function mesa4(g, x, y, z) {
   caixa(g, 2.2, .14, 2.2, M.telha, 4.8, 2.5, -1.4);
 
   /* blocos vizinhos do condomínio, para dar a escala */
-  for (const [bx, bz] of [[-13.2, 13.2], [-13.2, -1.6]]) {
+  for (const [bx, bz] of [[-13.2, 13.2]]) {
     const r = { x0: bx, x1: bx + 4.4, z0: bz, z1: bz + 1.4 };
     caixa(g, 4.4, 5.4, 1.4, M.paredeExt, bx + 2.2, 0, bz + .7);
     telhado(g, r, 5.4, .35);
