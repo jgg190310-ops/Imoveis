@@ -387,6 +387,28 @@ function telhado(g, r, y, beiral = .45) {
   caixa(g, .16, .1, d + .1, M.telhaBorda, r.x1 + beiral, y - .02, cz, false);
   return t;
 }
+/* telhado de uma agua: sobe no sentido +x, como o da casa */
+function telhadoIncl(g, r, yBaixo, yAlto, beiral = .42) {
+  const w = r.x1 - r.x0 + beiral * 2, d = r.z1 - r.z0 + beiral * 2;
+  const cx = (r.x0 + r.x1) / 2, cz = (r.z0 + r.z1) / 2;
+  const dy = yAlto - yBaixo;
+  const ang = Math.atan2(dy, w);
+  const len = Math.sqrt(w * w + dy * dy);
+  const m = new THREE.Mesh(new THREE.BoxGeometry(len, .13, d), M.telha);
+  m.position.set(cx, (yBaixo + yAlto) / 2, cz);
+  m.rotation.z = ang;
+  m.castShadow = true; m.receiveShadow = true;
+  g.add(m);
+  /* testeira escura na beirada baixa */
+  const f = new THREE.Mesh(new THREE.BoxGeometry(.2, .22, d), M.telhaBorda);
+  f.position.set(r.x0 - beiral, yBaixo - .04, cz);
+  g.add(f);
+  const f2 = new THREE.Mesh(new THREE.BoxGeometry(len, .1, .18), M.telhaBorda);
+  f2.position.set(cx, (yBaixo + yAlto) / 2 - .09, r.z0 - beiral);
+  f2.rotation.z = ang; g.add(f2);
+  const f3 = f2.clone(); f3.position.z = r.z1 + beiral; g.add(f3);
+  return m;
+}
 function coqueiro(g, x, z, h = 7) {
   const tr = new THREE.Mesh(new THREE.CylinderGeometry(.16, .3, h, 7), M.tronco);
   tr.position.set(x, h / 2, z); tr.castShadow = true; g.add(tr);
@@ -551,10 +573,10 @@ function split(g, x, y, z, eixoX = true) {
   caixa(m, .72, 1.75, .68, M.branco, 11.1, 0, 35.9);               /* geladeira */
   caixa(m, 1.6, .74, .8, M.granito, 11.9, .0, 33.9);               /* mesa */
 
-  /* cobertura: telha ondulada sobre bloco + varanda */
+  /* cobertura: uma agua so, descendo do fundo para a varanda */
   TETOS.push(piso(G.cobertura, BLOCO, M.laje, YT, LAJE));
-  telhado(G.cobertura, { x0: BLOCO.x0 - .2, x1: BLOCO.x1, z0: BLOCO.z0, z1: BLOCO.z1 }, YT + .06);
-  telhado(G.cobertura, { x0: VAR.x0, x1: VAR.x1, z0: VAR.z0, z1: VAR.z1 }, PD + .3);
+  telhadoIncl(G.cobertura, { x0: VAR.x0 - .1, x1: BLOCO.x1, z0: BLOCO.z0, z1: BLOCO.z1 },
+              PD + .18, YT + .62, .4);
 
   /* colunas de tijolinho da varanda */
   for (let z = VAR.z0 + .3; z <= VAR.z1 - .2; z += 3.6) coluna(G.casa, VAR.x0 + .3, z, PD + .34);
@@ -677,7 +699,7 @@ function split(g, x, y, z, eixoX = true) {
     caixa(g, .22, ALT_GAR, .22, M.madClara, R.x0 + .4, .05, z);
   }
   /* telha ondulada em duas águas rasas */
-  telhado(g, R, ALT_GAR + .08, .4);
+  telhadoIncl(g, R, ALT_GAR - .18, ALT_GAR + .42, .4);
 
   /* caminhonete */
   const cx = (R.x0 + R.x1) / 2 - .4;
@@ -707,8 +729,8 @@ function rotulo(r, grupo, y) {
 Object.values(EXT).forEach(r => rotulo(r, 'ext', 1.2));
 
 /* ===================== CÂMERA E ESTADO ===================== */
-const ALVO = new THREE.Vector3(0, 1.0, -1);
-const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-26, 36, -44) : new THREE.Vector3(-21, 27, -34);
+const ALVO = new THREE.Vector3(0, 1.0, 1.5);
+const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-20, 44, -56) : new THREE.Vector3(-23, 29, -37);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
