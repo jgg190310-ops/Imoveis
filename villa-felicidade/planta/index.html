@@ -1336,10 +1336,10 @@ const CASAS = [
     piso(lx + 2.2, lx + 6.4, lz - .8, lz + .8, .34, MAT.deck, G.externo, .12);
     [[lx + 2.5, lz - .6], [lx + 2.5, lz + .6], [lx + 6.1, lz - .6], [lx + 6.1, lz + .6]].forEach(([x, z]) => cil(.09, .09, .34, MAT.madeiraMed, x, 0, z, G.externo, 8));
     // fogueira perto da piscina
-    const fg = grupo(6.4, 13.6, 0, G.externo, 0);
+    const fg = grupo(-7.4, 17.6, 0, G.externo, 0);
     for (let i = 0; i < 12; i++) { const a = i / 12 * Math.PI * 2; caixa(.42, .22, .22, MAT2.pedra, Math.sin(a) * .9, .1, Math.cos(a) * .9, fg, false); }
     for (let i = 0; i < 5; i++) { const a = i / 5 * Math.PI * 2; const t = new THREE.Mesh(new THREE.CylinderGeometry(.06, .07, 1.0, 6), MAT.madeiraEsc); t.position.set(Math.sin(a) * .22, .45, Math.cos(a) * .22); t.rotation.z = Math.sin(a) * .34; t.rotation.x = -Math.cos(a) * .34; fg.add(t); }
-    [[4.2, 13.6, Math.PI / 2], [8.6, 13.6, -Math.PI / 2], [6.4, 11.4, 0], [6.4, 15.8, Math.PI]].forEach(([x, z, r]) => cadeiraPlastico(x, z, r, G.externo));
+    [[-9.6, 17.6, Math.PI / 2], [-5.2, 17.6, -Math.PI / 2], [-7.4, 15.4, 0], [-7.4, 19.8, Math.PI]].forEach(([x, z, r]) => cadeiraPlastico(x, z, r, G.externo));
     // estacionamento de terra junto ao portao
     [[-6.0, 21.6, 0, 1], [-2.8, 21.6, 0, 2], [10.0, 21.6, 0, 3]].forEach(([x, z, r, k]) => carro(x, z, r, G.externo, MAT2['carro' + k]));
     // cerca de madeira do pasto, no fundo
@@ -1351,7 +1351,7 @@ const CASAS = [
     { id: 'sacada', nome: 'Sacada', sub: 'do andar de cima', pos: [-6, 5.0, 1.4], tipo: 'ext2', d: 30 },
     { id: 'piscina', nome: 'Piscina', sub: 'privativa, o ano todo', pos: [0, 1.0, 10.5], tipo: 'ext', d: 30 },
     { id: 'gourmet', nome: 'Churrasqueira', sub: 'com forno e mesa grande', pos: [13.6, 3.2, 8.4], tipo: 'ext', d: 26 },
-    { id: 'fogueira', nome: 'Fogueira', sub: 'ao ar livre', pos: [6.4, 1.2, 13.6], tipo: 'ext', d: 22 },
+    { id: 'fogueira', nome: 'Fogueira', sub: 'ao ar livre', pos: [-7.4, 1.2, 17.6], tipo: 'ext', d: 22 },
     { id: 'lago', nome: 'Lago de pesca', sub: 'com devolução dos peixes', pos: [-17.5, 1.2, 19.5], tipo: 'ext', d: 40 },
     { id: 'estac', nome: 'Estacionamento', sub: 'dentro do sítio', pos: [-4.0, 1.6, 21.6], tipo: 'ext', d: 30 },
     { id: 'pasto', nome: 'Pasto', sub: 'os bois e as vacas do sítio', pos: [0, 1.6, -11.0], tipo: 'ext', d: 40 },
