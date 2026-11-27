@@ -122,6 +122,10 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
   .topo .marca{font-size:10.5px;letter-spacing:.12em}
   .topo a{font-size:10.5px;padding:9px 13px}
   .dica{font-size:11.6px;white-space:normal;max-width:calc(100vw - 28px);text-align:center}
+  .ctrl{flex-wrap:wrap;justify-content:center;border-radius:26px;overflow:visible;
+    gap:7px;padding:7px;max-width:calc(100vw - 22px)}
+  .seg button{padding:8px 13px;font-size:12px}
+  .ctrl .ic{width:34px;height:34px}
 }
 </style>
 </head>
@@ -838,7 +842,7 @@ Object.values(EXT).forEach(r => rotulo(r, 'ext', 1.2));
 
 /* ===================== CÂMERA E ESTADO ===================== */
 const ALVO = new THREE.Vector3(0, 1.0, -1);
-const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-13, 34, -46) : new THREE.Vector3(-20, 25, -33);
+const VISTA_INICIAL = MOBILE ? new THREE.Vector3(-15, 38, -54) : new THREE.Vector3(-20, 25, -33);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
