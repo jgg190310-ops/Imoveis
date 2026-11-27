@@ -102,6 +102,8 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
   font:400 12.4px var(--sans);white-space:nowrap;transition:opacity .6s}
 .dica.off{opacity:0;pointer-events:none}
 
+body.embed .topo,body.embed .titulo,body.embed .amb,body.embed .ctrl,body.embed .dica{display:none}
+body.embed .rot{font-size:10.5px;padding:3px 8px}
 #carregando{position:fixed;inset:0;z-index:95;display:grid;place-items:center;
   background:#cfe4ea;transition:opacity .5s}
 #carregando.off{opacity:0;pointer-events:none}
@@ -186,6 +188,8 @@ import { CSS2DRenderer, CSS2DObject } from './vendor/CSS2DRenderer.js';
 /* ===================== BASE ===================== */
 const host = document.getElementById('cena');
 const MOBILE = innerWidth < 900 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+const EMBED = /(?:\?|&)embed=1\b/.test(location.search);
+if (EMBED) document.body.classList.add('embed');
 
 const renderer = new THREE.WebGLRenderer({ antialias: !MOBILE, powerPreference: 'high-performance' });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -211,6 +215,7 @@ controls.dampingFactor = .07;
 controls.minDistance = 7;
 controls.maxDistance = 115;
 controls.maxPolarAngle = Math.PI / 2 - .03;
+if (EMBED) { controls.autoRotate = true; controls.autoRotateSpeed = .55; controls.enabled = false; }
 
 /* ===================== LUZ ===================== */
 scene.add(new THREE.HemisphereLight('#eef8ff', '#bfc7a8', .95));
@@ -428,17 +433,20 @@ function banheiro(g, r, y = 0) {
   caixa(g, .04, 1.9, .9, M.vidro, cx - .45, y + .02, r.z1 - .7, false);
 }
 function rede(g, x0, x1, z, y, mat) {
-  const meio = (x0 + x1) / 2, vao = x1 - x0;
+  const meio = (x1 - x0) / 2;
   const curva = new THREE.CatmullRomCurve3([
-    new THREE.Vector3(x0, y, z),
-    new THREE.Vector3(meio, y - .55, z),
-    new THREE.Vector3(x1, y, z)
+    new THREE.Vector3(-meio, 0, 0),
+    new THREE.Vector3(0, -.58, 0),
+    new THREE.Vector3(meio, 0, 0)
   ]);
-  const m = new THREE.Mesh(new THREE.TubeGeometry(curva, 18, .26, 7, false), mat);
-  m.scale.z = 1.9; m.position.z = z - z * 0 ; m.castShadow = true;
+  const m = new THREE.Mesh(new THREE.TubeGeometry(curva, 20, .3, 8, false), mat);
+  m.scale.z = 1.7;
+  m.position.set((x0 + x1) / 2, y, z);
+  m.castShadow = true; m.receiveShadow = true;
   g.add(m);
-  caixa(g, .06, .06, .06, mat, x0, y, z, false);
-  caixa(g, .06, .06, .06, mat, x1, y, z, false);
+  /* cordas */
+  caixa(g, .07, .5, .07, mat, x0, y - .25, z, false);
+  caixa(g, .07, .5, .07, mat, x1, y - .25, z, false);
   return m;
 }
 function cadeiraVime(g, x, z, rot = 0) {
@@ -710,10 +718,10 @@ function carro(g, x, z, mat, rot = 0) {
   caixa(g, .5, .08, .5, M.inox, p.x1 + 1.9, 2.3, p.z1 - .8, false);
 
   /* coqueiros e arbustos */
-  coqueiro(g, 18.2, 20.0, 7.4);
-  coqueiro(g, 18.3, 25.6, 6.6);
-  coqueiro(g, 12.0, 27.0, 7.0);
-  coqueiro(g, 17.6, 9.6, 6.8);
+  coqueiro(g, 18.2, 19.8, 5.8);
+  coqueiro(g, 18.3, 26.4, 5.2);
+  coqueiro(g, 11.9, 27.2, 5.6);
+  coqueiro(g, 17.8, 9.4, 5.4);
   [[2.2, 20.4], [3.6, 20.4], [9.6, 20.6], [2.2, 26.6], [9.9, 26.9], [6.0, 27.3]].forEach(([x, z]) => arbusto(g, x, z, .72));
   /* mesa e bancos no quintal (grama sintetica) */
   mesaMad(g, 5.6, 22.6);
@@ -749,7 +757,7 @@ function rotulo(r, grupo, y) {
   return o;
 }
 Object.values(T).forEach(r => rotulo(r, 'casa', 1.9));
-Object.values(EXT).forEach(r => rotulo(r, 'ext', 1.2));
+Object.values(EXT).filter(r => r !== EXT.deck).forEach(r => rotulo(r, 'ext', 1.2));
 
 /* ===================== CÂMERA E ESTADO ===================== */
 const ALVO = new THREE.Vector3(-1, 1.0, 1);
