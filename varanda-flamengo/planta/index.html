@@ -510,8 +510,8 @@ function guardaSol(g, x, z) {
   caixa(g, 1.5, 1.4, .09, M.portao, 7.2, 0, .35);
 
   /* vegetação */
-  coqueiro(g, 14.6, 3.0, 8.4);
-  coqueiro(g, 20.2, 3.6, 7.2);
+  coqueiro(g, 13.4, 2.0, 8.4);
+  coqueiro(g, 21.2, 2.6, 7.2);
   coqueiro(g, 20.6, 16.4, 7.8);
   coqueiro(g, 11.9, 16.4, 7.4);
   coqueiro(g, 2.4, 16.6, 6.6);
@@ -787,7 +787,7 @@ seg('segFoco', 'data-f', v => {
     irPara(new THREE.Vector3(-13, 16, -13), new THREE.Vector3(-5.5, 1.2, 1.0));
   } else if (v === 'lazer') {
     aplicar();
-    irPara(new THREE.Vector3(4, 15, -10), new THREE.Vector3(6.5, .4, 1.0));
+    irPara(new THREE.Vector3(8.5, 16, -6.5), new THREE.Vector3(6.3, .4, 1.2));
   } else { aplicar(); reset(); }
 });
 document.getElementById('btnReset').addEventListener('click', () => {
