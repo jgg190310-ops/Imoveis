@@ -103,7 +103,7 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
 .dica.off{opacity:0;pointer-events:none}
 
 body.embed .topo,body.embed .titulo,body.embed .amb,body.embed .ctrl,body.embed .dica{display:none}
-body.embed .rot{font-size:10.5px;padding:3px 8px}
+body.embed .rot{display:none}
 #carregando{position:fixed;inset:0;z-index:95;display:grid;place-items:center;
   background:#cfe4ea;transition:opacity .5s}
 #carregando.off{opacity:0;pointer-events:none}
@@ -760,8 +760,9 @@ Object.values(T).forEach(r => rotulo(r, 'casa', 1.9));
 Object.values(EXT).filter(r => r !== EXT.deck).forEach(r => rotulo(r, 'ext', 1.2));
 
 /* ===================== CÂMERA E ESTADO ===================== */
-const ALVO = new THREE.Vector3(-1, 1.0, 1);
-const VISTA_INICIAL = MOBILE ? new THREE.Vector3(20, 34, 46) : new THREE.Vector3(24, 23, 30);
+const ALVO = EMBED ? new THREE.Vector3(-1, 1.6, 1) : new THREE.Vector3(-1, 1.0, 1);
+const VISTA_INICIAL = EMBED ? new THREE.Vector3(18, 17, 23)
+  : MOBILE ? new THREE.Vector3(20, 34, 46) : new THREE.Vector3(24, 23, 30);
 
 function irPara(pos, alvo, ms = 900) {
   const p0 = camera.position.clone(), a0 = controls.target.clone();
