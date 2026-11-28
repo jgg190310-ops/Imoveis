@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Casa à venda na Barra de São Miguel · Alagoas">
 <meta property="og:description" content="2 quartos, piscina privativa, toda mobiliada e clube exclusivo. A 2 minutos da praia. R$ 500.000, legalizada e financiável.">
-<meta property="og:image" content="fotos/casa-09-piscina-coqueiro.webp">
+<meta property="og:image" content="fotos/casa-10-area-piscina.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Jost:wght@300..600&display=swap" rel="stylesheet">
@@ -157,7 +157,7 @@ h3{font:600 19px var(--display);color:var(--tinta)}
   flex-wrap:wrap;margin-bottom:32px}
 .grade{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .grade .it{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer;background:var(--areia-2);padding:0;border:0}
-.grade .it:first-child{grid-column:span 2;aspect-ratio:8/3}
+#gradeClube .it:first-child{grid-column:span 2;aspect-ratio:8/3}
 .grade .it img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
 .grade .it:hover img{transform:scale(1.07)}
 .grade .it::after{content:"";position:absolute;inset:0;background:rgba(16,35,31,0);transition:background .35s}
@@ -284,14 +284,12 @@ footer .assin a{color:var(--ouro-2)}
   .fato:nth-child(2){border-right:0}
   .fato:nth-child(1),.fato:nth-child(2){border-bottom:1px solid var(--borda)}
   .grade{grid-template-columns:repeat(3,1fr)}
-  .grade .it:first-child{aspect-ratio:8/3}
 }
 @media(max-width:760px){
   #nav{display:none}
   #burger{display:grid}
   #bar .btn-ouro{display:none}
   .grade{grid-template-columns:repeat(2,1fr);gap:8px}
-  .grade .it:first-child{aspect-ratio:8/3}
   .itens,.vant{grid-template-columns:1fr}
   #lb .seta{width:44px;height:44px;font-size:22px}
   #lb .ant{left:8px}#lb .prox{right:8px}
@@ -322,7 +320,7 @@ footer .assin a{color:var(--ouro-2)}
       <a href="#local">Localização</a>
       <a href="#valores">Proposta</a>
     </nav>
-    <a class="btn btn-ouro" href="https://wa.me/5531999131903?text=Ol%C3%A1!%20Vi%20o%20site%20da%20casa%20%C3%A0%20venda%20na%20Barra%20de%20S%C3%A3o%20Miguel%20e%20quero%20agendar%20uma%20visita." target="_blank" rel="noopener">
+    <a class="btn btn-ouro" href="https://wa.me/5582981181943?text=Ol%C3%A1!%20Vi%20o%20site%20da%20casa%20%C3%A0%20venda%20na%20Barra%20de%20S%C3%A3o%20Miguel%20e%20quero%20agendar%20uma%20visita." target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.3.6-1.9.9-2.1.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.7 1 .8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.9.9c.3.1.5.2.5.4 0 .1 0 .7-.3 1.3Z"/></svg>
       Agendar visita
     </a>
@@ -341,7 +339,7 @@ footer .assin a{color:var(--ouro-2)}
   <a href="#planta3d">Planta 3D</a>
   <a href="#local">Localização</a>
   <a href="#valores">Proposta</a>
-  <a class="btn btn-ouro zap" href="https://wa.me/5531999131903?text=Ol%C3%A1!%20Vi%20o%20site%20da%20casa%20%C3%A0%20venda%20na%20Barra%20de%20S%C3%A3o%20Miguel%20e%20quero%20agendar%20uma%20visita." target="_blank" rel="noopener">Agendar visita</a>
+  <a class="btn btn-ouro zap" href="https://wa.me/5582981181943?text=Ol%C3%A1!%20Vi%20o%20site%20da%20casa%20%C3%A0%20venda%20na%20Barra%20de%20S%C3%A3o%20Miguel%20e%20quero%20agendar%20uma%20visita." target="_blank" rel="noopener">Agendar visita</a>
 </div>
 
 <main id="topo">
@@ -350,8 +348,8 @@ footer .assin a{color:var(--ouro-2)}
 <section id="hero">
   <div id="herofoto">
     <picture>
-      <source media="(max-width:760px)" srcset="fotos/casa-09-piscina-coqueiro@sm.webp">
-      <img src="fotos/casa-09-piscina-coqueiro.webp" alt="Piscina da casa iluminada à noite, entre coqueiros e bancos de madeira" fetchpriority="high">
+      <source media="(max-width:760px)" srcset="fotos/casa-10-area-piscina@sm.webp">
+      <img src="fotos/casa-10-area-piscina.webp" alt="Área da piscina da casa, com grama, deck e área gourmet iluminada" fetchpriority="high">
     </picture>
   </div>
   <div class="veu"></div>
@@ -361,7 +359,7 @@ footer .assin a{color:var(--ouro-2)}
     <p class="local">2 minutos da praia · 7 minutos do Francês</p>
     <div class="preco"><b>R$ 500.000</b><span>Legalizada · aceita financiamento</span></div>
     <div class="acoes">
-      <a class="btn btn-ouro" href="https://wa.me/5531999131903?text=Ol%C3%A1!%20Vi%20o%20site%20da%20casa%20%C3%A0%20venda%20na%20Barra%20de%20S%C3%A3o%20Miguel%20e%20quero%20agendar%20uma%20visita." target="_blank" rel="noopener">
+      <a class="btn btn-ouro" href="https://wa.me/5582981181943?text=Ol%C3%A1!%20Vi%20o%20site%20da%20casa%20%C3%A0%20venda%20na%20Barra%20de%20S%C3%A3o%20Miguel%20e%20quero%20agendar%20uma%20visita." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.3.6-1.9.9-2.1.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.7 1 .8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.9.9c.3.1.5.2.5.4 0 .1 0 .7-.3 1.3Z"/></svg>
         Agendar visita
       </a>
@@ -547,7 +545,7 @@ footer .assin a{color:var(--ouro-2)}
           <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Clube dos sócios incluso</span></div>
         </div>
         <div class="acoes">
-          <a class="btn btn-ouro" href="https://wa.me/5531999131903?text=Ol%C3%A1!%20Vi%20o%20site%20da%20casa%20%C3%A0%20venda%20na%20Barra%20de%20S%C3%A3o%20Miguel%20e%20quero%20agendar%20uma%20visita." target="_blank" rel="noopener">
+          <a class="btn btn-ouro" href="https://wa.me/5582981181943?text=Ol%C3%A1!%20Vi%20o%20site%20da%20casa%20%C3%A0%20venda%20na%20Barra%20de%20S%C3%A3o%20Miguel%20e%20quero%20agendar%20uma%20visita." target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.3.6-1.9.9-2.1.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.7 1 .8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.9.9c.3.1.5.2.5.4 0 .1 0 .7-.3 1.3Z"/></svg>
             Falar no WhatsApp
           </a>
@@ -581,13 +579,13 @@ footer .assin a{color:var(--ouro-2)}
       <a href="#planta3d">Planta 3D</a><br>
       <a href="#local">Localização</a><br>
       <a href="#valores">Proposta</a><br>
-      <a href="https://wa.me/5531999131903" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://wa.me/5582981181943" target="_blank" rel="noopener">WhatsApp</a>
     </div>
     <div class="assin">Site criado por <a href="https://jgg190310-ops.github.io/Imoveis/portfolio/" target="_blank" rel="noopener">João Gabriel Geo</a></div>
   </div>
 </footer>
 
-<a id="zapfix" href="https://wa.me/5531999131903?text=Ol%C3%A1!%20Vi%20o%20site%20da%20casa%20%C3%A0%20venda%20na%20Barra%20de%20S%C3%A3o%20Miguel%20e%20quero%20agendar%20uma%20visita." target="_blank" rel="noopener">
+<a id="zapfix" href="https://wa.me/5582981181943?text=Ol%C3%A1!%20Vi%20o%20site%20da%20casa%20%C3%A0%20venda%20na%20Barra%20de%20S%C3%A3o%20Miguel%20e%20quero%20agendar%20uma%20visita." target="_blank" rel="noopener">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.3.6-1.9.9-2.1.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.7 1 .8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.9.9c.3.1.5.2.5.4 0 .1 0 .7-.3 1.3Z"/></svg>
   Agendar visita
 </a>
@@ -614,6 +612,7 @@ var CASA=[
  ['casa-07-area-gourmet','Área gourmet com churrasqueira e bar'],
  ['casa-08-piscina-noite','Piscina iluminada à noite'],
  ['casa-09-piscina-coqueiro','Piscina entre os coqueiros'],
+ ['casa-10-area-piscina','Área da piscina com grama e deck'],
  ['casa-11-corredor','Corredor lateral coberto'],
  ['casa-12-garagem','Garagem coberta com portão']
 ];
