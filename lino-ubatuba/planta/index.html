@@ -84,6 +84,7 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
 .ctrl .ic{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;
   background:rgba(243,239,230,.1);color:var(--creme);transition:background .2s}
 .ctrl .ic:hover{background:rgba(233,196,139,.3)}
+.ctrl .ic.on{background:var(--ouro);color:var(--preto)}
 .ctrl .ic svg{width:18px;height:18px}
 
 .rot{font:400 12px var(--sans);color:var(--creme);white-space:nowrap;padding:5px 11px;border-radius:999px;
@@ -173,6 +174,10 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
     <button data-nv="1">Superior</button>
     <button data-nv="-1">Os dois</button>
   </div>
+  <button class="ic" id="btnNoite" aria-label="Modo noite" title="Modo noite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  </button>
   <button class="ic" id="btnVista" aria-label="Vista de planta">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
       <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M10 21V10"/></svg>
@@ -391,7 +396,8 @@ controls.minDistance = 4;
 controls.maxDistance = 70;
 controls.maxPolarAngle = Math.PI/2 - .02;
 
-scene.add(new THREE.HemisphereLight('#eaf3ff', '#6f6a52', 1.1));
+const hemi = new THREE.HemisphereLight('#eaf3ff', '#6f6a52', 1.1);
+scene.add(hemi);
 const sol = new THREE.DirectionalLight('#fff2dd', 2.4);
 sol.position.set(-16, 26, 12);
 sol.castShadow = true;
@@ -432,8 +438,22 @@ const M = {
   vidro:     new THREE.MeshPhysicalMaterial({color:'#cfe2e6', roughness:.05, metalness:0, transparent:true, opacity:.22, transmission:.55}),
   vidroGC:   new THREE.MeshPhysicalMaterial({color:'#cfe2e6', roughness:.06, metalness:0, transparent:true, opacity:.26, transmission:.5, side:THREE.DoubleSide}),
   esquadria: std({color:'#9a9e9d', roughness:.4, metalness:.3}),
-  folha:     std({color:'#5b7340', roughness:1})
+  folha:     std({color:'#5b7340', roughness:1}),
+  folha2:    std({color:'#6f8a4e', roughness:1}),
+  vaso:      std({color:'#b8a georgia', roughness:.8}),
+  tapete:    std({color:'#8d8373', roughness:1}),
+  tapete2:   std({color:'#6f6758', roughness:1}),
+  tapete3:   std({color:'#9b9183', roughness:1}),
+  almof:     std({color:'#c9a06a', roughness:.98}),
+  almof2:    std({color:'#53604f', roughness:.98}),
+  abajur:    std({color:'#f0e6d2', roughness:.9, emissive:'#000000'}),
+  cortina:   std({color:'#e6e1d5', roughness:1}),
+  quadro:    std({color:'#8a8375', roughness:.8}),
+  espelho:   new THREE.MeshStandardMaterial({color:'#dfe7e6', roughness:.05, metalness:.92}),
+  pisoMad:   std({color:'#b98f5e', roughness:.6}),
+  rodape:    std({color:'#fbfaf6', roughness:.5})
 };
+M.vaso = std({color:'#b4a893', roughness:.8});
 M.madPort = std({color:'#a6703f', roughness:.7});
 
 /* ========== GRUPOS ========== */
@@ -532,7 +552,7 @@ function montaParedes(mod){
         if(y0 > 0) parede(L.e, L.f, a, b, y, y0);
         if(y1 < PD - 1e-6) parede(L.e, L.f, a, b, y + y1, PD - y1);
         if(v.v) esquadria(L.e, L.f, a, b, y + y0, y1 - y0);
-        else batente(L.e, L.f, a, b, y, y1);
+        else { batente(L.e, L.f, a, b, y, y1); if(y1 > 1.9 && b - a < 1.3) folhaPorta(L.e, L.f, a, b, y, y1); }
       });
     });
 
@@ -543,6 +563,10 @@ const CORTE = 1.18;
 function bloco(grupo, e, f, a, b, y, h){
   if(e === 'x') caixa(grupo, b - a, h, ESP, M.paredeExt, (a+b)/2, y, f);
   else caixa(grupo, ESP, h, b - a, M.paredeExt, f, y, (a+b)/2);
+  if(Math.abs(y - NVC * NIV) < 1e-6 && b - a > .25){
+    if(e === 'x') caixa(grupo, b - a, .1, ESP + .06, M.rodape, (a+b)/2, y, f, false);
+    else caixa(grupo, ESP + .06, .1, b - a, M.rodape, f, y, (a+b)/2, false);
+  }
 }
 function parede(e, f, a, b, y, h){
   if(b - a < .01 || h < .01) return;
@@ -569,6 +593,27 @@ function esquadria(e, f, a, b, y, h){
     caixa(G.tetos, .09, h, .07, M.esquadria, f, y, b - .035, false);
     if(w > 1.4) caixa(G.tetos, .09, h, .05, M.esquadria, f, y, (a+b)/2, false);
   }
+}
+function folhaPorta(e, f, a, b, y, h){
+  const w = Math.min(b - a - .05, .92), ang = -1.22, corte = NVC * NIV + CORTE;
+  function parte(grupo, y0, alt){
+    if(alt < .02) return;
+    const m = new THREE.Mesh(new THREE.BoxGeometry(w, alt, .04), M.madPort);
+    m.position.set(w / 2, alt / 2, 0);
+    m.castShadow = true; m.receiveShadow = true;
+    const gp = new THREE.Group();
+    gp.add(m);
+    if(e === 'x'){ gp.position.set(a + .03 - CX, y0, f - CZ); gp.rotation.y = ang; }
+    else { gp.position.set(f - CX, y0, a + .03 - CZ); gp.rotation.y = Math.PI / 2 + ang; }
+    grupo.add(gp); NIVEIS[NVC].push(gp);
+    const puxa = new THREE.Mesh(new THREE.CylinderGeometry(.018, .018, .12, 8), M.inox);
+    puxa.rotation.x = Math.PI / 2;
+    puxa.position.set(w - .09, Math.min(alt - .05, 1.02 - (y0 - (NVC * NIV))), .05);
+    if(puxa.position.y > .05 && puxa.position.y < alt - .05) gp.add(puxa);
+  }
+  const topo = y + h;
+  parte(G.paredes, y, Math.max(0, Math.min(topo, corte) - y));
+  if(topo > corte) parte(G.tetos, corte, topo - corte);
 }
 function batente(e, f, a, b, y, h){
   if(e === 'x'){
@@ -601,170 +646,324 @@ function guardaCorpo(e, f, a, b, y){
 
 /* ========== MOBÍLIA ========== */
 const g = () => G.mob;
+const LUZES = [];
+
+/* --- peças básicas --- */
+function almof(x, y, z, w, mat){
+  caixa(g(), w, w * .78, .16, mat, x, y, z, false);
+}
+function pe(x, y, z, h, mat){ caixa(g(), .07, h, .07, mat || M.madeira, x, y, z, false); }
+
 function camaCasal(x, z, y, w, c){
   w = w || 1.62; c = c || 2.0;
-  caixa(g(), w, .34, c, M.movelEsc, x, y, z);
-  caixa(g(), w - .06, .22, c - .06, M.cama, x, y + .34, z, false);
-  caixa(g(), w * .42, .1, .48, M.lencol, x - w * .22, y + .56, z - c/2 + .42, false);
-  caixa(g(), w * .42, .1, .48, M.lencol, x + w * .22, y + .56, z - c/2 + .42, false);
-  caixa(g(), w + .12, .95, .08, M.madClara, x, y, z + c/2 + .04, false);
+  caixa(g(), w, .26, c, M.movelEsc, x, y + .08, z);                       // estrado
+  for(const dx of [-w/2 + .07, w/2 - .07]) for(const dz of [-c/2 + .09, c/2 - .09]) pe(x + dx, y, z + dz, .08, M.preto);
+  caixa(g(), w - .04, .24, c - .06, M.cama, x, y + .34, z, false);        // colchão
+  caixa(g(), w - .02, .07, c * .62, M.lencol, x, y + .56, z + c * .17, false); // edredom
+  caixa(g(), w * .44, .12, .46, M.branco, x - w * .24, y + .58, z - c/2 + .40, false);
+  caixa(g(), w * .44, .12, .46, M.branco, x + w * .24, y + .58, z - c/2 + .40, false);
+  caixa(g(), w + .16, .62, .09, M.tecido2, x, y + .34, z + c/2 + .05, false);  // cabeceira estofada
+  caixa(g(), w + .16, .06, .13, M.madClara, x, y + .96, z + c/2 + .05, false);
 }
 function camaSolteiro(x, z, y){
-  caixa(g(), .95, .34, 1.92, M.movelEsc, x, y, z);
-  caixa(g(), .89, .2, 1.86, M.cama, x, y + .34, z, false);
-  caixa(g(), .5, .1, .42, M.lencol, x, y + .54, z - .72, false);
-  caixa(g(), 1.02, .8, .07, M.madClara, x, y, z + 1.0, false);
+  caixa(g(), .95, .26, 1.92, M.movelEsc, x, y + .08, z);
+  for(const dx of [-.4, .4]) for(const dz of [-.88, .88]) pe(x + dx, y, z + dz, .08, M.preto);
+  caixa(g(), .91, .22, 1.86, M.cama, x, y + .34, z, false);
+  caixa(g(), .93, .06, 1.1, M.lencol, x, y + .56, z + .34, false);
+  caixa(g(), .5, .12, .42, M.branco, x, y + .58, z - .7, false);
+  caixa(g(), 1.04, .54, .08, M.tecido2, x, y + .34, z + 1.0, false);
 }
 function criado(x, z, y){
-  caixa(g(), .46, .5, .4, M.madClara, x, y, z);
-  caixa(g(), .14, .22, .14, M.branco, x, y + .5, z, false);
+  caixa(g(), .46, .42, .4, M.madClara, x, y + .08, z);
+  for(const dx of [-.19, .19]) for(const dz of [-.16, .16]) pe(x + dx, y, z + dz, .08, M.preto);
+  caixa(g(), .4, .02, .34, M.granito, x, y + .5, z, false);
+  caixa(g(), .05, .2, .05, M.inox, x, y + .52, z, false);
+  const c = new THREE.Mesh(new THREE.CylinderGeometry(.11, .14, .16, 14), M.abajur);
+  c.position.set(x - CX, y + .8, z - CZ); c.castShadow = true; g().add(c);
+  NIVEIS[NVC].push(c);
 }
-function comodaTV(e, f, z, y, larg){
-  /* e: 'x0' encosta na parede x = f (vira para +x) · larg no eixo Z */
-  const dir = e === 'x0' ? 1 : -1;
-  caixa(g(), .45, .52, larg, M.movel, f + dir * .26, y, z);
-  caixa(g(), .06, .5, larg * .72, M.preto, f + dir * .1, y + .62, z, false);
+function comodaTV(lado, f, z, y, larg){
+  const dir = lado === 'x0' ? 1 : -1;
+  caixa(g(), .45, .46, larg, M.movel, f + dir * .26, y + .1, z);
+  caixa(g(), .45, .02, larg, M.granito, f + dir * .26, y + .56, z, false);
+  for(let i = 0; i < 2; i++) caixa(g(), .02, .03, larg * .4, M.inox, f + dir * .49, y + .2 + i * .18, z, false);
+  caixa(g(), .05, .5, larg * .72, M.preto, f + dir * .1, y + .62, z, false);     // TV
+  caixa(g(), .03, .03, larg * .72, M.inox, f + dir * .1, y + .6, z, false);
 }
 function guardaRoupa(f, z, y, larg, dir){
   caixa(g(), .58, 1.14, larg, M.movel, f + dir * .32, y, z);
+  const n = Math.max(2, Math.round(larg / .55));
+  for(let i = 1; i < n; i++)
+    caixa(g(), .012, 1.1, .02, M.movelEsc, f + dir * .04, y + .02, z - larg/2 + larg * i / n, false);
+  for(let i = 0; i < n; i++)
+    caixa(g(), .03, .03, .14, M.inox, f + dir * .03, y + .72, z - larg/2 + larg * (i + .78) / n, false);
+}
+function tapete(x, z, y, w, d, mat){
+  caixa(g(), w, .018, d, mat || M.tapete, x, y + .005, z, false);
+  caixa(g(), w + .06, .006, d + .06, M.tapete2, x, y + .002, z, false);
 }
 function sofa(x, z, y, comp, dir){
-  caixa(g(), .92, .42, comp, M.tecido, x, y, z);
-  caixa(g(), .26, .72, comp, M.tecido2, x + dir * .33, y, z, false);
-  caixa(g(), .86, .2, comp - .26, M.tecido2, x, y + .42, z, false);
-  caixa(g(), .9, .54, .24, M.tecido2, x, y + .42, z - comp/2 + .12, false);
-  caixa(g(), .9, .54, .24, M.tecido2, x, y + .42, z + comp/2 - .12, false);
+  caixa(g(), .92, .32, comp, M.tecido, x, y + .1, z);
+  for(const dx of [-.36, .36]) for(const dz of [-comp/2 + .12, comp/2 - .12]) pe(x + dx, y, z + dz, .1, M.madeira);
+  caixa(g(), .24, .62, comp, M.tecido2, x + dir * .34, y + .1, z, false);        // encosto
+  caixa(g(), .86, .16, comp - .3, M.tecido2, x, y + .42, z, false);              // assentos
+  caixa(g(), .86, .5, .22, M.tecido2, x, y + .42, z - comp/2 + .11, false);
+  caixa(g(), .86, .5, .22, M.tecido2, x, y + .42, z + comp/2 - .11, false);
+  almof(x + dir * .2, y + .58, z - comp * .26, .42, M.almof);
+  almof(x + dir * .2, y + .58, z + comp * .26, .42, M.almof2);
+}
+function poltrona(x, z, y, dir){
+  caixa(g(), .74, .3, .76, M.tecido, x, y + .12, z);
+  for(const dx of [-.28, .28]) for(const dz of [-.28, .28]) pe(x + dx, y, z + dz, .12, M.madeira);
+  caixa(g(), .66, .14, .68, M.tecido2, x, y + .42, z, false);
+  caixa(g(), .2, .5, .72, M.tecido2, x + dir * .27, y + .12, z, false);
 }
 function mesaCentro(x, z, y){
-  caixa(g(), .62, .09, 1.1, M.madClara, x, y + .33, z, false);
-  for(const dx of [-.24, .24]) for(const dz of [-.44, .44]) caixa(g(), .07, .33, .07, M.preto, x + dx, y, z + dz, false);
+  caixa(g(), .66, .06, 1.08, M.madClara, x, y + .36, z, false);
+  caixa(g(), .56, .04, .96, M.movelEsc, x, y + .18, z, false);
+  for(const dx of [-.26, .26]) for(const dz of [-.44, .44]) pe(x + dx, y, z + dz, .36, M.preto);
+  caixa(g(), .14, .05, .2, M.branco, x, y + .42, z - .2, false);
+  const v = new THREE.Mesh(new THREE.CylinderGeometry(.07, .05, .18, 12), M.vidroGC);
+  v.position.set(x - CX + .12, y + .51, z - CZ + .22); g().add(v); NIVEIS[NVC].push(v);
 }
 function rackTV(f, z, y, larg, dir){
-  caixa(g(), .4, .42, larg, M.movel, f + dir * .22, y, z);
-  caixa(g(), .055, .52, larg * .66, M.preto, f + dir * .1, y + .6, z, false);
+  caixa(g(), .38, .34, larg, M.movel, f + dir * .22, y + .14, z);
+  for(const dz of [-larg/2 + .12, larg/2 - .12]) pe(f + dir * .22, y, z + dz, .14, M.preto);
+  caixa(g(), .02, .03, larg * .5, M.inox, f + dir * .4, y + .3, z, false);
+  caixa(g(), .055, .52, larg * .66, M.preto, f + dir * .11, y + .56, z, false);   // TV
+  caixa(g(), .14, .03, .12, M.inox, f + dir * .11, y + .53, z, false);
+  caixa(g(), .1, .14, .3, M.movelEsc, f + dir * .22, y + .48, z - larg * .3, false);
+}
+function luminariaPe(x, z, y){
+  caixa(g(), .26, .03, .26, M.preto, x, y, z, false);
+  const h = new THREE.Mesh(new THREE.CylinderGeometry(.02, .02, 1.1, 10), M.preto);
+  h.position.set(x - CX, y + .58, z - CZ); g().add(h); NIVEIS[NVC].push(h);
+  const c = new THREE.Mesh(new THREE.CylinderGeometry(.17, .21, .24, 16), M.abajur);
+  c.position.set(x - CX, y + 1.2, z - CZ); c.castShadow = true; g().add(c); NIVEIS[NVC].push(c);
 }
 function mesaJantar(x, z, y, n){
-  const c = n >= 6 ? 1.75 : 1.15, l = .92;
-  caixa(g(), l, .07, c, M.marmore, x, y + .73, z, false);
-  for(const dx of [-l/2 + .12, l/2 - .12]) for(const dz of [-c/2 + .14, c/2 - .14])
-    caixa(g(), .07, .73, .07, M.madClara, x + dx, y, z + dz, false);
+  const c = n >= 6 ? 1.8 : 1.2, l = .95;
+  caixa(g(), l, .06, c, M.marmore, x, y + .74, z, false);
+  caixa(g(), l - .12, .05, c - .12, M.madClara, x, y + .69, z, false);
+  for(const dx of [-l/2 + .13, l/2 - .13]) for(const dz of [-c/2 + .15, c/2 - .15]) pe(x + dx, y, z + dz, .69, M.madClara);
   const k = n >= 6 ? 3 : 2;
   for(let i = 0; i < k; i++){
     const zz = z - c/2 + c * (i + .5) / k;
-    for(const dx of [-l/2 - .26, l/2 + .26]){
-      caixa(g(), .46, .44, .46, M.movel, x + dx, y, zz);
-      caixa(g(), .1, .5, .46, M.movel, x + dx + (dx < 0 ? -.17 : .17), y + .44, zz, false);
+    for(const s of [-1, 1]){
+      const cx2 = x + s * (l/2 + .3);
+      caixa(g(), .44, .06, .44, M.movel, cx2, y + .43, zz, false);
+      for(const dx of [-.17, .17]) for(const dz of [-.17, .17]) pe(cx2 + dx, y, zz + dz, .43, M.madClara);
+      caixa(g(), .07, .52, .42, M.tecido2, cx2 + s * .18, y + .49, zz, false);
     }
   }
+  caixa(g(), .26, .02, .5, M.branco, x, y + .8, z, false);
+}
+function pendente(x, z, y, n){
+  for(let i = 0; i < (n || 1); i++){
+    const dx = (n > 1 ? (i - (n - 1) / 2) * .5 : 0);
+    const fio = new THREE.Mesh(new THREE.CylinderGeometry(.008, .008, .9, 6), M.preto);
+    fio.position.set(x + dx - CX, y + PD - .45, z - CZ); G.tetos.add(fio); NIVEIS[NVC].push(fio);
+    const cu = new THREE.Mesh(new THREE.ConeGeometry(.16, .22, 16, 1, true), M.abajur);
+    cu.position.set(x + dx - CX, y + PD - .98, z - CZ); G.tetos.add(cu); NIVEIS[NVC].push(cu);
+  }
+}
+function cortina(eixo, f, a, b, y){
+  const lar = .18;
+  for(const t of [[a - .14, .28], [b + .14, .28]]){
+    if(eixo === 'x') caixa(G.tetos, t[1], PD - .12, lar, M.cortina, t[0], y + .06, f + .14, false);
+    else caixa(G.tetos, lar, PD - .12, t[1], M.cortina, f + .14, y + .06, t[0], false);
+  }
+}
+function quadro(eixo, f, p, y, dir){
+  if(eixo === 'x') caixa(G.tetos, .62, .46, .035, M.quadro, p, y + 1.42, f + dir * .09, false);
+  else caixa(G.tetos, .035, .46, .62, M.quadro, f + dir * .09, y + 1.42, p, false);
+}
+function planta(x, z, y, h){
+  const v = new THREE.Mesh(new THREE.CylinderGeometry(.2, .15, .32, 12), M.vaso);
+  v.position.set(x - CX, y + .16, z - CZ); v.castShadow = true; g().add(v); NIVEIS[NVC].push(v);
+  const c = new THREE.Mesh(new THREE.IcosahedronGeometry(h || .42, 1), M.folha);
+  c.position.set(x - CX, y + .34 + (h || .42) * .8, z - CZ); c.castShadow = true; g().add(c); NIVEIS[NVC].push(c);
+  const c2 = new THREE.Mesh(new THREE.IcosahedronGeometry((h || .42) * .6, 1), M.folha2);
+  c2.position.set(x - CX + (h || .42) * .4, y + .34 + (h || .42) * 1.3, z - CZ - .1); c2.castShadow = true; g().add(c2); NIVEIS[NVC].push(c2);
 }
 function bancadaCoz(r, y){
-  const lx = r[2] - r[0], lz = r[3] - r[1];
-  /* bancada em L: ao longo de x0 e do fundo */
-  caixa(g(), .6, .86, lz - .3, M.movel, r[0] + .33, y, (r[1] + r[3]) / 2);
-  caixa(g(), .64, .05, lz - .3, M.granito, r[0] + .34, y + .86, (r[1] + r[3]) / 2, false);
-  caixa(g(), .42, .09, .34, M.inox, r[0] + .3, y + .87, r[1] + lz * .32, false);
-  caixa(g(), .56, .03, .52, M.preto, r[0] + .32, y + .91, r[1] + lz * .68, false);
-  caixa(G.tetos, .34, .66, lz - .9, M.movel, r[0] + .2, y + 1.62, (r[1] + r[3]) / 2, false);
-  /* coifa */
-  caixa(G.tetos, .4, .3, .56, M.inox, r[0] + .28, y + 1.7, r[1] + lz * .68, false);
-  /* geladeira do outro lado */
-  if(lx > 2.1) caixa(g(), .7, 1.14, .72, M.branco, r[2] - .42, y, r[3] - .5);
+  const lx = r[2] - r[0], lz = r[3] - r[1], cz = (r[1] + r[3]) / 2;
+  caixa(g(), .6, .84, lz - .3, M.movel, r[0] + .33, y + .04, cz);                 // armários
+  caixa(g(), .64, .04, lz - .3, M.granito, r[0] + .34, y + .88, cz, false);       // bancada
+  caixa(g(), .6, .04, lz - .3, M.movelEsc, r[0] + .33, y, cz, false);             // rodapé
+  const nA = Math.max(2, Math.round((lz - .3) / .55));
+  for(let i = 0; i < nA; i++){
+    const zz = r[1] + .15 + (lz - .3) * (i + .5) / nA;
+    caixa(g(), .03, .03, .22, M.inox, r[0] + .63, y + .66, zz, false);
+    caixa(g(), .012, .8, .02, M.movelEsc, r[0] + .63, y + .06, r[1] + .15 + (lz - .3) * i / nA, false);
+  }
+  caixa(g(), .44, .06, .36, M.inox, r[0] + .3, y + .86, r[1] + lz * .3, false);    // cuba
+  const tor = new THREE.Mesh(new THREE.CylinderGeometry(.018, .018, .3, 8), M.inox);
+  tor.position.set(r[0] + .14 - CX, y + 1.05, r[1] + lz * .3 - CZ); g().add(tor); NIVEIS[NVC].push(tor);
+  caixa(g(), .56, .02, .5, M.preto, r[0] + .32, y + .92, r[1] + lz * .66, false);  // cooktop
+  for(const dx of [-.13, .13]) for(const dz of [-.12, .12])
+    caixa(g(), .11, .015, .11, M.inox, r[0] + .32 + dx, y + .94, r[1] + lz * .66 + dz, false);
+  caixa(G.tetos, .34, .66, lz - .9, M.movel, r[0] + .2, y + 1.62, cz, false);      // aéreos
+  caixa(G.tetos, .4, .3, .56, M.inox, r[0] + .28, y + 1.7, r[1] + lz * .66, false);// coifa
+  if(lx > 2.1){
+    caixa(g(), .7, 1.14, .72, M.branco, r[2] - .42, y, r[3] - .5);                 // geladeira
+    caixa(g(), .03, .5, .03, M.inox, r[2] - .78, y + .5, r[3] - .5, false);
+    caixa(g(), .72, .015, .72, M.inox, r[2] - .42, y + 1.14, r[3] - .5, false);
+  }
 }
 function banheiro(r, y){
-  const lx = r[2] - r[0], lz = r[3] - r[1];
-  piso(g(), [r[0] + .04, r[1] + .04, r[2] - .04, r[3] - .04], M.pisoMolh, y + .01, .02);
-  /* box no fundo */
-  const bz = Math.min(.95, lz * .34);
-  caixa(g(), lx - .16, .06, bz, M.azulejo, (r[0]+r[2])/2, y + .02, r[3] - .08 - bz/2, false);
-  caixa(G.tetos, lx - .16, 1.95, .025, M.vidroGC, (r[0]+r[2])/2, y + .06, r[3] - .1 - bz, false);
-  caixa(G.tetos, .06, .06, .06, M.inox, r[0] + .3, y + 1.9, r[3] - .2, false);
-  /* vaso */
-  caixa(g(), .38, .4, .56, M.branco, r[0] + .34, y, r[1] + lz * .52);
-  caixa(g(), .36, .52, .18, M.branco, r[0] + .34, y + .4, r[1] + lz * .52 + .22, false);
-  /* bancada e espelho */
-  caixa(g(), lx * .56, .18, .48, M.marmore, r[2] - lx * .3, y + .78, r[1] + .42, false);
-  caixa(G.tetos, lx * .5, .62, .03, M.vidroGC, r[2] - lx * .3, y + 1.12, r[1] + .2, false);
-  caixa(g(), lx * .52, .54, .44, M.movel, r[2] - lx * .3, y + .24, r[1] + .42, false);
+  const lx = r[2] - r[0], lz = r[3] - r[1], cx = (r[0] + r[2]) / 2;
+  const bz = Math.min(1.0, lz * .36);
+  caixa(g(), lx - .16, .04, bz, M.azulejo, cx, y + .01, r[3] - .08 - bz/2, false); // piso do box
+  caixa(G.tetos, lx - .16, 1.95, .02, M.vidroGC, cx, y + .06, r[3] - .1 - bz, false);
+  caixa(G.tetos, .05, 1.95, .05, M.inox, r[0] + .1, y + .06, r[3] - .1 - bz, false);
+  const ch = new THREE.Mesh(new THREE.CylinderGeometry(.1, .1, .03, 14), M.inox);
+  ch.position.set(cx - CX, y + 2.12, r[3] - .35 - CZ); G.tetos.add(ch); NIVEIS[NVC].push(ch);
+  caixa(g(), .38, .38, .56, M.branco, r[0] + .34, y + .04, r[1] + lz * .5);        // vaso
+  caixa(g(), .34, .42, .2, M.branco, r[0] + .34, y + .42, r[1] + lz * .5 + .24, false);
+  caixa(g(), .36, .06, .42, M.branco, r[0] + .34, y + .42, r[1] + lz * .5 - .02, false);
+  const bl = Math.min(lx * .56, 1.1);
+  caixa(g(), bl, .46, .46, M.movel, r[2] - lx * .3, y + .3, r[1] + .4, false);     // gabinete
+  caixa(g(), bl + .04, .05, .5, M.marmore, r[2] - lx * .3, y + .8, r[1] + .4, false);
+  caixa(g(), .34, .09, .3, M.branco, r[2] - lx * .3, y + .85, r[1] + .4, false);   // cuba
+  const t2 = new THREE.Mesh(new THREE.CylinderGeometry(.015, .015, .22, 8), M.inox);
+  t2.position.set(r[2] - lx * .3 - CX, y + .96, r[1] + .2 - CZ); g().add(t2); NIVEIS[NVC].push(t2);
+  caixa(G.tetos, bl, .66, .025, M.espelho, r[2] - lx * .3, y + 1.12, r[1] + .14, false);
+  caixa(g(), .04, .04, .5, M.inox, r[2] - .1, y + 1.0, r[1] + lz * .62, false);    // toalheiro
+  caixa(g(), .14, .5, .44, M.lencol, r[2] - .16, y + .62, r[1] + lz * .62, false); // toalha
 }
 function servico(r, y){
   const lx = r[2] - r[0];
-  piso(g(), [r[0] + .04, r[1] + .04, r[2] - .04, r[3] - .04], M.pisoMolh, y + .01, .02);
-  caixa(g(), .62, .9, .6, M.branco, r[0] + .4, y, r[3] - .45);
-  caixa(g(), .6, .06, .58, M.inox, r[0] + .4, y + .9, r[3] - .45, false);
-  caixa(g(), .62, .85, .62, M.branco, Math.min(r[0] + 1.2, r[2] - .4), y, r[3] - .45);
-  caixa(g(), .34, .34, .04, M.preto, Math.min(r[0] + 1.2, r[2] - .4), y + .42, r[3] - .78, false);
+  caixa(g(), .62, .84, .6, M.branco, r[0] + .4, y + .04, r[3] - .45);
+  caixa(g(), .64, .05, .62, M.inox, r[0] + .4, y + .88, r[3] - .45, false);
+  caixa(g(), .4, .05, .36, M.inox, r[0] + .4, y + .86, r[3] - .45, false);
+  const t = new THREE.Mesh(new THREE.CylinderGeometry(.016, .016, .26, 8), M.inox);
+  t.position.set(r[0] + .4 - CX, y + 1.03, r[3] - .68 - CZ); g().add(t); NIVEIS[NVC].push(t);
+  const mx = Math.min(r[0] + 1.22, r[2] - .42);
+  caixa(g(), .62, .85, .62, M.branco, mx, y, r[3] - .45);                           // máquina
+  const vis = new THREE.Mesh(new THREE.CylinderGeometry(.16, .16, .04, 18), M.vidroGC);
+  vis.rotation.x = Math.PI / 2;
+  vis.position.set(mx - CX, y + .5, r[3] - .78 - CZ); g().add(vis); NIVEIS[NVC].push(vis);
+  caixa(g(), .56, .03, .04, M.preto, mx, y + .78, r[3] - .78, false);
+  for(let i = 0; i < 3; i++) caixa(G.tetos, lx - .5, .025, .025, M.inox, (r[0]+r[2])/2, y + 1.9, r[1] + .4 + i * .22, false);
 }
 function churrasqueira(r, y){
-  const lx = r[2] - r[0], zf = r[3] - .42;
-  caixa(g(), Math.min(2.2, lx * .62), .9, .62, M.movel, r[0] + Math.min(1.2, lx * .34), y, zf);
-  caixa(g(), Math.min(2.24, lx * .63), .05, .66, M.granito, r[0] + Math.min(1.2, lx * .34), y + .9, zf, false);
-  caixa(g(), .62, .4, .5, M.preto, r[0] + Math.min(.7, lx * .2), y + .78, zf, false);
-  caixa(g(), .4, .08, .32, M.inox, r[0] + Math.min(1.8, lx * .5), y + .92, zf, false);
+  const lx = r[2] - r[0], zf = r[3] - .45, bw = Math.min(2.3, lx * .62), bx = r[0] + Math.min(1.25, lx * .36);
+  caixa(g(), bw, .84, .62, M.movel, bx, y + .04, zf);
+  caixa(g(), bw + .05, .05, .67, M.granito, bx, y + .88, zf, false);
+  caixa(g(), .66, .5, .5, M.preto, bx - bw * .3, y + .93, zf, false);               // churrasqueira
+  caixa(g(), .58, .02, .42, M.inox, bx - bw * .3, y + 1.1, zf, false);              // grelha
+  caixa(g(), .6, .04, .05, M.inox, bx - bw * .3, y + 1.16, zf - .24, false);
+  caixa(g(), .4, .07, .3, M.inox, bx + bw * .22, y + .86, zf, false);               // cuba
+  const t = new THREE.Mesh(new THREE.CylinderGeometry(.016, .016, .26, 8), M.inox);
+  t.position.set(bx + bw * .22 - CX, y + 1.03, zf - .2 - CZ); g().add(t); NIVEIS[NVC].push(t);
+  for(let i = 0; i < 2; i++){                                                        // banquetas
+    const bq = new THREE.Mesh(new THREE.CylinderGeometry(.17, .17, .07, 14), M.madClara);
+    bq.position.set(bx - .4 + i * .8 - CX, y + .68, zf - .62 - CZ); bq.castShadow = true;
+    g().add(bq); NIVEIS[NVC].push(bq);
+    const pp = new THREE.Mesh(new THREE.CylinderGeometry(.035, .05, .64, 10), M.preto);
+    pp.position.set(bx - .4 + i * .8 - CX, y + .32, zf - .62 - CZ); g().add(pp); NIVEIS[NVC].push(pp);
+  }
 }
 function mesaVaranda(x, z, y, n){
-  caixa(g(), .78, .06, .78, M.madeira, x, y + .72, z, false);
-  for(const dx of [-.3, .3]) for(const dz of [-.3, .3]) caixa(g(), .06, .72, .06, M.madeira, x + dx, y, z + dz, false);
-  const p = n >= 4 ? [[-.62,0],[.62,0],[0,-.62],[0,.62]] : [[-.62,0],[.62,0]];
+  caixa(g(), .8, .05, .8, M.madeira, x, y + .73, z, false);
+  for(const dx of [-.31, .31]) for(const dz of [-.31, .31]) pe(x + dx, y, z + dz, .73, M.madeira);
+  const p = n >= 4 ? [[-.66,0],[.66,0],[0,-.66],[0,.66]] : [[-.66,0],[.66,0]];
   p.forEach(function(d){
-    caixa(g(), .4, .42, .4, M.madeira, x + d[0], y, z + d[1]);
-    caixa(g(), .4, .46, .08, M.madeira, x + d[0], y + .42, z + d[1] + (d[1] > 0 ? .16 : -.16), false);
+    caixa(g(), .4, .05, .4, M.madeira, x + d[0], y + .43, z + d[1], false);
+    for(const dx of [-.15, .15]) for(const dz of [-.15, .15]) pe(x + d[0] + dx, y, z + d[1] + dz, .43, M.madeira);
+    caixa(g(), d[0] ? .06 : .4, .46, d[0] ? .4 : .06, M.madeira,
+      x + d[0] + (d[0] ? d[0] * .18 : 0), y + .48, z + d[1] + (d[1] ? d[1] * .18 : 0), false);
   });
 }
-function planta(x, z, y, h){
-  cil(g(), .2, .16, .3, M.movelEsc, x, y, z, 10);
-  const c = new THREE.Mesh(new THREE.IcosahedronGeometry(h || .44, 1), M.folha);
-  c.position.set(x - CX, y + .3 + (h || .44) * .78, z - CZ);
-  c.castShadow = true; g().add(c);
-}
 function escada(r, y){
-  const n = 12, lx = r[2] - r[0], passo = (NIV) / n, prof = Math.min(.27, (r[3] - r[1] - .3) / n);
-  for(let i = 0; i < n; i++)
-    caixa(g(), Math.min(1.1, lx - .3), .06, prof, M.madClara, r[0] + .65, y - NIV + passo * (i + 1) - .06, r[1] + .2 + prof * i, false);
+  const n = 13, lx = Math.min(1.1, r[2] - r[0] - .3), passo = NIV / n, prof = Math.min(.27, (r[3] - r[1] - .3) / n);
+  for(let i = 0; i < n; i++){
+    caixa(g(), lx, .05, prof, M.madClara, r[0] + .65, y - NIV + passo * (i + 1) - .05, r[1] + .2 + prof * i, false);
+    caixa(g(), lx, passo - .05, .04, M.movel, r[0] + .65, y - NIV + passo * i, r[1] + .2 + prof * i, false);
+  }
+  for(let i = 0; i < n; i += 3)
+    caixa(g(), .04, .9, .04, M.inox, r[0] + .65 + lx/2, y - NIV + passo * (i + 1), r[1] + .2 + prof * i, false);
+}
+function bancadaStudio(r, y){
+  const lz = r[3] - r[1];
+  caixa(g(), .6, .84, 2.0, M.movel, r[2] - .35, y + .04, r[1] + lz * .5);
+  caixa(g(), .64, .04, 2.04, M.granito, r[2] - .36, y + .88, r[1] + lz * .5, false);
+  caixa(g(), .4, .06, .34, M.inox, r[2] - .34, y + .86, r[1] + lz * .5 - .6, false);
+  caixa(g(), .5, .02, .46, M.preto, r[2] - .34, y + .92, r[1] + lz * .5 + .5, false);
+  caixa(G.tetos, .34, .62, 1.6, M.movel, r[2] - .22, y + 1.64, r[1] + lz * .5, false);
+  caixa(g(), .66, 1.12, .68, M.branco, r[2] - .4, y, r[3] - .55);
 }
 
+/* --- ambientes --- */
 function salaMob(r, y){
-  const lx = r[2]-r[0], lz = r[3]-r[1], cx = (r[0]+r[2])/2;
-  const zE = r[1] + Math.min(1.95, lz * .34);
+  const lx = r[2] - r[0], lz = r[3] - r[1], cx = (r[0] + r[2]) / 2;
+  const zE = r[1] + Math.min(1.95, lz * .33);
+  tapete(cx, zE, y, Math.min(2.6, lx * .72), Math.min(2.5, lz * .5));
   rackTV(r[0], zE, y, Math.min(1.9, lz * .44), 1);
   sofa(r[2] - .62, zE, y, Math.min(2.1, lz * .46), 1);
-  caixa(g(), Math.min(2.4, (r[2]-r[0]) * .66), .02, Math.min(2.4, lz * .5), M.tecido, cx, y + .02, zE, false);
   mesaCentro(cx, zE, y);
-  if(lz > 4.1) mesaJantar(cx, r[3] - 1.45, y, lz > 4.9 ? 6 : 4);
-  planta(r[0] + .5, r[3] - .55, y, .42);
+  if(lx > 3.4) poltrona(cx + lx * .06, zE - Math.min(1.5, lz * .3), y, -1);
+  luminariaPe(r[2] - .5, zE - Math.min(1.4, lz * .3), y);
+  planta(r[0] + .5, r[3] - .55, y, .46);
+  if(lz > 4.1){
+    const zj = r[3] - 1.5;
+    mesaJantar(cx, zj, y, lz > 4.9 ? 6 : 4);
+    pendente(cx, zj, y, lz > 4.9 ? 2 : 1);
+  }
 }
 function quartoMob(r, y, casal){
-  const lx = r[2]-r[0], lz = r[3]-r[1], cx = (r[0]+r[2])/2;
+  const lx = r[2] - r[0], lz = r[3] - r[1], cx = (r[0] + r[2]) / 2;
+  tapete(cx, r[3] - 1.5, y, Math.min(2.2, lx * .8), Math.min(2.4, lz * .62), M.tapete3);
   if(casal){
-    camaCasal(cx, r[3] - 1.2, y);
-    if(lx > 2.9){ criado(cx - 1.08, r[3] - .35, y); criado(cx + 1.08, r[3] - .35, y); }
+    camaCasal(cx, r[3] - 1.25, y);
+    if(lx > 2.9){ criado(cx - 1.08, r[3] - .4, y); criado(cx + 1.08, r[3] - .4, y); }
+    else criado(cx - .98, r[3] - .4, y);
   }else{
-    camaSolteiro(cx - .62, r[3] - 1.15, y);
-    camaSolteiro(cx + .62, r[3] - 1.15, y);
+    camaSolteiro(cx - .64, r[3] - 1.2, y);
+    camaSolteiro(cx + .64, r[3] - 1.2, y);
+    criado(cx, r[3] - .45, y);
   }
-  if(lx > 2.3) comodaTV('x0', r[0], r[1] + Math.min(1.5, lz * .42), y, Math.min(1.7, lz * .5));
+  if(lx > 2.3) comodaTV('x0', r[0], r[1] + Math.min(1.45, lz * .4), y, Math.min(1.7, lz * .5));
   if(lx > 2.9) guardaRoupa(r[2], r[1] + Math.min(1.3, lz * .4), y, Math.min(1.6, lz * .44), -1);
+  quadro('x', r[3], cx, y, -1);
 }
 function hallMob(r, y){
-  const lx = r[2]-r[0], lz = r[3]-r[1], cz = (r[1]+r[3])/2;
+  const lx = r[2] - r[0], lz = r[3] - r[1], cz = (r[1] + r[3]) / 2;
   if(lx < 1.5 || lz < 1.1) return;
-  caixa(g(), .4, .82, Math.min(1.2, lz * .55), M.madClara, r[0] + .26, y, cz);
-  caixa(G.tetos, .32, .03, Math.min(.9, lz * .4), M.vidroGC, r[0] + .12, y + 1.3, cz, false);
-  planta(r[0] + .5, r[3] - .5, y, .5);
+  caixa(g(), .4, .76, Math.min(1.2, lz * .55), M.madClara, r[0] + .26, y + .1, cz);
+  for(const dz of [-.3, .3]) pe(r[0] + .26, y, cz + dz * Math.min(1.2, lz * .55), .1, M.preto);
+  caixa(G.tetos, .03, .9, Math.min(.86, lz * .4), M.espelho, r[0] + .1, y + 1.2, cz, false);
+  planta(r[0] + .55, r[3] - .5, y, .5);
   if(lx > 4){
-    caixa(g(), 1.3, .44, .42, M.madeira, r[0] + lx * .52, y, r[3] - .35);
-    caixa(g(), Math.min(3.2, lx * .5), .02, Math.min(1.4, lz * .7), M.tecido, r[0] + lx * .5, y + .02, cz, false);
-    planta(r[2] - .5, r[1] + .5, y, .46);
+    caixa(g(), 1.3, .38, .4, M.madeira, r[0] + lx * .54, y + .1, r[3] - .35);
+    for(const dx of [-.55, .55]) for(const dz of [-.14, .14]) pe(r[0] + lx * .54 + dx, y, r[3] - .35 + dz, .1, M.preto);
+    tapete(r[0] + lx * .5, cz, y, Math.min(3.2, lx * .5), Math.min(1.3, lz * .66), M.tapete2);
+    planta(r[2] - .55, r[1] + .55, y, .48);
+    quadro('x', r[1], r[0] + lx * .3, y, 1);
   }
 }
 function studioMob(r, y){
-  const lz = r[3] - r[1];
-  camaCasal(r[0] + 1.05, r[3] - 1.25, y, 1.5, 1.95);
-  caixa(g(), .6, .9, 2.0, M.movel, r[2] - .35, y, r[1] + lz * .5);
-  caixa(g(), .64, .05, 2.0, M.granito, r[2] - .36, y + .9, r[1] + lz * .5, false);
-  caixa(G.tetos, .34, .66, 1.6, M.movel, r[2] - .22, y + 1.62, r[1] + lz * .5, false);
-  caixa(g(), .66, 1.12, .68, M.branco, r[2] - .4, y, r[3] - .5);
-  caixa(g(), .055, .5, .98, M.preto, r[0] + .1, y + .6, r[1] + 1.1, false);
+  const lz = r[3] - r[1], cx = (r[0] + r[2]) / 2;
+  tapete(r[0] + 1.05, r[3] - 1.3, y, 1.9, 2.3, M.tapete3);
+  camaCasal(r[0] + 1.05, r[3] - 1.3, y, 1.5, 1.95);
+  criado(r[0] + .3, r[3] - .5, y);
+  bancadaStudio(r, y);
+  caixa(g(), .055, .5, .98, M.preto, r[0] + .1, y + .62, r[1] + 1.1, false);
   mesaVaranda(r[0] + 1.0, r[1] + .95, y, 2);
+  pendente(r[0] + 1.0, r[1] + .95, y, 1);
+  planta(r[2] - .5, r[1] + .5, y, .42);
+}
+function varandaMob(r, y, gourmet){
+  const lx = r[2] - r[0];
+  if(gourmet){
+    churrasqueira(r, y);
+    mesaVaranda(r[0] + Math.min(1.3, lx * .36), r[1] + .9, y, 4);
+    planta(r[2] - .45, r[1] + .5, y, .5);
+  }else if(lx > 1.6){
+    mesaVaranda((r[0] + r[2]) / 2, (r[1] + r[3]) / 2, y, 2);
+    planta(r[2] - .4, r[1] + .45, y, .38);
+  }
 }
 function mobiliar(A, y){
   const r = A.r, t = A.t;
@@ -774,8 +973,8 @@ function mobiliar(A, y){
   else if(t === 'cozinha') bancadaCoz(r, y);
   else if(t === 'banheiro') banheiro(r, y);
   else if(t === 'servico') servico(r, y);
-  else if(t === 'vgourmet'){ churrasqueira(r, y); mesaVaranda(r[0] + Math.min(1.3, (r[2]-r[0])*.4), r[1] + .85, y, 4); }
-  else if(t === 'varanda'){ if((r[2]-r[0]) > 1.6) mesaVaranda((r[0]+r[2])/2, (r[1]+r[3])/2, y, 2); }
+  else if(t === 'vgourmet') varandaMob(r, y, true);
+  else if(t === 'varanda') varandaMob(r, y, false);
   else if(t === 'hall') hallMob(r, y);
   else if(t === 'escada') escada(r, y);
   else if(t === 'studio') studioMob(r, y);
@@ -787,6 +986,7 @@ function construir(chave){
   [G.base, G.paredes, G.mob, G.tetos].forEach(limpaGrupo);
   ROTULOS.forEach(function(o){ if(o.element && o.element.parentNode) o.element.parentNode.removeChild(o.element); scene.remove(o); });
   ROTULOS = []; NIVEIS[0] = []; NIVEIS[1] = [];
+  LUZES.forEach(function(l){ scene.remove(l); }); LUZES.length = 0;
 
   let x0 = 1e9, x1 = -1e9, z0 = 1e9, z1 = -1e9;
   MOD.amb.forEach(function(A){
@@ -812,7 +1012,11 @@ function construir(chave){
     const nv = A.nv || 0, y = nv * NIV;
     NVC = nv;
     const area = (A.r[2]-A.r[0]) * (A.r[3]-A.r[1]);
-    piso(G.base, A.r, A.t === 'banheiro' || A.t === 'servico' ? M.pisoMolh : (A.ab ? M.pisoVar : M.piso), y, .08);
+    var matPiso = M.piso;
+    if(A.t === 'banheiro' || A.t === 'servico') matPiso = M.pisoMolh;
+    else if(A.ab) matPiso = M.pisoVar;
+    else if(A.t === 'suite' || A.t === 'quarto' || A.t === 'quarto2' || A.t === 'anexo') matPiso = M.pisoMad;
+    piso(G.base, A.r, matPiso, y, .08);
     mobiliar(A, y);
     if(!A.sem){
       const d = document.createElement('div');
@@ -828,12 +1032,27 @@ function construir(chave){
   montaParedes(MOD);
   NVC = 0;
 
+  var tiposLuz = {sala:1, suite:1, quarto:1, quarto2:1, cozinha:1, vgourmet:1, studio:1, hall:1};
+  LUZES.length = 0;
+  MOD.amb.forEach(function(A){
+    if(LUZES.length >= 10 || !tiposLuz[A.t] || A.sem) return;
+    var nv = A.nv || 0, yy = nv * NIV;
+    var lz = new THREE.PointLight('#ffd6a0', 0, 8.5, 2);
+    lz.position.set((A.r[0]+A.r[2])/2 - CX, yy + 2.25, (A.r[1]+A.r[3])/2 - CZ);
+    lz.visible = false;
+    scene.add(lz); LUZES.push(lz); NIVEIS[nv].push(lz);
+    NVC = nv;
+    caixa(G.tetos, .42, .04, .42, M.abajur, (A.r[0]+A.r[2])/2, yy + PD - .05, (A.r[1]+A.r[3])/2, false);
+  });
+  NVC = 0;
+
   listaAmbientes();
   document.getElementById('tNome').innerHTML = MOD.nome;
   document.getElementById('tDesc').textContent = MOD.desc;
   document.getElementById('segNivel').hidden = !MOD.duplex;
   aplicaNivel(MOD.duplex ? -1 : 0);
   reset();
+  if(typeof ehNoite !== 'undefined' && ehNoite) noite(true);
 }
 
 /* ========== INTERFACE ========== */
@@ -882,6 +1101,22 @@ function aplicaNivel(n){
     b.classList.toggle('on', +b.getAttribute('data-nv') === n);
   });
 }
+var ehNoite = false;
+function noite(on){
+  ehNoite = on;
+  scene.background.set(on ? '#0b1f26' : '#cdd6d2');
+  scene.fog.color.set(on ? '#0b1f26' : '#cdd6d2');
+  hemi.intensity = on ? .2 : 1.1;
+  sol.intensity = on ? .22 : 2.4;
+  luz2.intensity = on ? .1 : .4;
+  renderer.toneMappingExposure = on ? 1.3 : 1.05;
+  M.abajur.emissive.set(on ? '#ffcf8c' : '#000000');
+  M.abajur.emissiveIntensity = on ? 1.1 : 0;
+  M.vidroGC.opacity = on ? .14 : .26;
+  LUZES.forEach(function(l){ l.visible = on; l.intensity = on ? 2.6 : 0; });
+  document.getElementById('btnNoite').classList.toggle('on', on);
+}
+document.getElementById('btnNoite').addEventListener('click', function(){ noite(!ehNoite); });
 document.getElementById('segCorte').addEventListener('click', function(e){
   const b = e.target.closest('button'); if(b) corte(b.getAttribute('data-n'));
 });
