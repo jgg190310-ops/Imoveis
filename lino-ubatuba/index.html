@@ -126,9 +126,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   max-width:1320px;margin:0 auto;padding:30px clamp(18px,4vw,56px)}
 .fx-n{font:normal clamp(92px,11.5vw,180px)/.78 var(--num);color:var(--areia);letter-spacing:-.06em;min-width:1.2ch;
   text-shadow:0 18px 40px rgba(0,0,0,.35);transition:transform .6s cubic-bezier(.2,.8,.3,1)}
+.fx-t{min-width:0}
 .fx-t small{display:block;font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink2)}
 .fx-t h3{font-weight:800;font-size:clamp(26px,3.2vw,46px);letter-spacing:-.045em;line-height:1;margin:5px 0 7px}
-.fx-t p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(15.5px,1.3vw,18px);line-height:1.45;color:var(--ink2);max-width:48ch}
+.fx-t p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(15.5px,1.3vw,18px);line-height:1.45;color:var(--ink2);max-width:42ch}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .tags i{font-style:normal;font-size:12.5px;font-weight:500;padding:5px 11px;border-radius:999px;border:1px solid rgba(243,239,230,.26);background:rgba(6,32,31,.35)}
 .tags i.dest{background:var(--areia);border-color:var(--areia);color:#07241f;font-weight:700}
@@ -414,7 +415,7 @@ var DADOS=[
   nome:'Lazer completo e varanda gourmet',
   resumo:'130 m² a 80 metros da praia, com 3 dormitórios, 2 suítes e varanda gourmet com churrasqueira. No condomínio, piscinas aquecidas, academia, saunas e rooftop com vista para a serra e para o mar.',
   tags:['130 m²','3 dormitórios','2 suítes','10 hóspedes','Planta 3D'],
-  preco:'R$ 600',precoObs:'por noite · fora da alta temporada',
+  preco:'R$ 600',precoObs:'por noite',
   fatos:[['130 m²','área'],['3','dormitórios'],['2','suítes'],['3','banheiros'],['10','hóspedes'],['2','vagas']],
   texto:'<p>Apartamento amplo e completamente mobiliado, em uma das áreas mais procuradas da Praia Grande. São <strong>130 m²</strong> bem distribuídos, a <strong>80 metros da areia</strong>.</p>'+
     '<p>Os <strong>3 dormitórios</strong> têm varanda privativa, e <strong>2 deles são suítes</strong>. A sala e os três quartos têm ar-condicionado. A varanda gourmet, com churrasqueira privativa, é o ponto de encontro da casa.</p>'+
@@ -423,6 +424,7 @@ var DADOS=[
   comod:['Ar-condicionado','Piscina aquecida','Academia','Sauna','Rooftop','Churrasqueira','Varanda','Cozinha equipada','TV','Roupa de cama','Toalhas','2 vagas','Elevador','Portaria 24h'],
   mapa:'Praia Grande, Ubatuba - SP',
   planta:'apto130',
+  obsFotos:'Por enquanto estas são as fotos da área de lazer do condomínio. As fotos de dentro do apartamento entram assim que o proprietário enviar.',
   fotos:hs(H,['5y30l7IpaBo9gjrjY4ESvpzdyUt3kGSquxiFMC3F.png','zbn6jDmqaIYaAjRJ1gmy3lgFiVZQhKZZALFGVHOx.png','qUtNik9sFrYjUF2UCjwpAgY2R3qeuLd3DgrrYpD1.png','YCmyRyO62623C2x2HVZ4Sek62qhSAx2Kvujr6Ko3.png','jWyspbi0J1a8to4oikFZNXHyxvVYB3c1ffaW9uiY.png','byo857NRP27UzXEDOPmGhPIdOB4nhMXgXgYI09mP.png','VCzQh6CWQIBPkfrn7dmuxd1YY19HUYmVc40SbouU.png','Lnmc5h9WSOxWcpvrWhtRt0MIvrKXqRWlhAcyRbsI.png'])
 },
 {
@@ -431,7 +433,7 @@ var DADOS=[
   nome:'Três varandas e espaço zen',
   resumo:'128 m² praticamente pé na areia, com varanda privativa nos três dormitórios, churrasqueira na varanda gourmet e um condomínio com espaço zen, saunas e rooftop.',
   tags:['128 m²','3 dormitórios','2 suítes','10 hóspedes','Pet friendly'],
-  preco:'R$ 600',precoObs:'por noite · fora da alta temporada',
+  preco:'R$ 600',precoObs:'por noite',
   fatos:[['128 m²','área'],['3','dormitórios'],['2','suítes'],['3','banheiros'],['10','hóspedes'],['2','vagas']],
   texto:'<p>Apartamento mobiliado em área nobre da Praia Grande, a <strong>80 metros do mar</strong>. São <strong>128 m²</strong> com 3 dormitórios, 2 deles suítes, todos com varanda privativa.</p>'+
     '<p>A varanda gourmet tem churrasqueira privativa e abre para a sala, que também tem ar-condicionado, assim como os três quartos.</p>'+
@@ -440,7 +442,7 @@ var DADOS=[
   comod:['Wi-Fi','Ar-condicionado','Piscina','Vista para o mar','Churrasqueira','Varanda','Academia','Pet friendly','Cozinha equipada','TV','Roupa de cama','Toalhas','2 vagas','Portaria 24h'],
   mapa:'Praia Grande, Ubatuba - SP',
   planta:'apto130',
-  fotos:hs(H,['ORxVIV4e5FU1aUXZTbBhn9OOeHdHtBvLaUYevVMe.png','6cWpF3jU2T3ELJhGfomHlTWwGrfnaJW5QUL17a7f.png','0R20xJH2HNv6s7CWexnQBjEXl31Pj2Xv6A79ruaB.png','UeJE27b2eg6c5X0MRQ6Be8FqwtAgTKtMgzhVvlvT.png','gUDJBpUiNaCdoW5Lj5mmrwBPOg735nTuz9QR1Kpx.png','ck0TfV6hauhWvSImHXYB6cxkwJ3mNfTeMmOUMxM6.png','vfVfyCNeSPLhJyLN4Afp4bmIYxg10q2Pxfgd8kiL.png','29VzXWK27SSoSWmu989oRJrjicZc7atDWUKchPLt.png'])
+  fotos:hs(H,['UeJE27b2eg6c5X0MRQ6Be8FqwtAgTKtMgzhVvlvT.png','0R20xJH2HNv6s7CWexnQBjEXl31Pj2Xv6A79ruaB.png','vfVfyCNeSPLhJyLN4Afp4bmIYxg10q2Pxfgd8kiL.png','gUDJBpUiNaCdoW5Lj5mmrwBPOg735nTuz9QR1Kpx.png','ck0TfV6hauhWvSImHXYB6cxkwJ3mNfTeMmOUMxM6.png','29VzXWK27SSoSWmu989oRJrjicZc7atDWUKchPLt.png','ORxVIV4e5FU1aUXZTbBhn9OOeHdHtBvLaUYevVMe.png','6cWpF3jU2T3ELJhGfomHlTWwGrfnaJW5QUL17a7f.png'])
 },
 {
   id:'ap3',n:'03',
@@ -448,7 +450,7 @@ var DADOS=[
   nome:'Churrasqueira privativa na varanda',
   resumo:'130 m² de alto padrão a 80 metros da praia, com ampla varanda gourmet, 3 dormitórios e um condomínio com saunas, salão de jogos e rooftop com vista.',
   tags:['130 m²','3 dormitórios','2 suítes','10 hóspedes','Planta 3D'],
-  preco:'R$ 600',precoObs:'por noite · fora da alta temporada',
+  preco:'R$ 600',precoObs:'por noite',
   fatos:[['130 m²','área'],['3','dormitórios'],['2','suítes'],['3','banheiros'],['10','hóspedes'],['2','vagas']],
   texto:'<p>Apartamento de alto padrão em uma das regiões mais valorizadas da Praia Grande, a <strong>80 metros da areia</strong>. São <strong>130 m²</strong> completamente mobiliados.</p>'+
     '<p>São <strong>3 dormitórios, 2 deles suítes</strong>, todos com varanda, mais banheiro social. O destaque é a ampla varanda gourmet com churrasqueira privativa, feita para reunir a família.</p>'+
@@ -457,7 +459,7 @@ var DADOS=[
   comod:['Ar-condicionado','Piscina','Sauna','Rooftop','Churrasqueira','Varanda gourmet','Salão de jogos','Cozinha equipada','TV','Mobiliado','2 vagas','Elevador','Portaria 24h'],
   mapa:'Praia Grande, Ubatuba - SP',
   planta:'apto130',
-  fotos:hs(H,['vYpQeTOVt4PnJu1QEkCLUoK1hinxG7H7WiQya7oM.png','Y2y6ehHFHrpCFDCl88jrY9CdmQAT3zgBrQJ0tWZG.png','GiCwlSFrfytdYYUHr5pDLi7Q9SgbG6EaGlFA3qFO.png','mW1flqCgDcjRekzt2yItXwxE8qrqGh3iWRoaZF5s.png','V9jweOVAsgb609ttf9SZbpOOqtsy7oRZ3ivyK7RW.png','WC8XzLwXVZPS9XoLaBe3zqMRzFxSxhtae5HLE6X8.png','QYDruthpSAbFCXQkwMpSrJ1x9voNmCip6IgJzfAa.png','fbfwuw5M0itkhTZfspZh6XYQd49aCVZSziFCgjmb.png'])
+  fotos:hs(H,['mW1flqCgDcjRekzt2yItXwxE8qrqGh3iWRoaZF5s.png','GiCwlSFrfytdYYUHr5pDLi7Q9SgbG6EaGlFA3qFO.png','Y2y6ehHFHrpCFDCl88jrY9CdmQAT3zgBrQJ0tWZG.png','WC8XzLwXVZPS9XoLaBe3zqMRzFxSxhtae5HLE6X8.png','QYDruthpSAbFCXQkwMpSrJ1x9voNmCip6IgJzfAa.png','fbfwuw5M0itkhTZfspZh6XYQd49aCVZSziFCgjmb.png','V9jweOVAsgb609ttf9SZbpOOqtsy7oRZ3ivyK7RW.png','vYpQeTOVt4PnJu1QEkCLUoK1hinxG7H7WiQya7oM.png'])
 },
 {
   id:'ap5',n:'04',
@@ -482,7 +484,7 @@ var DADOS=[
   nome:'Rooftop com piscina e vista',
   resumo:'Dois dormitórios, sendo uma suíte, num prédio cujo topo é só área de lazer: piscina, churrasqueira, espreguiçadeiras e a vista aberta da serra e do mar.',
   tags:['2 dormitórios','1 suíte','6 hóspedes','Rooftop','Vista serra e mar'],
-  preco:'R$ 486',precoObs:'por noite · fora da alta temporada',
+  preco:'R$ 486',precoObs:'por noite',
   fatos:[['2','dormitórios'],['1','suíte'],['2','banheiros'],['6','hóspedes'],['1','vaga'],['Wi-Fi','internet']],
   texto:'<p>Apartamento mobiliado, confortável e prático, com a melhor área de lazer do prédio bem em cima: um <strong>rooftop com piscina</strong> e vista aberta para a serra e para o mar.</p>'+
     '<p>São <strong>2 dormitórios, sendo 1 suíte</strong>, banheiro social, sala, cozinha, área de serviço e varanda na sala e em um dos quartos. Os dois quartos têm ar-condicionado.</p>'+
@@ -501,17 +503,17 @@ var DADOS=[
   nome:'Loft de dois pavimentos',
   resumo:'Loft duplex para até 8 pessoas: embaixo sala, cozinha e área de serviço; em cima o dormitório com varanda e banheiro. Condomínio com piscina, quadra e salão gourmet.',
   tags:['2 pavimentos','Acomoda 8','2 vagas','Piscina','Pet friendly'],
-  preco:'R$ 550',precoObs:'por noite · baixa estação',
+  preco:'R$ 550',precoObs:'baixa estação',
   fatos:[['2','pavimentos'],['1','dormitório'],['2','banheiros'],['8','hóspedes'],['2','vagas'],['Wi-Fi','internet']],
   texto:'<p>Loft de <strong>dois pavimentos</strong> na Praia de Maranduba. No piso de baixo ficam a sala, a cozinha, um banheiro e a área de serviço. No piso de cima, o dormitório com varanda e banheiro.</p>'+
-    '<p>Completamente mobiliado, com <strong>ar-condicionado na sala e no dormitório</strong>, ventilador de teto, internet e TV por assinatura.</p>'+
+    '<p>Completamente mobiliado, com <strong>ar-condicionado na sala e no dormitório</strong>, ventilador de teto, internet e TV por assinatura. Entre cama de casal e beliches, acomoda até 8 pessoas.</p>'+
     '<h4>No condomínio</h4><ul><li>Piscina</li><li>Salão gourmet com churrasqueira</li><li>Salão de festas e salão de jogos</li><li>Quadra e brinquedoteca</li><li>Portaria 24 horas</li></ul>'+
     '<h4>Boas de saber</h4><ul><li>2 vagas de garagem</li><li>Permitido animais</li><li>Máquina de lavar, fogão e geladeira</li></ul>'+
-    '<p class="aviso">O valor acima é de baixa estação. Alta temporada, feriados, Natal, Réveillon e Carnaval têm valores próprios — me chama que eu passo na hora.</p>',
+    '',
   comod:['Wi-Fi','TV a cabo','Ar-condicionado','Ventilador','Piscina','Churrasqueira','Varanda','Permitido animais','Fogão','Geladeira','Máquina de lavar','2 vagas'],
   mapa:'Praia de Maranduba, Ubatuba - SP',
   planta:'loft',
-  fotos:hs(O,['10/101607221203797.jpg','12/127630345446839.jpg','89/895649585459817.jpg','90/906659944670986.jpg','18/182650707297480.jpg','19/195635583730865.jpg','21/211653228970029.jpg','22/228675580469828.jpg','70/707656101322198.jpg','71/716681828897529.jpg','71/717690102318149.jpg','72/720691220326195.jpg','74/745665581155700.jpg','75/759659467026638.jpg','76/762643707579550.jpg','77/778693827233416.jpg','78/783647701727921.jpg'])
+  fotos:hs(O,['71/716681828897529.jpg','75/759659467026638.jpg','71/717690102318149.jpg','74/745665581155700.jpg','76/762643707579550.jpg','72/720691220326195.jpg','77/778693827233416.jpg','12/127630345446839.jpg','90/906659944670986.jpg','78/783647701727921.jpg','19/195635583730865.jpg','18/182650707297480.jpg','21/211653228970029.jpg','89/895649585459817.jpg','70/707656101322198.jpg','22/228675580469828.jpg','10/101607221203797.jpg'])
 },
 {
   id:'studio',n:'07',
@@ -519,7 +521,7 @@ var DADOS=[
   nome:'Studio no 17º andar — venda ou permuta',
   resumo:'Studio de 30 m² mobiliado e pronto para morar, no centro de São Paulo, a 250 metros do metrô. O proprietário estuda permuta por imóvel em Ubatuba, Caraguatatuba, Ilhabela, São Sebastião ou Paraty.',
   tags:['Venda ou permuta','30 m²','17º andar','1 vaga','Mobiliado'],
-  preco:'R$ 850.000',precoObs:'venda · estuda permuta',
+  preco:'R$ 850.000',precoObs:'venda ou permuta',
   fatos:[['30 m²','área'],['17º','andar'],['1','dormitório'],['1','banheiro'],['1','vaga'],['2','pessoas']],
   texto:'<p>Studio de <strong>30 m² no 17º andar</strong>, com vista livre e sol da manhã, entre a Bela Vista e a Liberdade, no centro de São Paulo.</p>'+
     '<p>Está <strong>totalmente mobiliado e pronto para morar</strong>, com móveis planejados em todos os ambientes e estrutura completa de eletrodomésticos e utensílios.</p>'+
@@ -530,6 +532,7 @@ var DADOS=[
   comod:['Mobiliado','Móveis planejados','Ar-condicionado','Piscina','Academia','Área gourmet','Espaço pet','Lavanderia','Minimercado','Elevador','Segurança 24h','1 vaga'],
   mapa:'Bela Vista, São Paulo - SP',
   planta:'studio',
+  obsFotos:'Por enquanto estas são as fotos da área comum do condomínio. As fotos de dentro do studio entram assim que o proprietário enviar.',
   fotos:hs(H,['9LjjxyNGjOt3NuJhndGa8dceOozR1JO04HIzFWdH.jpg','lUJ9uLHe7mHnSHkqLHON6kQsM555XOvlJUvTAP6q.jpg','IyFHvwgnLYludc7s3E2fBLdOIQkiwzrtYwTXexc3.jpg','xjnZ1xawXKc9xTqOA2YbUfRB5AwLChTJU4gaGJC9.jpg','isCQuXhK1DFMEr0VxwREPEICX6KJIKxzgZcyf6NC.jpg','WTtfdHE6Qj4U8n8KseAf47K50NZ0Pze3WFPT2aPZ.jpg','3VAkAcxka0vJBN73U2TshMQb7iRUmaA9EFg6YHeu.jpg','WcC2tL8xi518zjvH40mlzRIxJBhSerdD85v2q5Bv.jpg'])
 }];
 
@@ -600,9 +603,10 @@ function abre(id){
 
   h+='<div class="bloco"><h3>Fotos</h3><div class="gal" id="galeria">'+
      d.fotos.map(function(f,i){return '<button type="button" data-i="'+i+'" aria-label="Abrir foto '+(i+1)+'"><img src="'+f+'" alt="" loading="lazy"></button>';}).join('')+
-     '</div></div>';
+     '</div>'+(d.obsFotos?'<p class="aviso">'+d.obsFotos+'</p>':'')+'</div>';
 
-  h+='<div class="bloco txt"><h3>Sobre o imóvel</h3>'+d.texto+'</div>';
+  h+='<div class="bloco txt"><h3>Sobre o imóvel</h3>'+d.texto+
+     (d.id!=='studio'?'<p class="aviso">O valor acima é fora da alta temporada. Feriados, Natal, Réveillon e Carnaval têm valores próprios, conforme o número de pessoas e de diárias.</p>':'')+'</div>';
 
   h+='<div class="bloco"><h3>O que tem</h3><div class="chips">'+
      d.comod.map(function(c){return '<span>'+c+'</span>';}).join('')+'</div></div>';
