@@ -57,11 +57,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ---------- capa ---------- */
 #capa{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
-.capa-bg{position:absolute;inset:-12% 0 0 0;z-index:-2;will-change:transform;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:10px;transform-origin:center;opacity:.42}
-.capa-bg div{border-radius:14px;overflow:hidden;background:var(--bg2)}
-.capa-bg img{width:100%;height:100%;object-fit:cover;object-position:center;filter:blur(1.5px)}
-.capa-bg div:nth-child(2),.capa-bg div:nth-child(5){transform:translateY(-6%)}
+.capa-bg{position:absolute;inset:-10% 0 -4% 0;z-index:-2;will-change:transform;overflow:hidden}
+.capa-bg figure{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease}
+.capa-bg figure.on{opacity:.52}
+.capa-bg img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.04)}
+.capa-bg figure.on img{animation:zoomlento 9s linear forwards}
+@keyframes zoomlento{from{transform:scale(1.04)}to{transform:scale(1.16)}}
 #capa::before{content:"";position:absolute;inset:0;z-index:-1;
   background:radial-gradient(80% 60% at 18% 30%,rgba(73,184,180,.26),transparent 70%),
              linear-gradient(180deg,rgba(6,32,31,.55) 0%,rgba(6,32,31,.78) 45%,var(--bg) 92%)}
@@ -71,6 +72,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .capa-sub{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(18px,1.9vw,24px);line-height:1.45;color:var(--ink2);max-width:42ch;margin-top:24px}
 .capa-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
 .capa-cta .btn{padding:15px 24px;font-size:15.5px}
+.selos{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.selos span{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:500;color:var(--ink2);
+  padding:8px 14px;border-radius:999px;border:1px solid var(--hair);background:rgba(10,47,44,.42);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.selos svg{width:14px;height:14px;color:var(--areia);flex:none}
 .nums{display:grid;grid-template-columns:repeat(3,max-content);margin-top:clamp(36px,6vh,66px);border-top:1px solid var(--hair)}
 .nums div{padding:20px 22px 4px 0}
 .nums div+div{padding-left:22px;border-left:1px solid var(--hair)}
@@ -113,6 +119,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .rev-acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .rev-acoes .btn{flex:1 1 auto}
 
+.filtro{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-bottom:22px;padding:14px 16px;
+  border:1px solid var(--hair);border-radius:18px;background:rgba(10,47,44,.5)}
+.fgrupo{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.fgrupo>b{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin-right:4px}
+.fgrupo button{font-size:13.5px;font-weight:500;color:var(--ink2);padding:8px 14px;border-radius:999px;
+  border:1px solid transparent;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+.fgrupo button:hover{background:rgba(255,255,255,.07);color:var(--ink)}
+.fgrupo button.on{background:var(--areia);color:#07241f;font-weight:700}
+.fcont{margin-left:auto;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink2)}
+.vazio{padding:40px 0;text-align:center;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink2)}
+.fx.oculto{display:none}
+
 /* ---------- faixas ---------- */
 .faixas{display:flex;flex-direction:column;gap:4px}
 .fx{position:relative;display:block;width:100%;text-align:left;color:inherit;min-height:clamp(240px,31vw,350px);overflow:hidden;isolation:isolate;
@@ -147,6 +165,63 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .fx:hover .fx-n{transform:translateX(6px)}
 }
 .fx:focus-visible{outline:3px solid var(--areia);outline-offset:-4px}
+
+/* ---------- comparativo ---------- */
+.tabela{overflow-x:auto;border:1px solid var(--hair);border-radius:18px;-webkit-overflow-scrolling:touch}
+.tabela table{border-collapse:collapse;width:100%;min-width:760px;font-size:14.5px}
+.tabela th,.tabela td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--hair);white-space:nowrap}
+.tabela thead th{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--areia);font-weight:500;
+  background:rgba(10,47,44,.8);position:sticky;top:0}
+.tabela tbody tr:last-child td{border-bottom:0}
+.tabela tbody tr{transition:background .2s;cursor:pointer}
+.tabela tbody tr:hover{background:rgba(255,255,255,.05)}
+.tabela .nome{font-weight:700;letter-spacing:-.02em;white-space:normal;min-width:210px}
+.tabela .nome small{display:block;font-family:var(--serif);font-style:italic;font-weight:300;font-size:13.5px;color:var(--ink3);margin-top:3px}
+.tabela .num{font-weight:700;color:var(--areia)}
+.tabela td.cinza{color:var(--ink3)}
+
+/* ---------- onde ficam ---------- */
+.ondegrid{display:grid;gap:18px}
+@media(min-width:900px){.ondegrid{grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:28px;align-items:stretch}}
+.ondelista{display:flex;flex-direction:column;gap:10px}
+.ondeitem{padding:18px 20px;border:1px solid var(--hair);border-radius:16px;background:rgba(10,47,44,.48);transition:border-color .25s,transform .25s}
+.ondeitem:hover{border-color:rgba(233,196,139,.38);transform:translateY(-2px)}
+.ondeitem b{display:block;font-weight:700;font-size:18px;letter-spacing:-.02em}
+.ondeitem small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--areia);margin-bottom:7px}
+.ondeitem p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:15.5px;line-height:1.5;color:var(--ink2);margin-top:6px}
+.ondemapa{border-radius:18px;overflow:hidden;border:1px solid var(--hair);min-height:320px;background:var(--bg2)}
+.ondemapa iframe{width:100%;height:100%;min-height:320px;border:0;display:block;filter:grayscale(.2) contrast(1.05)}
+
+/* ---------- passos ---------- */
+.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.passo{background:var(--bg2);padding:clamp(24px,3vw,38px);min-height:250px;display:flex;flex-direction:column}
+.passo:first-child{border-radius:22px 0 0 22px}.passo:last-child{border-radius:0 22px 22px 0}
+.passo b{font:normal 78px/.8 var(--num);color:var(--areia);letter-spacing:-.05em}
+.passo h3{font-weight:700;font-size:23px;letter-spacing:-.03em;margin-top:auto;padding-top:28px}
+.passo p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:16.5px;line-height:1.5;color:var(--ink2);margin-top:8px}
+.inclui{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.inclui span{font-size:13.5px;font-weight:500;padding:8px 14px;border-radius:999px;background:rgba(233,196,139,.1);
+  color:var(--areia);border:1px solid rgba(233,196,139,.25)}
+@media(max-width:900px){
+  .passos{grid-template-columns:1fr}
+  .passo,.passo:first-child,.passo:last-child{border-radius:0;min-height:0}
+  .passo:first-child{border-radius:22px 22px 0 0}.passo:last-child{border-radius:0 0 22px 22px}
+  .passo h3{padding-top:16px}
+}
+
+/* ---------- faq ---------- */
+.faq{display:grid;gap:4px}
+.faq details{background:var(--bg2);border-radius:4px;overflow:hidden}
+.faq details:first-of-type{border-radius:18px 18px 4px 4px}
+.faq details:last-of-type{border-radius:4px 4px 18px 18px}
+.faq summary{list-style:none;cursor:pointer;padding:19px clamp(18px,2.6vw,28px);display:flex;align-items:center;
+  justify-content:space-between;gap:18px;font-weight:600;font-size:16.5px;letter-spacing:-.01em;transition:background .2s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{background:rgba(255,255,255,.04)}
+.faq summary::after{content:"";flex:none;width:11px;height:11px;border-right:2px solid var(--areia);
+  border-bottom:2px solid var(--areia);transform:rotate(45deg) translateY(-3px);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(225deg) translateY(-3px)}
+.faq .resp{padding:0 clamp(18px,2.6vw,28px) 22px;font-size:16px;line-height:1.7;color:var(--ink2);max-width:72ch}
 
 /* ---------- contato ---------- */
 #contato{position:relative;margin-top:clamp(70px,10vh,120px);overflow:hidden;isolation:isolate}
@@ -221,6 +296,19 @@ footer a:hover{color:var(--areia)}
   display:flex;align-items:center;justify-content:space-between;gap:14px}
 .fc-fixo .pq{min-width:0}
 .fc-fixo .pq b{display:block;font-weight:800;font-size:18px;color:var(--areia);letter-spacing:-.03em}
+.fcnav{display:grid;gap:4px;margin-top:clamp(36px,6vh,56px)}
+@media(min-width:640px){.fcnav{grid-template-columns:1fr 1fr}}
+.fcnav button{display:flex;align-items:center;gap:14px;padding:20px 22px;border-radius:16px;border:1px solid var(--hair);
+  background:var(--bg2);text-align:left;transition:border-color .25s,transform .25s}
+.fcnav button:hover{border-color:rgba(233,196,139,.4);transform:translateY(-2px)}
+.fcnav small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--areia)}
+.fcnav b{display:block;font-weight:700;font-size:16.5px;letter-spacing:-.02em;margin-top:5px}
+.fcnav .pro{text-align:right;justify-content:flex-end}
+.fcnav svg{width:20px;height:20px;flex:none;color:var(--areia)}
+.horarios{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.horarios div{flex:1 1 150px;padding:14px 16px;border-radius:14px;border:1px solid var(--hair);background:var(--bg2)}
+.horarios small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
+.horarios b{display:block;font-weight:700;font-size:19px;margin-top:4px}
 .fc-fixo .pq span{display:block;font-family:var(--serif);font-style:italic;font-size:13px;color:var(--ink3)}
 
 /* ---------- lightbox ---------- */
@@ -254,8 +342,7 @@ footer a:hover{color:var(--areia)}
   .marca{font-size:15px}
   #bar .btn{padding:9px 14px;font-size:13.5px}
   #bar .btn span{display:none}
-  .capa-bg{grid-template-columns:1fr 1fr;opacity:.36}
-  .capa-bg div:nth-child(n+5){display:none}
+  .capa-bg figure.on{opacity:.46}
   .capa-in{padding-top:120px}
   .capa-cta .btn{flex:1 1 100%}
   .fx{min-height:258px}
@@ -286,7 +373,9 @@ footer a:hover{color:var(--areia)}
   </a>
   <nav>
     <a href="#imoveis">Imóveis</a>
+    <a href="#comparar">Comparar</a>
     <a href="#reveillon">Réveillon</a>
+    <a href="#duvidas">Dúvidas</a>
     <a href="#contato">Contato</a>
     <a class="btn btn-wa" href="https://wa.me/5511944301516?text=Ol%C3%A1%2C%20Lino!%20Vi%20o%20site%20dos%20seus%20im%C3%B3veis%20em%20Ubatuba%20e%20quero%20consultar%20datas." target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.24.68-1.43 1.32-1.97 1.37-.5.05-.98.24-3.3-.69-2.8-1.1-4.58-3.96-4.72-4.15-.13-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.3.25-.27.55-.34.73-.34h.53c.17 0 .4-.06.62.48.24.56.8 1.93.87 2.07.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34z"/></svg>
@@ -298,12 +387,17 @@ footer a:hover{color:var(--areia)}
   <div class="capa-bg" id="capabg" aria-hidden="true"></div>
   <div class="wrap capa-in">
     <p class="eyebrow rv">Ubatuba, SP &middot; Litoral Norte</p>
-    <h1 id="capah1" class="rv">Sete imóveis, <em>um link só.</em></h1>
-    <p class="capa-sub rv">Apartamentos a 80 metros da Praia Grande, um loft em Maranduba e um studio em São Paulo. Fotos de verdade, planta 3D de cada um e resposta direto comigo, sem imobiliária no meio.</p>
+    <h1 id="capah1" class="rv">Sete imóveis.<br><em>Um link só.</em></h1>
+    <p class="capa-sub rv">Em vez de procurar em sete anúncios espalhados, você vê tudo aqui: apartamentos a 80 metros da Praia Grande, um loft em Maranduba e um studio em São Paulo. Com as fotos de cada ambiente, a planta em 3D e as datas confirmadas direto comigo.</p>
     <div class="capa-cta rv">
       <a class="btn btn-ouro" href="#imoveis">Ver os imóveis
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
       <a class="btn btn-line" href="#reveillon">Réveillon e alta temporada</a>
+    </div>
+    <div class="selos rv">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Direto com o proprietário</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sem taxa de plataforma</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Todos mobiliados e equipados</span>
     </div>
     <div class="nums rv">
       <div><b>7</b><span>imóveis</span></div>
@@ -349,7 +443,89 @@ footer a:hover{color:var(--areia)}
     <div class="rv"><p class="eyebrow">Os imóveis</p><h2>Escolha <span>o seu</span></h2></div>
     <p class="rv">Toque numa faixa para abrir as fotos, a descrição completa, o mapa e a planta 3D. Tudo aqui mesmo, sem abrir página nenhuma.</p>
   </div>
+  <div class="wrap">
+    <div class="filtro rv" id="filtro">
+      <div class="fgrupo" data-k="onde"><b>Onde</b>
+        <button data-v="" class="on">Todos</button>
+        <button data-v="praia-grande">Praia Grande</button>
+        <button data-v="maranduba">Maranduba</button>
+        <button data-v="sao-paulo">São Paulo</button>
+      </div>
+      <div class="fgrupo" data-k="pessoas"><b>Pessoas</b>
+        <button data-v="" class="on">Qualquer</button>
+        <button data-v="6">6 ou mais</button>
+        <button data-v="8">8 ou mais</button>
+        <button data-v="10">10</button>
+      </div>
+      <div class="fgrupo" data-k="tipo"><b>Para</b>
+        <button data-v="" class="on">Tudo</button>
+        <button data-v="temporada">Temporada</button>
+        <button data-v="venda">Venda</button>
+      </div>
+      <span class="fcont" id="fcont">7 imóveis</span>
+    </div>
+  </div>
   <div class="faixas" id="faixas"></div>
+  <p class="vazio" id="vazio" hidden>Nenhum imóvel com esses filtros. <button class="btn btn-line" id="limpaFiltro" style="margin-left:10px">Limpar filtros</button></p>
+</section>
+
+<section class="sec" id="comparar">
+  <div class="wrap sec-h">
+    <div class="rv"><p class="eyebrow">Lado a lado</p><h2>Compare <span>os sete</span></h2></div>
+    <p class="rv">A mesma informação para todos, na mesma ordem. Toque numa linha para abrir o imóvel.</p>
+  </div>
+  <div class="wrap">
+    <div class="tabela rv"><table id="comparativo"><thead><tr>
+      <th>Imóvel</th><th>Onde</th><th>Dormitórios</th><th>Suítes</th><th>Banheiros</th><th>Hóspedes</th><th>Vagas</th><th>Área</th><th>Valor</th>
+    </tr></thead><tbody></tbody></table></div>
+  </div>
+</section>
+
+<section class="sec" id="onde">
+  <div class="wrap sec-h">
+    <div class="rv"><p class="eyebrow">Onde ficam</p><h2>Três endereços, <span>uma conversa só</span></h2></div>
+    <p class="rv">Cinco apartamentos na Praia Grande, o loft em Maranduba e o studio em São Paulo.</p>
+  </div>
+  <div class="wrap ondegrid">
+    <div class="ondelista rv">
+      <div class="ondeitem"><small>5 imóveis</small><b>Praia Grande, Ubatuba</b><p>A praia mais movimentada da cidade, com quiosques, comércio e estrutura em volta. Os apartamentos de 130 m² ficam a 80 metros da areia.</p></div>
+      <div class="ondeitem"><small>1 imóvel</small><b>Praia de Maranduba, Ubatuba</b><p>No sul de Ubatuba, mais tranquila e boa para família. É onde fica o loft de dois pavimentos, em condomínio com piscina e quadra.</p></div>
+      <div class="ondeitem"><small>1 imóvel</small><b>Bela Vista e Liberdade, São Paulo</b><p>No centro de São Paulo, a 250 metros do metrô. É o studio à venda, que o proprietário também estuda trocar por imóvel no litoral.</p></div>
+    </div>
+    <div class="ondemapa rv"><iframe src="https://www.google.com/maps?q=Ubatuba%2C%20SP&z=11&output=embed" loading="lazy" title="Mapa de Ubatuba, SP" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</section>
+
+<section class="sec" id="como">
+  <div class="wrap sec-h">
+    <div class="rv"><p class="eyebrow">Como funciona</p><h2>Da escolha à <span>chave na mão</span></h2></div>
+    <p class="rv">Sem cadastro, sem intermediário e sem taxa de plataforma.</p>
+  </div>
+  <div class="wrap">
+    <div class="passos">
+      <div class="passo rv"><b>1</b><h3>Escolha o imóvel</h3><p>Use os filtros por praia e por número de pessoas, veja as fotos de cada ambiente e gire a planta 3D para entender o espaço antes de decidir.</p></div>
+      <div class="passo rv"><b>2</b><h3>Me chame com as datas</h3><p>O botão do WhatsApp já vai com o nome do imóvel. Me diga as datas e quantas pessoas que eu confirmo a disponibilidade e o valor do período.</p></div>
+      <div class="passo rv"><b>3</b><h3>Reserve direto comigo</h3><p>Combinamos o pagamento e eu passo o endereço exato, as instruções de entrada e o que você precisa levar.</p></div>
+    </div>
+    <div class="inclui rv"><span>Mobiliado e equipado</span><span>Roupa de cama e toalhas</span><span>Vaga de garagem</span><span>Área de lazer do condomínio</span><span>Negociação direto com o dono</span></div>
+  </div>
+</section>
+
+<section class="sec" id="duvidas">
+  <div class="wrap sec-h">
+    <div class="rv"><p class="eyebrow">Perguntas frequentes</p><h2>O que <span>sempre perguntam</span></h2></div>
+    <p class="rv">Se ficar qualquer dúvida, me chama no WhatsApp que eu respondo.</p>
+  </div>
+  <div class="wrap">
+    <div class="faq rv">
+      <details><summary>Como faço a reserva?</summary><div class="resp">Pelo WhatsApp, direto comigo. Você me manda as datas e o número de pessoas, eu confirmo a disponibilidade e passo o valor do período. Não tem cadastro nem taxa de plataforma.</div></details>
+      <details><summary>Qual o horário de check-in e check-out?</summary><div class="resp">Na maioria dos imóveis a entrada é a partir das 15h e a saída até as 11h. O horário de cada um está na ficha do imóvel, e dá para combinar algo diferente conforme a agenda da limpeza.</div></details>
+      <details><summary>O valor do site vale para qualquer data?</summary><div class="resp">Não. Os valores que aparecem aqui são de fora da alta temporada. Feriados, Natal, Réveillon e Carnaval têm valores próprios, que mudam conforme o número de pessoas e de diárias. Me chama com as suas datas que eu passo na hora.</div></details>
+      <details><summary>Os imóveis são mobiliados?</summary><div class="resp">Sim, todos saem completamente mobiliados e equipados, com geladeira, fogão, micro-ondas, utensílios de cozinha, TV e ar-condicionado. O que cada um tem está listado na ficha, em "O que tem".</div></details>
+      <details><summary>Aceita animais de estimação?</summary><div class="resp">Depende do imóvel. Os que aceitam estão marcados na ficha com "pet friendly" ou "permitido animais". Me pergunte antes de reservar que eu confirmo.</div></details>
+      <details><summary>Com quem eu falo?</summary><div class="resp">Comigo, Lino, que sou o proprietário. Não tem imobiliária nem corretor no meio, então a negociação, as condições e o pagamento são tratados direto entre nós dois.</div></details>
+    </div>
+  </div>
 </section>
 
 <section id="contato">
@@ -413,6 +589,7 @@ function hs(base,arr){return arr.map(function(n){return base+n;});}
 var DADOS=[
 {
   id:'ap1',n:'01',
+  cmp:{onde:'praia-grande',hosp:10,tipo:'temporada',dorm:'3',suites:'2',banh:'3',vagas:'2',area:'130 m²',cin:'14h',cout:'12h'},
   local:'Praia Grande, Ubatuba &middot; SP',
   nome:'Lazer completo e varanda gourmet',
   resumo:'130 m² a 80 metros da praia, com 3 dormitórios, 2 suítes e varanda gourmet com churrasqueira. No condomínio, piscinas aquecidas, academia, saunas e rooftop com vista para a serra e para o mar.',
@@ -431,6 +608,7 @@ var DADOS=[
 },
 {
   id:'ap2',n:'02',
+  cmp:{onde:'praia-grande',hosp:10,tipo:'temporada',dorm:'3',suites:'2',banh:'3',vagas:'2',area:'128 m²',cin:'15h',cout:'11h'},
   local:'Praia Grande, Ubatuba &middot; SP',
   nome:'Três varandas e espaço zen',
   resumo:'128 m² praticamente pé na areia, com varanda privativa nos três dormitórios, churrasqueira na varanda gourmet e um condomínio com espaço zen, saunas e rooftop.',
@@ -448,6 +626,7 @@ var DADOS=[
 },
 {
   id:'ap3',n:'03',
+  cmp:{onde:'praia-grande',hosp:10,tipo:'temporada',dorm:'3',suites:'2',banh:'3',vagas:'2',area:'130 m²',cin:'15h',cout:'11h'},
   local:'Praia Grande, Ubatuba &middot; SP',
   nome:'Churrasqueira privativa na varanda',
   resumo:'130 m² de alto padrão a 80 metros da praia, com ampla varanda gourmet, 3 dormitórios e um condomínio com saunas, salão de jogos e rooftop com vista.',
@@ -465,6 +644,7 @@ var DADOS=[
 },
 {
   id:'ap5',n:'04',
+  cmp:{onde:'ubatuba',hosp:6,tipo:'temporada',dorm:'2',suites:'1',banh:'2',vagas:'1',area:'—'},
   local:'Ubatuba &middot; SP',
   nome:'Varanda gourmet e churrasqueira privativa',
   resumo:'Dois dormitórios, sendo uma suíte, totalmente mobiliado, com varanda gourmet e churrasqueira privativa aberta para a sala. Condomínio completo e uma vaga de garagem.',
@@ -482,6 +662,7 @@ var DADOS=[
 },
 {
   id:'ap4',n:'05',
+  cmp:{onde:'praia-grande',hosp:6,tipo:'temporada',dorm:'2',suites:'1',banh:'2',vagas:'1',area:'80 m²',cin:'15h',cout:'11h'},
   local:'Praia Grande, Ubatuba &middot; SP',
   nome:'Rooftop com piscina e vista',
   resumo:'Dois dormitórios, sendo uma suíte, num prédio cujo topo é só área de lazer: piscina, churrasqueira, espreguiçadeiras e a vista aberta da serra e do mar.',
@@ -501,6 +682,7 @@ var DADOS=[
 },
 {
   id:'loft',n:'06',
+  cmp:{onde:'maranduba',hosp:8,tipo:'temporada',dorm:'1',suites:'—',banh:'2',vagas:'2',area:'—'},
   local:'Praia de Maranduba, Ubatuba &middot; SP',
   nome:'Loft de dois pavimentos',
   resumo:'Loft duplex para até 8 pessoas: embaixo sala, cozinha e área de serviço; em cima o dormitório com varanda e banheiro. Condomínio com piscina, quadra e salão gourmet.',
@@ -519,6 +701,7 @@ var DADOS=[
 },
 {
   id:'studio',n:'07',
+  cmp:{onde:'sao-paulo',hosp:2,tipo:'venda',dorm:'1',suites:'—',banh:'1',vagas:'1',area:'30 m²'},
   local:'Bela Vista / Liberdade, São Paulo &middot; SP',
   nome:'Studio no 17º andar — venda ou permuta',
   resumo:'Studio de 30 m² mobiliado e pronto para morar, no centro de São Paulo, a 250 metros do metrô. O proprietário estuda permuta por imóvel em Ubatuba, Caraguatatuba, Ilhabela, São Sebastião ou Paraty.',
@@ -541,22 +724,33 @@ var DADOS=[
 /* ---------- utilidades ---------- */
 function el(q,r){return (r||document).querySelector(q);}
 function limpa(s){return String(s).replace(/&middot;/g,'·').replace(/&amp;/g,'&');}
+var SECOES=['capa','imoveis','comparar','onde','como','duvidas','reveillon','contato'];
 function wa(txt){return 'https://wa.me/'+FONE+'?text='+encodeURIComponent(txt);}
 function waImovel(d){return wa('Olá, Lino! Vi o site e me interessei pelo imóvel '+d.n+' — '+limpa(d.nome)+' ('+limpa(d.local)+'). Pode me passar os valores e a disponibilidade?');}
 
 /* ---------- capa: mosaico de fundo ---------- */
 (function(){
   var alvo=el('#capabg'),ct=el('#ctbg'),h='';
-  for(var i=0;i<6;i++){h+='<div><img src="'+DADOS[i].fotos[0]+'" alt=""></div>';}
+  var capas=[DADOS[0].fotos[0],DADOS[4].fotos[0],DADOS[1].fotos[0],DADOS[3].fotos[0],DADOS[2].fotos[0],DADOS[5].fotos[0]];
+  for(var i=0;i<capas.length;i++){h+='<figure'+(i===0?' class="on"':'')+'><img src="'+capas[i]+'" alt=""'+(i?' loading="lazy"':'')+'></figure>';}
   alvo.innerHTML=h;
-  ct.innerHTML='<img src="'+DADOS[3].fotos[0]+'" alt="" loading="lazy">';
+  ct.innerHTML='<img src="'+DADOS[4].fotos[0]+'" alt="" loading="lazy">';
+  var figs=alvo.querySelectorAll('figure'),at=0;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  setInterval(function(){
+    figs[at].classList.remove('on');
+    at=(at+1)%figs.length;
+    var im=figs[at].querySelector('img');
+    im.style.animation='none';void im.offsetWidth;im.style.animation='';
+    figs[at].classList.add('on');
+  },5200);
 })();
 
 /* ---------- faixas ---------- */
 (function(){
   var alvo=el('#faixas'),h='';
   DADOS.forEach(function(d){
-    h+='<a class="fx rv" data-id="'+d.id+'" href="#'+d.id+'">'+
+    h+='<a class="fx rv" data-id="'+d.id+'" data-onde="'+d.cmp.onde+'" data-hosp="'+d.cmp.hosp+'" data-tipo="'+d.cmp.tipo+'" href="#'+d.id+'">'+
          '<span class="fx-bg"><img src="'+d.fotos[0]+'" alt="" loading="lazy"></span>'+
          '<span class="fx-in">'+
            '<span class="fx-n">'+d.n+'</span>'+
@@ -577,6 +771,60 @@ function waImovel(d){return wa('Olá, Lino! Vi o site e me interessei pelo imóv
   alvo.addEventListener('click',function(e){
     var b=e.target.closest('.fx');
     if(b){e.preventDefault();abre(b.getAttribute('data-id'));}
+  });
+})();
+
+/* ---------- filtro ---------- */
+(function(){
+  var caixa=el('#filtro'),cont=el('#fcont'),vazio=el('#vazio');
+  var f={onde:'',pessoas:'',tipo:''};
+  function aplica(){
+    var n=0;
+    [].forEach.call(document.querySelectorAll('.fx'),function(b){
+      var ok=(!f.onde||b.dataset.onde===f.onde)&&
+             (!f.tipo||b.dataset.tipo===f.tipo)&&
+             (!f.pessoas||parseInt(b.dataset.hosp,10)>=parseInt(f.pessoas,10));
+      b.classList.toggle('oculto',!ok);
+      if(ok){n++;b.classList.add('on');}
+    });
+    cont.textContent=n===1?'1 imóvel':n+' imóveis';
+    vazio.hidden=n>0;
+  }
+  caixa.addEventListener('click',function(e){
+    var b=e.target.closest('.fgrupo button');if(!b)return;
+    var g=b.closest('.fgrupo'),k=g.dataset.k;
+    [].forEach.call(g.querySelectorAll('button'),function(x){x.classList.remove('on');});
+    b.classList.add('on');
+    f[k]=b.dataset.v;
+    aplica();
+  });
+  el('#limpaFiltro').addEventListener('click',function(){
+    f={onde:'',pessoas:'',tipo:''};
+    [].forEach.call(caixa.querySelectorAll('.fgrupo'),function(g){
+      [].forEach.call(g.querySelectorAll('button'),function(x){x.classList.toggle('on',x.dataset.v==='');});
+    });
+    aplica();
+  });
+  aplica();
+})();
+
+/* ---------- comparativo ---------- */
+(function(){
+  var tb=el('#comparativo').querySelector('tbody'),h='';
+  var ondeNome={'praia-grande':'Praia Grande','maranduba':'Maranduba','sao-paulo':'São Paulo','ubatuba':'Ubatuba'};
+  DADOS.forEach(function(d){
+    var c=d.cmp;
+    h+='<tr data-id="'+d.id+'">'+
+       '<td class="nome">'+d.n+' &middot; '+limpa(d.nome)+'<small>'+(c.tipo==='venda'?'Venda ou permuta':'Temporada')+'</small></td>'+
+       '<td>'+ondeNome[c.onde]+'</td>'+
+       '<td class="num">'+c.dorm+'</td><td class="num">'+c.suites+'</td><td class="num">'+c.banh+'</td>'+
+       '<td class="num">'+c.hosp+'</td><td class="num">'+c.vagas+'</td>'+
+       '<td'+(c.area==='—'?' class="cinza"':'')+'>'+c.area+'</td>'+
+       '<td class="num">'+d.preco+'</td></tr>';
+  });
+  tb.innerHTML=h;
+  tb.addEventListener('click',function(e){
+    var tr=e.target.closest('tr');if(tr) abre(tr.dataset.id);
   });
 })();
 
@@ -610,6 +858,13 @@ function abre(id){
   h+='<div class="bloco txt"><h3>Sobre o imóvel</h3>'+d.texto+
      (d.id!=='studio'?'<p class="aviso">O valor acima é fora da alta temporada. Feriados, Natal, Réveillon e Carnaval têm valores próprios, conforme o número de pessoas e de diárias.</p>':'')+'</div>';
 
+  if(d.cmp.cin){
+    h+='<div class="bloco"><h3>Horários</h3><div class="horarios">'+
+       '<div><small>Check-in</small><b>a partir das '+d.cmp.cin+'</b></div>'+
+       '<div><small>Check-out</small><b>até as '+d.cmp.cout+'</b></div>'+
+       '</div><p class="aviso">Dá para combinar outro horário conforme a agenda da limpeza. É só me avisar antes.</p></div>';
+  }
+
   h+='<div class="bloco"><h3>O que tem</h3><div class="chips">'+
      d.comod.map(function(c){return '<span>'+c+'</span>';}).join('')+'</div></div>';
 
@@ -621,6 +876,13 @@ function abre(id){
   h+='<div class="bloco"><h3>Onde fica</h3><div class="mapa">'+
      '<iframe src="https://www.google.com/maps?q='+encodeURIComponent(d.mapa)+'&output=embed" loading="lazy" title="Mapa de '+limpa(d.mapa)+'" referrerpolicy="no-referrer-when-downgrade"></iframe>'+
      '</div><p class="aviso">O ponto do mapa mostra a região. O endereço exato é passado na confirmação da reserva.</p></div>';
+
+  var pos=DADOS.indexOf(d);
+  var ant=DADOS[(pos-1+DADOS.length)%DADOS.length], pro=DADOS[(pos+1)%DADOS.length];
+  h+='<div class="fcnav">'+
+     '<button type="button" data-ir="'+ant.id+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span><small>Imóvel anterior</small><b>'+ant.n+' &middot; '+ant.nome+'</b></span></button>'+
+     '<button type="button" class="pro" data-ir="'+pro.id+'"><span><small>Próximo imóvel</small><b>'+pro.n+' &middot; '+pro.nome+'</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>'+
+     '</div>';
 
   el('#fcBody').innerHTML=h;
   el('#fcBody').scrollTop=0;
@@ -646,7 +908,7 @@ function fecha(semHist){
 el('#fcFecha').addEventListener('click',function(){fecha();});
 addEventListener('popstate',function(){
   var id=location.hash.replace('#','');
-  if(id&&id!=='capa'&&id!=='imoveis'&&id!=='reveillon'&&id!=='contato'){
+  if(id&&SECOES.indexOf(id)<0){
     if(!aberto||aberto.id!==id) abre(id);
   }else if(aberto){fecha(true);}
 });
@@ -663,7 +925,9 @@ function abreLb(i){mostra(i);lb.classList.add('on');}
 function fechaLb(){lb.classList.remove('on');lbImg.src='';}
 el('#fcBody').addEventListener('click',function(e){
   var b=e.target.closest('.gal button');
-  if(b) abreLb(parseInt(b.getAttribute('data-i'),10));
+  if(b){abreLb(parseInt(b.getAttribute('data-i'),10));return;}
+  var n=e.target.closest('.fcnav button');
+  if(n){ficha.scrollTop=0;abre(n.getAttribute('data-ir'));}
 });
 el('#lbSai').addEventListener('click',fechaLb);
 el('#lbAnt').addEventListener('click',function(e){e.stopPropagation();mostra(iFoto-1);});
@@ -790,7 +1054,7 @@ addEventListener('keydown',function(e){
 /* ---------- abrir direto por link ---------- */
 (function(){
   var id=location.hash.replace('#','');
-  if(id&&id!=='capa'&&id!=='imoveis'&&id!=='reveillon'&&id!=='contato'){setTimeout(function(){abre(id);},120);}
+  if(id&&SECOES.indexOf(id)<0){setTimeout(function(){abre(id);},120);}
 })();
 
 })();
