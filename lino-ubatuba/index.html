@@ -535,7 +535,7 @@ footer a:hover{color:var(--areia)}
     <div class="faq rv">
       <details><summary>Como faço a reserva?</summary><div class="resp">Pelo WhatsApp, direto comigo. Você me manda as datas e o número de pessoas, eu confirmo a disponibilidade e passo o valor do período. Não tem cadastro nem taxa de plataforma.</div></details>
       <details><summary>Qual o horário de check-in e check-out?</summary><div class="resp">Na maioria dos imóveis a entrada é a partir das 15h e a saída até as 11h. O horário de cada um está na ficha do imóvel, e dá para combinar algo diferente conforme a agenda da limpeza.</div></details>
-      <details><summary>O valor do site vale para qualquer data?</summary><div class="resp">Não. Os valores que aparecem aqui são de fora da alta temporada. Feriados, Natal, Réveillon e Carnaval têm valores próprios, que mudam conforme o número de pessoas e de diárias. Me chama com as suas datas que eu passo na hora.</div></details>
+      <details><summary>Qual o valor da diária?</summary><div class="resp">O valor sai conforme a data, o número de pessoas e a quantidade de diárias, por isso eu passo sob consulta. Feriados, Natal, Réveillon e Carnaval têm valores próprios. Me chama no WhatsApp com as suas datas que eu respondo na hora.</div></details>
       <details><summary>Os imóveis são mobiliados?</summary><div class="resp">Sim, todos saem completamente mobiliados e equipados, com geladeira, fogão, micro-ondas, utensílios de cozinha, TV e ar-condicionado. O que cada um tem está listado na ficha, em "O que tem".</div></details>
       <details><summary>Aceita animais de estimação?</summary><div class="resp">Depende do imóvel. Os que aceitam estão marcados na ficha com "pet friendly" ou "permitido animais". Me pergunte antes de reservar que eu confirmo.</div></details>
       <details><summary>Com quem eu falo?</summary><div class="resp">Comigo, Lino, que sou o proprietário. Não tem imobiliária nem corretor no meio, então a negociação, as condições e o pagamento são tratados direto entre nós dois.</div></details>
@@ -611,7 +611,7 @@ var DADOS=[
   nome:'Lazer completo e varanda gourmet',
   resumo:'130 m² a 80 metros da praia, com 3 dormitórios, 2 suítes e varanda gourmet com churrasqueira. No condomínio, piscinas aquecidas, academia, saunas e rooftop com vista para a serra e para o mar.',
   tags:['130 m²','3 dormitórios','2 suítes','10 hóspedes','Planta 3D'],
-  preco:'R$ 600',precoObs:'por noite',
+  preco:'A consultar',precoObs:'valor por noite',
   fatos:[['130 m²','área'],['3','dormitórios'],['2','suítes'],['3','banheiros'],['10','hóspedes'],['2','vagas']],
   texto:'<p>Apartamento amplo e completamente mobiliado, em uma das áreas mais procuradas da Praia Grande. São <strong>130 m²</strong> bem distribuídos, a <strong>80 metros da areia</strong>.</p>'+
     '<p>Os <strong>3 dormitórios</strong> têm varanda privativa, e <strong>2 deles são suítes</strong>. A sala e os três quartos têm ar-condicionado. A varanda gourmet, com churrasqueira privativa, é o ponto de encontro da casa.</p>'+
@@ -630,7 +630,7 @@ var DADOS=[
   nome:'Três varandas e espaço zen',
   resumo:'128 m² praticamente pé na areia, com varanda privativa nos três dormitórios, churrasqueira na varanda gourmet e um condomínio com espaço zen, saunas e rooftop.',
   tags:['128 m²','3 dormitórios','2 suítes','10 hóspedes','Pet friendly'],
-  preco:'R$ 600',precoObs:'por noite',
+  preco:'A consultar',precoObs:'valor por noite',
   fatos:[['128 m²','área'],['3','dormitórios'],['2','suítes'],['3','banheiros'],['10','hóspedes'],['2','vagas']],
   texto:'<p>Apartamento mobiliado em área nobre da Praia Grande, a <strong>80 metros do mar</strong>. São <strong>128 m²</strong> com 3 dormitórios, 2 deles suítes, todos com varanda privativa.</p>'+
     '<p>A varanda gourmet tem churrasqueira privativa e abre para a sala, que também tem ar-condicionado, assim como os três quartos.</p>'+
@@ -648,7 +648,7 @@ var DADOS=[
   nome:'Churrasqueira privativa na varanda',
   resumo:'130 m² de alto padrão a 80 metros da praia, com ampla varanda gourmet, 3 dormitórios e um condomínio com saunas, salão de jogos e rooftop com vista.',
   tags:['130 m²','3 dormitórios','2 suítes','10 hóspedes','Planta 3D'],
-  preco:'R$ 600',precoObs:'por noite',
+  preco:'A consultar',precoObs:'valor por noite',
   fatos:[['130 m²','área'],['3','dormitórios'],['2','suítes'],['3','banheiros'],['10','hóspedes'],['2','vagas']],
   texto:'<p>Apartamento de alto padrão em uma das regiões mais valorizadas da Praia Grande, a <strong>80 metros da areia</strong>. São <strong>130 m²</strong> completamente mobiliados.</p>'+
     '<p>São <strong>3 dormitórios, 2 deles suítes</strong>, todos com varanda, mais banheiro social. O destaque é a ampla varanda gourmet com churrasqueira privativa, feita para reunir a família.</p>'+
@@ -661,8 +661,8 @@ var DADOS=[
 },
 {
   id:'ap5',n:'04',
-  cmp:{onde:'ubatuba',hosp:6,tipo:'temporada',dorm:'2',suites:'1',banh:'2',vagas:'1',area:'—'},
-  local:'Ubatuba &middot; SP',
+  cmp:{onde:'praia-grande',hosp:6,tipo:'temporada',dorm:'2',suites:'1',banh:'2',vagas:'1',area:'—'},
+  local:'Praia Grande, Ubatuba &middot; SP',
   nome:'Varanda gourmet e churrasqueira privativa',
   resumo:'Dois dormitórios, sendo uma suíte, totalmente mobiliado, com varanda gourmet e churrasqueira privativa aberta para a sala. Condomínio completo e uma vaga de garagem.',
   tags:['2 dormitórios','1 suíte','Varanda gourmet','Mobiliado','1 vaga'],
@@ -673,7 +673,7 @@ var DADOS=[
     '<h4>No apartamento</h4><ul><li>2 dormitórios, sendo 1 suíte</li><li>Banheiro social</li><li>Ar-condicionado nos dormitórios</li><li>Varanda gourmet com churrasqueira privativa</li><li>Sala de estar e sala de jantar</li><li>Cozinha equipada</li><li>Totalmente mobiliado</li><li>1 vaga de garagem</li></ul>'+
     '<h4>No condomínio</h4><ul><li>Condomínio completo, com área de lazer</li></ul>',
   comod:['Mobiliado','Ar-condicionado','Varanda gourmet','Churrasqueira privativa','Cozinha equipada','TV','1 vaga','Condomínio completo'],
-  mapa:'Ubatuba - SP',
+  mapa:'Praia Grande, Ubatuba - SP',
   planta:'apto2d',
   fotos:['fotos/01-varanda-gourmet.webp','fotos/02-sala-estar.webp','fotos/03-sala-jantar.webp','fotos/04-jantar-cozinha.webp','fotos/05-suite.webp','fotos/06-quarto-2.webp','fotos/07-cozinha.webp','fotos/08-banheiro-suite.webp','fotos/09-banheiro-social.webp']
 },
@@ -684,7 +684,7 @@ var DADOS=[
   nome:'Rooftop com piscina e vista',
   resumo:'Dois dormitórios, sendo uma suíte, num prédio cujo topo é só área de lazer: piscina, churrasqueira, espreguiçadeiras e a vista aberta da serra e do mar.',
   tags:['2 dormitórios','1 suíte','6 hóspedes','Rooftop','Vista serra e mar'],
-  preco:'R$ 486',precoObs:'por noite',
+  preco:'A consultar',precoObs:'valor por noite',
   fatos:[['2','dormitórios'],['1','suíte'],['2','banheiros'],['6','hóspedes'],['1','vaga'],['Wi-Fi','internet']],
   texto:'<p>Apartamento mobiliado, confortável e prático, com a melhor área de lazer do prédio bem em cima: um <strong>rooftop com piscina</strong> e vista aberta para a serra e para o mar.</p>'+
     '<p>São <strong>2 dormitórios, sendo 1 suíte</strong>, banheiro social, sala, cozinha, área de serviço e varanda na sala e em um dos quartos. Os dois quartos têm ar-condicionado.</p>'+
@@ -704,7 +704,7 @@ var DADOS=[
   nome:'Loft de dois pavimentos',
   resumo:'Loft duplex para até 8 pessoas: embaixo sala, cozinha e área de serviço; em cima o dormitório com varanda e banheiro. Condomínio com piscina, quadra e salão gourmet.',
   tags:['2 pavimentos','Acomoda 8','2 vagas','Piscina','Pet friendly'],
-  preco:'R$ 550',precoObs:'baixa estação',
+  preco:'A consultar',precoObs:'valor por noite',
   fatos:[['2','pavimentos'],['1','dormitório'],['2','banheiros'],['8','hóspedes'],['2','vagas'],['Wi-Fi','internet']],
   texto:'<p>Loft de <strong>dois pavimentos</strong> na Praia de Maranduba. No piso de baixo ficam a sala, a cozinha, um banheiro e a área de serviço. No piso de cima, o dormitório com varanda e banheiro.</p>'+
     '<p>Completamente mobiliado, com <strong>ar-condicionado na sala e no dormitório</strong>, ventilador de teto, internet e TV por assinatura. Entre cama de casal e beliches, acomoda até 8 pessoas.</p>'+
@@ -873,7 +873,7 @@ function abre(id){
      '</div>'+(d.obsFotos?'<p class="aviso">'+d.obsFotos+'</p>':'')+'</div>';
 
   h+='<div class="bloco txt"><h3>Sobre o imóvel</h3>'+d.texto+
-     (d.id!=='studio'?'<p class="aviso">O valor acima é fora da alta temporada. Feriados, Natal, Réveillon e Carnaval têm valores próprios, conforme o número de pessoas e de diárias.</p>':'')+'</div>';
+     (d.id!=='studio'?'<p class="aviso">O valor sai conforme a data, o número de pessoas e a quantidade de diárias. Me chama no WhatsApp com as suas datas que eu passo na hora.</p>':'')+'</div>';
 
   if(d.cmp.cin){
     h+='<div class="bloco"><h3>Horários</h3><div class="horarios">'+
