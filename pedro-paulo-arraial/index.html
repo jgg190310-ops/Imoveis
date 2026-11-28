@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<title>Temporada em Arraial do Cabo &middot; direto com o proprietário</title>
+<meta name="description" content="Suíte independente e apartamento em condomínio à beira da laguna, em Arraial do Cabo-RJ, direto com o proprietário. Pacote de Réveillon, fotos, planta 3D e reserva no WhatsApp.">
+<meta name="theme-color" content="#06202a">
+<meta property="og:title" content="Temporada em Arraial do Cabo &middot; direto com o proprietário">
+<meta property="og:description" content="Suíte independente para até 4 pessoas e apartamento em condomínio à beira da laguna, em Arraial do Cabo. Pacote de Réveillon e reserva direto com o dono.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://jgg190310-ops.github.io/Imoveis/pedro-paulo-arraial/fotos/02-varanda-vista.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%2306202a'/%3E%3Cpath d='M6 30c3 0 3 2.6 6 2.6S15 30 18 30s3 2.6 6 2.6S27 30 30 30s3 2.6 6 2.6S39 30 42 30' fill='none' stroke='%233fc6cd' stroke-width='2.6' stroke-linecap='round'/%3E%3Cpath d='M6 37c3 0 3 2.6 6 2.6S15 37 18 37s3 2.6 6 2.6S27 37 30 37s3 2.6 6 2.6S39 37 42 37' fill='none' stroke='%23e9c48b' stroke-width='2.6' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='15' r='6' fill='%23e9c48b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#06202a;--bg2:#0a3040;--bg3:#0e3d4e;--ink:#f3f0e8;--ink2:#b2c8d0;--ink3:#7b949e;
+  --areia:#e9c48b;--areia2:#f3dcb6;--mar:#3fc6cd;--wa:#1faa58;--hair:rgba(243,240,232,.12);
+  --sans:'Bricolage Grotesque',system-ui,sans-serif;--serif:'Newsreader',Georgia,serif;--num:'Archivo Black','Bricolage Grotesque',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.trava{overflow:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 clamp(18px,4vw,56px)}
+.eyebrow{font-size:12px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--areia)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- barra de vidro ---------- */
+#bar{position:fixed;z-index:50;top:12px;left:50%;transform:translateX(-50%);width:min(1240px,calc(100% - 24px));
+  display:flex;align-items:center;justify-content:space-between;gap:18px;padding:10px 10px 10px 18px;border-radius:999px;
+  background:rgba(6,32,42,.38);border:1px solid rgba(255,255,255,.14);
+  -webkit-backdrop-filter:saturate(1.6) blur(18px);backdrop-filter:saturate(1.6) blur(18px);
+  box-shadow:0 18px 50px -30px rgba(0,0,0,.8);transition:background .3s,border-color .3s}
+#bar.solid{background:rgba(6,32,42,.74);border-color:rgba(233,196,139,.22)}
+.marca{display:flex;align-items:center;gap:11px;font-weight:700;font-size:16px;letter-spacing:-.01em;white-space:nowrap}
+.marca .sel{position:relative;overflow:hidden;width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--areia),#caa066);color:#05222c;
+  box-shadow:0 0 0 2px rgba(233,196,139,.7),0 6px 16px -8px rgba(0,0,0,.7)}
+.marca .sel svg{width:20px;height:20px}
+.marca .sel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.marca small{display:block;font-family:var(--serif);font-style:italic;font-weight:300;font-size:13px;color:var(--ink2);letter-spacing:0}
+#bar nav{display:flex;align-items:center;gap:4px}
+#bar nav a:not(.btn){font-size:14px;font-weight:500;color:var(--ink2);padding:9px 14px;border-radius:999px;transition:color .2s,background .2s}
+#bar nav a:not(.btn):hover{color:var(--ink);background:rgba(255,255,255,.07)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font:600 14.5px var(--sans);border-radius:999px;padding:12px 20px;transition:transform .25s,background .25s,box-shadow .25s;white-space:nowrap}
+.btn svg{width:17px;height:17px;flex:none}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 10px 24px -12px rgba(31,170,88,.8)}
+.btn-wa:hover{transform:translateY(-2px);background:#22bb61}
+.btn-ouro{background:var(--areia);color:#05222c}
+.btn-ouro:hover{transform:translateY(-2px);background:var(--areia2)}
+.btn-line{border:1px solid rgba(243,240,232,.3);color:var(--ink)}
+.btn-line:hover{background:rgba(255,255,255,.06)}
+#bar .btn{padding:10px 18px}
+
+/* ---------- capa ---------- */
+#capa{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.capa-bg{position:absolute;inset:-10% 0 -4% 0;z-index:-2;will-change:transform;overflow:hidden}
+.capa-bg figure{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease}
+.capa-bg figure.on{opacity:.52}
+.capa-bg img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.04)}
+.capa-bg figure.on img{animation:zoomlento 9s linear forwards}
+@keyframes zoomlento{from{transform:scale(1.04)}to{transform:scale(1.16)}}
+#capa::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(80% 60% at 18% 30%,rgba(63,198,205,.26),transparent 70%),
+             linear-gradient(180deg,rgba(6,32,42,.55) 0%,rgba(6,32,42,.78) 45%,var(--bg) 92%)}
+.capa-in{width:100%;padding-top:150px;padding-bottom:clamp(40px,7vh,80px)}
+#capa h1{font-weight:800;font-size:clamp(44px,8vw,118px);line-height:.9;letter-spacing:-.055em;max-width:13ch;margin-top:20px;will-change:transform}
+#capa h1 em{font-family:var(--serif);font-style:italic;font-weight:300;letter-spacing:-.03em;color:var(--areia)}
+.capa-sub{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(18px,1.9vw,24px);line-height:1.45;color:var(--ink2);max-width:42ch;margin-top:24px}
+.capa-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.capa-cta .btn{padding:15px 24px;font-size:15.5px}
+.selos{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.selos span{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:500;color:var(--ink2);
+  padding:8px 14px;border-radius:999px;border:1px solid var(--hair);background:rgba(10,48,64,.42);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.selos svg{width:14px;height:14px;color:var(--areia);flex:none}
+.nums{display:grid;grid-template-columns:repeat(3,max-content);margin-top:clamp(36px,6vh,66px);border-top:1px solid var(--hair)}
+.nums div{padding:20px 22px 4px 0}
+.nums div+div{padding-left:22px;border-left:1px solid var(--hair)}
+.nums b{display:block;font:normal clamp(34px,4.2vw,58px)/.9 var(--num);color:var(--areia);letter-spacing:-.04em}
+.nums span{display:block;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink2);margin-top:8px;max-width:18ch}
+
+/* ---------- cabeçalho de seção ---------- */
+.sec{padding:clamp(70px,10vh,120px) 0 0}
+.sec-h{display:flex;justify-content:space-between;align-items:flex-end;gap:20px 50px;flex-wrap:wrap;margin-bottom:clamp(26px,4vh,42px)}
+.sec-h h2{font-weight:800;font-size:clamp(34px,4.8vw,66px);line-height:.95;letter-spacing:-.05em;margin-top:12px}
+.sec-h h2 span{color:var(--areia)}
+.sec-h p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:18px;line-height:1.5;color:var(--ink2);max-width:40ch}
+
+/* ---------- réveillon ---------- */
+#reveillon{position:relative;overflow:hidden;isolation:isolate;margin-top:clamp(60px,9vh,100px)}
+#reveillon::before{content:"";position:absolute;inset:0;z-index:-2;
+  background:radial-gradient(130% 85% at 50% 0%,rgba(63,198,205,.22),transparent 62%),linear-gradient(180deg,#042330,#03161e 70%,var(--bg))}
+#fogos{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:.95}
+.rev-in{padding:clamp(70px,11vh,120px) 0 clamp(70px,11vh,120px)}
+.rev-grid{display:grid;gap:34px}
+@media(min-width:980px){.rev-grid{grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:64px;align-items:center}}
+.rev-grid h2{font-weight:800;font-size:clamp(40px,6.4vw,86px);line-height:.9;letter-spacing:-.055em;color:var(--areia2);text-shadow:0 0 34px rgba(233,196,139,.3);margin-top:14px}
+.rev-grid h2 em{display:block;font-family:var(--serif);font-style:italic;font-weight:300;color:var(--ink);text-shadow:none}
+.rev-lead{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(17px,1.8vw,20px);line-height:1.6;color:var(--ink2);max-width:46ch;margin-top:20px}
+.conta{display:flex;align-items:baseline;gap:14px;margin-top:28px;padding-top:24px;border-top:1px solid var(--hair)}
+.conta b{font:normal clamp(48px,7.4vw,86px)/.85 var(--num);color:var(--areia);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.conta span{font-size:14px;color:var(--ink2);line-height:1.35}
+.pacote{border:1px solid rgba(233,196,139,.34);border-radius:24px;padding:clamp(22px,3.4vw,34px);
+  background:linear-gradient(180deg,rgba(243,240,232,.09),rgba(243,240,232,.03));
+  -webkit-backdrop-filter:blur(12px) saturate(1.3);backdrop-filter:blur(12px) saturate(1.3);
+  box-shadow:0 34px 70px -40px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.18)}
+.pacote .top{padding-bottom:18px;border-bottom:1px solid var(--hair)}
+.pacote .top small{display:block;font:500 10.5px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--areia)}
+.pacote .top b{display:block;font-weight:800;font-size:clamp(28px,4vw,38px);line-height:1;letter-spacing:-.03em;margin-top:8px}
+.pacote .top i{display:block;font-family:var(--serif);font-style:italic;font-size:15.5px;color:var(--ink2);margin-top:9px;line-height:1.5}
+.pacote ul{list-style:none;margin:18px 0 0}
+.pacote li{display:grid;grid-template-columns:19px minmax(0,1fr);gap:13px;align-items:start;padding:9px 0;font-size:15px;color:var(--ink)}
+.pacote li svg{width:19px;height:19px;color:var(--areia);margin-top:2px}
+.pacote li i{display:block;font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin-bottom:3px}
+.rev-acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.rev-acoes .btn{flex:1 1 auto}
+
+.filtro{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-bottom:22px;padding:14px 16px;
+  border:1px solid var(--hair);border-radius:18px;background:rgba(10,48,64,.5)}
+.fgrupo{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.fgrupo>b{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin-right:4px}
+.fgrupo button{font-size:13.5px;font-weight:500;color:var(--ink2);padding:8px 14px;border-radius:999px;
+  border:1px solid transparent;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+.fgrupo button:hover{background:rgba(255,255,255,.07);color:var(--ink)}
+.fgrupo button.on{background:var(--areia);color:#05222c;font-weight:700}
+.fcont{margin-left:auto;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink2)}
+.vazio{padding:40px 0;text-align:center;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink2)}
+.fx.oculto{display:none}
+
+/* ---------- faixas ---------- */
+.faixas{display:flex;flex-direction:column;gap:4px}
+.fx{position:relative;display:block;width:100%;text-align:left;color:inherit;min-height:clamp(240px,31vw,350px);overflow:hidden;isolation:isolate;
+  background:linear-gradient(90deg,#06201f 0%,#0a2f2c 100%);transition:min-height .6s cubic-bezier(.2,.8,.3,1)}
+.fx-bg{position:absolute;left:34%;right:0;top:-14%;bottom:-14%;z-index:-2;will-change:transform;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 38%);mask-image:linear-gradient(90deg,transparent 0%,#000 38%)}
+.fx-bg img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.03);transition:transform 1.1s cubic-bezier(.2,.8,.3,1),filter .6s;filter:brightness(.62) saturate(1.05)}
+.fx::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(6,32,42,0) 40%,rgba(6,32,42,.25) 70%,rgba(6,32,42,.05) 100%)}
+.fx::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--hair)}
+.fx-in{position:relative;min-height:inherit;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(16px,2.6vw,40px);
+  max-width:1320px;margin:0 auto;padding:30px clamp(18px,4vw,56px)}
+.fx-n{font:normal clamp(92px,11.5vw,180px)/.78 var(--num);color:var(--areia);letter-spacing:-.06em;min-width:1.2ch;
+  text-shadow:0 18px 40px rgba(0,0,0,.35);transition:transform .6s cubic-bezier(.2,.8,.3,1)}
+.fx-t{min-width:0}
+.fx-t small{display:block;font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink2)}
+.fx-t h3{font-weight:800;font-size:clamp(26px,3.2vw,46px);letter-spacing:-.045em;line-height:1;margin:5px 0 7px}
+.fx-t p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(15.5px,1.3vw,18px);line-height:1.45;color:var(--ink2);max-width:37ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tags i{font-style:normal;font-size:12.5px;font-weight:500;padding:5px 11px;border-radius:999px;border:1px solid rgba(243,240,232,.26);background:rgba(6,32,42,.35)}
+.tags i.dest{background:var(--areia);border-color:var(--areia);color:#05222c;font-weight:700}
+.fx-r{display:flex;align-items:center;gap:clamp(16px,2.4vw,34px)}
+.preco{text-align:right;white-space:nowrap}
+.preco b{display:block;font-weight:800;font-size:clamp(20px,2.1vw,27px);letter-spacing:-.03em;color:var(--areia)}
+.preco span{display:block;font-family:var(--serif);font-style:italic;font-size:14px;color:var(--ink3);margin-top:2px}
+.seta{width:54px;height:54px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;flex:none;
+  transition:transform .4s cubic-bezier(.2,.9,.3,1),background .3s}
+.seta svg{width:20px;height:20px}
+@media (hover:hover){
+  .fx:hover{min-height:clamp(268px,35vw,406px)}
+  .fx:hover .fx-bg img{transform:scale(1.09);filter:brightness(.82) saturate(1.1)}
+  .fx:hover .seta{transform:rotate(-45deg);background:var(--areia)}
+  .fx:hover .fx-n{transform:translateX(6px)}
+}
+.fx:focus-visible{outline:3px solid var(--areia);outline-offset:-4px}
+
+/* ---------- comparativo ---------- */
+.tabela{overflow-x:auto;border:1px solid var(--hair);border-radius:18px;-webkit-overflow-scrolling:touch}
+.tabela table{border-collapse:collapse;width:100%;min-width:760px;font-size:14.5px}
+.tabela th,.tabela td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--hair);white-space:nowrap}
+.tabela thead th{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--areia);font-weight:500;
+  background:rgba(10,48,64,.8);position:sticky;top:0}
+.tabela tbody tr:last-child td{border-bottom:0}
+.tabela tbody tr{transition:background .2s;cursor:pointer}
+.tabela tbody tr:hover{background:rgba(255,255,255,.05)}
+.tabela .nome{font-weight:700;letter-spacing:-.02em;white-space:normal;min-width:210px}
+.tabela .nome small{display:block;font-family:var(--serif);font-style:italic;font-weight:300;font-size:13.5px;color:var(--ink3);margin-top:3px}
+.tabela .num{font-weight:700;color:var(--areia)}
+.tabela td.cinza{color:var(--ink3)}
+.dicaTab{display:none;margin-top:12px;font-family:var(--serif);font-style:italic;font-size:14.5px;color:var(--ink3)}
+@media(max-width:860px){.dicaTab{display:block}}
+
+/* ---------- onde ficam ---------- */
+.ondegrid{display:grid;gap:18px}
+@media(min-width:900px){.ondegrid{grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:28px;align-items:stretch}}
+.ondelista{display:flex;flex-direction:column;gap:10px}
+.ondeitem{padding:18px 20px;border:1px solid var(--hair);border-radius:16px;background:rgba(10,48,64,.48);transition:border-color .25s,transform .25s}
+.ondeitem:hover{border-color:rgba(233,196,139,.38);transform:translateY(-2px)}
+.ondeitem b{display:block;font-weight:700;font-size:18px;letter-spacing:-.02em}
+.ondeitem small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--areia);margin-bottom:7px}
+.ondeitem p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:15.5px;line-height:1.5;color:var(--ink2);margin-top:6px}
+.ondemapa{border-radius:18px;overflow:hidden;border:1px solid var(--hair);min-height:320px;background:var(--bg2)}
+.ondemapa iframe{width:100%;height:100%;min-height:320px;border:0;display:block;filter:grayscale(.2) contrast(1.05)}
+
+/* ---------- passos ---------- */
+.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.passo{background:var(--bg2);padding:clamp(24px,3vw,38px);min-height:250px;display:flex;flex-direction:column}
+.passo:first-child{border-radius:22px 0 0 22px}.passo:last-child{border-radius:0 22px 22px 0}
+.passo b{font:normal 78px/.8 var(--num);color:var(--areia);letter-spacing:-.05em}
+.passo h3{font-weight:700;font-size:23px;letter-spacing:-.03em;margin-top:auto;padding-top:28px}
+.passo p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:16.5px;line-height:1.5;color:var(--ink2);margin-top:8px}
+.inclui{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.inclui span{font-size:13.5px;font-weight:500;padding:8px 14px;border-radius:999px;background:rgba(233,196,139,.1);
+  color:var(--areia);border:1px solid rgba(233,196,139,.25)}
+@media(max-width:900px){
+  .passos{grid-template-columns:1fr}
+  .passo,.passo:first-child,.passo:last-child{border-radius:0;min-height:0}
+  .passo:first-child{border-radius:22px 22px 0 0}.passo:last-child{border-radius:0 0 22px 22px}
+  .passo h3{padding-top:16px}
+}
+
+/* ---------- faq ---------- */
+.faq{display:grid;gap:4px}
+.faq details{background:var(--bg2);border-radius:4px;overflow:hidden}
+.faq details:first-of-type{border-radius:18px 18px 4px 4px}
+.faq details:last-of-type{border-radius:4px 4px 18px 18px}
+.faq summary{list-style:none;cursor:pointer;padding:19px clamp(18px,2.6vw,28px);display:flex;align-items:center;
+  justify-content:space-between;gap:18px;font-weight:600;font-size:16.5px;letter-spacing:-.01em;transition:background .2s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{background:rgba(255,255,255,.04)}
+.faq summary::after{content:"";flex:none;width:11px;height:11px;border-right:2px solid var(--areia);
+  border-bottom:2px solid var(--areia);transform:rotate(45deg) translateY(-3px);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(225deg) translateY(-3px)}
+.faq .resp{padding:0 clamp(18px,2.6vw,28px) 22px;font-size:16px;line-height:1.7;color:var(--ink2);max-width:72ch}
+
+/* ---------- contato ---------- */
+#contato{position:relative;margin-top:clamp(70px,10vh,120px);overflow:hidden;isolation:isolate}
+.ct-bg{position:absolute;left:0;right:0;top:-20%;bottom:-20%;z-index:-2;will-change:transform}
+.ct-bg img{width:100%;height:100%;object-fit:cover;opacity:.3;filter:blur(7px) saturate(1.2)}
+#contato::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--bg) 0%,rgba(6,32,42,.7) 40%,rgba(6,32,42,.92) 100%)}
+.ct-in{padding:clamp(80px,14vh,150px) 0;text-align:center}
+.ct-in h2{font-weight:800;font-size:clamp(38px,6.2vw,92px);line-height:.92;letter-spacing:-.055em;max-width:15ch;margin:16px auto 0}
+.ct-in h2 em{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--areia);letter-spacing:-.03em}
+.ct-in p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:19px;color:var(--ink2);max-width:44ch;margin:20px auto 0;line-height:1.5}
+.ct-in .capa-cta{justify-content:center}
+.fone{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 18px;margin-top:30px;
+  padding-top:26px;border-top:1px solid var(--hair);max-width:560px;margin-left:auto;margin-right:auto}
+.fone .quem{display:inline-flex;align-items:center;gap:11px;font-family:var(--sans);font-style:normal;font-weight:600;font-size:16px;letter-spacing:-.01em;color:var(--ink)}
+.fone .sel{position:relative;overflow:hidden;width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--areia),#caa066);color:#05222c;box-shadow:0 0 0 2px rgba(233,196,139,.7)}
+.fone .sel svg{width:20px;height:20px}
+.fone .sel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.fone a{font-family:var(--sans);font-style:normal;font-weight:700;font-size:19px;letter-spacing:-.01em;color:var(--areia)}
+.fone a:hover{color:var(--areia2)}
+footer{border-top:1px solid var(--hair);padding:26px 0 calc(26px + env(safe-area-inset-bottom))}
+footer .wrap{display:flex;justify-content:space-between;gap:12px 30px;flex-wrap:wrap;font-size:13.5px;color:var(--ink3)}
+footer a{color:var(--ink2)}
+footer a:hover{color:var(--areia)}
+
+/* ---------- ficha (overlay) ---------- */
+#ficha{position:fixed;inset:0;z-index:90;background:var(--bg);overflow-y:auto;overscroll-behavior:contain;
+  opacity:0;visibility:hidden;transform:translateY(16px);transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.3,1),visibility .35s}
+#ficha.on{opacity:1;visibility:visible;transform:none}
+.fc-top{position:sticky;top:0;z-index:12;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:12px clamp(14px,3vw,30px);background:rgba(6,32,42,.72);border-bottom:1px solid var(--hair);
+  -webkit-backdrop-filter:saturate(1.6) blur(18px);backdrop-filter:saturate(1.6) blur(18px)}
+.fc-top .quem{min-width:0}
+.fc-top .quem small{display:block;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--areia);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fc-top .quem b{display:block;font-size:16px;font-weight:700;letter-spacing:-.02em;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fc-top .dir{display:flex;align-items:center;gap:8px;flex:none}
+.fecha{width:42px;height:42px;border-radius:50%;border:1px solid rgba(243,240,232,.24);display:grid;place-items:center;flex:none;transition:background .2s}
+.fecha:hover{background:rgba(255,255,255,.08)}
+.fecha svg{width:19px;height:19px}
+.fc-capa{position:relative;height:clamp(240px,46vh,440px);overflow:hidden}
+.fc-capa img{width:100%;height:100%;object-fit:cover}
+.fc-capa::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,32,42,.2),rgba(6,32,42,.35) 55%,var(--bg))}
+.fc-body{max-width:1100px;margin:0 auto;padding:0 clamp(18px,4vw,40px) 120px}
+.fc-cab{position:relative;z-index:2;margin-top:-72px}
+.fc-cab small{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--areia)}
+.fc-cab h2{font-weight:800;font-size:clamp(30px,5vw,56px);line-height:.98;letter-spacing:-.05em;margin:6px 0 0}
+.fc-preco{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:14px}
+.fc-preco b{font-weight:800;font-size:clamp(24px,3.2vw,34px);color:var(--areia);letter-spacing:-.03em}
+.fc-preco span{font-family:var(--serif);font-style:italic;font-size:15.5px;color:var(--ink2)}
+.fatos{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:1px;margin-top:28px;background:var(--hair);border:1px solid var(--hair);border-radius:16px;overflow:hidden}
+.fatos div{background:var(--bg2);padding:16px 14px}
+.fatos b{display:block;font-weight:800;font-size:22px;letter-spacing:-.03em}
+.fatos span{display:block;font-size:12.5px;color:var(--ink3);margin-top:3px}
+.bloco{margin-top:clamp(36px,6vh,58px)}
+.bloco h3{font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.04em;margin-bottom:16px}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:8px}
+.gal button{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--bg2);display:block}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.3,1)}
+.gal button:hover img{transform:scale(1.06)}
+.gal button:first-child{grid-column:span 2;aspect-ratio:16/9}
+@media(max-width:620px){.gal button:first-child{grid-column:span 1;aspect-ratio:4/3}}
+.txt p{font-size:16.5px;line-height:1.72;color:var(--ink2);margin-bottom:14px}
+.txt h4{font-weight:700;font-size:17px;color:var(--ink);letter-spacing:-.01em;margin:22px 0 10px}
+.txt ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:4px 22px;margin-bottom:14px}
+.txt li{position:relative;padding-left:20px;font-size:16px;line-height:1.6;color:var(--ink2)}
+.txt li::before{content:"";position:absolute;left:3px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--areia)}
+.txt strong{color:var(--ink);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:14px;padding:9px 15px;border-radius:999px;border:1px solid var(--hair);background:var(--bg2);color:var(--ink2)}
+.mapa{border-radius:16px;overflow:hidden;border:1px solid var(--hair);background:var(--bg2);height:clamp(240px,40vh,380px)}
+.mapa iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.2) contrast(1.05)}
+.aviso,.txt p.aviso{font-size:13.5px;line-height:1.6;color:var(--ink3);margin-top:14px}
+.planta-cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:clamp(20px,3vw,28px);border-radius:20px;
+  border:1px solid rgba(233,196,139,.3);background:linear-gradient(140deg,rgba(233,196,139,.1),rgba(243,240,232,.03))}
+.planta-cta div{flex:1 1 260px}
+.planta-cta b{display:block;font-weight:800;font-size:20px;letter-spacing:-.03em}
+.planta-cta p{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink2);margin-top:6px;line-height:1.5}
+.fc-fixo{position:fixed;left:0;right:0;bottom:0;z-index:14;padding:12px clamp(14px,3vw,30px) calc(12px + env(safe-area-inset-bottom));
+  background:rgba(6,32,42,.78);border-top:1px solid var(--hair);
+  -webkit-backdrop-filter:saturate(1.6) blur(18px);backdrop-filter:saturate(1.6) blur(18px);
+  display:flex;align-items:center;justify-content:space-between;gap:14px}
+.fc-fixo .pq{min-width:0}
+.fc-fixo .pq b{display:block;font-weight:800;font-size:18px;color:var(--areia);letter-spacing:-.03em}
+.fcnav{display:grid;gap:4px;margin-top:clamp(36px,6vh,56px)}
+@media(min-width:640px){.fcnav{grid-template-columns:1fr 1fr}}
+.fcnav button{display:flex;align-items:center;gap:14px;padding:20px 22px;border-radius:16px;border:1px solid var(--hair);
+  background:var(--bg2);text-align:left;transition:border-color .25s,transform .25s}
+.fcnav button:hover{border-color:rgba(233,196,139,.4);transform:translateY(-2px)}
+.fcnav small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--areia)}
+.fcnav b{display:block;font-weight:700;font-size:16.5px;letter-spacing:-.02em;margin-top:5px}
+.fcnav .pro{text-align:right;justify-content:flex-end}
+.fcnav svg{width:20px;height:20px;flex:none;color:var(--areia)}
+.horarios{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.horarios div{flex:1 1 150px;padding:14px 16px;border-radius:14px;border:1px solid var(--hair);background:var(--bg2)}
+.horarios small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
+.horarios b{display:block;font-weight:700;font-size:19px;margin-top:4px}
+.fc-fixo .pq span{display:block;font-family:var(--serif);font-style:italic;font-size:13px;color:var(--ink3)}
+
+/* ---------- lightbox ---------- */
+#lb{position:fixed;inset:0;z-index:120;background:rgba(3,14,19,.96);display:grid;place-items:center;
+  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+#lb.on{opacity:1;visibility:visible}
+#lb img{max-width:94vw;max-height:84vh;border-radius:10px;box-shadow:0 40px 90px -40px #000}
+#lb .nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;
+  background:rgba(243,240,232,.12);display:grid;place-items:center;transition:background .2s}
+#lb .nav:hover{background:rgba(243,240,232,.24)}
+#lb .nav svg{width:22px;height:22px}
+#lb .ant{left:max(12px,3vw)}#lb .pro{right:max(12px,3vw)}
+#lb .sai{position:absolute;top:max(12px,2vh);right:max(12px,3vw);width:48px;height:48px;border-radius:50%;background:rgba(243,240,232,.12);display:grid;place-items:center}
+#lb .cont{position:absolute;bottom:max(14px,3vh);left:50%;transform:translateX(-50%);font-size:13.5px;color:var(--ink2);
+  background:rgba(6,32,42,.7);padding:7px 15px;border-radius:999px;border:1px solid var(--hair)}
+
+/* ---------- revelar ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.8,.3,1),transform .9s cubic-bezier(.2,.8,.3,1)}
+.rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{animation:none!important}}
+
+/* ---------- celular ---------- */
+@media (max-width:980px){
+  #bar nav a:not(.btn){display:none}
+  .nums{grid-template-columns:repeat(2,max-content)}
+  .nums div:nth-child(3){padding-left:0;border-left:0;border-top:1px solid var(--hair)}
+}
+@media (max-width:640px){
+  #bar{top:8px;padding:8px 8px 8px 12px}
+  .marca small{display:none}
+  .marca{font-size:15px}
+  #bar .btn{padding:9px 14px;font-size:13.5px}
+  #bar .btn span{display:none}
+  .capa-bg figure.on{opacity:.46}
+  .capa-in{padding-top:120px}
+  .capa-cta .btn{flex:1 1 100%}
+  .fx{min-height:258px}
+  .fx-in{grid-template-columns:auto 1fr;grid-template-rows:auto auto;align-items:end;gap:6px 14px;padding:26px 18px 24px}
+  .fx-n{font-size:90px;grid-row:1;align-self:end}
+  .fx-t{grid-column:1/-1;grid-row:2}
+  .fx-r{grid-column:2;grid-row:1;justify-self:end;align-self:start;flex-direction:column;align-items:flex-end;gap:12px}
+  .preco b{font-size:19px}
+  .seta{width:44px;height:44px}
+  .fx-bg{left:0;-webkit-mask-image:none;mask-image:none}
+  .fx::before{background:linear-gradient(0deg,rgba(6,32,42,.97) 0%,rgba(6,32,42,.88) 48%,rgba(6,32,42,.3) 100%)}
+  .fx-t p{font-size:15.5px}
+  .sec-h p{font-size:16.5px}
+  .fc-cab{margin-top:-54px}
+  #fcWaTopo{display:none}
+  .fc-top .quem b{font-size:15px}
+  .fc-fixo .pq span{display:none}
+  .rev-acoes .btn{flex:1 1 100%}
+}
+
+</style>
+</head>
+<body>
+
+<header id="bar">
+  <a class="marca" href="#capa" aria-label="Início">
+    <span class="sel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 11.2 12 3.6l9.5 7.6"/><path d="M4.8 10.1V20h14.4v-9.9"/><path d="M9.6 20v-5.2h4.8V20"/></svg></span>
+    <div>Pedro Paulo<small>temporada em Arraial do Cabo, direto com o dono</small></div>
+  </a>
+  <nav>
+    <a href="#imoveis">Imóveis</a>
+    <a href="#reveillon">Réveillon</a>
+    <a href="#onde">Onde fica</a>
+    <a href="#duvidas">Dúvidas</a>
+    <a class="btn btn-wa" href="#contato" data-wa="Olá, Pedro Paulo! Vi o site dos seus imóveis em Arraial do Cabo e quero consultar datas.">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.24.68-1.43 1.32-1.97 1.37-.5.05-.98.24-3.3-.69-2.8-1.1-4.58-3.96-4.72-4.15-.13-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.3.25-.27.55-.34.73-.34h.53c.17 0 .4-.06.62.48.24.56.8 1.93.87 2.07.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34z"/></svg><span>Consultar datas</span></a>
+  </nav>
+</header>
+
+<section id="capa">
+  <div class="capa-bg" id="capabg" aria-hidden="true"></div>
+  <div class="wrap capa-in">
+    <p class="eyebrow rv">Arraial do Cabo, RJ &middot; Região dos Lagos</p>
+    <h1 id="capah1" class="rv">A virada<br><em>em Arraial.</em></h1>
+    <p class="capa-sub rv">Uma suíte independente, com entrada pelo quintal e café da manhã se você quiser, e um apartamento em condomínio à beira da laguna, com piscina e caiaque. Os dois direto comigo, sem taxa de plataforma.</p>
+    <div class="capa-cta rv">
+      <a class="btn btn-ouro" href="#imoveis">Ver os imóveis
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+      <a class="btn btn-line" href="#reveillon">Pacote de Réveillon</a>
+    </div>
+    <div class="selos rv">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Direto com o proprietário</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sem taxa de plataforma</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mobiliado e equipado</span>
+    </div>
+    <div class="nums rv">
+      <div><b>2</b><span>imóveis em Arraial</span></div>
+      <div><b>4</b><span>pessoas na suíte</span></div>
+      <div><b>3D</b><span>planta de cada um</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="reveillon" aria-labelledby="revT">
+  <canvas id="fogos" aria-hidden="true"></canvas>
+  <div class="wrap rev-in">
+    <div class="rev-grid">
+      <div class="rv">
+        <p class="eyebrow">Virada 2027</p>
+        <h2 id="revT">Réveillon<em>em Arraial do Cabo</em></h2>
+        <p class="rev-lead">A suíte sai inteira para o seu grupo, com entrada independente pelo quintal, churrasqueira e café da manhã se você quiser. Datas e condições a gente confirma no WhatsApp.</p>
+        <div class="conta" aria-live="polite"><b id="revDias">--</b><span>dias para<br>a virada</span></div>
+      </div>
+      <div class="pacote rv">
+        <div class="top">
+          <small>Pacote de Réveillon &middot; suíte independente</small>
+          <b>R$ 3.000</b>
+          <i>Valor do pacote da suíte, para até 4 pessoas. As datas exatas a gente fecha junto, conforme a sua chegada e saída.</i>
+        </div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg><div><i>Grupo</i>Até 4 pessoas na suíte</div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M10 21v-6h4v6"/></svg><div><i>Entrada</i>Independente, pelo quintal da casa</div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v3M8 7h8l-1 4H9z"/><path d="M6 21h12M9 11v10M15 11v10"/></svg><div><i>Café da manhã</i>Com ou sem, você escolhe</div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><i>Como funciona</i>Negociação e pagamento direto comigo</div></li>
+        </ul>
+        <div class="rev-acoes">
+          <a class="btn btn-ouro" href="#" data-wa="Olá, Pedro Paulo! Quero o pacote de Réveillon da suíte em Arraial do Cabo.">Quero o Réveillon</a>
+          <a class="btn btn-line" href="#imoveis">Ver os imóveis</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="imoveis">
+  <div class="wrap sec-h">
+    <div class="rv"><p class="eyebrow">Os imóveis</p><h2>Escolha <span>o seu</span></h2></div>
+    <p class="rv">Toque numa faixa para abrir as fotos, a descrição completa, o mapa e a planta 3D. Tudo aqui mesmo, sem sair da página.</p>
+  </div>
+  <div class="faixas" id="faixas"></div>
+</section>
+
+<section class="sec" id="comparar">
+  <div class="wrap sec-h">
+    <div class="rv"><p class="eyebrow">Lado a lado</p><h2>Compare <span>os dois</span></h2></div>
+    <p class="rv">A mesma informação para os dois, na mesma ordem. Toque numa linha para abrir o imóvel.</p>
+  </div>
+  <div class="wrap">
+    <div class="tabela rv"><table id="comparativo"><thead><tr>
+      <th>Imóvel</th><th>Onde</th><th>Quartos</th><th>Banheiros</th><th>Hóspedes</th><th>Vagas</th><th>Valor</th>
+    </tr></thead><tbody></tbody></table></div>
+    <p class="dicaTab rv">Arraste a tabela para o lado para ver todas as colunas.</p>
+  </div>
+</section>
+
+<section class="sec" id="onde">
+  <div class="wrap sec-h">
+    <div class="rv"><p class="eyebrow">Onde fica</p><h2>Arraial <span>do Cabo</span></h2></div>
+    <p class="rv">Os dois imóveis ficam em Arraial do Cabo, a cidade das águas mais claras do Rio de Janeiro.</p>
+  </div>
+  <div class="wrap ondegrid">
+    <div class="ondelista rv">
+      <div class="ondeitem"><small>Imóvel 01</small><b>Suíte independente</b><p>Entrada própria pelo quintal da casa, para até 4 pessoas, com churrasqueira, ar-condicionado e café da manhã opcional. É a opção do pacote de Réveillon.</p></div>
+      <div class="ondeitem"><small>Imóvel 02</small><b>Apartamento no condomínio da laguna</b><p>Em condomínio à beira da laguna, com piscina, quadra, caiaques e o pôr do sol na água bem na frente. Apartamento mobiliado, com quarto, sala, cozinha e varanda.</p></div>
+      <div class="ondeitem"><small>A cidade</small><b>Praias e passeios</b><p>Prainhas do Pontal, Praia do Farol, Praia Grande e os passeios de barco pela Ilha do Farol saem de Arraial. A laguna, do outro lado, é onde o pessoal faz kitesurf e caiaque.</p></div>
+    </div>
+    <div class="ondemapa rv"><iframe src="https://www.google.com/maps?q=Arraial%20do%20Cabo%2C%20RJ&amp;z=12&amp;output=embed" loading="lazy" title="Mapa de Arraial do Cabo, RJ" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</section>
+
+<section class="sec" id="como">
+  <div class="wrap sec-h">
+    <div class="rv"><p class="eyebrow">Como funciona</p><h2>Da escolha à <span>chave na mão</span></h2></div>
+    <p class="rv">Sem cadastro, sem intermediário e sem taxa de plataforma.</p>
+  </div>
+  <div class="wrap">
+    <div class="passos">
+      <div class="passo rv"><b>1</b><h3>Escolha o imóvel</h3><p>Veja as fotos de cada ambiente e gire a planta 3D para entender o espaço antes de decidir.</p></div>
+      <div class="passo rv"><b>2</b><h3>Me chame com as datas</h3><p>O botão já vai com o nome do imóvel. Me diga as datas e quantas pessoas que eu confirmo a disponibilidade e o valor do período.</p></div>
+      <div class="passo rv"><b>3</b><h3>Reserve direto comigo</h3><p>Combinamos o pagamento e eu passo o endereço exato, as instruções de entrada e o que você precisa levar.</p></div>
+    </div>
+    <div class="inclui rv"><span>Mobiliado e equipado</span><span>Roupa de cama e toalhas</span><span>Ar-condicionado</span><span>Estacionamento</span><span>Churrasqueira</span><span>Direto com o dono</span></div>
+  </div>
+</section>
+
+<section class="sec" id="duvidas">
+  <div class="wrap sec-h">
+    <div class="rv"><p class="eyebrow">Perguntas frequentes</p><h2>O que <span>sempre perguntam</span></h2></div>
+    <p class="rv">Se ficar qualquer dúvida, me chama no WhatsApp que eu respondo.</p>
+  </div>
+  <div class="wrap">
+    <div class="faq rv">
+      <details><summary>Como faço a reserva?</summary><div class="resp">Direto comigo. Você me manda as datas e o número de pessoas, eu confirmo a disponibilidade e passo o valor do período. Não tem cadastro nem taxa de plataforma.</div></details>
+      <details><summary>O pacote de Réveillon de R$ 3.000 cobre o quê?</summary><div class="resp">É o valor do pacote da suíte independente, para até 4 pessoas, com entrada própria pelo quintal. As datas de chegada e saída a gente combina no WhatsApp, conforme a sua viagem.</div></details>
+      <details><summary>O café da manhã está incluso?</summary><div class="resp">Na suíte, você escolhe: pode ser com ou sem café da manhã. Me avise quando for fechar que eu ajusto.</div></details>
+      <details><summary>Tem estacionamento?</summary><div class="resp">Tem. A suíte conta com uma vaga, e o apartamento fica em condomínio com estacionamento.</div></details>
+      <details><summary>Os imóveis são mobiliados?</summary><div class="resp">Sim, os dois saem mobiliados e equipados, com geladeira, ar-condicionado, TV, roupa de cama e toalhas. O que cada um tem está listado na ficha, em "O que tem".</div></details>
+      <details><summary>Com quem eu falo?</summary><div class="resp">Comigo, Pedro Paulo, que sou o proprietário. Não tem imobiliária nem corretor no meio, então a negociação, as condições e o pagamento são tratados direto entre nós dois.</div></details>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="ct-bg" id="ctbg"></div>
+  <div class="wrap ct-in">
+    <p class="eyebrow rv">Contato</p>
+    <h2 class="rv">Me manda as suas <em>datas.</em></h2>
+    <p class="rv">Respondo com os valores do período, as condições e as fotos que você quiser ver de novo.</p>
+    <div class="capa-cta rv">
+      <a class="btn btn-wa" href="#" data-wa="Olá, Pedro Paulo! Vi o site dos seus imóveis em Arraial do Cabo e quero consultar datas.">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.24.68-1.43 1.32-1.97 1.37-.5.05-.98.24-3.3-.69-2.8-1.1-4.58-3.96-4.72-4.15-.13-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.3.25-.27.55-.34.73-.34h.53c.17 0 .4-.06.62.48.24.56.8 1.93.87 2.07.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34z"/></svg>Chamar no WhatsApp</a>
+      <a class="btn btn-line" href="#imoveis">Rever os imóveis</a>
+    </div>
+    <p class="fone rv"><span class="quem"><span class="sel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 11.2 12 3.6l9.5 7.6"/><path d="M4.8 10.1V20h14.4v-9.9"/><path d="M9.6 20v-5.2h4.8V20"/></svg></span>Pedro Paulo Ramalho</span>
+      <a id="foneLink" href="#" data-wa="Olá, Pedro Paulo! Vi o site dos seus imóveis em Arraial do Cabo e quero consultar datas.">Falar agora</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Pedro Paulo Ramalho &middot; Arraial do Cabo, RJ</span>
+    <span>Site criado por <a href="https://jgg190310-ops.github.io/Imoveis/portfolio/" target="_blank" rel="noopener">João Gabriel Geo</a></span>
+  </div>
+</footer>
+
+<div id="ficha" role="dialog" aria-modal="true" aria-labelledby="fcNome" aria-hidden="true">
+  <div class="fc-top">
+    <div class="quem"><small id="fcTag">Imóvel</small><b id="fcNome">—</b></div>
+    <div class="dir">
+      <a class="btn btn-wa" id="fcWaTopo" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.24.68-1.43 1.32-1.97 1.37-.5.05-.98.24-3.3-.69-2.8-1.1-4.58-3.96-4.72-4.15-.13-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.3.25-.27.55-.34.73-.34h.53c.17 0 .4-.06.62.48.24.56.8 1.93.87 2.07.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34z"/></svg><span>Consultar datas</span></a>
+      <button class="fecha" id="fcFecha" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+  </div>
+  <div class="fc-capa"><img id="fcCapa" src="" alt=""></div>
+  <div class="fc-body" id="fcBody"></div>
+  <div class="fc-fixo">
+    <div class="pq"><b id="fcPreco">—</b><span id="fcPrecoObs"></span></div>
+    <a class="btn btn-wa" id="fcWa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.24.68-1.43 1.32-1.97 1.37-.5.05-.98.24-3.3-.69-2.8-1.1-4.58-3.96-4.72-4.15-.13-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.3.25-.27.55-.34.73-.34h.53c.17 0 .4-.06.62.48.24.56.8 1.93.87 2.07.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34z"/></svg>Falar com o Pedro Paulo</a>
+  </div>
+</div>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button class="sai" id="lbSai" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <button class="nav ant" id="lbAnt" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <img id="lbImg" src="" alt="">
+  <button class="nav pro" id="lbPro" aria-label="Próxima foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+  <span class="cont" id="lbCont">1 / 1</span>
+</div>
+
+<script>
+
+(function(){
+"use strict";
+var O='https://img.olx.com.br/images/';
+var ANUNCIO='https://rj.olx.com.br/norte-do-estado-do-rio/temporada/reveillon-em-arraial-do-cabo-super-independente-1556510084';
+/* Coloque aqui o WhatsApp do Pedro Paulo (so numeros, com 55 e DDD). Vazio = os botoes abrem o chat do anuncio na OLX. */
+var FONE='';
+
+var DADOS=[
+{
+  id:'suite',n:'01',
+  cmp:{onde:'arraial',hosp:'4',tipo:'temporada',dorm:'1',banh:'1',vagas:'1'},
+  local:'Arraial do Cabo &middot; RJ',
+  nome:'Suíte independente, entrada pelo quintal',
+  resumo:'Suíte nova e confortável para até 4 pessoas, com entrada própria pelo quintal da casa, ar-condicionado, churrasqueira e café da manhã se você quiser. É a suíte do pacote de Réveillon.',
+  tags:['Pacote de Réveillon','Até 4 pessoas','Entrada independente','Café da manhã opcional','1 vaga'],
+  preco:'R$ 3.000',precoObs:'pacote de Réveillon',
+  fatos:[['1','quarto'],['4','hóspedes'],['1','banheiro'],['1','vaga'],['Sim','ar-condicionado'],['Opcional','café da manhã']],
+  texto:'<p>Suíte <strong>nova e confortável</strong>, para até <strong>4 pessoas</strong>, com <strong>entrada independente pelo quintal da casa</strong>. Você entra e sai na sua hora, sem passar por dentro de lugar nenhum.</p>'+
+    '<p>Vem com ar-condicionado, geladeira, TV a cabo, internet, roupa de cama e toalhas. O <strong>café da manhã é opcional</strong>: você escolhe se quer com ou sem.</p>'+
+    '<h4>Na suíte</h4><ul><li>Quarto com cama de casal</li><li>Banheiro privativo</li><li>Ar-condicionado</li><li>Geladeira</li><li>TV a cabo e internet</li><li>Roupa de cama e toalhas</li><li>Varanda / terraço</li></ul>'+
+    '<h4>Na casa</h4><ul><li>Entrada independente pelo quintal</li><li>Churrasqueira</li><li>Máquina de lavar</li><li>Estacionamento, 1 vaga</li><li>Café da manhã, se você quiser</li></ul>',
+  comod:['Ar-condicionado','Internet','TV a cabo','Geladeira','Máquina de lavar','Churrasqueira','Varanda/terraço','Roupa de cama','Toalhas','Estacionamento','Café da manhã opcional','Entrada independente'],
+  mapa:'Arraial do Cabo - RJ',
+  planta:'suite',
+  avisoPreco:'Os R$ 3.000 são o valor do pacote de Réveillon. Fora da virada, o valor sai conforme as datas e o número de pessoas.',
+  fotos:[O+'25/251615228305431.jpg',O+'31/316610468060432.jpg',O+'27/273616229510319.jpg',O+'26/265677340018259.jpg',O+'28/285630702038258.jpg',O+'32/323634702653150.jpg',O+'33/339685465036152.jpg',O+'30/308615460082245.jpg']
+},
+{
+  id:'apto',n:'02',
+  cmp:{onde:'arraial',hosp:'—',tipo:'temporada',dorm:'1',banh:'1',vagas:'1'},
+  local:'Arraial do Cabo &middot; RJ',
+  nome:'Apartamento no condomínio da laguna',
+  resumo:'Apartamento mobiliado em condomínio à beira da laguna, com piscina, quadra e caiaque na porta. Quarto com ar-condicionado e armário, sala integrada à cozinha e varanda com vista.',
+  tags:['Condomínio com piscina','Beira da laguna','Mobiliado','Varanda com vista','Ar-condicionado'],
+  preco:'A consultar',precoObs:'valor por período',
+  fatos:[['1','quarto'],['1','banheiro'],['Sim','mobiliado'],['Sim','varanda'],['Piscina','no condomínio'],['Laguna','em frente']],
+  texto:'<p>Apartamento <strong>mobiliado e equipado</strong>, em condomínio <strong>à beira da laguna</strong>. Da varanda dá para ver a água, e a área de lazer do condomínio fica logo abaixo.</p>'+
+    '<p>O quarto tem cama de casal, armário embutido, ar-condicionado e TV. A sala é integrada à cozinha, com bancada de granito, sofá e mesa de refeições, e abre para a varanda.</p>'+
+    '<h4>No apartamento</h4><ul><li>Quarto com cama de casal e armário embutido</li><li>Ar-condicionado</li><li>Banheiro com bancada e espelho</li><li>Sala integrada à cozinha</li><li>Cozinha equipada, com fogão, geladeira, micro-ondas e air fryer</li><li>Mesa de refeições e sofá</li><li>TV</li><li>Varanda com mesa e vista</li></ul>'+
+    '<h4>No condomínio</h4><ul><li>Piscina com espreguiçadeiras, de frente para a laguna</li><li>Quadra de areia</li><li>Caiaques</li><li>Área verde e caminhos iluminados</li><li>Estacionamento</li></ul>'+
+    '<h4>Em volta</h4><ul><li>A laguna na frente, onde o pessoal faz caiaque e kitesurf</li><li>Pôr do sol na água, visto da própria área de lazer</li><li>As praias de Arraial do Cabo e os passeios de barco</li></ul>',
+  comod:['Mobiliado','Ar-condicionado','Varanda','Cozinha equipada','Geladeira','Micro-ondas','Air fryer','TV','Piscina','Quadra de areia','Caiaque','Estacionamento'],
+  mapa:'Arraial do Cabo - RJ',
+  planta:'apto',
+  avisoPreco:'O valor do apartamento sai conforme as datas e o número de pessoas. Me chama que eu passo na hora.',
+  fotos:['fotos/01-sala-varanda.webp','fotos/02-varanda-vista.webp','fotos/03-sala-cozinha.webp','fotos/04-sala-jantar.webp','fotos/05-sofa.webp','fotos/06-cozinha.webp','fotos/07-cozinha-2.webp','fotos/08-cozinha-3.webp','fotos/09-quarto.webp','fotos/10-cama.webp','fotos/11-quarto-armario.webp','fotos/12-banheiro.webp','fotos/13-piscina-noite.webp','fotos/14-condominio-noite.webp','fotos/15-laguna-kite.webp','fotos/16-caiaque-laguna.webp','fotos/17-caiaques.webp']
+}];
+
+/* ---------- utilidades ---------- */
+function el(q,r){return (r||document).querySelector(q);}
+function limpa(s){return String(s).replace(/&middot;/g,'·').replace(/&amp;/g,'&');}
+var SECOES=['capa','imoveis','comparar','onde','como','duvidas','reveillon','contato'];
+function wa(txt){return FONE?('https://wa.me/'+FONE+'?text='+encodeURIComponent(txt)):ANUNCIO;}
+function waImovel(d){return wa('Olá, Pedro Paulo! Vi o site e me interessei pelo imóvel '+d.n+' — '+limpa(d.nome)+' ('+limpa(d.local)+'). Pode me passar os valores e a disponibilidade?');}
+
+/* ---------- botões de contato ---------- */
+(function(){
+  [].forEach.call(document.querySelectorAll('[data-wa]'),function(a){
+    a.setAttribute('href',wa(a.getAttribute('data-wa')));
+    a.setAttribute('target','_blank');a.setAttribute('rel','noopener');
+  });
+})();
+
+/* ---------- capa: mosaico de fundo ---------- */
+(function(){
+  var alvo=el('#capabg'),ct=el('#ctbg'),h='';
+  var capas=[DADOS[1].fotos[1],DADOS[1].fotos[15],DADOS[0].fotos[0],DADOS[1].fotos[12],DADOS[1].fotos[0],DADOS[1].fotos[14]];
+  for(var i=0;i<capas.length;i++){h+='<figure'+(i===0?' class="on"':'')+'><img src="'+capas[i]+'" alt=""'+(i?' loading="lazy"':'')+'></figure>';}
+  alvo.innerHTML=h;
+  ct.innerHTML='<img src="'+DADOS[1].fotos[15]+'" alt="" loading="lazy">';
+  var figs=alvo.querySelectorAll('figure'),at=0;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  setInterval(function(){
+    figs[at].classList.remove('on');
+    at=(at+1)%figs.length;
+    var im=figs[at].querySelector('img');
+    im.style.animation='none';void im.offsetWidth;im.style.animation='';
+    figs[at].classList.add('on');
+  },5200);
+})();
+
+/* ---------- faixas ---------- */
+(function(){
+  var alvo=el('#faixas'),h='';
+  DADOS.forEach(function(d){
+    h+='<a class="fx rv" data-id="'+d.id+'" href="#'+d.id+'">'+
+         '<span class="fx-bg"><img src="'+d.fotos[0]+'" alt="" loading="lazy"></span>'+
+         '<span class="fx-in">'+
+           '<span class="fx-n">'+d.n+'</span>'+
+           '<span class="fx-t">'+
+             '<small>'+d.local+'</small>'+
+             '<h3>'+d.nome+'</h3>'+
+             '<p>'+d.resumo+'</p>'+
+             '<span class="tags">'+d.tags.map(function(t,i){return '<i'+(i===0?' class="dest"':'')+'>'+t+'</i>';}).join('')+'</span>'+
+           '</span>'+
+           '<span class="fx-r">'+
+             '<span class="preco"><b>'+d.preco+'</b><span>'+d.precoObs+'</span></span>'+
+             '<span class="seta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>'+
+           '</span>'+
+         '</span>'+
+       '</a>';
+  });
+  alvo.innerHTML=h;
+  alvo.addEventListener('click',function(e){
+    var b=e.target.closest('.fx');
+    if(b){e.preventDefault();abre(b.getAttribute('data-id'));}
+  });
+})();
+
+/* ---------- comparativo ---------- */
+(function(){
+  var tb=el('#comparativo').querySelector('tbody'),h='';
+  DADOS.forEach(function(d){
+    var c=d.cmp;
+    h+='<tr data-id="'+d.id+'">'+
+       '<td class="nome">'+d.n+' &middot; '+limpa(d.nome)+'<small>Temporada</small></td>'+
+       '<td>Arraial do Cabo</td>'+
+       '<td class="num">'+c.dorm+'</td><td class="num">'+c.banh+'</td>'+
+       '<td'+(c.hosp==='—'?' class="cinza"':' class="num"')+'>'+c.hosp+'</td>'+
+       '<td class="num">'+c.vagas+'</td>'+
+       '<td class="num">'+d.preco+'</td></tr>';
+  });
+  tb.innerHTML=h;
+  tb.addEventListener('click',function(e){
+    var tr=e.target.closest('tr');if(tr) abre(tr.dataset.id);
+  });
+})();
+
+/* ---------- ficha ---------- */
+var ficha=el('#ficha'),fotosAtuais=[],iFoto=0,voltaY=0,aberto=null;
+
+function abre(id){
+  var d=null;
+  for(var i=0;i<DADOS.length;i++){if(DADOS[i].id===id){d=DADOS[i];break;}}
+  if(!d) return;
+  aberto=d;voltaY=window.scrollY;fotosAtuais=d.fotos;
+
+  el('#fcTag').innerHTML='Imóvel '+d.n;
+  el('#fcNome').innerHTML=d.nome;
+  el('#fcCapa').src=d.fotos[0];
+  el('#fcCapa').alt=limpa(d.nome);
+  el('#fcPreco').textContent=d.preco;
+  el('#fcPrecoObs').textContent=d.precoObs;
+  el('#fcWa').href=waImovel(d);
+  el('#fcWaTopo').href=waImovel(d);
+
+  var h='<div class="fc-cab"><small>'+d.local+'</small><h2>'+d.nome+'</h2>'+
+        '<div class="fc-preco"><b>'+d.preco+'</b><span>'+d.precoObs+'</span></div></div>';
+
+  h+='<div class="fatos">'+d.fatos.map(function(f){return '<div><b>'+f[0]+'</b><span>'+f[1]+'</span></div>';}).join('')+'</div>';
+
+  h+='<div class="bloco"><h3>Fotos</h3><div class="gal" id="galeria">'+
+     d.fotos.map(function(f,i){return '<button type="button" data-i="'+i+'" aria-label="Abrir foto '+(i+1)+'"><img src="'+f+'" alt="" loading="lazy"></button>';}).join('')+
+     '</div>'+(d.obsFotos?'<p class="aviso">'+d.obsFotos+'</p>':'')+'</div>';
+
+  h+='<div class="bloco txt"><h3>Sobre o imóvel</h3>'+d.texto+
+     (d.avisoPreco?'<p class="aviso">'+d.avisoPreco+'</p>':'')+'</div>';
+
+  if(d.cmp.cin){
+    h+='<div class="bloco"><h3>Horários</h3><div class="horarios">'+
+       '<div><small>Check-in</small><b>a partir das '+d.cmp.cin+'</b></div>'+
+       '<div><small>Check-out</small><b>até as '+d.cmp.cout+'</b></div>'+
+       '</div><p class="aviso">Dá para combinar outro horário conforme a agenda da limpeza. É só me avisar antes.</p></div>';
+  }
+
+  h+='<div class="bloco"><h3>O que tem</h3><div class="chips">'+
+     d.comod.map(function(c){return '<span>'+c+'</span>';}).join('')+'</div></div>';
+
+  h+='<div class="bloco"><h3>Planta 3D</h3><div class="planta-cta">'+
+     '<div><b>Veja a planta em 3D, girando com o dedo</b><p>Modelo do imóvel montado pelas fotos e pela descrição. Tire a cobertura e entre em cada ambiente.</p></div>'+
+     '<a class="btn btn-ouro" href="planta/?m='+d.planta+'" target="_blank" rel="noopener">Abrir a planta 3D</a></div>'+
+     '<p class="aviso">Como a planta baixa do imóvel ainda não veio, as medidas e a posição dos ambientes são aproximadas. Com a planta em mãos, o modelo é refeito fiel ao projeto.</p></div>';
+
+  h+='<div class="bloco"><h3>Onde fica</h3><div class="mapa">'+
+     '<iframe src="https://www.google.com/maps?q='+encodeURIComponent(d.mapa)+'&output=embed" loading="lazy" title="Mapa de '+limpa(d.mapa)+'" referrerpolicy="no-referrer-when-downgrade"></iframe>'+
+     '</div><p class="aviso">O ponto do mapa mostra a região. O endereço exato é passado na confirmação da reserva.</p></div>';
+
+  var pos=DADOS.indexOf(d);
+  var ant=DADOS[(pos-1+DADOS.length)%DADOS.length], pro=DADOS[(pos+1)%DADOS.length];
+  h+='<div class="fcnav">'+
+     '<button type="button" data-ir="'+ant.id+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span><small>Imóvel anterior</small><b>'+ant.n+' &middot; '+ant.nome+'</b></span></button>'+
+     '<button type="button" class="pro" data-ir="'+pro.id+'"><span><small>Próximo imóvel</small><b>'+pro.n+' &middot; '+pro.nome+'</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>'+
+     '</div>';
+
+  el('#fcBody').innerHTML=h;
+  el('#fcBody').scrollTop=0;
+
+  ficha.classList.add('on');
+  ficha.setAttribute('aria-hidden','false');
+  document.body.classList.add('trava');
+  ficha.scrollTop=0;
+  if(location.hash!=='#'+d.id){history.pushState({f:d.id},'','#'+d.id);}
+  el('#fcFecha').focus();
+}
+
+function fecha(semHist){
+  if(!aberto) return;
+  aberto=null;
+  ficha.classList.remove('on');
+  ficha.setAttribute('aria-hidden','true');
+  document.body.classList.remove('trava');
+  window.scrollTo(0,voltaY);
+  if(!semHist && location.hash){history.pushState(null,'',location.pathname+location.search);}
+}
+
+el('#fcFecha').addEventListener('click',function(){fecha();});
+addEventListener('popstate',function(){
+  var id=location.hash.replace('#','');
+  if(id&&SECOES.indexOf(id)<0){
+    if(!aberto||aberto.id!==id) abre(id);
+  }else if(aberto){fecha(true);}
+});
+
+/* ---------- lightbox ---------- */
+var lb=el('#lb'),lbImg=el('#lbImg'),lbCont=el('#lbCont');
+function mostra(i){
+  if(!fotosAtuais.length) return;
+  iFoto=(i+fotosAtuais.length)%fotosAtuais.length;
+  lbImg.src=fotosAtuais[iFoto];
+  lbCont.textContent=(iFoto+1)+' / '+fotosAtuais.length;
+}
+function abreLb(i){mostra(i);lb.classList.add('on');}
+function fechaLb(){lb.classList.remove('on');lbImg.src='';}
+el('#fcBody').addEventListener('click',function(e){
+  var b=e.target.closest('.gal button');
+  if(b){abreLb(parseInt(b.getAttribute('data-i'),10));return;}
+  var n=e.target.closest('.fcnav button');
+  if(n){ficha.scrollTop=0;abre(n.getAttribute('data-ir'));}
+});
+el('#lbSai').addEventListener('click',fechaLb);
+el('#lbAnt').addEventListener('click',function(e){e.stopPropagation();mostra(iFoto-1);});
+el('#lbPro').addEventListener('click',function(e){e.stopPropagation();mostra(iFoto+1);});
+lb.addEventListener('click',function(e){if(e.target===lb||e.target===lbImg) fechaLb();});
+addEventListener('keydown',function(e){
+  if(lb.classList.contains('on')){
+    if(e.key==='Escape') fechaLb();
+    if(e.key==='ArrowLeft') mostra(iFoto-1);
+    if(e.key==='ArrowRight') mostra(iFoto+1);
+    return;
+  }
+  if(e.key==='Escape'&&aberto) fecha();
+});
+/* arrastar no lightbox */
+(function(){
+  var x0=null;
+  lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',function(e){
+    if(x0===null) return;
+    var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>45) mostra(iFoto+(dx<0?1:-1));
+    x0=null;
+  },{passive:true});
+})();
+
+/* ---------- parallax, barra e revelar ---------- */
+(function(){
+  var bar=el('#bar'),capabg=el('#capabg'),h1=el('#capah1'),ctbg=el('#ctbg');
+  var reduz=matchMedia('(prefers-reduced-motion: reduce)').matches,tick=false,fxs=[],bgs=[];
+  function junta(){
+    fxs=[].slice.call(document.querySelectorAll('.fx'));
+    bgs=fxs.map(function(f){return f.querySelector('.fx-bg');});
+  }
+  function frame(){
+    tick=false;var y=window.scrollY,vh=innerHeight;
+    bar.classList.toggle('solid',y>40);
+    if(reduz) return;
+    if(y<vh*1.3){capabg.style.transform='translate3d(0,'+(y*0.3)+'px,0) scale(1.06)';h1.style.transform='translate3d(0,'+(y*0.12)+'px,0)';}
+    for(var i=0;i<fxs.length;i++){
+      var r=fxs[i].getBoundingClientRect();
+      if(r.bottom<0||r.top>vh) continue;
+      bgs[i].style.transform='translate3d(0,'+(((r.top+r.height/2-vh/2)/vh)*-60)+'px,0)';
+    }
+    var c=ctbg.parentNode.getBoundingClientRect();
+    if(c.top<vh&&c.bottom>0){ctbg.style.transform='translate3d(0,'+(((c.top+c.height/2-vh/2)/vh)*-90)+'px,0)';}
+  }
+  junta();
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame);}},{passive:true});
+  addEventListener('resize',frame);frame();
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    [].forEach.call(els,function(e){io.observe(e);});
+  }else{[].forEach.call(els,function(e){e.classList.add('on');});}
+  setTimeout(function(){
+    [].forEach.call(document.querySelectorAll('#capa .rv'),function(e,i){setTimeout(function(){e.classList.add('on');},i*110);});
+  },60);
+})();
+
+/* ---------- contagem para a virada ---------- */
+(function(){
+  var alvo=new Date('2027-01-01T00:00:00-03:00').getTime(),n=el('#revDias');
+  function conta(){var d=Math.ceil((alvo-Date.now())/86400000);n.textContent=d>0?d:'0';}
+  conta();setInterval(conta,60000);
+})();
+
+/* ---------- fogos ---------- */
+(function(){
+  var c=el('#fogos');
+  if(!c||!c.getContext) return;
+  var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var g,w,h,ligado=false,P=[],R=[],ult=0;
+  var cores=['#ffffff','#f3f0e8','#e9c48b','#f3dcb6','#3fc6cd','#bfe9f0'];
+  function med(){
+    w=c.clientWidth;h=c.clientHeight;
+    var d=Math.min(devicePixelRatio||1,2);
+    c.width=w*d;c.height=h*d;g=c.getContext('2d');g.setTransform(d,0,0,d,0,0);
+  }
+  function base(){return h*(innerWidth<960?.96:.92);}
+  function sobe(){
+    R.push({x:w*(.08+Math.random()*.84),y:base(),vx:(Math.random()-.5)*1.2,
+      vy:-Math.sqrt(.15*h*(.32+Math.random()*.3)),cor:cores[Math.random()*cores.length|0]});
+  }
+  function estoura(r){
+    var n=55+Math.random()*45|0,anel=Math.random()<.3;
+    for(var i=0;i<n;i++){
+      var a=Math.random()*6.283,sp=anel?3.2:Math.random()*3.4+.6;
+      P.push({x:r.x,y:r.y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,l:1,d:.007+Math.random()*.009,
+        cor:Math.random()<.55?'#fff':r.cor});
+    }
+  }
+  function ponto(x,y,rad,cor,a){g.globalAlpha=a;g.fillStyle=cor;g.beginPath();g.arc(x,y,rad,0,6.283);g.fill();}
+  function loop(t){
+    if(!ligado) return;
+    requestAnimationFrame(loop);
+    g.globalCompositeOperation='destination-out';
+    g.globalAlpha=1;g.fillStyle='rgba(0,0,0,.2)';g.fillRect(0,0,w,h);
+    g.globalCompositeOperation='lighter';
+    if(t-ult>(RM?2800:620)){ult=t;sobe();if(Math.random()<.45) sobe();}
+    R=R.filter(function(r){
+      r.x+=r.vx;r.y+=r.vy;r.vy+=.07;ponto(r.x,r.y,1.8,'#fff',.95);
+      if(r.vy>-1){estoura(r);return false;}
+      return true;
+    });
+    P=P.filter(function(p){
+      p.x+=p.vx;p.y+=p.vy;p.vx*=.982;p.vy=p.vy*.982+.035;p.l-=p.d;
+      if(p.l<=0) return false;
+      ponto(p.x,p.y,1.5,p.cor,p.l);return true;
+    });
+    g.globalAlpha=1;
+  }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      var antes=ligado;ligado=es[0].isIntersecting;
+      if(ligado&&!antes){med();requestAnimationFrame(loop);}
+    }).observe(c);
+  }
+  addEventListener('resize',function(){if(ligado) med();});
+})();
+
+/* ---------- abrir direto por link ---------- */
+(function(){
+  var id=location.hash.replace('#','');
+  if(id&&SECOES.indexOf(id)<0){setTimeout(function(){abre(id);},120);}
+})();
+
+})();
+</script>
+</body>
+</html>
