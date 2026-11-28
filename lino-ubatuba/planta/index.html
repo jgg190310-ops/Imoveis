@@ -413,7 +413,7 @@ const M = {
   laje:      std({color:'#d2ccc0', roughness:.95}),
   madeira:   std({color:'#8a5c33', roughness:.78}),
   madClara:  std({color:'#b98b52', roughness:.74}),
-  madPort:   std({color:'#a9norm', roughness:.7}),
+  madPort:   std({color:'#a6703f', roughness:.7}),
   granito:   std({color:'#2f2b27', roughness:.3, metalness:.15}),
   marmore:   std({color:'#e8e4da', roughness:.28}),
   movel:     std({color:'#dcd6ca', roughness:.75}),
@@ -536,38 +536,46 @@ function montaParedes(mod){
     grade.forEach(function(s){ guardaCorpo(L.e, L.f, s[0], s[1], y); });
   });
 }
+const CORTE = 1.18;
+function bloco(grupo, e, f, a, b, y, h){
+  if(e === 'x') caixa(grupo, b - a, h, ESP, M.paredeExt, (a+b)/2, y, f);
+  else caixa(grupo, ESP, h, b - a, M.paredeExt, f, y, (a+b)/2);
+}
 function parede(e, f, a, b, y, h){
   if(b - a < .01 || h < .01) return;
-  if(e === 'x') caixa(G.paredes, b - a, h, ESP, M.paredeExt, (a+b)/2, y, f);
-  else caixa(G.paredes, ESP, h, b - a, M.paredeExt, f, y, (a+b)/2);
+  const corte = NVC * NIV + CORTE, topo = y + h;
+  if(topo <= corte + 1e-6){ bloco(G.paredes, e, f, a, b, y, h); return; }
+  if(y >= corte - 1e-6){ bloco(G.tetos, e, f, a, b, y, h); return; }
+  bloco(G.paredes, e, f, a, b, y, corte - y);
+  bloco(G.tetos, e, f, a, b, corte, topo - corte);
 }
 function esquadria(e, f, a, b, y, h){
   const w = b - a;
   if(e === 'x'){
-    caixa(G.paredes, w, h, .035, M.vidro, (a+b)/2, y, f, false);
-    caixa(G.paredes, w, .07, .09, M.esquadria, (a+b)/2, y, f, false);
-    caixa(G.paredes, w, .07, .09, M.esquadria, (a+b)/2, y + h - .07, f, false);
-    caixa(G.paredes, .07, h, .09, M.esquadria, a + .035, y, f, false);
-    caixa(G.paredes, .07, h, .09, M.esquadria, b - .035, y, f, false);
-    if(w > 1.4) caixa(G.paredes, .05, h, .09, M.esquadria, (a+b)/2, y, f, false);
+    caixa(G.tetos, w, h, .035, M.vidro, (a+b)/2, y, f, false);
+    caixa(G.tetos, w, .07, .09, M.esquadria, (a+b)/2, y, f, false);
+    caixa(G.tetos, w, .07, .09, M.esquadria, (a+b)/2, y + h - .07, f, false);
+    caixa(G.tetos, .07, h, .09, M.esquadria, a + .035, y, f, false);
+    caixa(G.tetos, .07, h, .09, M.esquadria, b - .035, y, f, false);
+    if(w > 1.4) caixa(G.tetos, .05, h, .09, M.esquadria, (a+b)/2, y, f, false);
   }else{
-    caixa(G.paredes, .035, h, w, M.vidro, f, y, (a+b)/2, false);
-    caixa(G.paredes, .09, .07, w, M.esquadria, f, y, (a+b)/2, false);
-    caixa(G.paredes, .09, .07, w, M.esquadria, f, y + h - .07, (a+b)/2, false);
-    caixa(G.paredes, .09, h, .07, M.esquadria, f, y, a + .035, false);
-    caixa(G.paredes, .09, h, .07, M.esquadria, f, y, b - .035, false);
-    if(w > 1.4) caixa(G.paredes, .09, h, .05, M.esquadria, f, y, (a+b)/2, false);
+    caixa(G.tetos, .035, h, w, M.vidro, f, y, (a+b)/2, false);
+    caixa(G.tetos, .09, .07, w, M.esquadria, f, y, (a+b)/2, false);
+    caixa(G.tetos, .09, .07, w, M.esquadria, f, y + h - .07, (a+b)/2, false);
+    caixa(G.tetos, .09, h, .07, M.esquadria, f, y, a + .035, false);
+    caixa(G.tetos, .09, h, .07, M.esquadria, f, y, b - .035, false);
+    if(w > 1.4) caixa(G.tetos, .09, h, .05, M.esquadria, f, y, (a+b)/2, false);
   }
 }
 function batente(e, f, a, b, y, h){
   if(e === 'x'){
-    caixa(G.paredes, .06, h, ESP + .02, M.madPort, a + .03, y, f, false);
-    caixa(G.paredes, .06, h, ESP + .02, M.madPort, b - .03, y, f, false);
-    caixa(G.paredes, b - a, .06, ESP + .02, M.madPort, (a+b)/2, y + h - .06, f, false);
+    caixa(G.tetos, .06, h, ESP + .02, M.madPort, a + .03, y, f, false);
+    caixa(G.tetos, .06, h, ESP + .02, M.madPort, b - .03, y, f, false);
+    caixa(G.tetos, b - a, .06, ESP + .02, M.madPort, (a+b)/2, y + h - .06, f, false);
   }else{
-    caixa(G.paredes, ESP + .02, h, .06, M.madPort, f, y, a + .03, false);
-    caixa(G.paredes, ESP + .02, h, .06, M.madPort, f, y, b - .03, false);
-    caixa(G.paredes, ESP + .02, .06, b - a, M.madPort, f, y + h - .06, (a+b)/2, false);
+    caixa(G.tetos, ESP + .02, h, .06, M.madPort, f, y, a + .03, false);
+    caixa(G.tetos, ESP + .02, h, .06, M.madPort, f, y, b - .03, false);
+    caixa(G.tetos, ESP + .02, .06, b - a, M.madPort, f, y + h - .06, (a+b)/2, false);
   }
 }
 function guardaCorpo(e, f, a, b, y){
