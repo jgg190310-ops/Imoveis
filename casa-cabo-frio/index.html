@@ -316,6 +316,44 @@ footer .fim a{color:var(--dourado-2)}
   *{animation:none!important;transition-duration:.01ms!important}
   .rv{opacity:1;transform:none}
 }
+
+/* ---------- réveillon ---------- */
+#reveillon{position:relative;background:var(--marinho);color:var(--areia);overflow:hidden;isolation:isolate}
+#reveillon::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(130% 85% at 50% 0%,rgba(34,168,207,.2),transparent 62%),linear-gradient(180deg,#06293c,#03151f)}
+#fogos{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.95}
+#reveillon .wrap{position:relative;z-index:2}
+#reveillon .olho{color:var(--dourado-2)}
+#reveillon h2{color:var(--dourado-2);text-shadow:0 0 30px rgba(233,180,76,.38)}
+#reveillon h2 em{display:block;font-style:normal;color:var(--areia)}
+.rev-lead{color:rgba(252,247,239,.78);font-size:clamp(15.5px,1.8vw,18px);line-height:1.78;max-width:54ch;margin-top:18px}
+.rev-grid{display:grid;gap:36px;margin-top:clamp(28px,4.6vh,44px)}
+@media(min-width:960px){.rev-grid{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:64px;align-items:start}}
+.conta{display:flex;align-items:baseline;gap:14px;margin-top:30px;padding-top:26px;border-top:1px solid rgba(252,247,239,.16)}
+.conta b{font:800 clamp(52px,8vw,92px)/.85 var(--display);color:var(--dourado-2);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.conta span{font-size:14px;color:rgba(252,247,239,.72);line-height:1.35}
+.pacote{border:1px solid rgba(233,180,76,.34);border-radius:24px;padding:clamp(22px,3.4vw,32px);
+  background:linear-gradient(180deg,rgba(252,247,239,.09),rgba(252,247,239,.03));
+  backdrop-filter:blur(12px) saturate(1.3);-webkit-backdrop-filter:blur(12px) saturate(1.3);
+  box-shadow:0 34px 70px -40px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.18)}
+.pacote .top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding-bottom:18px;border-bottom:1px solid rgba(252,247,239,.14)}
+.pacote .top small{display:block;font:700 10.5px var(--display);letter-spacing:.26em;text-transform:uppercase;color:var(--dourado-2)}
+.pacote .top b{display:block;font:800 clamp(32px,4.6vw,44px)/1 var(--display);color:var(--areia);letter-spacing:-.03em;margin-top:6px}
+.pacote .top i{font:600 12px var(--sans);font-style:normal;color:rgba(252,247,239,.62);letter-spacing:.04em}
+.pacote ul{list-style:none}
+.pacote li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:14px;align-items:start;
+  padding:14px 0;border-bottom:1px solid rgba(252,247,239,.1);font-size:15.5px;color:rgba(252,247,239,.88)}
+.pacote li:last-child{border-bottom:0}
+.pacote li svg{width:20px;height:20px;color:var(--dourado);margin-top:3px}
+.pacote li i{display:block;font-style:normal;font:700 10px var(--display);letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(252,247,239,.5);margin-bottom:3px}
+.btn-dourado{background:linear-gradient(180deg,var(--dourado-2),var(--dourado));color:#2d1e06;
+  box-shadow:0 18px 38px -20px rgba(233,180,76,.85)}
+.btn-dourado:hover{filter:brightness(1.07);transform:translateY(-2px)}
+.rev-acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.rev-obs{font-size:13px;color:rgba(252,247,239,.52);margin-top:18px;max-width:48ch}
+@media(max-width:620px){.rev-acoes .btn{width:100%}}
 </style>
 </head>
 <body>
@@ -330,6 +368,7 @@ footer .fim a{color:var(--dourado-2)}
       <span><b>Casa em Cabo Frio</b><i>Encontro dos Peixes · RJ</i></span>
     </a>
     <nav id="nav">
+      <a href="#reveillon">Réveillon</a>
       <a href="#acasa">A casa</a>
       <a href="#galeria">Fotos</a>
       <a href="#estrutura">Estrutura</a>
@@ -348,6 +387,7 @@ footer .fim a{color:var(--dourado-2)}
 
 <div id="menu" role="dialog" aria-modal="true" aria-label="Menu">
   <button class="fecha" id="fechaMenu" aria-label="Fechar menu">&times;</button>
+  <a href="#reveillon">Réveillon</a>
   <a href="#acasa">A casa</a>
   <a href="#galeria">Fotos</a>
   <a href="#estrutura">Estrutura</a>
@@ -402,6 +442,38 @@ footer .fim a{color:var(--dourado-2)}
     <div class="num"><b>2</b><span>Vagas</span></div>
   </div>
 </div>
+
+<!-- ================= REVEILLON ================= -->
+<section id="reveillon" aria-labelledby="revT">
+  <canvas id="fogos" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="rev-grid">
+      <div class="rv">
+        <span class="olho">Virada 2027</span>
+        <h2 id="revT">Réveillon<em>em Cabo Frio</em></h2>
+        <p class="rev-lead">Seis diárias com a casa inteira só para o seu grupo, em condomínio fechado, a poucos minutos das praias. Piscina e sauna no condomínio, churrasqueira e área verde para passar a virada sem sair de casa.</p>
+        <div class="conta" aria-live="polite"><b id="revDias">--</b><span>dias para<br>a virada</span></div>
+        <p class="rev-obs">Datas e condições confirmadas pelo WhatsApp. A casa sai inteira, sem dividir com outros grupos.</p>
+      </div>
+      <div class="pacote rv">
+        <div class="top">
+          <div><small>Pacote de Réveillon</small><b>R$ 5.000</b></div>
+          <i>6 diárias &middot; casa inteira</i>
+        </div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg><div><i>Entrada</i>Dia 28 ou 29 de dezembro</div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><i>Saída</i>Dia 02 de janeiro, até às 12h</div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg><div><i>Grupo</i>Até 8 pessoas, 2 suítes e 3 banheiros</div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 16c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/><path d="M2 11c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/><path d="M6 8V5a2 2 0 1 1 4 0"/></svg><div><i>No condomínio</i>Piscina, sauna, churrasqueira e 2 vagas</div></li>
+        </ul>
+        <div class="rev-acoes">
+          <a class="btn btn-dourado" href="https://wa.me/5521964396962?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Cabo%20Frio%20e%20quero%20reservar%20o%20pacote%20de%20R%C3%A9veillon." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07s.9 2.4 1.02 2.57c.13.16 1.76 2.68 4.26 3.76.6.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>Reservar o Réveillon</a>
+          <a class="btn btn-linha" href="#galeria">Ver as fotos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= A CASA ================= -->
 <section id="acasa">
@@ -740,6 +812,83 @@ lb.addEventListener('touchend', function(e){
   var d = e.changedTouches[0].clientX - tx;
   if (Math.abs(d) > 50) mostra(atual + (d < 0 ? 1 : -1));
 }, {passive:true});
+
+
+/* ---------- contagem para a virada ---------- */
+(function(){
+  var el = document.getElementById('revDias');
+  if (!el) return;
+  var alvo = new Date('2027-01-01T00:00:00-03:00').getTime();
+  function conta(){
+    var d = Math.ceil((alvo - Date.now()) / 86400000);
+    el.textContent = d > 0 ? d : '0';
+  }
+  conta();
+  setInterval(conta, 60000);
+})();
+
+/* ---------- fogos de artifício ---------- */
+(function(){
+  var c = document.getElementById('fogos');
+  if (!c || !c.getContext) return;
+  var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var g, w, h, ligado = false, P = [], R = [], ult = 0;
+  var cores = ['#ffffff','#fcf7ef','#f6cf84','#e9b44c','#fbe9c4','#bfe3f0'];
+  function med(){
+    w = c.clientWidth; h = c.clientHeight;
+    var d = Math.min(devicePixelRatio || 1, 2);
+    c.width = w * d; c.height = h * d;
+    g = c.getContext('2d'); g.setTransform(d, 0, 0, d, 0, 0);
+  }
+  function base(){ return h * (innerWidth < 960 ? .96 : .92); }
+  function sobe(){
+    R.push({
+      x: w * (.08 + Math.random() * .84), y: base(),
+      vx: (Math.random() - .5) * 1.2,
+      vy: -Math.sqrt(.15 * h * (.32 + Math.random() * .3)),
+      cor: cores[Math.random() * cores.length | 0]
+    });
+  }
+  function estoura(r){
+    var n = 60 + Math.random() * 45 | 0, anel = Math.random() < .3;
+    for (var i = 0; i < n; i++){
+      var a = Math.random() * 6.283, sp = anel ? 3.2 : Math.random() * 3.4 + .6;
+      P.push({x:r.x, y:r.y, vx:Math.cos(a)*sp, vy:Math.sin(a)*sp, l:1,
+        d:.007 + Math.random() * .009, cor: Math.random() < .55 ? '#fff' : r.cor});
+    }
+  }
+  function ponto(x, y, rad, cor, a){
+    g.globalAlpha = a; g.fillStyle = cor;
+    g.beginPath(); g.arc(x, y, rad, 0, 6.283); g.fill();
+  }
+  function loop(t){
+    if (!ligado) return;
+    requestAnimationFrame(loop);
+    g.globalCompositeOperation = 'destination-out';
+    g.globalAlpha = 1; g.fillStyle = 'rgba(0,0,0,.2)'; g.fillRect(0, 0, w, h);
+    g.globalCompositeOperation = 'lighter';
+    if (t - ult > (RM ? 2800 : 620)){ ult = t; sobe(); if (Math.random() < .45) sobe(); }
+    R = R.filter(function(r){
+      r.x += r.vx; r.y += r.vy; r.vy += .07;
+      ponto(r.x, r.y, 1.8, '#fff', .95);
+      if (r.vy > -1){ estoura(r); return false; }
+      return true;
+    });
+    P = P.filter(function(p){
+      p.x += p.vx; p.y += p.vy; p.vx *= .982; p.vy = p.vy * .982 + .035; p.l -= p.d;
+      if (p.l <= 0) return false;
+      ponto(p.x, p.y, 1.5, p.cor, p.l);
+      return true;
+    });
+    g.globalAlpha = 1;
+  }
+  new IntersectionObserver(function(es){
+    var antes = ligado;
+    ligado = es[0].isIntersecting;
+    if (ligado && !antes){ med(); requestAnimationFrame(loop); }
+  }).observe(c);
+  addEventListener('resize', function(){ if (ligado) med(); });
+})();
 
 /* ---------- revelar ao rolar ---------- */
 var obs = new IntersectionObserver(function(ents){
