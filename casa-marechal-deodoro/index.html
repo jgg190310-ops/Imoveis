@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Casa Batista · Casa de temporada em Marechal Deodoro-AL</title>
+<meta name="description" content="Casa de temporada em Marechal Deodoro, Alagoas: piscina com cascata, área gourmet com churrasqueira, 3 quartos, quintal amplo e vaga coberta. Disponível para Natal, Réveillon, carnaval e semana santa.">
+<meta name="theme-color" content="#06243f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Casa Batista · Marechal Deodoro, Alagoas">
+<meta property="og:description" content="Piscina com cascata, área gourmet com churrasqueira e quintal amplo. Casa inteira por temporada em Marechal Deodoro.">
+<meta property="og:image" content="fotos/01-fachada-piscina.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Jost:wght@300..600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul:#06243f; --azul-2:#0d3c66; --azul-3:#1668ad;
+  --ciano:#2ea6d8; --ciano-2:#6fd0ee; --ciano-3:#d3f0fa;
+  --areia:#f6f2ea; --areia-2:#ebe3d6; --dourado:#e4a84c;
+  --tinta:#09213a; --texto:#4a5c6e; --suave:#8698a8;
+  --sans:'Jost',system-ui,-apple-system,Segoe UI,sans-serif;
+  --display:'Archivo',system-ui,sans-serif;
+  --borda:rgba(9,33,58,.12);
+  --sombra:0 24px 60px -32px rgba(9,33,58,.5);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{background:var(--areia);color:var(--texto);font:400 16px/1.7 var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+::selection{background:var(--ciano);color:#fff}
+
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.olho{display:inline-block;font:700 10.5px var(--display);letter-spacing:.3em;
+  text-transform:uppercase;color:var(--ciano)}
+h2{font:800 clamp(30px,5vw,52px)/1.04 var(--display);color:var(--tinta);letter-spacing:-.025em;
+  text-transform:uppercase}
+h3{font:700 18px var(--display);color:var(--tinta);letter-spacing:-.01em}
+.lead{font-size:clamp(15.5px,1.8vw,18px);line-height:1.78;color:var(--texto);max-width:62ch}
+
+/* ---------- barra de vidro ---------- */
+#bar{position:fixed;z-index:60;top:0;left:0;right:0;padding:15px 0;
+  transition:background .4s,backdrop-filter .4s,padding .4s,border-color .4s,box-shadow .4s;
+  border-bottom:1px solid transparent}
+#bar.on{background:rgba(246,242,234,.74);backdrop-filter:blur(18px) saturate(1.5);
+  -webkit-backdrop-filter:blur(18px) saturate(1.5);padding:9px 0;
+  border-bottom-color:var(--borda);box-shadow:0 10px 30px -24px rgba(9,33,58,.6)}
+#bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:nowrap}
+.marca{display:flex;align-items:center;gap:10px;flex:none;min-width:0}
+.marca svg{width:28px;height:28px;color:var(--ciano);flex:none}
+.marca b{display:block;font:800 17px/1 var(--display);color:#fff;letter-spacing:-.02em;
+  text-transform:uppercase;white-space:nowrap;transition:color .4s}
+.marca i{display:block;font:600 8px var(--display);letter-spacing:.26em;text-transform:uppercase;
+  color:var(--ciano-2);font-style:normal;margin-top:3px;transition:color .4s}
+#bar.on .marca b{color:var(--tinta)}
+#bar.on .marca i{color:var(--azul-3)}
+#nav{display:flex;align-items:center;gap:clamp(14px,1.9vw,28px);min-width:0;flex-shrink:1}
+#nav a{font:500 13px var(--sans);letter-spacing:.04em;color:rgba(255,255,255,.9);white-space:nowrap;
+  position:relative;padding:4px 0;transition:color .3s}
+#bar.on #nav a{color:var(--texto)}
+#nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;
+  background:var(--ciano);transition:right .3s}
+#nav a:hover::after{right:0}
+.btn{flex:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 22px;border-radius:999px;font:700 12px var(--display);
+  letter-spacing:.12em;text-transform:uppercase;transition:transform .25s,background .25s,box-shadow .25s}
+.btn svg{width:15px;height:15px;flex:none}
+.btn-azul{background:var(--azul);color:var(--ciano-2)}
+.btn-azul:hover{background:var(--azul-2);transform:translateY(-2px);box-shadow:0 14px 28px -16px rgba(6,36,63,.85)}
+.btn-ciano{background:var(--ciano);color:#042033}
+.btn-ciano:hover{background:var(--ciano-2);transform:translateY(-2px);box-shadow:0 14px 28px -16px rgba(46,166,216,.9)}
+.btn-linha{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+.btn-linha:hover{background:rgba(255,255,255,.14);border-color:#fff;transform:translateY(-2px)}
+#burger{display:none;width:42px;height:42px;place-items:center;color:#fff;transition:color .4s}
+#bar.on #burger{color:var(--tinta)}
+#burger svg{width:24px;height:24px}
+
+/* menu mobile */
+#menu{position:fixed;inset:0;z-index:70;background:var(--azul);display:none;
+  flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:32px}
+#menu.aberto{display:flex}
+#menu a{font:800 clamp(24px,6.4vw,38px)/1.45 var(--display);color:var(--areia);
+  text-transform:uppercase;letter-spacing:-.02em}
+#menu a:active{color:var(--ciano-2)}
+#menu .fecha{position:absolute;top:20px;right:20px;width:46px;height:46px;border-radius:50%;
+  display:grid;place-items:center;background:rgba(246,242,234,.14);color:var(--areia);font-size:26px;line-height:1}
+#menu .zap{margin-top:22px}
+
+/* ---------- capa com parallax ---------- */
+#hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;
+  overflow:hidden;background:var(--azul)}
+#herofoto{position:absolute;inset:-12% 0 -12%;will-change:transform}
+#herofoto img{width:100%;height:100%;object-fit:cover;object-position:50% 54%;filter:saturate(1.1) contrast(1.04)}
+#hero .veu{position:absolute;inset:0;
+  background:linear-gradient(170deg,rgba(6,36,63,.52) 0%,rgba(22,104,173,.2) 32%,rgba(6,36,63,.52) 64%,rgba(4,22,38,.9) 100%)}
+#hero .bola{position:absolute;top:-16vh;right:-14vw;width:62vw;height:62vw;max-width:720px;max-height:720px;
+  border-radius:50%;background:radial-gradient(circle,rgba(111,208,238,.22) 0%,rgba(46,166,216,.15) 44%,rgba(46,166,216,.04) 62%,rgba(46,166,216,0) 74%);
+  pointer-events:none}
+#hero .wrap{position:relative;z-index:2;padding:132px 0 clamp(40px,7vh,76px)}
+.selo{display:inline-flex;align-items:center;gap:9px;padding:8px 17px;margin-bottom:24px;
+  border:1px solid rgba(255,255,255,.4);border-radius:999px;background:rgba(6,36,63,.34);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.selo i{width:7px;height:7px;border-radius:50%;background:var(--ciano-2);font-style:normal;
+  box-shadow:0 0 0 4px rgba(111,208,238,.26)}
+.selo span{font:700 10.5px var(--display);letter-spacing:.24em;text-transform:uppercase;color:#fff}
+#hero h1{font:900 clamp(44px,11.5vw,122px)/.86 var(--display);color:#fff;
+  letter-spacing:-.045em;text-transform:uppercase;text-shadow:0 10px 40px rgba(2,18,34,.45)}
+#hero h1 em{display:block;font-style:normal;color:var(--ciano-2)}
+#hero .local{margin-top:20px;font:600 clamp(11px,1.7vw,13.5px) var(--display);
+  letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.92)}
+#hero .sub{margin-top:14px;font-size:clamp(15px,1.9vw,18px);color:rgba(255,255,255,.9);max-width:46ch}
+#hero .acoes{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.rolar{position:absolute;z-index:3;left:50%;bottom:14px;transform:translateX(-50%);
+  display:grid;place-items:center;gap:7px;color:rgba(255,255,255,.8)}
+.rolar span{font:600 9px var(--display);letter-spacing:.26em;text-transform:uppercase}
+.rolar i{width:1px;height:30px;background:linear-gradient(rgba(255,255,255,.8),rgba(255,255,255,0));
+  animation:desce 2.1s ease-in-out infinite}
+@keyframes desce{0%{opacity:0;transform:scaleY(.3)}45%{opacity:1}100%{opacity:0;transform:scaleY(1)}}
+
+/* ---------- faixa ---------- */
+#faixa{background:var(--azul);padding:17px 0;overflow:hidden}
+#faixa .wrap{display:flex;align-items:center;justify-content:space-between;gap:26px;
+  overflow-x:auto;scrollbar-width:none}
+#faixa .wrap::-webkit-scrollbar{display:none}
+#faixa b{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;
+  font:600 11.5px var(--display);letter-spacing:.17em;text-transform:uppercase;color:var(--ciano-3)}
+#faixa svg{width:17px;height:17px;color:var(--ciano);flex:none}
+
+/* ---------- números ---------- */
+#numeros{background:var(--areia-2);padding:clamp(34px,5vw,52px) 0}
+#numeros .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
+.num b{display:block;font:900 clamp(30px,5.4vw,54px)/1 var(--display);color:var(--azul);letter-spacing:-.04em}
+.num span{display:block;margin-top:8px;font:600 10px var(--display);letter-spacing:.24em;
+  text-transform:uppercase;color:var(--suave)}
+
+/* ---------- a casa ---------- */
+#acasa{padding:clamp(60px,9vw,120px) 0}
+.duo{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center}
+.fig{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--sombra)}
+.fig img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.fig .tag{position:absolute;left:16px;bottom:16px;padding:8px 15px;border-radius:999px;
+  background:rgba(6,36,63,.76);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  font:700 10px var(--display);letter-spacing:.2em;text-transform:uppercase;color:var(--ciano-2)}
+.cards{margin-top:clamp(34px,5vw,64px);display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{position:relative;border-radius:22px;overflow:hidden;min-height:330px;
+  display:flex;align-items:flex-end;box-shadow:var(--sombra)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+.card:hover img{transform:scale(1.07)}
+.card .cor{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,22,38,.92) 6%,rgba(4,22,38,.35) 46%,rgba(4,22,38,.05) 72%)}
+.card .txt{position:relative;z-index:2;padding:24px}
+.card h3{color:#fff;margin-bottom:7px}
+.card p{font-size:14.2px;line-height:1.6;color:rgba(255,255,255,.84)}
+
+/* ---------- galeria ---------- */
+#galeria{padding:0 0 clamp(60px,9vw,120px)}
+.cab{max-width:660px;margin-bottom:clamp(26px,4vw,44px)}
+.cab h2{margin:14px 0 16px}
+.grade{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ft{position:relative;border-radius:16px;overflow:hidden;background:var(--areia-2);
+  aspect-ratio:1/1;padding:0;display:block}
+.ft.g{grid-column:span 2;grid-row:span 2}
+.ft img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.ft:hover img{transform:scale(1.06)}
+.maisft{margin-top:26px;text-align:center}
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:90;background:rgba(4,18,32,.96);display:none;
+  align-items:center;justify-content:center;padding:clamp(14px,4vw,56px)}
+#lb.aberto{display:flex}
+#lb img{max-width:100%;max-height:86svh;object-fit:contain;border-radius:10px}
+#lb .fechalb{position:absolute;top:14px;right:14px;width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.12);color:#fff;font-size:26px;line-height:1;display:grid;place-items:center}
+#lb .seta{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;
+  background:rgba(255,255,255,.12);color:#fff;display:grid;place-items:center}
+#lb .seta svg{width:24px;height:24px}
+#lb .ant{left:12px}#lb .prox{right:12px}
+#lb .cont{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
+  font:600 11px var(--display);letter-spacing:.2em;color:rgba(255,255,255,.72)}
+
+/* ---------- vídeo ---------- */
+#video{background:var(--azul);padding:clamp(60px,9vw,110px) 0;color:#fff}
+#video h2{color:#fff}
+#video .lead{color:rgba(255,255,255,.82)}
+#video .caixa{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(26px,4.4vw,56px);align-items:center}
+#video .player{position:relative;border-radius:22px;overflow:hidden;box-shadow:0 30px 70px -40px rgba(0,0,0,.9);
+  background:#041626}
+#video video{width:100%;display:block;aspect-ratio:9/16;max-height:72svh;object-fit:cover;background:#041626}
+
+/* ---------- estrutura ---------- */
+#estrutura{padding:clamp(60px,9vw,120px) 0;background:var(--areia-2)}
+.listas{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,3vw,34px)}
+.bloco{background:#fff;border-radius:22px;padding:clamp(22px,3vw,34px);box-shadow:0 20px 50px -40px rgba(9,33,58,.6)}
+.bloco h3{margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--borda)}
+.bloco ul{list-style:none;display:grid;gap:11px}
+.bloco li{display:flex;gap:11px;align-items:flex-start;font-size:15.2px;line-height:1.55}
+.bloco li svg{width:17px;height:17px;color:var(--ciano);flex:none;margin-top:4px}
+.bloco b{color:var(--tinta);font-weight:600}
+
+/* ---------- planta 3d ---------- */
+#planta3d{padding:clamp(60px,9vw,120px) 0;background:var(--azul);color:#fff}
+#planta3d h2{color:#fff}
+#planta3d .lead{color:rgba(255,255,255,.82)}
+#planta3d .caixa{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center}
+#planta3d .aviso{margin-top:18px;font-size:13px;color:rgba(255,255,255,.55);max-width:52ch}
+.plantafig{position:relative;border-radius:24px;overflow:hidden;padding:clamp(18px,3vw,34px);
+  background:linear-gradient(150deg,rgba(46,166,216,.16),rgba(6,36,63,.5));
+  border:1px solid rgba(111,208,238,.26)}
+.plantafig svg{width:100%;height:auto}
+.plantafig .tag{position:absolute;right:16px;top:16px;padding:7px 14px;border-radius:999px;
+  background:rgba(46,166,216,.2);font:700 9.5px var(--display);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ciano-2)}
+
+/* ---------- local ---------- */
+#local{padding:clamp(60px,9vw,120px) 0}
+.mapa{border-radius:24px;overflow:hidden;box-shadow:var(--sombra);background:var(--areia-2)}
+.mapa iframe{width:100%;height:clamp(300px,42vw,460px);border:0;display:block}
+.perto{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.perto div{background:#fff;border-radius:18px;padding:20px;box-shadow:0 18px 44px -38px rgba(9,33,58,.6)}
+.perto b{display:block;font:700 15px var(--display);color:var(--tinta);margin-bottom:5px}
+.perto span{font-size:14px;color:var(--suave)}
+
+/* ---------- valores ---------- */
+#valores{padding:0 0 clamp(60px,9vw,120px)}
+.preco{display:grid;grid-template-columns:1fr auto;gap:clamp(20px,4vw,48px);align-items:center;
+  background:var(--azul);color:#fff;border-radius:26px;padding:clamp(26px,4.4vw,52px);box-shadow:var(--sombra)}
+.preco .v small{display:block;font:600 10px var(--display);letter-spacing:.26em;
+  text-transform:uppercase;color:var(--ciano-2);margin-bottom:9px}
+.preco .v b{display:block;font:900 clamp(38px,7vw,66px)/1 var(--display);letter-spacing:-.04em}
+.preco .v span{display:block;margin-top:10px;font-size:15px;color:rgba(255,255,255,.78)}
+.preco .acao{display:flex;flex-direction:column;gap:11px}
+.obs{margin-top:20px;font-size:14px;color:var(--suave);max-width:72ch}
+
+/* ---------- rodapé ---------- */
+footer{background:#041626;color:rgba(255,255,255,.7);padding:clamp(44px,6vw,72px) 0 28px}
+footer .topo{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.12)}
+footer .marca b{color:#fff}
+footer .marca i{color:var(--ciano-2)}
+footer .marca svg{color:var(--ciano)}
+footer .cont{display:flex;flex-direction:column;gap:8px;font-size:14.5px}
+footer .cont a{display:inline-flex;align-items:center;gap:9px;transition:color .25s}
+footer .cont a:hover{color:var(--ciano-2)}
+footer .cont svg{width:16px;height:16px;color:var(--ciano)}
+footer .fim{margin-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:12.6px;color:rgba(255,255,255,.45)}
+footer .fim a{color:var(--ciano-2)}
+
+/* ---------- botão flutuante ---------- */
+#zap{position:fixed;z-index:55;right:16px;bottom:16px;display:inline-flex;align-items:center;gap:9px;
+  padding:14px 22px;border-radius:999px;background:#1fa855;color:#fff;
+  font:700 12px var(--display);letter-spacing:.12em;text-transform:uppercase;
+  box-shadow:0 18px 36px -18px rgba(31,168,85,.9);transition:transform .25s}
+#zap:hover{transform:translateY(-3px)}
+#zap svg{width:19px;height:19px}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+.rv.vis{opacity:1;transform:none}
+
+@media (max-width:980px){
+  #nav{display:none}
+  #bar .btn{display:none}
+  #burger{display:grid}
+  .duo,#planta3d .caixa,#video .caixa{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .listas{grid-template-columns:1fr}
+  .grade{grid-template-columns:repeat(2,1fr)}
+  .ft.g{grid-column:span 2;grid-row:span 1;aspect-ratio:16/11}
+  .perto{grid-template-columns:1fr}
+  #numeros .wrap{grid-template-columns:repeat(2,1fr);gap:26px}
+  #video video{aspect-ratio:9/16;max-height:66svh}
+}
+@media (max-width:560px){
+  #zap{padding:13px 18px;font-size:11px}
+  .preco{grid-template-columns:1fr}
+  .preco .acao .btn{width:100%}
+  #lb .seta{width:42px;height:42px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= BARRA ================= -->
+<header id="bar">
+  <div class="wrap">
+    <a class="marca" href="#topo" aria-label="Casa Batista">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/>
+      </svg>
+      <span><b>Casa Batista</b><i>Marechal Deodoro · AL</i></span>
+    </a>
+    <nav id="nav">
+      <a href="#acasa">A casa</a>
+      <a href="#galeria">Fotos</a>
+      <a href="#video">Vídeo</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#planta3d">Planta 3D</a>
+      <a href="#local">Local</a>
+      <a href="#valores">Valores</a>
+    </nav>
+    <a class="btn btn-ciano" href="https://wa.me/5582988769332?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Marechal%20Deodoro%20e%20quero%20reservar." target="_blank" rel="noopener">Reservar</a>
+    <button id="burger" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <path d="M3 7h18M3 12h18M3 17h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="fecha" id="fechaMenu" aria-label="Fechar menu">&times;</button>
+  <a href="#acasa">A casa</a>
+  <a href="#galeria">Fotos</a>
+  <a href="#video">Vídeo</a>
+  <a href="#estrutura">Estrutura</a>
+  <a href="#planta3d">Planta 3D</a>
+  <a href="#local">Local</a>
+  <a href="#valores">Valores</a>
+  <a class="btn btn-ciano zap" href="https://wa.me/5582988769332?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Marechal%20Deodoro%20e%20quero%20reservar." target="_blank" rel="noopener">Reservar no WhatsApp</a>
+</div>
+
+<!-- ================= CAPA ================= -->
+<section id="hero" aria-label="Casa de temporada em Marechal Deodoro">
+  <div id="herofoto"><img src="fotos/01-fachada-piscina.jpg" alt="Fachada da casa com piscina, gramado e palmeira no fim de tarde" fetchpriority="high"></div>
+  <div class="veu"></div>
+  <div class="bola"></div>
+  <div class="wrap">
+    <div class="selo"><i></i><span>Natal · Réveillon · Carnaval</span></div>
+    <h1>Casa<em>Batista</em></h1>
+    <p class="local">Marechal Deodoro · Alagoas</p>
+    <p class="sub">Piscina com cascata, área gourmet com churrasqueira e um quintal grande para a família inteira ficar à vontade.</p>
+    <div class="acoes">
+      <a class="btn btn-ciano" href="https://wa.me/5582988769332?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Marechal%20Deodoro%20e%20quero%20reservar." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07s.9 2.4 1.02 2.57c.13.16 1.76 2.68 4.26 3.76.6.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        Reservar no WhatsApp
+      </a>
+      <a class="btn btn-linha" href="#galeria">Ver as fotos</a>
+    </div>
+  </div>
+  <div class="rolar"><span>Role</span><i></i></div>
+</section>
+
+<!-- ================= FAIXA ================= -->
+<div id="faixa">
+  <div class="wrap">
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 16c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/><path d="M2 11c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/><path d="M6 8V5a2 2 0 1 1 4 0"/></svg>Piscina com cascata</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3c1.5 2 .5 3.2 0 4-.6 1 .3 2 1 2.6"/><path d="M4 13h16"/><path d="M6 13v4a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-4"/></svg>Churrasqueira</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M3 18h18"/><path d="M7 10V7h10v3"/></svg>3 quartos</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 17h14"/><path d="M6 17v-5l2-4h8l2 4v5"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/></svg>Vaga coberta</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/></svg>Planta 3D</b>
+    <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>Marechal Deodoro</b>
+  </div>
+</div>
+
+<!-- ================= NÚMEROS ================= -->
+<div id="numeros">
+  <div class="wrap">
+    <div class="num"><b>3</b><span>Quartos</span></div>
+    <div class="num"><b>1</b><span>Piscina</span></div>
+    <div class="num"><b>R$ 600</b><span>Diária</span></div>
+    <div class="num"><b>4</b><span>Datas especiais</span></div>
+  </div>
+</div>
+
+<!-- ================= A CASA ================= -->
+<section id="acasa">
+  <div class="wrap">
+    <div class="duo">
+      <div class="rv">
+        <span class="olho">A casa</span>
+        <h2>Espaço de sobra<br>para a turma toda</h2>
+        <p class="lead" style="margin-top:18px">A casa é térrea e aberta: sala de estar com dois sofás e TV, cozinha com mesa para as refeições do dia a dia e três quartos, um deles com TV. Tudo no mesmo nível, sem escada, com piso claro e ventilação boa.</p>
+        <p class="lead" style="margin-top:14px">Lá fora é onde a casa mostra do que é capaz. O quintal é grande, todo gramado, com passarelas de concreto que levam até a piscina com cascata. Ao lado fica a área gourmet coberta, com churrasqueira de tijolinho e uma mesa de madeira maciça em que a família toda senta junto. Ainda sobra vaga coberta para o carro.</p>
+        <p style="margin-top:26px"><a class="btn btn-azul" href="#estrutura">Ver a estrutura completa</a></p>
+      </div>
+      <div class="fig rv">
+        <img src="fotos/02-piscina.jpg" alt="Piscina com cascata, mesa e cadeiras no gramado ao fim da tarde" loading="lazy">
+        <span class="tag">Piscina e quintal</span>
+      </div>
+    </div>
+
+    <div class="cards">
+      <article class="card c1 rv">
+        <img src="fotos/04-area-gourmet.jpg" alt="Área gourmet coberta com churrasqueira de tijolo e mesa de madeira maciça" loading="lazy">
+        <span class="cor"></span>
+        <div class="txt">
+          <h3>Área gourmet</h3>
+          <p>Churrasqueira de tijolinho, bancada de granito e mesa de madeira maciça com lugar para a família inteira.</p>
+        </div>
+      </article>
+      <article class="card c2 rv">
+        <img src="fotos/03-quintal.jpg" alt="Quintal gramado com passarelas de concreto e a piscina ao fundo" loading="lazy">
+        <span class="cor"></span>
+        <div class="txt">
+          <h3>Quintal grande</h3>
+          <p>Gramado amplo com passarelas de concreto, espaço para as crianças correrem e para montar a mesa do lado de fora.</p>
+        </div>
+      </article>
+      <article class="card c3 rv">
+        <img src="fotos/07-sala.jpg" alt="Sala de estar com dois sofás, TV e tapete" loading="lazy">
+        <span class="cor"></span>
+        <div class="txt">
+          <h3>Sala confortável</h3>
+          <p>Dois sofás, TV e saída direta para o quintal, para a turma descansar depois da praia.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALERIA ================= -->
+<section id="galeria">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Fotos</span>
+      <h2>A casa por dentro<br>e por fora</h2>
+      <p class="lead">Toque em qualquer foto para ver em tamanho grande.</p>
+    </div>
+    <div class="grade rv" id="grade"></div>
+    <div class="maisft"><button class="btn btn-azul" id="maisFt">Ver todas as fotos</button></div>
+  </div>
+</section>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button class="fechalb" id="fechaLb" aria-label="Fechar">&times;</button>
+  <button class="seta ant" id="lbAnt" aria-label="Foto anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg>
+  </button>
+  <img id="lbImg" src="" alt="">
+  <button class="seta prox" id="lbProx" aria-label="Próxima foto">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+  <span class="cont" id="lbCont"></span>
+</div>
+
+<!-- ================= VÍDEO ================= -->
+<section id="video">
+  <div class="wrap">
+    <div class="caixa">
+      <div class="rv">
+        <span class="olho">Vídeo</span>
+        <h2 style="margin:14px 0 18px">Uma volta<br>pelo quintal</h2>
+        <p class="lead">Foto nem sempre dá a noção do tamanho. Nesse vídeo rápido dá para ver o quintal inteiro, a piscina, a área da churrasqueira e a entrada coberta do carro, tudo de uma vez.</p>
+        <p style="margin-top:24px"><a class="btn btn-ciano" href="https://wa.me/5582988769332?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20da%20casa%20e%20quero%20consultar%20as%20datas." target="_blank" rel="noopener">Consultar datas</a></p>
+      </div>
+      <div class="player rv">
+        <video src="video.mp4" poster="fotos/00-video-capa.jpg" controls playsinline preload="none"></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ESTRUTURA ================= -->
+<section id="estrutura">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Estrutura</span>
+      <h2>O que tem na casa</h2>
+    </div>
+    <div class="listas">
+      <div class="bloco rv">
+        <h3>Quartos e acomodação</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>3 quartos</b> mobiliados, com guarda-roupa e cortina</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Quartos com <b>cama de casal e cama extra de solteiro</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Um dos quartos com <b>TV</b> e cômoda</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Banheiro com <b>área de banho ampla</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Casa <b>térrea</b>, sem escada</span></li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3>Lazer e área externa</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Piscina com cascata</b> e borda em deck</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Área gourmet coberta</b> com churrasqueira e bancada</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Mesa grande de <b>madeira maciça</b> na área coberta</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Quintal gramado</b> com passarelas de concreto</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Mesa e cadeiras extras para usar <b>ao ar livre</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Vaga coberta</b> para o carro, dentro do muro</span></li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3>Cozinha e interior</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Cozinha equipada</b>: fogão, geladeira e micro-ondas</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Louças, panelas e utensílios</b> à disposição</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Mesa de refeições dentro da cozinha</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><b>Sala com TV</b>, dois sofás e ventilador</span></li>
+        </ul>
+      </div>
+      <div class="bloco rv">
+        <h3>Bom saber</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Disponível para <b>Natal, Réveillon, carnaval e semana santa</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Aluguel da <b>casa inteira</b>, sem dividir com outros hóspedes</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Ideal para <b>família, feriado e encontro de amigos</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>O endereço completo é passado na hora da reserva</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLANTA 3D ================= -->
+<section id="planta3d">
+  <div class="wrap">
+    <div class="caixa">
+      <div class="rv">
+        <span class="olho">Planta 3D</span>
+        <h2 style="margin:14px 0 18px">Passeie pela casa<br>antes de reservar</h2>
+        <p class="lead">Um modelo tridimensional da casa e do terreno que você gira com o dedo, tira a cobertura e olha cada ambiente por cima. É o jeito mais rápido de quem vai alugar entender o tamanho do espaço sem receber foto por foto no WhatsApp.</p>
+        <p style="margin-top:24px"><a class="btn btn-ciano" href="planta/">Abrir a planta 3D</a></p>
+        <p class="aviso">O modelo foi montado a partir das fotos e do vídeo da casa, para dar a noção da distribuição dos ambientes. As medidas são aproximadas.</p>
+      </div>
+      <div class="plantafig rv">
+        <svg viewBox="0 0 400 300" fill="none" stroke="#6fd0ee" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+          <rect x="24" y="24" width="352" height="254" stroke-opacity=".28" stroke-dasharray="6 6"/>
+          <rect x="44" y="40" width="150" height="104" stroke-opacity=".9"/>
+          <path d="M44 92h150" stroke-opacity=".5"/>
+          <path d="M94 40v52M144 40v52" stroke-opacity=".45"/>
+          <path d="M119 92v52" stroke-opacity=".4"/>
+          <rect x="212" y="40" width="92" height="58" stroke-opacity=".7"/>
+          <path d="M212 70h92" stroke-opacity=".3"/>
+          <rect x="316" y="40" width="46" height="58" stroke-opacity=".4" stroke-dasharray="5 5"/>
+          <rect x="44" y="168" width="128" height="52" stroke-opacity=".75"/>
+          <path d="M44 194h128" stroke-opacity=".35"/>
+          <circle cx="86" cy="194" r="12" stroke-opacity=".5"/>
+          <rect x="206" y="160" width="140" height="78" stroke-opacity=".35" stroke-dasharray="4 6"/>
+          <rect x="228" y="178" width="96" height="44" rx="4" stroke-opacity=".95"/>
+          <path d="M228 200h96" stroke-opacity=".35"/>
+          <path d="M44 240h302" stroke-opacity=".22"/>
+          <path d="M60 256h40M120 256h40M180 256h40M240 256h40" stroke-opacity=".3"/>
+          <circle cx="340" cy="128" r="8" stroke-opacity=".3"/>
+        </svg>
+        <span class="tag">Modelo 3D</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOCAL ================= -->
+<section id="local">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Onde fica</span>
+      <h2>Marechal<br>Deodoro</h2>
+      <p class="lead">A casa fica em Marechal Deodoro, no litoral sul de Alagoas, a poucos minutos das praias do Francês e do Saco. É a primeira cidade saindo de Maceió pela orla, perto do aeroporto e do centro histórico, com acesso fácil a mercado, farmácia e restaurante.</p>
+    </div>
+    <div class="mapa rv">
+      <iframe title="Mapa de Marechal Deodoro - AL" src="https://www.google.com/maps?q=Marechal%20Deodoro%20-%20AL&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <div class="perto rv">
+      <div><b>Praia do Francês</b><span>A praia mais badalada da região</span></div>
+      <div><b>Centro histórico</b><span>Igrejas, museus e o casario colonial</span></div>
+      <div><b>Maceió</b><span>Pertinho pela orla e pelo aeroporto</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALORES ================= -->
+<section id="valores">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Valores</span>
+      <h2>Reserve a sua data</h2>
+    </div>
+    <div class="preco rv">
+      <div class="v">
+        <small>Diária a partir de</small>
+        <b>R$ 600</b>
+        <span>Casa inteira, só para o seu grupo</span>
+      </div>
+      <div class="acao">
+        <a class="btn btn-ciano" href="https://wa.me/5582988769332?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Marechal%20Deodoro%20e%20quero%20consultar%20as%20datas%20dispon%C3%ADveis." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07s.9 2.4 1.02 2.57c.13.16 1.76 2.68 4.26 3.76.6.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          Consultar datas
+        </a>
+        <a class="btn btn-azul" href="#galeria">Ver as fotos de novo</a>
+      </div>
+    </div>
+    <p class="obs">Para Natal, Réveillon, carnaval, semana santa e estadias mais longas, fale pelo WhatsApp para confirmar o valor da diária, a disponibilidade e as condições de reserva.</p>
+  </div>
+</section>
+
+<!-- ================= RODAPÉ ================= -->
+<footer>
+  <div class="wrap">
+    <div class="topo">
+      <div class="marca">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/>
+        </svg>
+        <span><b>Casa Batista</b><i>Marechal Deodoro · Alagoas</i></span>
+      </div>
+      <div class="cont">
+        <a href="https://wa.me/5582988769332" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Z"/></svg>
+          (82) 98876-9332
+        </a>
+        <a href="#galeria">Ver as fotos da casa</a>
+        <a href="planta/">Abrir a planta 3D</a>
+      </div>
+    </div>
+    <div class="fim">
+      <span>Casa Batista · casa de temporada em Marechal Deodoro — AL</span>
+      <span>Site criado por <a href="https://jgg190310-ops.github.io/Imoveis/portfolio/" target="_blank" rel="noopener">João Gabriel Geo</a></span>
+    </div>
+  </div>
+</footer>
+
+<a id="zap" href="https://wa.me/5582988769332?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20casa%20em%20Marechal%20Deodoro%20e%20quero%20reservar." target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07s.9 2.4 1.02 2.57c.13.16 1.76 2.68 4.26 3.76.6.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+  Reservar
+</a>
+
+<script>
+/* ---------- barra de vidro ---------- */
+var bar = document.getElementById('bar');
+function barra(){ bar.classList.toggle('on', scrollY > 40); }
+addEventListener('scroll', barra, {passive:true});
+barra();
+
+/* ---------- parallax da capa ---------- */
+var heroFoto = document.getElementById('herofoto');
+var animando = false;
+function parallax(){
+  animando = false;
+  var y = scrollY;
+  if (y > innerHeight * 1.2) return;
+  heroFoto.style.transform = 'translate3d(0,' + (y * 0.32) + 'px,0)';
+}
+addEventListener('scroll', function(){
+  if (!animando){ animando = true; requestAnimationFrame(parallax); }
+}, {passive:true});
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) heroFoto.style.transform = '';
+
+/* ---------- menu mobile ---------- */
+var menu = document.getElementById('menu'), burger = document.getElementById('burger');
+function abreMenu(){ menu.classList.add('aberto'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+function fechaMenu(){ menu.classList.remove('aberto'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+burger.addEventListener('click', abreMenu);
+document.getElementById('fechaMenu').addEventListener('click', fechaMenu);
+menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', fechaMenu); });
+
+/* ---------- galeria ---------- */
+var FOTOS = [
+  ['fotos/02-piscina.jpg','Piscina com cascata, mesa e cadeiras no gramado ao fim da tarde'],
+  ['fotos/01-fachada-piscina.jpg','Fachada da casa vista do quintal, com piscina e palmeira'],
+  ['fotos/03-quintal.jpg','Quintal gramado com passarelas de concreto e a piscina ao fundo'],
+  ['fotos/04-area-gourmet.jpg','Área gourmet coberta com churrasqueira de tijolo e mesa de madeira maciça'],
+  ['fotos/05-area-gourmet-2.jpg','Mesa de madeira maciça da área gourmet, vista do outro lado'],
+  ['fotos/06-entrada.jpg','Porta de entrada de madeira aberta para a sala'],
+  ['fotos/07-sala.jpg','Sala de estar com dois sofás, TV e tapete'],
+  ['fotos/08-sala-2.jpg','Sala de estar com a porta aberta para o quintal'],
+  ['fotos/09-sala-corredor.jpg','Sala vista do corredor, com acesso aos quartos'],
+  ['fotos/10-cozinha.jpg','Cozinha com armário, geladeira, fogão e mesa de refeições'],
+  ['fotos/11-cozinha-2.jpg','Armário da cozinha com louças, panelas e micro-ondas'],
+  ['fotos/12-corredor.jpg','Corredor da casa com acesso aos quartos'],
+  ['fotos/13-corredor-2.jpg','Corredor que leva à sala de jantar'],
+  ['fotos/14-quarto-1.jpg','Quarto com cama de casal, TV e cômoda'],
+  ['fotos/15-quarto-2.jpg','Quarto com cama de casal e janela com cortina'],
+  ['fotos/16-quarto-3.jpg','Quarto com cama de casal e cama de solteiro'],
+  ['fotos/17-quarto-4.jpg','Quarto com cama de casal e cama de solteiro, com criado-mudo'],
+  ['fotos/18-banheiro.jpg','Banheiro com área de banho ampla e nicho']
+];
+var GRANDES = [0];
+var MOSTRA = 10;
+var grade = document.getElementById('grade');
+var maisFt = document.getElementById('maisFt');
+var visiveis = 0;
+
+function pinta(ate){
+  for (var i = visiveis; i < ate && i < FOTOS.length; i++){
+    var fig = document.createElement('button');
+    fig.className = 'ft' + (GRANDES.indexOf(i) > -1 ? ' g' : '');
+    fig.type = 'button';
+    fig.setAttribute('data-i', i);
+    fig.setAttribute('aria-label', 'Ampliar foto: ' + FOTOS[i][1]);
+    var im = document.createElement('img');
+    im.src = FOTOS[i][0];
+    im.alt = FOTOS[i][1];
+    im.loading = 'lazy';
+    fig.appendChild(im);
+    grade.appendChild(fig);
+  }
+  visiveis = Math.min(ate, FOTOS.length);
+  maisFt.style.display = visiveis >= FOTOS.length ? 'none' : '';
+}
+pinta(MOSTRA);
+maisFt.addEventListener('click', function(){ pinta(FOTOS.length); });
+
+/* ---------- lightbox ---------- */
+var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'),
+    lbCont = document.getElementById('lbCont'), atual = 0;
+function abreLb(i){
+  atual = (i + FOTOS.length) % FOTOS.length;
+  lbImg.src = FOTOS[atual][0];
+  lbImg.alt = FOTOS[atual][1];
+  lbCont.textContent = (atual + 1) + ' / ' + FOTOS.length;
+  lb.classList.add('aberto');
+  document.body.style.overflow = 'hidden';
+}
+function fechaLb(){ lb.classList.remove('aberto'); document.body.style.overflow=''; }
+grade.addEventListener('click', function(e){
+  var b = e.target.closest('.ft');
+  if (b) abreLb(parseInt(b.getAttribute('data-i'), 10));
+});
+document.getElementById('fechaLb').addEventListener('click', fechaLb);
+document.getElementById('lbAnt').addEventListener('click', function(e){ e.stopPropagation(); abreLb(atual - 1); });
+document.getElementById('lbProx').addEventListener('click', function(e){ e.stopPropagation(); abreLb(atual + 1); });
+lb.addEventListener('click', function(e){ if (e.target === lb) fechaLb(); });
+addEventListener('keydown', function(e){
+  if (!lb.classList.contains('aberto')) return;
+  if (e.key === 'Escape') fechaLb();
+  if (e.key === 'ArrowLeft') abreLb(atual - 1);
+  if (e.key === 'ArrowRight') abreLb(atual + 1);
+});
+/* arrastar no celular */
+var x0 = null;
+lb.addEventListener('touchstart', function(e){ x0 = e.changedTouches[0].clientX; }, {passive:true});
+lb.addEventListener('touchend', function(e){
+  if (x0 === null) return;
+  var d = e.changedTouches[0].clientX - x0;
+  if (Math.abs(d) > 45) abreLb(atual + (d < 0 ? 1 : -1));
+  x0 = null;
+}, {passive:true});
+
+/* ---------- reveal ---------- */
+var alvos = document.querySelectorAll('.rv');
+if ('IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(ents){
+    ents.forEach(function(en){
+      if (en.isIntersecting){ en.target.classList.add('vis'); io.unobserve(en.target); }
+    });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:.06});
+  alvos.forEach(function(el){ io.observe(el); });
+} else {
+  alvos.forEach(function(el){ el.classList.add('vis'); });
+}
+</script>
+</body>
+</html>
