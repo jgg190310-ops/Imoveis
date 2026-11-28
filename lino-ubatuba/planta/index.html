@@ -109,6 +109,9 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
 #carregando i::after{content:"";position:absolute;inset:0;width:42%;border-radius:2px;background:var(--ouro);animation:ld 1.1s infinite ease-in-out}
 @keyframes ld{0%{transform:translateX(-110%)}100%{transform:translateX(280%)}}
 
+@media(max-width:860px){
+  #rotulos{display:none}
+}
 @media(max-width:1000px){
   .titulo{max-width:none;left:12px;right:12px;top:112px;padding:15px 17px}
   .titulo h1{font-size:22px}
@@ -858,7 +861,8 @@ function voa(px, py, pz, tx, ty, tz){
   alvoAlvo = new THREE.Vector3(tx, ty, tz);
 }
 function reset(){
-  const d = RAIO * 1.18, hy = MOD.duplex ? NIV * .65 : 1.0;
+  const folga = camera.aspect < 1 ? Math.min(2.1, .82 / camera.aspect) : 1;
+  const d = RAIO * 1.18 * folga, hy = MOD.duplex ? NIV * .65 : 1.0;
   voa(d * .72, d * .78 + hy, d * .95, 0, hy, 0);
   corte('aberto');
   [].forEach.call(elAmb.querySelectorAll('button'), function(x){ x.classList.remove('on'); });
