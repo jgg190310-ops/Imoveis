@@ -451,7 +451,8 @@ const M = {
   quadro:    std({color:'#8a8375', roughness:.8}),
   espelho:   new THREE.MeshStandardMaterial({color:'#dfe7e6', roughness:.05, metalness:.92}),
   pisoMad:   std({color:'#b98f5e', roughness:.6}),
-  rodape:    std({color:'#fbfaf6', roughness:.5})
+  rodape:    std({color:'#fbfaf6', roughness:.5}),
+  edredom:   std({color:'#b9b3a2', roughness:.97})
 };
 M.vaso = std({color:'#b4a893', roughness:.8});
 M.madPort = std({color:'#a6703f', roughness:.7});
@@ -659,7 +660,7 @@ function camaCasal(x, z, y, w, c){
   caixa(g(), w, .26, c, M.movelEsc, x, y + .08, z);                       // estrado
   for(const dx of [-w/2 + .07, w/2 - .07]) for(const dz of [-c/2 + .09, c/2 - .09]) pe(x + dx, y, z + dz, .08, M.preto);
   caixa(g(), w - .04, .24, c - .06, M.cama, x, y + .34, z, false);        // colchão
-  caixa(g(), w - .02, .07, c * .62, M.lencol, x, y + .56, z + c * .17, false); // edredom
+  caixa(g(), w - .02, .08, c * .58, M.edredom, x, y + .56, z + c * .2, false); // edredom
   caixa(g(), w * .44, .12, .46, M.branco, x - w * .24, y + .58, z - c/2 + .40, false);
   caixa(g(), w * .44, .12, .46, M.branco, x + w * .24, y + .58, z - c/2 + .40, false);
   caixa(g(), w + .16, .62, .09, M.tecido2, x, y + .34, z + c/2 + .05, false);  // cabeceira estofada
@@ -669,7 +670,7 @@ function camaSolteiro(x, z, y){
   caixa(g(), .95, .26, 1.92, M.movelEsc, x, y + .08, z);
   for(const dx of [-.4, .4]) for(const dz of [-.88, .88]) pe(x + dx, y, z + dz, .08, M.preto);
   caixa(g(), .91, .22, 1.86, M.cama, x, y + .34, z, false);
-  caixa(g(), .93, .06, 1.1, M.lencol, x, y + .56, z + .34, false);
+  caixa(g(), .93, .07, 1.04, M.edredom, x, y + .56, z + .38, false);
   caixa(g(), .5, .12, .42, M.branco, x, y + .58, z - .7, false);
   caixa(g(), 1.04, .54, .08, M.tecido2, x, y + .34, z + 1.0, false);
 }
@@ -687,8 +688,8 @@ function comodaTV(lado, f, z, y, larg){
   caixa(g(), .45, .46, larg, M.movel, f + dir * .26, y + .1, z);
   caixa(g(), .45, .02, larg, M.granito, f + dir * .26, y + .56, z, false);
   for(let i = 0; i < 2; i++) caixa(g(), .02, .03, larg * .4, M.inox, f + dir * .49, y + .2 + i * .18, z, false);
-  caixa(g(), .05, .5, larg * .72, M.preto, f + dir * .1, y + .62, z, false);     // TV
-  caixa(g(), .03, .03, larg * .72, M.inox, f + dir * .1, y + .6, z, false);
+  caixa(g(), .045, .44, Math.min(.95, larg * .66), M.preto, f + dir * .1, y + .6, z, false);   // TV
+  caixa(g(), .025, .025, Math.min(.95, larg * .66), M.inox, f + dir * .1, y + .58, z, false);
 }
 function guardaRoupa(f, z, y, larg, dir){
   caixa(g(), .58, 1.14, larg, M.movel, f + dir * .32, y, z);
@@ -730,7 +731,7 @@ function rackTV(f, z, y, larg, dir){
   caixa(g(), .38, .34, larg, M.movel, f + dir * .22, y + .14, z);
   for(const dz of [-larg/2 + .12, larg/2 - .12]) pe(f + dir * .22, y, z + dz, .14, M.preto);
   caixa(g(), .02, .03, larg * .5, M.inox, f + dir * .4, y + .3, z, false);
-  caixa(g(), .055, .52, larg * .66, M.preto, f + dir * .11, y + .56, z, false);   // TV
+  caixa(g(), .045, .46, Math.min(1.1, larg * .6), M.preto, f + dir * .11, y + .54, z, false);  // TV
   caixa(g(), .14, .03, .12, M.inox, f + dir * .11, y + .53, z, false);
   caixa(g(), .1, .14, .3, M.movelEsc, f + dir * .22, y + .48, z - larg * .3, false);
 }
@@ -914,7 +915,7 @@ function salaMob(r, y){
 }
 function quartoMob(r, y, casal){
   const lx = r[2] - r[0], lz = r[3] - r[1], cx = (r[0] + r[2]) / 2;
-  tapete(cx, r[3] - 1.5, y, Math.min(2.2, lx * .8), Math.min(2.4, lz * .62), M.tapete3);
+  tapete(cx, r[1] + Math.min(1.25, lz * .34), y, Math.min(2.0, lx * .6), Math.min(1.45, lz * .34), M.tapete3);
   if(casal){
     camaCasal(cx, r[3] - 1.25, y);
     if(lx > 2.9){ criado(cx - 1.08, r[3] - .4, y); criado(cx + 1.08, r[3] - .4, y); }
@@ -949,7 +950,7 @@ function studioMob(r, y){
   camaCasal(r[0] + 1.05, r[3] - 1.3, y, 1.5, 1.95);
   criado(r[0] + .3, r[3] - .5, y);
   bancadaStudio(r, y);
-  caixa(g(), .055, .5, .98, M.preto, r[0] + .1, y + .62, r[1] + 1.1, false);
+  caixa(g(), .045, .44, .82, M.preto, r[0] + .1, y + .6, r[1] + 1.1, false);
   mesaVaranda(r[0] + 1.0, r[1] + .95, y, 2);
   pendente(r[0] + 1.0, r[1] + .95, y, 1);
   planta(r[2] - .5, r[1] + .5, y, .42);
