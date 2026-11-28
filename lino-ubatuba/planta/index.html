@@ -23,6 +23,7 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
 #cena{position:fixed;inset:0;touch-action:none}
 #cena canvas{display:block}
 #rotulos{position:fixed;inset:0;pointer-events:none;z-index:5}
+#rotulos.semrot .rot{opacity:0}
 
 .topo{position:fixed;z-index:30;top:max(12px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);
   display:flex;align-items:center;gap:12px;padding:6px 6px 6px 16px;border-radius:999px;
@@ -161,8 +162,8 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
 
 <div class="ctrl">
   <div class="seg" id="segCorte">
-    <button data-n="fechado" class="on">Fechado</button>
-    <button data-n="aberto">Por dentro</button>
+    <button data-n="aberto" class="on">Por dentro</button>
+    <button data-n="fechado">Com a laje</button>
   </div>
   <div class="seg" id="segNivel" hidden>
     <button data-nv="0" class="on">Térreo</button>
@@ -845,12 +846,12 @@ function voa(px, py, pz, tx, ty, tz){
 function reset(){
   const d = RAIO * 1.18;
   voa(d * .72, d * .78, d * .95, 0, 1.0, 0);
-  corte('fechado');
+  corte('aberto');
   [].forEach.call(elAmb.querySelectorAll('button'), function(x){ x.classList.remove('on'); });
 }
 function corte(modo){
   G.tetos.visible = modo === 'fechado';
-  ROTULOS.forEach(function(o){ o.element.style.display = modo === 'fechado' ? 'none' : ''; });
+  document.getElementById('rotulos').classList.toggle('semrot', modo === 'fechado');
   [].forEach.call(document.querySelectorAll('#segCorte button'), function(b){
     b.classList.toggle('on', b.getAttribute('data-n') === modo);
   });
