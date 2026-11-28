@@ -76,6 +76,7 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
   overflow:auto;scrollbar-width:none}
 .ctrl::-webkit-scrollbar{display:none}
 .seg{display:flex;background:rgba(243,239,230,.1);border-radius:999px;padding:3px;flex:none}
+.seg[hidden]{display:none}
 .seg button{padding:8px 15px;border-radius:999px;font:400 12.5px var(--sans);color:rgba(243,239,230,.78);white-space:nowrap;
   transition:background .2s,color .2s}
 .seg button.on{background:var(--ouro);color:var(--preto)}
@@ -97,7 +98,7 @@ button{font-family:var(--sans);color:inherit;cursor:pointer;border:0;background:
   transition:opacity .5s;white-space:nowrap}
 .dica.off{opacity:0}
 .nota{position:fixed;z-index:12;left:max(18px,env(safe-area-inset-left));bottom:max(16px,env(safe-area-inset-bottom));
-  max-width:320px;font-size:11.5px;line-height:1.5;color:#b1a894;background:rgba(6,32,31,.82);
+  max-width:272px;font-size:11.5px;line-height:1.5;color:#b1a894;background:rgba(6,32,31,.82);
   -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:11px 13px;border-radius:11px;border:1px solid var(--borda)}
 
 #carregando{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:var(--preto);color:var(--creme);transition:opacity .6s}
@@ -823,7 +824,7 @@ elAmb.addEventListener('click', function(e){
   b.classList.add('on');
   corte('aberto');
   if(MOD.duplex) aplicaNivel(a.nv);
-  voa(a.x + 3.4, a.y + 4.2, a.z + 3.8, a.x, a.y + 1.1, a.z);
+  voa(a.x + 3.6, a.y + 4.4, a.z + 4.2, a.x, a.y + 1.0, a.z);
 });
 
 let alvoCam = null, alvoAlvo = null;
@@ -832,13 +833,14 @@ function voa(px, py, pz, tx, ty, tz){
   alvoAlvo = new THREE.Vector3(tx, ty, tz);
 }
 function reset(){
-  const d = RAIO * .95;
-  voa(d * .78, d * .82, d * 1.0, 0, 1.1, 0);
+  const d = RAIO * 1.18;
+  voa(d * .72, d * .78, d * .95, 0, 1.0, 0);
   corte('fechado');
   [].forEach.call(elAmb.querySelectorAll('button'), function(x){ x.classList.remove('on'); });
 }
 function corte(modo){
   G.tetos.visible = modo === 'fechado';
+  ROTULOS.forEach(function(o){ o.element.style.display = modo === 'fechado' ? 'none' : ''; });
   [].forEach.call(document.querySelectorAll('#segCorte button'), function(b){
     b.classList.toggle('on', b.getAttribute('data-n') === modo);
   });
@@ -860,7 +862,7 @@ document.getElementById('segNivel').addEventListener('click', function(e){
 document.getElementById('btnReset').addEventListener('click', function(){ if(MOD.duplex) aplicaNivel(-1); reset(); });
 document.getElementById('btnVista').addEventListener('click', function(){
   corte('aberto');
-  voa(.01, RAIO * 1.28, .01, 0, 0, 0);
+  voa(.01, RAIO * 1.45, .01, 0, 0, 0);
 });
 document.getElementById('fechaTitulo').addEventListener('click', function(){
   document.getElementById('titulo').classList.add('fechado');
