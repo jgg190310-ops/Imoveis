@@ -791,7 +791,7 @@ function construir(chave){
     z0 = Math.min(z0, A.r[1]); z1 = Math.max(z1, A.r[3]);
   });
   CX = (x0 + x1) / 2; CZ = (z0 + z1) / 2;
-  RAIO = Math.max(x1 - x0, z1 - z0);
+  RAIO = Math.max(x1 - x0, z1 - z0, (MOD.duplex ? 2 : 1) * NIV * 2.4);
 
   const marg = .14, BB = [x0 - marg, z0 - marg, x1 + marg, z1 + marg];
   NVC = 0; piso(G.base, BB, M.laje, -.02, .34);
@@ -858,8 +858,8 @@ function voa(px, py, pz, tx, ty, tz){
   alvoAlvo = new THREE.Vector3(tx, ty, tz);
 }
 function reset(){
-  const d = RAIO * 1.18;
-  voa(d * .72, d * .78, d * .95, 0, 1.0, 0);
+  const d = RAIO * 1.18, hy = MOD.duplex ? NIV * .65 : 1.0;
+  voa(d * .72, d * .78 + hy, d * .95, 0, hy, 0);
   corte('aberto');
   [].forEach.call(elAmb.querySelectorAll('button'), function(x){ x.classList.remove('on'); });
 }
