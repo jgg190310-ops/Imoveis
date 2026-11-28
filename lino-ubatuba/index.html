@@ -179,6 +179,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .tabela .nome small{display:block;font-family:var(--serif);font-style:italic;font-weight:300;font-size:13.5px;color:var(--ink3);margin-top:3px}
 .tabela .num{font-weight:700;color:var(--areia)}
 .tabela td.cinza{color:var(--ink3)}
+.dicaTab{display:none;margin-top:12px;font-family:var(--serif);font-style:italic;font-size:14.5px;color:var(--ink3)}
+@media(max-width:860px){.dicaTab{display:block}}
 
 /* ---------- onde ficam ---------- */
 .ondegrid{display:grid;gap:18px}
@@ -478,6 +480,7 @@ footer a:hover{color:var(--areia)}
     <div class="tabela rv"><table id="comparativo"><thead><tr>
       <th>Imóvel</th><th>Onde</th><th>Dormitórios</th><th>Suítes</th><th>Banheiros</th><th>Hóspedes</th><th>Vagas</th><th>Área</th><th>Valor</th>
     </tr></thead><tbody></tbody></table></div>
+    <p class="dicaTab rv">Arraste a tabela para o lado para ver todas as colunas.</p>
   </div>
 </section>
 
